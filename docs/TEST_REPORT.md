@@ -1,5 +1,14 @@
 # P1 私人 Dev／Preview 版驗證（2026-11-17）
 
+## 非官方粉絲網站聲明與聯絡入口（2026-11-17）
+
+- 公開模式 TypeScript/Vite build PASS；`npm test` **19/19 PASS**。
+- `node scripts/verify-public-dist.mjs` PASS：公開版依舊只有已核准 10 張官方 Fan Kit 小縮圖；私人原版遊戲圖沒有進入公開包。
+- Windows Chrome Playwright 觸控測試 `node scripts/public-smoke.mjs` PASS：驗證首頁有非官方／非營利聲明、著作權詳情初始收合、點擊展開成功、權利人文字與 GitHub 專屬聯絡表單 URL 正確、展開時 320px 無水平溢出。
+- 同一測試涵蓋 320、375、390、430px、原有怪物縮圖及無私人圖片請求、JavaScript 頁面錯誤 0。GitHub Issues 已確認啟用；公開 Issue 可能被所有人閱讀，介面與表單均提醒不得上傳私人資料。
+- 使用者 iPhone Safari 真機驗收尚未進行。
+
+
 ## 公開版 Fan Kit 與 Pages（2026-11-17）
 
 - 19/19 單元測試及 TypeScript/Vite 公開模式建置成功。

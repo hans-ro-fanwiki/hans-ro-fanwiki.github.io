@@ -20,6 +20,8 @@ Items/cards without explicitly supported public images use non-image generic cat
 
 Do not reuse this scoped GungHo Fan Kit permission for original RO Survivors art. Review the source and license conditions each time images are added; never automatically mirror a whole catalog. Honor rights-holder removal requests promptly.
 
+The site footer provides a compact fan-made/noncommercial attribution, a native expandable copyright notice, and an actionable public GitHub Issues removal request form: https://github.com/lockgipo/ro-survivors-wiki/issues/new?template=content-removal.yml . Issue submissions are visible publicly; users are asked not to post private information. When a rights-holder reports content, verify the claim promptly and remove/adjust any disputed asset as appropriate. Attribution, a removal procedure, and noncommercial intent are not themselves a license to distribute copyrighted client images.
+
 ## Public deployment safeguard
 
 Public builds set `VITE_PUBLIC_MODE=1`. This disables both private item/card art loading and private monster sprite-sheet loading at runtime. CI builds from a clean checkout and runs `node scripts/verify-public-dist.mjs` to reject private directories or any non-whitelisted image type / count before uploading a Pages artifact. Local private builds omit the flag, then restore owner-only PNG cache using `PRIVATE_DEV_ASSETS=1` via the existing preparation script.
