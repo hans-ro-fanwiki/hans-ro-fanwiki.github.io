@@ -74,7 +74,7 @@ try{
  assert.equal(await page.locator('.stage-body').count(),0);
  await page.goto(base+'?detail=item:2603',{waitUntil:'networkidle'});
  await page.getByRole('dialog').getByRole('heading',{name:'項鍊'}).waitFor();
- await page.getByRole('dialog').getByText('★ +1 VIT').waitFor();
+ await page.getByRole('dialog').getByText('★ +1 VIT',{exact:true}).waitFor();
  await noWeight(page,'item details');
  const stageLink=page.getByRole('dialog').getByRole('button',{name:/柏伊亞嵐島/}).first();
  await stageLink.click();
