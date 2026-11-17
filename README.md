@@ -11,8 +11,8 @@
 
 資料版本與核對報告：`docs/SOURCE_AUDIT.json`、`docs/SOURCE_REPORT.md`；手機模擬測試：`docs/TEST_REPORT.md`。如需在本機用 Chrome 獨立配置跑 390px 測試，執行 `node scripts/mobile-smoke.mjs`（需保持 Dev Server 運作）。
 
-**公開版圖片：** 僅提供 10 張經逐一比對的日本 RO 官方 Fan Kit 怪物插畫 96×96 WebP 縮圖；官方素材使用條件、個別來源及使用範圍見 `docs/PUBLIC_ASSETS.md`。未找到合適授權的裝備／卡片顯示一般部位圖示，不複製或縮小原版遊戲圖片。GitHub Pages 的 Actions 在乾淨環境以 `VITE_PUBLIC_MODE=1` 建置，並執行 `node scripts/verify-public-dist.mjs` 擋住未核准影像；頁面顯示官方權利標示。公開圖片不是原遊戲內的角色 sprite。
+**公開版圖片（非官方粉絲測試用途）：** 為便於玩家辨認，公開站以 RO Survivors 作者遊戲內 ID 精確對應的 **287 裝備、98 卡片、107 怪物小縮圖**（包含裝備額外 icon 合計 779 張，約 0.99 MB），另保留 10 張官方 Fan Kit 怪物插畫；未找到對應影格的 2 隻怪物保留一般圖示。只有低解析 WebP 檔公開，**不提交遊戲原始 PNG、完整怪物圖集或 JS bundle**。縮圖屬遊戲圖像的著作權衍生內容，非營利與下架聲明不代表已獲正式授權；圖片來源、風險與使用限制見 `docs/PUBLIC_ASSETS.md`。GitHub Pages Actions 於乾淨環境執行 `VITE_PUBLIC_MODE=1` 建置並核對 `node scripts/verify-public-dist.mjs` 逐一檢查縮圖來源與 SHA，不自動擷取新增遊戲圖像。
 
 **私人版圖片：** 原站禁止其他網域直接載入圖片（403）。為供使用者**私人 Tailscale Dev 預覽**，執行 `npm run build` 後，手動設定環境變數 `PRIVATE_DEV_ASSETS=1` 並執行 `node scripts/prepare-private-art.mjs`。該腳本僅快取目前查詢需要的 PNG 到 gitignored `evidence/private-art`，並複製到 gitignored `dist/game-assets`，不把原圖提交至 GitHub、Pages、Vercel 或公開 CDN。`npm run build` 會清空 `dist`，之後必須重新執行這個私用快取步驟。未獲公開授權前不能部署這個含圖片的 `dist`。
 
-**部署原則：** 使用者於 2026-11-17 明確同意像 LumiDex 一樣公開原始碼與 GitHub Pages（https://lockgipo.github.io/ro-survivors-wiki/），供遊戲群組朋友使用，網站為免費非官方粉絲指南，所有人都可能瀏覽。`main` 的單一 CI workflow 先跑測試、建立不含原版遊戲圖片的公開包，再部署至 GitHub Pages；`dev/**` 只測試、不部署。另保留電腦 Tailscale `http://100.116.225.68:4177/` 私人完整圖預覽，電腦及手機 Tailscale 都需在線。公開站使用 GungHo Fan Kit 指定縮圖，原版 game art 不發佈。
+**部署原則：** 使用者於 2026-11-17 明確同意像 LumiDex 一樣公開原始碼與 GitHub Pages（https://lockgipo.github.io/ro-survivors-wiki/），供遊戲群組朋友使用，網站為免費非官方粉絲指南，所有人都可能瀏覽。`main` 的單一 CI workflow 先跑測試、建立不含原版遊戲圖片的公開包，再部署至 GitHub Pages；`dev/**` 只測試、不部署。另保留電腦 Tailscale `http://100.116.225.68:4177/` 私人完整圖預覽，電腦及手機 Tailscale 都需在線。公開站使用專門裁切壓縮的低解析粉絲攻略辨識縮圖，遊戲原始 PNG／高解析 art／sprite atlas 不發佈；所有公開縮圖可依權利人通知快速移除。

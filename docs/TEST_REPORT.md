@@ -1,5 +1,15 @@
 # P1 私人 Dev／Preview 版驗證（2026-11-17）
 
+## 公開粉絲測試維基實際遊戲縮圖（2026-11-17）
+
+- 原站 asset manifest 版本已核對且未變更：`bdbde78da2fd3d8c9084291935a279f2af53f4b456f1141aba6b1fce2db6f526`。
+- 本機私人快取 720 張原始 PNG，產出共 779 個微縮 WebP（287 裝備 art + 287 icon + 98 卡面 + 107 怪物代表幀），公開版總計 789 WebP（另 10 張 RO Fan Kit 插畫），合計 1,005,658 bytes；**零原始 PNG 或 sprite atlas**。
+- `npm run build` 公開 TypeScript + Vite PASS、`node scripts/verify-public-dist.mjs` 所有小圖 ID/尺寸/SHA-256/PATH 白名單 PASS、`npm test` 21/21 PASS。
+- `node scripts/public-smoke.mjs` Windows Chrome Headless PASS：320/375/390/430px、測試站聲明展開、裝備清單、項鍊詳情、波利卡片詳情、波利怪物原站代表幀均成功載入，無 `/game-assets/` 請求、JS errors = 0。
+- `ink_snake` / `ink_serpent` 兩個怪物欠缺原站同名 sprite，以通用佔位顯示；使用者 iPhone Safari 驗收待回報。
+- 低解析縮圖仍涉及原圖著作權；非營利、出處與聯絡下架管道不構成授權證明。重要使用範圍及撤圖流程見 `docs/PUBLIC_ASSETS.md`。
+
+
 ## 非官方粉絲網站聲明與聯絡入口（2026-11-17）
 
 - 公開模式 TypeScript/Vite build PASS；`npm test` **19/19 PASS**。
