@@ -52,6 +52,7 @@
               "verificationState": "official"
             }
           ],
+          "rawRate": 100,
           "verificationState": "official",
           "evidence": {
             "file": "soul_linker-BNTKE1pN.js",
@@ -71,6 +72,7 @@
               "verificationState": "official"
             }
           ],
+          "rawRate": 100,
           "verificationState": "official",
           "evidence": {
             "file": "soul_linker-BNTKE1pN.js",
@@ -90,6 +92,7 @@
               "verificationState": "official"
             }
           ],
+          "rawRate": 100,
           "verificationState": "official",
           "evidence": {
             "file": "soul_linker-BNTKE1pN.js",

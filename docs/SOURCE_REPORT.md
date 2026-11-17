@@ -58,4 +58,6 @@
 
 此 Dev 版刻意只包含滿足前三類查詢的必要子集，而非非官方百科／遊戲作者的整份資料庫。雜湊不變不代表所有欄位已核實；日後來源更新應由人核對差異，再決定是否更新 Dev，絕不自動寫成「官方已確認」。
 
+**2026-11-17 私人 Dev 修訂：** 使用者要求移除公開證據徽章並在私人 Safari 測試版顯示真實裝備／卡片／怪物圖。原站熱連遭 403 阻擋；未偽造 Referer，而是僅在使用者自己的 Tailscale 預覽環境中，以明確指令將 129 張目前查詢用到的公開 PNG 本機暫存到 gitignored `evidence/private-art` 與 `dist/game-assets`。這並未取得**公開發布權利**，不可將私人 dist 上傳到公共網站、CDN 或 GitHub；沒有圖片時仍要顯示中性替代。候選裝備 base/bonuses/starBonuses 與核實 drop rawRate 已補入 catalog，前端不展示技術證據，但資料欄位核實狀態仍保留。
+
 P1 畫面驗收請查看 `docs/TEST_REPORT.md`，真實 iPhone Safari 必須由使用者打開 Preview 測試後才能標為正式通過。

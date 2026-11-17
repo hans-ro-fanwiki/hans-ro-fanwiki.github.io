@@ -1,31 +1,46 @@
-# P1 Dev／Preview 390px 行動介面驗證（2026-11-17）
- 
-## 執行環境
+# P1 私人 Dev／Preview 版驗證（2026-11-17）
 
-- Windows 10 + Chrome Headless（獨立隔離的 Playwright 瀏覽器，**模擬** iPhone 390×844 viewport、觸控與 zh-TW locale）。
-- 靜態網站由 Vite Preview 提供，僅綁定電腦 Tailscale 位址 `100.116.225.68:4177`，不部署 Production。
-- 測試腳本：`node scripts/mobile-smoke.mjs`，使用者可在本機重跑。Playwright 使用獨立 profile，`finally` 執行 `context.close()`，不碰使用者的日常 Chrome。
-- 真正的 iPhone Safari 尚未測試；需使用者安裝／打開 Preview 後驗收，不將 Chrome 模擬當成 Safari 實測。
+## 驗收範圍
 
-## 本輪通過
+依使用者 iPhone 截圖與後續回報修改：
+- 首頁移除四個大型快捷卡；直接顯示「裝備、卡片、關卡、職業」分類及點選式篩選。
+- 不在玩家畫面顯示來源核實徽章、證據鍵、SHA、技術說明；內部 JSON 仍保留核對狀態。
+- 裝備清單和詳情顯示名稱、對應圖片、ATK/MATK/DEF（有資料時）、附加屬性與星號效果。
+- 關卡抽屜直接顯示已收錄的裝備及卡片、圖片、屬性摘要、來源怪物／Boss、原站確認的掉落權重。
+- 樹精卡片 4010 的卡面與「+5 冷卻縮減」正常顯示；怪物圖片使用原站 sprite sheet 的單一 frame（保留 atlas bounds）。
+- 非官方候選來源未改標為官方。若無法由原站核實掉落關係，介面使用「可能掉落」而非「保證掉落」；`rate` 未驗證百分比語意，僅顯示「掉落權重」。
 
-| 需求 | 檢查方式 | 結果 |
-|---|---|---|
-| 首頁快速入口 | 390px 模擬瀏覽器 | 通過 |
-| 「刷飾品」 | 點選後 `slot=acc`、`mode=stages`，顯示柏伊亞嵐島，進項鍊 #2603 詳情 | 通過 |
-| 「法師裝備」 | 點選後 `job=mage`，列表顯示候選裝備 | 通過（職業來源仍須核實） |
-| 「冷卻卡片」 | 點選後 `effect=cooldown`，樹精卡片 #4010 的原始效果文字顯示 | 通過（卡片資料仍待核） |
-| 詳情返回 | 點進詳情後瀏覽器上一頁，回到原篩選 URL | 通過 |
-| 可分享篩選 | 直接以 `?page=cards&effect=cooldown` 開啟 | 通過 |
-| 水平溢出 | 實際 headless JS `document.documentElement.scrollWidth` 在首頁、飾品、法師、卡片及詳情均 390px | 5/5 通過 |
-| JavaScript 執行錯誤 | Playwright `pageerror` 監聽 | 0 |
-| 資料不誤宣稱官方 | Node 單元測試，來源關係與候選標籤 | 7/7 通過 |
-| Linux CI | GitHub Actions Dev checks, commit `b859e14` | 已通過；後續 commit 需重跑 |
-| 圖像可用性 | 僅中性佔位圖，官方資產 ID 在 JSON 中但未對外載入 | 技術備援通過；官方圖實際展示尚未完成 |
+## 測試結果
 
-## 尚需使用者 iPhone Safari 實測
+測試環境：Windows Chrome Headless + Playwright，390×844 iPhone 觸控模擬；**不是 Safari 真機測試**。
+私人網址：`http://100.116.225.68:4177/`，僅 Tailscale 裝置可連。手機需要開啟 Tailscale，電腦要維持開機及 OpenChatX 預覽服務運行。
 
-- 在 iPhone 開啟 Tailscale，連線 Dev URL；確認頁面能開啟（目前 iPhone 在 Tailscale 狀態查詢顯示離線）。
-- 切換四大分類、三個快捷入口、從詳情返回後保留篩選與捲動位置。
-- Safari 實機觸控目標、瀏覽器前進／返回、分享 URL、底部安全區與字級。
-- 官方圖片的使用權／外連條件未確認，不將只有佔位圖視為完成 v1.1 圖像驗收。
+| 檢查 | 結果 |
+|---|---|
+| TypeScript + Vite build | 通過 |
+| 資料單元測試 | 10/10 通過 |
+| 首頁與三類主要反查 | 通過（裝備飾品、魔法師、冷卻卡片） |
+| 關卡→項鍊→屬性與權重 | 通過（#2603, VIT +1, 權重 100） |
+| 320／375／390／430px 水平溢出 | 每種寬度各檢查首頁、飾品、裝備、卡片、怪物 5 畫面，共 20/20 無溢出 |
+| Browser back 與分享篩選 | 通過 |
+| JavaScript pageerror | 0 |
+| 私人裝備圖 | 13/16 `img` 已載入，其餘 3 張位於未捲到的 lazy-loading 列表，非 404 |
+| 私人卡片圖 | 6/6 已載入 |
+| 私人圖片準備 | 129/129 個 PNG 成功取得並置於本機 gitignored 目錄 |
+| 真正 iPhone Safari | 待使用者測試 |
+
+截圖（保留本機，不進 Git）：`evidence/iphone-v2-home.png`、`evidence/iphone-v2-stage.png`、`evidence/iphone-v2-item.png`、`evidence/iphone-v2-card.png`。
+測試腳本：`node scripts/mobile-smoke.mjs`。
+
+## 私人圖片的處理
+
+作者原站對第三方前端熱連圖片回傳 HTTP 403，Chrome 報 `net::ERR_BLOCKED_BY_ORB`。不以偽造 Referer 規避反盜連；改為使用者電腦對公開資產 URL 直接下載**私人本機測試快取**。僅明確提供 `PRIVATE_DEV_ASSETS=1` 才將查詢子集的 129 張 PNG 存於 gitignored `evidence/private-art/` 與 `dist/game-assets/`。
+
+- GitHub 私有 repo 只儲存圖片 metadata 和裁切 frame 座標，**不含 PNG**。
+- CI `npm run build` 不包含圖片，未部署至 Pages/Vercel 或任何正式環境。
+- **不可將本機含圖片的 dist 直接發布**，公開利用需另行確認圖片授權；缺圖應有佔位。
+- 每次修改後執行 `npm run build` 會重新建立 dist，再執行 `$env:PRIVATE_DEV_ASSETS='1'; node scripts/prepare-private-art.mjs` 才能恢復私人圖片。
+
+## 尚未完成的驗收
+
+使用者 iPhone Safari 需驗證真機畫面、返回與分享網址、實際圖片、捲動、卡片顯示比例，並對比遊戲內實測的裝備特性、法師職業條件和卡片效果。尚未得到官方遊戲圖片的公開發布授權，不能將目前私人圖片版本直接當成公開正式站。

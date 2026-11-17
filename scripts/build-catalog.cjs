@@ -48,7 +48,8 @@ for(const s of stages){
  officialStages[s.id]={pool,bosses,stageFound:true,waveName:waveName||null,extractable:!!waveSrc};
 }
 const imageOf=(collection,key,attribute)=> {
- const value=manifest[collection]?.[String(key)]?.[attribute];
+ const record=manifest[collection]?.[String(key)];
+ const value=collection==='sprites'&&attribute==='json'&&typeof record==='string'?record:record?.[attribute];
  return value?{assetId:String(key),officialPath:value,rights:'not-cleared',renderAllowed:false}:null;
 };
 const stageOutput=stages.map(s=>({
@@ -69,18 +70,19 @@ const remapSource=(ref,targetId,entity)=>{
  const type=ref.type==='drop'?'monsterDrop':ref.type==='festival'?'event':ref.type;
  const monsterId=ref.monster||null;
  if(monsterId) includeMonsterIds.add(monsterId);
- const parsed=monsterId && dropMap.get(monsterId)?.some(d=>d.id===Number(targetId));
+ const officialDrop=monsterId && dropMap.get(monsterId)?.find(d=>d.id===Number(targetId));
+ const parsed=!!officialDrop;
  const refs=monsterId?(stageByMonster.get(monsterId)||[]):[];
  const stages=type==='monsterDrop'?refs.map(x=>({
   stageId:x.stageId,boss:x.isBoss,verified:entity==='item'&&parsed===true,
   verificationState:entity==='item'&&parsed===true?'official':'candidate'
  })):[];
- return {sourceType:type,monsterId,stageRefs:stages,verificationState:entity==='item'&&parsed===true?'official':'candidate',
+ return {sourceType:type,monsterId,stageRefs:stages,rawRate:entity==='item'&&parsed===true?officialDrop.rate:null,verificationState:entity==='item'&&parsed===true?'official':'candidate',
   evidence:entity==='item'&&parsed===true?{file:'soul_linker-BNTKE1pN.js',hash:soulSha,kind:'drop-table',key:monsterId+':'+targetId}:null};
 };
 const outItems=pickItems.map(i=>({
  id:i.id,name:i.zh||i.en,originalName:i.en,slot:i.slot,jobs:i.jobs||[],gender:i.gender||null,
- bonuses:(i.bonuses||[]).slice(0,6),sources:(i.sources||[]).map(s=>remapSource(s,i.id,'item')),
+ bonuses:i.bonuses||[],baseStats:i.base||null,starBonuses:i.sig||[],starBonusesMax:i.sigMax||[],sources:(i.sources||[]).map(s=>remapSource(s,i.id,'item')),
  image:imageOf('items',i.id,'art')||imageOf('items',i.id,'icon'),
  icon:imageOf('items',i.id,'icon'),
  fieldProvenance:{name:'candidate',slot:soul.includes('Z('+i.id+',"'+i.slot+'"')?'official':'candidate',jobs:'candidate'},

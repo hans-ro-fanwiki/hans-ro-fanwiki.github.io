@@ -36,7 +36,7 @@ test('no monster drop edge can reference a nonexistent stage or claim official w
   }
  }
 });
-test('UI image references are disabled until rights are cleared',()=>{
+test('public redistribution of image metadata is not licensed',()=>{
  for(const v of [...data.items,...data.cards])for(const asset of [v.image,v.icon].filter(Boolean)){
   assert.equal(asset.renderAllowed,false);
   assert.equal(asset.rights,'not-cleared');
@@ -46,4 +46,30 @@ test('mage candidate must not show unrelated job-restricted items',()=>{
  const mage=data.items.filter(i=>i.jobs.includes('mage')||i.jobs.length===0);
  assert.ok(mage.length>10);
  assert.ok(mage.every(i=>i.jobs.includes('mage')||i.jobs.length===0));
+});
+test('item stats include base combat values and star attribute modifiers',()=>{
+ const necklace=data.items.find(i=>i.id===2603);
+ assert.ok(necklace.starBonuses.includes('★ +1 VIT'));
+ const withAtk=data.items.find(i=>i.baseStats?.atk>0);
+ assert.ok(withAtk);
+ assert.ok(Number.isFinite(withAtk.baseStats.atk));
+});
+test('drop weights come from exact matching official monster/item entries, not candidate chance',()=>{
+ const necklace=data.items.find(i=>i.id===2603);
+ assert.equal(necklace.sources.find(s=>s.monsterId==='strouf').rawRate,100);
+ for(const item of data.items)for(const source of item.sources){
+  if(source.rawRate!=null){
+   assert.equal(source.verificationState,'official');
+   assert.ok(source.rawRate>=0 && Number.isFinite(source.rawRate));
+  }
+ }
+});
+test('sprite frame metadata is bounded and no source sprite atlases are committed',()=>{
+ assert.ok(data.monsters.some(m=>m.spriteFrame));
+ for(const monster of data.monsters.filter(m=>m.spriteFrame)){
+  const f=monster.spriteFrame;
+  assert.ok(f.x>=0&&f.y>=0&&f.width>0&&f.height>0);
+  assert.ok(f.x+f.width<=f.sheetWidth&&f.y+f.height<=f.sheetHeight);
+  assert.match(f.url,/^sprites\/[a-zA-Z0-9_-]+\.png$/);
+ }
 });
