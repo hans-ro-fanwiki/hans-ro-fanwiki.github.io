@@ -59,12 +59,49 @@ const stageOutput=stages.map(s=>({
  provenance:{id:officialStages[s.id].stageFound?'official':'candidate',pool:officialStages[s.id].extractable?'official':'unknown',boss:officialStages[s.id].bosses.length?'official':'unknown',open:'candidate'}
 }));
 const stageByMonster=new Map();
+const stageIds=new Set(stageOutput.map(s=>s.id));
 for(const s of stageOutput)for(const id of s.normalMonsterIds.map(id=>[id,false]).concat(s.bossMonsterIds.map(id=>[id,true]))){
- const list=stageByMonster.get(id[0])||[];list.push({stageId:s.id,isBoss:id[1],stageOpen:s.open});stageByMonster.set(id[0],list);
+ const list=stageByMonster.get(id[0])||[];
+ list.push({stageId:s.id,isBoss:id[1],stageOpen:s.open,official:true});
+ stageByMonster.set(id[0],list);
 }
-const pickItems=items.filter(i=>i.slot==='acc'||(i.jobs||[]).includes('mage'));
-const pickCards=cards.filter(c=>(c.bonuses||[]).some(x=>/冷卻|cooldown|CD/i.test(x)))
- .concat(cards.filter(c=>(c.bonuses||[]).some(x=>/爆擊/i.test(x))).slice(0,6));
+// Candidate locations are retained only as possible locations if the official
+// stage pool does not already establish that monster-stage relation.
+for(const m of monsters)for(const loc of m.where||[]){
+ if(!stageIds.has(loc.stage))continue;
+ const list=stageByMonster.get(m.id)||[];
+ if(!list.some(x=>x.stageId===loc.stage)){
+  list.push({stageId:loc.stage,isBoss:loc.role==='boss'||!!m.boss,stageOpen:stageOutput.find(s=>s.id===loc.stage)?.open,official:false});
+  stageByMonster.set(m.id,list);
+ }
+}
+// Index every distinct ID in the currently available candidate catalog.
+const pickItems=items;
+const pickCards=cards;
+const monsterIds=new Set(monsters.map(m=>m.id));
+const itemIds=new Set(items.map(i=>i.id));
+const verifiedByItem=new Map();
+for(const [monsterId,drops] of dropMap) {
+ if(!monsterIds.has(monsterId))continue;
+ for(const drop of drops)if(itemIds.has(drop.id)){
+  const list=verifiedByItem.get(drop.id)||[];
+  list.push(monsterId);
+  verifiedByItem.set(drop.id,list);
+ }
+}
+const cardTags=(bonuses)=>{
+ const text=(bonuses||[]).join(' ');
+ const patterns={
+  cooldown:/冷卻|cooldown|\bCD\b/i,
+  crit:/爆擊|暴擊|critical/i,
+  damage:/傷害|ATK|MATK|攻擊/i,
+  defense:/防禦|DEF|MDEF|護甲|受到傷害/i,
+  hp:/\bHP\b|生命/i,
+  sp:/\bSP\b|魔力/i,
+  element:/屬性|元素|火傷|水傷|風傷|地傷/i
+ };
+ return Object.entries(patterns).filter(([,rx])=>rx.test(text)).map(([key])=>key);
+};
 const includeMonsterIds=new Set();
 const remapSource=(ref,targetId,entity)=>{
  const type=ref.type==='drop'?'monsterDrop':ref.type==='festival'?'event':ref.type;
@@ -74,38 +111,39 @@ const remapSource=(ref,targetId,entity)=>{
  const parsed=!!officialDrop;
  const refs=monsterId?(stageByMonster.get(monsterId)||[]):[];
  const stages=type==='monsterDrop'?refs.map(x=>({
-  stageId:x.stageId,boss:x.isBoss,verified:entity==='item'&&parsed===true,
-  verificationState:entity==='item'&&parsed===true?'official':'candidate'
+  stageId:x.stageId,boss:x.isBoss,verified:entity==='item'&&parsed===true&&x.official===true,
+  verificationState:entity==='item'&&parsed===true&&x.official===true?'official':'candidate'
  })):[];
  return {sourceType:type,monsterId,stageRefs:stages,rawRate:entity==='item'&&parsed===true?officialDrop.rate:null,verificationState:entity==='item'&&parsed===true?'official':'candidate',
   evidence:entity==='item'&&parsed===true?{file:'soul_linker-BNTKE1pN.js',hash:soulSha,kind:'drop-table',key:monsterId+':'+targetId}:null};
 };
 const outItems=pickItems.map(i=>({
  id:i.id,name:i.zh||i.en,originalName:i.en,slot:i.slot,jobs:i.jobs||[],gender:i.gender||null,
- bonuses:i.bonuses||[],baseStats:i.base||null,starBonuses:i.sig||[],starBonusesMax:i.sigMax||[],sources:(i.sources||[]).map(s=>remapSource(s,i.id,'item')),
+ bonuses:i.bonuses||[],baseStats:i.base||null,starBonuses:i.sig||[],starBonusesMax:i.sigMax||[],
+ sources:[...(i.sources||[]),...(verifiedByItem.get(i.id)||[]).filter(monsterId=>!(i.sources||[]).some(s=>s.type==='drop'&&s.monster===monsterId)).map(monsterId=>({type:'drop',monster:monsterId}))].map(s=>remapSource(s,i.id,'item')),
  image:imageOf('items',i.id,'art')||imageOf('items',i.id,'icon'),
  icon:imageOf('items',i.id,'icon'),
  fieldProvenance:{name:'candidate',slot:soul.includes('Z('+i.id+',"'+i.slot+'"')?'official':'candidate',jobs:'candidate'},
 }));
 const outCards=pickCards.map(c=>({
  id:c.id,name:c.zh||c.en,originalName:c.en,monsterId:c.monster||null,
- bonuses:c.bonuses||[],tags:(c.bonuses||[]).some(s=>/冷卻|cooldown|CD/i.test(s))?['cooldown']:['crit'],
+ bonuses:c.bonuses||[],tags:cardTags(c.bonuses),
  equipSlot:c.compoundName||c.compound||null,
  sources:(c.sources||[]).map(s=>remapSource(s,c.id,'card')),image:imageOf('cards',c.id,'image'),
  fieldProvenance:{name:'candidate',bonuses:'candidate',monster:'candidate'},
 }));
 for(const c of outCards)if(c.monsterId)includeMonsterIds.add(c.monsterId);
-const outMonsters=monsters.filter(m=>includeMonsterIds.has(m.id)).map(m=>({
+const outMonsters=monsters.map(m=>({
  id:m.id,name:m.zh||m.en,boss:!!m.boss,
- stages:(stageByMonster.get(m.id)||[]).map(x=>({id:x.stageId,boss:x.isBoss,verified:true})),
+ stages:(stageByMonster.get(m.id)||[]).map(x=>({id:x.stageId,boss:x.isBoss,verified:x.official===true})),
  sprite:imageOf('sprites',m.id,'json'),
- fieldProvenance:{name:'candidate',stage:'official',boss:'candidate'},
+ fieldProvenance:{name:'candidate',stage:(stageByMonster.get(m.id)||[]).length?(stageByMonster.get(m.id)||[]).every(x=>x.official)?'official':'candidate':'unknown',boss:'candidate'},
 }));
 const catalog={
  schemaVersion:1,generatedAt:'2026-11-17',sourceVersion:'20261115_09c52f73',
  official:{main:{file:'main-2n_YvaNQ.js',sha256:mainSha},soul:{file:'soul_linker-BNTKE1pN.js',sha256:soulSha},
  manifest:{file:'assets/manifest.json',sha256:manifestSha},baseUrl:'https://ro-survivors.com'},
- policy:'candidate fields are not promoted to official without matching source evidence; unknown rights mean no remotely loaded game art',
+ policy:'all current candidate IDs indexed, unverified claims remain candidate; image rights uncleared for public use',
  items:outItems,cards:outCards,monsters:outMonsters,stages:stageOutput
 };
 fs.writeFileSync('public/data/catalog.json',JSON.stringify(catalog,null,2)+'\n');
@@ -115,7 +153,7 @@ const withStage=official.flatMap(s=>s.stageRefs.filter(r=>r.verified));
 const report={
  generatedAt:catalog.generatedAt,officialBundles:catalog.official,
  candidateTotals:{stages:stages.length,items:items.length,cards:cards.length,monsters:monsters.length},
- previewSubset:{stages:stageOutput.length,items:outItems.length,cards:outCards.length,monsters:outMonsters.length},
+ indexedCounts:{stages:stageOutput.length,items:outItems.length,cards:outCards.length,monsters:outMonsters.length},
  officialStagePools:stageOutput.filter(s=>s.provenance.pool==='official').length,
  officialBossLists:stageOutput.filter(s=>s.provenance.boss==='official').length,
  officialItemMonsterDrops:official.length,
@@ -125,4 +163,4 @@ const report={
  unresolved:['Card bonus meanings need separate official-effect mapping','Jobs array values require verifying game equip-rule logic','Open/season status is still based on candidate catalog','Drop rate weights are NOT player probabilities','Asset copying/hotlinking rights not granted']
 };
 fs.writeFileSync('docs/SOURCE_AUDIT.json',JSON.stringify(report,null,2)+'\n');
-console.log(JSON.stringify({counts:report.previewSubset,officialStagePools:report.officialStagePools,officialBossLists:report.officialBossLists,officialDropEdges:report.fullVerifiedStageDropEdges,sample:report.sample},null,2));
+console.log(JSON.stringify({counts:report.indexedCounts,officialStagePools:report.officialStagePools,officialBossLists:report.officialBossLists,officialDropEdges:report.fullVerifiedStageDropEdges,sample:report.sample},null,2));

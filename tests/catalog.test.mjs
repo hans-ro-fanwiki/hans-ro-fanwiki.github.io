@@ -3,10 +3,37 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 const data=JSON.parse(readFileSync(new URL('../public/data/catalog.json',import.meta.url),'utf8'));
 const stages=new Map(data.stages.map(s=>[s.id,s]));
-test('catalog remains a focused subset, not a copied official or third-party database',()=>{
- assert.ok(data.items.length>0 && data.items.length<287);
- assert.ok(data.cards.length>0 && data.cards.length<98);
+test('every current candidate ID is indexed without collapsing same-name items',()=>{
+ assert.equal(data.items.length,287);
+ assert.equal(data.cards.length,98);
+ assert.equal(data.monsters.length,109);
  assert.equal(data.stages.length,10);
+ assert.equal(new Set(data.items.map(i=>i.id)).size,287);
+ assert.equal(new Set(data.cards.map(i=>i.id)).size,98);
+ assert.equal(new Set(data.monsters.map(m=>m.id)).size,109);
+});
+test('all nine source equipment slots are visible, including 29 armor choices',()=>{
+ const slots={acc:27,armor:29,garment:12,head_low:6,head_mid:7,head_top:47,shield:11,shoes:10,weapon:138};
+ for(const [slot,count] of Object.entries(slots))assert.equal(data.items.filter(i=>i.slot===slot).length,count,slot);
+});
+test('all official images are indexed and unsupported monster sprites fall back safely',()=>{
+ assert.equal(data.items.filter(i=>i.icon).length,287);
+ assert.equal(data.cards.filter(c=>c.image).length,98);
+ assert.equal(data.monsters.filter(m=>m.sprite).length,107);
+ assert.equal(data.monsters.filter(m=>m.spriteFrame).length,107);
+ assert.ok(data.monsters.filter(m=>!m.sprite).every(m=>['ink_snake','ink_serpent'].includes(m.id)));
+});
+test('expanded card effect chips correspond to actual bonus text',()=>{
+ for(const tag of ['cooldown','crit','damage','defense','hp']){
+  assert.ok(data.cards.some(c=>c.tags.includes(tag)),tag);
+ }
+ for(const card of data.cards)if(card.tags.includes('cooldown'))
+  assert.ok(card.bonuses.some(b=>/冷卻|cooldown|CD/i.test(b)));
+});
+test('unverified stage references remain candidates, even when the monster drop ID exists',()=>{
+ for(const v of [...data.items,...data.cards])for(const s of v.sources)for(const ref of s.stageRefs){
+  if(!ref.verified)assert.equal(ref.verificationState,'candidate');
+ }
 });
 test('accessories are represented as acc and indexed by id',()=>{
  const accessories=data.items.filter(i=>i.slot==='acc');

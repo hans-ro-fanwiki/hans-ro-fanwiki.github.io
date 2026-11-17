@@ -18,23 +18,23 @@
 | 檢查 | 結果 |
 |---|---|
 | TypeScript + Vite build | 通過 |
-| 資料單元測試 | 10/10 通過 |
-| 首頁與三類主要反查 | 通過（裝備飾品、魔法師、冷卻卡片） |
+| 資料單元測試 | 14/14 通過（完整 ID、九種部位、卡片效果、圖片影格、來源狀態） |
+| 首頁與三類主要反查 | 通過（裝備飾品、魔法師、冷卻卡片）；額外確認九個裝備部位、衣服 29 件、完整裝備 287 件與卡片 98 張 |
 | 關卡→項鍊→屬性與權重 | 通過（#2603, VIT +1, 權重 100） |
 | 320／375／390／430px 水平溢出 | 每種寬度各檢查首頁、飾品、裝備、卡片、怪物 5 畫面，共 20/20 無溢出 |
 | Browser back 與分享篩選 | 通過 |
 | JavaScript pageerror | 0 |
 | 私人裝備圖 | 13/16 `img` 已載入，其餘 3 張位於未捲到的 lazy-loading 列表，非 404 |
 | 私人卡片圖 | 6/6 已載入 |
-| 私人圖片準備 | 129/129 個 PNG 成功取得並置於本機 gitignored 目錄 |
+| 私人圖片準備 | 720/720 個 PNG 成功取得並置於本機 gitignored 目錄，109 隻怪物中 107 有官方 sprite frame |
 | 真正 iPhone Safari | 待使用者測試 |
 
-截圖（保留本機，不進 Git）：`evidence/iphone-v2-home.png`、`evidence/iphone-v2-stage.png`、`evidence/iphone-v2-item.png`、`evidence/iphone-v2-card.png`。
+截圖（保留本機，不進 Git）：`evidence/iphone-v3-home.png`、`evidence/iphone-v3-armor.png`、`evidence/iphone-v2-stage.png`、`evidence/iphone-v2-item.png`、`evidence/iphone-v2-card.png`。
 測試腳本：`node scripts/mobile-smoke.mjs`。
 
 ## 私人圖片的處理
 
-作者原站對第三方前端熱連圖片回傳 HTTP 403，Chrome 報 `net::ERR_BLOCKED_BY_ORB`。不以偽造 Referer 規避反盜連；改為使用者電腦對公開資產 URL 直接下載**私人本機測試快取**。僅明確提供 `PRIVATE_DEV_ASSETS=1` 才將查詢子集的 129 張 PNG 存於 gitignored `evidence/private-art/` 與 `dist/game-assets/`。
+作者原站對第三方前端熱連圖片回傳 HTTP 403，Chrome 報 `net::ERR_BLOCKED_BY_ORB`。不以偽造 Referer 規避反盜連；改為使用者電腦對公開資產 URL 直接下載**私人本機測試快取**。僅明確提供 `PRIVATE_DEV_ASSETS=1` 才將目前全部候選索引用到的 720 張 PNG 存於 gitignored `evidence/private-art/` 與 `dist/game-assets/`。
 
 - GitHub 私有 repo 只儲存圖片 metadata 和裁切 frame 座標，**不含 PNG**。
 - CI `npm run build` 不包含圖片，未部署至 Pages/Vercel 或任何正式環境。

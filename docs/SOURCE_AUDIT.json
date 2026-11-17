@@ -21,19 +21,19 @@
     "cards": 98,
     "monsters": 109
   },
-  "previewSubset": {
+  "indexedCounts": {
     "stages": 10,
-    "items": 50,
-    "cards": 11,
-    "monsters": 34
+    "items": 287,
+    "cards": 98,
+    "monsters": 109
   },
   "officialStagePools": 8,
   "officialBossLists": 8,
-  "officialItemMonsterDrops": 31,
-  "fullVerifiedStageDropEdges": 33,
+  "officialItemMonsterDrops": 143,
+  "fullVerifiedStageDropEdges": 145,
   "imageCoverage": {
-    "itemsWithAsset": 50,
-    "cardsWithAsset": 11,
+    "itemsWithAsset": 287,
+    "cardsWithAsset": 98,
     "allAssetsRights": "not-cleared"
   },
   "sample": [

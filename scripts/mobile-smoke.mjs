@@ -31,7 +31,21 @@ try{
  assert.equal(await page.getByText('原站核實').count(),0);
  assert.equal(await page.getByText('證據').count(),0);
  await layout(page,'homepage');
- await page.screenshot({path:path.join(folder,'iphone-v2-home.png')});
+ await page.screenshot({path:path.join(folder,'iphone-v3-home.png')});
+ const slots=['飾品','衣服','武器','盾牌','披肩','鞋子','頭飾（上）','頭飾（中）','頭飾（下）'];
+ for(const slot of slots)assert.equal(await page.getByRole('button',{name:slot,exact:true}).count(),1,slot);
+ await page.getByRole('button',{name:'衣服',exact:true}).click();
+ await page.getByRole('heading',{name:'裝備',exact:true}).waitFor();
+ assert.equal((await page.locator('.heading-count').innerText()).trim(),'29');
+ assert.equal(await page.locator('.result-card').count(),29);
+ await layout(page,'all 29 armor items');
+ await page.screenshot({path:path.join(folder,'iphone-v3-armor.png')});
+ await page.getByRole('button',{name:'全部',exact:true}).first().click();
+ assert.equal((await page.locator('.heading-count').innerText()).trim(),'287');
+ assert.equal(await page.locator('.result-card').count(),40);
+ await page.getByRole('button',{name:/顯示更多/}).click();
+ assert.equal(await page.locator('.result-card').count(),80);
+ await layout(page,'287 items paginated in batches of 40');
  await page.getByRole('button',{name:'飾品',exact:true}).click();
  assert.match(page.url(),/slot=acc/);
  await page.getByRole('button',{name:/柏伊亞嵐島/}).first().waitFor();
@@ -56,7 +70,11 @@ try{
  assert.match(page.url(),/job=mage/);
  await layout(page,'mage list');
  await page.getByRole('button',{name:'卡片',exact:true}).last().click();
+ assert.equal((await page.locator('.heading-count').innerText()).trim(),'98');
+ for(const label of ['冷卻縮減','爆擊','傷害','防禦','HP'])
+  assert.equal(await page.getByRole('button',{name:label,exact:true}).count(),1,label);
  await page.getByRole('button',{name:'冷卻縮減',exact:true}).click();
+ assert.equal((await page.locator('.heading-count').innerText()).trim(),'5');
  assert.match(page.url(),/effect=cooldown/);
  await page.getByRole('button',{name:/樹精卡片/}).first().click();
  await page.getByRole('dialog').getByRole('heading',{name:'樹精卡片'}).waitFor();
@@ -66,6 +84,10 @@ try{
  await imageStatus(page,'card image');
  await page.goto(base+'?page=cards&effect=cooldown',{waitUntil:'networkidle'});
  assert.ok(await page.getByRole('button',{name:/樹精卡片/}).count()>0);
+ await page.goto(base+'?detail=monster:strouf',{waitUntil:'networkidle'});
+ await page.getByRole('dialog').getByRole('heading',{name:/史特勞夫/}).waitFor();
+ await layout(page,'full monster index sprite detail');
+ assert.ok(await page.getByRole('dialog').locator('.sprite-frame').count()>0);
  assert.deepEqual(errors,[]);
  summary.push({label:'flow',status:'PASS',queries:3,history:'PASS',deepLinks:'PASS',pageErrors:errors.length});
  writeFileSync(path.join(folder,'mobile-check-results.json'),JSON.stringify(summary,null,2)+'\n');

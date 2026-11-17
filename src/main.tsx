@@ -8,7 +8,7 @@ type View={page:Page;slot:string;job:string;effect:string;source:string;mode:'li
 type GameEntry=Equipment|Card;
 const SLOTS:Record<string,string>={weapon:'武器',head_top:'頭飾（上）',head_mid:'頭飾（中）',head_low:'頭飾（下）',armor:'衣服',shield:'盾牌',garment:'披肩',shoes:'鞋子',acc:'飾品'};
 const JOBS:Record<string,string>={all:'全部',mage:'魔法師系',swordsman:'劍士系',archer:'弓箭手系',acolyte:'服事系',thief:'盜賊系',merchant:'商人系',ninja:'忍者系'};
-const SOURCES:Record<string,string>={monsterDrop:'怪物掉落',story:'劇情',event:'活動',reward:'獎勵',starter:'初始裝備'};
+const SOURCES:Record<string,string>={monsterDrop:'怪物掉落',bossDrop:'Boss 掉落',story:'劇情',event:'活動',reward:'獎勵',starter:'初始裝備'};
 const LABELS:Record<Page,string>={items:'裝備',cards:'卡片',stages:'關卡',jobs:'職業'};
 // Same-origin private preview proxy avoids the upstream image hotlink block.
 const ASSET_ROOT=import.meta.env.BASE_URL+'game-assets/';
@@ -81,6 +81,7 @@ function App(){
  const [catalog,setCatalog]=useState<Catalog|null>(null);
  const [error,setError]=useState('');
  const [state,setState]=useState<View>(readLocation);
+ const [visibleCount,setVisibleCount]=useState(40);
  useEffect(()=>{
   const ac=new AbortController();
   fetch(import.meta.env.BASE_URL+'data/catalog.json',{signal:ac.signal}).then(r=>{if(!r.ok)throw Error(String(r.status));return r.json()}).then(d=>setCatalog(d as Catalog)).catch(e=>{if(e.name!=='AbortError')setError('資料載入失敗，請重新整理。')});
@@ -92,6 +93,7 @@ function App(){
   window.addEventListener('popstate',pop);return ()=>window.removeEventListener('popstate',pop);
  },[]);
  useEffect(()=>{document.body.style.overflow=state.detail?'hidden':'';return ()=>{document.body.style.overflow='';};},[state.detail]);
+ useEffect(()=>setVisibleCount(40),[state.page,state.slot,state.job,state.effect,state.source,state.mode,state.onlyOpen]);
  const navigate=useCallback((patch:Partial<View>,top=false,replace=false)=>{
   const next={...state,...patch};
   history.replaceState({scroll:scrollY},'',location.href);
@@ -112,11 +114,16 @@ function App(){
  const equip=useMemo(()=>catalog?.items.filter(i=>
   (state.slot==='all'||i.slot===state.slot)&&
   (state.job==='all'||!i.jobs.length||i.jobs.includes(state.job))&&
-  (state.source==='all'||i.sources.some(s=>s.sourceType===state.source))
+  (state.source==='all'||i.sources.some(s=>state.source==='bossDrop'?s.sourceType==='monsterDrop'&&s.stageRefs.some(r=>r.boss):s.sourceType===state.source))
  )||[],[catalog,state.slot,state.job,state.source]);
  const cardList=useMemo(()=>catalog?.cards.filter(c=>(state.effect==='all'||c.tags.includes(state.effect))&&
-  (state.source==='all'||c.sources.some(s=>s.sourceType===state.source)))||[],[catalog,state.effect,state.source]);
+  (state.source==='all'||c.sources.some(s=>state.source==='bossDrop'?s.sourceType==='monsterDrop'&&s.stageRefs.some(r=>r.boss):s.sourceType===state.source)))||[],[catalog,state.effect,state.source]);
  const list:GameEntry[]=state.page==='cards'?cardList:equip;
+ const nameCounts=useMemo(()=>{
+  const found=new Map<string,number>();
+  for(const entry of catalog?(state.page==='cards'?catalog.cards:catalog.items):[])found.set(entry.name,(found.get(entry.name)||0)+1);
+  return found;
+ },[catalog,state.page]);
  const byStage=useMemo(()=>{
   const groups=new Map<string,GameEntry[]>();
   for(const e of list)for(const id of new Set(e.sources.filter(s=>s.sourceType==='monsterDrop').flatMap(s=>s.stageRefs.map(r=>r.stageId)))){
@@ -156,7 +163,7 @@ function App(){
       </div></section>
      </>}
      {state.page==='cards'&&<section className="filter-block"><div className="filter-label">效果</div><div className="chips">
-      {([['all','全部'],['cooldown','冷卻縮減'],['crit','爆擊']] as const).map(([v,name])=><Chip key={v} active={state.effect===v} onClick={()=>navigate({effect:v})}>{name}</Chip>)}
+      {([['all','全部'],['cooldown','冷卻縮減'],['crit','爆擊'],['damage','傷害'],['defense','防禦'],['hp','HP']] as const).filter(([v])=>v==='all'||catalog.cards.some(c=>c.tags.includes(v))).map(([v,name])=><Chip key={v} active={state.effect===v} onClick={()=>navigate({effect:v})}>{name}</Chip>)}
      </div></section>}
      {(state.page==='items'||state.page==='cards')&&<>
       <section className="filter-block"><div className="filter-label">取得方式</div><div className="chips">
@@ -167,10 +174,11 @@ function App(){
        <label className="toggle"><input type="checkbox" checked={state.onlyOpen} onChange={e=>navigate({onlyOpen:e.target.checked})}/>只看已開放關卡</label>
       </div>
       {state.mode==='list'?<div className="cards-list">
-       {list.map(entry=><button className="result-card" key={entry.id} onClick={()=>openDetail(state.page==='items'?'item':'card',entry.id)}>
+       {list.slice(0,visibleCount).map(entry=><button className="result-card" key={entry.id} onClick={()=>openDetail(state.page==='items'?'item':'card',entry.id)}>
         <Artwork kind={state.page==='items'?'item':'card'} entity={entry}/>
-        <span className="result-main"><strong>{entry.name}</strong><span className="result-sub">{state.page==='items'&&'slot'in entry?(SLOTS[entry.slot]||entry.slot)+'　':'卡片　'}{shortStats(entry,3)}</span><small className="result-place">{sourceLine(entry)}</small></span><ChevronRight className="list-arrow" size={18}/>
+        <span className="result-main"><strong>{entry.name}{(nameCounts.get(entry.name)||0)>1&&<small className="variant-id"> #{entry.id}</small>}</strong><span className="result-sub">{state.page==='items'&&'slot'in entry?(SLOTS[entry.slot]||entry.slot)+'　':'卡片　'}{shortStats(entry,3)}</span><small className="result-place">{sourceLine(entry)}</small></span><ChevronRight className="list-arrow" size={18}/>
        </button>)}
+       {list.length>visibleCount&&<button type="button" className="load-more" onClick={()=>setVisibleCount(v=>v+40)}>顯示更多（還有 {list.length-visibleCount} 件）</button>}
        {!list.length&&<EmptyState>沒有符合條件的裝備或卡片</EmptyState>}
       </div>:<div className="cards-list">
        {[...byStage].filter(([id])=>visibleStage(id)).map(([id,entries])=><div className="stage-group" key={id}>
@@ -181,7 +189,7 @@ function App(){
          const rates=[...new Set(matching.map(s=>s.rawRate).filter((v):v is number=>typeof v==='number'))];
          return <button key={entry.id} className="compact-item" onClick={()=>openDetail(state.page==='items'?'item':'card',entry.id)}>
           <Artwork kind={state.page==='items'?'item':'card'} entity={entry}/>
-          <span className="compact-copy"><b>{entry.name}</b><small>{shortStats(entry,2)}</small><small>{foes.join('、')||'怪物未知'}{rates.length?' · 權重 '+rates.join('／'):''}</small></span><ChevronRight size={16}/>
+          <span className="compact-copy"><b>{entry.name}{(nameCounts.get(entry.name)||0)>1&&<span className="variant-id"> #{entry.id}</span>}</b><small>{shortStats(entry,2)}</small><small>{foes.join('、')||'怪物未知'}{rates.length?' · 權重 '+rates.join('／'):''}</small></span><ChevronRight size={16}/>
          </button>;
         })}</div></div>)}
        {![...byStage.keys()].some(visibleStage)&&<EmptyState>目前沒有這些條件的關卡掉落資訊</EmptyState>}

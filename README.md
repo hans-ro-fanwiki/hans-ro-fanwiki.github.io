@@ -4,7 +4,7 @@
 
 - `npm ci && npm run build && npm test`：Linux / Windows 可執行的靜態檢查。
 - `npm run dev`：本機測試。
-- `node scripts/build-catalog.cjs <local-gitignored-research-dir>`：在本機以只讀研究資料產生**目標查詢子集**；接著執行 `node scripts/sprite-metadata.mjs` 只補入怪物圖片的首幀裁切座標，仍不散布原站 JS、百科整站或遊戲圖片。
+- `node scripts/build-catalog.cjs <local-gitignored-research-dir>`：在本機以只讀研究資料重建**目前全部候選裝備／卡片／怪物 ID 的精簡檢索索引**（287／98／109），不代表官方完整資料庫；接著執行 `node scripts/sprite-metadata.mjs` 只補入怪物圖片的首幀裁切座標，仍不散布原站 JS、百科整站或遊戲圖片。
 - `npm run check:source`：核對公開原站首頁 bundle 及 manifest 哈希；只報告差異，絕不自動發布變更。
 
 資料版本與核對報告：`docs/SOURCE_AUDIT.json`、`docs/SOURCE_REPORT.md`；手機模擬測試：`docs/TEST_REPORT.md`。如需在本機用 Chrome 獨立配置跑 390px 測試，執行 `node scripts/mobile-smoke.mjs`（需保持 Dev Server 運作）。
