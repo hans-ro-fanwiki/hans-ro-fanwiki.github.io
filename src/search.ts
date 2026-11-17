@@ -35,7 +35,7 @@ export function queryMatches(entry:SearchEntry,query:string):boolean{
  const terms=query.trim().toLowerCase().split(/\s+/).filter(Boolean);
  if(!terms.length)return true;
  const lines=effectLines(entry);
- const plain=[entry.name,entry.originalName,...lines].join(' ').toLowerCase();
+ const plain=[entry.name,entry.originalName,...(entry.nameAliases||[]),...lines].join(' ').toLowerCase();
  return terms.every(term=>{
   const attr=aliases[term]||(attrPatterns[term]?term:null);
   // Names still match literally; recognized stat aliases must also match actual effects.

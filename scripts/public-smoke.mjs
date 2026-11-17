@@ -20,6 +20,13 @@ try {
  page.on('pageerror',err=>errors.push(err.message));
  await page.goto(base,{waitUntil:'networkidle'});
  await page.getByRole('heading',{name:'裝備',exact:true}).waitFor();
+ assert.equal(await page.locator('.primary-filters').count(),1,'equipment slot and job are primary filters');
+ await page.getByRole('group',{name:'裝備部位'}).getByRole('button',{name:'武器'}).waitFor();
+ await page.getByRole('group',{name:'職業'}).getByRole('button',{name:'魔法師系'}).waitFor();
+ assert.equal(await page.locator('#advanced-filters').count(),0,'advanced filters collapsed by default');
+ await page.getByRole('button',{name:/更多篩選/}).click();
+ await page.locator('#advanced-filters').getByRole('button',{name:'冷卻',exact:true}).waitFor();
+ assert.equal(await page.locator('.primary-filters').count(),1,'primary filters remain visible when advanced expands');
  const footer=page.locator('footer.site-footer');
  await footer.getByText(/Gravity Co/).waitFor();
  await footer.getByText(/非官方・免費・非營利・開源的粉絲測試資料站/).waitFor();
@@ -51,9 +58,13 @@ try {
  const cardArt=page.getByRole('dialog').locator('img[src*="fan-thumbs/cards/4001.webp"]');
  assert.ok(await cardArt.evaluate(img=>img.complete&&img.naturalWidth===96),'RO Survivors card thumbnail loads');
  await page.goto(base+'?detail=item:2603',{waitUntil:'networkidle'});
- await page.getByRole('dialog').getByRole('heading',{name:'項鍊'}).waitFor();
+ await page.getByRole('dialog').getByRole('heading',{name:'體力項鏈'}).waitFor();
+ await page.getByRole('dialog').getByText(/Tier 2/).waitFor();
  const itemArt=page.getByRole('dialog').locator('img[src*="fan-thumbs/items/2603.webp"]');
  assert.ok(await itemArt.evaluate(img=>img.complete&&img.naturalWidth>0),'RO Survivors item art thumbnail loads');
+ await page.goto(base+'?detail=item:1117',{waitUntil:'networkidle'});
+ await page.getByRole('dialog').getByRole('heading',{name:'武士刀'}).waitFor();
+ await page.getByRole('dialog').getByText(/Tier 1／2/).waitFor();
  assert.ok(requested.every(url=>!url.includes('/game-assets/')),'Private game asset request in public mode');
  assert.deepEqual(errors,[],'no JavaScript errors');
  const summary={status:'PASS',thumbs:['fan-thumbs/monsters/poring.webp','fan-thumbs/items/2603.webp','fan-thumbs/cards/4001.webp'],widths:[320,375,390,430],privateGameArtRequests:0,pageErrors:0};

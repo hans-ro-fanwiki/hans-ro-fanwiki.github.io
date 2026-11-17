@@ -3,6 +3,7 @@
 const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
+const {enrichCatalog} = require('./catalog-enrichment.cjs');
 const root = process.argv[2];
 if (!root) throw Error('Provide local research snapshot directory');
 const load=(name)=>JSON.parse(fs.readFileSync(path.join(root,name+'.js'),'utf8').split('RSW.'+name+' = ')[1].trim().replace(/;$/,''));
@@ -146,6 +147,8 @@ const catalog={
  policy:'all current candidate IDs indexed, unverified claims remain candidate; image rights uncleared for public use',
  items:outItems,cards:outCards,monsters:outMonsters,stages:stageOutput
 };
+const twroNames=JSON.parse(fs.readFileSync('docs/TWRO_NAMES.json','utf8'));
+enrichCatalog(catalog,main,twroNames);
 fs.writeFileSync('public/data/catalog.json',JSON.stringify(catalog,null,2)+'\n');
 const allReferences=outItems.flatMap(i=>i.sources);
 const official=allReferences.filter(s=>s.verificationState==='official');

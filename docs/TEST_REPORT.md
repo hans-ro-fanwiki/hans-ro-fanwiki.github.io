@@ -1,5 +1,15 @@
 # P1 私人 Dev／Preview 版驗證（2026-11-17）
 
+## Dev 台版名稱、Tier 與主要篩選（2026-11-17）
+
+- 原站 `npm run check:source` 三份 SHA-256 完全一致，仍為本次核對的遊戲版本。僅從目前遊戲 main bundle 的關卡 `tier` 確認 10 個關卡 Tier 值，不將 `wlv` 武器等級誤當物品 Tier。
+- twRO 表經編號精準對照 281/287 件裝備、98/98 張卡片及 98 隻卡片關聯怪物。三項特殊裝備與五隻特殊怪物另有人工翻譯；舊譯保留為不與正式新名稱衝突的搜尋別名。
+- `npm run typecheck` PASS，`npm test` **24/24 PASS**；`VITE_PUBLIC_MODE=1 npm run build` PASS，`node scripts/verify-public-dist.mjs` PASS：共 789 個 WebP 檔、1,005,658 bytes，無原始 PNG。
+- `node scripts/public-smoke.mjs` Chrome 手機 320/375/390/430px PASS：主要裝備部位與職業、收合進階篩選、項鍊（台版體力項鏈）Tier 2、武士刀 Tier 1／2、圖片與聲明均正確，私有 `/game-assets/` 請求 0、JS errors 0。
+- `node scripts/mobile-smoke.mjs` Chrome 觸控完整流程 PASS：衣服篩選 29 件、智力／冷卻查詢、關卡篩選／單一展開、從裝備反查柏伊亞嵐島、海神怪物詳情、螢幕無水平溢出。
+- 已建立 `dev/twro-tier-filters-20261117` 開發分支，**本次尚未更新正式 GitHub Pages**。真實 iPhone Safari 驗收待回報。
+
+
 ## 公開粉絲測試維基實際遊戲縮圖（2026-11-17）
 
 - 原站 asset manifest 版本已核對且未變更：`bdbde78da2fd3d8c9084291935a279f2af53f4b456f1141aba6b1fce2db6f526`。

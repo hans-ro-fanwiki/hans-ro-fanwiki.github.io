@@ -21,7 +21,7 @@
   "items": [
     {
       "id": 1101,
-      "name": "劍",
+      "name": "長劍",
       "originalName": "Sword",
       "slot": "weapon",
       "jobs": [
@@ -58,11 +58,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "劍"
+      ]
     },
     {
       "id": 1104,
-      "name": "彎刃劍",
+      "name": "圓月刀",
       "originalName": "Falchion",
       "slot": "weapon",
       "jobs": [
@@ -123,11 +126,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "彎刃劍"
+      ]
     },
     {
       "id": 1105,
-      "name": "彎刃劍",
+      "name": "圓月刀",
       "originalName": "Falchion",
       "slot": "weapon",
       "jobs": [
@@ -188,11 +194,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "彎刃劍"
+      ]
     },
     {
       "id": 1107,
-      "name": "大刀",
+      "name": "厚刃劍",
       "originalName": "Blade",
       "slot": "weapon",
       "jobs": [
@@ -222,11 +231,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "大刀"
+      ]
     },
     {
       "id": 1108,
-      "name": "大刀",
+      "name": "厚刃劍",
       "originalName": "Blade",
       "slot": "weapon",
       "jobs": [
@@ -287,11 +299,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "大刀"
+      ]
     },
     {
       "id": 1110,
-      "name": "細劍",
+      "name": "擊刺長劍",
       "originalName": "Rapier",
       "slot": "weapon",
       "jobs": [
@@ -343,11 +358,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "細劍"
+      ]
     },
     {
       "id": 1117,
-      "name": "太刀",
+      "name": "武士刀",
       "originalName": "Katana",
       "slot": "weapon",
       "jobs": [
@@ -426,11 +444,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "太刀"
+      ]
     },
     {
       "id": 1118,
-      "name": "太刀",
+      "name": "武士刀",
       "originalName": "Katana",
       "slot": "weapon",
       "jobs": [
@@ -493,11 +514,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "太刀"
+      ]
     },
     {
       "id": 1124,
-      "name": "獸人劍",
+      "name": "獸人刀",
       "originalName": "Orcish Sword",
       "slot": "weapon",
       "jobs": [
@@ -528,11 +552,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "獸人劍"
+      ]
     },
     {
       "id": 1125,
-      "name": "環柄軍刀",
+      "name": "圓柄馬刀",
       "originalName": "Ring Pommel Saber",
       "slot": "weapon",
       "jobs": [
@@ -593,11 +620,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "環柄軍刀"
+      ]
     },
     {
       "id": 1126,
-      "name": "軍刀",
+      "name": "騎兵之劍",
       "originalName": "Saber",
       "slot": "weapon",
       "jobs": [
@@ -628,11 +658,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "軍刀"
+      ]
     },
     {
       "id": 1127,
-      "name": "軍刀",
+      "name": "騎兵之劍",
       "originalName": "Saber",
       "slot": "weapon",
       "jobs": [
@@ -693,7 +726,10 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "軍刀"
+      ]
     },
     {
       "id": 1128,
@@ -762,7 +798,7 @@
     },
     {
       "id": 1131,
-      "name": "冰之彎刃劍",
+      "name": "水靈之刀",
       "originalName": "Ice Falchion",
       "slot": "weapon",
       "jobs": [
@@ -793,11 +829,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "冰之彎刃劍"
+      ]
     },
     {
       "id": 1133,
-      "name": "火焰之刃",
+      "name": "火靈之劍",
       "originalName": "Fire Brand",
       "slot": "weapon",
       "jobs": [
@@ -860,7 +899,7 @@
     },
     {
       "id": 1135,
-      "name": "彎刀",
+      "name": "狂擊之劍",
       "originalName": "Cutlus",
       "slot": "weapon",
       "jobs": [
@@ -923,11 +962,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "彎刀"
+      ]
     },
     {
       "id": 1138,
-      "name": "米斯特汀",
+      "name": "妖劍 弒光",
       "originalName": "Mysteltainn",
       "slot": "weapon",
       "jobs": [
@@ -958,11 +1000,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "米斯特汀"
+      ]
     },
     {
       "id": 1152,
-      "name": "屠殺者",
+      "name": "雙手劍",
       "originalName": "Slayer",
       "slot": "weapon",
       "jobs": [
@@ -1005,11 +1050,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "屠殺者"
+      ]
     },
     {
       "id": 1163,
-      "name": "雙手大劍",
+      "name": "十字巨劍",
       "originalName": "Claymore",
       "slot": "weapon",
       "jobs": [
@@ -1040,11 +1088,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "雙手大劍"
+      ]
     },
     {
       "id": 1166,
-      "name": "Dragon Slayer",
+      "name": "龍牙劍",
       "originalName": "Dragon Slayer",
       "slot": "weapon",
       "jobs": [
@@ -1107,11 +1158,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Dragon Slayer"
+      ]
     },
     {
       "id": 1189,
-      "name": "克拉斯納亞",
+      "name": "克拉斯拿雅劍",
       "originalName": "Krasnaya",
       "slot": "weapon",
       "jobs": [
@@ -1170,11 +1224,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "克拉斯納亞"
+      ]
     },
     {
       "id": 1201,
-      "name": "小刀",
+      "name": "短劍",
       "originalName": "Knife",
       "slot": "weapon",
       "jobs": [
@@ -1220,11 +1277,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "小刀"
+      ]
     },
     {
       "id": 1202,
-      "name": "小刀",
+      "name": "短劍",
       "originalName": "Knife",
       "slot": "weapon",
       "jobs": [
@@ -1288,11 +1348,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "小刀"
+      ]
     },
     {
       "id": 1207,
-      "name": "左手短劍",
+      "name": "笨拙短劍",
       "originalName": "Main Gauche",
       "slot": "weapon",
       "jobs": [
@@ -1362,11 +1425,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "左手短劍"
+      ]
     },
     {
       "id": 1208,
-      "name": "左手短劍",
+      "name": "笨拙短劍",
       "originalName": "Main Gauche",
       "slot": "weapon",
       "jobs": [
@@ -1430,11 +1496,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "左手短劍"
+      ]
     },
     {
       "id": 1209,
-      "name": "左手短劍",
+      "name": "笨拙短劍",
       "originalName": "Main Gauche",
       "slot": "weapon",
       "jobs": [
@@ -1502,11 +1571,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "左手短劍"
+      ]
     },
     {
       "id": 1210,
-      "name": "匕首",
+      "name": "德克短劍",
       "originalName": "Dirk",
       "slot": "weapon",
       "jobs": [
@@ -1553,7 +1625,7 @@
     },
     {
       "id": 1213,
-      "name": "短劍",
+      "name": "大駒短劍",
       "originalName": "Dagger",
       "slot": "weapon",
       "jobs": [
@@ -1625,7 +1697,7 @@
     },
     {
       "id": 1214,
-      "name": "短劍",
+      "name": "大駒短劍",
       "originalName": "Dagger",
       "slot": "weapon",
       "jobs": [
@@ -1693,7 +1765,7 @@
     },
     {
       "id": 1216,
-      "name": "錐刀",
+      "name": "雙刃短劍",
       "originalName": "Stiletto",
       "slot": "weapon",
       "jobs": [
@@ -1757,11 +1829,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "錐刀"
+      ]
     },
     {
       "id": 1217,
-      "name": "錐刀",
+      "name": "雙刃短劍",
       "originalName": "Stiletto",
       "slot": "weapon",
       "jobs": [
@@ -1825,11 +1900,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "錐刀"
+      ]
     },
     {
       "id": 1218,
-      "name": "錐刀",
+      "name": "雙刃短劍",
       "originalName": "Stiletto",
       "slot": "weapon",
       "jobs": [
@@ -1897,11 +1975,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "錐刀"
+      ]
     },
     {
       "id": 1219,
-      "name": "羅馬短劍",
+      "name": "長柄短劍",
       "originalName": "Gladius",
       "slot": "weapon",
       "jobs": [
@@ -1965,11 +2046,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "羅馬短劍"
+      ]
     },
     {
       "id": 1220,
-      "name": "羅馬短劍",
+      "name": "長柄短劍",
       "originalName": "Gladius",
       "slot": "weapon",
       "jobs": [
@@ -2033,11 +2117,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "羅馬短劍"
+      ]
     },
     {
       "id": 1221,
-      "name": "羅馬短劍",
+      "name": "長柄短劍",
       "originalName": "Gladius",
       "slot": "weapon",
       "jobs": [
@@ -2105,11 +2192,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "羅馬短劍"
+      ]
     },
     {
       "id": 1222,
-      "name": "大馬士革刀",
+      "name": "大馬士革短劍",
       "originalName": "Damascus",
       "slot": "weapon",
       "jobs": [
@@ -2141,11 +2231,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "大馬士革刀"
+      ]
     },
     {
       "id": 1228,
-      "name": "戰鬥小刀",
+      "name": "戰鬥短劍",
       "originalName": "Combat Knife",
       "slot": "weapon",
       "jobs": [
@@ -2177,11 +2270,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "戰鬥小刀"
+      ]
     },
     {
       "id": 1234,
-      "name": "月光劍",
+      "name": "月靈短劍",
       "originalName": "Moonlight Sword",
       "slot": "weapon",
       "jobs": [
@@ -2261,11 +2357,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "月光劍"
+      ]
     },
     {
       "id": 1250,
-      "name": "尤爾拳刃",
+      "name": "拳刃",
       "originalName": "Jur",
       "slot": "weapon",
       "jobs": [
@@ -2296,11 +2395,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "尤爾拳刃"
+      ]
     },
     {
       "id": 1252,
-      "name": "拳刃",
+      "name": "卡塔勒拳刃",
       "originalName": "Katar",
       "slot": "weapon",
       "jobs": [
@@ -2335,7 +2437,7 @@
     },
     {
       "id": 1253,
-      "name": "拳刃",
+      "name": "卡塔勒拳刃",
       "originalName": "Katar",
       "slot": "weapon",
       "jobs": [
@@ -2370,7 +2472,7 @@
     },
     {
       "id": 1254,
-      "name": "賈瑪達拳刃",
+      "name": "秘刃 闇嘯",
       "originalName": "Jamadhar",
       "slot": "weapon",
       "jobs": [
@@ -2401,11 +2503,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "賈瑪達拳刃"
+      ]
     },
     {
       "id": 1256,
-      "name": "冰柱拳刃",
+      "name": "冰靈拳刃",
       "originalName": "Katar of Cold Icicle",
       "slot": "weapon",
       "jobs": [
@@ -2436,11 +2541,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "冰柱拳刃"
+      ]
     },
     {
       "id": 1258,
-      "name": "烈焰拳刃",
+      "name": "火靈拳刃",
       "originalName": "Katar of Raging Blaze",
       "slot": "weapon",
       "jobs": [
@@ -2499,11 +2607,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "烈焰拳刃"
+      ]
     },
     {
       "id": 1261,
-      "name": "滲透者",
+      "name": "刺殺拳刃",
       "originalName": "Infiltrator",
       "slot": "weapon",
       "jobs": [
@@ -2534,11 +2645,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "滲透者"
+      ]
     },
     {
       "id": 1262,
-      "name": "洛奇之釘",
+      "name": "洛奇的指甲",
       "originalName": "Loki's Nail",
       "slot": "weapon",
       "jobs": [
@@ -2569,11 +2683,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "洛奇之釘"
+      ]
     },
     {
       "id": 1265,
-      "name": "血之咆哮",
+      "name": "血拳刃",
       "originalName": "Bloody Roar",
       "slot": "weapon",
       "jobs": [
@@ -2604,11 +2721,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "血之咆哮"
+      ]
     },
     {
       "id": 1277,
-      "name": "烈焰拳刃",
+      "name": "火靈拳刃",
       "originalName": "Katar of Raging Blaze",
       "slot": "weapon",
       "jobs": [
@@ -2671,11 +2791,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "烈焰拳刃"
+      ]
     },
     {
       "id": 1301,
-      "name": "斧頭",
+      "name": "斧",
       "originalName": "Axe",
       "slot": "weapon",
       "jobs": [
@@ -2712,11 +2835,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "斧頭"
+      ]
     },
     {
       "id": 1302,
-      "name": "斧頭",
+      "name": "斧",
       "originalName": "Axe",
       "slot": "weapon",
       "jobs": [
@@ -2776,7 +2902,10 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "斧頭"
+      ]
     },
     {
       "id": 1304,
@@ -2866,7 +2995,7 @@
     },
     {
       "id": 1351,
-      "name": "戰斧",
+      "name": "巨斧",
       "originalName": "Battle Axe",
       "slot": "weapon",
       "jobs": [
@@ -2925,11 +3054,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "戰斧"
+      ]
     },
     {
       "id": 1352,
-      "name": "戰斧",
+      "name": "巨斧",
       "originalName": "Battle Axe",
       "slot": "weapon",
       "jobs": [
@@ -2992,11 +3124,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "戰斧"
+      ]
     },
     {
       "id": 1355,
-      "name": "鐵鎚",
+      "name": "鋼斧",
       "originalName": "Hammer",
       "slot": "weapon",
       "jobs": [
@@ -3039,11 +3174,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "鐵鎚"
+      ]
     },
     {
       "id": 1370,
-      "name": "末日殺手",
+      "name": "超重雙手斧",
       "originalName": "Doom Slayer",
       "slot": "weapon",
       "jobs": [
@@ -3074,11 +3212,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "末日殺手"
+      ]
     },
     {
       "id": 1377,
-      "name": "颶風之怒",
+      "name": "狂暴颶風斧",
       "originalName": "Hurricane Fury",
       "slot": "weapon",
       "jobs": [
@@ -3109,11 +3250,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "颶風之怒"
+      ]
     },
     {
       "id": 1402,
-      "name": "標槍",
+      "name": "長戟",
       "originalName": "Javelin",
       "slot": "weapon",
       "jobs": [
@@ -3172,11 +3316,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "標槍"
+      ]
     },
     {
       "id": 1405,
-      "name": "矛",
+      "name": "長矛",
       "originalName": "Spear",
       "slot": "weapon",
       "jobs": [
@@ -3235,11 +3382,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "矛"
+      ]
     },
     {
       "id": 1407,
-      "name": "長槍",
+      "name": "步兵長矛",
       "originalName": "Pike",
       "slot": "weapon",
       "jobs": [
@@ -3282,11 +3432,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "長槍"
+      ]
     },
     {
       "id": 1408,
-      "name": "長槍",
+      "name": "步兵長矛",
       "originalName": "Pike",
       "slot": "weapon",
       "jobs": [
@@ -3345,11 +3498,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "長槍"
+      ]
     },
     {
       "id": 1409,
-      "name": "長槍",
+      "name": "步兵長矛",
       "originalName": "Pike",
       "slot": "weapon",
       "jobs": [
@@ -3412,11 +3568,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "長槍"
+      ]
     },
     {
       "id": 1413,
-      "name": "昆古尼爾",
+      "name": "剛尼爾長矛",
       "originalName": "Gungnir",
       "slot": "weapon",
       "jobs": [
@@ -3450,11 +3609,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "昆古尼爾"
+      ]
     },
     {
       "id": 1460,
-      "name": "三叉戟",
+      "name": "德瑞尹長戟",
       "originalName": "Trident",
       "slot": "weapon",
       "jobs": [
@@ -3553,11 +3715,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "三叉戟"
+      ]
     },
     {
       "id": 1461,
-      "name": "三叉戟",
+      "name": "德瑞尹長戟",
       "originalName": "Trident",
       "slot": "weapon",
       "jobs": [
@@ -3620,11 +3785,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "三叉戟"
+      ]
     },
     {
       "id": 1466,
-      "name": "新月鐮刀",
+      "name": "死神之鐮",
       "originalName": "Crescent Scythe",
       "slot": "weapon",
       "jobs": [
@@ -3655,11 +3823,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "新月鐮刀"
+      ]
     },
     {
       "id": 1477,
-      "name": "幽靈之矛",
+      "name": "妖怪的槍",
       "originalName": "Spectral Spear",
       "slot": "weapon",
       "jobs": [
@@ -3718,11 +3889,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "幽靈之矛"
+      ]
     },
     {
       "id": 1479,
-      "name": "幽靈之矛",
+      "name": "妖怪的槍",
       "originalName": "Spectral Spear",
       "slot": "weapon",
       "jobs": [
@@ -3785,11 +3959,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "幽靈之矛"
+      ]
     },
     {
       "id": 1501,
-      "name": "棍棒",
+      "name": "木錘",
       "originalName": "Club",
       "slot": "weapon",
       "jobs": [
@@ -3827,11 +4004,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "棍棒"
+      ]
     },
     {
       "id": 1502,
-      "name": "棍棒",
+      "name": "木錘",
       "originalName": "Club",
       "slot": "weapon",
       "jobs": [
@@ -3892,11 +4072,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "棍棒"
+      ]
     },
     {
       "id": 1504,
-      "name": "鈍器",
+      "name": "鐵錘",
       "originalName": "Mace",
       "slot": "weapon",
       "jobs": [
@@ -3928,11 +4111,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "鈍器"
+      ]
     },
     {
       "id": 1505,
-      "name": "鈍器",
+      "name": "鐵錘",
       "originalName": "Mace",
       "slot": "weapon",
       "jobs": [
@@ -3993,11 +4179,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "鈍器"
+      ]
     },
     {
       "id": 1506,
-      "name": "鈍器",
+      "name": "鐵錘",
       "originalName": "Mace",
       "slot": "weapon",
       "jobs": [
@@ -4062,11 +4251,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "鈍器"
+      ]
     },
     {
       "id": 1511,
-      "name": "連枷",
+      "name": "流星錘",
       "originalName": "Flail",
       "slot": "weapon",
       "jobs": [
@@ -4110,11 +4302,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "連枷"
+      ]
     },
     {
       "id": 1513,
-      "name": "晨星",
+      "name": "日星錘",
       "originalName": "Morning Star",
       "slot": "weapon",
       "jobs": [
@@ -4146,11 +4341,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "晨星"
+      ]
     },
     {
       "id": 1517,
-      "name": "劍錘",
+      "name": "尖刃鐵錘",
       "originalName": "Sword Mace",
       "slot": "weapon",
       "jobs": [
@@ -4210,11 +4408,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "劍錘"
+      ]
     },
     {
       "id": 1518,
-      "name": "劍錘",
+      "name": "尖刃鐵錘",
       "originalName": "Sword Mace",
       "slot": "weapon",
       "jobs": [
@@ -4278,7 +4479,10 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "劍錘"
+      ]
     },
     {
       "id": 1519,
@@ -4318,7 +4522,7 @@
     },
     {
       "id": 1524,
-      "name": "黃金錘",
+      "name": "黃金之錘",
       "originalName": "Golden Mace",
       "slot": "weapon",
       "jobs": [
@@ -4372,11 +4576,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "黃金錘"
+      ]
     },
     {
       "id": 1525,
-      "name": "長錘",
+      "name": "秘銀長錘",
       "originalName": "Long Mace",
       "slot": "weapon",
       "jobs": [
@@ -4435,11 +4642,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "長錘"
+      ]
     },
     {
       "id": 1528,
-      "name": "聖十字審判",
+      "name": "聖錘 十字星",
       "originalName": "Grand Cross",
       "slot": "weapon",
       "jobs": [
@@ -4471,11 +4681,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "聖十字審判"
+      ]
     },
     {
       "id": 1530,
-      "name": "雷神之鎚",
+      "name": "雷神之錘",
       "originalName": "Mjolnir",
       "slot": "weapon",
       "jobs": [
@@ -4511,7 +4724,10 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "雷神之鎚"
+      ]
     },
     {
       "id": 1550,
@@ -4551,7 +4767,7 @@
     },
     {
       "id": 1553,
-      "name": "巨浪之書",
+      "name": "水靈之書",
       "originalName": "Book of Billows",
       "slot": "weapon",
       "jobs": [
@@ -4583,11 +4799,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "巨浪之書"
+      ]
     },
     {
       "id": 1555,
-      "name": "烈日之書",
+      "name": "火靈之書",
       "originalName": "Book of Blazing Sun",
       "slot": "weapon",
       "jobs": [
@@ -4619,11 +4838,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "烈日之書"
+      ]
     },
     {
       "id": 1557,
-      "name": "啟示錄之書",
+      "name": "預言錄",
       "originalName": "Book of Apocalypse",
       "slot": "weapon",
       "jobs": [
@@ -4655,11 +4877,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "啟示錄之書"
+      ]
     },
     {
       "id": 1558,
-      "name": "少女的日記",
+      "name": "日記本",
       "originalName": "Girl's Diary",
       "slot": "weapon",
       "jobs": [
@@ -4691,11 +4916,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "少女的日記"
+      ]
     },
     {
       "id": 1601,
-      "name": "法杖",
+      "name": "手杖",
       "originalName": "Rod",
       "slot": "weapon",
       "jobs": [
@@ -4733,11 +4961,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "法杖"
+      ]
     },
     {
       "id": 1602,
-      "name": "法杖",
+      "name": "手杖",
       "originalName": "Rod",
       "slot": "weapon",
       "jobs": [
@@ -4797,11 +5028,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "法杖"
+      ]
     },
     {
       "id": 1604,
-      "name": "魔杖",
+      "name": "橡木魔杖",
       "originalName": "Wand",
       "slot": "weapon",
       "jobs": [
@@ -4861,11 +5095,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "魔杖"
+      ]
     },
     {
       "id": 1607,
-      "name": "法杖",
+      "name": "智慧魔杖",
       "originalName": "Staff",
       "slot": "weapon",
       "jobs": [
@@ -4917,11 +5154,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "法杖"
+      ]
     },
     {
       "id": 1610,
-      "name": "弧形魔杖",
+      "name": "言靈魔杖",
       "originalName": "Arc Wand",
       "slot": "weapon",
       "jobs": [
@@ -4981,11 +5221,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "弧形魔杖"
+      ]
     },
     {
       "id": 1612,
-      "name": "弧形魔杖",
+      "name": "言靈魔杖",
       "originalName": "Arc Wand",
       "slot": "weapon",
       "jobs": [
@@ -5049,11 +5292,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "弧形魔杖"
+      ]
     },
     {
       "id": 1613,
-      "name": "強力法杖",
+      "name": "巫杖 魂咬",
       "originalName": "Mighty Staff",
       "slot": "weapon",
       "jobs": [
@@ -5113,11 +5359,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "強力法杖"
+      ]
     },
     {
       "id": 1648,
-      "name": "波爾多法杖",
+      "name": "波爾多之杖",
       "originalName": "Staff of Bordeaux",
       "slot": "weapon",
       "jobs": [
@@ -5354,7 +5603,7 @@
     },
     {
       "id": 1704,
-      "name": "複合弓",
+      "name": "坎普茲弓",
       "originalName": "Composite Bow",
       "slot": "weapon",
       "jobs": [
@@ -5413,11 +5662,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "複合弓"
+      ]
     },
     {
       "id": 1707,
-      "name": "巨弓",
+      "name": "克羅伊特弓",
       "originalName": "Great Bow",
       "slot": "weapon",
       "jobs": [
@@ -5481,11 +5733,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "巨弓"
+      ]
     },
     {
       "id": 1708,
-      "name": "巨弓",
+      "name": "克羅伊特弓",
       "originalName": "Great Bow",
       "slot": "weapon",
       "jobs": [
@@ -5545,7 +5800,10 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "巨弓"
+      ]
     },
     {
       "id": 1710,
@@ -5728,7 +5986,7 @@
     },
     {
       "id": 1722,
-      "name": "巨弩",
+      "name": "貝利斯塔強弩",
       "originalName": "Ballista",
       "slot": "weapon",
       "jobs": [
@@ -5759,11 +6017,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "巨弩"
+      ]
     },
     {
       "id": 1724,
-      "name": "Dragon Wing",
+      "name": "天龍之翼",
       "originalName": "Dragon Wing",
       "slot": "weapon",
       "jobs": [
@@ -5827,7 +6088,10 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Dragon Wing"
+      ]
     },
     {
       "id": 1734,
@@ -5866,7 +6130,7 @@
     },
     {
       "id": 1801,
-      "name": "虎爪",
+      "name": "虎爪拳套",
       "originalName": "Waghnak",
       "slot": "weapon",
       "jobs": [
@@ -5897,11 +6161,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "虎爪"
+      ]
     },
     {
       "id": 1803,
-      "name": "指虎",
+      "name": "鋼鐵拳套",
       "originalName": "Knuckle Dusters",
       "slot": "weapon",
       "jobs": [
@@ -5932,11 +6199,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "指虎"
+      ]
     },
     {
       "id": 1805,
-      "name": "釘刺拳套",
+      "name": "賀勒拳套",
       "originalName": "Studded Knuckles",
       "slot": "weapon",
       "jobs": [
@@ -5967,11 +6237,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "釘刺拳套"
+      ]
     },
     {
       "id": 1806,
-      "name": "釘刺拳套",
+      "name": "賀勒拳套",
       "originalName": "Studded Knuckles",
       "slot": "weapon",
       "jobs": [
@@ -6014,11 +6287,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "釘刺拳套"
+      ]
     },
     {
       "id": 1809,
-      "name": "爪",
+      "name": "龍爪拳套",
       "originalName": "Claw",
       "slot": "weapon",
       "jobs": [
@@ -6049,11 +6325,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "爪"
+      ]
     },
     {
       "id": 1812,
-      "name": "指",
+      "name": "鷹爪拳套",
       "originalName": "Finger",
       "slot": "weapon",
       "jobs": [
@@ -6084,11 +6363,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "指"
+      ]
     },
     {
       "id": 1813,
-      "name": "凱薩拳套",
+      "name": "風靈拳套",
       "originalName": "Kaiser Knuckle",
       "slot": "weapon",
       "jobs": [
@@ -6119,7 +6401,10 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "凱薩拳套"
+      ]
     },
     {
       "id": 1901,
@@ -6228,7 +6513,7 @@
     },
     {
       "id": 1913,
-      "name": "電吉他",
+      "name": "電子吉他",
       "originalName": "Electric Guitar",
       "slot": "weapon",
       "jobs": [
@@ -6259,11 +6544,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "電吉他"
+      ]
     },
     {
       "id": 1950,
-      "name": "繩索",
+      "name": "鞭子",
       "originalName": "Rope",
       "slot": "weapon",
       "jobs": [
@@ -6294,11 +6582,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "繩索"
+      ]
     },
     {
       "id": 1954,
-      "name": "鋼絲鞭",
+      "name": "鋼鐵鞭子",
       "originalName": "Wire Whip",
       "slot": "weapon",
       "jobs": [
@@ -6329,11 +6620,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "鋼絲鞭"
+      ]
     },
     {
       "id": 1958,
-      "name": "尾鞭",
+      "name": "幸運鞭子",
       "originalName": "Tail Whip",
       "slot": "weapon",
       "jobs": [
@@ -6364,11 +6658,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "尾鞭"
+      ]
     },
     {
       "id": 1964,
-      "name": "化學鞭",
+      "name": "秘鞭 眷戀",
       "originalName": "Chemeti Whip",
       "slot": "weapon",
       "jobs": [
@@ -6399,11 +6696,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "化學鞭"
+      ]
     },
     {
       "id": 2101,
-      "name": "防禦",
+      "name": "鐵盾",
       "originalName": "Guard",
       "slot": "shield",
       "jobs": [],
@@ -6438,11 +6738,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "防禦"
+      ]
     },
     {
       "id": 2102,
-      "name": "防禦",
+      "name": "鐵盾",
       "originalName": "Guard",
       "slot": "shield",
       "jobs": [],
@@ -6563,11 +6866,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "防禦"
+      ]
     },
     {
       "id": 2103,
-      "name": "小圓盾",
+      "name": "圓盾",
       "originalName": "Buckler",
       "slot": "shield",
       "jobs": [],
@@ -6622,11 +6928,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "小圓盾"
+      ]
     },
     {
       "id": 2104,
-      "name": "小圓盾",
+      "name": "圓盾",
       "originalName": "Buckler",
       "slot": "shield",
       "jobs": [],
@@ -6717,7 +7026,10 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "小圓盾"
+      ]
     },
     {
       "id": 2107,
@@ -6843,7 +7155,7 @@
     },
     {
       "id": 2110,
-      "name": "神聖守護",
+      "name": "聖耀之盾",
       "originalName": "Holy Guard",
       "slot": "shield",
       "jobs": [],
@@ -6872,11 +7184,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "神聖守護"
+      ]
     },
     {
       "id": 2114,
-      "name": "石製小圓盾",
+      "name": "石製圓盾",
       "originalName": "Stone Buckler",
       "slot": "shield",
       "jobs": [],
@@ -6905,11 +7220,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "石製小圓盾"
+      ]
     },
     {
       "id": 2115,
-      "name": "女武神之盾",
+      "name": "巴基力亞鋼盾",
       "originalName": "Valkyrie Shield",
       "slot": "shield",
       "jobs": [],
@@ -6938,11 +7256,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "女武神之盾"
+      ]
     },
     {
       "id": 2116,
-      "name": "天使守護",
+      "name": "天使之保護",
       "originalName": "Angelic Guard",
       "slot": "shield",
       "jobs": [],
@@ -6993,11 +7314,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "天使守護"
+      ]
     },
     {
       "id": 2124,
-      "name": "荊棘小圓盾",
+      "name": "刺針盾牌",
       "originalName": "Thorny Buckler",
       "slot": "shield",
       "jobs": [],
@@ -7026,7 +7350,10 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "荊棘小圓盾"
+      ]
     },
     {
       "id": 2201,
@@ -7089,7 +7416,7 @@
     },
     {
       "id": 2205,
-      "name": "潛水護目鏡",
+      "name": "泳鏡",
       "originalName": "Diver Goggles",
       "slot": "head_mid",
       "jobs": [],
@@ -7204,11 +7531,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "潛水護目鏡"
+      ]
     },
     {
       "id": 2207,
-      "name": "漂亮的花",
+      "name": "花朵頭飾",
       "originalName": "Fancy Flower",
       "slot": "head_top",
       "jobs": [],
@@ -7283,11 +7613,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "漂亮的花"
+      ]
     },
     {
       "id": 2209,
-      "name": "蝴蝶結",
+      "name": "紫蝶髮帶",
       "originalName": "Ribbon",
       "slot": "head_top",
       "jobs": [],
@@ -7342,11 +7675,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "蝴蝶結"
+      ]
     },
     {
       "id": 2211,
-      "name": "頭巾",
+      "name": "方頭巾",
       "originalName": "Bandana",
       "slot": "head_top",
       "jobs": [],
@@ -7401,11 +7737,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "頭巾"
+      ]
     },
     {
       "id": 2212,
-      "name": "眼罩",
+      "name": "獨眼龍眼罩",
       "originalName": "Eye Patch",
       "slot": "head_mid",
       "jobs": [],
@@ -7466,11 +7805,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "眼罩"
+      ]
     },
     {
       "id": 2213,
-      "name": "貓耳髮箍",
+      "name": "貓耳髮圈",
       "originalName": "Kitty Band",
       "slot": "head_top",
       "jobs": [],
@@ -7525,11 +7867,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "貓耳髮箍"
+      ]
     },
     {
       "id": 2214,
-      "name": "兔耳髮箍",
+      "name": "兔耳髮圈",
       "originalName": "Bunny Band",
       "slot": "head_top",
       "jobs": [],
@@ -7562,11 +7907,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "兔耳髮箍"
+      ]
     },
     {
       "id": 2220,
-      "name": "帽子",
+      "name": "漁夫帽",
       "originalName": "Hat",
       "slot": "head_top",
       "jobs": [],
@@ -7621,11 +7969,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "帽子"
+      ]
     },
     {
       "id": 2221,
-      "name": "帽子",
+      "name": "漁夫帽",
       "originalName": "Hat",
       "slot": "head_top",
       "jobs": [],
@@ -7680,11 +8031,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "帽子"
+      ]
     },
     {
       "id": 2226,
-      "name": "帽子",
+      "name": "無邊帽",
       "originalName": "Cap",
       "slot": "head_top",
       "jobs": [],
@@ -7739,11 +8093,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "帽子"
+      ]
     },
     {
       "id": 2227,
-      "name": "帽子",
+      "name": "無邊帽",
       "originalName": "Cap",
       "slot": "head_top",
       "jobs": [],
@@ -7802,11 +8159,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "帽子"
+      ]
     },
     {
       "id": 2234,
-      "name": "頭冠",
+      "name": "后冠",
       "originalName": "Tiara",
       "slot": "head_top",
       "jobs": [],
@@ -7835,7 +8195,10 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "頭冠"
+      ]
     },
     {
       "id": 2235,
@@ -7914,7 +8277,7 @@
     },
     {
       "id": 2244,
-      "name": "大蝴蝶結",
+      "name": "紅蝶髮帶",
       "originalName": "Big Ribbon",
       "slot": "head_top",
       "jobs": [],
@@ -7969,11 +8332,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "大蝴蝶結"
+      ]
     },
     {
       "id": 2245,
-      "name": "甜蜜紳士帽",
+      "name": "紳士帽",
       "originalName": "Sweet Gent",
       "slot": "head_top",
       "jobs": [],
@@ -8023,11 +8389,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "甜蜜紳士帽"
+      ]
     },
     {
       "id": 2246,
-      "name": "黃金齒輪",
+      "name": "黃金帽",
       "originalName": "Golden Gear",
       "slot": "head_top",
       "jobs": [],
@@ -8080,11 +8449,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "黃金齒輪"
+      ]
     },
     {
       "id": 2247,
-      "name": "浪漫紳士帽",
+      "name": "回憶帽",
       "originalName": "Romantic Gent",
       "slot": "head_top",
       "jobs": [],
@@ -8134,11 +8506,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "浪漫紳士帽"
+      ]
     },
     {
       "id": 2248,
-      "name": "西部之恩",
+      "name": "牛仔帽",
       "originalName": "Western Grace",
       "slot": "head_top",
       "jobs": [],
@@ -8193,11 +8568,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "西部之恩"
+      ]
     },
     {
       "id": 2250,
-      "name": "可愛蝴蝶結",
+      "name": "粉紗髮圈",
       "originalName": "Cute Ribbon",
       "slot": "head_top",
       "jobs": [],
@@ -8247,11 +8625,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "可愛蝴蝶結"
+      ]
     },
     {
       "id": 2251,
-      "name": "和尚帽",
+      "name": "神聖之帽",
       "originalName": "Monk Hat",
       "slot": "head_top",
       "jobs": [],
@@ -8280,11 +8661,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "和尚帽"
+      ]
     },
     {
       "id": 2252,
-      "name": "巫師帽",
+      "name": "魔法帽",
       "originalName": "Wizard Hat",
       "slot": "head_top",
       "jobs": [],
@@ -8313,11 +8697,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "巫師帽"
+      ]
     },
     {
       "id": 2254,
-      "name": "天使之翼",
+      "name": "天使髮圈",
       "originalName": "Angel Wings",
       "slot": "head_top",
       "jobs": [],
@@ -8374,11 +8761,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "天使之翼"
+      ]
     },
     {
       "id": 2255,
-      "name": "惡魔之翼",
+      "name": "惡魔髮圈",
       "originalName": "Evil Wings",
       "slot": "head_top",
       "jobs": [],
@@ -8433,7 +8823,10 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "惡魔之翼"
+      ]
     },
     {
       "id": 2256,
@@ -8470,7 +8863,7 @@
     },
     {
       "id": 2257,
-      "name": "獨角獸之角",
+      "name": "獸角頭飾",
       "originalName": "Unicorn Horn",
       "slot": "head_top",
       "jobs": [],
@@ -8540,7 +8933,10 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "獨角獸之角"
+      ]
     },
     {
       "id": 2260,
@@ -8576,7 +8972,7 @@
     },
     {
       "id": 2262,
-      "name": "小丑鼻",
+      "name": "小丑鼻子",
       "originalName": "Clown Nose",
       "slot": "head_low",
       "jobs": [],
@@ -8631,11 +9027,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "小丑鼻"
+      ]
     },
     {
       "id": 2264,
-      "name": "慕納克帽",
+      "name": "殭屍帽",
       "originalName": "Munak Hat",
       "slot": "head_top",
       "jobs": [],
@@ -8690,7 +9089,10 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "慕納克帽"
+      ]
     },
     {
       "id": 2268,
@@ -8753,7 +9155,7 @@
     },
     {
       "id": 2272,
-      "name": "禁止標誌",
+      "name": "停止標誌頭飾",
       "originalName": "Stop Post",
       "slot": "head_top",
       "jobs": [],
@@ -8808,11 +9210,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "禁止標誌"
+      ]
     },
     {
       "id": 2274,
-      "name": "幽靈頭巾",
+      "name": "亡者髮箍",
       "originalName": "Ghost Bandana",
       "slot": "head_top",
       "jobs": [],
@@ -8887,7 +9292,10 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "幽靈頭巾"
+      ]
     },
     {
       "id": 2277,
@@ -8952,7 +9360,7 @@
     },
     {
       "id": 2280,
-      "name": "斗笠",
+      "name": "草帽",
       "originalName": "Sakkat",
       "slot": "head_top",
       "jobs": [],
@@ -8981,7 +9389,10 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "斗笠"
+      ]
     },
     {
       "id": 2282,
@@ -9044,7 +9455,7 @@
     },
     {
       "id": 2285,
-      "name": "弓箭手的蘋果",
+      "name": "蘋果頭飾",
       "originalName": "Apple of Archer",
       "slot": "head_top",
       "jobs": [],
@@ -9095,11 +9506,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "弓箭手的蘋果"
+      ]
     },
     {
       "id": 2286,
-      "name": "精靈耳",
+      "name": "妖精長耳朵飾",
       "originalName": "Elven Ears",
       "slot": "head_mid",
       "jobs": [],
@@ -9150,7 +9564,10 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "精靈耳"
+      ]
     },
     {
       "id": 2287,
@@ -9209,7 +9626,7 @@
     },
     {
       "id": 2288,
-      "name": "尖叫先生",
+      "name": "整人面具",
       "originalName": "Mr. Scream",
       "slot": "head_low",
       "jobs": [],
@@ -9260,11 +9677,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "尖叫先生"
+      ]
     },
     {
       "id": 2289,
-      "name": "便便帽",
+      "name": "糞便帽",
       "originalName": "Poo Poo Hat",
       "slot": "head_top",
       "jobs": [],
@@ -9319,11 +9739,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "便便帽"
+      ]
     },
     {
       "id": 2291,
-      "name": "蝴蝶面具",
+      "name": "蝴蝶假面",
       "originalName": "Butterfly Mask",
       "slot": "head_mid",
       "jobs": [],
@@ -9351,11 +9774,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "蝴蝶面具"
+      ]
     },
     {
       "id": 2292,
-      "name": "焊接面罩",
+      "name": "鋼鐵面具",
       "originalName": "Welding Mask",
       "slot": "head_low",
       "jobs": [],
@@ -9446,7 +9872,10 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "焊接面罩"
+      ]
     },
     {
       "id": 2296,
@@ -9486,7 +9915,7 @@
     },
     {
       "id": 2297,
-      "name": "哥布林面具",
+      "name": "哥布靈面具",
       "originalName": "Goblin Mask",
       "slot": "head_low",
       "jobs": [],
@@ -9515,11 +9944,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "哥布林面具"
+      ]
     },
     {
       "id": 2298,
-      "name": "綠色觸角",
+      "name": "觸角頭飾",
       "originalName": "Green Feeler",
       "slot": "head_top",
       "jobs": [],
@@ -9574,7 +10006,10 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "綠色觸角"
+      ]
     },
     {
       "id": 2299,
@@ -9773,7 +10208,7 @@
     },
     {
       "id": 2303,
-      "name": "夾克",
+      "name": "皮製外套",
       "originalName": "Jacket",
       "slot": "armor",
       "jobs": [],
@@ -9828,11 +10263,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "夾克"
+      ]
     },
     {
       "id": 2304,
-      "name": "夾克",
+      "name": "皮製外套",
       "originalName": "Jacket",
       "slot": "armor",
       "jobs": [],
@@ -9887,11 +10325,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "夾克"
+      ]
     },
     {
       "id": 2305,
-      "name": "冒險家套裝",
+      "name": "冒險衣",
       "originalName": "Adventurer's Suit",
       "slot": "armor",
       "jobs": [],
@@ -9946,11 +10387,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "冒險家套裝"
+      ]
     },
     {
       "id": 2306,
-      "name": "冒險家套裝",
+      "name": "冒險衣",
       "originalName": "Adventurer's Suit",
       "slot": "armor",
       "jobs": [],
@@ -10005,11 +10449,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "冒險家套裝"
+      ]
     },
     {
       "id": 2307,
-      "name": "斗篷",
+      "name": "大衣",
       "originalName": "Mantle",
       "slot": "armor",
       "jobs": [],
@@ -10042,7 +10489,7 @@
     },
     {
       "id": 2308,
-      "name": "斗篷",
+      "name": "大衣",
       "originalName": "Mantle",
       "slot": "armor",
       "jobs": [],
@@ -10127,7 +10574,7 @@
     },
     {
       "id": 2311,
-      "name": "貂皮大衣",
+      "name": "毛皮大衣",
       "originalName": "Mink Coat",
       "slot": "armor",
       "jobs": [],
@@ -10156,11 +10603,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "貂皮大衣"
+      ]
     },
     {
       "id": 2314,
-      "name": "鎖子甲",
+      "name": "鋼鐵鎖子甲",
       "originalName": "Chain Mail",
       "slot": "armor",
       "jobs": [],
@@ -10189,11 +10639,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "鎖子甲"
+      ]
     },
     {
       "id": 2316,
-      "name": "全身鎧甲",
+      "name": "鋼鐵鎧甲",
       "originalName": "Full Plate",
       "slot": "armor",
       "jobs": [],
@@ -10222,11 +10675,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "全身鎧甲"
+      ]
     },
     {
       "id": 2320,
-      "name": "正式禮服",
+      "name": "西裝外套",
       "originalName": "Formal Suit",
       "slot": "armor",
       "jobs": [],
@@ -10260,11 +10716,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "正式禮服"
+      ]
     },
     {
       "id": 2321,
-      "name": "絲綢長袍",
+      "name": "絲質外袍",
       "originalName": "Silk Robe",
       "slot": "armor",
       "jobs": [],
@@ -10315,11 +10774,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "絲綢長袍"
+      ]
     },
     {
       "id": 2322,
-      "name": "絲綢長袍",
+      "name": "絲質外袍",
       "originalName": "Silk Robe",
       "slot": "armor",
       "jobs": [],
@@ -10378,11 +10840,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "絲綢長袍"
+      ]
     },
     {
       "id": 2323,
-      "name": "聖肩衣",
+      "name": "聖職之袍",
       "originalName": "Scapulare",
       "slot": "armor",
       "jobs": [
@@ -10443,11 +10908,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "聖肩衣"
+      ]
     },
     {
       "id": 2324,
-      "name": "聖肩衣",
+      "name": "聖職之袍",
       "originalName": "Scapulare",
       "slot": "armor",
       "jobs": [
@@ -10504,11 +10972,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "聖肩衣"
+      ]
     },
     {
       "id": 2328,
-      "name": "木甲",
+      "name": "木製鎧甲",
       "originalName": "Wooden Mail",
       "slot": "armor",
       "jobs": [
@@ -10570,11 +11041,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "木甲"
+      ]
     },
     {
       "id": 2329,
-      "name": "木甲",
+      "name": "木製鎧甲",
       "originalName": "Wooden Mail",
       "slot": "armor",
       "jobs": [
@@ -10632,11 +11106,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "木甲"
+      ]
     },
     {
       "id": 2330,
-      "name": "緊身衣",
+      "name": "緊身便衣",
       "originalName": "Tights",
       "slot": "armor",
       "jobs": [],
@@ -10665,11 +11142,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "緊身衣"
+      ]
     },
     {
       "id": 2333,
-      "name": "銀色長袍",
+      "name": "秘銀之衣",
       "originalName": "Silver Robe",
       "slot": "armor",
       "jobs": [
@@ -10726,11 +11206,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "銀色長袍"
+      ]
     },
     {
       "id": 2335,
-      "name": "盜賊服",
+      "name": "盜賊之衣",
       "originalName": "Thief Clothes",
       "slot": "armor",
       "jobs": [],
@@ -10759,11 +11242,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "盜賊服"
+      ]
     },
     {
       "id": 2336,
-      "name": "盜賊服",
+      "name": "盜賊之衣",
       "originalName": "Thief Clothes",
       "slot": "armor",
       "jobs": [
@@ -10821,11 +11307,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "盜賊服"
+      ]
     },
     {
       "id": 2337,
-      "name": "忍者裝",
+      "name": "忍服 血櫻",
       "originalName": "Ninja Suit",
       "slot": "armor",
       "jobs": [
@@ -10884,7 +11373,10 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "忍者裝"
+      ]
     },
     {
       "id": 2353,
@@ -10922,7 +11414,7 @@
     },
     {
       "id": 2355,
-      "name": "天使保護",
+      "name": "天使之守護",
       "originalName": "Angelic Protection",
       "slot": "armor",
       "jobs": [],
@@ -10973,11 +11465,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "天使保護"
+      ]
     },
     {
       "id": 2357,
-      "name": "女武神鎧甲",
+      "name": "巴基力的鎧甲",
       "originalName": "Valkyrie Armor",
       "slot": "armor",
       "jobs": [],
@@ -11008,11 +11503,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "女武神鎧甲"
+      ]
     },
     {
       "id": 2359,
-      "name": "忍者裝",
+      "name": "忍服 血櫻",
       "originalName": "Ninja Suit",
       "slot": "armor",
       "jobs": [
@@ -11075,11 +11573,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "忍者裝"
+      ]
     },
     {
       "id": 2367,
-      "name": "狙擊服",
+      "name": "剪裁服裝",
       "originalName": "Sniping Suit",
       "slot": "armor",
       "jobs": [],
@@ -11108,11 +11609,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "狙擊服"
+      ]
     },
     {
       "id": 2399,
-      "name": "Dragon Vest",
+      "name": "暴躁龍內衣",
       "originalName": "Dragon Vest",
       "slot": "armor",
       "jobs": [],
@@ -11171,11 +11675,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Dragon Vest"
+      ]
     },
     {
       "id": 2403,
-      "name": "鞋子",
+      "name": "長靴",
       "originalName": "Shoes",
       "slot": "shoes",
       "jobs": [],
@@ -11234,11 +11741,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "鞋子"
+      ]
     },
     {
       "id": 2404,
-      "name": "鞋子",
+      "name": "長靴",
       "originalName": "Shoes",
       "slot": "shoes",
       "jobs": [],
@@ -11293,11 +11803,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "鞋子"
+      ]
     },
     {
       "id": 2405,
-      "name": "長靴",
+      "name": "戰士長靴",
       "originalName": "Boots",
       "slot": "shoes",
       "jobs": [],
@@ -11356,7 +11869,7 @@
     },
     {
       "id": 2406,
-      "name": "長靴",
+      "name": "戰士長靴",
       "originalName": "Boots",
       "slot": "shoes",
       "jobs": [
@@ -11442,7 +11955,7 @@
     },
     {
       "id": 2410,
-      "name": "斯雷普尼爾",
+      "name": "史雷普尼爾之靴",
       "originalName": "Sleipnir",
       "slot": "shoes",
       "jobs": [],
@@ -11473,11 +11986,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "斯雷普尼爾"
+      ]
     },
     {
       "id": 2411,
-      "name": "護脛",
+      "name": "重靴",
       "originalName": "Greaves",
       "slot": "shoes",
       "jobs": [],
@@ -11506,11 +12022,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "護脛"
+      ]
     },
     {
       "id": 2418,
-      "name": "維達之靴",
+      "name": "迪塔樂長靴",
       "originalName": "Vidar's Boots",
       "slot": "shoes",
       "jobs": [],
@@ -11539,11 +12058,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "維達之靴"
+      ]
     },
     {
       "id": 2419,
-      "name": "高布紐的護脛",
+      "name": "哥夫內軍靴",
       "originalName": "Goibne's Greaves",
       "slot": "shoes",
       "jobs": [],
@@ -11572,11 +12094,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "高布紐的護脛"
+      ]
     },
     {
       "id": 2420,
-      "name": "天使轉生",
+      "name": "天使之降臨",
       "originalName": "Angel's Reincarnation",
       "slot": "shoes",
       "jobs": [],
@@ -11627,11 +12152,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "天使轉生"
+      ]
     },
     {
       "id": 2424,
-      "name": "潮汐之鞋",
+      "name": "防水長靴",
       "originalName": "Tidal Shoes",
       "slot": "shoes",
       "jobs": [],
@@ -11762,11 +12290,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "潮汐之鞋"
+      ]
     },
     {
       "id": 2503,
-      "name": "圍巾",
+      "name": "披肩",
       "originalName": "Muffler",
       "slot": "garment",
       "jobs": [],
@@ -11821,11 +12352,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "圍巾"
+      ]
     },
     {
       "id": 2504,
-      "name": "圍巾",
+      "name": "披肩",
       "originalName": "Muffler",
       "slot": "garment",
       "jobs": [],
@@ -11880,11 +12414,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "圍巾"
+      ]
     },
     {
       "id": 2505,
-      "name": "披風",
+      "name": "斗篷",
       "originalName": "Manteau",
       "slot": "garment",
       "jobs": [],
@@ -11985,11 +12522,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "披風"
+      ]
     },
     {
       "id": 2506,
-      "name": "披風",
+      "name": "斗篷",
       "originalName": "Manteau",
       "slot": "garment",
       "jobs": [],
@@ -12048,11 +12588,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "披風"
+      ]
     },
     {
       "id": 2507,
-      "name": "古代君主披風",
+      "name": "伯爵斗篷",
       "originalName": "Cape of Ancient Lord",
       "slot": "garment",
       "jobs": [],
@@ -12081,11 +12624,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "古代君主披風"
+      ]
     },
     {
       "id": 2509,
-      "name": "生存披風",
+      "name": "生存斗篷",
       "originalName": "Manteau of Survival",
       "slot": "garment",
       "jobs": [],
@@ -12140,7 +12686,7 @@
     },
     {
       "id": 2511,
-      "name": "骷髏披風",
+      "name": "邪骸戰士的斗篷",
       "originalName": "Skeleton Manteau",
       "slot": "garment",
       "jobs": [],
@@ -12169,11 +12715,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "骷髏披風"
+      ]
     },
     {
       "id": 2515,
-      "name": "鷹之翼",
+      "name": "老鷹之翅膀",
       "originalName": "Eagle Wing",
       "slot": "garment",
       "jobs": [],
@@ -12202,11 +12751,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "鷹之翼"
+      ]
     },
     {
       "id": 2526,
-      "name": "Coat of Dragon Scale",
+      "name": "龍鱗外套",
       "originalName": "Coat of Dragon Scale",
       "slot": "garment",
       "jobs": [],
@@ -12265,11 +12817,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Coat of Dragon Scale"
+      ]
     },
     {
       "id": 2527,
-      "name": "Dragon Breath",
+      "name": "龍的呼吸",
       "originalName": "Dragon Breath",
       "slot": "garment",
       "jobs": [],
@@ -12328,11 +12883,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Dragon Breath"
+      ]
     },
     {
       "id": 2553,
-      "name": "Dragon Manteau",
+      "name": "暴躁龍斗篷",
       "originalName": "Dragon Manteau",
       "slot": "garment",
       "jobs": [],
@@ -12391,11 +12949,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Dragon Manteau"
+      ]
     },
     {
       "id": 2603,
-      "name": "項鍊",
+      "name": "體力項鏈",
       "originalName": "Necklace",
       "slot": "acc",
       "jobs": [],
@@ -12486,11 +13047,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "項鍊"
+      ]
     },
     {
       "id": 2605,
-      "name": "胸針",
+      "name": "敏捷別針",
       "originalName": "Brooch",
       "slot": "acc",
       "jobs": [],
@@ -12571,11 +13135,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "胸針"
+      ]
     },
     {
       "id": 2607,
-      "name": "夾子",
+      "name": "髮夾",
       "originalName": "Clip",
       "slot": "acc",
       "jobs": [],
@@ -12665,11 +13232,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "夾子"
+      ]
     },
     {
       "id": 2608,
-      "name": "玫瑰念珠",
+      "name": "幸運珠鏈",
       "originalName": "Rosary",
       "slot": "acc",
       "jobs": [],
@@ -12730,7 +13300,10 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "玫瑰念珠"
+      ]
     },
     {
       "id": 2609,
@@ -12847,7 +13420,7 @@
     },
     {
       "id": 2614,
-      "name": "杜拉漢之眼",
+      "name": "永恆戒指",
       "originalName": "Eye of Dullahan",
       "slot": "acc",
       "jobs": [],
@@ -12877,11 +13450,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "杜拉漢之眼"
+      ]
     },
     {
       "id": 2615,
-      "name": "安全戒指",
+      "name": "防禦戒指",
       "originalName": "Safety Ring",
       "slot": "acc",
       "jobs": [],
@@ -12932,11 +13508,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "安全戒指"
+      ]
     },
     {
       "id": 2616,
-      "name": "爆擊戒指",
+      "name": "潛能戒指",
       "originalName": "Critical Ring",
       "slot": "acc",
       "jobs": [],
@@ -12987,11 +13566,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "爆擊戒指"
+      ]
     },
     {
       "id": 2617,
-      "name": "祭司手套",
+      "name": "智慧手套",
       "originalName": "Celebrant's Mitten",
       "slot": "acc",
       "jobs": [],
@@ -13020,11 +13602,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "祭司手套"
+      ]
     },
     {
       "id": 2619,
-      "name": "弓箭手的頂針",
+      "name": "神射手套",
       "originalName": "Bow Thimble",
       "slot": "acc",
       "jobs": [],
@@ -13053,11 +13638,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "弓箭手的頂針"
+      ]
     },
     {
       "id": 2620,
-      "name": "流氓的寶物",
+      "name": "怪盜戒指",
       "originalName": "Rogue's Treasure",
       "slot": "acc",
       "jobs": [],
@@ -13148,11 +13736,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "流氓的寶物"
+      ]
     },
     {
       "id": 2623,
-      "name": "項鍊",
+      "name": "體力項鏈",
       "originalName": "Necklace",
       "slot": "acc",
       "jobs": [],
@@ -13209,11 +13800,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "項鍊"
+      ]
     },
     {
       "id": 2625,
-      "name": "胸針",
+      "name": "敏捷別針",
       "originalName": "Brooch",
       "slot": "acc",
       "jobs": [],
@@ -13272,11 +13866,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "胸針"
+      ]
     },
     {
       "id": 2626,
-      "name": "玫瑰念珠",
+      "name": "幸運珠鏈",
       "originalName": "Rosary",
       "slot": "acc",
       "jobs": [],
@@ -13335,11 +13932,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "玫瑰念珠"
+      ]
     },
     {
       "id": 2627,
-      "name": "腰帶",
+      "name": "皮帶",
       "originalName": "Belt",
       "slot": "acc",
       "jobs": [],
@@ -13430,7 +14030,10 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "腰帶"
+      ]
     },
     {
       "id": 2629,
@@ -13469,7 +14072,7 @@
     },
     {
       "id": 2630,
-      "name": "布理辛格曼",
+      "name": "女神頸鍊",
       "originalName": "Brisingamen",
       "slot": "acc",
       "jobs": [],
@@ -13500,11 +14103,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "布理辛格曼"
+      ]
     },
     {
       "id": 2666,
-      "name": "Lantern of Hope",
+      "name": "希望燈籠",
       "originalName": "Lantern of Hope",
       "slot": "acc",
       "jobs": [],
@@ -13563,11 +14169,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Lantern of Hope"
+      ]
     },
     {
       "id": 2678,
-      "name": "火焰領主戒指",
+      "name": "火焰國王戒指",
       "originalName": "Ring of Flame Lord",
       "slot": "acc",
       "jobs": [],
@@ -13596,7 +14205,10 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "火焰領主戒指"
+      ]
     },
     {
       "id": 2679,
@@ -13633,7 +14245,7 @@
     },
     {
       "id": 2700,
-      "name": "Red Silk Seal",
+      "name": "封印的紅色綢緞",
       "originalName": "Red Silk Seal",
       "slot": "acc",
       "jobs": [],
@@ -13692,11 +14304,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Red Silk Seal"
+      ]
     },
     {
       "id": 2708,
-      "name": "Chinese Handicraft",
+      "name": "中式手工藝品",
       "originalName": "Chinese Handicraft",
       "slot": "acc",
       "jobs": [],
@@ -13755,7 +14370,10 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Chinese Handicraft"
+      ]
     },
     {
       "id": 2715,
@@ -13822,7 +14440,7 @@
     },
     {
       "id": 2986,
-      "name": "Snake Ring",
+      "name": "蛇戒",
       "originalName": "Snake Ring",
       "slot": "acc",
       "jobs": [],
@@ -13881,11 +14499,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Snake Ring"
+      ]
     },
     {
       "id": 5008,
-      "name": "小狗之愛",
+      "name": "花冠",
       "originalName": "Puppy Love",
       "slot": "head_top",
       "jobs": [],
@@ -13940,11 +14561,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "小狗之愛"
+      ]
     },
     {
       "id": 5012,
-      "name": "博士帽",
+      "name": "學士帽",
       "originalName": "Ph.D Hat",
       "slot": "head_top",
       "jobs": [],
@@ -13976,11 +14600,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "博士帽"
+      ]
     },
     {
       "id": 5013,
-      "name": "卡侯領主之角",
+      "name": "卡浩之角",
       "originalName": "Lord Kaho's Horn",
       "slot": "head_top",
       "jobs": [],
@@ -14009,11 +14636,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "卡侯領主之角"
+      ]
     },
     {
       "id": 5017,
-      "name": "骨盔",
+      "name": "骨製頭盔",
       "originalName": "Bone Helm",
       "slot": "head_top",
       "jobs": [],
@@ -14042,11 +14672,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "骨盔"
+      ]
     },
     {
       "id": 5019,
-      "name": "海盜帽",
+      "name": "海盜船長帽",
       "originalName": "Corsair",
       "slot": "head_top",
       "jobs": [],
@@ -14101,7 +14734,10 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "海盜帽"
+      ]
     },
     {
       "id": 5035,
@@ -14188,7 +14824,7 @@
     },
     {
       "id": 5046,
-      "name": "邦艮帽",
+      "name": "妖道帽",
       "originalName": "Bongun Hat",
       "slot": "head_top",
       "jobs": [],
@@ -14243,11 +14879,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "邦艮帽"
+      ]
     },
     {
       "id": 5167,
-      "name": "慕納克帽",
+      "name": "殭屍帽",
       "originalName": "Munak Hat",
       "slot": "head_top",
       "jobs": [],
@@ -14306,11 +14945,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "慕納克帽"
+      ]
     },
     {
       "id": 13001,
-      "name": "屠龍刀",
+      "name": "天龍短劍",
       "originalName": "Dragon Killer",
       "slot": "weapon",
       "jobs": [
@@ -14341,11 +14983,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "屠龍刀"
+      ]
     },
     {
       "id": 13007,
-      "name": "十手",
+      "name": "破刃劍",
       "originalName": "Jitte",
       "slot": "weapon",
       "jobs": [
@@ -14388,11 +15033,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "十手"
+      ]
     },
     {
       "id": 13011,
-      "name": "阿修羅",
+      "name": "匕首",
       "originalName": "Asura",
       "slot": "weapon",
       "jobs": [
@@ -14451,11 +15099,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "阿修羅"
+      ]
     },
     {
       "id": 13030,
-      "name": "屠龍刀",
+      "name": "天龍短劍",
       "originalName": "Dragon Killer",
       "slot": "weapon",
       "jobs": [
@@ -14523,11 +15174,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "屠龍刀"
+      ]
     },
     {
       "id": 13046,
-      "name": "克里格",
+      "name": "刺針短劍",
       "originalName": "Krieg",
       "slot": "weapon",
       "jobs": [
@@ -14586,11 +15240,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "克里格"
+      ]
     },
     {
       "id": 13101,
-      "name": "六連發左輪",
+      "name": "六輪發手槍",
       "originalName": "Six Shooter",
       "slot": "weapon",
       "jobs": [
@@ -14627,11 +15284,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "六連發左輪"
+      ]
     },
     {
       "id": 13104,
-      "name": "守備兵",
+      "name": "加立遜手槍",
       "originalName": "Garrison",
       "slot": "weapon",
       "jobs": [
@@ -14690,11 +15350,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "守備兵"
+      ]
     },
     {
       "id": 13150,
-      "name": "樹枝",
+      "name": "布林其來福槍",
       "originalName": "Branch",
       "slot": "weapon",
       "jobs": [
@@ -14737,11 +15400,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "樹枝"
+      ]
     },
     {
       "id": 13151,
-      "name": "旋風",
+      "name": "風暴來福槍",
       "originalName": "Cyclone",
       "slot": "weapon",
       "jobs": [
@@ -14800,11 +15466,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "旋風"
+      ]
     },
     {
       "id": 13152,
-      "name": "旋風",
+      "name": "風暴來福槍",
       "originalName": "Cyclone",
       "slot": "weapon",
       "jobs": [
@@ -14867,11 +15536,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "旋風"
+      ]
     },
     {
       "id": 13156,
-      "name": "守門人",
+      "name": "守門霰彈槍",
       "originalName": "Gate Keeper",
       "slot": "weapon",
       "jobs": [
@@ -14902,11 +15574,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "守門人"
+      ]
     },
     {
       "id": 13160,
-      "name": "毀滅者",
+      "name": "破壞者榴彈槍",
       "originalName": "Destroyer",
       "slot": "weapon",
       "jobs": [
@@ -14937,11 +15612,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "毀滅者"
+      ]
     },
     {
       "id": 13301,
-      "name": "風魔巨輪手裡劍",
+      "name": "風魔輪飛鏢",
       "originalName": "Huuma Giant Wheel Shuriken",
       "slot": "weapon",
       "jobs": [
@@ -14972,11 +15650,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "風魔巨輪手裡劍"
+      ]
     },
     {
       "id": 13303,
-      "name": "風魔火焰手裡劍",
+      "name": "風魔熱火飛鏢",
       "originalName": "Huuma Blaze Shuriken",
       "slot": "weapon",
       "jobs": [
@@ -15007,11 +15688,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "風魔火焰手裡劍"
+      ]
     },
     {
       "id": 13420,
-      "name": "Red Lotus Sword",
+      "name": "紅蓮劍",
       "originalName": "Red Lotus Sword",
       "slot": "weapon",
       "jobs": [
@@ -15078,7 +15762,10 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Red Lotus Sword"
+      ]
     },
     {
       "id": 13435,
@@ -15149,7 +15836,7 @@
     },
     {
       "id": 18677,
-      "name": "Cherry Twig in Mouth",
+      "name": "嘴刁櫻花樹枝",
       "originalName": "Cherry Twig in Mouth",
       "slot": "head_low",
       "jobs": [],
@@ -15208,11 +15895,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Cherry Twig in Mouth"
+      ]
     },
     {
       "id": 18713,
-      "name": "Monkey Fur Hat",
+      "name": "猴子毛帽",
       "originalName": "Monkey Fur Hat",
       "slot": "head_top",
       "jobs": [],
@@ -15271,11 +15961,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Monkey Fur Hat"
+      ]
     },
     {
       "id": 18725,
-      "name": "Rabbit Knit Hat",
+      "name": "兔耳針織帽",
       "originalName": "Rabbit Knit Hat",
       "slot": "head_top",
       "jobs": [],
@@ -15334,11 +16027,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Rabbit Knit Hat"
+      ]
     },
     {
       "id": 18753,
-      "name": "Rice Dumpling Hat",
+      "name": "肉粽帽子",
       "originalName": "Rice Dumpling Hat",
       "slot": "head_top",
       "jobs": [],
@@ -15397,11 +16093,14 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Rice Dumpling Hat"
+      ]
     },
     {
       "id": 18893,
-      "name": "Dragon Claw Helm",
+      "name": "龍之爪頭盔",
       "originalName": "Dragon Claw Helm",
       "slot": "head_top",
       "jobs": [],
@@ -15460,7 +16159,10 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Dragon Claw Helm"
+      ]
     },
     {
       "id": 20813,
@@ -15526,7 +16228,7 @@
     },
     {
       "id": 22847,
-      "name": "普隆德拉巡邏隊徽章",
+      "name": "普隆德拉卷軸",
       "originalName": "Prontera Patrol Badge",
       "slot": "acc",
       "jobs": [],
@@ -15566,11 +16268,14 @@
         "name": "candidate",
         "slot": "official",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "普隆德拉巡邏隊徽章"
+      ]
     },
     {
       "id": 28560,
-      "name": "Yin Yang Talisman",
+      "name": "陰陽護符",
       "originalName": "Yin Yang Talisman",
       "slot": "acc",
       "jobs": [],
@@ -15629,7 +16334,10 @@
         "name": "candidate",
         "slot": "candidate",
         "jobs": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Yin Yang Talisman"
+      ]
     }
   ],
   "cards": [
@@ -15871,7 +16579,7 @@
     },
     {
       "id": 4008,
-      "name": "皮丘卡片",
+      "name": "小雞卡片",
       "originalName": "Picky Card",
       "monsterId": "picky",
       "bonuses": [
@@ -15910,11 +16618,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "皮丘卡片"
+      ]
     },
     {
       "id": 4009,
-      "name": "叮噹蒼蠅卡片",
+      "name": "蒼蠅卡片",
       "originalName": "Chonchon Card",
       "monsterId": "chonchon",
       "bonuses": [
@@ -15942,7 +16653,10 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "叮噹蒼蠅卡片"
+      ]
     },
     {
       "id": 4010,
@@ -16030,7 +16744,7 @@
     },
     {
       "id": 4014,
-      "name": "洛達蛙卡片",
+      "name": "羅達蛙卡片",
       "originalName": "Roda Frog Card",
       "monsterId": "roda_frog",
       "bonuses": [
@@ -16067,7 +16781,10 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "洛達蛙卡片"
+      ]
     },
     {
       "id": 4015,
@@ -16188,7 +16905,7 @@
     },
     {
       "id": 4019,
-      "name": "大黃蜂卡片",
+      "name": "蜂兵卡片",
       "originalName": "Hornet Card",
       "monsterId": "hornet",
       "bonuses": [
@@ -16227,11 +16944,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "大黃蜂卡片"
+      ]
     },
     {
       "id": 4020,
-      "name": "蝙蝠卡片",
+      "name": "吸血蝙蝠卡片",
       "originalName": "Familiar Card",
       "monsterId": "familiar",
       "bonuses": [
@@ -16266,7 +16986,10 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "蝙蝠卡片"
+      ]
     },
     {
       "id": 4021,
@@ -16311,7 +17034,7 @@
     },
     {
       "id": 4022,
-      "name": "菇菇卡片",
+      "name": "魔菇卡片",
       "originalName": "Spore Card",
       "monsterId": "spore",
       "bonuses": [
@@ -16348,7 +17071,10 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "菇菇卡片"
+      ]
     },
     {
       "id": 4023,
@@ -16393,7 +17119,7 @@
     },
     {
       "id": 4024,
-      "name": "浮游生物卡片",
+      "name": "漂浮蟲卡片",
       "originalName": "Plankton Card",
       "monsterId": "plankton",
       "bonuses": [
@@ -16428,11 +17154,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "浮游生物卡片"
+      ]
     },
     {
       "id": 4025,
-      "name": "骷髏卡片",
+      "name": "邪骸戰士卡片",
       "originalName": "Skeleton Card",
       "monsterId": "skeleton",
       "bonuses": [
@@ -16470,11 +17199,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "骷髏卡片"
+      ]
     },
     {
       "id": 4026,
-      "name": "母盜蟲卡片",
+      "name": "浮勒盜蟲卡片",
       "originalName": "Female Thiefbug Card",
       "monsterId": "thief_bug_female",
       "bonuses": [
@@ -16513,7 +17245,10 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "母盜蟲卡片"
+      ]
     },
     {
       "id": 4027,
@@ -16556,7 +17291,7 @@
     },
     {
       "id": 4028,
-      "name": "塔羅鼠卡片",
+      "name": "白鼠卡片",
       "originalName": "Tarou Card",
       "monsterId": "tarou",
       "bonuses": [
@@ -16591,7 +17326,10 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "塔羅鼠卡片"
+      ]
     },
     {
       "id": 4029,
@@ -16644,7 +17382,7 @@
     },
     {
       "id": 4030,
-      "name": "曼陀羅花卡片",
+      "name": "曼陀蘿魔花卡片",
       "originalName": "Mandragora Card",
       "monsterId": "mandragora",
       "bonuses": [
@@ -16681,7 +17419,10 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "曼陀羅花卡片"
+      ]
     },
     {
       "id": 4033,
@@ -16732,7 +17473,7 @@
     },
     {
       "id": 4034,
-      "name": "蠕蟲尾卡片",
+      "name": "森靈卡片",
       "originalName": "Wormtail Card",
       "monsterId": "worm_tail",
       "bonuses": [
@@ -16767,7 +17508,10 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "蠕蟲尾卡片"
+      ]
     },
     {
       "id": 4035,
@@ -16812,7 +17556,7 @@
     },
     {
       "id": 4037,
-      "name": "蟒蛇卡片",
+      "name": "青蛇卡片",
       "originalName": "Snake Card",
       "monsterId": "snake",
       "bonuses": [
@@ -16851,11 +17595,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "蟒蛇卡片"
+      ]
     },
     {
       "id": 4038,
-      "name": "殭屍卡片",
+      "name": "腐屍卡片",
       "originalName": "Zombie Card",
       "monsterId": "zombie",
       "bonuses": [
@@ -16902,7 +17649,7 @@
     },
     {
       "id": 4040,
-      "name": "粉蝶卡片",
+      "name": "克瑞米卡片",
       "originalName": "Creamy Card",
       "monsterId": "creamy",
       "bonuses": [
@@ -16938,7 +17685,10 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "粉蝶卡片"
+      ]
     },
     {
       "id": 4044,
@@ -17024,7 +17774,7 @@
     },
     {
       "id": 4048,
-      "name": "毒菇卡片",
+      "name": "毒魔菇卡片",
       "originalName": "Poison Spore Card",
       "monsterId": "poison_spore",
       "bonuses": [
@@ -17059,11 +17809,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "毒菇卡片"
+      ]
     },
     {
       "id": 4049,
-      "name": "瓦頓蟹卡片",
+      "name": "螃蟹卡片",
       "originalName": "Vadon Card",
       "monsterId": "vadon",
       "bonuses": [
@@ -17100,11 +17853,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "瓦頓蟹卡片"
+      ]
     },
     {
       "id": 4052,
-      "name": "老樹精卡片",
+      "name": "長老樹精卡片",
       "originalName": "Elder Willow Card",
       "monsterId": "elder_willow",
       "bonuses": [
@@ -17139,7 +17895,10 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "老樹精卡片"
+      ]
     },
     {
       "id": 4054,
@@ -17228,7 +17987,7 @@
     },
     {
       "id": 4060,
-      "name": "哥布林卡片",
+      "name": "哥布靈卡片",
       "originalName": "Goblin Card",
       "monsterId": "goblin",
       "bonuses": [
@@ -17265,11 +18024,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "哥布林卡片"
+      ]
     },
     {
       "id": 4061,
-      "name": "海螺卡片",
+      "name": "卡那多斯卡片",
       "originalName": "Cornutus Card",
       "monsterId": "cornutus",
       "bonuses": [
@@ -17308,7 +18070,10 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "海螺卡片"
+      ]
     },
     {
       "id": 4066,
@@ -17360,7 +18125,7 @@
     },
     {
       "id": 4069,
-      "name": "吸血蝙蝠卡片",
+      "name": "紅蝙蝠卡片",
       "originalName": "Drainliar Card",
       "monsterId": "drainliar",
       "bonuses": [
@@ -17401,7 +18166,7 @@
     },
     {
       "id": 4073,
-      "name": "海盜骷髏卡片",
+      "name": "邪骸海盜卡片",
       "originalName": "Pirate Skel Card",
       "monsterId": "pirate_skel",
       "bonuses": [
@@ -17436,7 +18201,10 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "海盜骷髏卡片"
+      ]
     },
     {
       "id": 4074,
@@ -17482,7 +18250,7 @@
     },
     {
       "id": 4077,
-      "name": "芬魚卡片",
+      "name": "劍魚卡片",
       "originalName": "Phen Card",
       "monsterId": "phen",
       "bonuses": [
@@ -17519,11 +18287,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "芬魚卡片"
+      ]
     },
     {
       "id": 4084,
-      "name": "海洋炸彈卡片",
+      "name": "氣泡蟲卡片",
       "originalName": "Marine Sphere Card",
       "monsterId": "marine_sphere",
       "bonuses": [
@@ -17558,11 +18329,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "海洋炸彈卡片"
+      ]
     },
     {
       "id": 4085,
-      "name": "獸人骷髏卡片",
+      "name": "邪骸獸人卡片",
       "originalName": "Orc Skeleton Card",
       "monsterId": "orc_skeleton",
       "bonuses": [
@@ -17599,11 +18373,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "獸人骷髏卡片"
+      ]
     },
     {
       "id": 4086,
-      "name": "骷髏士兵卡片",
+      "name": "邪骸士兵卡片",
       "originalName": "Soldier Skeleton Card",
       "monsterId": "skel_soldier",
       "bonuses": [
@@ -17640,11 +18417,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "骷髏士兵卡片"
+      ]
     },
     {
       "id": 4089,
-      "name": "劍魚卡片",
+      "name": "異變魚卡片",
       "originalName": "Swordfish Card",
       "monsterId": "sword_fish",
       "bonuses": [
@@ -17687,7 +18467,7 @@
     },
     {
       "id": 4090,
-      "name": "慕納克卡片",
+      "name": "殭屍卡片",
       "originalName": "Munak Card",
       "monsterId": "munak",
       "bonuses": [
@@ -17724,7 +18504,10 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "慕納克卡片"
+      ]
     },
     {
       "id": 4091,
@@ -17769,7 +18552,7 @@
     },
     {
       "id": 4093,
-      "name": "歐比恩卡片",
+      "name": "人魚卡片",
       "originalName": "Obeaune Card",
       "monsterId": "obeaune",
       "bonuses": [
@@ -17806,11 +18589,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "歐比恩卡片"
+      ]
     },
     {
       "id": 4094,
-      "name": "骷髏弓箭手卡片",
+      "name": "邪骸弓箭手卡片",
       "originalName": "Archer Skeleton Card",
       "monsterId": "skel_archer",
       "bonuses": [
@@ -17848,11 +18634,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "骷髏弓箭手卡片"
+      ]
     },
     {
       "id": 4095,
-      "name": "章魚卡片",
+      "name": "烏賊卡片",
       "originalName": "Marse Card",
       "monsterId": "marse",
       "bonuses": [
@@ -17887,11 +18676,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "章魚卡片"
+      ]
     },
     {
       "id": 4098,
-      "name": "獨角鬼卡片",
+      "name": "土人卡片",
       "originalName": "Dokkaebi Card",
       "monsterId": "dokebi",
       "bonuses": [
@@ -17927,11 +18719,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "獨角鬼卡片"
+      ]
     },
     {
       "id": 4100,
-      "name": "蘇熙卡片",
+      "name": "鬼女卡片",
       "originalName": "Sohee Card",
       "monsterId": "sohee",
       "bonuses": [
@@ -17970,11 +18765,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "蘇熙卡片"
+      ]
     },
     {
       "id": 4102,
-      "name": "幽影卡片",
+      "name": "白幽靈卡片",
       "originalName": "Whisper Card",
       "monsterId": "whisper",
       "bonuses": [
@@ -18013,11 +18811,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "幽影卡片"
+      ]
     },
     {
       "id": 4103,
-      "name": "火鬼卡片",
+      "name": "鬼火卡片",
       "originalName": "Horong Card",
       "monsterId": "horong",
       "bonuses": [
@@ -18052,11 +18853,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "火鬼卡片"
+      ]
     },
     {
       "id": 4111,
-      "name": "史特勞夫卡片",
+      "name": "海神卡片",
       "originalName": "Strouf Card",
       "monsterId": "strouf",
       "bonuses": [
@@ -18093,7 +18897,10 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "史特勞夫卡片"
+      ]
     },
     {
       "id": 4123,
@@ -18139,7 +18946,7 @@
     },
     {
       "id": 4125,
-      "name": "迪維斯卡片",
+      "name": "狄奧斯卡片",
       "originalName": "Deviace Card",
       "monsterId": "deviace",
       "bonuses": [
@@ -18176,7 +18983,10 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "迪維斯卡片"
+      ]
     },
     {
       "id": 4128,
@@ -18264,7 +19074,7 @@
     },
     {
       "id": 4137,
-      "name": "德瑞克卡片",
+      "name": "海盜之王卡片",
       "originalName": "Drake Card",
       "monsterId": "drake",
       "bonuses": [
@@ -18302,7 +19112,10 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "德瑞克卡片"
+      ]
     },
     {
       "id": 4143,
@@ -18349,7 +19162,7 @@
     },
     {
       "id": 4144,
-      "name": "歐西里斯卡片",
+      "name": "俄塞里斯卡片",
       "originalName": "Osiris Card",
       "monsterId": "osiris",
       "bonuses": [
@@ -18384,7 +19197,10 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "歐西里斯卡片"
+      ]
     },
     {
       "id": 4147,
@@ -18469,7 +19285,7 @@
     },
     {
       "id": 4172,
-      "name": "The Paper Card",
+      "name": "紙妖卡片",
       "originalName": "The Paper Card",
       "monsterId": "the_paper",
       "bonuses": [
@@ -18500,7 +19316,10 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "The Paper Card"
+      ]
     },
     {
       "id": 4174,
@@ -18546,7 +19365,7 @@
     },
     {
       "id": 4178,
-      "name": "龍尾蜻蜓卡片",
+      "name": "刺尾蜻蜓卡片",
       "originalName": "Dragon Tail Card",
       "monsterId": "dragon_tail",
       "bonuses": [
@@ -18581,11 +19400,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "龍尾蜻蜓卡片"
+      ]
     },
     {
       "id": 4179,
-      "name": "龍蜻蜓卡片",
+      "name": "龍蠅卡片",
       "originalName": "Dragonfly Card",
       "monsterId": "dragon_fly",
       "bonuses": [
@@ -18621,11 +19443,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "龍蜻蜓卡片"
+      ]
     },
     {
       "id": 4183,
-      "name": "流浪狼卡片",
+      "name": "流浪之狼卡片",
       "originalName": "Wandering Wolf Card",
       "monsterId": "vagabond_wolf",
       "bonuses": [
@@ -18663,11 +19488,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "流浪狼卡片"
+      ]
     },
     {
       "id": 4195,
-      "name": "Leaf Cat Card",
+      "name": "群葉貓卡片",
       "originalName": "Leaf Cat Card",
       "monsterId": "leaf_cat",
       "bonuses": [
@@ -18698,11 +19526,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Leaf Cat Card"
+      ]
     },
     {
       "id": 4197,
-      "name": "波利王卡片",
+      "name": "波利之王卡片",
       "originalName": "Mastering Card",
       "monsterId": "mastering",
       "bonuses": [
@@ -18740,11 +19571,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "波利王卡片"
+      ]
     },
     {
       "id": 4199,
-      "name": "魚人卡片",
+      "name": "人魚士兵卡片",
       "originalName": "Merman Card",
       "monsterId": "merman",
       "bonuses": [
@@ -18781,11 +19615,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "魚人卡片"
+      ]
     },
     {
       "id": 4210,
-      "name": "Wanderer Card",
+      "name": "邪骸浪人卡片",
       "originalName": "Wanderer Card",
       "monsterId": "wanderer",
       "bonuses": [
@@ -18814,11 +19651,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Wanderer Card"
+      ]
     },
     {
       "id": 4211,
-      "name": "吟唱蝗蟲卡片",
+      "name": "蝗蟲之王卡片",
       "originalName": "Vocal Card",
       "monsterId": "vocal",
       "bonuses": [
@@ -18854,11 +19694,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "吟唱蝗蟲卡片"
+      ]
     },
     {
       "id": 4212,
-      "name": "邦艮卡片",
+      "name": "妖道卡片",
       "originalName": "Bongun Card",
       "monsterId": "bon_gun",
       "bonuses": [
@@ -18893,11 +19736,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "邦艮卡片"
+      ]
     },
     {
       "id": 4217,
-      "name": "Enchanted Peach Tree Card",
+      "name": "猴桃木卡片",
       "originalName": "Enchanted Peach Tree Card",
       "monsterId": "live_peach_tree",
       "bonuses": [
@@ -18927,11 +19773,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Enchanted Peach Tree Card"
+      ]
     },
     {
       "id": 4221,
-      "name": "骷髏將軍卡片",
+      "name": "邪骸戰士長卡片",
       "originalName": "Skeleton General Card",
       "monsterId": "skeleton_general",
       "bonuses": [
@@ -18969,11 +19818,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "骷髏將軍卡片"
+      ]
     },
     {
       "id": 4225,
-      "name": "Stone Shooter Card",
+      "name": "石砲火樹卡片",
       "originalName": "Stone Shooter Card",
       "monsterId": "stone_shooter",
       "bonuses": [
@@ -19003,11 +19855,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Stone Shooter Card"
+      ]
     },
     {
       "id": 4227,
-      "name": "Spring Rabbit Card",
+      "name": "彈簧兔卡片",
       "originalName": "Spring Rabbit Card",
       "monsterId": "spring_rabbit",
       "bonuses": [
@@ -19035,11 +19890,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Spring Rabbit Card"
+      ]
     },
     {
       "id": 4239,
-      "name": "Iron Fist Card",
+      "name": "鐵蠍卡片",
       "originalName": "Iron Fist Card",
       "monsterId": "iron_fist",
       "bonuses": [
@@ -19067,11 +19925,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Iron Fist Card"
+      ]
     },
     {
       "id": 4259,
-      "name": "Wooden Golem Card",
+      "name": "機木人卡片",
       "originalName": "Wooden Golem Card",
       "monsterId": "wooden_golem",
       "bonuses": [
@@ -19103,11 +19964,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Wooden Golem Card"
+      ]
     },
     {
       "id": 4266,
-      "name": "蝕月兔卡片",
+      "name": "藍瘋兔卡片",
       "originalName": "Eclipse Card",
       "monsterId": "eclipse",
       "bonuses": [
@@ -19146,11 +20010,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "蝕月兔卡片"
+      ]
     },
     {
       "id": 4283,
-      "name": "天下大將軍卡片",
+      "name": "將軍魔碑卡片",
       "originalName": "Greatest General Card",
       "monsterId": "greatest_general",
       "bonuses": [
@@ -19189,11 +20056,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "天下大將軍卡片"
+      ]
     },
     {
       "id": 4287,
-      "name": "Kapha Card",
+      "name": "釣魚河童卡片",
       "originalName": "Kapha Card",
       "monsterId": "kapha",
       "bonuses": [
@@ -19226,11 +20096,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Kapha Card"
+      ]
     },
     {
       "id": 4290,
-      "name": "九尾貓卡片",
+      "name": "狂暴月夜貓卡片",
       "originalName": "Cat O' Nine Tails Card",
       "monsterId": "cat_o_nine_tail",
       "bonuses": [
@@ -19268,11 +20141,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "九尾貓卡片"
+      ]
     },
     {
       "id": 4296,
-      "name": "巨鼠卡片",
+      "name": "藍鼠卡片",
       "originalName": "Cramp Card",
       "monsterId": "cramp",
       "bonuses": [
@@ -19307,11 +20183,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "巨鼠卡片"
+      ]
     },
     {
       "id": 4306,
-      "name": "蟾蜍卡片",
+      "name": "蛙王卡片",
       "originalName": "Toad Card",
       "monsterId": "toad",
       "bonuses": [
@@ -19346,11 +20225,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "蟾蜍卡片"
+      ]
     },
     {
       "id": 4314,
-      "name": "佩諾梅娜卡片",
+      "name": "梅納海葵卡片",
       "originalName": "Penomena Card",
       "monsterId": "penomena",
       "bonuses": [
@@ -19388,11 +20270,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "佩諾梅娜卡片"
+      ]
     },
     {
       "id": 4328,
-      "name": "惠君卡片",
+      "name": "妖君卡片",
       "originalName": "Yao Jun Card",
       "monsterId": "hyegun",
       "bonuses": [
@@ -19431,11 +20316,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "惠君卡片"
+      ]
     },
     {
       "id": 4330,
-      "name": "Dark Snake Lord Card",
+      "name": "墨蛇君卡片",
       "originalName": "Dark Snake Lord Card",
       "monsterId": "dark_snake_lord",
       "bonuses": [
@@ -19466,11 +20354,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Dark Snake Lord Card"
+      ]
     },
     {
       "id": 4372,
-      "name": "White Lady Card",
+      "name": "白素貞卡片",
       "originalName": "White Lady Card",
       "monsterId": "bacsojin",
       "bonuses": [
@@ -19501,11 +20392,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "White Lady Card"
+      ]
     },
     {
       "id": 4524,
-      "name": "朵拉莫王卡片",
+      "name": "大腳龍蝦卡片",
       "originalName": "King Dramoh Card",
       "monsterId": "king_dramoh",
       "bonuses": [
@@ -19540,11 +20434,14 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "朵拉莫王卡片"
+      ]
     },
     {
       "id": 4525,
-      "name": "克拉肯卡片",
+      "name": "魔鬼大烏賊卡片",
       "originalName": "Kraken Card",
       "monsterId": "kraken",
       "bonuses": [
@@ -19582,7 +20479,10 @@
         "name": "candidate",
         "bonuses": "candidate",
         "monster": "candidate"
-      }
+      },
+      "nameAliases": [
+        "克拉肯卡片"
+      ]
     }
   ],
   "monsters": [
@@ -19742,7 +20642,7 @@
     },
     {
       "id": "picky",
-      "name": "皮丘",
+      "name": "小雞",
       "boss": false,
       "stages": [
         {
@@ -19770,11 +20670,14 @@
         "height": 26,
         "sheetWidth": 871,
         "sheetHeight": 26
-      }
+      },
+      "nameAliases": [
+        "皮丘"
+      ]
     },
     {
       "id": "roda_frog",
-      "name": "洛達蛙",
+      "name": "羅達蛙",
       "boss": false,
       "stages": [
         {
@@ -19802,7 +20705,10 @@
         "height": 52,
         "sheetWidth": 2044,
         "sheetHeight": 207
-      }
+      },
+      "nameAliases": [
+        "洛達蛙"
+      ]
     },
     {
       "id": "peco_egg",
@@ -19896,7 +20802,7 @@
     },
     {
       "id": "creamy",
-      "name": "粉蝶",
+      "name": "克瑞米",
       "boss": false,
       "stages": [
         {
@@ -19924,11 +20830,14 @@
         "height": 53,
         "sheetWidth": 2016,
         "sheetHeight": 240
-      }
+      },
+      "nameAliases": [
+        "粉蝶"
+      ]
     },
     {
       "id": "hornet",
-      "name": "大黃蜂",
+      "name": "蜂兵",
       "boss": false,
       "stages": [
         {
@@ -19956,11 +20865,14 @@
         "height": 48,
         "sheetWidth": 2042,
         "sheetHeight": 112
-      }
+      },
+      "nameAliases": [
+        "大黃蜂"
+      ]
     },
     {
       "id": "mandragora",
-      "name": "曼陀羅花",
+      "name": "曼陀蘿魔花",
       "boss": false,
       "stages": [
         {
@@ -19988,7 +20900,10 @@
         "height": 63,
         "sheetWidth": 2000,
         "sheetHeight": 138
-      }
+      },
+      "nameAliases": [
+        "曼陀羅花"
+      ]
     },
     {
       "id": "baby_desert_wolf",
@@ -20056,7 +20971,7 @@
     },
     {
       "id": "eclipse",
-      "name": "蝕月兔",
+      "name": "藍瘋兔",
       "boss": true,
       "stages": [
         {
@@ -20084,11 +20999,14 @@
         "height": 26,
         "sheetWidth": 2036,
         "sheetHeight": 62
-      }
+      },
+      "nameAliases": [
+        "蝕月兔"
+      ]
     },
     {
       "id": "toad",
-      "name": "蟾蜍",
+      "name": "蛙王",
       "boss": true,
       "stages": [
         {
@@ -20116,11 +21034,14 @@
         "height": 52,
         "sheetWidth": 2014,
         "sheetHeight": 192
-      }
+      },
+      "nameAliases": [
+        "蟾蜍"
+      ]
     },
     {
       "id": "dragon_fly",
-      "name": "龍蜻蜓",
+      "name": "龍蠅",
       "boss": true,
       "stages": [
         {
@@ -20148,11 +21069,14 @@
         "height": 29,
         "sheetWidth": 2020,
         "sheetHeight": 56
-      }
+      },
+      "nameAliases": [
+        "龍蜻蜓"
+      ]
     },
     {
       "id": "vocal",
-      "name": "吟唱蝗蟲",
+      "name": "蝗蟲之王",
       "boss": true,
       "stages": [
         {
@@ -20180,11 +21104,14 @@
         "height": 105,
         "sheetWidth": 2046,
         "sheetHeight": 803
-      }
+      },
+      "nameAliases": [
+        "吟唱蝗蟲"
+      ]
     },
     {
       "id": "mastering",
-      "name": "波利王",
+      "name": "波利之王",
       "boss": true,
       "stages": [
         {
@@ -20212,7 +21139,10 @@
         "height": 36,
         "sheetWidth": 2026,
         "sheetHeight": 86
-      }
+      },
+      "nameAliases": [
+        "波利王"
+      ]
     },
     {
       "id": "thief_bug_egg",
@@ -20248,7 +21178,7 @@
     },
     {
       "id": "familiar",
-      "name": "蝙蝠",
+      "name": "吸血蝙蝠",
       "boss": false,
       "stages": [
         {
@@ -20276,7 +21206,10 @@
         "height": 32,
         "sheetWidth": 2048,
         "sheetHeight": 207
-      }
+      },
+      "nameAliases": [
+        "蝙蝠"
+      ]
     },
     {
       "id": "thief_bug",
@@ -20312,7 +21245,7 @@
     },
     {
       "id": "tarou",
-      "name": "塔羅鼠",
+      "name": "白鼠",
       "boss": false,
       "stages": [
         {
@@ -20340,11 +21273,14 @@
         "height": 23,
         "sheetWidth": 2028,
         "sheetHeight": 46
-      }
+      },
+      "nameAliases": [
+        "塔羅鼠"
+      ]
     },
     {
       "id": "plankton",
-      "name": "浮游生物",
+      "name": "漂浮蟲",
       "boss": false,
       "stages": [
         {
@@ -20372,11 +21308,14 @@
         "height": 19,
         "sheetWidth": 2045,
         "sheetHeight": 65
-      }
+      },
+      "nameAliases": [
+        "浮游生物"
+      ]
     },
     {
       "id": "drainliar",
-      "name": "吸血蝙蝠",
+      "name": "紅蝙蝠",
       "boss": false,
       "stages": [
         {
@@ -20408,7 +21347,7 @@
     },
     {
       "id": "thief_bug_female",
-      "name": "母盜蟲",
+      "name": "浮勒盜蟲",
       "boss": false,
       "stages": [
         {
@@ -20436,11 +21375,14 @@
         "height": 36,
         "sheetWidth": 1990,
         "sheetHeight": 105
-      }
+      },
+      "nameAliases": [
+        "母盜蟲"
+      ]
     },
     {
       "id": "cramp",
-      "name": "巨鼠",
+      "name": "藍鼠",
       "boss": false,
       "stages": [
         {
@@ -20468,7 +21410,10 @@
         "height": 23,
         "sheetWidth": 2021,
         "sheetHeight": 46
-      }
+      },
+      "nameAliases": [
+        "巨鼠"
+      ]
     },
     {
       "id": "tarou_bite",
@@ -20600,7 +21545,7 @@
     },
     {
       "id": "chonchon",
-      "name": "叮噹蒼蠅",
+      "name": "蒼蠅",
       "boss": false,
       "stages": [],
       "sprite": {
@@ -20622,11 +21567,14 @@
         "height": 29,
         "sheetWidth": 2042,
         "sheetHeight": 55
-      }
+      },
+      "nameAliases": [
+        "叮噹蒼蠅"
+      ]
     },
     {
       "id": "goblin",
-      "name": "哥布林",
+      "name": "哥布靈",
       "boss": false,
       "stages": [
         {
@@ -20654,7 +21602,10 @@
         "height": 58,
         "sheetWidth": 2043,
         "sheetHeight": 209
-      }
+      },
+      "nameAliases": [
+        "哥布林"
+      ]
     },
     {
       "id": "kobold",
@@ -20690,7 +21641,7 @@
     },
     {
       "id": "orc_skeleton",
-      "name": "獸人骷髏",
+      "name": "邪骸獸人",
       "boss": false,
       "stages": [
         {
@@ -20718,7 +21669,10 @@
         "height": 92,
         "sheetWidth": 2047,
         "sheetHeight": 401
-      }
+      },
+      "nameAliases": [
+        "獸人骷髏"
+      ]
     },
     {
       "id": "ghostring",
@@ -20786,7 +21740,7 @@
     },
     {
       "id": "osiris",
-      "name": "歐西里斯",
+      "name": "俄塞里斯",
       "boss": true,
       "stages": [
         {
@@ -20814,7 +21768,10 @@
         "height": 90,
         "sheetWidth": 2035,
         "sheetHeight": 199
-      }
+      },
+      "nameAliases": [
+        "歐西里斯"
+      ]
     },
     {
       "id": "baphomet",
@@ -20940,7 +21897,7 @@
     },
     {
       "id": "whisper",
-      "name": "幽影",
+      "name": "白幽靈",
       "boss": false,
       "stages": [
         {
@@ -20968,11 +21925,14 @@
         "height": 40,
         "sheetWidth": 2046,
         "sheetHeight": 252
-      }
+      },
+      "nameAliases": [
+        "幽影"
+      ]
     },
     {
       "id": "penomena",
-      "name": "佩諾梅娜",
+      "name": "梅納海葵",
       "boss": true,
       "stages": [
         {
@@ -21000,11 +21960,14 @@
         "height": 65,
         "sheetWidth": 2026,
         "sheetHeight": 145
-      }
+      },
+      "nameAliases": [
+        "佩諾梅娜"
+      ]
     },
     {
       "id": "sword_fish",
-      "name": "劍魚",
+      "name": "異變魚",
       "boss": false,
       "stages": [
         {
@@ -21036,7 +21999,7 @@
     },
     {
       "id": "pirate_skel",
-      "name": "海盜骷髏",
+      "name": "邪骸海盜",
       "boss": false,
       "stages": [
         {
@@ -21064,11 +22027,14 @@
         "height": 90,
         "sheetWidth": 2047,
         "sheetHeight": 270
-      }
+      },
+      "nameAliases": [
+        "海盜骷髏"
+      ]
     },
     {
       "id": "drake",
-      "name": "德瑞克",
+      "name": "海盜之王",
       "boss": true,
       "stages": [
         {
@@ -21096,11 +22062,14 @@
         "height": 116,
         "sheetWidth": 2037,
         "sheetHeight": 455
-      }
+      },
+      "nameAliases": [
+        "德瑞克"
+      ]
     },
     {
       "id": "vadon",
-      "name": "瓦頓蟹",
+      "name": "螃蟹",
       "boss": false,
       "stages": [
         {
@@ -21128,11 +22097,14 @@
         "height": 42,
         "sheetWidth": 2019,
         "sheetHeight": 126
-      }
+      },
+      "nameAliases": [
+        "瓦頓蟹"
+      ]
     },
     {
       "id": "cornutus",
-      "name": "海螺",
+      "name": "卡那多斯",
       "boss": false,
       "stages": [
         {
@@ -21160,11 +22132,14 @@
         "height": 48,
         "sheetWidth": 2049,
         "sheetHeight": 259
-      }
+      },
+      "nameAliases": [
+        "海螺"
+      ]
     },
     {
       "id": "marse",
-      "name": "章魚",
+      "name": "烏賊",
       "boss": false,
       "stages": [
         {
@@ -21192,11 +22167,14 @@
         "height": 49,
         "sheetWidth": 2042,
         "sheetHeight": 197
-      }
+      },
+      "nameAliases": [
+        "章魚"
+      ]
     },
     {
       "id": "phen",
-      "name": "芬魚",
+      "name": "劍魚",
       "boss": false,
       "stages": [
         {
@@ -21224,11 +22202,14 @@
         "height": 44,
         "sheetWidth": 2038,
         "sheetHeight": 143
-      }
+      },
+      "nameAliases": [
+        "芬魚"
+      ]
     },
     {
       "id": "obeaune",
-      "name": "歐比恩",
+      "name": "人魚",
       "boss": false,
       "stages": [
         {
@@ -21256,11 +22237,14 @@
         "height": 67,
         "sheetWidth": 2028,
         "sheetHeight": 166
-      }
+      },
+      "nameAliases": [
+        "歐比恩"
+      ]
     },
     {
       "id": "marine_sphere",
-      "name": "海洋炸彈",
+      "name": "氣泡蟲",
       "boss": false,
       "stages": [
         {
@@ -21288,11 +22272,14 @@
         "height": 32,
         "sheetWidth": 2039,
         "sheetHeight": 168
-      }
+      },
+      "nameAliases": [
+        "海洋炸彈"
+      ]
     },
     {
       "id": "merman",
-      "name": "魚人",
+      "name": "人魚士兵",
       "boss": false,
       "stages": [
         {
@@ -21320,7 +22307,10 @@
         "height": 84,
         "sheetWidth": 2044,
         "sheetHeight": 320
-      }
+      },
+      "nameAliases": [
+        "魚人"
+      ]
     },
     {
       "id": "kraken_leg",
@@ -21350,7 +22340,7 @@
     },
     {
       "id": "deviace",
-      "name": "迪維斯",
+      "name": "狄奧斯",
       "boss": true,
       "stages": [
         {
@@ -21378,11 +22368,14 @@
         "height": 52,
         "sheetWidth": 2019,
         "sheetHeight": 420
-      }
+      },
+      "nameAliases": [
+        "迪維斯"
+      ]
     },
     {
       "id": "strouf",
-      "name": "史特勞夫",
+      "name": "海神",
       "boss": true,
       "stages": [
         {
@@ -21410,11 +22403,14 @@
         "height": 223,
         "sheetWidth": 2044,
         "sheetHeight": 709
-      }
+      },
+      "nameAliases": [
+        "史特勞夫"
+      ]
     },
     {
       "id": "king_dramoh",
-      "name": "朵拉莫王",
+      "name": "大腳龍蝦",
       "boss": true,
       "stages": [
         {
@@ -21442,11 +22438,14 @@
         "height": 78,
         "sheetWidth": 2045,
         "sheetHeight": 757
-      }
+      },
+      "nameAliases": [
+        "朵拉莫王"
+      ]
     },
     {
       "id": "kraken",
-      "name": "克拉肯",
+      "name": "魔鬼大烏賊",
       "boss": true,
       "stages": [
         {
@@ -21474,11 +22473,14 @@
         "height": 117,
         "sheetWidth": 2043,
         "sheetHeight": 709
-      }
+      },
+      "nameAliases": [
+        "克拉肯"
+      ]
     },
     {
       "id": "spore",
-      "name": "菇菇",
+      "name": "魔菇",
       "boss": false,
       "stages": [
         {
@@ -21506,7 +22508,10 @@
         "height": 54,
         "sheetWidth": 2027,
         "sheetHeight": 158
-      }
+      },
+      "nameAliases": [
+        "菇菇"
+      ]
     },
     {
       "id": "willow",
@@ -21579,7 +22584,7 @@
     },
     {
       "id": "snake",
-      "name": "蟒蛇",
+      "name": "青蛇",
       "boss": false,
       "stages": [
         {
@@ -21607,11 +22612,14 @@
         "height": 40,
         "sheetWidth": 2035,
         "sheetHeight": 86
-      }
+      },
+      "nameAliases": [
+        "蟒蛇"
+      ]
     },
     {
       "id": "worm_tail",
-      "name": "蠕蟲尾",
+      "name": "森靈",
       "boss": false,
       "stages": [
         {
@@ -21639,11 +22647,14 @@
         "height": 102,
         "sheetWidth": 1400,
         "sheetHeight": 106
-      }
+      },
+      "nameAliases": [
+        "蠕蟲尾"
+      ]
     },
     {
       "id": "poison_spore",
-      "name": "毒菇",
+      "name": "毒魔菇",
       "boss": false,
       "stages": [
         {
@@ -21671,7 +22682,10 @@
         "height": 54,
         "sheetWidth": 2027,
         "sheetHeight": 158
-      }
+      },
+      "nameAliases": [
+        "毒菇"
+      ]
     },
     {
       "id": "smokie",
@@ -21744,7 +22758,7 @@
     },
     {
       "id": "elder_willow",
-      "name": "老樹精",
+      "name": "長老樹精",
       "boss": false,
       "stages": [
         {
@@ -21772,11 +22786,14 @@
         "height": 68,
         "sheetWidth": 2020,
         "sheetHeight": 582
-      }
+      },
+      "nameAliases": [
+        "老樹精"
+      ]
     },
     {
       "id": "dragon_tail",
-      "name": "龍尾蜻蜓",
+      "name": "刺尾蜻蜓",
       "boss": false,
       "stages": [
         {
@@ -21804,7 +22821,10 @@
         "height": 50,
         "sheetWidth": 2037,
         "sheetHeight": 194
-      }
+      },
+      "nameAliases": [
+        "龍尾蜻蜓"
+      ]
     },
     {
       "id": "bigfoot",
@@ -21840,7 +22860,7 @@
     },
     {
       "id": "greatest_general",
-      "name": "天下大將軍",
+      "name": "將軍魔碑",
       "boss": false,
       "stages": [
         {
@@ -21868,11 +22888,14 @@
         "height": 116,
         "sheetWidth": 2046,
         "sheetHeight": 434
-      }
+      },
+      "nameAliases": [
+        "天下大將軍"
+      ]
     },
     {
       "id": "dokebi",
-      "name": "獨角鬼",
+      "name": "土人",
       "boss": false,
       "stages": [
         {
@@ -21900,7 +22923,10 @@
         "height": 60,
         "sheetWidth": 2030,
         "sheetHeight": 231
-      }
+      },
+      "nameAliases": [
+        "獨角鬼"
+      ]
     },
     {
       "id": "nine_tail",
@@ -22005,7 +23031,7 @@
     },
     {
       "id": "vagabond_wolf",
-      "name": "流浪狼",
+      "name": "流浪之狼",
       "boss": true,
       "stages": [
         {
@@ -22033,7 +23059,10 @@
         "height": 59,
         "sheetWidth": 2022,
         "sheetHeight": 287
-      }
+      },
+      "nameAliases": [
+        "流浪狼"
+      ]
     },
     {
       "id": "eddga",
@@ -22069,7 +23098,7 @@
     },
     {
       "id": "zombie",
-      "name": "殭屍",
+      "name": "腐屍",
       "boss": false,
       "stages": [
         {
@@ -22106,7 +23135,7 @@
     },
     {
       "id": "skeleton",
-      "name": "骷髏",
+      "name": "邪骸戰士",
       "boss": false,
       "stages": [
         {
@@ -22134,11 +23163,14 @@
         "height": 82,
         "sheetWidth": 2035,
         "sheetHeight": 289
-      }
+      },
+      "nameAliases": [
+        "骷髏"
+      ]
     },
     {
       "id": "skel_archer",
-      "name": "骷髏弓箭手",
+      "name": "邪骸弓箭手",
       "boss": false,
       "stages": [
         {
@@ -22166,11 +23198,14 @@
         "height": 86,
         "sheetWidth": 2039,
         "sheetHeight": 309
-      }
+      },
+      "nameAliases": [
+        "骷髏弓箭手"
+      ]
     },
     {
       "id": "skel_soldier",
-      "name": "骷髏士兵",
+      "name": "邪骸士兵",
       "boss": false,
       "stages": [
         {
@@ -22198,11 +23233,14 @@
         "height": 82,
         "sheetWidth": 2044,
         "sheetHeight": 211
-      }
+      },
+      "nameAliases": [
+        "骷髏士兵"
+      ]
     },
     {
       "id": "munak",
-      "name": "慕納克",
+      "name": "殭屍",
       "boss": false,
       "stages": [
         {
@@ -22230,11 +23268,14 @@
         "height": 83,
         "sheetWidth": 1883,
         "sheetHeight": 89
-      }
+      },
+      "nameAliases": [
+        "慕納克"
+      ]
     },
     {
       "id": "bon_gun",
-      "name": "邦艮",
+      "name": "妖道",
       "boss": false,
       "stages": [
         {
@@ -22262,11 +23303,14 @@
         "height": 87,
         "sheetWidth": 2030,
         "sheetHeight": 180
-      }
+      },
+      "nameAliases": [
+        "邦艮"
+      ]
     },
     {
       "id": "sohee",
-      "name": "蘇熙",
+      "name": "鬼女",
       "boss": false,
       "stages": [
         {
@@ -22294,11 +23338,14 @@
         "height": 98,
         "sheetWidth": 2039,
         "sheetHeight": 607
-      }
+      },
+      "nameAliases": [
+        "蘇熙"
+      ]
     },
     {
       "id": "horong",
-      "name": "火鬼",
+      "name": "鬼火",
       "boss": false,
       "stages": [
         {
@@ -22326,11 +23373,14 @@
         "height": 27,
         "sheetWidth": 2023,
         "sheetHeight": 264
-      }
+      },
+      "nameAliases": [
+        "火鬼"
+      ]
     },
     {
       "id": "skeleton_general",
-      "name": "骷髏將軍",
+      "name": "邪骸戰士長",
       "boss": true,
       "stages": [
         {
@@ -22358,11 +23408,14 @@
         "height": 98,
         "sheetWidth": 2039,
         "sheetHeight": 377
-      }
+      },
+      "nameAliases": [
+        "骷髏將軍"
+      ]
     },
     {
       "id": "cat_o_nine_tail",
-      "name": "九尾貓",
+      "name": "狂暴月夜貓",
       "boss": true,
       "stages": [
         {
@@ -22390,11 +23443,14 @@
         "height": 88,
         "sheetWidth": 2047,
         "sheetHeight": 644
-      }
+      },
+      "nameAliases": [
+        "九尾貓"
+      ]
     },
     {
       "id": "hyegun",
-      "name": "惠君",
+      "name": "妖君",
       "boss": true,
       "stages": [
         {
@@ -22422,7 +23478,10 @@
         "height": 90,
         "sheetWidth": 2010,
         "sheetHeight": 201
-      }
+      },
+      "nameAliases": [
+        "惠君"
+      ]
     },
     {
       "id": "moonlight",
@@ -22458,7 +23517,7 @@
     },
     {
       "id": "leaf_cat",
-      "name": "Leaf Cat",
+      "name": "群葉貓",
       "boss": false,
       "stages": [
         {
@@ -22486,11 +23545,14 @@
         "height": 62,
         "sheetWidth": 2049,
         "sheetHeight": 460
-      }
+      },
+      "nameAliases": [
+        "Leaf Cat"
+      ]
     },
     {
       "id": "the_paper",
-      "name": "The Paper",
+      "name": "紙妖",
       "boss": false,
       "stages": [
         {
@@ -22518,11 +23580,14 @@
         "height": 71,
         "sheetWidth": 1954,
         "sheetHeight": 206
-      }
+      },
+      "nameAliases": [
+        "The Paper"
+      ]
     },
     {
       "id": "kapha",
-      "name": "Kapha",
+      "name": "釣魚河童",
       "boss": false,
       "stages": [
         {
@@ -22550,11 +23615,14 @@
         "height": 91,
         "sheetWidth": 2049,
         "sheetHeight": 1587
-      }
+      },
+      "nameAliases": [
+        "Kapha"
+      ]
     },
     {
       "id": "chung_e",
-      "name": "Chung E",
+      "name": "嫦娥",
       "boss": false,
       "stages": [
         {
@@ -22582,11 +23650,14 @@
         "height": 129,
         "sheetWidth": 2048,
         "sheetHeight": 361
-      }
+      },
+      "nameAliases": [
+        "Chung E"
+      ]
     },
     {
       "id": "stone_shooter",
-      "name": "Stone Shooter",
+      "name": "石砲火樹",
       "boss": false,
       "stages": [
         {
@@ -22614,11 +23685,14 @@
         "height": 114,
         "sheetWidth": 2038,
         "sheetHeight": 1189
-      }
+      },
+      "nameAliases": [
+        "Stone Shooter"
+      ]
     },
     {
       "id": "iron_fist",
-      "name": "Iron Fist",
+      "name": "鐵蠍",
       "boss": false,
       "stages": [
         {
@@ -22646,11 +23720,14 @@
         "height": 55,
         "sheetWidth": 2013,
         "sheetHeight": 191
-      }
+      },
+      "nameAliases": [
+        "Iron Fist"
+      ]
     },
     {
       "id": "dancing_dragon",
-      "name": "Dancing Dragon",
+      "name": "舞龍",
       "boss": true,
       "stages": [
         {
@@ -22678,11 +23755,14 @@
         "height": 51,
         "sheetWidth": 2044,
         "sheetHeight": 317
-      }
+      },
+      "nameAliases": [
+        "Dancing Dragon"
+      ]
     },
     {
       "id": "live_peach_tree",
-      "name": "Live Peach Tree",
+      "name": "猴桃木",
       "boss": true,
       "stages": [
         {
@@ -22710,11 +23790,14 @@
         "height": 108,
         "sheetWidth": 2035,
         "sheetHeight": 922
-      }
+      },
+      "nameAliases": [
+        "Live Peach Tree"
+      ]
     },
     {
       "id": "wanderer",
-      "name": "Wanderer",
+      "name": "邪骸浪人",
       "boss": true,
       "stages": [
         {
@@ -22742,11 +23825,14 @@
         "height": 113,
         "sheetWidth": 2040,
         "sheetHeight": 419
-      }
+      },
+      "nameAliases": [
+        "Wanderer"
+      ]
     },
     {
       "id": "wooden_golem",
-      "name": "Wooden Golem",
+      "name": "機木人",
       "boss": true,
       "stages": [
         {
@@ -22774,11 +23860,14 @@
         "height": 128,
         "sheetWidth": 2048,
         "sheetHeight": 1353
-      }
+      },
+      "nameAliases": [
+        "Wooden Golem"
+      ]
     },
     {
       "id": "rice_cake_boy",
-      "name": "Rice Cake Boy",
+      "name": "年糕童子",
       "boss": true,
       "stages": [
         {
@@ -22806,11 +23895,14 @@
         "height": 91,
         "sheetWidth": 2031,
         "sheetHeight": 260
-      }
+      },
+      "nameAliases": [
+        "Rice Cake Boy"
+      ]
     },
     {
       "id": "spring_rabbit",
-      "name": "Spring Rabbit",
+      "name": "彈簧兔",
       "boss": true,
       "stages": [
         {
@@ -22838,11 +23930,14 @@
         "height": 82,
         "sheetWidth": 2022,
         "sheetHeight": 266
-      }
+      },
+      "nameAliases": [
+        "Spring Rabbit"
+      ]
     },
     {
       "id": "bacsojin",
-      "name": "White Lady",
+      "name": "白素貞",
       "boss": true,
       "stages": [
         {
@@ -22870,11 +23965,14 @@
         "height": 91,
         "sheetWidth": 2005,
         "sheetHeight": 305
-      }
+      },
+      "nameAliases": [
+        "White Lady"
+      ]
     },
     {
       "id": "ink_snake",
-      "name": "Ink Serpent",
+      "name": "墨蛇",
       "boss": false,
       "stages": [
         {
@@ -22888,11 +23986,14 @@
         "name": "candidate",
         "stage": "candidate",
         "boss": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Ink Serpent"
+      ]
     },
     {
       "id": "ink_serpent",
-      "name": "Ink Serpent",
+      "name": "墨色大蛇",
       "boss": false,
       "stages": [
         {
@@ -22906,11 +24007,14 @@
         "name": "candidate",
         "stage": "candidate",
         "boss": "candidate"
-      }
+      },
+      "nameAliases": [
+        "Ink Serpent"
+      ]
     },
     {
       "id": "dark_snake_lord",
-      "name": "Evil Snake Lord",
+      "name": "墨蛇君",
       "boss": true,
       "stages": [
         {
@@ -22938,7 +24042,10 @@
         "height": 178,
         "sheetWidth": 2044,
         "sheetHeight": 1930
-      }
+      },
+      "nameAliases": [
+        "Evil Snake Lord"
+      ]
     },
     {
       "id": "orc_warrior",
@@ -23079,8 +24186,10 @@
         "id": "official",
         "pool": "official",
         "boss": "official",
-        "open": "candidate"
-      }
+        "open": "candidate",
+        "tier": "official"
+      },
+      "tier": 1
     },
     {
       "id": "sewer",
@@ -23112,8 +24221,10 @@
         "id": "official",
         "pool": "official",
         "boss": "official",
-        "open": "candidate"
-      }
+        "open": "candidate",
+        "tier": "official"
+      },
+      "tier": 1
     },
     {
       "id": "sunken",
@@ -23142,8 +24253,10 @@
         "id": "official",
         "pool": "official",
         "boss": "official",
-        "open": "candidate"
-      }
+        "open": "candidate",
+        "tier": "official"
+      },
+      "tier": 1
     },
     {
       "id": "byalan",
@@ -23174,8 +24287,10 @@
         "id": "official",
         "pool": "official",
         "boss": "official",
-        "open": "candidate"
-      }
+        "open": "candidate",
+        "tier": "official"
+      },
+      "tier": 2
     },
     {
       "id": "payon",
@@ -23213,8 +24328,10 @@
         "id": "official",
         "pool": "official",
         "boss": "official",
-        "open": "candidate"
-      }
+        "open": "candidate",
+        "tier": "official"
+      },
+      "tier": 2
     },
     {
       "id": "payon_cave",
@@ -23248,8 +24365,10 @@
         "id": "official",
         "pool": "official",
         "boss": "official",
-        "open": "candidate"
-      }
+        "open": "candidate",
+        "tier": "official"
+      },
+      "tier": 2
     },
     {
       "id": "prt_castle",
@@ -23272,8 +24391,10 @@
         "id": "official",
         "pool": "official",
         "boss": "official",
-        "open": "candidate"
-      }
+        "open": "candidate",
+        "tier": "official"
+      },
+      "tier": 2
     },
     {
       "id": "orcs",
@@ -23291,8 +24412,10 @@
         "id": "candidate",
         "pool": "unknown",
         "boss": "unknown",
-        "open": "candidate"
-      }
+        "open": "candidate",
+        "tier": "official"
+      },
+      "tier": 3
     },
     {
       "id": "pyramid",
@@ -23310,8 +24433,10 @@
         "id": "candidate",
         "pool": "unknown",
         "boss": "unknown",
-        "open": "candidate"
-      }
+        "open": "candidate",
+        "tier": "official"
+      },
+      "tier": 3
     },
     {
       "id": "louyang",
@@ -23344,8 +24469,10 @@
         "id": "official",
         "pool": "official",
         "boss": "official",
-        "open": "candidate"
-      }
+        "open": "candidate",
+        "tier": "official"
+      },
+      "tier": 2
     }
   ]
 }
