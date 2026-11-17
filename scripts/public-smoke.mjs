@@ -22,7 +22,7 @@ try {
  await page.getByRole('heading',{name:'裝備',exact:true}).waitFor();
  const footer=page.locator('footer.site-footer');
  await footer.getByText(/Gravity Co/).waitFor();
- await footer.getByText(/非官方・免費・非營利・原始碼公開/).waitFor();
+ await footer.getByText(/非官方・免費・非營利・開源的粉絲測試資料站/).waitFor();
  const disclosure=footer.locator('details.site-footer-disclosure');
  assert.equal(await disclosure.evaluate(node=>node.open),false,'disclaimer initially collapsed');
  await footer.locator('summary').click();
@@ -34,22 +34,29 @@ try {
  await page.setViewportSize({width:320,height:844});
  const disclaimerWidth=await page.evaluate(()=>({viewport:innerWidth,document:document.documentElement.scrollWidth}));
  assert.ok(disclaimerWidth.document<=disclaimerWidth.viewport+1,'expanded disclaimer fits 320px');
- assert.equal(await page.locator('.art.item img').count(),0,'No original item art in public build');
+ const firstItems=page.locator('.art.item img[src*="fan-thumbs/items/"]');
+ assert.ok(await firstItems.count()>0,'Public equipment list has matching game thumbnails');
+ assert.ok(await firstItems.first().evaluate(img=>img.complete && img.naturalWidth>0),'First item thumbnail loads');
  await page.goto(base+'?detail=monster:poring',{waitUntil:'networkidle'});
- const art=page.getByRole('dialog').locator('img[src*="approved-thumbs/monsters/poring.webp"]');
+ const art=page.getByRole('dialog').locator('img[src*="fan-thumbs/monsters/poring.webp"]');
  await art.waitFor();
- assert.ok(await art.evaluate(img=>img.complete&&img.naturalWidth===96),'approved Poring thumb loads');
+ assert.ok(await art.evaluate(img=>img.complete&&img.naturalWidth>0),'RO Survivors Poring representative frame loads');
  for(const width of [320,375,390,430]){
   await page.setViewportSize({width,height:844});
   const sizes=await page.evaluate(()=>({viewport:innerWidth,doc:document.documentElement.scrollWidth}));
   assert.ok(sizes.doc<=sizes.viewport+1,'horizontal scroll at '+width+'px');
  }
+ await page.goto(base+'?detail=card:4001',{waitUntil:'networkidle'});
+ await page.getByRole('dialog').getByRole('heading',{name:'波利卡片'}).waitFor();
+ const cardArt=page.getByRole('dialog').locator('img[src*="fan-thumbs/cards/4001.webp"]');
+ assert.ok(await cardArt.evaluate(img=>img.complete&&img.naturalWidth===96),'RO Survivors card thumbnail loads');
  await page.goto(base+'?detail=item:2603',{waitUntil:'networkidle'});
  await page.getByRole('dialog').getByRole('heading',{name:'項鍊'}).waitFor();
- assert.equal(await page.getByRole('dialog').locator('.art.item img').count(),0,'Item uses placeholder');
+ const itemArt=page.getByRole('dialog').locator('img[src*="fan-thumbs/items/2603.webp"]');
+ assert.ok(await itemArt.evaluate(img=>img.complete&&img.naturalWidth>0),'RO Survivors item art thumbnail loads');
  assert.ok(requested.every(url=>!url.includes('/game-assets/')),'Private game asset request in public mode');
  assert.deepEqual(errors,[],'no JavaScript errors');
- const summary={status:'PASS',thumb:'poring.webp',widths:[320,375,390,430],privateGameArtRequests:0,pageErrors:0};
+ const summary={status:'PASS',thumbs:['fan-thumbs/monsters/poring.webp','fan-thumbs/items/2603.webp','fan-thumbs/cards/4001.webp'],widths:[320,375,390,430],privateGameArtRequests:0,pageErrors:0};
  writeFileSync(path.join(evidence,'public-smoke.json'),JSON.stringify(summary,null,2)+'\n');
  console.log(JSON.stringify(summary));
 }finally {

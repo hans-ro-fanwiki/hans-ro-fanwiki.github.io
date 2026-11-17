@@ -14,7 +14,7 @@ const SLOTS:Record<string,string>={weapon:'武器',head_top:'頭飾（上）',he
 const JOBS:Record<string,string>={all:'全部',mage:'魔法師系',swordsman:'劍士系',archer:'弓箭手系',acolyte:'服事系',thief:'盜賊系',merchant:'商人系',ninja:'忍者系'};
 const SOURCES:Record<string,string>={monsterDrop:'怪物掉落',bossDrop:'Boss 掉落',story:'劇情',event:'活動',reward:'獎勵',starter:'初始裝備'};
 const LABELS:Record<Page,string>={items:'裝備',cards:'卡片',stages:'關卡',jobs:'職業'};
-// GitHub Pages is deliberately free of privately cached game imagery.
+// Public Pages includes only dedicated low-resolution, ID-matched fan-reference thumbnails.
 const PUBLIC_MODE=import.meta.env.VITE_PUBLIC_MODE==='1';
 const ASSET_ROOT=import.meta.env.BASE_URL+'game-assets/';
 const EMPTY:View={page:'items',slot:'all',job:'all',effect:'all',source:'all',query:'',attr:'all',mode:'list',onlyOpen:true,detail:null};
@@ -49,8 +49,11 @@ function Artwork({kind,entity,large=false}:{kind:Kind;entity?:Equipment|Card|Mon
  const item=kind==='item'?entity as Equipment:undefined;
  const card=kind==='card'?entity as Card:undefined;
  const monster=kind==='monster'?entity as Monster:undefined;
- const initial=PUBLIC_MODE&&monster?approvedFanKitThumb(monster.id):safeImageUrl(item?.image||card?.image);
- const backup=safeImageUrl(item?.icon);
+ const fanRoot=import.meta.env.BASE_URL+'fan-thumbs/';
+ const initial=PUBLIC_MODE?
+  (item?fanRoot+'items/'+item.id+'.webp':card?fanRoot+'cards/'+card.id+'.webp':monster?.spriteFrame&&/^[a-z0-9_-]+$/.test(monster.id)?fanRoot+'monsters/'+monster.id+'.webp':monster?approvedFanKitThumb(monster.id):null):
+  safeImageUrl(item?.image||card?.image);
+ const backup=PUBLIC_MODE&&item?fanRoot+'items/'+item.id+'_icon.webp':safeImageUrl(item?.icon);
  const [imageUrl,setImageUrl]=useState(initial);
  useEffect(()=>setImageUrl(initial),[initial]);
  const Icon=kind==='card'?BookOpen:kind==='monster'?Target:kind==='stage'?MapIcon:item?.slot==='acc'?Gem:item?.slot==='weapon'?Swords:Shield;
@@ -59,7 +62,7 @@ function Artwork({kind,entity,large=false}:{kind:Kind;entity?:Equipment|Card|Mon
  const scale=frame?Math.min((edge-8)/frame.width,(edge-8)/frame.height,large?1.5:1):1;
  return <span className={'art '+kind+(large?' large':'')}>
   {imageUrl?<img loading={large?'eager':'lazy'} decoding="async" src={imageUrl} alt={entity?.name||'裝備圖片'}
-   className={kind==='card'?'card-image':item?.image?.officialPath?.endsWith('_art.png')?'art-image':'art-icon-image'}
+   className={kind==='card'?'card-image':kind==='monster'?'art-image':item?.image?.officialPath?.endsWith('_art.png')?'art-image':'art-icon-image'}
    onError={()=>setImageUrl(imageUrl===initial&&backup!==initial?backup:null)}/>
   :frame&&/^sprites\/[\w-]+\.png$/.test(frame.url)?<span className="sprite-frame" role="img" aria-label={monster?.name||'怪物'}
    style={{width:frame.width*scale,height:frame.height*scale,
@@ -286,7 +289,7 @@ function DropRoutes({sources,stages,monsters,openDetail}:{sources:Source[];stage
  </div>)}</div>;
 }
 function DetailHero({kind,entry,title,sub}:{kind:Kind;entry?:Equipment|Card|Monster;title:string;sub?:string}){
- return <div className="detail-hero"><Artwork kind={kind} entity={entry} large/><div className="hero-info"><h2>{title}</h2>{sub&&<p>{sub}</p>}{PUBLIC_MODE&&kind==='monster'&&entry&&approvedFanKitThumb((entry as Monster).id)&&<small className="art-inline-credit">RO Fan Kit 插畫 © Gravity Co., Ltd. &amp; Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc.</small>}</div></div>;
+ return <div className="detail-hero"><Artwork kind={kind} entity={entry} large/><div className="hero-info"><h2>{title}</h2>{sub&&<p>{sub}</p>}{PUBLIC_MODE&&kind==='monster'&&entry&&approvedFanKitThumb((entry as Monster).id)&&!(entry as Monster).spriteFrame&&<small className="art-inline-credit">RO Fan Kit 插畫 © Gravity Co., Ltd. &amp; Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc.</small>}</div></div>;
 }
 function StatSection({entry}:{entry:GameEntry}){
  const e=effects(entry);if(!e.length)return null;
