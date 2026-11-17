@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-17 — 公開 Fan Kit 小縮圖與 GitHub Pages
+
+- 使用者授權公開原始碼並提供非營利粉絲維基給遊戲群組朋友。導入整合式 Linux CI + GitHub Pages 部署，避免同 commit 雙重跑 workflow。
+- 官方 RO Fan Kit 10 隻**精確對應名稱**的怪物插畫製作為 96×96 WebP 小縮圖，共約 17 KB；網站列出來源與版權標示。所有其他裝備、卡片等仍以一般圖示顯示，避免將未取得許可的 RO Survivors PNG 放上公開網頁。
+- 公開模式 `VITE_PUBLIC_MODE=1` 封鎖私人 PNG 和 sprite 並顯示著作權說明。CI 只上傳通過 `scripts/verify-public-dist.mjs` 白名單檢查的乾淨建置包。
+- 新增官方縮圖單元測試（19/19 PASS）與公開模式 Playwright 手機測試：320、375、390、430px 均無橫向溢出，波利縮圖正確載入、沒有私人遊戲圖片請求或 JS 錯誤。
+
+
 ## 2026-11-17 — 屬性搜尋與可摺疊關卡（Dev）
 
 - 裝備／卡片與關卡頁新增屬性與名稱搜尋；支援 INT、DEX、STR、AGI、VIT、LUK、冷卻、爆擊等快捷篩選、中文屬性別名、進階選項與可分享的查詢網址。

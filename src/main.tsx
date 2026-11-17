@@ -5,6 +5,7 @@ import type {Card,Catalog,Equipment,ImageEvidence,Kind,Monster,Page,Source,Stage
 import './styles.css';
 import './search.css';
 import {ATTRIBUTE_GROUPS,entryMatches,matchedEffect} from './search';
+import {approvedFanKitThumb} from './public-thumbs';
 
 type View={page:Page;slot:string;job:string;effect:string;source:string;query:string;attr:string;mode:'list'|'stages';onlyOpen:boolean;detail:string|null};
 type GameEntry=Equipment|Card;
@@ -12,7 +13,8 @@ const SLOTS:Record<string,string>={weapon:'武器',head_top:'頭飾（上）',he
 const JOBS:Record<string,string>={all:'全部',mage:'魔法師系',swordsman:'劍士系',archer:'弓箭手系',acolyte:'服事系',thief:'盜賊系',merchant:'商人系',ninja:'忍者系'};
 const SOURCES:Record<string,string>={monsterDrop:'怪物掉落',bossDrop:'Boss 掉落',story:'劇情',event:'活動',reward:'獎勵',starter:'初始裝備'};
 const LABELS:Record<Page,string>={items:'裝備',cards:'卡片',stages:'關卡',jobs:'職業'};
-// Same-origin private preview proxy avoids the upstream image hotlink block.
+// GitHub Pages is deliberately free of privately cached game imagery.
+const PUBLIC_MODE=import.meta.env.VITE_PUBLIC_MODE==='1';
 const ASSET_ROOT=import.meta.env.BASE_URL+'game-assets/';
 const EMPTY:View={page:'items',slot:'all',job:'all',effect:'all',source:'all',query:'',attr:'all',mode:'list',onlyOpen:true,detail:null};
 function readLocation():View{
@@ -39,19 +41,19 @@ function Chip({active,children,onClick}:{active:boolean;children:React.ReactNode
  return <button type="button" className={'chip '+(active?'selected':'')} aria-pressed={active} onClick={onClick}>{children}</button>;
 }
 function safeImageUrl(x:ImageEvidence|null|undefined):string|null{
- if(!x || !/^(items|cards)\/[a-zA-Z0-9_-]+(?:_art)?\.png$/.test(x.officialPath))return null;
+ if(PUBLIC_MODE||!x || !/^(items|cards)\/[a-zA-Z0-9_-]+(?:_art)?\.png$/.test(x.officialPath))return null;
  return ASSET_ROOT+x.officialPath;
 }
 function Artwork({kind,entity,large=false}:{kind:Kind;entity?:Equipment|Card|Monster|null;large?:boolean}){
  const item=kind==='item'?entity as Equipment:undefined;
  const card=kind==='card'?entity as Card:undefined;
  const monster=kind==='monster'?entity as Monster:undefined;
- const initial=safeImageUrl(item?.image||card?.image);
+ const initial=PUBLIC_MODE&&monster?approvedFanKitThumb(monster.id):safeImageUrl(item?.image||card?.image);
  const backup=safeImageUrl(item?.icon);
  const [imageUrl,setImageUrl]=useState(initial);
  useEffect(()=>setImageUrl(initial),[initial]);
  const Icon=kind==='card'?BookOpen:kind==='monster'?Target:kind==='stage'?MapIcon:item?.slot==='acc'?Gem:item?.slot==='weapon'?Swords:Shield;
- const frame=monster?.spriteFrame;
+ const frame=PUBLIC_MODE?null:monster?.spriteFrame;
  const edge=large?112:58;
  const scale=frame?Math.min((edge-8)/frame.width,(edge-8)/frame.height,large?1.5:1):1;
  return <span className={'art '+kind+(large?' large':'')}>
@@ -202,6 +204,7 @@ function App(){
     </>}
    </section>
   </main>
+  {PUBLIC_MODE&&<footer className="art-credits"><p>非官方・免費粉絲製作的掉落查詢網站。部分怪物使用 RO Fan Kit 官方插畫縮圖，並非本遊戲內截圖；其餘物品使用簡圖。</p><p>© Gravity Co., Ltd. &amp; Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc.</p><p><a href="https://ragnarokonline-cf.gungho.jp/special/fankit/" target="_blank" rel="noreferrer">RO Fan Kit 素材來源</a> · <a href="https://ragnarokonline.gungho.jp/support/play-manner/copyright.html" target="_blank" rel="noreferrer">官方使用規範</a> · <a href="https://ro-survivors.com/" target="_blank" rel="noreferrer">RO Survivors 遊戲</a></p></footer>}
   <nav className="bottom-nav" aria-label="分類">
    {([['items',Shield],['cards',BookOpen],['stages',MapIcon],['jobs',WandSparkles]] as const).map(([page,Icon])=><button key={page} className={state.page===page?'active':''} onClick={()=>navigate({...EMPTY,page},true)} aria-current={state.page===page?'page':undefined}><Icon size={21}/><span>{LABELS[page]}</span></button>)}
   </nav>
@@ -282,7 +285,7 @@ function DropRoutes({sources,stages,monsters,openDetail}:{sources:Source[];stage
  </div>)}</div>;
 }
 function DetailHero({kind,entry,title,sub}:{kind:Kind;entry?:Equipment|Card|Monster;title:string;sub?:string}){
- return <div className="detail-hero"><Artwork kind={kind} entity={entry} large/><div className="hero-info"><h2>{title}</h2>{sub&&<p>{sub}</p>}</div></div>;
+ return <div className="detail-hero"><Artwork kind={kind} entity={entry} large/><div className="hero-info"><h2>{title}</h2>{sub&&<p>{sub}</p>}{PUBLIC_MODE&&kind==='monster'&&entry&&approvedFanKitThumb((entry as Monster).id)&&<small className="art-inline-credit">RO Fan Kit 插畫 © Gravity Co., Ltd. &amp; Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc.</small>}</div></div>;
 }
 function StatSection({entry}:{entry:GameEntry}){
  const e=effects(entry);if(!e.length)return null;

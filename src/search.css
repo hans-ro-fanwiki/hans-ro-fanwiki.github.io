@@ -27,4 +27,8 @@
 .stage-view-toolbar .toggle{font-size:12px}
 .stage-no-results{font-size:13px;color:#788c80;text-align:center;padding:20px 4px}
 .search-hint{font-size:12px;color:#697e74}
+.art-credits{max-width:900px;margin:0 auto;padding:0 22px 110px;text-align:center;color:#73867d;font-size:11px;line-height:1.65}
+.art-credits p{margin:3px 0}
+.art-inline-credit{display:block;font-size:10px;line-height:1.35;color:#8a9b91;margin-top:6px;overflow-wrap:anywhere}
+.art-credits a{color:#326d62;text-decoration:underline;text-underline-offset:2px}
 @media(max-width:380px){.stage-controls{gap:6px}.stage-controls select{font-size:12px}.search-filter-row{gap:5px}.search-filter-row .chip{padding:6px 8px}}
