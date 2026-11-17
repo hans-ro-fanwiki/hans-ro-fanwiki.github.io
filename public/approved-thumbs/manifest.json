@@ -1,0 +1,87 @@
+{
+  "source": "https://ragnarokonline-cf.gungho.jp/special/fankit/",
+  "guidelines": "https://ragnarokonline.gungho.jp/support/play-manner/copyright.html",
+  "usage": "Noncommercial fan guide; only individual curated images; no RO Survivors or client sprite assets",
+  "monsters": {
+    "poring": {
+      "title": "ポリン",
+      "source": "https://ragnarokonline-cf.gungho.jp/special/fankit/assets/img/monster/boss-general-monster/2poring.png",
+      "file": "monsters/poring.webp",
+      "sourceSha256": "2ef31ed508dacbfc5fab53df405be706c3e730163859ecfc0cfd3e10dab2ab20",
+      "size": 946,
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "lunatic": {
+      "title": "ルナティック",
+      "source": "https://ragnarokonline-cf.gungho.jp/special/fankit/assets/img/monster/boss-general-monster/55lunatic.png",
+      "file": "monsters/lunatic.webp",
+      "sourceSha256": "ce74ac1d1a57b946d2b91cff684b59bef1ca92054d9ae84821d51de180808748",
+      "size": 1916,
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "drops": {
+      "title": "ドロップス",
+      "source": "https://ragnarokonline-cf.gungho.jp/special/fankit/assets/img/monster/boss-general-monster/104drops.png",
+      "file": "monsters/drops.webp",
+      "sourceSha256": "7e1ddeebc27f843ab2f66d636a3d9a9f027c5b4f64f5c5e3555c3202aae7f665",
+      "size": 976,
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "picky": {
+      "title": "ピッキ",
+      "source": "https://ragnarokonline-cf.gungho.jp/special/fankit/assets/img/monster/boss-general-monster/44picky.png",
+      "file": "monsters/picky.webp",
+      "sourceSha256": "1830cc8500454dd7971827c29fa4a2335b69141b2b995f4aee88f77347f0d3fd",
+      "size": 834,
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "rocker": {
+      "title": "ロッカー",
+      "source": "https://ragnarokonline-cf.gungho.jp/special/fankit/assets/img/monster/boss-general-monster/46rocker.png",
+      "file": "monsters/rocker.webp",
+      "sourceSha256": "1677f83d5b6dfd5215b87ffbedf70daae0d2954afe191b0b751b44ea0a0b5430",
+      "size": 2286,
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "chonchon": {
+      "title": "チョンチョン",
+      "source": "https://ragnarokonline-cf.gungho.jp/special/fankit/assets/img/monster/boss-general-monster/11chonchon.png",
+      "file": "monsters/chonchon.webp",
+      "sourceSha256": "814ba087d4f251b8e0493deb778e697e4d794345e368cabcd4e66763c2bbe779",
+      "size": 1136,
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "ghostring": {
+      "title": "ゴーストリング",
+      "source": "https://ragnarokonline-cf.gungho.jp/special/fankit/assets/img/monster/boss-general-monster/111ghostring.png",
+      "file": "monsters/ghostring.webp",
+      "sourceSha256": "692b67d0fb8ee64d87dc255d4c856f8a20d03f455d13249c4fc13a875e18e293",
+      "size": 1142,
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "baphomet": {
+      "title": "バフォメット",
+      "source": "https://ragnarokonline-cf.gungho.jp/special/fankit/assets/img/monster/mvp-monster/mob_baphomet.png",
+      "file": "monsters/baphomet.webp",
+      "sourceSha256": "1f8687ce7dd41c69487dd48e28cca0489bc7e03824c3a3b9476edbfbc91c4607",
+      "size": 3044,
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "osiris": {
+      "title": "オシリス",
+      "source": "https://ragnarokonline-cf.gungho.jp/special/fankit/assets/img/monster/mvp-monster/mob_osiris.png",
+      "file": "monsters/osiris.webp",
+      "sourceSha256": "b9cd879b628e447b39577830b53f1446e518d4ec59bc449cce0ca139116333f7",
+      "size": 2072,
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "eddga": {
+      "title": "エドガ",
+      "source": "https://ragnarokonline-cf.gungho.jp/special/fankit/assets/img/monster/mvp-monster/mob_eddga.png",
+      "file": "monsters/eddga.webp",
+      "sourceSha256": "9cb4269c44dd8e0021994a1035ff0c9feaa0a03df4cfaf1047b629e534609b16",
+      "size": 2690,
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    }
+  }
+}

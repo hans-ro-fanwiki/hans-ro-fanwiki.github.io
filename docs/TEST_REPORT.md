@@ -1,5 +1,13 @@
 # P1 私人 Dev／Preview 版驗證（2026-11-17）
 
+## 公開版 Fan Kit 與 Pages（2026-11-17）
+
+- 19/19 單元測試及 TypeScript/Vite 公開模式建置成功。
+- `node scripts/verify-public-dist.mjs` PASS：只含 10 張官方 Fan Kit 96×96 WebP（17,042 Bytes）；沒有私人 `game-assets/` 或 `evidence/`、原圖 PNG 或其他圖像。
+- `node scripts/public-smoke.mjs` PASS：Windows Chrome Headless 390px 觸控模擬；波利官方插畫載入 96px，裝備沒載入 RO Survivors 原圖，`/game-assets/` 請求 0、JS errors 0，320/375/390/430px 無橫向溢出。
+- 圖像官方來源、署名與條件：`docs/PUBLIC_ASSETS.md`；公開發布後仍需使用者 iPhone Safari 驗收。
+
+
 ## 2026-11-17 最新版驗收補充（屬性搜尋／摺疊關卡）
 
 此節為新版結果，以下歷史 P1 測試內容僅代表舊版（包括過去曾顯示的掉落權重），**不代表目前仍顯示該欄位**。
