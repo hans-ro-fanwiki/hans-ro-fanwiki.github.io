@@ -1,5 +1,18 @@
 # P1 私人 Dev／Preview 版驗證（2026-11-17）
 
+## 2026-11-17 最新版驗收補充（屬性搜尋／摺疊關卡）
+
+此節為新版結果，以下歷史 P1 測試內容僅代表舊版（包括過去曾顯示的掉落權重），**不代表目前仍顯示該欄位**。
+
+- Node 測試 **18/18 PASS**：新增屬性數量、中文別名、搜尋+屬性 AND 組合、匹配屬性文字呈現四項測試。
+- `npm run build`（TypeScript + Vite）：PASS。
+- `node scripts/mobile-smoke.mjs`：PASS（Windows Chrome headless 觸控模擬）；首頁搜尋、衣服29、INT中文別名（裝備6／卡片2）、冷卻（裝備21／卡片5）、進階篩選收合與清除、關卡展開/屬性/裝備卡片切換、單關展開、從項鍊反查關卡及移除權重文字。
+- 320／375／390／430px 的展開關卡均無水平溢出；瀏覽器 JavaScript pageerror = 0。
+- 私人圖片 720/720 恢復至 `dist/game-assets`；本機 Vite Preview 保留。
+- GitHub Pages（private repo）建立嘗試回傳 HTTP 422，因目前方案不支援此倉庫；未修改 visibility、未發布公開站。
+- **尚待使用者 iPhone Safari 真機驗收。**
+
+
 ## 驗收範圍
 
 依使用者 iPhone 截圖與後續回報修改：
