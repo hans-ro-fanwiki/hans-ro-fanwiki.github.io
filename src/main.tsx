@@ -6,6 +6,7 @@ import './styles.css';
 import './search.css';
 import {ATTRIBUTE_GROUPS,entryMatches,matchedEffect} from './search';
 import {approvedFanKitThumb} from './public-thumbs';
+import {SiteFooter} from './SiteFooter';
 
 type View={page:Page;slot:string;job:string;effect:string;source:string;query:string;attr:string;mode:'list'|'stages';onlyOpen:boolean;detail:string|null};
 type GameEntry=Equipment|Card;
@@ -204,7 +205,7 @@ function App(){
     </>}
    </section>
   </main>
-  {PUBLIC_MODE&&<footer className="art-credits"><p>非官方・免費粉絲製作的掉落查詢網站。部分怪物使用 RO Fan Kit 官方插畫縮圖，並非本遊戲內截圖；其餘物品使用簡圖。</p><p>© Gravity Co., Ltd. &amp; Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc.</p><p><a href="https://ragnarokonline-cf.gungho.jp/special/fankit/" target="_blank" rel="noreferrer">RO Fan Kit 素材來源</a> · <a href="https://ragnarokonline.gungho.jp/support/play-manner/copyright.html" target="_blank" rel="noreferrer">官方使用規範</a> · <a href="https://ro-survivors.com/" target="_blank" rel="noreferrer">RO Survivors 遊戲</a></p></footer>}
+  <SiteFooter publicMode={PUBLIC_MODE}/>
   <nav className="bottom-nav" aria-label="分類">
    {([['items',Shield],['cards',BookOpen],['stages',MapIcon],['jobs',WandSparkles]] as const).map(([page,Icon])=><button key={page} className={state.page===page?'active':''} onClick={()=>navigate({...EMPTY,page},true)} aria-current={state.page===page?'page':undefined}><Icon size={21}/><span>{LABELS[page]}</span></button>)}
   </nav>

@@ -1,0 +1,41 @@
+name: 著作權／內容疑慮與下架申請
+description: 向非官方 RO Survivors 玩家維基反映圖片、文字或其他內容的權利疑慮。本 Issue 為公開資訊。
+title: "[內容疑慮] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感謝告知。本站為免費、非營利、非官方的玩家攻略維基。
+        我們會優先查核提出的內容疑慮，必要時儘速移除或調整。
+        **本頁為公開 GitHub Issue，請不要提供個人電話、地址、證件、機密文件或非公開的權利證明。**
+        若需先移除敏感內容，可在說明中提出，但不要直接將敏感資料貼在這裡。
+  - type: input
+    id: page
+    attributes:
+      label: 涉及的本站頁面
+      description: 請貼上網站中相關內容的網址。
+      placeholder: https://lockgipo.github.io/ro-survivors-wiki/?detail=...
+    validations:
+      required: true
+  - type: textarea
+    id: concern
+    attributes:
+      label: 內容疑慮
+      description: 請說明涉及哪些圖片、文字或其他素材，以及希望調整或移除的原因。
+      placeholder: 例如：某張圖片的權利歸屬與使用方式有疑慮，請協助移除...
+    validations:
+      required: true
+  - type: textarea
+    id: requested-action
+    attributes:
+      label: 希望採取的處理方式（選填）
+      placeholder: 例如：移除該圖片、修改標示、補充來源...
+    validations:
+      required: false
+  - type: checkboxes
+    id: public-notice
+    attributes:
+      label: 公開資訊提醒
+      options:
+        - label: 我了解這是公開 Issue，內容不含不必要的個人資料或機密資訊。
+          required: true
