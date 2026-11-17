@@ -1,0 +1,3917 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-11-17",
+  "sourceVersion": "20261115_09c52f73",
+  "official": {
+    "main": {
+      "file": "main-2n_YvaNQ.js",
+      "sha256": "75e30eb32412865756af386132f6d10b3ed46062890122e185eff1a34b87732b"
+    },
+    "soul": {
+      "file": "soul_linker-BNTKE1pN.js",
+      "sha256": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147"
+    },
+    "manifest": {
+      "file": "assets/manifest.json",
+      "sha256": "bdbde78da2fd3d8c9084291935a279f2af53f4b456f1141aba6b1fce2db6f526"
+    },
+    "baseUrl": "https://ro-survivors.com"
+  },
+  "policy": "candidate fields are not promoted to official without matching source evidence; unknown rights mean no remotely loaded game art",
+  "items": [
+    {
+      "id": 1202,
+      "name": "小刀",
+      "originalName": "Knife",
+      "slot": "weapon",
+      "jobs": [
+        "archer",
+        "mage",
+        "merchant",
+        "ninja",
+        "swordsman",
+        "thief"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "poring",
+          "stageRefs": [
+            {
+              "stageId": "prontera",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "poring:1202"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "1202",
+        "officialPath": "items/1202_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1202",
+        "officialPath": "items/1202.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 1207,
+      "name": "左手短劍",
+      "originalName": "Main Gauche",
+      "slot": "weapon",
+      "jobs": [
+        "archer",
+        "mage",
+        "merchant",
+        "ninja",
+        "swordsman",
+        "thief"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "poporing",
+          "stageRefs": [
+            {
+              "stageId": "payon",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            },
+            {
+              "stageId": "payon_cave",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "poporing:1207"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "1207",
+        "officialPath": "items/1207_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1207",
+        "officialPath": "items/1207.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "official",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 1208,
+      "name": "左手短劍",
+      "originalName": "Main Gauche",
+      "slot": "weapon",
+      "jobs": [
+        "archer",
+        "mage",
+        "merchant",
+        "ninja",
+        "swordsman",
+        "thief"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "hornet",
+          "stageRefs": [
+            {
+              "stageId": "prontera",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "hornet:1208"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "1208",
+        "officialPath": "items/1208_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1208",
+        "officialPath": "items/1208.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 1209,
+      "name": "左手短劍",
+      "originalName": "Main Gauche",
+      "slot": "weapon",
+      "jobs": [
+        "archer",
+        "mage",
+        "merchant",
+        "ninja",
+        "swordsman",
+        "thief"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "1209",
+        "officialPath": "items/1209.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1209",
+        "officialPath": "items/1209.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 1213,
+      "name": "短劍",
+      "originalName": "Dagger",
+      "slot": "weapon",
+      "jobs": [
+        "archer",
+        "mage",
+        "merchant",
+        "ninja",
+        "swordsman",
+        "thief"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "1213",
+        "officialPath": "items/1213.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1213",
+        "officialPath": "items/1213.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 1214,
+      "name": "短劍",
+      "originalName": "Dagger",
+      "slot": "weapon",
+      "jobs": [
+        "archer",
+        "mage",
+        "merchant",
+        "ninja",
+        "swordsman",
+        "thief"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "skel_soldier",
+          "stageRefs": [
+            {
+              "stageId": "payon_cave",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "skel_soldier:1214"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "1214",
+        "officialPath": "items/1214_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1214",
+        "officialPath": "items/1214.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 1216,
+      "name": "錐刀",
+      "originalName": "Stiletto",
+      "slot": "weapon",
+      "jobs": [
+        "archer",
+        "mage",
+        "merchant",
+        "ninja",
+        "swordsman",
+        "thief"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "skel_soldier",
+          "stageRefs": [
+            {
+              "stageId": "payon_cave",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "skel_soldier:1216"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "1216",
+        "officialPath": "items/1216_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1216",
+        "officialPath": "items/1216.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "official",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 1217,
+      "name": "錐刀",
+      "originalName": "Stiletto",
+      "slot": "weapon",
+      "jobs": [
+        "archer",
+        "mage",
+        "merchant",
+        "ninja",
+        "swordsman",
+        "thief"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "sohee",
+          "stageRefs": [
+            {
+              "stageId": "payon_cave",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "sohee:1217"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "1217",
+        "officialPath": "items/1217_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1217",
+        "officialPath": "items/1217.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 1218,
+      "name": "錐刀",
+      "originalName": "Stiletto",
+      "slot": "weapon",
+      "jobs": [
+        "archer",
+        "mage",
+        "merchant",
+        "ninja",
+        "swordsman",
+        "thief"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "1218",
+        "officialPath": "items/1218.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1218",
+        "officialPath": "items/1218.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 1219,
+      "name": "羅馬短劍",
+      "originalName": "Gladius",
+      "slot": "weapon",
+      "jobs": [
+        "archer",
+        "mage",
+        "merchant",
+        "ninja",
+        "swordsman",
+        "thief"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "skeleton_general",
+          "stageRefs": [
+            {
+              "stageId": "payon_cave",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "skeleton_general:1219"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "1219",
+        "officialPath": "items/1219_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1219",
+        "officialPath": "items/1219.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "official",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 1220,
+      "name": "羅馬短劍",
+      "originalName": "Gladius",
+      "slot": "weapon",
+      "jobs": [
+        "archer",
+        "mage",
+        "merchant",
+        "ninja",
+        "swordsman",
+        "thief"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "skeleton_general",
+          "stageRefs": [
+            {
+              "stageId": "payon_cave",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "skeleton_general:1220"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "1220",
+        "officialPath": "items/1220_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1220",
+        "officialPath": "items/1220.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 1221,
+      "name": "羅馬短劍",
+      "originalName": "Gladius",
+      "slot": "weapon",
+      "jobs": [
+        "archer",
+        "mage",
+        "merchant",
+        "ninja",
+        "swordsman",
+        "thief"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "1221",
+        "officialPath": "items/1221.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1221",
+        "officialPath": "items/1221.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 1601,
+      "name": "法杖",
+      "originalName": "Rod",
+      "slot": "weapon",
+      "jobs": [
+        "mage",
+        "acolyte"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "starter",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "1601",
+        "officialPath": "items/1601_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1601",
+        "officialPath": "items/1601.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 1602,
+      "name": "法杖",
+      "originalName": "Rod",
+      "slot": "weapon",
+      "jobs": [
+        "acolyte",
+        "mage"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "drops",
+          "stageRefs": [
+            {
+              "stageId": "prontera",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "drops:1602"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "1602",
+        "officialPath": "items/1602_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1602",
+        "officialPath": "items/1602.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 1604,
+      "name": "魔杖",
+      "originalName": "Wand",
+      "slot": "weapon",
+      "jobs": [
+        "mage",
+        "acolyte"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "marina",
+          "stageRefs": [
+            {
+              "stageId": "sunken",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "marina:1604"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "1604",
+        "officialPath": "items/1604_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1604",
+        "officialPath": "items/1604.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "official",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 1607,
+      "name": "法杖",
+      "originalName": "Staff",
+      "slot": "weapon",
+      "jobs": [
+        "mage",
+        "acolyte"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "story",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "story",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "1607",
+        "officialPath": "items/1607_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1607",
+        "officialPath": "items/1607.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 1610,
+      "name": "弧形魔杖",
+      "originalName": "Arc Wand",
+      "slot": "weapon",
+      "jobs": [
+        "mage",
+        "acolyte"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "willow",
+          "stageRefs": [
+            {
+              "stageId": "payon",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "willow:1610"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "1610",
+        "officialPath": "items/1610_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1610",
+        "officialPath": "items/1610.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "official",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 1612,
+      "name": "弧形魔杖",
+      "originalName": "Arc Wand",
+      "slot": "weapon",
+      "jobs": [
+        "mage",
+        "acolyte"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "1612",
+        "officialPath": "items/1612.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1612",
+        "officialPath": "items/1612.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 1613,
+      "name": "強力法杖",
+      "originalName": "Mighty Staff",
+      "slot": "weapon",
+      "jobs": [
+        "mage",
+        "acolyte"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "dokebi",
+          "stageRefs": [
+            {
+              "stageId": "payon",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "dokebi:1613"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "1613",
+        "officialPath": "items/1613_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1613",
+        "officialPath": "items/1613.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "official",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 1648,
+      "name": "波爾多法杖",
+      "originalName": "Staff of Bordeaux",
+      "slot": "weapon",
+      "jobs": [
+        "mage"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "moonlight",
+          "stageRefs": [
+            {
+              "stageId": "payon_cave",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "moonlight:1648"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "1648",
+        "officialPath": "items/1648_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1648",
+        "officialPath": "items/1648.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 1663,
+      "name": "波爾多法杖",
+      "originalName": "Staff of Bordeaux",
+      "slot": "weapon",
+      "jobs": [
+        "mage"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "1663",
+        "officialPath": "items/1663.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "1663",
+        "officialPath": "items/1663.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2333,
+      "name": "銀色長袍",
+      "originalName": "Silver Robe",
+      "slot": "armor",
+      "jobs": [
+        "mage"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "whisper",
+          "stageRefs": [
+            {
+              "stageId": "sunken",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "whisper:2333"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "2333",
+        "officialPath": "items/2333_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2333",
+        "officialPath": "items/2333.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2603,
+      "name": "項鍊",
+      "originalName": "Necklace",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "strouf",
+          "stageRefs": [
+            {
+              "stageId": "byalan",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "strouf:2603"
+          }
+        },
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "king_dramoh",
+          "stageRefs": [
+            {
+              "stageId": "byalan",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "king_dramoh:2603"
+          }
+        },
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "cat_o_nine_tail",
+          "stageRefs": [
+            {
+              "stageId": "payon_cave",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "cat_o_nine_tail:2603"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "2603",
+        "officialPath": "items/2603_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2603",
+        "officialPath": "items/2603.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "official",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2605,
+      "name": "胸針",
+      "originalName": "Brooch",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "marine_sphere",
+          "stageRefs": [
+            {
+              "stageId": "byalan",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "marine_sphere:2605"
+          }
+        },
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "nine_tail",
+          "stageRefs": [
+            {
+              "stageId": "payon",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            },
+            {
+              "stageId": "payon_cave",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "nine_tail:2605"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "2605",
+        "officialPath": "items/2605_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2605",
+        "officialPath": "items/2605.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "official",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2607,
+      "name": "夾子",
+      "originalName": "Clip",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "dragon_fly",
+          "stageRefs": [
+            {
+              "stageId": "prontera",
+              "boss": true,
+              "verified": false,
+              "verificationState": "candidate"
+            }
+          ],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "marina",
+          "stageRefs": [
+            {
+              "stageId": "sunken",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "marina:2607"
+          }
+        },
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "obeaune",
+          "stageRefs": [
+            {
+              "stageId": "byalan",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "obeaune:2607"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "2607",
+        "officialPath": "items/2607_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2607",
+        "officialPath": "items/2607.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "official",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2608,
+      "name": "玫瑰念珠",
+      "originalName": "Rosary",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "zombie",
+          "stageRefs": [
+            {
+              "stageId": "payon_cave",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "zombie:2608"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "2608",
+        "officialPath": "items/2608_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2608",
+        "officialPath": "items/2608.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "official",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2609,
+      "name": "骷髏戒指",
+      "originalName": "Skull Ring",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "skeleton",
+          "stageRefs": [
+            {
+              "stageId": "payon_cave",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "skeleton:2609"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "2609",
+        "officialPath": "items/2609_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2609",
+        "officialPath": "items/2609.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2610,
+      "name": "金戒指",
+      "originalName": "Gold Ring",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "golden_thief_bug",
+          "stageRefs": [
+            {
+              "stageId": "sewer",
+              "boss": true,
+              "verified": false,
+              "verificationState": "candidate"
+            }
+          ],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "2610",
+        "officialPath": "items/2610_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2610",
+        "officialPath": "items/2610.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2614,
+      "name": "杜拉漢之眼",
+      "originalName": "Eye of Dullahan",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [
+        "+40 最大 HP",
+        "+3% 爆擊",
+        "+4% 傷害"
+      ],
+      "sources": [],
+      "image": {
+        "assetId": "2614",
+        "officialPath": "items/2614_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2614",
+        "officialPath": "items/2614.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "official",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2615,
+      "name": "安全戒指",
+      "originalName": "Safety Ring",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "plankton",
+          "stageRefs": [
+            {
+              "stageId": "sewer",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "plankton:2615"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "2615",
+        "officialPath": "items/2615_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2615",
+        "officialPath": "items/2615.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "official",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2616,
+      "name": "爆擊戒指",
+      "originalName": "Critical Ring",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "cramp",
+          "stageRefs": [
+            {
+              "stageId": "sewer",
+              "boss": false,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "cramp:2616"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "2616",
+        "officialPath": "items/2616_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2616",
+        "officialPath": "items/2616.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "official",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2617,
+      "name": "祭司手套",
+      "originalName": "Celebrant's Mitten",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [
+        "+4 冷卻縮減",
+        "+15% 肉的治療量"
+      ],
+      "sources": [],
+      "image": {
+        "assetId": "2617",
+        "officialPath": "items/2617_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2617",
+        "officialPath": "items/2617.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "official",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2619,
+      "name": "弓箭手的頂針",
+      "originalName": "Bow Thimble",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [
+        "+10% 投射物速度",
+        "+2% 爆擊"
+      ],
+      "sources": [],
+      "image": {
+        "assetId": "2619",
+        "officialPath": "items/2619_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2619",
+        "officialPath": "items/2619.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "official",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2620,
+      "name": "流氓的寶物",
+      "originalName": "Rogue's Treasure",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "tarou_bite",
+          "stageRefs": [
+            {
+              "stageId": "sewer",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "tarou_bite:2620"
+          }
+        },
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "tarou_plague",
+          "stageRefs": [
+            {
+              "stageId": "sewer",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "tarou_plague:2620"
+          }
+        },
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "tarou_burrow",
+          "stageRefs": [
+            {
+              "stageId": "sewer",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "tarou_burrow:2620"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "2620",
+        "officialPath": "items/2620_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2620",
+        "officialPath": "items/2620.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "official",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2623,
+      "name": "項鍊",
+      "originalName": "Necklace",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [
+        "+15% 毒、燃燒與流血傷害"
+      ],
+      "sources": [
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "2623",
+        "officialPath": "items/2623.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2623",
+        "officialPath": "items/2623.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2625,
+      "name": "胸針",
+      "originalName": "Brooch",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "2625",
+        "officialPath": "items/2625.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2625",
+        "officialPath": "items/2625.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2626,
+      "name": "玫瑰念珠",
+      "originalName": "Rosary",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "2626",
+        "officialPath": "items/2626.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2626",
+        "officialPath": "items/2626.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2627,
+      "name": "腰帶",
+      "originalName": "Belt",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "tarou_bite",
+          "stageRefs": [
+            {
+              "stageId": "sewer",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "tarou_bite:2627"
+          }
+        },
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "tarou_plague",
+          "stageRefs": [
+            {
+              "stageId": "sewer",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "tarou_plague:2627"
+          }
+        },
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "tarou_burrow",
+          "stageRefs": [
+            {
+              "stageId": "sewer",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "tarou_burrow:2627"
+          }
+        }
+      ],
+      "image": {
+        "assetId": "2627",
+        "officialPath": "items/2627_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2627",
+        "officialPath": "items/2627.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "official",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2629,
+      "name": "雷神腰帶",
+      "originalName": "Megingjord",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [],
+      "sources": [],
+      "image": {
+        "assetId": "2629",
+        "officialPath": "items/2629_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2629",
+        "officialPath": "items/2629.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2630,
+      "name": "布理辛格曼",
+      "originalName": "Brisingamen",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [],
+      "sources": [],
+      "image": {
+        "assetId": "2630",
+        "officialPath": "items/2630_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2630",
+        "officialPath": "items/2630.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2666,
+      "name": "Lantern of Hope",
+      "originalName": "Lantern of Hope",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "2666",
+        "officialPath": "items/2666.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2666",
+        "officialPath": "items/2666.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2678,
+      "name": "火焰領主戒指",
+      "originalName": "Ring of Flame Lord",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [
+        "+8% 傷害",
+        "+5% 範圍"
+      ],
+      "sources": [],
+      "image": {
+        "assetId": "2678",
+        "officialPath": "items/2678_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2678",
+        "officialPath": "items/2678.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "official",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2679,
+      "name": "共鳴戒指",
+      "originalName": "Ring of Resonance",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [
+        "+50 最大 HP",
+        "+4 冷卻縮減"
+      ],
+      "sources": [],
+      "image": {
+        "assetId": "2679",
+        "officialPath": "items/2679_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2679",
+        "officialPath": "items/2679.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "official",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2700,
+      "name": "Red Silk Seal",
+      "originalName": "Red Silk Seal",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "2700",
+        "officialPath": "items/2700.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2700",
+        "officialPath": "items/2700.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2708,
+      "name": "Chinese Handicraft",
+      "originalName": "Chinese Handicraft",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "2708",
+        "officialPath": "items/2708.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2708",
+        "officialPath": "items/2708.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2715,
+      "name": "骷髏戒指",
+      "originalName": "Skull Ring",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "2715",
+        "officialPath": "items/2715.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2715",
+        "officialPath": "items/2715.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 2986,
+      "name": "Snake Ring",
+      "originalName": "Snake Ring",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "2986",
+        "officialPath": "items/2986.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "2986",
+        "officialPath": "items/2986.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 13030,
+      "name": "屠龍刀",
+      "originalName": "Dragon Killer",
+      "slot": "weapon",
+      "jobs": [
+        "archer",
+        "mage",
+        "merchant",
+        "ninja",
+        "swordsman",
+        "thief"
+      ],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "13030",
+        "officialPath": "items/13030.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "13030",
+        "officialPath": "items/13030.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 22847,
+      "name": "普隆德拉巡邏隊徽章",
+      "originalName": "Prontera Patrol Badge",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [
+        "最大 HP +8%",
+        "+3 護甲",
+        "-5% 受到傷害",
+        "+5% 傷害"
+      ],
+      "sources": [
+        {
+          "sourceType": "reward",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "22847",
+        "officialPath": "items/22847_art.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "22847",
+        "officialPath": "items/22847.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "official",
+        "jobs": "candidate"
+      }
+    },
+    {
+      "id": 28560,
+      "name": "Yin Yang Talisman",
+      "originalName": "Yin Yang Talisman",
+      "slot": "acc",
+      "jobs": [],
+      "gender": null,
+      "bonuses": [],
+      "sources": [
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        },
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "28560",
+        "officialPath": "items/28560.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "icon": {
+        "assetId": "28560",
+        "officialPath": "items/28560.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "slot": "candidate",
+        "jobs": "candidate"
+      }
+    }
+  ],
+  "cards": [
+    {
+      "id": 4010,
+      "name": "樹精卡片",
+      "originalName": "Willow Card",
+      "monsterId": "willow",
+      "bonuses": [
+        "+5 冷卻縮減"
+      ],
+      "tags": [
+        "cooldown"
+      ],
+      "equipSlot": "頭飾",
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "willow",
+          "stageRefs": [
+            {
+              "stageId": "payon",
+              "boss": false,
+              "verified": false,
+              "verificationState": "candidate"
+            }
+          ],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "4010",
+        "officialPath": "cards/4010.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "bonuses": "candidate",
+        "monster": "candidate"
+      }
+    },
+    {
+      "id": 4023,
+      "name": "沙漠幼狼卡片",
+      "originalName": "Baby Desert Wolf Card",
+      "monsterId": "baby_desert_wolf",
+      "bonuses": [
+        "+3 冷卻縮減"
+      ],
+      "tags": [
+        "cooldown"
+      ],
+      "equipSlot": "武器",
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "baby_desert_wolf",
+          "stageRefs": [
+            {
+              "stageId": "prontera",
+              "boss": false,
+              "verified": false,
+              "verificationState": "candidate"
+            }
+          ],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "4023",
+        "officialPath": "cards/4023.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "bonuses": "candidate",
+        "monster": "candidate"
+      }
+    },
+    {
+      "id": 4077,
+      "name": "芬魚卡片",
+      "originalName": "Phen Card",
+      "monsterId": "phen",
+      "bonuses": [
+        "+4 冷卻縮減"
+      ],
+      "tags": [
+        "cooldown"
+      ],
+      "equipSlot": "飾品",
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "phen",
+          "stageRefs": [
+            {
+              "stageId": "byalan",
+              "boss": false,
+              "verified": false,
+              "verificationState": "candidate"
+            }
+          ],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "4077",
+        "officialPath": "cards/4077.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "bonuses": "candidate",
+        "monster": "candidate"
+      }
+    },
+    {
+      "id": 4100,
+      "name": "蘇熙卡片",
+      "originalName": "Sohee Card",
+      "monsterId": "sohee",
+      "bonuses": [
+        "+4 冷卻縮減",
+        "+15 最大 HP"
+      ],
+      "tags": [
+        "cooldown"
+      ],
+      "equipSlot": "鞋子",
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "sohee",
+          "stageRefs": [
+            {
+              "stageId": "payon_cave",
+              "boss": false,
+              "verified": false,
+              "verificationState": "candidate"
+            }
+          ],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "4100",
+        "officialPath": "cards/4100.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "bonuses": "candidate",
+        "monster": "candidate"
+      }
+    },
+    {
+      "id": 4330,
+      "name": "Dark Snake Lord Card",
+      "originalName": "Dark Snake Lord Card",
+      "monsterId": "dark_snake_lord",
+      "bonuses": [
+        "+3 INT",
+        "+6 冷卻縮減"
+      ],
+      "tags": [
+        "cooldown"
+      ],
+      "equipSlot": "頭飾",
+      "sources": [
+        {
+          "sourceType": "event",
+          "monsterId": null,
+          "stageRefs": [],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "4330",
+        "officialPath": "cards/4330.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "bonuses": "candidate",
+        "monster": "candidate"
+      }
+    },
+    {
+      "id": 4001,
+      "name": "波利卡片",
+      "originalName": "Poring Card",
+      "monsterId": "poring",
+      "bonuses": [
+        "+3% 迴避",
+        "+2% 爆擊"
+      ],
+      "tags": [
+        "crit"
+      ],
+      "equipSlot": "護甲",
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "poring",
+          "stageRefs": [
+            {
+              "stageId": "prontera",
+              "boss": false,
+              "verified": false,
+              "verificationState": "candidate"
+            }
+          ],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "4001",
+        "officialPath": "cards/4001.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "bonuses": "candidate",
+        "monster": "candidate"
+      }
+    },
+    {
+      "id": 4006,
+      "name": "瘋兔卡片",
+      "originalName": "Lunatic Card",
+      "monsterId": "lunatic",
+      "bonuses": [
+        "+3% 爆擊",
+        "+2% 迴避"
+      ],
+      "tags": [
+        "crit"
+      ],
+      "equipSlot": "披肩",
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "lunatic",
+          "stageRefs": [
+            {
+              "stageId": "prontera",
+              "boss": false,
+              "verified": false,
+              "verificationState": "candidate"
+            }
+          ],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "4006",
+        "officialPath": "cards/4006.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "bonuses": "candidate",
+        "monster": "candidate"
+      }
+    },
+    {
+      "id": 4019,
+      "name": "大黃蜂卡片",
+      "originalName": "Hornet Card",
+      "monsterId": "hornet",
+      "bonuses": [
+        "+3% 傷害",
+        "+1% 爆擊"
+      ],
+      "tags": [
+        "crit"
+      ],
+      "equipSlot": "武器",
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "hornet",
+          "stageRefs": [
+            {
+              "stageId": "prontera",
+              "boss": false,
+              "verified": false,
+              "verificationState": "candidate"
+            }
+          ],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "4019",
+        "officialPath": "cards/4019.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "bonuses": "candidate",
+        "monster": "candidate"
+      }
+    },
+    {
+      "id": 4026,
+      "name": "母盜蟲卡片",
+      "originalName": "Female Thiefbug Card",
+      "monsterId": "thief_bug_female",
+      "bonuses": [
+        "+2% 爆擊",
+        "+2% 傷害"
+      ],
+      "tags": [
+        "crit"
+      ],
+      "equipSlot": "武器",
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "thief_bug_female",
+          "stageRefs": [
+            {
+              "stageId": "sewer",
+              "boss": false,
+              "verified": false,
+              "verificationState": "candidate"
+            }
+          ],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "4026",
+        "officialPath": "cards/4026.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "bonuses": "candidate",
+        "monster": "candidate"
+      }
+    },
+    {
+      "id": 4029,
+      "name": "狼卡片",
+      "originalName": "Wolf Card",
+      "monsterId": "wolf",
+      "bonuses": [
+        "+6% 傷害",
+        "+2% 爆擊"
+      ],
+      "tags": [
+        "crit"
+      ],
+      "equipSlot": "武器",
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "wolf",
+          "stageRefs": [
+            {
+              "stageId": "payon",
+              "boss": false,
+              "verified": false,
+              "verificationState": "candidate"
+            }
+          ],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "4029",
+        "officialPath": "cards/4029.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "bonuses": "candidate",
+        "monster": "candidate"
+      }
+    },
+    {
+      "id": 4037,
+      "name": "蟒蛇卡片",
+      "originalName": "Snake Card",
+      "monsterId": "snake",
+      "bonuses": [
+        "+3% 爆擊",
+        "+2% 傷害"
+      ],
+      "tags": [
+        "crit"
+      ],
+      "equipSlot": "武器",
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "snake",
+          "stageRefs": [
+            {
+              "stageId": "payon",
+              "boss": false,
+              "verified": false,
+              "verificationState": "candidate"
+            }
+          ],
+          "verificationState": "candidate",
+          "evidence": null
+        }
+      ],
+      "image": {
+        "assetId": "4037",
+        "officialPath": "cards/4037.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
+      "fieldProvenance": {
+        "name": "candidate",
+        "bonuses": "candidate",
+        "monster": "candidate"
+      }
+    }
+  ],
+  "monsters": [
+    {
+      "id": "poring",
+      "name": "波利",
+      "boss": false,
+      "stages": [
+        {
+          "id": "prontera",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "lunatic",
+      "name": "瘋兔",
+      "boss": false,
+      "stages": [
+        {
+          "id": "prontera",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "drops",
+      "name": "土波利",
+      "boss": false,
+      "stages": [
+        {
+          "id": "prontera",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "hornet",
+      "name": "大黃蜂",
+      "boss": false,
+      "stages": [
+        {
+          "id": "prontera",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "baby_desert_wolf",
+      "name": "沙漠幼狼",
+      "boss": false,
+      "stages": [
+        {
+          "id": "prontera",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "dragon_fly",
+      "name": "龍蜻蜓",
+      "boss": true,
+      "stages": [
+        {
+          "id": "prontera",
+          "boss": true,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "plankton",
+      "name": "浮游生物",
+      "boss": false,
+      "stages": [
+        {
+          "id": "sewer",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "thief_bug_female",
+      "name": "母盜蟲",
+      "boss": false,
+      "stages": [
+        {
+          "id": "sewer",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "cramp",
+      "name": "巨鼠",
+      "boss": false,
+      "stages": [
+        {
+          "id": "sewer",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "tarou_bite",
+      "name": "啃咬塔羅鼠",
+      "boss": true,
+      "stages": [
+        {
+          "id": "sewer",
+          "boss": true,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "tarou_plague",
+      "name": "瘟疫塔羅鼠",
+      "boss": true,
+      "stages": [
+        {
+          "id": "sewer",
+          "boss": true,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "tarou_burrow",
+      "name": "鑽地塔羅鼠",
+      "boss": true,
+      "stages": [
+        {
+          "id": "sewer",
+          "boss": true,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "golden_thief_bug",
+      "name": "黃金蟲",
+      "boss": true,
+      "stages": [
+        {
+          "id": "sewer",
+          "boss": true,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "marina",
+      "name": "水母",
+      "boss": false,
+      "stages": [
+        {
+          "id": "sunken",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "whisper",
+      "name": "幽影",
+      "boss": false,
+      "stages": [
+        {
+          "id": "sunken",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "phen",
+      "name": "芬魚",
+      "boss": false,
+      "stages": [
+        {
+          "id": "byalan",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "obeaune",
+      "name": "歐比恩",
+      "boss": false,
+      "stages": [
+        {
+          "id": "byalan",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "marine_sphere",
+      "name": "海洋炸彈",
+      "boss": false,
+      "stages": [
+        {
+          "id": "byalan",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "strouf",
+      "name": "史特勞夫",
+      "boss": true,
+      "stages": [
+        {
+          "id": "byalan",
+          "boss": true,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "king_dramoh",
+      "name": "朵拉莫王",
+      "boss": true,
+      "stages": [
+        {
+          "id": "byalan",
+          "boss": true,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "willow",
+      "name": "樹精",
+      "boss": false,
+      "stages": [
+        {
+          "id": "payon",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "poporing",
+      "name": "波波利",
+      "boss": false,
+      "stages": [
+        {
+          "id": "payon",
+          "boss": false,
+          "verified": true
+        },
+        {
+          "id": "payon_cave",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "snake",
+      "name": "蟒蛇",
+      "boss": false,
+      "stages": [
+        {
+          "id": "payon",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "wolf",
+      "name": "狼",
+      "boss": false,
+      "stages": [
+        {
+          "id": "payon",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "dokebi",
+      "name": "獨角鬼",
+      "boss": false,
+      "stages": [
+        {
+          "id": "payon",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "nine_tail",
+      "name": "九尾狐",
+      "boss": false,
+      "stages": [
+        {
+          "id": "payon",
+          "boss": false,
+          "verified": true
+        },
+        {
+          "id": "payon_cave",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "zombie",
+      "name": "殭屍",
+      "boss": false,
+      "stages": [
+        {
+          "id": "payon_cave",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "skeleton",
+      "name": "骷髏",
+      "boss": false,
+      "stages": [
+        {
+          "id": "payon_cave",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "skel_soldier",
+      "name": "骷髏士兵",
+      "boss": false,
+      "stages": [
+        {
+          "id": "payon_cave",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "sohee",
+      "name": "蘇熙",
+      "boss": false,
+      "stages": [
+        {
+          "id": "payon_cave",
+          "boss": false,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "skeleton_general",
+      "name": "骷髏將軍",
+      "boss": true,
+      "stages": [
+        {
+          "id": "payon_cave",
+          "boss": true,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "cat_o_nine_tail",
+      "name": "九尾貓",
+      "boss": true,
+      "stages": [
+        {
+          "id": "payon_cave",
+          "boss": true,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "moonlight",
+      "name": "月夜貓",
+      "boss": true,
+      "stages": [
+        {
+          "id": "payon_cave",
+          "boss": true,
+          "verified": true
+        }
+      ],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    },
+    {
+      "id": "dark_snake_lord",
+      "name": "Evil Snake Lord",
+      "boss": true,
+      "stages": [],
+      "sprite": null,
+      "fieldProvenance": {
+        "name": "candidate",
+        "stage": "official",
+        "boss": "candidate"
+      }
+    }
+  ],
+  "stages": [
+    {
+      "id": "prontera",
+      "name": "普隆德拉原野",
+      "levels": "1–8",
+      "open": true,
+      "season": false,
+      "story": false,
+      "planned": false,
+      "normalMonsterIds": [
+        "poring",
+        "lunatic",
+        "fabre",
+        "drops",
+        "picky",
+        "roda_frog",
+        "condor",
+        "savage_babe",
+        "creamy",
+        "hornet",
+        "mandragora",
+        "baby_desert_wolf",
+        "rocker"
+      ],
+      "bossMonsterIds": [
+        "eclipse",
+        "toad",
+        "dragon_fly",
+        "vocal",
+        "mastering"
+      ],
+      "candidatePoolCount": 13,
+      "candidateBossCount": 5,
+      "provenance": {
+        "id": "official",
+        "pool": "official",
+        "boss": "official",
+        "open": "candidate"
+      }
+    },
+    {
+      "id": "sewer",
+      "name": "普隆德拉地下水道",
+      "levels": "9–12",
+      "open": true,
+      "season": false,
+      "story": false,
+      "planned": false,
+      "normalMonsterIds": [
+        "thief_bug",
+        "familiar",
+        "tarou",
+        "thief_bug_egg",
+        "plankton",
+        "drainliar",
+        "thief_bug_female",
+        "cramp"
+      ],
+      "bossMonsterIds": [
+        "tarou_bite",
+        "tarou_plague",
+        "tarou_burrow",
+        "golden_thief_bug"
+      ],
+      "candidatePoolCount": 8,
+      "candidateBossCount": 4,
+      "provenance": {
+        "id": "official",
+        "pool": "official",
+        "boss": "official",
+        "open": "candidate"
+      }
+    },
+    {
+      "id": "sunken",
+      "name": "失事輪",
+      "levels": "13–15",
+      "open": true,
+      "season": false,
+      "story": true,
+      "planned": false,
+      "normalMonsterIds": [
+        "kukre",
+        "marina",
+        "hydra",
+        "whisper",
+        "sword_fish",
+        "pirate_skel"
+      ],
+      "bossMonsterIds": [
+        "ghostring",
+        "penomena",
+        "drake"
+      ],
+      "candidatePoolCount": 6,
+      "candidateBossCount": 3,
+      "provenance": {
+        "id": "official",
+        "pool": "official",
+        "boss": "official",
+        "open": "candidate"
+      }
+    },
+    {
+      "id": "byalan",
+      "name": "柏伊亞嵐島",
+      "levels": "16–20",
+      "open": true,
+      "season": false,
+      "story": false,
+      "planned": false,
+      "normalMonsterIds": [
+        "vadon",
+        "cornutus",
+        "marse",
+        "obeaune",
+        "marine_sphere",
+        "phen",
+        "merman"
+      ],
+      "bossMonsterIds": [
+        "deviace",
+        "strouf",
+        "king_dramoh",
+        "kraken"
+      ],
+      "candidatePoolCount": 7,
+      "candidateBossCount": 4,
+      "provenance": {
+        "id": "official",
+        "pool": "official",
+        "boss": "official",
+        "open": "candidate"
+      }
+    },
+    {
+      "id": "payon",
+      "name": "斐揚森林",
+      "levels": "21–25",
+      "open": true,
+      "season": false,
+      "story": false,
+      "planned": false,
+      "normalMonsterIds": [
+        "spore",
+        "willow",
+        "poporing",
+        "snake",
+        "worm_tail",
+        "poison_spore",
+        "smokie",
+        "wolf",
+        "elder_willow",
+        "dragon_tail",
+        "bigfoot",
+        "greatest_general",
+        "dokebi",
+        "nine_tail"
+      ],
+      "bossMonsterIds": [
+        "angeling",
+        "deviling",
+        "vagabond_wolf",
+        "eddga"
+      ],
+      "candidatePoolCount": 14,
+      "candidateBossCount": 4,
+      "provenance": {
+        "id": "official",
+        "pool": "official",
+        "boss": "official",
+        "open": "candidate"
+      }
+    },
+    {
+      "id": "payon_cave",
+      "name": "斐揚洞穴",
+      "levels": "26–30",
+      "open": true,
+      "season": false,
+      "story": false,
+      "planned": false,
+      "normalMonsterIds": [
+        "zombie",
+        "skeleton",
+        "poporing",
+        "skel_archer",
+        "skel_soldier",
+        "munak",
+        "bon_gun",
+        "sohee",
+        "horong",
+        "nine_tail"
+      ],
+      "bossMonsterIds": [
+        "skeleton_general",
+        "cat_o_nine_tail",
+        "hyegun",
+        "moonlight"
+      ],
+      "candidatePoolCount": 10,
+      "candidateBossCount": 4,
+      "provenance": {
+        "id": "official",
+        "pool": "official",
+        "boss": "official",
+        "open": "candidate"
+      }
+    },
+    {
+      "id": "prt_castle",
+      "name": "普隆德拉城",
+      "levels": "31–35",
+      "open": true,
+      "season": false,
+      "story": false,
+      "planned": false,
+      "normalMonsterIds": [
+        "orc_warrior",
+        "orc_lady"
+      ],
+      "bossMonsterIds": [
+        "high_orc"
+      ],
+      "candidatePoolCount": 2,
+      "candidateBossCount": 1,
+      "provenance": {
+        "id": "official",
+        "pool": "official",
+        "boss": "official",
+        "open": "candidate"
+      }
+    },
+    {
+      "id": "orcs",
+      "name": "獸人村",
+      "levels": "31–40",
+      "open": false,
+      "season": false,
+      "story": false,
+      "planned": true,
+      "normalMonsterIds": [],
+      "bossMonsterIds": [],
+      "candidatePoolCount": 0,
+      "candidateBossCount": 0,
+      "provenance": {
+        "id": "candidate",
+        "pool": "unknown",
+        "boss": "unknown",
+        "open": "candidate"
+      }
+    },
+    {
+      "id": "pyramid",
+      "name": "夢羅克金字塔",
+      "levels": "41–50",
+      "open": false,
+      "season": false,
+      "story": false,
+      "planned": true,
+      "normalMonsterIds": [],
+      "bossMonsterIds": [],
+      "candidatePoolCount": 0,
+      "candidateBossCount": 0,
+      "provenance": {
+        "id": "candidate",
+        "pool": "unknown",
+        "boss": "unknown",
+        "open": "candidate"
+      }
+    },
+    {
+      "id": "louyang",
+      "name": "燈籠節",
+      "levels": "26–30",
+      "open": true,
+      "season": true,
+      "story": false,
+      "planned": false,
+      "normalMonsterIds": [
+        "leaf_cat",
+        "the_paper",
+        "kapha",
+        "chung_e",
+        "stone_shooter",
+        "iron_fist"
+      ],
+      "bossMonsterIds": [
+        "dancing_dragon",
+        "live_peach_tree",
+        "wanderer",
+        "wooden_golem",
+        "rice_cake_boy",
+        "spring_rabbit",
+        "bacsojin"
+      ],
+      "candidatePoolCount": 6,
+      "candidateBossCount": 7,
+      "provenance": {
+        "id": "official",
+        "pool": "official",
+        "boss": "official",
+        "open": "candidate"
+      }
+    }
+  ]
+}

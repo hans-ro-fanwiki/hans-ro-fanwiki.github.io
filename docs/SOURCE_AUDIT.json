@@ -1,0 +1,111 @@
+{
+  "generatedAt": "2026-11-17",
+  "officialBundles": {
+    "main": {
+      "file": "main-2n_YvaNQ.js",
+      "sha256": "75e30eb32412865756af386132f6d10b3ed46062890122e185eff1a34b87732b"
+    },
+    "soul": {
+      "file": "soul_linker-BNTKE1pN.js",
+      "sha256": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147"
+    },
+    "manifest": {
+      "file": "assets/manifest.json",
+      "sha256": "bdbde78da2fd3d8c9084291935a279f2af53f4b456f1141aba6b1fce2db6f526"
+    },
+    "baseUrl": "https://ro-survivors.com"
+  },
+  "candidateTotals": {
+    "stages": 10,
+    "items": 287,
+    "cards": 98,
+    "monsters": 109
+  },
+  "previewSubset": {
+    "stages": 10,
+    "items": 50,
+    "cards": 11,
+    "monsters": 34
+  },
+  "officialStagePools": 8,
+  "officialBossLists": 8,
+  "officialItemMonsterDrops": 31,
+  "fullVerifiedStageDropEdges": 33,
+  "imageCoverage": {
+    "itemsWithAsset": 50,
+    "cardsWithAsset": 11,
+    "allAssetsRights": "not-cleared"
+  },
+  "sample": [
+    {
+      "id": 2603,
+      "slot": "acc",
+      "sources": [
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "strouf",
+          "stageRefs": [
+            {
+              "stageId": "byalan",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "strouf:2603"
+          }
+        },
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "king_dramoh",
+          "stageRefs": [
+            {
+              "stageId": "byalan",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "king_dramoh:2603"
+          }
+        },
+        {
+          "sourceType": "monsterDrop",
+          "monsterId": "cat_o_nine_tail",
+          "stageRefs": [
+            {
+              "stageId": "payon_cave",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
+          "evidence": {
+            "file": "soul_linker-BNTKE1pN.js",
+            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "kind": "drop-table",
+            "key": "cat_o_nine_tail:2603"
+          }
+        }
+      ]
+    }
+  ],
+  "unresolved": [
+    "Card bonus meanings need separate official-effect mapping",
+    "Jobs array values require verifying game equip-rule logic",
+    "Open/season status is still based on candidate catalog",
+    "Drop rate weights are NOT player probabilities",
+    "Asset copying/hotlinking rights not granted"
+  ]
+}
