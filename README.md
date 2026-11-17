@@ -9,7 +9,7 @@
 
 資料版本與核對報告：`docs/SOURCE_AUDIT.json`、`docs/SOURCE_REPORT.md`；手機模擬測試：`docs/TEST_REPORT.md`。如需在本機用 Chrome 獨立配置跑 390px 測試，執行 `node scripts/mobile-smoke.mjs`（需保持 Dev Server 運作）。
 
-**公開版圖片：** 僅提供 10 張經逐一比對的日本 RO 官方 Fan Kit 怪物插畫 96×96 WebP 縮圖；官方素材使用條件、個別來源及使用範圍見 `docs/PUBLIC_ASSETS.md`。未找到合適授權的裝備／卡片顯示一般部位圖示，不複製或縮小原版遊戲圖片。GitHub Pages 的 Actions 在乾淨環境以 `VITE_PUBLIC_MODE=1` 建置，並執行 `node scripts/verify-public-dist.mjs` 擋住未核准影像；頁面顯示官方權利標示。公開圖片不是原遊戲內的角色 sprite。
+**公開版圖片：** 精確對照英文物品名稱，已由日本 RO 官方裝備／卡片資料頁取得 92 件裝備、66 張卡片的原版 RO 網站圖示，另有官方 Fan Kit 10 張怪物圖，均縮成 96×96 WebP；個別來源與授權適用範圍見 `docs/PUBLIC_ASSETS.md`。這些圖片屬於**原版 RO 官方網站的圖片，不保證與 RO Survivors 畫面相同**。其餘找不到來源或可能誤配的項目仍使用圖示佔位。公開版未複製 RO Survivors 客戶端 PNG；Actions 以 `VITE_PUBLIC_MODE=1` 建置，`node scripts/verify-public-dist.mjs` 對所有圖片的檔名、來源、SHA 與數量執行白名單檢查。
 
 **私人版圖片：** 原站禁止其他網域直接載入圖片（403）。為供使用者**私人 Tailscale Dev 預覽**，執行 `npm run build` 後，手動設定環境變數 `PRIVATE_DEV_ASSETS=1` 並執行 `node scripts/prepare-private-art.mjs`。該腳本僅快取目前查詢需要的 PNG 到 gitignored `evidence/private-art`，並複製到 gitignored `dist/game-assets`，不把原圖提交至 GitHub、Pages、Vercel 或公開 CDN。`npm run build` 會清空 `dist`，之後必須重新執行這個私用快取步驟。未獲公開授權前不能部署這個含圖片的 `dist`。
 

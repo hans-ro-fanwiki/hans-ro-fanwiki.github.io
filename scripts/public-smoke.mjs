@@ -21,7 +21,7 @@ try {
  await page.goto(base,{waitUntil:'networkidle'});
  await page.getByRole('heading',{name:'裝備',exact:true}).waitFor();
  await page.locator('.art-credits').getByText(/Gravity Co/).waitFor();
- assert.equal(await page.locator('.art.item img').count(),0,'No original item art in public build');
+ assert.ok(await page.locator('.art.item img[src*="approved-thumbs/items/"]').count()>0,'Official equipment thumbnails display on the public list');
  await page.goto(base+'?detail=monster:poring',{waitUntil:'networkidle'});
  const art=page.getByRole('dialog').locator('img[src*="approved-thumbs/monsters/poring.webp"]');
  await art.waitFor();
@@ -31,12 +31,20 @@ try {
   const sizes=await page.evaluate(()=>({viewport:innerWidth,doc:document.documentElement.scrollWidth}));
   assert.ok(sizes.doc<=sizes.viewport+1,'horizontal scroll at '+width+'px');
  }
+ await page.goto(base+'?detail=item:1202',{waitUntil:'networkidle'});
+ await page.getByRole('dialog').getByRole('heading',{name:'小刀'}).waitFor();
+ const itemArt=page.getByRole('dialog').locator('img[src*="approved-thumbs/items/1202.webp"]');
+ assert.ok(await itemArt.evaluate(img=>img.complete&&img.naturalWidth===96),'official knife thumb loads');
+ await page.goto(base+'?detail=card:4001',{waitUntil:'networkidle'});
+ await page.getByRole('dialog').getByRole('heading',{name:'波利卡片'}).waitFor();
+ const cardArt=page.getByRole('dialog').locator('img[src*="approved-thumbs/cards/4001.webp"]');
+ assert.ok(await cardArt.evaluate(img=>img.complete&&img.naturalWidth===96),'official Poring card thumb loads');
  await page.goto(base+'?detail=item:2603',{waitUntil:'networkidle'});
  await page.getByRole('dialog').getByRole('heading',{name:'項鍊'}).waitFor();
  assert.equal(await page.getByRole('dialog').locator('.art.item img').count(),0,'Item uses placeholder');
  assert.ok(requested.every(url=>!url.includes('/game-assets/')),'Private game asset request in public mode');
  assert.deepEqual(errors,[],'no JavaScript errors');
- const summary={status:'PASS',thumb:'poring.webp',widths:[320,375,390,430],privateGameArtRequests:0,pageErrors:0};
+ const summary={status:'PASS',thumbs:['monsters/poring.webp','items/1202.webp','cards/4001.webp'],widths:[320,375,390,430],privateGameArtRequests:0,pageErrors:0};
  writeFileSync(path.join(evidence,'public-smoke.json'),JSON.stringify(summary,null,2)+'\n');
  console.log(JSON.stringify(summary));
 }finally {

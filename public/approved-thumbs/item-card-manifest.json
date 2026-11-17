@@ -1,0 +1,1589 @@
+{
+  "source": "GungHo Ragnarok Online game-data guide, dated 2013-12-17",
+  "guidelines": "https://ragnarokonline.gungho.jp/support/play-manner/copyright.html",
+  "disclaimer": "Third-party noncommercial fan wiki. These original RO site item illustrations may differ from the RO Survivors in-game assets.",
+  "items": {
+    "1104": {
+      "file": "items/1104.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/falchion.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/sword.html",
+      "officialLabel": "ファルシオン[3]",
+      "englishName": "Falchion",
+      "sha256": "033fd425454b0946b2eb178bed584a92f52b0df0313c82f4c7b42a2dfbfb443f",
+      "sourceSha256": "828484916c36b92e1c65c1a784c703e05b17010e8c761c5b738d722a6e22a392",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1105": {
+      "file": "items/1105.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/falchion.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/sword.html",
+      "officialLabel": "ファルシオン[3]",
+      "englishName": "Falchion",
+      "sha256": "033fd425454b0946b2eb178bed584a92f52b0df0313c82f4c7b42a2dfbfb443f",
+      "sourceSha256": "828484916c36b92e1c65c1a784c703e05b17010e8c761c5b738d722a6e22a392",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1107": {
+      "file": "items/1107.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/blade.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/sword.html",
+      "officialLabel": "ブレイド[3]",
+      "englishName": "Blade",
+      "sha256": "74584b398fa34403f0440f45c8aa3806e95f9be60743ff0292adbbd54c78e31d",
+      "sourceSha256": "2ccd690e0ba65eea97b9daba71fc08a90e2ea296b034ae6eaa950cb769173ea0",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1108": {
+      "file": "items/1108.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/blade.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/sword.html",
+      "officialLabel": "ブレイド[3]",
+      "englishName": "Blade",
+      "sha256": "74584b398fa34403f0440f45c8aa3806e95f9be60743ff0292adbbd54c78e31d",
+      "sourceSha256": "2ccd690e0ba65eea97b9daba71fc08a90e2ea296b034ae6eaa950cb769173ea0",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1110": {
+      "file": "items/1110.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/rapier.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/sword.html",
+      "officialLabel": "レイピア[2]",
+      "englishName": "Rapier",
+      "sha256": "c83996fecc3bd5f98cc607442577415ef71b6fd778212a0687298191a9fb385e",
+      "sourceSha256": "e209bb0ea40f4df5a4e29e30712b9624a3d6dca70447236079bfb00721188ddc",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1117": {
+      "file": "items/1117.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/katana.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/two-hand-sword.html",
+      "officialLabel": "カタナ[3]",
+      "englishName": "Katana",
+      "sha256": "b775389d05863254789e322a789704c32ef164428da3c8a95b7b0a9a29ddc4c8",
+      "sourceSha256": "db27097473215aed5921ee18aa91295a7c090053b0cbe109dfe83f8b8abc6205",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1118": {
+      "file": "items/1118.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/katana.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/two-hand-sword.html",
+      "officialLabel": "カタナ[3]",
+      "englishName": "Katana",
+      "sha256": "b775389d05863254789e322a789704c32ef164428da3c8a95b7b0a9a29ddc4c8",
+      "sourceSha256": "db27097473215aed5921ee18aa91295a7c090053b0cbe109dfe83f8b8abc6205",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1126": {
+      "file": "items/1126.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/saber.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/sword.html",
+      "officialLabel": "サーベル[2]",
+      "englishName": "Saber",
+      "sha256": "a8362ea3194371938f971ef28eb131649a117252f8234f9638f12c276ab8baf3",
+      "sourceSha256": "6d3862d7a22cf36bb4f9e13b1b9b9785c52e860544538d18ed4cfa0857e840ae",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1127": {
+      "file": "items/1127.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/saber.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/sword.html",
+      "officialLabel": "サーベル[2]",
+      "englishName": "Saber",
+      "sha256": "a8362ea3194371938f971ef28eb131649a117252f8234f9638f12c276ab8baf3",
+      "sourceSha256": "6d3862d7a22cf36bb4f9e13b1b9b9785c52e860544538d18ed4cfa0857e840ae",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1152": {
+      "file": "items/1152.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/slayer.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/two-hand-sword.html",
+      "officialLabel": "スレイヤー[2]",
+      "englishName": "Slayer",
+      "sha256": "f47ab1b34506415ffdbf1f784849c5a70ea51f0afd2a25f250d6c9563cff05cb",
+      "sourceSha256": "e939d1f957df9bc168c9c2f91fbfbdaf5d0d1d7f85f3c113885d7ece8d4bd115",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1201": {
+      "file": "items/1201.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/knife.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/dagger.html",
+      "officialLabel": "ナイフ[3]",
+      "englishName": "Knife",
+      "sha256": "67fab20a9383f41a9a4f60a96f2322a7dcc77efecaf54d50f4ab2487d944cac7",
+      "sourceSha256": "c0b6cfb2f16e27f88d4d66fa2466b3058cedd611297908147079203dab742ae3",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1202": {
+      "file": "items/1202.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/knife.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/dagger.html",
+      "officialLabel": "ナイフ[3]",
+      "englishName": "Knife",
+      "sha256": "67fab20a9383f41a9a4f60a96f2322a7dcc77efecaf54d50f4ab2487d944cac7",
+      "sourceSha256": "c0b6cfb2f16e27f88d4d66fa2466b3058cedd611297908147079203dab742ae3",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1207": {
+      "file": "items/1207.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/main_gauche.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/dagger.html",
+      "officialLabel": "マインゴーシュ[3]",
+      "englishName": "Main Gauche",
+      "sha256": "28a3cb974b83de4039c39e77c21308c5e429d75ae4b0798fd380f1aadc40ce8a",
+      "sourceSha256": "bde204e1c51bcf39aa44b86b16dcdea2d1038a9ebeda134347cedbb09842818d",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1208": {
+      "file": "items/1208.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/main_gauche.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/dagger.html",
+      "officialLabel": "マインゴーシュ[3]",
+      "englishName": "Main Gauche",
+      "sha256": "28a3cb974b83de4039c39e77c21308c5e429d75ae4b0798fd380f1aadc40ce8a",
+      "sourceSha256": "bde204e1c51bcf39aa44b86b16dcdea2d1038a9ebeda134347cedbb09842818d",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1209": {
+      "file": "items/1209.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/main_gauche.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/dagger.html",
+      "officialLabel": "マインゴーシュ[3]",
+      "englishName": "Main Gauche",
+      "sha256": "28a3cb974b83de4039c39e77c21308c5e429d75ae4b0798fd380f1aadc40ce8a",
+      "sourceSha256": "bde204e1c51bcf39aa44b86b16dcdea2d1038a9ebeda134347cedbb09842818d",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1213": {
+      "file": "items/1213.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/dagger.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/dagger.html",
+      "officialLabel": "ダガー[2]",
+      "englishName": "Dagger",
+      "sha256": "5213a7b109a1af32755de4f6c1b5899ad7f71aff95926e8184e03b5d45905e4b",
+      "sourceSha256": "383cfbdc35965c948674d09e79fd82819e5f8c4fcf30ad355f8c7e44f74f6a70",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1214": {
+      "file": "items/1214.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/dagger.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/dagger.html",
+      "officialLabel": "ダガー[2]",
+      "englishName": "Dagger",
+      "sha256": "5213a7b109a1af32755de4f6c1b5899ad7f71aff95926e8184e03b5d45905e4b",
+      "sourceSha256": "383cfbdc35965c948674d09e79fd82819e5f8c4fcf30ad355f8c7e44f74f6a70",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1216": {
+      "file": "items/1216.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/stiletto.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/dagger.html",
+      "officialLabel": "スティレット[2]",
+      "englishName": "Stiletto",
+      "sha256": "d45a419b8f36520693a3d8373221fc0c813db92faa729529765bd864642d8cb8",
+      "sourceSha256": "ab3814697aa0ea4f3ea0872cbcd2793223d9a4d596529f4a18c56bbe9aae2e75",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1217": {
+      "file": "items/1217.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/stiletto.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/dagger.html",
+      "officialLabel": "スティレット[2]",
+      "englishName": "Stiletto",
+      "sha256": "d45a419b8f36520693a3d8373221fc0c813db92faa729529765bd864642d8cb8",
+      "sourceSha256": "ab3814697aa0ea4f3ea0872cbcd2793223d9a4d596529f4a18c56bbe9aae2e75",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1218": {
+      "file": "items/1218.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/stiletto.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/dagger.html",
+      "officialLabel": "スティレット[2]",
+      "englishName": "Stiletto",
+      "sha256": "d45a419b8f36520693a3d8373221fc0c813db92faa729529765bd864642d8cb8",
+      "sourceSha256": "ab3814697aa0ea4f3ea0872cbcd2793223d9a4d596529f4a18c56bbe9aae2e75",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1222": {
+      "file": "items/1222.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/damascus.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/dagger.html",
+      "officialLabel": "ダマスカス[1]",
+      "englishName": "Damascus",
+      "sha256": "e01bd8638a377c755845de6b1a7957dd098692ae6e0bb3738725553b1b5d2670",
+      "sourceSha256": "dd3491077bcd9ea493e11c5778b9532436460975348a30f77058e62e8cd576d4",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1250": {
+      "file": "items/1250.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/jur.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/gatar.html",
+      "officialLabel": "ジュル[2]",
+      "englishName": "Jur",
+      "sha256": "d92f4c7396a364b1d73438735babdde9d7ba277c63fe9fd15f12aba664957948",
+      "sourceSha256": "28428c66614b0d302ae080bf6b7a14f47d6e1929d3b820a43082add9217fd4f5",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1252": {
+      "file": "items/1252.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/katar.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/gatar.html",
+      "officialLabel": "カタール[1]",
+      "englishName": "Katar",
+      "sha256": "e9395af678e88f7483547ab7d4b7f2f1c39ff60bf7b190693cc9f4c2d2a083ef",
+      "sourceSha256": "0e18985a9026ad28cd137f666231bb26f4a9049dad0136ff38ac03b863088a25",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1253": {
+      "file": "items/1253.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/katar.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/gatar.html",
+      "officialLabel": "カタール[1]",
+      "englishName": "Katar",
+      "sha256": "e9395af678e88f7483547ab7d4b7f2f1c39ff60bf7b190693cc9f4c2d2a083ef",
+      "sourceSha256": "0e18985a9026ad28cd137f666231bb26f4a9049dad0136ff38ac03b863088a25",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1254": {
+      "file": "items/1254.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/jamadhar.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/gatar.html",
+      "officialLabel": "ジャマダハル[0]",
+      "englishName": "Jamadhar",
+      "sha256": "d9224d14820b4b61309732944b6e18cb2c6e240469c15a338c8e6be3276752ba",
+      "sourceSha256": "1fc54394b20a75d1a3f147f6f0a862c64f24af2d72a407bf0f94c86beac32f28",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1301": {
+      "file": "items/1301.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/axe.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/axe.html",
+      "officialLabel": "アックス[3]",
+      "englishName": "Axe",
+      "sha256": "4b7ffa1ca46a4de4ff3ee92b632c5144a87bf71a54dcb5f6540c90cfc6f80df8",
+      "sourceSha256": "dee0ac86074d42a6d3d679eccc57596c5659281c3216efc8665e5befc5441985",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1302": {
+      "file": "items/1302.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/axe.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/axe.html",
+      "officialLabel": "アックス[3]",
+      "englishName": "Axe",
+      "sha256": "4b7ffa1ca46a4de4ff3ee92b632c5144a87bf71a54dcb5f6540c90cfc6f80df8",
+      "sourceSha256": "dee0ac86074d42a6d3d679eccc57596c5659281c3216efc8665e5befc5441985",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1304": {
+      "file": "items/1304.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/orcish_axe.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/axe.html",
+      "officialLabel": "オーキッシュアックス[0]",
+      "englishName": "Orcish Axe",
+      "sha256": "38686a1115cfb0ffeaec0dd2bc6ad6ec24552b0f20677f7f2b24136add615ccd",
+      "sourceSha256": "2b5cbe6f794a0394d5ba14e1d6c3e2b0540750a8a34f6242daedb422c8daa9ce",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1309": {
+      "file": "items/1309.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/orcish_axe.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/axe.html",
+      "officialLabel": "オーキッシュアックス[0]",
+      "englishName": "Orcish Axe",
+      "sha256": "38686a1115cfb0ffeaec0dd2bc6ad6ec24552b0f20677f7f2b24136add615ccd",
+      "sourceSha256": "2b5cbe6f794a0394d5ba14e1d6c3e2b0540750a8a34f6242daedb422c8daa9ce",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1351": {
+      "file": "items/1351.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/battle_axe.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/two-hand-axe.html",
+      "officialLabel": "バトルアックス[3]",
+      "englishName": "Battle Axe",
+      "sha256": "37d5b12443a22fa94ec08855161705c29ad02747cb1ed694ff4bc4c14e0f6795",
+      "sourceSha256": "c8c4ced6d4977178e0c3515b171d9f051305b04235d71bd6bbd5c3c1b9e47d47",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1352": {
+      "file": "items/1352.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/battle_axe.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/two-hand-axe.html",
+      "officialLabel": "バトルアックス[3]",
+      "englishName": "Battle Axe",
+      "sha256": "37d5b12443a22fa94ec08855161705c29ad02747cb1ed694ff4bc4c14e0f6795",
+      "sourceSha256": "c8c4ced6d4977178e0c3515b171d9f051305b04235d71bd6bbd5c3c1b9e47d47",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1355": {
+      "file": "items/1355.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/hammer.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/two-hand-axe.html",
+      "officialLabel": "ハンマー[2]",
+      "englishName": "Hammer",
+      "sha256": "84bfb2b75d6b33ace190975a817c9ea273ba7f7ce9a0118a83a5fa231046d718",
+      "sourceSha256": "f37a9c9e9e58d0da815e952ed7da68cd740b7e68985355967a3dc3bf6d4e0d24",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1377": {
+      "file": "items/1377.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/hurricane_fury.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/two-hand-axe.html",
+      "officialLabel": "ハリケーンフューリー[1]",
+      "englishName": "Hurricane Fury",
+      "sha256": "74cd5dd3546d0081d5fb0a2a6cbd0ce8996b8fa2a9e84a018e3eb893b118da5a",
+      "sourceSha256": "c2b5ed8e63130f2cf5c52b96b6017b181dfb558e04da037b875e5addefedcacd",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1402": {
+      "file": "items/1402.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/javelin.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/spear.html",
+      "officialLabel": "ジャベリン[3]",
+      "englishName": "Javelin",
+      "sha256": "9841b2dd19928a474e8eed5a5061f283c51c0997ce162417198dca66d34b4794",
+      "sourceSha256": "9889c86231701b6e38c7c858de029b403e3e7db0764a4e20f66967f7493a4d7b",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1405": {
+      "file": "items/1405.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/spear.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/spear.html",
+      "officialLabel": "スピアー[3]",
+      "englishName": "Spear",
+      "sha256": "8215b46e20af9336f1086352bd06ba944b57e969aace93f7421edcfc6fd7be0c",
+      "sourceSha256": "1b45d39c4c384ef261f8da0d136b040d6841b3dbc1bd7ef56cf2559ba2dff9a6",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1407": {
+      "file": "items/1407.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/pike.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/spear.html",
+      "officialLabel": "パイク[3]",
+      "englishName": "Pike",
+      "sha256": "2ceea861c967469481161c798cc287067c9260194c3d72a3f065891f3d0aa4a4",
+      "sourceSha256": "7db2fcf966142518296986897bac2c031c415dd8b9f6d8907d59893df6081b06",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1408": {
+      "file": "items/1408.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/pike.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/spear.html",
+      "officialLabel": "パイク[3]",
+      "englishName": "Pike",
+      "sha256": "2ceea861c967469481161c798cc287067c9260194c3d72a3f065891f3d0aa4a4",
+      "sourceSha256": "7db2fcf966142518296986897bac2c031c415dd8b9f6d8907d59893df6081b06",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1409": {
+      "file": "items/1409.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/pike.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/spear.html",
+      "officialLabel": "パイク[3]",
+      "englishName": "Pike",
+      "sha256": "2ceea861c967469481161c798cc287067c9260194c3d72a3f065891f3d0aa4a4",
+      "sourceSha256": "7db2fcf966142518296986897bac2c031c415dd8b9f6d8907d59893df6081b06",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1460": {
+      "file": "items/1460.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/trident.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/two-hand-spear.html",
+      "officialLabel": "トライデント[2]",
+      "englishName": "Trident",
+      "sha256": "33d6d1def1225a1e8c34b04ef183246233c40bca1c978714d9d8ba906f5edc76",
+      "sourceSha256": "a764949819bf5bef20280d6f62b6871ad09a98e73d3ea8730048cf5bba93b6be",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1461": {
+      "file": "items/1461.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/trident.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/two-hand-spear.html",
+      "officialLabel": "トライデント[2]",
+      "englishName": "Trident",
+      "sha256": "33d6d1def1225a1e8c34b04ef183246233c40bca1c978714d9d8ba906f5edc76",
+      "sourceSha256": "a764949819bf5bef20280d6f62b6871ad09a98e73d3ea8730048cf5bba93b6be",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1466": {
+      "file": "items/1466.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/crescent_scythe.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/two-hand-spear.html",
+      "officialLabel": "クレセントサイダー[0]",
+      "englishName": "Crescent Scythe",
+      "sha256": "6d2053820d3b18205e057019b2232b1d8e75a44e8491fb1e0daf4c83ed3022a4",
+      "sourceSha256": "d5a398c6e74a19226ee8c956b90e229e1c806f5cc6fe52f01525643c1d8f086d",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1501": {
+      "file": "items/1501.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/club.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/blunt.html",
+      "officialLabel": "クラブ[3]",
+      "englishName": "Club",
+      "sha256": "810f1c1818ec94705db4b1d1982f60218eae50d92b92d8dfe48459d6256766c8",
+      "sourceSha256": "1935dea4a1893e5c0b53ba3eceb646d6aa2914ff6bb8367995fbebe81fada541",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1502": {
+      "file": "items/1502.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/club.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/blunt.html",
+      "officialLabel": "クラブ[3]",
+      "englishName": "Club",
+      "sha256": "810f1c1818ec94705db4b1d1982f60218eae50d92b92d8dfe48459d6256766c8",
+      "sourceSha256": "1935dea4a1893e5c0b53ba3eceb646d6aa2914ff6bb8367995fbebe81fada541",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1504": {
+      "file": "items/1504.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/mace.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/blunt.html",
+      "officialLabel": "メイス[3]",
+      "englishName": "Mace",
+      "sha256": "3539271fe10d480c9965e52b9a39cc9cbf7b670db3b2b6eb1ced27c18b3ecf9c",
+      "sourceSha256": "ae9b2250a102339fc459d75135a23cdb314cebbfb400e435f9dcc73ce20634fa",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1505": {
+      "file": "items/1505.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/mace.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/blunt.html",
+      "officialLabel": "メイス[3]",
+      "englishName": "Mace",
+      "sha256": "3539271fe10d480c9965e52b9a39cc9cbf7b670db3b2b6eb1ced27c18b3ecf9c",
+      "sourceSha256": "ae9b2250a102339fc459d75135a23cdb314cebbfb400e435f9dcc73ce20634fa",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1506": {
+      "file": "items/1506.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/mace.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/blunt.html",
+      "officialLabel": "メイス[3]",
+      "englishName": "Mace",
+      "sha256": "3539271fe10d480c9965e52b9a39cc9cbf7b670db3b2b6eb1ced27c18b3ecf9c",
+      "sourceSha256": "ae9b2250a102339fc459d75135a23cdb314cebbfb400e435f9dcc73ce20634fa",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1511": {
+      "file": "items/1511.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/flail.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/blunt.html",
+      "officialLabel": "フレイル[2]",
+      "englishName": "Flail",
+      "sha256": "42e44e080fe4ee7ae665bb3266ceac5d0b8da5448be462aba31cfdfccd8f98ad",
+      "sourceSha256": "cd8e52c774aa96bcfca50ea9d993cc31fa3768ccfc07d8aa93e32f223e309dd3",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1513": {
+      "file": "items/1513.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/morning_star.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/blunt.html",
+      "officialLabel": "モーニングスター[1]",
+      "englishName": "Morning Star",
+      "sha256": "a9dc5ed3d69b93b3a217e8c6a6cfb05dbfb7b8fbecb1a9fca7a5e90887ef1287",
+      "sourceSha256": "c08863e97ece2b0064d94afaebc0588375d27341c9199715a706fff701105d03",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1517": {
+      "file": "items/1517.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/sword_mace.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/blunt.html",
+      "officialLabel": "ソードメイス[0]",
+      "englishName": "Sword Mace",
+      "sha256": "37241649a27ee7dc914f46887749af81bed9aea17a1cec64e0c4619e6e3a5c95",
+      "sourceSha256": "fa83b674a7afab61c29c78219fd654cf661640c6e6f5aba2a5bec6f5e2869293",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1518": {
+      "file": "items/1518.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/sword_mace.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/blunt.html",
+      "officialLabel": "ソードメイス[0]",
+      "englishName": "Sword Mace",
+      "sha256": "37241649a27ee7dc914f46887749af81bed9aea17a1cec64e0c4619e6e3a5c95",
+      "sourceSha256": "fa83b674a7afab61c29c78219fd654cf661640c6e6f5aba2a5bec6f5e2869293",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1519": {
+      "file": "items/1519.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/chain.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/blunt.html",
+      "officialLabel": "チェイン[2]",
+      "englishName": "Chain",
+      "sha256": "333af79b6cbd64c0516f59a3c08a0bb98ae7fde365c578ffc17231599da4920d",
+      "sourceSha256": "1c26121de18c5e19d04e2c78653ed53ea03d18bbf2de6512d39ae05646e84e31",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1558": {
+      "file": "items/1558.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/girls_diary.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/book.html",
+      "officialLabel": "少女の日記[1]",
+      "englishName": "Girl's Diary",
+      "sha256": "e585a44e55a54215d1776acc4c73d69d324950f4b260d51af0bf8e9e19932dbf",
+      "sourceSha256": "526111db178e04bf6cfb774c8f60bce0b8c32f49e343a63b44565392d2b3a677",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1601": {
+      "file": "items/1601.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/rod.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/wand.html",
+      "officialLabel": "ロッド[3]",
+      "englishName": "Rod",
+      "sha256": "301388d5162c76ba286fbb247465b3db1218fa56c72601c115f165a97157a3e5",
+      "sourceSha256": "620a0392b505381ba4ac9aab5ed66bf6777004b0518aeedfd843fa41697b57ec",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1602": {
+      "file": "items/1602.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/rod.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/wand.html",
+      "officialLabel": "ロッド[3]",
+      "englishName": "Rod",
+      "sha256": "301388d5162c76ba286fbb247465b3db1218fa56c72601c115f165a97157a3e5",
+      "sourceSha256": "620a0392b505381ba4ac9aab5ed66bf6777004b0518aeedfd843fa41697b57ec",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1604": {
+      "file": "items/1604.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/wand.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/wand.html",
+      "officialLabel": "ワンド[2]",
+      "englishName": "Wand",
+      "sha256": "c66dbb41e21c5de197c0e31ee2a7e32861675b913b29433a33a7a0a0646a6957",
+      "sourceSha256": "66b8626fa7eba4abe11c56ad25fa95e08ffaf0bcf505d4eb6df8f1c44e4afae8",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1607": {
+      "file": "items/1607.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/staff.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/wand.html",
+      "officialLabel": "スタッフ[2]",
+      "englishName": "Staff",
+      "sha256": "5467e2382a9cc70133c4baf1f03c0139bf8227601bcd3e63b4cda91589f735ce",
+      "sourceSha256": "bca6ed1f88b6c66e47fc8c47c1f5cf94c29e67f1d8cb182406f2240626ec6977",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1610": {
+      "file": "items/1610.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/arc_wand.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/wand.html",
+      "officialLabel": "アークワンド[1]",
+      "englishName": "Arc Wand",
+      "sha256": "ad56b56bb8cd89870c97588d2ccdf0f50a5635022cd6d33111e72bec680017da",
+      "sourceSha256": "d684a8ba15968ab6968853a28f5903490e2ee41ebaf8c02c330824911a4eb31e",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1612": {
+      "file": "items/1612.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/arc_wand.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/wand.html",
+      "officialLabel": "アークワンド[1]",
+      "englishName": "Arc Wand",
+      "sha256": "ad56b56bb8cd89870c97588d2ccdf0f50a5635022cd6d33111e72bec680017da",
+      "sourceSha256": "d684a8ba15968ab6968853a28f5903490e2ee41ebaf8c02c330824911a4eb31e",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1613": {
+      "file": "items/1613.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/mighty_staff.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/wand.html",
+      "officialLabel": "マイトスタッフ[0]",
+      "englishName": "Mighty Staff",
+      "sha256": "2b12de4ed5e5b8ff10d4a6ae3deeeca30e0c1abc0565125ea911480aab1df0ae",
+      "sourceSha256": "8027520300e4f17451a1dd50565be494651d1f2b393e416d141230cdb99d4713",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1701": {
+      "file": "items/1701.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/bow.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/bow-throwing.html",
+      "officialLabel": "ボウ[3]",
+      "englishName": "Bow",
+      "sha256": "d5b8c7b1435a42051082594b3d679e635a6aa5c1d58671fe05675c5ea1ea116c",
+      "sourceSha256": "47e6a5f4feff9326d13d8efc118ee766f5eb17494416fa71775fcec27de6732f",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1702": {
+      "file": "items/1702.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/bow.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/bow-throwing.html",
+      "officialLabel": "ボウ[3]",
+      "englishName": "Bow",
+      "sha256": "d5b8c7b1435a42051082594b3d679e635a6aa5c1d58671fe05675c5ea1ea116c",
+      "sourceSha256": "47e6a5f4feff9326d13d8efc118ee766f5eb17494416fa71775fcec27de6732f",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1704": {
+      "file": "items/1704.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/composite_bow.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/bow-throwing.html",
+      "officialLabel": "コンポジットボウ[3]",
+      "englishName": "Composite Bow",
+      "sha256": "6b77d2bf9ef49296f30ce4171714f4fe890cbdcb52d3dd4d108487b1b5c816ba",
+      "sourceSha256": "3a372d28d2fee694f1ac3b71d333398cde762300888aa424834fd1f8ef878a40",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1707": {
+      "file": "items/1707.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/great_bow.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/bow-throwing.html",
+      "officialLabel": "グレイトボウ[2]",
+      "englishName": "Great Bow",
+      "sha256": "7964cadc024763a60826db021e9440eea642896b27e10c0c35e0473568e33839",
+      "sourceSha256": "d408d436a51a6f74e9b694ca75a9bd7ee166943fbb20b06eaa551f079e02a2b8",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1708": {
+      "file": "items/1708.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/great_bow.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/bow-throwing.html",
+      "officialLabel": "グレイトボウ[2]",
+      "englishName": "Great Bow",
+      "sha256": "7964cadc024763a60826db021e9440eea642896b27e10c0c35e0473568e33839",
+      "sourceSha256": "d408d436a51a6f74e9b694ca75a9bd7ee166943fbb20b06eaa551f079e02a2b8",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1710": {
+      "file": "items/1710.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/crossbow.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/bow-throwing.html",
+      "officialLabel": "クロスボウ[2]",
+      "englishName": "Cross Bow",
+      "sha256": "969401bbfe26c37da298bcf73cf81c7f9ea0dec0957f14ba4e0392ee72f18b1c",
+      "sourceSha256": "a40f2d618752e0dd1c91ecbdcc4f2acf1e95ab952135db0bc82a41852e97ea47",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1711": {
+      "file": "items/1711.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/crossbow.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/bow-throwing.html",
+      "officialLabel": "クロスボウ[2]",
+      "englishName": "Cross Bow",
+      "sha256": "969401bbfe26c37da298bcf73cf81c7f9ea0dec0957f14ba4e0392ee72f18b1c",
+      "sourceSha256": "a40f2d618752e0dd1c91ecbdcc4f2acf1e95ab952135db0bc82a41852e97ea47",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1718": {
+      "file": "items/1718.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/hunter_bow.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/bow-throwing.html",
+      "officialLabel": "ハンターボウ[0]",
+      "englishName": "Hunter Bow",
+      "sha256": "d4a5216d3b235248faf7ec0905d08aa13e525e4a870ceeeb1be5877d40488496",
+      "sourceSha256": "b0d8a10f653dce3814d311c57adf7b8dfc75bf465a27a8edd681b90b2e73a855",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1724": {
+      "file": "items/1724.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/dragon_wing.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/bow-throwing.html",
+      "officialLabel": "ドラゴンウィング[0]",
+      "englishName": "Dragon Wing",
+      "sha256": "0704b1c111b3ceca7d21bcf4ebf60bd9cf02089fcfc32be833868396679bfb0e",
+      "sourceSha256": "79bf019bb8c2bb842730d7291f0425606572ad4f1990f5357e5ba5f5011703c2",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "1734": {
+      "file": "items/1734.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/orc_archer_bow.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/bow-throwing.html",
+      "officialLabel": "オークアーチャーの弓[0]",
+      "englishName": "Orc Archer Bow",
+      "sha256": "3e808353ba99f48f5ec77d9892047c7fffad708555f49524ef5ac11e07bdf3be",
+      "sourceSha256": "a15d5ec001ccf3612aa299b62b81ff5566142b827e1acf97322b138ed5cd3483",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "2201": {
+      "file": "items/2201.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/helmet/sunglasses.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/protector/helmet.html",
+      "officialLabel": "サングラス[0]",
+      "englishName": "Sunglasses",
+      "sha256": "76b3a02ccd5a3dea87c685df64c7820a29282567f9e3a599a93ee5cf63e3dfe1",
+      "sourceSha256": "d06839ffba721d66bbc87f8cfe883d4b4e4725806a2efaace11fbde28d7c055f",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "2205": {
+      "file": "items/2205.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/helmet/diver_goggles.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/protector/helmet.html",
+      "officialLabel": "ダイバーゴーグル[0]",
+      "englishName": "Diver Goggles",
+      "sha256": "9338c2a91779597a5993eebe01a1bd8373b5dadc01929c5698b65b65f79ba4da",
+      "sourceSha256": "b95b0effbd088299f12758584657309e496f2d5a2a9f197e9d23b1be9bffa288",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "2209": {
+      "file": "items/2209.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/helmet/ribbon.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/protector/helmet.html",
+      "officialLabel": "リボン[0]",
+      "englishName": "Ribbon",
+      "sha256": "5d84dea3456d1f8637429630f5db6e9e54cd704609b22604c36c6409a0d209c2",
+      "sourceSha256": "d38739cf449058243a095ff348ce654ee16e246401b62085a5b96ae2914d70fb",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "2211": {
+      "file": "items/2211.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/helmet/bandana.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/protector/helmet.html",
+      "officialLabel": "バンダナ[0]",
+      "englishName": "Bandana",
+      "sha256": "41662d19569290d1fabfadecfa39b4c751baeb5fa1c4105c7e2e6d7d86c72164",
+      "sourceSha256": "286f448a90db22fd7d4b354c71881dfc7f443c77bd8f500b06f8e0b039a8c95f",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "2220": {
+      "file": "items/2220.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/helmet/hat.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/protector/helmet.html",
+      "officialLabel": "ハット[0]",
+      "englishName": "Hat",
+      "sha256": "50adf12999b48075810be044a110765daf5355105a37b6e886a926cdfe964163",
+      "sourceSha256": "396e231bf836dde19106a40c7412a31c82f69db2dec56134edc2826857516ab8",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "2221": {
+      "file": "items/2221.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/helmet/hat.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/protector/helmet.html",
+      "officialLabel": "ハット[0]",
+      "englishName": "Hat",
+      "sha256": "50adf12999b48075810be044a110765daf5355105a37b6e886a926cdfe964163",
+      "sourceSha256": "396e231bf836dde19106a40c7412a31c82f69db2dec56134edc2826857516ab8",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "2226": {
+      "file": "items/2226.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/helmet/cap.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/protector/helmet.html",
+      "officialLabel": "キャップ[0]",
+      "englishName": "Cap",
+      "sha256": "958da6da06f3f8c691483edbd18bfdfb4a0466c7699f0c90c80f7c81811eff40",
+      "sourceSha256": "80ad43fccefbc7ecb4dd1b10372c3565ae2a4279713fb0bef25dcc1b31b5a997",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "2227": {
+      "file": "items/2227.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/helmet/cap.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/protector/helmet.html",
+      "officialLabel": "キャップ[0]",
+      "englishName": "Cap",
+      "sha256": "958da6da06f3f8c691483edbd18bfdfb4a0466c7699f0c90c80f7c81811eff40",
+      "sourceSha256": "80ad43fccefbc7ecb4dd1b10372c3565ae2a4279713fb0bef25dcc1b31b5a997",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "2244": {
+      "file": "items/2244.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/helmet/big_ribbon.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/protector/helmet.html",
+      "officialLabel": "大きなリボン[0]",
+      "englishName": "Big Ribbon",
+      "sha256": "e8da2fb4275b40b6fdba38c4c11738d99d4ffb7ee3181e6b596ec82e717c2c91",
+      "sourceSha256": "03ff8f886bf526469fe5fac2434b0cd052be7bad9e057db891bfae8db7ecaf9e",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "2248": {
+      "file": "items/2248.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/helmet/western_grace.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/protector/helmet.html",
+      "officialLabel": "ウェスタングレイス[0]",
+      "englishName": "Western Grace",
+      "sha256": "536fe70961bb3069bce76d6cc878a6589ee52c286c6a18f59eada8b53b73f12e",
+      "sourceSha256": "30a8041600b94a5328c88f2336635443184686337017739c6444e46f5b5bdfb7",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "2256": {
+      "file": "items/2256.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/helmet/majestic_goat.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/protector/helmet.html",
+      "officialLabel": "マジェスティックゴート[1]",
+      "englishName": "Majestic Goat",
+      "sha256": "9d302bdbd65499776a6be2f76caf0de452f7d33086788bdd679d7e1ca9dee884",
+      "sourceSha256": "87160951ff7c8e179677eec1a17ee6b7ef4a993c2c803a2528ffe658a345876e",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "2262": {
+      "file": "items/2262.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/helmet/clown_nose.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/protector/helmet.html",
+      "officialLabel": "ピエロの鼻[0]",
+      "englishName": "Clown Nose",
+      "sha256": "ccb35fe9761c7f1b24cb268a3ce981994c06dbd65a9ed7d05788177d60d9bf39",
+      "sourceSha256": "98de8d784ebf1d2e4a1d0a38a77fdcb48a19d25d4f647d0f963f5a92a2d43c7c",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "2264": {
+      "file": "items/2264.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/helmet/munak_hat.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/protector/helmet.html",
+      "officialLabel": "ムナック帽[0]",
+      "englishName": "Munak Hat",
+      "sha256": "594ec6d682a3ac25581bc5b723404e676d07f1885d2983fb236f96f055ee8d8c",
+      "sourceSha256": "3a9c8fef0f30fdc4f6b9bc9b09a576899d325835f25189e27492a923e0ea92fe",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "2291": {
+      "file": "items/2291.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/helmet/butterfly_mask.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/protector/helmet.html",
+      "officialLabel": "蝶の仮面[0]",
+      "englishName": "Butterfly Mask",
+      "sha256": "f13e163137b8568bc04e2c5851ae6359241bf5a379b2aaf6d2a3483ebaf4d867",
+      "sourceSha256": "adb0f0ba7c91f90890b6293409ce6776fb8b44e634d9883fa1eaa86b69fb99ef",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "2292": {
+      "file": "items/2292.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/helmet/welding_mask.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/protector/helmet.html",
+      "officialLabel": "溶接マスク[0]",
+      "englishName": "Welding Mask",
+      "sha256": "47ef3845dd65ed6e8f84b9232e325b679b7888027480c6173220bd32a0e1fcfb",
+      "sourceSha256": "daba8f846ec520466f7df3354008af96f3de2de1a4e3f2daddb1338b9049d466",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "2298": {
+      "file": "items/2298.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/helmet/green_feeler.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/protector/helmet.html",
+      "officialLabel": "緑の觸角[0]",
+      "englishName": "Green Feeler",
+      "sha256": "f2f54b248d4ce54f0856ee5de48737c79975b07687849d0c018b479a76a68841",
+      "sourceSha256": "160ef83aabb02f0412ded1aaccad3ef74e697398277d6c1d13eee8fb30e62d2e",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "5017": {
+      "file": "items/5017.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/helmet/bone_helm.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/protector/helmet.html",
+      "officialLabel": "ボーンヘルム[1]",
+      "englishName": "Bone Helm",
+      "sha256": "ca4de6e1dfbdfb7b7493b2f7c1d008de112f56a62ca6dc015357f69a1182feb7",
+      "sourceSha256": "5b363b8fb7f345e97b4708dec5f8924aba59fb112fca08e29eb16c263da3ba99",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "5035": {
+      "file": "items/5035.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/helmet/poring_hat.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/protector/helmet.html",
+      "officialLabel": "ポリン帽[0]",
+      "englishName": "Poring Hat",
+      "sha256": "4716261394955dd1d7bd87b1cf5d2b8efab56f8893d9285e1c86b182ed236321",
+      "sourceSha256": "d324c31064331a2f8e8f7dee0898b34aed263187b2679b844a33ccb65e5c2a23",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "5046": {
+      "file": "items/5046.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/helmet/bongun_hat.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/protector/helmet.html",
+      "officialLabel": "ボンゴン帽[0]",
+      "englishName": "Bongun Hat",
+      "sha256": "f35198434fb508c7a424f75c28b6a4620efbdbed3536399fac306814272502a2",
+      "sourceSha256": "dfa39848ee6f2c81294104b3d07a2e789c8ae73d6c380d3665b94ba505f99f1b",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "5167": {
+      "file": "items/5167.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/helmet/munak_hat.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/protector/helmet.html",
+      "officialLabel": "ムナック帽[0]",
+      "englishName": "Munak Hat",
+      "sha256": "594ec6d682a3ac25581bc5b723404e676d07f1885d2983fb236f96f055ee8d8c",
+      "sourceSha256": "3a9c8fef0f30fdc4f6b9bc9b09a576899d325835f25189e27492a923e0ea92fe",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "13011": {
+      "file": "items/13011.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/asura.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/dagger.html",
+      "officialLabel": "阿修羅[3]",
+      "englishName": "Asura",
+      "sha256": "6ce82aec53cec39ee896c8690cb00458550d93d0ff9eb258aae7859d505d2b98",
+      "sourceSha256": "f799169aba9c746c6354f92c103b3728e14285b071798f8a89e501a9f0afd593",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "13156": {
+      "file": "items/13156.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/gatekeeper.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/gun.html",
+      "officialLabel": "ゲートキーパー[0]",
+      "englishName": "Gate Keeper",
+      "sha256": "09ce8ff6ca9af85239c8602bc85a2aa8aeca1506c9fc64ce1aae9f16ee32964c",
+      "sourceSha256": "f69fc71c612ffc6da4e4efcdd951cc2f33003984489127a5dfa36ec116c17e5f",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "13160": {
+      "file": "items/13160.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/weapon/destroyer.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/weapon/gun.html",
+      "officialLabel": "デストロイヤー[0]",
+      "englishName": "Destroyer",
+      "sha256": "d10c94f702e0fe3780943603bda5c0066070b9b74f80ffdcd4d34908a5873993",
+      "sourceSha256": "a51cc67533e975466d133ad35064cbab89d01a95501abd6c0905baaa3ce054b4",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    }
+  },
+  "cards": {
+    "4001": {
+      "file": "cards/4001.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/poring.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/armour.html",
+      "officialLabel": "ポリンカード",
+      "englishName": "Poring Card",
+      "sha256": "ea3e94b93f4695ff7e89ab68b91b0b43cf7254c3710ee77baec223f46278d399",
+      "sourceSha256": "a4bedef97850fa88fd38c1a2ed54b6d1e432fc9140becb3e72674fb8e3c8b0f4",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4002": {
+      "file": "cards/4002.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/fabre.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/weapon.html",
+      "officialLabel": "ファブルカード",
+      "englishName": "Fabre Card",
+      "sha256": "8f5e183d71cf592f62d0a060c16a37a2c173d60dcef4c031fe7a3c7246b4da82",
+      "sourceSha256": "7c6f0a512f5547fa6fc3356632c6b8c1054988520531d7ffe1ccc7ded72ba40c",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4003": {
+      "file": "cards/4003.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/pupa.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/armour.html",
+      "officialLabel": "プパカード",
+      "englishName": "Pupa Card",
+      "sha256": "05b67777ccc3d3ad6d69f3d7e334789561e46ec506fa4729f4113edc08e59d2f",
+      "sourceSha256": "779cd11f0c6f272a8b44c6f5155e9cda13252e292607fe2bedf2ce4d781ce74e",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4004": {
+      "file": "cards/4004.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/drops.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/weapon.html",
+      "officialLabel": "ドロップスカード",
+      "englishName": "Drops Card",
+      "sha256": "7c6f713480ef344951c1712bb075d4d05fd453a2c228daa63498b739f7a1092c",
+      "sourceSha256": "85f9192a8df70a568176624d12ef69b10425739a006aaa2aeba28c33a0dbbc6f",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4006": {
+      "file": "cards/4006.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/lunatic.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/weapon.html",
+      "officialLabel": "ルナティックカード",
+      "englishName": "Lunatic Card",
+      "sha256": "f9409265915065d76f3c90ab4e943c519f293153fb24d7f44fcc4134c3e85ad9",
+      "sourceSha256": "13e65ea9f992fcf3d73e3d614e32c590b49d9220d1205075d8d92a4e893ef199",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4008": {
+      "file": "cards/4008.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/picky.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/armour.html",
+      "officialLabel": "ピッキカード",
+      "englishName": "Picky Card",
+      "sha256": "4366305b05eed737ce0170d216efe4a81711b0725bef04c4de15b77a0b4948c5",
+      "sourceSha256": "72484d3a284303efdf90fb2f556e9e40ff73a01abf01a0c6a6f9c0fac5fd7528",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4009": {
+      "file": "cards/4009.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/chonchon.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/shoes.html",
+      "officialLabel": "チョンチョンカード",
+      "englishName": "Chonchon Card",
+      "sha256": "4f48b616f729fcd08b0512c91b7a240930d8b8a42662a7bbc7d32e5467d56fe7",
+      "sourceSha256": "e813c5c3c10e2baa379a65bf1e3128c4871c0497514caf212586c92661ceed96",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4010": {
+      "file": "cards/4010.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/willow.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/helmet.html",
+      "officialLabel": "ウィローカード",
+      "englishName": "Willow Card",
+      "sha256": "43582349605421038fb504488f305dd8c95dea279cd13bd2b282d3b718f8844c",
+      "sourceSha256": "92266bf317801f7a404f8973ed242367415bea05733de0d60b61a0adc0f258bc",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4012": {
+      "file": "cards/4012.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/thief_bug_egg.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/shield.html",
+      "officialLabel": "盗蟲の卵カード",
+      "englishName": "Thiefbug Egg Card",
+      "sha256": "f713b9b87e4accab5046f5d15bcce44915ea456386183ffc8a30ccd67b8eeafc",
+      "sourceSha256": "a89de69d49ee2ec8c861c616f00286d3f6ee9a60d406f82f1ee616436a483c01",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4014": {
+      "file": "cards/4014.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/roda_frog.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/armour.html",
+      "officialLabel": "ロッダフロッグカード",
+      "englishName": "Roda Frog Card",
+      "sha256": "d9adbea8e171471b6054795b65253aab478327f8f4b58715e50387c33bb58f6d",
+      "sourceSha256": "5eb931769c9eb55da22715936bb5daca8a32258cc40df27d2ca350a6bcacd36e",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4015": {
+      "file": "cards/4015.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/condor.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/shoulder.html",
+      "officialLabel": "コンドルカード",
+      "englishName": "Condor Card",
+      "sha256": "4c6551f7e3c1066030eea3b4bbca800c99446d4f596d47e4a13fc532c73b0576",
+      "sourceSha256": "a54d6cac3c551cf17d627a2951516b126d4a25044885c5249542c4f0392cc3e5",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4016": {
+      "file": "cards/4016.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/thief_bug.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/armour.html",
+      "officialLabel": "盗蟲カード",
+      "englishName": "Thief Bug Card",
+      "sha256": "ca48c58c1fe22745f3529f51167e24dc7289177243506ad7220ce3b9cae62797",
+      "sourceSha256": "9ca00d1f1652d244bedc6e0323738d1bf9f9f2baed699927cc06b0c00249d11a",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4017": {
+      "file": "cards/4017.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/savage_bebe.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/weapon.html",
+      "officialLabel": "サベージベベカード",
+      "englishName": "Savage Bebe Card",
+      "sha256": "bed6d154e346c39ad0d331fabec9dee753a93503727d16bca52ae9c2f446979d",
+      "sourceSha256": "6a4ea0821e257949caa78d96548e08614d9cbbc8a61215326bf6a0ba3e9d2472",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4019": {
+      "file": "cards/4019.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/hornet.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/weapon.html",
+      "officialLabel": "ホーネットカード",
+      "englishName": "Hornet Card",
+      "sha256": "ca96ec8856e3a8d432a2a06ef352e24adfc3c2fd3a1786442f5521b63d76865e",
+      "sourceSha256": "a788981a2edd782e4803aa264a12035b0fbe26eea89e2a8547519a6de6189ee1",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4020": {
+      "file": "cards/4020.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/familiar.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/weapon.html",
+      "officialLabel": "ファミリアーカード",
+      "englishName": "Familiar Card",
+      "sha256": "7d36380994ab072e7965f6f9b09b60696e2f5df6f49120a709aa4b1465879951",
+      "sourceSha256": "7fed6aff427393c21ba7d02d655fe1c364e96fe6f405a322f4f5d1b0cf7aa2bf",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4022": {
+      "file": "cards/4022.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/spore.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/accessory.html",
+      "officialLabel": "スポアカード",
+      "englishName": "Spore Card",
+      "sha256": "e65419463f5558f4f5218ffd7f0dd3e7c1f277b54a211e87ec1c71bab1d39436",
+      "sourceSha256": "1efc619832f77981d7305f189e9e4e0b0ae91870ce3b2746ad878285e7b5365b",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4024": {
+      "file": "cards/4024.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/plankton.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/weapon.html",
+      "officialLabel": "プランクトンカード",
+      "englishName": "Plankton Card",
+      "sha256": "879254e11d93002f12e3c51d09b24332cd976f55d867dc76d01a21de9ea292e8",
+      "sourceSha256": "20d52f39b92e279907e201e668ca445db0d8ee2c5b0e09d69a5544aeb8c20e58",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4025": {
+      "file": "cards/4025.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/skeleton.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/weapon.html",
+      "officialLabel": "スケルトンカード",
+      "englishName": "Skeleton Card",
+      "sha256": "3f3af971368926fea4b5fa57a3c44d3b884c0e69bcc0f1229f1327580522b96b",
+      "sourceSha256": "4a83c33e9aa3415cda12138fef550ff5e5caa740f4b3c7b361d91e22aaf7b526",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4026": {
+      "file": "cards/4026.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/female_thiefbug.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/weapon.html",
+      "officialLabel": "雌盗蟲カード",
+      "englishName": "Female Thiefbug Card",
+      "sha256": "14f7dae678522ade6218b746665a8b5d5696687e2b921a7dda90730f4d16732e",
+      "sourceSha256": "eed43e431057be1dae0206ad8f0302c2602fd57d93183c044f85c5f818960082",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4027": {
+      "file": "cards/4027.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/kukre.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/accessory.html",
+      "officialLabel": "ククレカード",
+      "englishName": "Kukre Card",
+      "sha256": "683a4c01ef0ae036410ad2bdb20a83e210eba6f027455d0e35cac7bea8873409",
+      "sourceSha256": "bcd23fbacdea78ed3b75791a8a7dc892d30b0c0e38e4be0837a9bb5592e2d9de",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4028": {
+      "file": "cards/4028.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/tarou.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/accessory.html",
+      "officialLabel": "タロウカード",
+      "englishName": "Tarou Card",
+      "sha256": "eb0471a347c2fffd5fbb568285034e546b8256596fd77dc91f127e78b316b85c",
+      "sourceSha256": "e285b94e661437c04b5f225a68a304f047be5bc387552b2f2f4e832cb2ce0fee",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4029": {
+      "file": "cards/4029.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/wolf.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/weapon.html",
+      "officialLabel": "ウルフカード",
+      "englishName": "Wolf Card",
+      "sha256": "c4807bd5251ab37c91eb782ea5740475bd77604f31afa69069a62710d9c41557",
+      "sourceSha256": "8f0e809998326e54f34332244523bb86b721499fd7415ff92533191a072f446d",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4030": {
+      "file": "cards/4030.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/mandragora.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/weapon.html",
+      "officialLabel": "マンドラゴラカード",
+      "englishName": "Mandragora Card",
+      "sha256": "5c6d1807ca578d4a8d5a6364c6545f01034238ad6ec04cf6508f845ac308bd76",
+      "sourceSha256": "0eae4be9ad21f6700ffab44d740cd8dcf573c134d56ee0f8f823ee9bfeb343a0",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4033": {
+      "file": "cards/4033.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/poporing.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/accessory.html",
+      "officialLabel": "ポポリンカード",
+      "englishName": "PoPoring Card",
+      "sha256": "7bba3c1fa04bd5ee9a1d779621bc04b0548a57e7744e43af43814a776f6d2af6",
+      "sourceSha256": "3d73d750262d7022578c34d1c18b66d0267e93f0d1af5aaf6a4117e749a3f972",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4034": {
+      "file": "cards/4034.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/worm_tail.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/accessory.html",
+      "officialLabel": "ワームテールカード",
+      "englishName": "Wormtail Card",
+      "sha256": "0dace9d17997e336729096e0ab0083c9fde937f1e19e78a0c0e738e4a75c3775",
+      "sourceSha256": "820c7d461238a5142f0ae04e2b286242bc019ee8e499b51b35b7819581d5e982",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4035": {
+      "file": "cards/4035.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/hydra.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/weapon.html",
+      "officialLabel": "ヒドラカード",
+      "englishName": "Hydra Card",
+      "sha256": "651eeba02425a3b346693121c4faa68e262c0f8227f47236a3698dfd374b0c06",
+      "sourceSha256": "a026cb9ca07b550fad82dd50f2695cd726bf988885d210495108fbf98bc405b0",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4037": {
+      "file": "cards/4037.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/snake.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/weapon.html",
+      "officialLabel": "スネイクカード",
+      "englishName": "Snake Card",
+      "sha256": "ba13b2b4301f569c835d39330faa3181212d1eac9d96171e5b6d6d697dc87706",
+      "sourceSha256": "bdb91a92d4cea36d9ed3995eb9d4f0028fcbdeb0c4ce0db07d14d1deef34b721",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4038": {
+      "file": "cards/4038.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/zombie.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/shoes.html",
+      "officialLabel": "ゾンビカード",
+      "englishName": "Zombie Card",
+      "sha256": "3906bb66adf2b2f49779376db746f404ee4366046b27f419a04cce0e7589fb1a",
+      "sourceSha256": "1d5c370fc75e63105d303bd615fba24b6ef5f04bdbb7547113b2df53329d0492",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4040": {
+      "file": "cards/4040.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/creamy.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/accessory.html",
+      "officialLabel": "クリーミーカード",
+      "englishName": "Creamy Card",
+      "sha256": "0e09468f0fc2eeaf776a8e9812791aa9c644fbbce614a2c96e2c552a85edfa09",
+      "sourceSha256": "3d2e83203cdd64d673b862c75ba6f081f8afa337b04c897c19dd395cd0bdac83",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4044": {
+      "file": "cards/4044.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/smokie.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/accessory.html",
+      "officialLabel": "スモーキーカード",
+      "englishName": "Smokie Card",
+      "sha256": "cee70d063deb301e5d3c19aa7fc09c68376c9fb419e46b71e35805125305744b",
+      "sourceSha256": "94271e81d38ace77c1fd3521595006032a8ca04db963ab8aa602e84427dd7c67",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4047": {
+      "file": "cards/4047.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/ghost_ring.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/armour.html",
+      "officialLabel": "ゴーストリングカード",
+      "englishName": "Ghostring Card",
+      "sha256": "9b5036b9708a59ccc5870c49529fee4d2a756a852799ee183d5e7f3d5bd81800",
+      "sourceSha256": "3804221a0bff6cdaaf5328c246fde3c185a70747fdd9eba4a93d7e6993eb8dff",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4048": {
+      "file": "cards/4048.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/poison_spore.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/accessory.html",
+      "officialLabel": "ポイズンスポアカード",
+      "englishName": "Poison Spore Card",
+      "sha256": "114a1cd60f8566397a2c3e41f11d60746b5bac53c1bc6bb94eb11b599ea88e75",
+      "sourceSha256": "78acecec10474c01f715242708a3bd584630cdb6104538a2f42d182ca93fcd48",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4049": {
+      "file": "cards/4049.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/vadon.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/weapon.html",
+      "officialLabel": "バドンカード",
+      "englishName": "Vadon Card",
+      "sha256": "cc4ee1d090b6fc594bc162a45b5a6a0e62139b3340f97fc88db415337800b735",
+      "sourceSha256": "a9272fdf27a9f62eac7b11f6eb7b49a7e6e2f9e2492f34898b18b66ee52f27c8",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4052": {
+      "file": "cards/4052.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/elder_willow.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/helmet.html",
+      "officialLabel": "エルダーウィローカード",
+      "englishName": "Elder Willow Card",
+      "sha256": "909543d93d6d4dc8118e2762ec80d031bff3949a748e586e1bf6df6374804510",
+      "sourceSha256": "bdb9f0872ac866ab202422c9676d6752d939230136fbc2a5b292156885798d49",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4055": {
+      "file": "cards/4055.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/marina.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/weapon.html",
+      "officialLabel": "マリナカード",
+      "englishName": "Marina Card",
+      "sha256": "4493ee3600fe7fe93356e6a7d2e1c034abcdc89b18844dc621f08c76af32a3b0",
+      "sourceSha256": "19f716db751d61d3132f9050091b3f5bce4b8a04753da1b188ff888c3f01d94f",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4060": {
+      "file": "cards/4060.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/goblin.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/weapon.html",
+      "officialLabel": "ゴブリンカード",
+      "englishName": "Goblin Card",
+      "sha256": "ab8b5e6e2f0d19a884bccdbd485f1debfeb7530aee949f408f7545c71c735507",
+      "sourceSha256": "be9d640b59cf1b3d1f34ca595cbe457785fb06efca94bd3b8994ddee659e6549",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4061": {
+      "file": "cards/4061.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/cornutus.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/armour.html",
+      "officialLabel": "カナトウスカード",
+      "englishName": "Cornutus Card",
+      "sha256": "f7831be51e00aa0cf0ac00e4f1c23f9d626970081dad5c86a805890e2bb91500",
+      "sourceSha256": "bd376ae59e2f2a0498a8f009825596e34cbb37632c46bf1a70b06e1369d69843",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4069": {
+      "file": "cards/4069.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/drainliar.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/weapon.html",
+      "officialLabel": "ドレインリアーカード",
+      "englishName": "Drainliar Card",
+      "sha256": "4971dc86c422a2b9aaaf46ac01baed693dad2012ccb9504e0da6dfbcc5d8415b",
+      "sourceSha256": "dd92052b935608adb563dc091a5bae816190c3845520b009abc43ed1a62ddf74",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4073": {
+      "file": "cards/4073.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/pirate_skel.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/accessory.html",
+      "officialLabel": "パイレーツスケルカード",
+      "englishName": "Pirate Skel Card",
+      "sha256": "3598d134119f71eed12960d76b8392a34f1190228ffc9b98d1d7c836aa8bc97e",
+      "sourceSha256": "c019a46d8db2368e67c41c53c47cd597d624f3bbc4688eae81023769bde26be7",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4074": {
+      "file": "cards/4074.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/bigfoot.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/shield.html",
+      "officialLabel": "ビッグフットカード",
+      "englishName": "Bigfoot Card",
+      "sha256": "e3d8431bceecc89b3725c26a1b7ba250aed96782a737f8d9e2dd73fa9215ed89",
+      "sourceSha256": "67038bf47173f094c78915ed0ffcdb5b9b190db1a3aad562590c702d5c2e2e11",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4084": {
+      "file": "cards/4084.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/marinesphere.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/accessory.html",
+      "officialLabel": "マリンスフィアーカード",
+      "englishName": "Marine Sphere Card",
+      "sha256": "3ec4ccd910275dd3c76ef92e7e5e240a68a5ec564b38350042208b5f19329de6",
+      "sourceSha256": "4a7669fc00d5e266d5f46cb1d8dddcde2913bd733287c1179850ed9d4ac4c31a",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4085": {
+      "file": "cards/4085.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/orc_skeleton.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/weapon.html",
+      "officialLabel": "オークスケルトンカード",
+      "englishName": "Orc Skeleton Card",
+      "sha256": "7a1c359210822934d8812a369c601a37163bfaaab7a5cc822eb165b49fb29c7e",
+      "sourceSha256": "0db5afcd5d899d913234e1049b863abfcc9d29ed7afd095c83329a4e566aecf7",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4089": {
+      "file": "cards/4089.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/swordfish.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/armour.html",
+      "officialLabel": "ソードフィッシュカード",
+      "englishName": "Swordfish Card",
+      "sha256": "abba4c9604f0da37e014d8045d14b016cf9bfcb6573173d98ac455b3440b9b2a",
+      "sourceSha256": "6c7a00a18cffed027cab60c4e1ec39997d823ffc4293ade841925502d036b5ea",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4090": {
+      "file": "cards/4090.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/munak.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/shield.html",
+      "officialLabel": "ムナックカード",
+      "englishName": "Munak Card",
+      "sha256": "b0a6854a1bb34817d2413820bcee7b77faa062d637bf397e8f5d313739f6cb96",
+      "sourceSha256": "74cb81c3c8dc97abb8153382c46b0b0fb3aaec68c06fc93b3cb88b1e5c082440",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4091": {
+      "file": "cards/4091.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/kobold.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/accessory.html",
+      "officialLabel": "コボルドカード",
+      "englishName": "Kobold Card",
+      "sha256": "f49d90d04bb18d1a95e72d28d1c2839888be8ad328916b0a69f84517ad1bba84",
+      "sourceSha256": "7d0a4bf4629f989dbb30bf153e0add97a7bbdb1131788907cb101646b2d4dd96",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4093": {
+      "file": "cards/4093.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/obeaune.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/accessory.html",
+      "officialLabel": "オボンヌカード",
+      "englishName": "Obeaune Card",
+      "sha256": "9b1e881bdffa7b51354caff26d0bee69f3bbb20704a1bd9556c07cd54be931b4",
+      "sourceSha256": "a7633658dcc58f32a799915074f37ff12c6a4b321b925780c5a1bde289a7dd35",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4095": {
+      "file": "cards/4095.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/marse.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/shoulder.html",
+      "officialLabel": "マルスカード",
+      "englishName": "Marse Card",
+      "sha256": "468f1b6b06cdb4a29f3844a18bec05e37c9dfd7733738f43403cd008b7c7a903",
+      "sourceSha256": "abaacef108614b0d63509ff5b057bf9a48794ed3e493edb895197c300335671a",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4102": {
+      "file": "cards/4102.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/whisper.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/shoulder.html",
+      "officialLabel": "ウィスパーカード",
+      "englishName": "Whisper Card",
+      "sha256": "b4601c663246acb0d0aaddaa4bfccf45a7d15706cb8b90dea943f3d90a8d5cb6",
+      "sourceSha256": "5a3c2fba9f92945148be4d694cab71c5ecf4c55792f5df652cf161e5292b5f71",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4123": {
+      "file": "cards/4123.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/eddga.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/shoes.html",
+      "officialLabel": "エドガカード",
+      "englishName": "Eddga Card",
+      "sha256": "9366938abb548d2a900626ceb9036e41d6d6f38d6c71ad3b9e78bbe9034dbbee",
+      "sourceSha256": "41f224a6a6c0a8ea25c2d7f9aa6d8bfa71e58c4032c03c02a438c9c23d295da1",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4147": {
+      "file": "cards/4147.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/baphomet.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/weapon.html",
+      "officialLabel": "バフォメットカード",
+      "englishName": "Baphomet Card",
+      "sha256": "5b767222bf1ac2f59eb942075f927aa03660fdd3e557cbbd4e537ea2b65b506a",
+      "sourceSha256": "b6ee1a727912d69aaccf5e87fcdb143cd2e9773657bf3ef6870349e2fc9cce64",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4174": {
+      "file": "cards/4174.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/devil_ring.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/shoulder.html",
+      "officialLabel": "デビルリングカード",
+      "englishName": "Devilring Card",
+      "sha256": "0751770628b0f1489f78dffbea2581c6a01390b9108e8b0ee4d846182bf1e37d",
+      "sourceSha256": "b0a3e81c3fc51576c83a41fd475a397d39a10b4ebe524887fef12e6aeb0aa4d5",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4178": {
+      "file": "cards/4178.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/dragontail.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/shoulder.html",
+      "officialLabel": "ドラゴンテイルカード",
+      "englishName": "Dragon Tail Card",
+      "sha256": "db142330ddabf8585cca8f708cfa8a7647d5e68b319a0ecca6e19124e21c6638",
+      "sourceSha256": "19b0c2ed10730c82e3a6e77a76f3390144540b402bebc972c7f4e1cafd946700",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4183": {
+      "file": "cards/4183.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/wandering_wolf.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/shoulder.html",
+      "officialLabel": "さすらい狼カード",
+      "englishName": "Wandering Wolf Card",
+      "sha256": "f6211d4974e9f2f818e1ca0f4ccb7721786a45cecd6edd19146677276ff9507b",
+      "sourceSha256": "a9f743d55c6ab65ae9b9780db7e14c9f4abec86cc0ece10776499ce09bf9f860",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4195": {
+      "file": "cards/4195.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/leaf_cat.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/helmet.html",
+      "officialLabel": "リーフキャットカード",
+      "englishName": "Leaf Cat Card",
+      "sha256": "88031e9d0ad31fa2129f008dd78ae635bd9232639252949b6a6faadcf41f0f4d",
+      "sourceSha256": "c5ecd2e6813a7efc3a14644c445d6f3c46af329387f9317d070fb424ae6c3097",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4197": {
+      "file": "cards/4197.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/mastering.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/shoulder.html",
+      "officialLabel": "マスターリングカード",
+      "englishName": "Mastering Card",
+      "sha256": "946d24e4402b56393bc2d712bc3b9c85a39900a3ce7c0d2a92ae9a446a52dc97",
+      "sourceSha256": "1daceb86b529cdd951993446d12e2718e02d92bad14424945056dfa8f9e0dd6f",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4199": {
+      "file": "cards/4199.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/merman.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/shoes.html",
+      "officialLabel": " 半漁人カード",
+      "englishName": "Merman Card",
+      "sha256": "12fed39311892fbf768b9f4f9a47244ee01935472592f0ac91370a600c917765",
+      "sourceSha256": "c32ed02ac5142fbd45d44c0b12cddc09643749403f78800ee018adec34a7e58c",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4211": {
+      "file": "cards/4211.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/vocal.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/shoulder.html",
+      "officialLabel": "ボーカルカード",
+      "englishName": "Vocal Card",
+      "sha256": "8e425520e225a77d14091810df5b3305602a610704b623a95dd1729a4961ec5a",
+      "sourceSha256": "8824413802bbda9630f65fbdc689360b070979d0ffd6167fe18c3cade31ce5a2",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4212": {
+      "file": "cards/4212.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/bon_gun.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/accessory.html",
+      "officialLabel": "ボンゴンカード",
+      "englishName": "Bongun Card",
+      "sha256": "9a06dcc1c20165690d57108b7ba00c0b04cf93ad2ad11d5b1a5eb9e69156d112",
+      "sourceSha256": "9521398e2bcaf1e2ad87037859c0d1780bbf0163d393fc5518ade8aafa421c03",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4221": {
+      "file": "cards/4221.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/skeletongeneral.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/shoes.html",
+      "officialLabel": "ジェネラルスケルトンカード",
+      "englishName": "Skeleton General Card",
+      "sha256": "da2a7cabb63f989930fdb718c8584274229df796bbb73ffc3475cdcab2240e76",
+      "sourceSha256": "277748c95e5796387ad18554b24dd4cb55a4c59f4dc75f1c819252afbf203483",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4266": {
+      "file": "cards/4266.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/eclipse.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/shoulder.html",
+      "officialLabel": "エクリプスカード",
+      "englishName": "Eclipse Card",
+      "sha256": "9d8453a9f1dd10acc7de44c3d57f3ef17e12e27ea4382a5e2e88015397d96795",
+      "sourceSha256": "5e63c15d83c88301886496665ea296c035be5dc722ceaf1f8cafaade51a66c54",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4283": {
+      "file": "cards/4283.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/greatest_general.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/accessory.html",
+      "officialLabel": "天下大将軍カード",
+      "englishName": "Greatest General Card",
+      "sha256": "052148922439a95c0d0e017689ef0165fa9ad8346b8836beca8e87e0f2304c3d",
+      "sourceSha256": "fe0e2e354d4235ffcd87c8957d753c1ff7270ea8b5e79dc268af15670dec4ade",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4287": {
+      "file": "cards/4287.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/kapha.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/shoulder.html",
+      "officialLabel": "    河童カード    ",
+      "englishName": "Kapha Card",
+      "sha256": "0983605181b5db450caa9afd8900865e281fc856c41334f38c74018691938263",
+      "sourceSha256": "744d03f3e38d9801c2bededc22e1bfe3a3a2252294a7f003f6b87bc65fc02b77",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4306": {
+      "file": "cards/4306.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/toad.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/shoulder.html",
+      "officialLabel": "トードカード",
+      "englishName": "Toad Card",
+      "sha256": "4c0492c684f886d16249d9d773da0eb3493449882b79f50a01a2e0d1de2a6793",
+      "sourceSha256": "b2c1a2498e7fc99019a7723e73102b55a2dc697971cc991af7740551c7bfb584",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4330": {
+      "file": "cards/4330.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/darksnakelord.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/helmet.html",
+      "officialLabel": "黒蛇王カード",
+      "englishName": "Dark Snake Lord Card",
+      "sha256": "b9d7acb107bf7015f6249f495e2c2a5c2d5150966e8f0d60affdface5f96eba8",
+      "sourceSha256": "e5f15889189a1053f55c1f38dcb80f1a8b4950d6e946ca8498f743877bb639d2",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4524": {
+      "file": "cards/4524.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/king_dramoh.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/helmet.html",
+      "officialLabel": "キングドラモカード",
+      "englishName": "King Dramoh Card",
+      "sha256": "095813f4bc8bd52b41e9cb851683b410a23f80a49b88e5f06a34e87d47aa72ba",
+      "sourceSha256": "c4bcfe9b77818e36f4b6c3b152613361b984b60fef7a8f1338729dc6351f9acd",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    },
+    "4525": {
+      "file": "cards/4525.webp",
+      "sourceUrl": "https://ragnarokonline.gungho.jp/navi/gamedata/images/card/kraken.gif",
+      "sourcePage": "https://ragnarokonline.gungho.jp/navi/gamedata/card/shoulder.html",
+      "officialLabel": "クラーケンカード",
+      "englishName": "Kraken Card",
+      "sha256": "549c1af43ad40b5334a2f265f5fcb1ca9151ade4abd0e5f36a0c21edb654a757",
+      "sourceSha256": "41c3437a42e75cbea1f1d0f11470691d8109ad674dd98afa77e21291c08ef9fc",
+      "credit": "© Gravity Co., Ltd. & Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc."
+    }
+  }
+}

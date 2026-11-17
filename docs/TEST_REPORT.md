@@ -1,5 +1,13 @@
 # P1 私人 Dev／Preview 版驗證（2026-11-17）
 
+## 2026-11-17 公開版裝備／卡片官方縮圖（待發佈驗收）
+
+- 從日本 RO 官方資料頁取得 **92 裝備 + 66 卡片**（96×96 WebP），另保留 Fan Kit 怪物 10 張，合計 168 張約 287 KB。官方來源與縮圖 SHA 詳見 `public/approved-thumbs/item-card-manifest.json`。
+- 公開 Vite build / TypeScript 通過、20/20 Node 測試通過；`node scripts/verify-public-dist.mjs` 白名單／來源／SHA PASS。
+- Windows Chrome Headless：已驗證怪物波利、1202 小刀、4001 波利卡片 96px 圖像載入、未請求 `/game-assets/`、JavaScript pageerror 0，320/375/390/430px 均無橫向溢出。iPhone Safari 真機仍須使用者驗收。
+- 這批圖片取自原版 RO 官網，不保證每件和 RO Survivors 作者的遊戲圖示完全相同。沒有授權依據的原圖仍未公開。
+
+
 ## 公開版 Fan Kit 與 Pages（2026-11-17）
 
 - 19/19 單元測試及 TypeScript/Vite 公開模式建置成功。

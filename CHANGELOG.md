@@ -1,5 +1,13 @@
 # Changelog
 
+## 2026-11-17 — RO 官方裝備／卡片縮圖擴充
+
+- 搜尋日本 GungHo RO 官方已公開的武器、頭飾、卡片資料頁，從 28 個頁面與 725 個圖片紀錄中，以英文名稱精確對應 92 件裝備及 66 張卡片；不將未對應的候選素材誤配。
+- 透過 `scripts/audit-official-item-images.py` 產生本機稽核報告，`scripts/prepare-public-official-icons.py` 依白名單製作 96×96 WebP，共新增 158 筆約 270 KB，逐筆保留官方來源、名稱與 SHA-256。
+- 網頁公開版依 item/card ID 顯示有對應官方圖片的縮圖，其餘顯示佔位圖；私人版維持 RO Survivors 作者原始素材。圖片並非從 RO Survivors 遊戲客戶端提取。
+- 更新發佈白名單：10 張 Fan Kit 怪物圖片 + 158 張 RO 官方網站道具／卡片圖，檢查來源、雜湊、大小與數量。20/20 Node 單元測試通過，公開手機瀏覽器測試已檢查裝備、卡片、怪物圖片載入。
+
+
 ## 2026-11-17 — 公開 Fan Kit 小縮圖與 GitHub Pages
 
 - 使用者授權公開原始碼並提供非營利粉絲維基給遊戲群組朋友。導入整合式 Linux CI + GitHub Pages 部署，避免同 commit 雙重跑 workflow。
