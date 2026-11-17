@@ -139,7 +139,7 @@ function App(){
         <div className="chips">{[['all','全部'],...Object.entries(SOURCE_NAMES)].map(([id,name])=><Chip key={id} active={state.source===id} onClick={()=>go({source:id})}>{name}</Chip>)}</div></div>
       <div className="results-toolbar"><div className="segment"><button className={state.mode==='list'?'on':''} onClick={()=>go({mode:'list'})}>依{state.page==='items'?'裝備':'卡片'}看</button><button className={state.mode==='stages'?'on':''} onClick={()=>go({mode:'stages'})}>依關卡看</button></div>
        <label className="toggle"><input type="checkbox" checked={state.onlyOpen} onChange={e=>go({onlyOpen:e.target.checked})}/>僅候選開放</label></div>
-      <p className="result-hint">已核實來源優先顯示；未確認關聯不代表一定會掉。開放狀態目前仍待原站核對。</p>
+      <p className="result-hint">目前只收錄三類主要查詢的資料子集。未確認關聯不代表一定會掉，關卡開放狀態也仍待核實。</p>
       {state.mode==='list'?<div className="cards-list">
        {currentList.map(v=><button key={v.id} className="result-card" onClick={()=>openDetail(state.page==='items'?'item':'card',v.id)}>
         <IconArt kind={state.page==='items'?'item':'card'} slot={'slot'in v?v.slot:undefined}/>

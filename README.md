@@ -7,8 +7,8 @@
 - `node scripts/build-catalog.cjs <local-gitignored-research-dir>`：在本機以只讀研究資料產生**目標查詢子集**；不散布原站 JS、百科整站或遊戲圖片。
 - `npm run check:source`：核對公開原站首頁 bundle 及 manifest 哈希；只報告差異，絕不自動發布變更。
 
-資料版本與核對報告：`docs/SOURCE_AUDIT.json`、`docs/SOURCE_REPORT.md`。
+資料版本與核對報告：`docs/SOURCE_AUDIT.json`、`docs/SOURCE_REPORT.md`；手機模擬測試：`docs/TEST_REPORT.md`。如需在本機用 Chrome 獨立配置跑 390px 測試，執行 `node scripts/mobile-smoke.mjs`（需保持 Dev Server 運作）。
 
 **圖片狀態：** 原站圖片 ID 與資產路徑已記錄；使用授權／外部引用未獲確認，目前 Preview 僅呈現原創 CSS 中性圖示，不載入受保護的遊戲圖像。
 
-**部署原則：** GitHub 使用獨立 private repo，正式 production 禁止直接部署。Preview 由 Vercel 預覽環境生成，不自動跟 production branch 發布。
+**部署原則：** GitHub 使用獨立 private repo；目前只在電腦的 Tailscale IP `100.116.225.68:4177` 提供隔離 Dev Preview（電腦及管理中的 Vite Preview 需持續運作，手機需連 Tailscale）。並未發布公共正式站。Vercel 因目前帳號 scope 未授權，沒有使用。
