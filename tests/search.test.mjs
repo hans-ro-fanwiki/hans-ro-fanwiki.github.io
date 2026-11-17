@@ -18,8 +18,10 @@ test('six character stats, cooldown and crit match current candidate attributes'
 test('Chinese stat aliases search the same effects as abbreviations',()=>{
  const aliases={智力:'int',靈巧:'dex',力量:'str',敏捷:'agi',體質:'vit',幸運:'luk',減CD:'cooldown',冷卻縮減:'cooldown'};
  for(const [name,key] of Object.entries(aliases)){
-  assert.deepEqual(items.filter(e=>queryMatches(e,name)).map(e=>e.id),items.filter(e=>attributeMatches(e,key)).map(e=>e.id),name+' item alias');
-  assert.deepEqual(cards.filter(e=>queryMatches(e,name)).map(e=>e.id),cards.filter(e=>attributeMatches(e,key)).map(e=>e.id),name+' card alias');
+  // New twRO item names may contain attribute words (e.g. 敏捷) without that stat bonus.
+  const includesName=(entry)=>[entry.name,entry.originalName,...(entry.nameAliases||[])].some(s=>s.toLowerCase().includes(name.toLowerCase()));
+  assert.deepEqual(items.filter(e=>queryMatches(e,name)).map(e=>e.id),items.filter(e=>attributeMatches(e,key)||includesName(e)).map(e=>e.id),name+' item alias');
+  assert.deepEqual(cards.filter(e=>queryMatches(e,name)).map(e=>e.id),cards.filter(e=>attributeMatches(e,key)||includesName(e)).map(e=>e.id),name+' card alias');
  }
 });
 

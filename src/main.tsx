@@ -7,6 +7,7 @@ import './search.css';
 import {ATTRIBUTE_GROUPS,entryMatches,matchedEffect} from './search';
 import {approvedFanKitThumb} from './public-thumbs';
 import {SiteFooter} from './SiteFooter';
+import {equipmentTier} from './tier';
 
 type View={page:Page;slot:string;job:string;effect:string;source:string;query:string;attr:string;mode:'list'|'stages';onlyOpen:boolean;detail:string|null};
 type GameEntry=Equipment|Card;
@@ -76,6 +77,10 @@ function effects(e:GameEntry):string[]{
  return 'slot'in e?[...baseText(e),...e.bonuses,...(e.starBonuses||[])]:e.bonuses;
 }
 function shortStats(e:GameEntry,max=3){return effects(e).slice(0,max).join(' · ')||('slot'in e?'無附加屬性':'效果未收錄');}
+function TierTag({item,stages}:{item:Equipment;stages:Map<string,Stage>}){
+ const tier=equipmentTier(item,stages);
+ return <span className={'tier-chip '+tier.status} title="此處為取得關卡的 Tier；同一裝備可能有不同 Tier">{tier.text}</span>;
+}
 function sourceMonsterName(src:Source,monsterMap:Map<string,Monster>){
  return src.monsterId?monsterMap.get(src.monsterId)?.name||src.monsterId:null;
 }
@@ -141,12 +146,9 @@ function App(){
   entryMatches(c,state.query,state.attr))||[],[catalog,state.effect,state.source,state.query,state.attr]);
  const list:GameEntry[]=state.page==='cards'?cardList:equip;
  const searchActive=Boolean(state.query.trim()||state.attr!=='all');
- const nameCounts=useMemo(()=>{
-  const found=new Map<string,number>();
-  for(const entry of catalog?(state.page==='cards'?catalog.cards:catalog.items):[])found.set(entry.name,(found.get(entry.name)||0)+1);
-  return found;
- },[catalog,state.page]);
- const slots=[...new Set(catalog?.items.map(i=>i.slot)||[])].sort((a,b)=>Number(b==='acc')-Number(a==='acc'));
+ const advancedCount=Number(state.attr!=='all')+Number(state.source!=='all')+Number(state.page==='cards'&&state.effect!=='all');
+ const slotOrder=['acc','weapon','shield','armor','shoes','garment','head_top','head_mid','head_low'];
+ const slots=[...new Set(catalog?.items.map(i=>i.slot)||[])].sort((a,b)=>slotOrder.indexOf(a)-slotOrder.indexOf(b));
  const [detailKind,...detailParts]=state.detail?.split(':')||[];
  const detailId=detailParts.join(':');
  const selectedItem=detailKind==='item'?items.get(Number(detailId)):undefined;
@@ -169,16 +171,18 @@ function App(){
     {catalog&&<>
      {state.page!=='jobs'&&<section className="search-panel">
       <label className="search-field"><Search size={20}/><input aria-label="搜尋裝備、卡片或屬性" placeholder="搜尋裝備、卡片、INT、冷卻…" value={state.query} onChange={e=>navigate({query:e.target.value},false,true)}/>{state.query&&<button type="button" className="search-clear" aria-label="清除搜尋" onClick={()=>navigate({query:''})}><X size={18}/></button>}</label>
+      {state.page==='items'&&<div className="primary-filters">
+       <div className="filter-block" role="group" aria-label="裝備部位"><div className="filter-label">裝備部位</div><div className="chips"><Chip active={state.slot==='all'} onClick={()=>navigate({slot:'all'})}>全部</Chip>{slots.map(slot=><Chip key={slot} active={state.slot===slot} onClick={()=>navigate({slot})}>{SLOTS[slot]||slot}</Chip>)}</div></div>
+       <div className="filter-block" role="group" aria-label="職業"><div className="filter-label">職業</div><div className="chips">{Object.entries(JOBS).map(([job,name])=><Chip key={job} active={state.job===job} onClick={()=>navigate({job})}>{name}</Chip>)}</div></div>
+      </div>}
       <div className="search-filter-row">
-       {([['cooldown','冷卻'],['int','INT'],['dex','DEX'],['crit','爆擊']] as const).map(([key,label])=><Chip key={key} active={state.attr===key} onClick={()=>navigate({attr:state.attr===key?'all':key})}>{label}</Chip>)}
-       <button className="search-more" type="button" aria-expanded={showFilters} onClick={()=>setShowFilters(v=>!v)}><SlidersHorizontal size={16}/>篩選<ChevronDown size={15}/></button>
+       <button className="search-more" type="button" aria-expanded={showFilters} aria-controls="advanced-filters" onClick={()=>setShowFilters(v=>!v)}><SlidersHorizontal size={16}/>更多篩選{advancedCount>0?'（'+advancedCount+'）':''}<ChevronDown size={15}/></button>
+       {advancedCount>0&&<button className="search-more clear-extra" type="button" onClick={()=>navigate({attr:'all',source:'all',effect:'all'})}>清除進階條件</button>}
       </div>
-      {showFilters&&<div className="filter-panel">
+      {showFilters&&<div className="filter-panel" id="advanced-filters">
        {ATTRIBUTE_GROUPS.map(group=><div key={group.label} className="filter-block"><div className="filter-label">{group.label}</div><div className="chips">{group.options.map(([key,label])=><Chip key={key} active={state.attr===key} onClick={()=>navigate({attr:state.attr===key?'all':key})}>{label}</Chip>)}</div></div>)}
-       {(state.page==='items'||state.page==='cards')&&<><div className="filter-block"><div className="filter-label">裝備部位</div><div className="chips"><Chip active={state.slot==='all'} onClick={()=>navigate({slot:'all'})}>全部</Chip>{slots.map(slot=><Chip key={slot} active={state.slot===slot} onClick={()=>navigate({slot})}>{SLOTS[slot]||slot}</Chip>)}</div></div>
-       <div className="filter-block"><div className="filter-label">職業</div><div className="chips">{Object.entries(JOBS).map(([job,name])=><Chip key={job} active={state.job===job} onClick={()=>navigate({job})}>{name}</Chip>)}</div></div>
-       <div className="filter-block"><div className="filter-label">取得方式</div><div className="chips">{([['all','全部'],...Object.entries(SOURCES)]).map(([v,name])=><Chip key={v} active={state.source===v} onClick={()=>navigate({source:v})}>{name}</Chip>)}</div></div>
-       {state.page==='cards'&&<div className="filter-block"><div className="filter-label">卡片效果</div><div className="chips">{([['all','全部'],['cooldown','冷卻縮減'],['crit','爆擊'],['damage','傷害'],['defense','防禦'],['hp','HP']] as const).map(([v,label])=><Chip key={v} active={state.effect===v} onClick={()=>navigate({effect:v})}>{label}</Chip>)}</div></div>}</>}
+       <div className="filter-block"><div className="filter-label">取得方式</div><div className="chips"><Chip active={state.source==='all'} onClick={()=>navigate({source:'all'})}>全部</Chip>{Object.entries(SOURCES).map(([v,name])=><Chip key={v} active={state.source===v} onClick={()=>navigate({source:v})}>{name}</Chip>)}</div></div>
+       {state.page==='cards'&&<div className="filter-block"><div className="filter-label">卡片效果</div><div className="chips">{([['all','全部'],['cooldown','冷卻縮減'],['crit','爆擊'],['damage','傷害'],['defense','防禦'],['hp','HP']] as const).map(([v,label])=><Chip key={v} active={state.effect===v} onClick={()=>navigate({effect:v})}>{label}</Chip>)}</div></div>}
        <button className="search-more" type="button" onClick={()=>{navigate({query:'',attr:'all',slot:'all',job:'all',source:'all',effect:'all'});setShowFilters(false)}}>清除所有篩選</button>
       </div>}
      </section>}
@@ -190,7 +194,11 @@ function App(){
       {state.mode==='list'?<div className="cards-list">
        {list.slice(0,visibleCount).map(entry=><button className="result-card" key={entry.id} onClick={()=>openDetail(state.page==='items'?'item':'card',entry.id)}>
         <Artwork kind={state.page==='items'?'item':'card'} entity={entry}/>
-        <span className="result-main"><strong>{entry.name}{(nameCounts.get(entry.name)||0)>1&&<small className="variant-id"> #{entry.id}</small>}</strong><span className="result-sub">{state.page==='items'&&'slot'in entry?(SLOTS[entry.slot]||entry.slot)+'　':'卡片　'}{matchedEffect(entry,state.query,state.attr)||shortStats(entry,3)}</span><small className="result-place">{sourceLine(entry)}</small></span><ChevronRight className="list-arrow" size={18}/>
+        <span className="result-main"><strong>{entry.name}</strong><span className="result-sub">
+         <span>{'slot'in entry?(SLOTS[entry.slot]||entry.slot):'卡片'}</span>
+         {'slot'in entry&&<TierTag item={entry} stages={stages}/>}
+         <span>{matchedEffect(entry,state.query,state.attr)||shortStats(entry,3)}</span>
+        </span><small className="result-place">{sourceLine(entry)}</small></span><ChevronRight className="list-arrow" size={18}/>
        </button>)}
        {list.length>visibleCount&&<button type="button" className="load-more" onClick={()=>setVisibleCount(v=>v+40)}>顯示更多（還有 {list.length-visibleCount} 件）</button>}
        {!list.length&&<EmptyState>沒有符合條件的裝備或卡片</EmptyState>}
@@ -199,7 +207,7 @@ function App(){
        <h2 className="search-subtitle">其他{state.page==='items'?'卡片':'裝備'}結果（{state.page==='items'?cardList.length:equip.length}）</h2>
        <div className="cards-list">{(state.page==='items'?cardList:equip).slice(0,40).map(entry=><button key={entry.id} className="result-card" onClick={()=>openDetail('slot'in entry?'item':'card',entry.id)}>
         <Artwork kind={'slot'in entry?'item':'card'} entity={entry}/>
-        <span className="result-main"><strong>{entry.name}</strong><span className="result-sub">{matchedEffect(entry,state.query,state.attr)||shortStats(entry,2)}</span><small className="result-place">{sourceLine(entry)}</small></span><ChevronRight size={18}/>
+        <span className="result-main"><strong>{entry.name}</strong><span className="result-sub">{'slot'in entry&&<TierTag item={entry} stages={stages}/>}<span>{matchedEffect(entry,state.query,state.attr)||shortStats(entry,2)}</span></span><small className="result-place">{sourceLine(entry)}</small></span><ChevronRight size={18}/>
        </button>)}{(state.page==='items'?cardList:equip).length>40&&<button className="load-more" type="button" onClick={()=>navigate({page:state.page==='items'?'cards':'items',mode:'list'},true)}>查看更多{state.page==='items'?'卡片':'裝備'}</button>}</div>
       </section>}
      </>}
@@ -256,7 +264,7 @@ function StageBrowser({data,query,attr,onlyOpen,focusedStage,openDetail,slot='al
    return <section className="stage-entry" key={stage.id}>
     <button type="button" className="stage-heading" aria-expanded={opened} aria-controls={'stage-'+stage.id} onClick={()=>setExpanded(opened?null:stage.id)}>
      <Artwork kind="stage"/>
-     <span className="result-main"><strong>{stage.name}</strong><small>Lv {stage.levels} · {rows.length} 筆符合掉落</small></span>
+     <span className="result-main"><strong>{stage.name}</strong><small>Tier {stage.tier} · Lv {stage.levels} · {rows.length} 筆符合掉落</small></span>
      <ChevronDown size={20} style={{transform:opened?'rotate(180deg)':undefined}}/>
     </button>
     {opened&&<div id={'stage-'+stage.id} className="stage-body">
@@ -270,7 +278,7 @@ function StageBrowser({data,query,attr,onlyOpen,focusedStage,openDetail,slot='al
      </div>
      {rows.length?<div className="compact-results">{rows.map((row,i)=><button type="button" className="compact-item" key={row.kind+'-'+row.item.id+'-'+row.source.monsterId+'-'+i} onClick={()=>openDetail(row.kind,row.item.id)}>
       <Artwork kind={row.kind} entity={row.item}/>
-      <span className="compact-copy"><b>{row.item.name}</b><small>{matchedEffect(row.item,query,localAttr!=='all'?localAttr:attr)||shortStats(row.item,3)}</small><small>{row.boss?'Boss · ':''}{sourceMonsterName(row.source,monsterMap)||'怪物未知'}</small></span><ChevronRight size={16}/>
+      <span className="compact-copy"><b>{row.item.name}</b><small>{row.kind==='item'?'Tier '+stage.tier+' · ':''}{matchedEffect(row.item,query,localAttr!=='all'?localAttr:attr)||shortStats(row.item,3)}</small><small>{row.boss?'Boss · ':''}{sourceMonsterName(row.source,monsterMap)||'怪物未知'}</small></span><ChevronRight size={16}/>
      </button>)}</div>:<div className="stage-no-results">這個關卡沒有符合條件的掉落物</div>}
     </div>}
    </section>;
@@ -301,7 +309,9 @@ function StatSection({entry}:{entry:GameEntry}){
  </>:entry.bonuses.map((t,i)=><span key={i}>{t}</span>)}</div></>;
 }
 function EquipmentDetail({item,stages,monsters,openDetail}:{item:Equipment;stages:Map<string,Stage>;monsters:Map<string,Monster>;openDetail:(kind:Kind,id:string|number)=>void}){
- return <><DetailHero kind="item" entry={item} title={item.name} sub={SLOTS[item.slot]||item.slot}/>
+ const tier=equipmentTier(item,stages);
+ return <><DetailHero kind="item" entry={item} title={item.name} sub={(SLOTS[item.slot]||item.slot)+' · '+tier.text}/>
+  <p className="tier-note">Tier 由取得關卡決定，同一裝備可能有不同階級；此處非你持有裝備的實際 Tier。</p>
   <StatSection entry={item}/>
   {item.jobs.length>0&&<><h3 className="sheet-section">可用職業</h3><div className="bonus-list">{item.jobs.map(j=><span key={j}>{JOBS[j]||j}</span>)}</div></>}
   <h3 className="sheet-section">取得方式</h3><DropRoutes sources={item.sources} stages={stages} monsters={monsters} openDetail={openDetail}/>
@@ -320,7 +330,7 @@ function MonsterDetail({monster,data,stages,openDetail}:{monster:Monster;data:Ca
  });
  return <><DetailHero kind="monster" entry={monster} title={monster.name} sub={monster.boss?'Boss':'怪物'}/>
   <h3 className="sheet-section">出現關卡</h3><div className="sub-list">{monster.stages.map(s=><button key={s.id} onClick={()=>openDetail('stage',s.id)}><MapIcon size={18}/><span>{stages.get(s.id)?.name||s.id}{s.boss?' · Boss':''}</span><ChevronRight size={16}/></button>)}</div>
-  <h3 className="sheet-section">掉落物品</h3><div className="stage-loot-list">{results.map((r,i)=><button key={r.entry.id+'-'+i} className="loot-row" onClick={()=>openDetail(r.kind,r.entry.id)}><Artwork kind={r.kind} entity={r.entry}/><span className="loot-copy"><b>{r.entry.name}</b><small>{shortStats(r.entry,3)}</small></span><ChevronRight size={16}/></button>)}</div>
+  <h3 className="sheet-section">掉落物品</h3><div className="stage-loot-list">{results.map((r,i)=><button key={r.entry.id+'-'+i} className="loot-row" onClick={()=>openDetail(r.kind,r.entry.id)}><Artwork kind={r.kind} entity={r.entry}/><span className="loot-copy"><b>{r.entry.name}</b><small>{r.kind==='item'?equipmentTier(r.entry as Equipment,stages).text+' · ':''}{shortStats(r.entry,3)}</small></span><ChevronRight size={16}/></button>)}</div>
   {!results.length&&<EmptyState>目前沒有已收錄掉落物品</EmptyState>}
  </>;
 }

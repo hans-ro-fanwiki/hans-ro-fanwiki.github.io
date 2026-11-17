@@ -23,6 +23,20 @@
 .stage-controls select{min-width:0;width:100%;border:1px solid #dde8df;background:white;color:#2c4940;border-radius:10px;padding:9px 6px;font-size:13px;min-height:42px}
 .stage-body .compact-item{width:100%;text-align:left}
 .stage-body .compact-copy small{display:block}
+.primary-filters{display:grid;gap:11px}
+.primary-filters .filter-block{margin:0}
+.primary-filters .filter-label{margin-bottom:7px}
+.primary-filters .chips{gap:6px}
+.primary-filters .chip{min-height:35px;padding:6px 10px;font-size:12px}
+.primary-filters .chip.selected{background:#e3f3e9;color:#22654d}
+.search-filter-row .clear-extra{color:#4e7964;border-color:transparent;background:transparent}
+.result-card .result-sub{display:flex;align-items:center;flex-wrap:wrap;gap:4px 7px}
+.tier-chip{display:inline-flex;align-items:center;border-radius:6px;padding:2px 6px;font-size:11px;line-height:1.4;font-weight:650;background:#eaf5ee;color:#246148;border:1px solid #d5e9dc;white-space:nowrap}
+.tier-chip.candidate{background:#fff5e7;color:#866331;border-color:#f1e4c9}
+.tier-chip.unknown{background:#f3f5f3;color:#819087;border-color:#e6eae6}
+.tier-note{font-size:12px;color:#79867d;line-height:1.6;margin:6px 0 12px}
+@media(max-width:375px){.primary-filters .chip{padding:6px 8px;font-size:12px}}
+
 .stage-view-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:4px 0 10px}
 .stage-view-toolbar .toggle{font-size:12px}
 .stage-no-results{font-size:13px;color:#788c80;text-align:center;padding:20px 4px}
