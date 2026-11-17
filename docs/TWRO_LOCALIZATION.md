@@ -1,4 +1,4 @@
-# RO Survivors 台版名稱與 Tier 對照（Dev，2026-11-17）
+# RO Survivors 台版名稱與 Tier 對照（2026-11-18 已核准正式發布）
 
 ## 台灣 RO 名稱
 
@@ -32,4 +32,4 @@
 2. 從已確認的 twRO display table 產生本次限定 ID 名稱對照：`python scripts/prepare-twro-names.py`（本機需有 gitignored table）。不要直接把網路資料表當成可任意重新發布的素材庫。
 3. 原始候選資料重建：`node scripts/build-catalog.cjs <ignored-research-dir>`，它會自行讀取名稱對照並從原站 JS 嚴格核對 Tier；或者當前僅需重新套名稱/Tier 使用 `node scripts/apply-name-tier-enrichment.cjs`（需已審核的 `evidence/ro-original-source/main.js`）。
 4. `npm test`、`npm run typecheck`、公開模式 build 與 `scripts/verify-public-dist.mjs` 驗證，不發布原始遊戲 PNG 或他人整站資料。
-5. 目前修改先在 `dev/twro-tier-filters-20261117` 驗收，**未由本次操作直接推送 main／公開 GitHub Pages**。
+5. 2026-11-17 於 `dev/twro-tier-filters-20261117` 完成驗收，使用者於 2026-11-18 明確同意「上正式」，透過 PR 合併 `main`，交由既有 GitHub Pages CI 發布。

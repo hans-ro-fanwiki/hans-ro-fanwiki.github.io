@@ -7,7 +7,7 @@
 - `npm run typecheck` PASS，`npm test` **24/24 PASS**；`VITE_PUBLIC_MODE=1 npm run build` PASS，`node scripts/verify-public-dist.mjs` PASS：共 789 個 WebP 檔、1,005,658 bytes，無原始 PNG。
 - `node scripts/public-smoke.mjs` Chrome 手機 320/375/390/430px PASS：主要裝備部位與職業、收合進階篩選、項鍊（台版體力項鏈）Tier 2、武士刀 Tier 1／2、圖片與聲明均正確，私有 `/game-assets/` 請求 0、JS errors 0。
 - `node scripts/mobile-smoke.mjs` Chrome 觸控完整流程 PASS：衣服篩選 29 件、智力／冷卻查詢、關卡篩選／單一展開、從裝備反查柏伊亞嵐島、海神怪物詳情、螢幕無水平溢出。
-- 已建立 `dev/twro-tier-filters-20261117` 開發分支，**本次尚未更新正式 GitHub Pages**。真實 iPhone Safari 驗收待回報。
+- `dev/twro-tier-filters-20261117` 於 2026-11-17 完成驗收、Linux CI 成功；使用者於 2026-11-18 核准合併正式 `main`，由原有 Pages 工作流程部署。真實 iPhone Safari 驗收仍待回報。
 
 
 ## 公開粉絲測試維基實際遊戲縮圖（2026-11-17）
