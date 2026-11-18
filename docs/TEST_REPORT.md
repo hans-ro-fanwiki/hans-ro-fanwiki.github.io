@@ -1,5 +1,15 @@
 # P1 私人 Dev／Preview 版驗證（2026-11-17）
 
+## 2026-11-18 Dev：官方來源核對與深色操作版
+
+- 本機獨立分支 `dev/source-integrity-dark-ui-20261118`，**未合併正式**。已核實新版官方 `main-CsViiXMb.js`／`soul_linker-DH9JY1wS.js`／資源 manifest 的 SHA-256，`npm run check:source` 3/3 unchanged。
+- `npm run typecheck` **PASS**、`npm test` **28/28 PASS**。增加 4 項取得來源測試：179 件預設可見、108 件隱藏（96 件無來源、12 件候選）；50 件燈籠節扭蛋（Tier 2）與 9 件起始裝備的官方證據；6 筆遊戲官方中文更新與別名。
+- `npm run build` **PASS**、`node scripts/verify-public-dist.mjs` **PASS**：舊版審核 789 張 WebP，合計 1,005,658 bytes，沒有原始 PNG 或任何私有 JS／圖片。最新版遊戲資料 SHA 與舊版已授權微縮圖 SHA 分開保存，不能因來源更新自動重新發布圖片。
+- `node scripts/dark-ui-smoke.mjs` **PASS**：Headless Chrome iPhone 模擬 320、375、390、430px 橫向溢出 0；暗色卡片主題、三個底部頁籤、預設 179／手動 287 件、隱藏的冰靈拳刃可選查看、1663 波爾多之杖活動扭蛋詳情與 Tier 2、八關全部展開／全部收合／兩關同時展開、Boss 縮圖、JS exceptions 0。
+- 初次模擬測試發現橫向滑動篩選使 390px viewport 內容寬度錯誤擴展到 645px、阻擋詳情關閉按鈕；加入 `min-width:0;max-width:100%` 限制後重測全數正常。測試獨立 Chrome 由程式 `finally` 關閉，不動日常瀏覽器。
+- 新版來源監測 workflow `source-check.yml` 每日執行一次（UTC 20:19／台灣 04:19），變更才開啟／更新同一個 GitHub Issue。**不自動修改資料或部署**；真正 Issue 通知的 GitHub Actions 上線流程需 Dev 核對與用戶 GitHub 通知設定配合。
+- 真實 iPhone Safari 及 GitHub Actions 遠端 CI 需要再驗證後才能進一步提出正式合併。
+
 ## Dev 台版名稱、Tier 與主要篩選（2026-11-17）
 
 - 原站 `npm run check:source` 三份 SHA-256 完全一致，仍為本次核對的遊戲版本。僅從目前遊戲 main bundle 的關卡 `tier` 確認 10 個關卡 Tier 值，不將 `wlv` 武器等級誤當物品 Tier。

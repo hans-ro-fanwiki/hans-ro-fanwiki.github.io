@@ -1,5 +1,14 @@
 # Public artwork policy — RO Survivors fan test wiki (2026-11-17)
 
+## 2026-11-18 Dev：最新版遊戲資料不會解鎖新圖片
+
+新遊戲資料包、manifest SHA 已更新至 `c3ef55cba6cc6d440e8a35f6c9e72d0727a340c3e8fe5eae205452d7749f49a5`，**不代表**目前公開的 WebP 是基於新版生成，也不意味授權範圍擴大。
+
+- 已經由使用者在 2026-11-17 限定允許的 789 張 WebP 仍以第一次逐張審核對應的 manifest SHA `bdbde78da2fd3d8c9084291935a279f2af53f4b456f1141aba6b1fce2db6f526` 與原始檔、WebP SHA 各自驗證；記錄於 `docs/SOURCE_AUDIT.json.thumbnailSourceManifestSha256`。
+- 官方最新 catalog 的 `official.manifest.sha256` 僅表示遊戲資料的最新來源，不得用來重命名或默默替換舊圖片。若內容、圖片 ID、授權情況變更，先由人工核對，再分別審核任何需新增／更新之極小辨識圖。
+- 目前關卡代表 Boss 圖完全沿用已通過舊版圖像白名單的 `fan-thumbs/monsters/<id>.webp`，沒有新增或公開原始地圖、Boss 圖、完整 spritesheet。
+- `scripts/verify-public-dist.mjs` 一樣拒絕任何非白名單圖片與私人素材，且仍將圖片清單數量鎖定到 789。
+
 This is an independent, open-source, **noncommercial fan-made reference site still under testing**. Its intent is to help players identify RO Survivors equipment, cards and monsters, then reverse-lookup the relevant stages. The site is not affiliated with the RO Survivors author, Gravity, GungHo or other rights holders.
 
 ## What is published

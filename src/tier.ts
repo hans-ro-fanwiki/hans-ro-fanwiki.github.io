@@ -9,7 +9,9 @@ export function equipmentTier(item:Equipment,stages:Map<string,Stage>):Equipment
   .filter(source=>source.sourceType==='monsterDrop')
   .flatMap(source=>source.stageRefs)
   .filter(ref=>Number.isInteger(stages.get(ref.stageId)?.tier));
- const verified=levels(linked.filter(ref=>ref.verified),stages);
+ const verifiedStage=levels(linked.filter(ref=>ref.verified),stages);
+ const verifiedSpecial=item.sources.filter(s=>s.verificationState==='official'&&s.evidence&&Number.isInteger(s.sourceTier)&&typeof s.sourceTier==='number'&&s.sourceTier>=1).map(s=>s.sourceTier!);
+ const verified=[...new Set([...verifiedStage,...verifiedSpecial])].sort((a,b)=>a-b);
  if(verified.length)return {text:format(verified),levels:verified,status:'verified'};
  const possible=levels(linked,stages);
  if(possible.length)return {text:'可能 '+format(possible),levels:possible,status:'candidate'};

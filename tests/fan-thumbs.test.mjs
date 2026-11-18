@@ -8,8 +8,9 @@ import {fileURLToPath} from 'node:url';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const manifest=JSON.parse(readFileSync(path.join(root,'public/fan-thumbs/manifest.json'),'utf8'));
 const catalog=JSON.parse(readFileSync(path.join(root,'public/data/catalog.json'),'utf8'));
-test('all indexed equipment, cards and available monster frames have game-version-matched fan thumbnails',()=>{
- assert.equal(manifest.sourceManifestSha256,catalog.official.manifest.sha256);
+test('all curated thumbnails stay linked to their independently reviewed original asset manifest',()=>{
+ assert.equal(manifest.sourceManifestSha256,JSON.parse(readFileSync(path.join(root,'docs/SOURCE_AUDIT.json'),'utf8')).thumbnailSourceManifestSha256);
+ assert.notEqual(manifest.sourceManifestSha256,catalog.official.manifest.sha256,'New catalog audit must not silently re-authorize earlier images');
  assert.deepEqual(Object.keys(manifest.items).sort(),catalog.items.map(i=>String(i.id)).sort());
  assert.deepEqual(Object.keys(manifest.cards).sort(),catalog.cards.map(c=>String(c.id)).sort());
  assert.deepEqual(Object.keys(manifest.monsters).sort(),catalog.monsters.filter(m=>m.spriteFrame).map(m=>m.id).sort());

@@ -1,0 +1,149 @@
+/* RO Survivors dark slate theme. Imported after the existing layout rules.
+   No extra UI dependencies; retain the app's typography and icon system. */
+:root {
+  color-scheme: dark;
+  --wiki-bg: #151d21;
+  --wiki-surface: #202b30;
+  --wiki-raised: #29373d;
+  --wiki-border: #385055;
+  --wiki-text: #eaf1ee;
+  --wiki-muted: #bacbc4;
+  --wiki-subtle: #9aafa8;
+  --wiki-accent: #85d3b4;
+  --wiki-accent-soft: #263d37;
+  --wiki-focus: #9fdec7;
+  background:var(--wiki-bg);
+  color:var(--wiki-text);
+}
+body{background:var(--wiki-bg);color:var(--wiki-text)}
+button,select,input{color:inherit}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {
+  outline:2px solid var(--wiki-focus);
+  outline-offset:3px;
+}
+.topbar{background:#1b272c;border-bottom:1px solid var(--wiki-border)}
+.brand-mark{background:#315a67;color:#f5faf7}
+.brand-names small{color:var(--wiki-muted)}
+.container{background:transparent}
+.content-section{background:var(--wiki-surface);border-color:var(--wiki-border);box-shadow:none}
+.heading-count,.section-count{color:#b4e7ce;background:var(--wiki-accent-soft)}
+.filter-label{color:var(--wiki-muted)}
+.chip{color:#dae7df;background:var(--wiki-raised);border-color:var(--wiki-border)}
+.chip:hover{background:#35494c}
+.chip.selected,.primary-filters .chip.selected{
+  background:#30594d;border-color:#589780;color:#c4f2db;
+}
+.results-toolbar{border-color:var(--wiki-border)}
+.segment{background:#162328}
+.segment button{color:var(--wiki-muted)}
+.segment button.on{background:#395a51;color:#dcf8e9;box-shadow:none}
+.toggle{color:#cad9d3}
+.toggle input{accent-color:#69bd9d;width:19px;height:19px;flex:none}
+.search-field{background:#172429;border-color:var(--wiki-border)}
+.search-field input{color:var(--wiki-text);caret-color:var(--wiki-accent)}
+.search-field input::placeholder{color:#9db4ac;opacity:1}
+.search-field:focus-within{outline:2px solid var(--wiki-focus)}
+.search-clear{color:var(--wiki-muted)}
+.search-more{color:#d5e5dc;background:var(--wiki-raised);border-color:var(--wiki-border)}
+.search-more:hover{background:#38504b}
+.search-subtitle{color:var(--wiki-text)}
+.filter-panel{background:#19272b;border-color:var(--wiki-border)}
+.search-filter-row .clear-extra{color:var(--wiki-accent);background:transparent}
+.result-card,.stage-group-heading,.stage-entry,.loot-row{
+  background:var(--wiki-raised);border-color:var(--wiki-border);color:var(--wiki-text)
+}
+.result-card:hover,.stage-group-heading:hover,.compact-item:hover,.loot-row:hover{
+  background:#34474a;border-color:#76ad99;
+}
+.result-main strong,.compact-copy b,.loot-copy b{color:#f1f5f3}
+.result-sub,.compact-copy small,.loot-copy small{color:var(--wiki-muted)}
+.result-place{color:var(--wiki-accent)}
+.list-arrow,.compact-item>svg,.loot-row>svg{color:var(--wiki-subtle)}
+.art{background:#314348;border-color:#46585a;color:#91beaa}
+.art.item{background:#3b3836;color:#d8bd97}
+.art.card{background:#343845;color:#b8a6d2}
+.art.monster{background:#2c4248;color:#9dcbcf}
+.art.stage{background:#29423a;color:#a2d9bf}
+.stage-heading{background:#29373d;color:var(--wiki-text)}
+.stage-heading small{color:var(--wiki-muted)}
+.stage-heading[aria-expanded=true]{background:#355046}
+.stage-body{background:#202b30;border-color:var(--wiki-border)}
+.stage-controls label{color:var(--wiki-muted)}
+.stage-controls select{background:#172429;color:var(--wiki-text);border-color:var(--wiki-border)}
+.compact-item{background:transparent;color:var(--wiki-text);border-color:var(--wiki-border)}
+.compact-results{background:transparent}
+.stage-no-results,.search-hint{color:var(--wiki-muted)}
+.empty-state,.empty-inline{background:#213239;color:var(--wiki-muted)}
+.source-visibility{
+  display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+  padding:10px 12px;margin:-5px 0 14px;
+  background:#1b2b30;border:1px solid var(--wiki-border);border-radius:12px;
+}
+.source-visibility .toggle{font-size:13px;white-space:normal;line-height:1.45;min-height:30px}
+.source-visibility small{color:var(--wiki-subtle);font-size:11px;padding-left:26px}
+.tier-chip{background:#2e5044;color:#bcf0d5;border-color:#467f68}
+.tier-chip.candidate{background:#4b3f30;color:#f1d6a2;border-color:#766144}
+.tier-chip.unknown{background:#35444a;color:#bed0cc;border-color:#506569}
+.tier-note{color:var(--wiki-muted)}
+.stage-expansion-actions{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:6px}
+.stage-expansion-actions .search-more{min-height:38px}
+.stage-heading .art{width:58px;height:60px;flex-basis:58px}
+.sheet-backdrop{background:#050a0dc9}
+.sheet{background:var(--wiki-surface);color:var(--wiki-text)}
+.sheet-grab{background:#617e78}
+.sheet-head{border-color:var(--wiki-border)}
+.back-button{color:var(--wiki-accent)}
+.icon-button{color:var(--wiki-text);background:#38504c}
+.detail-hero{border-color:var(--wiki-border)}
+.hero-info p{color:var(--wiki-muted)}
+.sheet-section{color:#e8f3eb}
+.bonus-list span{background:#29463c;color:#c1ebd2;border-color:#406a59}
+.route{background:var(--wiki-raised);border-color:var(--wiki-border)}
+.route button,.sub-list button{background:transparent;border-color:var(--wiki-border);color:var(--wiki-accent)}
+.route small{color:var(--wiki-muted)}
+.source-detail{margin:0 0 8px;color:var(--wiki-accent);font-size:13px;line-height:1.5}
+.loot-row{color:var(--wiki-text)}
+.monster-pills button{background:#2a483c;color:var(--wiki-accent);border-color:var(--wiki-border)}
+.sub-list{border-color:var(--wiki-border)}
+.bottom-nav{background:#17252beb;border-color:var(--wiki-border)}
+.bottom-nav button{color:#a9beb6}
+.bottom-nav button.active{color:#a5eccd}
+.art-credits,.art-inline-credit{color:var(--wiki-muted)}
+.art-credits a{color:var(--wiki-accent)}
+.site-footer.site-footer{background:#172429;border-top:1px solid var(--wiki-border);color:var(--wiki-muted)}
+.site-footer .site-footer-lead{color:var(--wiki-text)}
+.site-footer .site-footer-disclosure{background:var(--wiki-raised);border-color:var(--wiki-border)}
+.site-footer .site-footer-disclosure summary{color:var(--wiki-accent)}
+.site-footer .site-footer-disclosure-body{border-color:var(--wiki-border)}
+.site-footer .site-footer-note,.site-footer .site-footer-credits{color:var(--wiki-muted)}
+.site-footer .site-footer-links a,.site-footer .site-footer-credits a{color:var(--wiki-accent)}
+.site-footer .site-footer-credits{border-color:var(--wiki-border)}
+@media(max-width:760px) {
+  .top-inner{min-height:60px}
+  .container{padding:11px 10px 102px}
+  .content-section{padding:15px 12px}
+  .section-heading{margin-bottom:14px}
+  .search-panel,.primary-filters,.primary-filters .filter-block,.search-field{min-width:0}
+  .primary-filters .chips{
+    min-width:0;max-width:100%;
+    flex-wrap:nowrap;overflow-x:auto;overscroll-behavior-x:contain;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:3px;
+  }
+  .primary-filters .chips::-webkit-scrollbar{display:none}
+  .primary-filters .chip{min-height:42px;flex:none}
+  .primary-filters{gap:9px}
+  .filter-label{margin-bottom:6px}
+  .result-card{gap:11px;padding:10px;min-height:92px}
+  .art.item,.art.monster,.art.stage{width:59px;height:63px;flex-basis:59px}
+  .stage-view-toolbar{align-items:flex-start}
+  .stage-expansion-actions .search-more{font-size:12px}
+  .bottom-nav{padding:5px 8px max(7px,env(safe-area-inset-bottom))}
+  .bottom-nav button{min-height:51px}
+}
+@media(max-width:370px){
+  .stage-view-toolbar{flex-wrap:wrap}
+  .stage-expansion-actions{width:100%}
+}
+@media(prefers-reduced-motion:reduce){
+  .stage-heading,.chip,.search-more{transition:none!important}
+}

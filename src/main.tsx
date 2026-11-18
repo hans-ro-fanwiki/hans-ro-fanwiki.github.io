@@ -1,29 +1,31 @@
 import {useCallback,useEffect,useMemo,useState} from 'react';
 import {createRoot} from 'react-dom/client';
-import {ArrowLeft,BookOpen,ChevronDown,ChevronRight,Gem,Map as MapIcon,Search,Shield,SlidersHorizontal,Swords,Target,WandSparkles,X} from 'lucide-react';
+import {ArrowLeft,BookOpen,ChevronDown,ChevronRight,Gem,Map as MapIcon,Search,Shield,SlidersHorizontal,Swords,Target,X} from 'lucide-react';
 import type {Card,Catalog,Equipment,ImageEvidence,Kind,Monster,Page,Source,Stage} from './types';
 import './styles.css';
 import './search.css';
+import './dark.css';
 import {ATTRIBUTE_GROUPS,entryMatches,matchedEffect} from './search';
 import {approvedFanKitThumb} from './public-thumbs';
 import {SiteFooter} from './SiteFooter';
 import {equipmentTier} from './tier';
+import {hasConfirmedAcquisition} from './acquisition';
 
-type View={page:Page;slot:string;job:string;effect:string;source:string;query:string;attr:string;mode:'list'|'stages';onlyOpen:boolean;detail:string|null};
+type View={page:Page;slot:string;job:string;effect:string;source:string;query:string;attr:string;mode:'list'|'stages';onlyOpen:boolean;showUnknown:boolean;detail:string|null};
 type GameEntry=Equipment|Card;
 const SLOTS:Record<string,string>={weapon:'武器',head_top:'頭飾（上）',head_mid:'頭飾（中）',head_low:'頭飾（下）',armor:'衣服',shield:'盾牌',garment:'披肩',shoes:'鞋子',acc:'飾品'};
 const JOBS:Record<string,string>={all:'全部',mage:'魔法師系',swordsman:'劍士系',archer:'弓箭手系',acolyte:'服事系',thief:'盜賊系',merchant:'商人系',ninja:'忍者系'};
 const SOURCES:Record<string,string>={monsterDrop:'怪物掉落',bossDrop:'Boss 掉落',story:'劇情',event:'活動',reward:'獎勵',starter:'初始裝備'};
-const LABELS:Record<Page,string>={items:'裝備',cards:'卡片',stages:'關卡',jobs:'職業'};
+const LABELS:Record<Page,string>={items:'裝備',cards:'卡片',stages:'關卡'};
 // Public Pages includes only dedicated low-resolution, ID-matched fan-reference thumbnails.
 const PUBLIC_MODE=import.meta.env.VITE_PUBLIC_MODE==='1';
 const ASSET_ROOT=import.meta.env.BASE_URL+'game-assets/';
-const EMPTY:View={page:'items',slot:'all',job:'all',effect:'all',source:'all',query:'',attr:'all',mode:'list',onlyOpen:true,detail:null};
+const EMPTY:View={page:'items',slot:'all',job:'all',effect:'all',source:'all',query:'',attr:'all',mode:'list',onlyOpen:true,showUnknown:false,detail:null};
 function readLocation():View{
  const q=new URLSearchParams(location.search);
  const page=q.get('page')||'items';
  return {page:(page in LABELS?page:'items') as Page,slot:q.get('slot')||'all',job:q.get('job')||'all',effect:q.get('effect')||'all',
- source:q.get('source')||'all',query:q.get('q')||'',attr:q.get('attr')||'all',mode:q.get('mode')==='stages'?'stages':'list',onlyOpen:q.get('open')!=='0',detail:q.get('detail')||null};
+ source:q.get('source')||'all',query:q.get('q')||'',attr:q.get('attr')||'all',mode:q.get('mode')==='stages'?'stages':'list',onlyOpen:q.get('open')!=='0',showUnknown:q.get('unknown')==='1',detail:q.get('detail')||null};
 }
 function pathFor(v:View){
  const q=new URLSearchParams();
@@ -36,6 +38,7 @@ function pathFor(v:View){
  if(v.attr!=='all')q.set('attr',v.attr);
  if(v.mode==='stages')q.set('mode','stages');
  if(!v.onlyOpen)q.set('open','0');
+ if(v.showUnknown)q.set('unknown','1');
  if(v.detail)q.set('detail',v.detail);
  return location.pathname+(q.size?'?'+q.toString():'');
 }
@@ -110,7 +113,7 @@ function App(){
   window.addEventListener('popstate',pop);return ()=>window.removeEventListener('popstate',pop);
  },[]);
  useEffect(()=>{document.body.style.overflow=state.detail?'hidden':'';return ()=>{document.body.style.overflow='';};},[state.detail]);
- useEffect(()=>setVisibleCount(40),[state.page,state.slot,state.job,state.effect,state.source,state.query,state.attr,state.mode,state.onlyOpen]);
+ useEffect(()=>setVisibleCount(40),[state.page,state.slot,state.job,state.effect,state.source,state.query,state.attr,state.mode,state.onlyOpen,state.showUnknown]);
  const navigate=useCallback((patch:Partial<View>,top=false,replace=false)=>{
   const next={...state,...patch};
   history.replaceState({scroll:scrollY},'',location.href);
@@ -134,13 +137,14 @@ function App(){
  };
  const closeDetail=()=>navigate({detail:null},false,true);
  useEffect(()=>{const oldStage=state.detail?.match(/^stage:(.+)$/);if(oldStage){setFocusedStage(oldStage[1]);navigate({...EMPTY,page:'stages',detail:null},true,true)}},[state.detail,navigate]);
- const visibleStage=(id:string)=>!state.onlyOpen||!!stages.get(id)?.open;
- const equip=useMemo(()=>catalog?.items.filter(i=>
+ const matchingEquip=useMemo(()=>catalog?.items.filter(i=>
   (state.slot==='all'||i.slot===state.slot)&&
   (state.job==='all'||!i.jobs.length||i.jobs.includes(state.job))&&
   (state.source==='all'||i.sources.some(s=>state.source==='bossDrop'?s.sourceType==='monsterDrop'&&s.stageRefs.some(r=>r.boss):s.sourceType===state.source))&&
   entryMatches(i,state.query,state.attr)
- )||[],[catalog,state.slot,state.job,state.source,state.query,state.attr]);
+  )||[],[catalog,state.slot,state.job,state.source,state.query,state.attr]);
+ const equip=useMemo(()=>matchingEquip.filter(i=>state.showUnknown||hasConfirmedAcquisition(i)),[matchingEquip,state.showUnknown]);
+ const hiddenEquipCount=matchingEquip.length-equip.length;
  const cardList=useMemo(()=>catalog?.cards.filter(c=>(state.effect==='all'||c.tags.includes(state.effect))&&
   (state.source==='all'||c.sources.some(s=>state.source==='bossDrop'?s.sourceType==='monsterDrop'&&s.stageRefs.some(r=>r.boss):s.sourceType===state.source))&&
   entryMatches(c,state.query,state.attr))||[],[catalog,state.effect,state.source,state.query,state.attr]);
@@ -155,9 +159,12 @@ function App(){
  const selectedCard=detailKind==='card'?cards.get(Number(detailId)):undefined;
  const selectedMonster=detailKind==='monster'?monsters.get(detailId):undefined;
  const sourceLine=(entry:GameEntry)=>{
-  const names=[...new Set(entry.sources.filter(s=>s.sourceType==='monsterDrop').flatMap(s=>s.stageRefs.map(r=>r.stageId)).filter(visibleStage))];
+  const names=[...new Set(entry.sources.filter(s=>s.sourceType==='monsterDrop'&&s.verificationState==='official').flatMap(s=>s.stageRefs.filter(r=>r.verified).map(r=>r.stageId)))];
   if(names.length)return names.slice(0,2).map(id=>stages.get(id)?.name||id).join('、')+(names.length>2?' 等':'');
-  return entry.sources.some(s=>s.sourceType!=='monsterDrop')?'劇情／活動等其他取得方式':'取得地點未知';
+  const official=entry.sources.find(s=>s.verificationState==='official'&&s.detail);
+  if(official)return official.detail!;
+  if(entry.sources.length)return '取得方式待確認';
+  return '尚無已確認取得管道';
  };
  return <>
   <header className="topbar"><div className="top-inner"><span className="brand-mark">R</span><span className="brand-names"><strong>RO Survivors</strong><small>掉落圖鑑</small></span></div></header>
@@ -169,7 +176,7 @@ function App(){
     {error&&<div className="empty-state">{error}</div>}
     {!catalog&&!error&&<div className="empty-state">讀取中…</div>}
     {catalog&&<>
-     {state.page!=='jobs'&&<section className="search-panel">
+     <section className="search-panel">
       <label className="search-field"><Search size={20}/><input aria-label="搜尋裝備、卡片或屬性" placeholder="搜尋裝備、卡片、INT、冷卻…" value={state.query} onChange={e=>navigate({query:e.target.value},false,true)}/>{state.query&&<button type="button" className="search-clear" aria-label="清除搜尋" onClick={()=>navigate({query:''})}><X size={18}/></button>}</label>
       {state.page==='items'&&<div className="primary-filters">
        <div className="filter-block" role="group" aria-label="裝備部位"><div className="filter-label">裝備部位</div><div className="chips"><Chip active={state.slot==='all'} onClick={()=>navigate({slot:'all'})}>全部</Chip>{slots.map(slot=><Chip key={slot} active={state.slot===slot} onClick={()=>navigate({slot})}>{SLOTS[slot]||slot}</Chip>)}</div></div>
@@ -185,12 +192,13 @@ function App(){
        {state.page==='cards'&&<div className="filter-block"><div className="filter-label">卡片效果</div><div className="chips">{([['all','全部'],['cooldown','冷卻縮減'],['crit','爆擊'],['damage','傷害'],['defense','防禦'],['hp','HP']] as const).map(([v,label])=><Chip key={v} active={state.effect===v} onClick={()=>navigate({effect:v})}>{label}</Chip>)}</div></div>}
        <button className="search-more" type="button" onClick={()=>{navigate({query:'',attr:'all',slot:'all',job:'all',source:'all',effect:'all'});setShowFilters(false)}}>清除所有篩選</button>
       </div>}
-     </section>}
+     </section>
      {(state.page==='items'||state.page==='cards')&&<>
       <div className="results-toolbar">
        <div className="segment"><button className={state.mode==='list'?'on':''} onClick={()=>navigate({mode:'list'})}>依{state.page==='items'?'裝備':'卡片'}看</button><button className={state.mode==='stages'?'on':''} onClick={()=>navigate({mode:'stages'})}>依關卡看</button></div>
        <label className="toggle"><input type="checkbox" checked={state.onlyOpen} onChange={e=>navigate({onlyOpen:e.target.checked})}/>只看已開放關卡</label>
       </div>
+      {state.page==='items'&&<div className="source-visibility"><label className="toggle"><input type="checkbox" checked={state.showUnknown} onChange={e=>navigate({showUnknown:e.target.checked})}/>顯示取得方式未確認的裝備</label><small>{state.showUnknown?'已包含未確認資料':hiddenEquipCount>0?'已隱藏 '+hiddenEquipCount+' 件未核實裝備':'目前沒有被隱藏的裝備'}</small></div>}
       {state.mode==='list'?<div className="cards-list">
        {list.slice(0,visibleCount).map(entry=><button className="result-card" key={entry.id} onClick={()=>openDetail(state.page==='items'?'item':'card',entry.id)}>
         <Artwork kind={state.page==='items'?'item':'card'} entity={entry}/>
@@ -201,8 +209,8 @@ function App(){
         </span><small className="result-place">{sourceLine(entry)}</small></span><ChevronRight className="list-arrow" size={18}/>
        </button>)}
        {list.length>visibleCount&&<button type="button" className="load-more" onClick={()=>setVisibleCount(v=>v+40)}>顯示更多（還有 {list.length-visibleCount} 件）</button>}
-       {!list.length&&<EmptyState>沒有符合條件的裝備或卡片</EmptyState>}
-      </div>:<StageBrowser data={catalog} query={state.query} attr={state.attr} onlyOpen={state.onlyOpen} focusedStage={focusedStage} openDetail={openDetail} slot={state.page==='items'?state.slot:'all'} job={state.page==='items'?state.job:'all'} source={state.source}/>}
+       {!list.length&&<EmptyState>{hiddenEquipCount>0&&state.page==='items'?'找到的裝備目前沒有核實取得方式，可勾選上方選項查看。':'沒有符合條件的裝備或卡片'}</EmptyState>}
+      </div>:<StageBrowser data={catalog} query={state.query} attr={state.attr} onlyOpen={state.onlyOpen} focusedStage={focusedStage} openDetail={openDetail} slot={state.page==='items'?state.slot:'all'} job={state.page==='items'?state.job:'all'} source={state.source} showUnknown={state.showUnknown}/>}
       {state.mode==='list'&&searchActive&&<section className="search-extra">
        <h2 className="search-subtitle">其他{state.page==='items'?'卡片':'裝備'}結果（{state.page==='items'?cardList.length:equip.length}）</h2>
        <div className="cards-list">{(state.page==='items'?cardList:equip).slice(0,40).map(entry=><button key={entry.id} className="result-card" onClick={()=>openDetail('slot'in entry?'item':'card',entry.id)}>
@@ -211,14 +219,13 @@ function App(){
        </button>)}{(state.page==='items'?cardList:equip).length>40&&<button className="load-more" type="button" onClick={()=>navigate({page:state.page==='items'?'cards':'items',mode:'list'},true)}>查看更多{state.page==='items'?'卡片':'裝備'}</button>}</div>
       </section>}
      </>}
-     {state.page==='stages'&&<><div className="stage-view-toolbar"><span className="search-hint">點擊關卡即可展開或收合</span><label className="toggle"><input type="checkbox" checked={state.onlyOpen} onChange={e=>navigate({onlyOpen:e.target.checked})}/>只看已開放關卡</label></div><StageBrowser data={catalog} query={state.query} attr={state.attr} onlyOpen={state.onlyOpen} focusedStage={focusedStage} openDetail={openDetail}/></>}
-     {state.page==='jobs'&&<div className="job-grid">{Object.entries(JOBS).filter(([v])=>v!=='all').map(([id,name])=><button className="job-card" key={id} onClick={()=>navigate({page:'items',job:id,slot:'all',source:'all',mode:'list'},true)}><WandSparkles size={24}/><b>{name}</b><small>{catalog.items.filter(i=>!i.jobs.length||i.jobs.includes(id)).length} 件裝備</small><ChevronRight size={17}/></button>)}</div>}
+     {state.page==='stages'&&<><div className="stage-view-toolbar"><span className="search-hint">點擊關卡即可展開或收合</span><label className="toggle"><input type="checkbox" checked={state.onlyOpen} onChange={e=>navigate({onlyOpen:e.target.checked})}/>只看已開放關卡</label></div><StageBrowser data={catalog} query={state.query} attr={state.attr} onlyOpen={state.onlyOpen} focusedStage={focusedStage} openDetail={openDetail} showUnknown={state.showUnknown}/></>}
     </>}
    </section>
   </main>
   <SiteFooter publicMode={PUBLIC_MODE}/>
   <nav className="bottom-nav" aria-label="分類">
-   {([['items',Shield],['cards',BookOpen],['stages',MapIcon],['jobs',WandSparkles]] as const).map(([page,Icon])=><button key={page} className={state.page===page?'active':''} onClick={()=>navigate({...EMPTY,page},true)} aria-current={state.page===page?'page':undefined}><Icon size={21}/><span>{LABELS[page]}</span></button>)}
+   {([['items',Shield],['cards',BookOpen],['stages',MapIcon]] as const).map(([page,Icon])=><button key={page} className={state.page===page?'active':''} onClick={()=>navigate({...EMPTY,page,showUnknown:state.showUnknown},true)} aria-current={state.page===page?'page':undefined}><Icon size={21}/><span>{LABELS[page]}</span></button>)}
   </nav>
   {state.detail&&catalog&&<div className="sheet-backdrop" onMouseDown={e=>{if(e.target===e.currentTarget)closeDetail()}}>
    <section className="sheet" role="dialog" aria-modal="true" aria-label="詳細資訊"><div className="sheet-grab"/>
@@ -232,17 +239,17 @@ function App(){
   </div>}
  </>;
 }
-function StageBrowser({data,query,attr,onlyOpen,focusedStage,openDetail,slot='all',job='all',source='all'}:{
+function StageBrowser({data,query,attr,onlyOpen,focusedStage,openDetail,slot='all',job='all',source='all',showUnknown=false}:{
  data:Catalog;query:string;attr:string;onlyOpen:boolean;focusedStage:string|null;
- openDetail:(kind:Kind,id:string|number)=>void;slot?:string;job?:string;source?:string;
+ openDetail:(kind:Kind,id:string|number)=>void;slot?:string;job?:string;source?:string;showUnknown?:boolean;
 }){
- const [expanded,setExpanded]=useState<string|null>(null);
+ const [expanded,setExpanded]=useState<Set<string>>(()=>new Set());
  const [kind,setKind]=useState<'all'|'item'|'card'>('all');
  const [localSlot,setLocalSlot]=useState(slot);
  const [localJob,setLocalJob]=useState(job);
  const [localAttr,setLocalAttr]=useState('all');
  const monsterMap=useMemo(()=>new Map(data.monsters.map(m=>[m.id,m])),[data]);
- useEffect(()=>{if(focusedStage)setExpanded(focusedStage)},[focusedStage]);
+ useEffect(()=>{if(focusedStage)setExpanded(prev=>new Set([...prev,focusedStage]))},[focusedStage]);
  useEffect(()=>{setLocalSlot(slot);setLocalJob(job)},[slot,job]);
  const visible=data.stages.filter(s=>!onlyOpen||s.open);
  const eligible=(row:ReturnType<typeof stageRows>[number])=>{
@@ -252,18 +259,20 @@ function StageBrowser({data,query,attr,onlyOpen,focusedStage,openDetail,slot='al
   if(!entryMatches(row.item,query,attr)||!entryMatches(row.item,'',localAttr))return false;
   if(row.kind==='item'){
    const item=row.item as Equipment;
-   return (localSlot==='all'||item.slot===localSlot)&&(localJob==='all'||!item.jobs.length||item.jobs.includes(localJob));
+   return (showUnknown||hasConfirmedAcquisition(item))&&(localSlot==='all'||item.slot===localSlot)&&(localJob==='all'||!item.jobs.length||item.jobs.includes(localJob));
   }
   return localSlot==='all'&&localJob==='all';
  };
  return <div className="stage-accordion" aria-label="可收合關卡掉落">
-  <div className="stage-view-toolbar"><span className="search-hint">目前顯示 {visible.length} 個關卡</span><button type="button" className="search-more" onClick={()=>setExpanded(null)}>全部收合</button></div>
+  <div className="stage-view-toolbar"><span className="search-hint">目前顯示 {visible.length} 個關卡</span><div className="stage-expansion-actions"><button type="button" className="search-more" onClick={()=>setExpanded(new Set(visible.map(s=>s.id)))}>全部展開</button><button type="button" className="search-more" onClick={()=>setExpanded(new Set())}>全部收合</button></div></div>
   {visible.map(stage=>{
    const rows=stageRows(data,stage.id).filter(eligible);
-   const opened=expanded===stage.id;
+   const opened=expanded.has(stage.id);
+   const finalBoss=stage.bossMonsterIds.at(-1);
+   const cover=finalBoss?monsterMap.get(finalBoss):null;
    return <section className="stage-entry" key={stage.id}>
-    <button type="button" className="stage-heading" aria-expanded={opened} aria-controls={'stage-'+stage.id} onClick={()=>setExpanded(opened?null:stage.id)}>
-     <Artwork kind="stage"/>
+    <button type="button" className="stage-heading" aria-expanded={opened} aria-controls={'stage-'+stage.id} onClick={()=>setExpanded(previous=>{const next=new Set(previous);if(next.has(stage.id))next.delete(stage.id);else next.add(stage.id);return next})}>
+     {cover?<Artwork kind="monster" entity={cover}/>:<Artwork kind="stage"/>}
      <span className="result-main"><strong>{stage.name}</strong><small>Tier {stage.tier} · Lv {stage.levels} · {rows.length} 筆符合掉落</small></span>
      <ChevronDown size={20} style={{transform:opened?'rotate(180deg)':undefined}}/>
     </button>
@@ -291,6 +300,7 @@ function DropRoutes({sources,stages,monsters,openDetail}:{sources:Source[];stage
  if(!sources.length)return <EmptyState>尚無取得資訊</EmptyState>;
  return <div className="route-list">{sources.map((s,i)=><div className="route" key={i}>
   <div className="route-top"><strong>{s.sourceType==='monsterDrop'&&s.verificationState!=='official'?'可能掉落':SOURCES[s.sourceType]||s.sourceType}{s.stageRefs.some(r=>r.boss)?' · Boss':''}</strong></div>
+  {s.detail&&<p className="source-detail">{s.detail}{Number.isInteger(s.sourceTier)?' · Tier '+s.sourceTier:''}</p>}
   {s.monsterId&&<button onClick={()=>openDetail('monster',s.monsterId!)}><Target size={16}/><span>{sourceMonsterName(s,monsters)}</span><ChevronRight size={16}/></button>}
   {s.stageRefs.map(r=><button key={r.stageId} onClick={()=>openDetail('stage',r.stageId)}><MapIcon size={16}/><span>{stages.get(r.stageId)?.name||r.stageId}{r.boss?'（Boss）':''}</span><ChevronRight size={16}/></button>)}
   {s.sourceType==='monsterDrop'&&!s.stageRefs.length&&<small>出現關卡尚未確認</small>}
