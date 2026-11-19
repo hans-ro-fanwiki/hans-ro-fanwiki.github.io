@@ -1,6 +1,6 @@
 # HANS 粉絲維基：GitHub Organization 搬遷紀錄
 
-狀態：原始 Repository 已移轉、改名；GitHub Pages 已設為 Workflow 發布，**等待 PR #9 合併及新網址實際驗收**。
+狀態：**已完成（2026-11-19）**。原始 Repository 已移轉、改名，PR #9 已合併，GitHub Pages 透過 Actions 成功部署並完成 HTTP 與手機版驗證。
 
 ## 正式識別
 - Organization: `hans-ro-fanwiki`（已建立；使用者為 Owner）
@@ -17,14 +17,16 @@
 4. Pages 配置從 API 確認 `html_url=https://hans-ro-fanwiki.github.io/`、`build_type=workflow`、`https_enforced=true`；Actions 已啟用。開發電腦的 `origin` 已換新 remote。
 5. 搬遷準備分支 `dev/org-hans-ro-fanwiki-20261119`：網站品牌、非官方聲明、canonical、原始碼與 Issue 連結均改為新站，Dev CI 初版通過。
 
-## 正式驗收清單
-- [ ] 合併 PR #9 到 `main`，只在 Linux typecheck、tests、public build、asset guard 通過後操作
-- [ ] 確認新的 `main` GitHub Actions Pages deploy 為 success
-- [ ] `https://hans-ro-fanwiki.github.io/` 回應 HTTP 200，HTML title 與 canonical 正確
-- [ ] `https://hans-ro-fanwiki.github.io/data/catalog.json` 同源載入且 `server:'hans'`
-- [ ] 搜尋、裝備／卡片／關卡、手機窄螢幕、Issue / GitHub 原始碼連結正常
-- [ ] 覆查 README/AGENTS/PROJECT_CONTEXT 正式現況；新組織 GitHub App 安裝權限視需要設定
-- [ ] 遷移驗收後更新本檔為完成狀態
+## 正式驗收結果（2026-11-19）
+- [x] PR #9 已合併到 `main`：commit `5891aad4656e0b785cdf050e25c8e91e4b32062d`，版本 0.2.1
+- [x] GitHub Actions #44548771895 驗證與 GitHub Pages 部署皆為 success（Ubuntu Linux，無 macOS）
+- [x] https://hans-ro-fanwiki.github.io/：HTTP 200；title 為「RO 倖存者｜HANS 粉絲維基」、canonical 為組織首頁、非官方聲明存在
+- [x] /data/catalog.json：HTTP 200；`server:'hans'`；523 裝備、188 卡片、195 怪物、17 關卡；前端 JavaScript 資產 HTTP 200
+- [x] 本機 Chrome / Playwright 互動 smoke：裝備篩選、卡片效果與關卡展開正常，320/375/390/430px 無水平溢出或 JS 例外
+- [x] README、AGENTS、PROJECT_CONTEXT 已改為新倉庫與網站；Repository description/homepage 同步更新
+- [x] 原始 Pages URL 實測 HTTP 404；已知舊書籤不會自動轉址
+
+補充：ChatGPT 連接的 GitHub App 目前只安裝於個人帳號，未顯示新 Organization；日後如要直接使用該連接編輯新組織 Repo，可由組織 Owner 另行授權。OpenChatX 本機 `gh` CLI 已可管理新倉庫。
 
 ## 風險與注意
 - 移轉後 GitHub Repository URL 可以自動導向新 GitHub Repository，但**原 GitHub Pages 網址不保證轉址**；不要把舊 Pages 書籤視為有遷移保障。
