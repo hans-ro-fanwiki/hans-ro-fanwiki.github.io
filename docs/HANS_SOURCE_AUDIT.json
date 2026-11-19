@@ -1,0 +1,27 @@
+{
+  "reviewedAt": "2026-11-19",
+  "server": "hans",
+  "hans": {
+    "baseUrl": "https://ro.hans-webgametw.com",
+    "main": {
+      "file": "main-BNOcv2PN.hzf64b3f03.js",
+      "sha256": "8d09b2d48b6224644e1f80bb3a970b16636a454fbd1b2f8bea404e786f1c84d2"
+    },
+    "soul": {
+      "file": "soul_linker-DllBVIRO.hza78cd192.js",
+      "sha256": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a"
+    },
+    "manifest": {
+      "file": "manifest.json",
+      "path": "assets/manifest.json",
+      "sha256": "4e7959bee99d4cdeab39876329d9c28a4270a7dbcac11d9f6e3c39e91f0c4f6a"
+    }
+  },
+  "reviewNotes": [
+    "Sources were downloaded from HANS on 2026-11-19 into gitignored evidence/hans-20261119 only.",
+    "Equipment registrations, monster equipment-drop table, stage wave/boss pools, and card registrations are independently sourced from HANS.",
+    "Card-to-monster registrations alone do not prove an obtainable card; card drops are candidate only.",
+    "Item names and descriptions originate from the current HANS manifest; no old Coffee catalog content is merged.",
+    "Original bundled game code and full-resolution art must not be committed or deployed."
+  ]
+}

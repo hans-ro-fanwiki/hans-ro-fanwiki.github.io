@@ -1,84 +1,12 @@
 # Changelog
 
-## 2026-11-19 — 官方新版卡片取得管道與全站資料再次核對（正式發布）
+## 0.2.0-hans-dev — 2026-11-19 (Dev only; not released)
 
-- 以作者最新版 2026-11-19 客戶端重新核對 287 裝備 ID、部位、171 件有直接數值定義的裝備 ATK/MATK/DEF、98 張卡片 ID／怪物／鑲嵌部位、155 筆裝備怪物掉落及 10 關卡 Tier。現行中文名稱 385 筆不需再更名。
-- 77 張一般卡片依官方正常刷圖怪物池與卡片掉落邏輯核實地點；其餘 10 張維持候選，避免將劇情限定或尚未開放關卡當成可刷地點。
-- 11 張活動卡片依官方精確扭蛋池標示：節慶 9、白素貞 1、蛇王 1；墨蛇君卡片（4330）應查蛇王扭蛋。
-- 修正失事輪普通關卡與劇情版混淆，普隆德拉城劇情限定及燈籠節活動卡片來源；補上墨蛇君在燈籠節稀有 Boss 的關聯，未核實的關卡連結不再假裝正式掉落。
-- 官方來源監控的版本 SHA 更新；未增加原始遊戲 JS、圖片或擴大公開素材清單。新玩家介面、圖片授權限制和預設隱藏 108 件來源未確認裝備維持不變。
-
-## 2026-11-18 — Dev 官方來源全面核對、預設隱藏未核實、暗色介面
-
-- 獨立 `dev/source-integrity-dark-ui-20261118` 開發分支，**未經再次同意不合併或部署 main**。
-- 以最新版原站公開程式核對 287 裝備與 98 卡片的 ID／官方繁體譯名，修正 6 筆名稱；保存英文與舊中文作搜尋別名。核對原始官方的 50 件燈籠節扭蛋專屬裝備、Tier 2、9 件初始裝備及既有 155 個怪物掉落來源。卡片具體效果、未核實的劇情／獎勵仍不得認定官方正確。
-- 新版首頁預設顯示 179 件有已核實取得來源的裝備，隱藏 108 件（96 完全沒有來源，12 來源仍為候選）；可選擇顯示全部 287 件與 URL `?unknown=1`。
-- 三分頁導航、關卡多開／全部展開／全部收合、已審核 Boss 代表小圖、深石板色＋低彩度青綠色主題、手機橫向溢出修復。
-- 每日現有 Linux GitHub Actions 官方版本偵測新增 **去重 GitHub Issue** 通知，不會自動重建／擷取／散布圖片或部署。已審核舊版圖片獨立以原 SHA 白名單驗證，不把最新資料來源 SHA 強套在舊圖上。
-- 新增 Dev 來源核對腳本 `scripts/reconcile-official.cjs`，對原站 JS 的預期資料結構嚴格核實，舊資料重建步驟防止誤覆寫。28 項測試、公開白名單驗證與 320–430px Chrome 手機模擬成功；真機 Safari 尚未驗收。
-
-## 2026-11-18 — 台版中文化與 Tier 正式發布
-
-- 使用者已明確批准將 `dev/twro-tier-filters-20261117` 合併至 `main`，沿用原 Linux CI 驗證與 GitHub Pages 發布，不另建部署流程。
-- 發布包含台版中文、Tier、隱藏名稱旁內部 ID、裝備部位／職業優先篩選，並保留原遊戲小縮圖與粉絲網站聲明。
-
-
-## 2026-11-17 — Dev 台版中文化、Tier 與主要篩選簡化
-
-- 從原版 twRO 物品名稱表依**數字 ID**對照 281 裝備、98 卡片，並依卡片對應 98 隻怪物；6 件缺少台版原始對照的裝備保留原本中文或標示為個別手動翻譯，另 5 隻特殊怪物以手動譯名處理。保留原英文名稱、無衝突的舊中文搜尋別名。Phen／Swordfish／Sohee Card 分別更名為劍魚／異變魚／鬼女卡片。
-- 拿掉列表名稱旁的 `#ID`，但保留 ID 以辨識同名項目與正常反查。清單與詳情顯示從遊戲原始關卡表核對的 Tier 1／2／3；裝備 Tier 隨來源關卡而定，不等於武器等級，未核實則顯示 `Tier 未確認`。
-- 裝備頁直接顯示部位與職業兩組快捷篩選；其他屬性、戰鬥／生存效果、取得方式收至「更多篩選」，保留選取狀態和篩選數量。
-- `tests/twro-tier.test.mjs` 新增台版譯名、英文／舊名搜尋與 Tier 來源驗證；24/24 Node 測試、型別檢查、公開圖像安全驗證、手機 320–430px Chrome 觸控流程通過。**於 Dev 分支完成測試，2026-11-18 獲使用者批准正式發布。**
-
-
-## 2026-11-17 — 公開粉絲測試資料站原版縮圖
-
-- 使用者要求能在正式公開版辨識 RO Survivors 的實際裝備、卡片和怪物，而非大量通用佔位圖。以原站物品 ID 對應 287 裝備／98 卡片／107 怪物，從私人快取以明確本機授權指令產生 779 個低解析 WebP 小圖（合計約 989 KB）；2 個欠缺怪物影格保留 fallback。
-- 裝備清單與詳情、卡片清單與詳情、怪物詳情均依 ID 載入小圖；私人開發版仍保留原始完整圖片與原版 atlas，公開站從不請求私有 `game-assets`。
-- 頁尾強調「非官方、免費、非營利、開源的粉絲測試資料站」，展示著作權、遊戲素材歸屬和下架聯絡入口；不宣稱圖片已獲自由轉載授權。
-- CI 增加 789 個（779+10）公開 WebP 的 SHA、大小、ID 與來源安全驗證，不發佈任何原始 PNG；21/21 Node 測試及手機 320–430px Chrome Playwright 測試通過。
-
-
-## 2026-11-17 — 非官方粉絲維基聲明與內容移除聯絡
-
-- 網站頁尾改為精簡的「非官方・免費・非營利・原始碼公開」提示，手機版使用原生可展開的「著作權與免責聲明」。保留既有 Fan Kit 來源及權利標示。
-- 完整聲明尊重 RO Survivors 作者與素材原始權利人、原始碼公開不代表遊戲素材授權，也提醒非營利及免責文字不等同正式授權。
-- 新增 GitHub Issues「著作權／內容疑慮與下架申請」公開表單，包含頁面 URL、內容說明及不得刊登私人資料提醒，方便權利人要求查核、移除或調整。
-- 保留公開版圖片白名單，不發佈私人 RO Survivors 原始素材；公開手機瀏覽器新增頁尾展開與聯絡入口的互動驗證。
-
-
-## 2026-11-17 — 公開 Fan Kit 小縮圖與 GitHub Pages
-
-- 使用者授權公開原始碼並提供非營利粉絲維基給遊戲群組朋友。導入整合式 Linux CI + GitHub Pages 部署，避免同 commit 雙重跑 workflow。
-- 官方 RO Fan Kit 10 隻**精確對應名稱**的怪物插畫製作為 96×96 WebP 小縮圖，共約 17 KB；網站列出來源與版權標示。所有其他裝備、卡片等仍以一般圖示顯示，避免將未取得許可的 RO Survivors PNG 放上公開網頁。
-- 公開模式 `VITE_PUBLIC_MODE=1` 封鎖私人 PNG 和 sprite 並顯示著作權說明。CI 只上傳通過 `scripts/verify-public-dist.mjs` 白名單檢查的乾淨建置包。
-- 新增官方縮圖單元測試（19/19 PASS）與公開模式 Playwright 手機測試：320、375、390、430px 均無橫向溢出，波利縮圖正確載入、沒有私人遊戲圖片請求或 JS 錯誤。
-
-
-## 2026-11-17 — 屬性搜尋與可摺疊關卡（Dev）
-
-- 裝備／卡片與關卡頁新增屬性與名稱搜尋；支援 INT、DEX、STR、AGI、VIT、LUK、冷卻、爆擊等快捷篩選、中文屬性別名、進階選項與可分享的查詢網址。
-- 關卡以單一摺疊清單呈現，預設收合、一次只展開一關；關卡內直接篩選裝備／卡片、部位、職業與屬性，不再開啟內容重複的關卡彈窗。
-- 裝備、卡片、怪物詳情全面隱藏掉落權重，原始數值保留於資料 JSON；滿星附加屬性在詳情顯示其條件。
-- 新增搜尋邏輯自動化測試；合計 18 項 Node 測試成功。Playwright 320／375／390／430px 觸控流程、反查關卡及無溢出通過。
-- GitHub Pages API 對私人 repo 回傳 422 方案限制；未變更 private 倉庫公開性，公開圖檔授權仍未取得。繼續提供 Tailscale Dev Preview。
-
-## 2026-11-17 — 完整候選資料收錄與分類修正（Dev）
-
-- 修正只匯入飾品及部分法師武器造成「衣服只有一件」的問題；完整索引目前候選的 287 裝備（含衣服 29、九種部位）、98 卡片、109 怪物、10 關卡。
-- 額外與目前遊戲作者 JS 的怪物掉落表比對，記錄 145 組來源關聯；不可據此宣稱資料已全數官方核准，未知來源維持未確認。
-- 卡片依原始效果支援冷卻／爆擊／傷害／防禦／HP 等篩選；重名物品顯示 item ID 區分。
-- 全裝備列表每批 40 件以「顯示更多」操作，減少 iPhone 首次渲染負擔。
-- 私人 Tailscale 預覽共 720 張本機 PNG 成功快取，107 個怪物 sprite 有對應影格，2 個欠缺原站同名圖維持缺圖佔位。未上傳 GitHub。
-- 14 項 Node 測試通過；390px 觸控流程包含衣服 29 件、九部位、全裝備 287、卡片 98、載入更多、原有反查流程。
-
-## 2026-11-17 — P1 玩家導向介面改版（Dev）
-
-- 移除首頁四塊快捷入口；四分類直接開啟點選篩選。
-- 玩家畫面移除「原站核實」、證據代碼與 SHA；核對關係保留於靜態 JSON、文件。
-- 裝備、卡片、怪物按作者資產 ID 顯示私人 Dev 圖像；卡片保持 300×400 原始比例；怪物僅取 sprite 代表 frame，不顯示整張 atlas。
-- 加入基礎 ATK／MATK／DEF、加成與星號效果；依關卡、裝備、卡片、怪物雙向查詢。
-- 關卡詳情直接列出已收錄裝備／卡片、怪物／Boss 與 `rawRate` 權重；不把權重換算百分比。
-- 改善手機抽屜與篩選返回。320、375、390、430px 共 20 個畫面檢查無水平捲動。
-- 原站跨站圖片熱連遭拒；本機 129 張私人快取不納入 GitHub 或 CI／公共部署。
-- Linux typecheck、Vite build、10 項資料測試及 390px 觸控流程測試通過。真實 iPhone Safari 待使用者驗收。
+- Complete pivot to HANS-only RO Survivors wiki, retaining repository and mobile layout.
+- Removed previous Coffee-based catalog, photos, acquisition audits, scripts and tests from active branch.
+- Static-imported HANS registrations and source tables: 523 equipment, 188 cards, 195 monsters, 17 stages.
+- Implemented actual HANS stat modifier decoding for attribute filters, plus Chapter 2 Tier presentation.
+- Retained unknown-source filtering, card-source uncertainty, stage-based reverse lookup and HANS-only version checks.
+- Removed prior fan-thumbnail assets; public build explicitly blocks unreviewed image publication.
+- Rebuilt automated tests, public artifact safety check and change-detection origin.
+- Live website still on prior version pending explicit release approval.

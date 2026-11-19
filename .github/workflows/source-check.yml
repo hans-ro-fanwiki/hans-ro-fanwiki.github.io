@@ -1,4 +1,4 @@
-name: Official source drift check
+name: HANS source drift check
 on:
   schedule:
     # 04:19 Asia/Taipei daily; GitHub schedule may run late.
@@ -21,7 +21,7 @@ jobs:
         with:
           node-version: 22
       - id: compare
-        name: Compare current official bundles against reviewed hashes
+        name: Compare current HANS bundles against reviewed hashes
         shell: bash
         run: |
           set +e

@@ -2,32 +2,27 @@ import {ChevronDown,ExternalLink} from 'lucide-react';
 import './site-footer.css';
 
 const REPORT_URL='https://github.com/lockgipo/ro-survivors-wiki/issues/new?template=content-removal.yml';
+const HANS_URL='https://ro.hans-webgametw.com/';
 
 export function SiteFooter({publicMode}:{publicMode:boolean}){
  return <footer className="site-footer" aria-label="網站聲明">
   <div className="site-footer-inner">
-   <p className="site-footer-lead">非官方・免費・非營利・開源的粉絲測試資料站</p>
-   <p className="site-footer-intro">由玩家自發製作、持續開發測試的《RO Survivors》攻略維基，方便查詢裝備、卡片與掉落關卡；與遊戲開發者及相關權利人無官方合作或隸屬關係。</p>
+   <p className="site-footer-lead">HANS 專屬 · 免費 · 非官方玩家資料站</p>
+   <p className="site-footer-intro">本站專門整理 HANS 漢斯服的《RO 倖存者》裝備、卡片、怪物與關卡資訊；並非遊戲開發者或權利人的官方網站。與其他版本的遊戲資料不混用。</p>
    <details className="site-footer-disclosure">
-    <summary>著作權與免責聲明 <ChevronDown size={16} aria-hidden="true"/></summary>
+    <summary>資料來源與著作權聲明 <ChevronDown size={16} aria-hidden="true"/></summary>
     <div className="site-footer-disclosure-body">
-     <p>本站為玩家自發製作、尚在開發與測試中的免費、非營利、開源攻略資料站，僅供遊戲資料查詢、裝備與卡片研究、攻略分享及玩家交流，不代表《RO Survivors》遊戲開發者、Gravity 或其他原始權利人之官方立場。</p>
-     <p>本站提及的遊戲名稱、角色、裝備、卡片、圖像及相關內容，其著作權及商標權依實際情況歸各自合法權利人所有。本站不主張擁有相關遊戲素材的權利。</p>
-     <p>本站的原始碼公開，不代表遊戲素材已獲開放授權，亦不表示相關圖像可自由轉載或用於商業用途。非營利及本聲明本身不構成圖片使用授權。</p>
-     <p>若您是權利人，或認為網站內容涉及著作權、商標權等疑慮，請透過下方「內容疑慮／下架聯絡」告知相關網址及原因。我們會優先查核，必要時儘速移除或調整相關內容。</p>
-     <p className="site-footer-note">聯絡入口使用公開的 GitHub Issue，請勿張貼個人資料、秘密或未公開的權利證明。</p>
+     <p>本站依據 HANS 伺服器公開提供的遊戲資料建立搜尋索引，並將可確認的掉落路徑與僅有怪物關聯的卡片資料分開處理。遊戲可能更新，實際資訊以 HANS 遊戲內為準。</p>
+     <p>本站為非商業的粉絲參考專案。遊戲相關名稱、內容、角色、圖片及商標權利仍歸各權利人所有。開放本站程式碼不代表遊戲素材獲得開放授權，非營利聲明亦不構成使用授權。</p>
+     <p>若權利人對本站內容有疑慮，請使用下方 GitHub Issue 聯絡；請勿於公開 Issue 張貼個人資料或未公開權利證明。</p>
     </div>
    </details>
    <nav className="site-footer-links" aria-label="相關資訊">
+    <a href={HANS_URL} target="_blank" rel="noopener noreferrer">HANS 漢斯服 <ExternalLink size={13} aria-hidden="true"/></a>
     <a href={REPORT_URL} target="_blank" rel="noopener noreferrer">內容疑慮／下架聯絡 <ExternalLink size={13} aria-hidden="true"/></a>
-    <a href="https://github.com/lockgipo/ro-survivors-wiki" target="_blank" rel="noopener noreferrer">網站原始碼 <ExternalLink size={13} aria-hidden="true"/></a>
-    <a href="https://ro-survivors.com/" target="_blank" rel="noopener noreferrer">RO Survivors 遊戲 <ExternalLink size={13} aria-hidden="true"/></a>
+    <a href="https://github.com/lockgipo/ro-survivors-wiki" target="_blank" rel="noopener noreferrer">資料站原始碼 <ExternalLink size={13} aria-hidden="true"/></a>
    </nav>
-   {publicMode&&<div className="site-footer-credits">
-    <p>本站提供供辨識物品的低解析縮圖；原始圖片與遊戲素材著作權仍屬相關權利人。圖片僅用於非營利玩家攻略查詢，不提供遊戲原始檔案。權利人若有疑慮，歡迎透過下方聯絡表單提出，我們會儘速查核與處理。</p>
-    <p>© Gravity Co., Ltd. &amp; Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc.</p>
-    <p><a href="https://ro-survivors.com/" target="_blank" rel="noopener noreferrer">RO Survivors 原站</a> · <a href="https://ragnarokonline-cf.gungho.jp/special/fankit/" target="_blank" rel="noopener noreferrer">RO Fan Kit</a> · <a href="https://ragnarokonline.gungho.jp/support/play-manner/copyright.html" target="_blank" rel="noopener noreferrer">RO 素材規範</a></p>
-   </div>}
+   {publicMode&&<p className="site-footer-note">公開版本目前不附帶未經獨立審核的 HANS 原始遊戲圖像；私人開發預覽顯示的遊戲來源圖片不包含在公開發佈物中。</p>}
   </div>
  </footer>;
 }
