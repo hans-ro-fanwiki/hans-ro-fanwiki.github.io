@@ -11,7 +11,9 @@ assert.ok(!existsSync(path.join(dist,'evidence')),'Private evidence MUST NOT shi
 const catalog=JSON.parse(readFileSync('public/data/catalog.json','utf8'));
 const fanManifest=JSON.parse(readFileSync(path.join(dist,'fan-thumbs','manifest.json'),'utf8'));
 const originalManifest=JSON.parse(readFileSync(path.join(dist,'approved-thumbs','manifest.json'),'utf8'));
-assert.equal(fanManifest.sourceManifestSha256,catalog.official.manifest.sha256,'Outdated fan-thumbnail manifest');
+const audited=JSON.parse(readFileSync('docs/SOURCE_AUDIT.json','utf8'));
+assert.equal(fanManifest.sourceManifestSha256,audited.thumbnailSourceManifestSha256,'Thumbnail source version not reviewed');
+assert.ok(audited.officialBundles.manifest.sha256===catalog.official.manifest.sha256,'Catalog current source mismatch');
 assert.deepEqual(Object.keys(fanManifest.items).sort(),catalog.items.map(i=>String(i.id)).sort(),'Equipment thumbnail ID coverage');
 assert.deepEqual(Object.keys(fanManifest.cards).sort(),catalog.cards.map(i=>String(i.id)).sort(),'Card thumbnail ID coverage');
 assert.deepEqual(Object.keys(fanManifest.monsters).sort(),catalog.monsters.filter(m=>m.spriteFrame).map(m=>m.id).sort(),'Monster thumbnail coverage');

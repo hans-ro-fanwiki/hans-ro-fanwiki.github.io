@@ -1,5 +1,15 @@
 # RO Survivors Drop Wiki Project Context
 
+## 2026-11-18 Dev 來源與介面改版（尚未核准正式）
+
+- 工作分支 `dev/source-integrity-dark-ui-20261118`；正式 `main` 不變。2026-11-18 現行官方來源 `main-CsViiXMb.js` SHA `1182a9e35bbb81a40cec9d83ab768f620f5c792f6d93b7e5ac1b81d4416d9bdd`、`soul_linker-DH9JY1wS.js` SHA `eb2625bb2b88d9e08441a3acbffe4a8f3789fec621f3dfe60516b0af9232ba82`、素材 manifest SHA `c3ef55cba6cc6d440e8a35f6c9e72d0727a340c3e8fe5eae205452d7749f49a5`。原始二進位／JS 僅存 gitignored `evidence/current-source-20261118/`，**不可發佈**。
+- 287 裝備與 98 卡片以原站 manifest 的數字 ID + 原文對位檢查遊戲官方繁體中文譯名；6 件裝備改名。舊 twRO 名表保留參考，但不再覆蓋現行遊戲內官方譯名。怪物 98 筆對應卡片名稱更新，其餘特殊怪物仍有待核項目。
+- 現行程式的燈籠節 `faroles` 專屬裝備集合核實 50 件，取得來源為活動扭蛋且 Tier 2；另核實 9 件初始裝備，155 個既有官方怪物掉落來源映射（關卡關聯只標記實際可驗）。**無資料的 96 件與僅候選的 12 件不能假稱可掉落**，維基 UI 預設隱藏，使用者可勾選查看；預設列表 179 件、選取後 287 件。掉落權重仍不當實際機率。
+- 介面：下方只留裝備／卡片／關卡；裝備及關卡的職業篩選保留；關卡支援全部展開、全部收合、多人同時展開，使用已發佈小尺寸 Boss 缩圖代表（無圖回退一般圖示），深石板主題與 Safari 的橫向溢出修正。
+- 首次新增 Dev source-monitor GitHub Issues 去重通知（每天一次的 Linux source-check workflow），只通報雜湊差異，不直接更新、下載圖片或部署。公開縮圖仍以**原始審核時** manifest `bdbde78da2fd3d8c9084291935a279f2af53f4b456f1141aba6b1fce2db6f526` 審核，`docs/SOURCE_AUDIT.json.thumbnailSourceManifestSha256` 與「最新資料來源 SHA」分別保存；這不授權任何新圖。
+- 新腳本 `scripts/reconcile-official.cjs` 是讀取預先人工檢查之官方本地快照的受限核對程序；舊重建腳本需特別聲明才允許執行，以免覆蓋新版來源資料。
+- Node 型別檢查、28/28 自動測試、公開模式安全建置及 789 WebP 白名單驗證、Chrome 320／375／390／430 px 深色版流程與展開操作 PASS；**真實 iPhone Safari 驗收仍待使用者完成**。完整結果見 `docs/TEST_REPORT.md`。
+
 - Scope: P0 source audit + P1 mobile-first reverse lookup wiki, requirements v1.1 (2026-11-17).
 - Independent repo: lockgipo/ro-survivors-wiki. Local root: C:\\AI-Workspace\\ro-survivors-wiki.
 - Status (2026-11-17): GitHub repository PUBLIC and noncommercial GitHub Pages LIVE at https://lockgipo.github.io/ro-survivors-wiki/ ; deployed merge commit 7785ce5 (workflow 44047794091 successful). Public index, catalog.json and Poring thumbnail all externally verified HTTP 200; public-site Chrome mobile smoke passed. Tailscale private full-image Preview remains http://100.116.225.68:4177/ (OpenChatX bash-80924), requires PC + iPhone Tailscale online.

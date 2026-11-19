@@ -4,6 +4,7 @@ const fs=require('node:fs');
 const {enrichCatalog}=require('./catalog-enrichment.cjs');
 const catalogPath='public/data/catalog.json';
 const catalog=JSON.parse(fs.readFileSync(catalogPath,'utf8'));
+if(catalog.official?.main?.file!=='main-2n_YvaNQ.js')throw Error('Legacy twRO-only enrichment is blocked on newer official reviewed data; use scripts/reconcile-official.cjs instead');
 const main=fs.readFileSync('evidence/ro-original-source/main.js','utf8');
 const nameMap=JSON.parse(fs.readFileSync('docs/TWRO_NAMES.json','utf8'));
 const counts=enrichCatalog(catalog,main,nameMap);

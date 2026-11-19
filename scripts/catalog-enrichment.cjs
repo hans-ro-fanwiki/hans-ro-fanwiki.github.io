@@ -6,12 +6,14 @@ const {createHash}=require('node:crypto');
 function sourceStageTiers(originalMainJs,expectedSha){
  const hash=createHash('sha256').update(originalMainJs).digest('hex');
  assert.equal(hash,expectedSha,'Game bundle changed: review stage Tier table before rebuilding catalog');
- const marker='const Le=[';
- const start=originalMainJs.indexOf(marker);
- assert.ok(start>=0,'Official stage table not found');
- const end=originalMainJs.indexOf('];for(const s of Le',start);
- assert.ok(end>start,'Official stage table terminator not found');
- const stageText=originalMainJs.slice(start,end+1);
+ // Minifier identifiers are not stable between official releases (Le -> Te).
+ const head=/const ([A-Za-z_$][\w$]*)=\[\{id:"prontera",/.exec(originalMainJs);
+ assert.ok(head,'Official stage table not found');
+ const start=head.index;
+ const terminator=new RegExp('\\];for\\(const [A-Za-z_$][\\w$]* of '+head[1]+'\\)');
+ const after=originalMainJs.slice(start).search(terminator);
+ assert.ok(after>0,'Official stage table terminator not found');
+ const stageText=originalMainJs.slice(start,start+after+1);
  const stages=new Map();
  for(const match of stageText.matchAll(/\{id:"([a-z_]+)",[^}]*?tier:(\d+),/g)){
   assert.ok(!stages.has(match[1]),'Duplicate source stage ID');

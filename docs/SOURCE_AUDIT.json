@@ -1,17 +1,18 @@
 {
-  "generatedAt": "2026-11-17",
+  "generatedAt": "2026-11-18",
+  "thumbnailSourceManifestSha256": "bdbde78da2fd3d8c9084291935a279f2af53f4b456f1141aba6b1fce2db6f526",
   "officialBundles": {
     "main": {
-      "file": "main-2n_YvaNQ.js",
-      "sha256": "75e30eb32412865756af386132f6d10b3ed46062890122e185eff1a34b87732b"
+      "file": "main-CsViiXMb.js",
+      "sha256": "1182a9e35bbb81a40cec9d83ab768f620f5c792f6d93b7e5ac1b81d4416d9bdd"
     },
     "soul": {
-      "file": "soul_linker-BNTKE1pN.js",
-      "sha256": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147"
+      "file": "soul_linker-DH9JY1wS.js",
+      "sha256": "eb2625bb2b88d9e08441a3acbffe4a8f3789fec621f3dfe60516b0af9232ba82"
     },
     "manifest": {
       "file": "assets/manifest.json",
-      "sha256": "bdbde78da2fd3d8c9084291935a279f2af53f4b456f1141aba6b1fce2db6f526"
+      "sha256": "c3ef55cba6cc6d440e8a35f6c9e72d0727a340c3e8fe5eae205452d7749f49a5"
     },
     "baseUrl": "https://ro-survivors.com"
   },
@@ -29,8 +30,8 @@
   },
   "officialStagePools": 8,
   "officialBossLists": 8,
-  "officialItemMonsterDrops": 143,
-  "fullVerifiedStageDropEdges": 145,
+  "officialItemMonsterDrops": 155,
+  "fullVerifiedStageDropEdges": 157,
   "imageCoverage": {
     "itemsWithAsset": 287,
     "cardsWithAsset": 98,
@@ -55,8 +56,8 @@
           "rawRate": 100,
           "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-BNTKE1pN.js",
-            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "file": "soul_linker-DH9JY1wS.js",
+            "hash": "eb2625bb2b88d9e08441a3acbffe4a8f3789fec621f3dfe60516b0af9232ba82",
             "kind": "drop-table",
             "key": "strouf:2603"
           }
@@ -75,8 +76,8 @@
           "rawRate": 100,
           "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-BNTKE1pN.js",
-            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "file": "soul_linker-DH9JY1wS.js",
+            "hash": "eb2625bb2b88d9e08441a3acbffe4a8f3789fec621f3dfe60516b0af9232ba82",
             "kind": "drop-table",
             "key": "king_dramoh:2603"
           }
@@ -95,8 +96,8 @@
           "rawRate": 100,
           "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-BNTKE1pN.js",
-            "hash": "34f8b78fd0461c8ed35ea38cc1c8f3d63012f3c9213644aa3393a050f05d1147",
+            "file": "soul_linker-DH9JY1wS.js",
+            "hash": "eb2625bb2b88d9e08441a3acbffe4a8f3789fec621f3dfe60516b0af9232ba82",
             "kind": "drop-table",
             "key": "cat_o_nine_tail:2603"
           }
@@ -105,10 +106,16 @@
     }
   ],
   "unresolved": [
-    "Card bonus meanings need separate official-effect mapping",
-    "Jobs array values require verifying game equip-rule logic",
-    "Open/season status is still based on candidate catalog",
-    "Drop rate weights are NOT player probabilities",
-    "Asset copying/hotlinking rights not granted"
-  ]
+    "Unverified story/reward items and 96 source-less items remain hidden by default",
+    "Card effect/monster drops still require field-by-field official checks",
+    "Festival ball distribution by rarity is not separately verified",
+    "Noncommercial third-party image permissions have not been established"
+  ],
+  "verifiedFestivalItems": 50,
+  "verifiedStarterItems": 9,
+  "officialNameMatches": {
+    "items": 287,
+    "cards": 98,
+    "changed": 6
+  }
 }

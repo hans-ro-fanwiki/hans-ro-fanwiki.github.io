@@ -1,10 +1,12 @@
 name: Official source drift check
 on:
   schedule:
+    # 04:19 Asia/Taipei daily; GitHub schedule may run late.
     - cron: "19 20 * * *"
   workflow_dispatch:
 permissions:
   contents: read
+  issues: write
 concurrency:
   group: official-source-watch
   cancel-in-progress: true
@@ -18,4 +20,20 @@ jobs:
       - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
         with:
           node-version: 22
-      - run: node scripts/check-official.mjs
+      - id: compare
+        name: Compare current official bundles against reviewed hashes
+        shell: bash
+        run: |
+          set +e
+          node scripts/check-official.mjs --report-file "$RUNNER_TEMP/ro-source-check.json"
+          result=$?
+          if [ "$result" -eq 2 ]; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          exit "$result"
+      - if: steps.compare.outputs.changed == 'true'
+        name: Open or update deduplicated change-notification issue
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/notify-source-change.mjs "$RUNNER_TEMP/ro-source-check.json"

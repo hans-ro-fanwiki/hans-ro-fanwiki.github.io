@@ -6,6 +6,9 @@ const crypto = require('node:crypto');
 const {enrichCatalog} = require('./catalog-enrichment.cjs');
 const root = process.argv[2];
 if (!root) throw Error('Provide local research snapshot directory');
+// This is an archival v1 catalog builder, not the reviewed 2026-11-18 ingestion path.
+// Prevent accidentally overwriting official current names, sources and source-version checks.
+if(process.env.ALLOW_LEGACY_CATALOG_REBUILD!=='1')throw Error('Legacy candidate builder is disabled; use scripts/reconcile-official.cjs for the current reviewed catalog');
 const load=(name)=>JSON.parse(fs.readFileSync(path.join(root,name+'.js'),'utf8').split('RSW.'+name+' = ')[1].trim().replace(/;$/,''));
 const [items,cards,monsters,stages]=['items','cards','monsters','stages'].map(load);
 const manifest=JSON.parse(fs.readFileSync(path.join(root,'current-official-asset-manifest.json'),'utf8'));
