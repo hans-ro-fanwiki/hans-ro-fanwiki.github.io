@@ -9,4 +9,5 @@
 - Retained unknown-source filtering, card-source uncertainty, stage-based reverse lookup and HANS-only version checks.
 - Removed prior fan-thumbnail assets; public build explicitly blocks unreviewed image publication.
 - Rebuilt automated tests, public artifact safety check and change-detection origin.
-- Live website still on prior version pending explicit release approval.
+- Renamed brand to「RO 倖存者｜漢斯服維基」and prepared the new GitHub Pages path `/ro-survivors-hans-wiki/`.
+- Live website content still awaits explicit HANS release approval; renaming a repository alone does not publish the HANS branch.

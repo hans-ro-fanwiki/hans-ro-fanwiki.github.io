@@ -1,10 +1,12 @@
-# RO 倖存者 · HANS 漢斯服專屬維基
+# RO 倖存者｜漢斯服維基（HANS）
 
 本專案自 2026-11-19 起**僅支援 HANS 漢斯服**。舊咖啡版資料、照片、來源審核與匯入腳本已從目前的開發分支移除，不應再混入新資料。
 
 - HANS 遊戲入口：https://ro.hans-webgametw.com/
-- GitHub Repo：https://github.com/lockgipo/ro-survivors-wiki
-- 原正式網站：https://lockgipo.github.io/ro-survivors-wiki/ （**main 尚未切換，仍是舊版；本分支絕不可直接視為已正式發佈**）
+- GitHub Repo：https://github.com/lockgipo/ro-survivors-hans-wiki
+- HANS 專屬網站網址：https://lockgipo.github.io/ro-survivors-hans-wiki/ （需完成 HANS 正式版部署並核實 HTTP 200 才能宣稱上線）
+- 舊 Pages 網址：https://lockgipo.github.io/ro-survivors-wiki/ （GitHub 不保證專案網站改名後自動轉址）
+- **開發分支不直接部署**：網站主分支尚未切到 HANS 時，不得稱新網址已完成改版。
 - 開發分支：`dev/hans-only-wiki-20261119`
 
 ## HANS 專屬資料（來源快照 2026-11-19）

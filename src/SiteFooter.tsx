@@ -1,7 +1,7 @@
 import {ChevronDown,ExternalLink} from 'lucide-react';
 import './site-footer.css';
 
-const REPORT_URL='https://github.com/lockgipo/ro-survivors-wiki/issues/new?template=content-removal.yml';
+const REPORT_URL='https://github.com/lockgipo/ro-survivors-hans-wiki/issues/new?template=content-removal.yml';
 const HANS_URL='https://ro.hans-webgametw.com/';
 
 export function SiteFooter({publicMode}:{publicMode:boolean}){
@@ -20,7 +20,7 @@ export function SiteFooter({publicMode}:{publicMode:boolean}){
    <nav className="site-footer-links" aria-label="相關資訊">
     <a href={HANS_URL} target="_blank" rel="noopener noreferrer">HANS 漢斯服 <ExternalLink size={13} aria-hidden="true"/></a>
     <a href={REPORT_URL} target="_blank" rel="noopener noreferrer">內容疑慮／下架聯絡 <ExternalLink size={13} aria-hidden="true"/></a>
-    <a href="https://github.com/lockgipo/ro-survivors-wiki" target="_blank" rel="noopener noreferrer">資料站原始碼 <ExternalLink size={13} aria-hidden="true"/></a>
+    <a href="https://github.com/lockgipo/ro-survivors-hans-wiki" target="_blank" rel="noopener noreferrer">資料站原始碼 <ExternalLink size={13} aria-hidden="true"/></a>
    </nav>
    {publicMode&&<p className="site-footer-note">公開版本目前不附帶未經獨立審核的 HANS 原始遊戲圖像；私人開發預覽顯示的遊戲來源圖片不包含在公開發佈物中。</p>}
   </div>

@@ -2,6 +2,8 @@
 
 Date: 2026-11-19. Owner requests **full removal of Coffee game content** and a single HANS-only wiki, retaining fast mobile lookup.
 
+New identity: **RO 倖存者｜漢斯服維基**; repository `lockgipo/ro-survivors-hans-wiki`; expected Pages URL `https://lockgipo.github.io/ro-survivors-hans-wiki/`. GitHub Pages old project path is not automatically redirected. Do not claim new URL live before the HANS main deployment succeeds.
+
 ## Completed in Dev
 
 - New audited HANS source snapshot and fail-closed static AST importer

@@ -1,8 +1,9 @@
-# HANS 漢斯服專用維基：專案狀態（2026-11-19）
+# RO 倖存者｜漢斯服維基（HANS）：專案狀態（2026-11-19）
 
 ## 實際來源與分支
-- Repository: `lockgipo/ro-survivors-wiki`。
-- 工作分支：`dev/hans-only-wiki-20261119`，從 `main` commit `20585eb` 切出；`main` 與正式 Pages 目前仍是舊版，未合併／未部署。
+- Repository: `lockgipo/ro-survivors-hans-wiki`（由舊 `ro-survivors-wiki` 更名；維持歷史提交與分支）。
+- HANS 專屬網站預定網址：https://lockgipo.github.io/ro-survivors-hans-wiki/。GitHub Pages 專案站改名後舊網址**不保證轉址**，新網址需經 main 正式部署並驗證才能宣告上線。
+- 工作分支：`dev/hans-only-wiki-20261119`，從 `main` commit `20585eb` 切出；`main` 仍為舊版，HANS 內容未合併／未部署。此次更改網址與 Repo 名稱，不代表 HANS 頁面已正式發布。
 - 開發主機根目錄：`C:\AI-Workspace\ro-survivors-wiki`。
 - HANS 唯一上游遊戲網址：https://ro.hans-webgametw.com/。
 - 所有新版靜態資料以 `docs/HANS_SOURCE_AUDIT.json` 記錄的 2026-11-19 HANS bundle SHA-256／manifest 為準；不混用咖啡版 `ro-survivors.com` 的數據、素材或 twRO 數值。

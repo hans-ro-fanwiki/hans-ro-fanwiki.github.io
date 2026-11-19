@@ -7,9 +7,17 @@ const base=audit.hans.baseUrl.replace(/\/$/,'')+'/';
 const reportFile=process.argv.indexOf('--report-file')>=0?process.argv[process.argv.indexOf('--report-file')+1]:null;
 const digest=body=>createHash('sha256').update(body).digest('hex');
 async function get(url){
- const response=await fetch(url,{signal:AbortSignal.timeout(20000),headers:{'User-Agent':'HANS-Wiki-Update-Checker/1.0'}});
- if(!response.ok)throw Error('HANS HTTP '+response.status+': '+url);
- return Buffer.from(await response.arrayBuffer());
+ let lastError;
+ for(let attempt=0;attempt<3;attempt++){
+  try {
+   const response=await fetch(url,{signal:AbortSignal.timeout(20000),headers:{'User-Agent':'HANS-Wiki-Update-Checker/1.0'}});
+   if(response.ok)return Buffer.from(await response.arrayBuffer());
+   if(![429,500,502,503,504].includes(response.status))throw Error('HANS HTTP '+response.status+': '+url);
+   lastError=Error('HANS transient HTTP '+response.status+': '+url);
+  }catch(error){lastError=error;}
+  if(attempt<2)await new Promise(resolve=>setTimeout(resolve,(attempt+1)*900));
+ }
+ throw lastError;
 }
 try{
  const html=(await get(base)).toString('utf8');

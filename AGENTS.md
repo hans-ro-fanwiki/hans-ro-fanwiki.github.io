@@ -1,6 +1,6 @@
-# HANS 漢斯服非官方玩家維基 — Agents 工作規則
+# RO 倖存者｜漢斯服維基（HANS） — Agents 工作規則
 
-- 專案是 HANS-only，`dev/hans-only-wiki-20261119`；未經明確同意不可合併或部署 `main`。GitHub Pages 尚為先前版本，切勿混用主站與 Dev 的最新狀態。
+- 專案是 HANS-only，GitHub repo `lockgipo/ro-survivors-hans-wiki`，Pages 路徑 `https://lockgipo.github.io/ro-survivors-hans-wiki/`，分支 `dev/hans-only-wiki-20261119`。未經明確同意不可合併或部署 `main`；改 Repo 名稱不代表 Pages 已切到 HANS，正式站實際上線時間必須查證。舊 Pages 網址改名後不保證自動轉址。
 - Source of truth：`README.md`、`PROJECT_CONTEXT.md`、`docs/HANS_SOURCE_AUDIT.json`、實際 repo branch 和 `public/data/catalog.json` 的 `server:'hans'`。唯一遊戲原站 https://ro.hans-webgametw.com/。
 - 禁止用咖啡版／twRO 的卡片、屬性、裝備、地圖或素材補洞；HANS 來源不明的資料保持 candidate/unknown。
 - 僅使用本機 Gitignored、雜湊驗證的 HANS JS/manifest 進行 AST 靜態分析；不在公開 repo 包含原始遊戲 bundle、未授權圖片、完整角色圖集、秘密或帳號資料。
