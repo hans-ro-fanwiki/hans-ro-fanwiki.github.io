@@ -1,5 +1,14 @@
 # P1 私人 Dev／Preview 版驗證（2026-11-17）
 
+## 2026-11-19 官方卡片取得來源與裝備全數再次核對（核准正式發布）
+
+- 官方最新來源三筆 SHA 已重新比對：`main-DYrSsWlK.js` `b45a01de3f32ef843318c82b6745e1c26e1890d5920d04ed57cb2730b06e79c7`、`soul_linker-DK2o6MJV.js` `78a81fe70c14f74d2756ddc7f102010a70b4df37c76579f128962622ae783493`，資源 manifest 維持前版 SHA。 `npm run check:source` PASS。
+- `npm run typecheck` PASS；`npm test` **35/35 PASS**，新增 98 張卡片 ID／怪物／鑲嵌部位、77 張一般卡片關卡、11 張扭蛋對照（節慶 9、白素貞 1、蛇王 1）、10 張候選、失事輪普通／劇情獨立、墨蛇君稀有 Boss、287 裝備部位、171 件基礎數值核實。
+- `VITE_PUBLIC_MODE=1 npm run build` PASS；`node scripts/verify-public-dist.mjs` PASS：只有已審核小圖 789 張，沒有原始遊戲 PNG、完整 JS 與私人資源。
+- `node scripts/dark-ui-smoke.mjs` PASS：390px 卡片詳情（樹精、墨蛇君、白素貞、節慶、失事輪、獸人戰士）及 320／375／390／430px 關卡與裝備流程；0 橫向溢出、0 JavaScript 例外。
+- GitHub Actions Linux main 分支 CI／Pages 與正式站驗收，於遠端跑完後另補上連結。真實 iPhone Safari 仍由使用者自行觀察回報。
+- 已核實**取得來源**不表示所有技能效果／傷害數字或實際抽卡機率均經獨立驗證；無證據的資料仍維持候選狀態。
+
 ## 2026-11-18 Dev：官方來源核對與深色操作版
 
 - 本機獨立分支 `dev/source-integrity-dark-ui-20261118`，**未合併正式**。已核實新版官方 `main-CsViiXMb.js`／`soul_linker-DH9JY1wS.js`／資源 manifest 的 SHA-256，`npm run check:source` 3/3 unchanged。

@@ -1,8 +1,17 @@
 # RO Survivors｜掉落反查指南（非官方玩家維基）
 
-## 2026-11-18 Dev 新版：官方資料核實、深色介面及來源更新提醒
+## 2026-11-19 正式版：卡片取得來源全面核對與最新版資料
 
-**此變更目前只在 Dev 分支 `dev/source-integrity-dark-ui-20261118`，未經再次批准不合併 `main` 或部署 GitHub Pages。**
+- **公開網站：** https://lockgipo.github.io/ro-survivors-wiki/ 。2026-11-19 使用者明確授權完成新一輪校對後直接發布。
+- 最新已核對官方主程式 `main-DYrSsWlK.js`、資料模組 `soul_linker-DK2o6MJV.js`，連同同版 manifest 均有 SHA-256 保存在 `docs/SOURCE_AUDIT.json`。原始作者 JS 只保留 gitignored 本地證據，不上傳 GitHub。
+- **98 張卡片重新核對**：77 張已確認於正常關卡怪物掉落、9 張來自節慶扭蛋、白素貞扭蛋 1 張（ID 4372）、蛇王扭蛋 1 張（ID 4330）。另 10 張暫無可核實正常關卡（包含僅劇情場景、未開放關卡或根本尚未列入已開放怪物池），不虛構來源。
+- 注意「失事輪」一般刷圖與 `sunken_story` 獨立劇情版不同；`prt_castle` 是劇情限定，不可宣稱掉落一般怪物卡片；燈籠節本身的直接怪物卡片掉落關閉，改用節慶扭蛋。墨蛇君是活動稀有 Boss，但**卡片來源為蛇王扭蛋**，不是打到 Boss 就直接掉卡。
+- **287 件裝備**物品 ID 與裝備欄位全部核對；171 件數字基礎 ATK/MATK/DEF 有直接官方定義核對；50 件節慶裝備、9 件起始裝備及原有 155 筆怪物裝備掉落保持正確。其他 108 件未核實來源裝備仍預設隱藏、可切換查看。
+- 卡片星級效果／數字說明及部分裝備效果、職業限制**尚未逐條完全驗證**，仍保留原有候選資料，不宣稱全資料零誤差。新官方客戶端可能再次更新；使用同一套人工審核 + 每日差異通知，不自動部署未核實內容。
+
+## 2026-11-18（歷史）官方資料核實、深色介面及來源更新提醒
+
+**歷史記錄：本節於 2026-11-19 經 PR #6 合併並正式發布，不再是待發布 Dev 版本。**
 
 - 已依 2026-11-18 作者現行公開遊戲程式與物品資源清單逐一核對 287 裝備／98 卡片的原文 ID 與繁體名稱，修正 6 個名稱差異，保留不衝突的舊譯及英文搜尋別名。遊戲作者自身繁體翻譯優先，twRO 表只做舊版備援；遊戲屬性與卡片效果不能套用原版 RO 數值。
 - 已核實 50 件燈籠節限定扭蛋裝備，來源顯示「燈籠節限定扭蛋」，全部標示已核實的 Tier 2；同名一般／活動變種仍按各自 item ID、星級屬性區分。還有 9 件角色初始裝備有官方取得來源，但不憑空指定 Tier。
@@ -19,7 +28,7 @@
 
 - `npm ci && npm run build && npm test`：Linux / Windows 可執行的靜態檢查。
 - `npm run dev`：本機測試。
-- `node scripts/build-catalog.cjs <local-gitignored-research-dir>`：在本機以只讀研究資料重建**目前全部候選裝備／卡片／怪物 ID 的精簡檢索索引**（287／98／109），不代表官方完整資料庫；接著執行 `node scripts/sprite-metadata.mjs` 只補入怪物圖片的首幀裁切座標，仍不散布原站 JS、百科整站或遊戲圖片。
+- **官方資料更新：**先取得並人工檢查原站快照至 gitignored 研究資料夾，使用 `node scripts/reconcile-official.cjs evidence/current-source-20261119` 核對固定 ID、譯名、裝備／卡片／扭蛋／關卡關係。舊 `build-catalog.cjs` 為封存候選重建器，預設停用，不能用於覆蓋目前已核實的正式資料。
 - `npm run check:source`：核對公開原站首頁 bundle 及 manifest 哈希；只報告差異，絕不自動發布變更。
 
 資料版本與核對報告：`docs/SOURCE_AUDIT.json`、`docs/SOURCE_REPORT.md`；台版 RO 物品 ID 中文對照、Tier 來源與例外：`docs/TWRO_LOCALIZATION.md`、`docs/TWRO_NAMES.json`；手機模擬測試：`docs/TEST_REPORT.md`。

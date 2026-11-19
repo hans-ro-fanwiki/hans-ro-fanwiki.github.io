@@ -90,7 +90,7 @@ function sourceMonsterName(src:Source,monsterMap:Map<string,Monster>){
 function stageRows(data:Catalog,stageId:string){
  const result:{item:GameEntry;kind:'item'|'card';source:Source;boss:boolean}[]=[];
  for(const [kind,list] of [['item',data.items],['card',data.cards]] as const)for(const item of list)for(const source of item.sources){
-  const ref=source.stageRefs.find(r=>r.stageId===stageId);
+  const ref=source.stageRefs.find(r=>r.stageId===stageId&&r.verified&&r.verificationState==='official');
   if(source.sourceType==='monsterDrop'&&ref)result.push({item,kind,source,boss:ref.boss});
  }
  return result.sort((a,b)=>Number(b.source.verificationState==='official')-Number(a.source.verificationState==='official')||a.item.name.localeCompare(b.item.name,'zh'));
@@ -302,7 +302,7 @@ function DropRoutes({sources,stages,monsters,openDetail}:{sources:Source[];stage
   <div className="route-top"><strong>{s.sourceType==='monsterDrop'&&s.verificationState!=='official'?'可能掉落':SOURCES[s.sourceType]||s.sourceType}{s.stageRefs.some(r=>r.boss)?' · Boss':''}</strong></div>
   {s.detail&&<p className="source-detail">{s.detail}{Number.isInteger(s.sourceTier)?' · Tier '+s.sourceTier:''}</p>}
   {s.monsterId&&<button onClick={()=>openDetail('monster',s.monsterId!)}><Target size={16}/><span>{sourceMonsterName(s,monsters)}</span><ChevronRight size={16}/></button>}
-  {s.stageRefs.map(r=><button key={r.stageId} onClick={()=>openDetail('stage',r.stageId)}><MapIcon size={16}/><span>{stages.get(r.stageId)?.name||r.stageId}{r.boss?'（Boss）':''}</span><ChevronRight size={16}/></button>)}
+  {s.stageRefs.map(r=><button key={r.stageId} onClick={()=>openDetail('stage',r.stageId)}><MapIcon size={16}/><span>{stages.get(r.stageId)?.name||r.stageId}{r.boss?'（Boss）':''}{r.verified?'':'（未核實）'}</span><ChevronRight size={16}/></button>)}
   {s.sourceType==='monsterDrop'&&!s.stageRefs.length&&<small>出現關卡尚未確認</small>}
  </div>)}</div>;
 }
@@ -340,7 +340,7 @@ function MonsterDetail({monster,data,stages,openDetail}:{monster:Monster;data:Ca
  });
  return <><DetailHero kind="monster" entry={monster} title={monster.name} sub={monster.boss?'Boss':'怪物'}/>
   <h3 className="sheet-section">出現關卡</h3><div className="sub-list">{monster.stages.map(s=><button key={s.id} onClick={()=>openDetail('stage',s.id)}><MapIcon size={18}/><span>{stages.get(s.id)?.name||s.id}{s.boss?' · Boss':''}</span><ChevronRight size={16}/></button>)}</div>
-  <h3 className="sheet-section">掉落物品</h3><div className="stage-loot-list">{results.map((r,i)=><button key={r.entry.id+'-'+i} className="loot-row" onClick={()=>openDetail(r.kind,r.entry.id)}><Artwork kind={r.kind} entity={r.entry}/><span className="loot-copy"><b>{r.entry.name}</b><small>{r.kind==='item'?equipmentTier(r.entry as Equipment,stages).text+' · ':''}{shortStats(r.entry,3)}</small></span><ChevronRight size={16}/></button>)}</div>
+  <h3 className="sheet-section">掉落物品</h3><div className="stage-loot-list">{results.map((r,i)=><button key={r.entry.id+'-'+i} className="loot-row" onClick={()=>openDetail(r.kind,r.entry.id)}><Artwork kind={r.kind} entity={r.entry}/><span className="loot-copy"><b>{r.entry.name}</b><small>{r.source.verificationState==='official'?'':'取得待確認 · '}{r.kind==='item'?equipmentTier(r.entry as Equipment,stages).text+' · ':''}{shortStats(r.entry,3)}</small></span><ChevronRight size={16}/></button>)}</div>
   {!results.length&&<EmptyState>目前沒有已收錄掉落物品</EmptyState>}
  </>;
 }
