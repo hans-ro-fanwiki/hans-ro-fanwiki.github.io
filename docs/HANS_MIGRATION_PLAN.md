@@ -2,9 +2,9 @@
 
 Date: 2026-11-19. Owner requests **full removal of Coffee game content** and a single HANS-only wiki, retaining fast mobile lookup.
 
-New identity: **RO 倖存者｜漢斯服維基**; repository `lockgipo/ro-survivors-hans-wiki`; expected Pages URL `https://lockgipo.github.io/ro-survivors-hans-wiki/`. GitHub Pages old project path is not automatically redirected. Do not claim new URL live before the HANS main deployment succeeds.
+New identity: **RO 倖存者｜漢斯服維基**; repository `lockgipo/ro-survivors-hans-wiki`; production Pages URL `https://lockgipo.github.io/ro-survivors-hans-wiki/`. The old project path is not guaranteed to redirect.
 
-## Completed in Dev
+## HANS release scope (2026-11-19)
 
 - New audited HANS source snapshot and fail-closed static AST importer
 - 523 equipment, 188 cards, 195 monsters, 17 normal selection stages, including 5 Chapter 2
@@ -22,7 +22,7 @@ New identity: **RO 倖存者｜漢斯服維基**; repository `lockgipo/ro-surviv
 3. Rare equipment and sources beyond `UA`: item registration does not imply obtainable. Hidden by default; do not invent source or item-specific Tier.
 4. HANS artwork: private preview uses HANS-hosted item/card images. Separate rights review before any public fan thumbnails; no old Coffee images. Monster sprite atlas extraction for private preview is incomplete.
 5. Verify HANS unusual stat formulas, alternative class/job restrictions, and source names against user running client; test iPhone Safari search, list, stage accordion, drawer and detail links.
-6. Explicit owner approval before merging branch to `main` and replacing current GitHub Pages.
+6. Owner explicitly approved the 2026-11-19 HANS release and asked to deploy future verified wiki changes directly to production.
 
 ## Verify
 
