@@ -58,5 +58,5 @@ test('all reviewed catalog names belong to the audited current official source',
  assert.equal(audit.officialBundles.soul.sha256,catalog.official.soul.sha256);
  assert.equal(audit.officialNameMatches.items,catalog.items.length);
  assert.equal(audit.officialNameMatches.cards,catalog.cards.length);
- assert.equal(audit.officialNameMatches.changed,6);
+ assert.equal(audit.officialNameMatches.changed,0,'Official names are stable in the rechecked build');
 });

@@ -1,14 +1,14 @@
 {
-  "generatedAt": "2026-11-18",
+  "generatedAt": "2026-11-19",
   "thumbnailSourceManifestSha256": "bdbde78da2fd3d8c9084291935a279f2af53f4b456f1141aba6b1fce2db6f526",
   "officialBundles": {
     "main": {
-      "file": "main-CsViiXMb.js",
-      "sha256": "1182a9e35bbb81a40cec9d83ab768f620f5c792f6d93b7e5ac1b81d4416d9bdd"
+      "file": "main-DYrSsWlK.js",
+      "sha256": "b45a01de3f32ef843318c82b6745e1c26e1890d5920d04ed57cb2730b06e79c7"
     },
     "soul": {
-      "file": "soul_linker-DH9JY1wS.js",
-      "sha256": "eb2625bb2b88d9e08441a3acbffe4a8f3789fec621f3dfe60516b0af9232ba82"
+      "file": "soul_linker-DK2o6MJV.js",
+      "sha256": "78a81fe70c14f74d2756ddc7f102010a70b4df37c76579f128962622ae783493"
     },
     "manifest": {
       "file": "assets/manifest.json",
@@ -56,8 +56,8 @@
           "rawRate": 100,
           "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DH9JY1wS.js",
-            "hash": "eb2625bb2b88d9e08441a3acbffe4a8f3789fec621f3dfe60516b0af9232ba82",
+            "file": "soul_linker-DK2o6MJV.js",
+            "hash": "78a81fe70c14f74d2756ddc7f102010a70b4df37c76579f128962622ae783493",
             "kind": "drop-table",
             "key": "strouf:2603"
           }
@@ -76,8 +76,8 @@
           "rawRate": 100,
           "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DH9JY1wS.js",
-            "hash": "eb2625bb2b88d9e08441a3acbffe4a8f3789fec621f3dfe60516b0af9232ba82",
+            "file": "soul_linker-DK2o6MJV.js",
+            "hash": "78a81fe70c14f74d2756ddc7f102010a70b4df37c76579f128962622ae783493",
             "kind": "drop-table",
             "key": "king_dramoh:2603"
           }
@@ -96,8 +96,8 @@
           "rawRate": 100,
           "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DH9JY1wS.js",
-            "hash": "eb2625bb2b88d9e08441a3acbffe4a8f3789fec621f3dfe60516b0af9232ba82",
+            "file": "soul_linker-DK2o6MJV.js",
+            "hash": "78a81fe70c14f74d2756ddc7f102010a70b4df37c76579f128962622ae783493",
             "kind": "drop-table",
             "key": "cat_o_nine_tail:2603"
           }
@@ -107,8 +107,8 @@
   ],
   "unresolved": [
     "Unverified story/reward items and 96 source-less items remain hidden by default",
-    "Card effect/monster drops still require field-by-field official checks",
-    "Festival ball distribution by rarity is not separately verified",
+    "Card monster IDs, compound slots, normal-stage joins and festival ball pools checked; localized card effect numbers remain candidate until separately reconciled",
+    "Festival equipment ball distribution by rarity is not separately verified; card balls are verified",
     "Noncommercial third-party image permissions have not been established"
   ],
   "verifiedFestivalItems": 50,
@@ -116,6 +116,104 @@
   "officialNameMatches": {
     "items": 287,
     "cards": 98,
-    "changed": 6
+    "changed": 0
+  },
+  "officialCards": {
+    "registered": 98,
+    "confirmedNormal": 77,
+    "eventByBall": {
+      "節慶扭蛋": 9,
+      "白素貞扭蛋": 1,
+      "蛇王扭蛋": 1
+    },
+    "unresolved": [
+      {
+        "id": 4003,
+        "name": "蟲蛹卡片",
+        "monster": "pupa",
+        "candidateStageRefs": []
+      },
+      {
+        "id": 4007,
+        "name": "大嘴鳥蛋卡片",
+        "monster": "peco_egg",
+        "candidateStageRefs": []
+      },
+      {
+        "id": 4009,
+        "name": "蒼蠅卡片",
+        "monster": "chonchon",
+        "candidateStageRefs": []
+      },
+      {
+        "id": 4060,
+        "name": "哥布靈卡片",
+        "monster": "goblin",
+        "candidateStageRefs": [
+          "orcs"
+        ]
+      },
+      {
+        "id": 4066,
+        "name": "獸人戰士卡片",
+        "monster": "orc_warrior",
+        "candidateStageRefs": [
+          "prt_castle",
+          "orcs"
+        ]
+      },
+      {
+        "id": 4085,
+        "name": "邪骸獸人卡片",
+        "monster": "orc_skeleton",
+        "candidateStageRefs": [
+          "pyramid"
+        ]
+      },
+      {
+        "id": 4091,
+        "name": "犬妖卡片",
+        "monster": "kobold",
+        "candidateStageRefs": [
+          "orcs"
+        ]
+      },
+      {
+        "id": 4143,
+        "name": "獸人英雄卡片",
+        "monster": "orc_hero",
+        "candidateStageRefs": [
+          "orcs"
+        ]
+      },
+      {
+        "id": 4144,
+        "name": "俄塞里斯卡片",
+        "monster": "osiris",
+        "candidateStageRefs": [
+          "pyramid"
+        ]
+      },
+      {
+        "id": 4147,
+        "name": "巴風特卡片",
+        "monster": "baphomet",
+        "candidateStageRefs": []
+      }
+    ],
+    "unresolvedCount": 10
+  },
+  "officialEquipmentDefinitions": {
+    "registered": 287,
+    "verifiedBaseStats": 171,
+    "constructors": {
+      "Z": 135,
+      "Pr": 9,
+      "re": 117,
+      "zo": 19,
+      "Kd": 6
+    },
+    "festivalClones": 31,
+    "remainingEffectRules": "candidate; bonus function semantics and class equipment restrictions not yet fully decoded"
   }
 }

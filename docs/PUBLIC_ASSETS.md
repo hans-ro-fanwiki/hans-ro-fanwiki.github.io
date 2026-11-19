@@ -1,6 +1,6 @@
 # Public artwork policy — RO Survivors fan test wiki (2026-11-17)
 
-## 2026-11-18 Dev：最新版遊戲資料不會解鎖新圖片
+## 2026-11-18／19 官方資料更新不會解鎖新圖片
 
 新遊戲資料包、manifest SHA 已更新至 `c3ef55cba6cc6d440e8a35f6c9e72d0727a340c3e8fe5eae205452d7749f49a5`，**不代表**目前公開的 WebP 是基於新版生成，也不意味授權範圍擴大。
 

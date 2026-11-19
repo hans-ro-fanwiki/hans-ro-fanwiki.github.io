@@ -58,6 +58,22 @@ try{
  await page.locator('.stage-heading').first().click();
  await page.locator('.stage-heading').nth(1).click();
  assert.equal(await page.locator('.stage-body').count(),2,'Independent panels remain expanded');
+ // Card acquisition UI regression checks after the official game-data audit.
+ await page.goto(base+'?page=cards&q=樹精',{waitUntil:'networkidle'});
+ await page.getByRole('heading',{name:'卡片',exact:true}).waitFor();
+ assert.ok((await page.locator('.result-card').first().innerText()).includes('斐揚森林'),'Normal monster card links to its stage');
+ await page.goto(base+'?detail=card:4330',{waitUntil:'networkidle'});
+ assert.ok((await page.getByRole('dialog').innerText()).includes('蛇王扭蛋'),'Dark Snake Lord card must be in Evil Snake Lord Ball');
+ assert.ok(!(await page.getByRole('dialog').innerText()).includes('怪物掉落'),'Festival card must not claim a direct monster drop');
+ await page.goto(base+'?detail=card:4372',{waitUntil:'networkidle'});
+ assert.ok((await page.getByRole('dialog').innerText()).includes('白素貞扭蛋'));
+ await page.goto(base+'?detail=card:4195',{waitUntil:'networkidle'});
+ assert.ok((await page.getByRole('dialog').innerText()).includes('節慶扭蛋'));
+ await page.goto(base+'?detail=card:4102',{waitUntil:'networkidle'});
+ assert.ok((await page.getByRole('dialog').innerText()).includes('失事輪'),'Normal sunken ship card must not be mistaken for the story-only version');
+ await page.goto(base+'?detail=card:4066',{waitUntil:'networkidle'});
+ assert.ok((await page.getByRole('dialog').innerText()).includes('未核實'),'Story-only card route must remain unverified');
+ await inspect(page,'card-source-details-390px');
  assert.deepEqual(errors,[],'No uncaught browser errors');
  checks.push({label:'final',status:'PASS',errors:errors.length});
  writeFileSync(path.join(output,'dev-dark-smoke.json'),JSON.stringify(checks,null,2)+'\n');

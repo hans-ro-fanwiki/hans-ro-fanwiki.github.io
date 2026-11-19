@@ -1,6 +1,14 @@
 # RO Survivors Drop Wiki Project Context
 
-## 2026-11-18 Dev 來源與介面改版（尚未核准正式）
+## 2026-11-19 正式資料校正（最新狀態）
+
+- 使用者明確要求「全部再次檢查一輪，修改後直接上正式」；從 `origin/main` 之 PR #6 合併提交 `cb98cdb` 建立 `dev/full-source-card-audit-20261119`，此版本完成 Dev 驗證後由現有 main Linux CI/Pages 發布。正式網站： https://lockgipo.github.io/ro-survivors-wiki/ 。
+- 最新官方 2026-11-19 bundle：`main-DYrSsWlK.js` SHA `b45a01de3f32ef843318c82b6745e1c26e1890d5920d04ed57cb2730b06e79c7`、`soul_linker-DK2o6MJV.js` SHA `78a81fe70c14f74d2756ddc7f102010a70b4df37c76579f128962622ae783493`、原 manifest SHA `c3ef55cba6cc6d440e8a35f6c9e72d0727a340c3e8fe5eae205452d7749f49a5`。原始程式碼與素材僅在 gitignored `evidence/current-source-20261119/`。
+- 287 裝備／98 卡片皆核對官方 ID 與繁中名稱；裝備 287 部位、171 件數值型基本屬性、50 節慶裝備 Tier 2、9 初始裝備、155 怪物裝備掉落核實；另 108 件裝備來源仍為未核實、預設不顯示（可手動開啟）。
+- 卡片 77 張正常刷圖怪物掉落已核實來源、11 張活動卡片精確分配節慶扭蛋 9、白素貞 1、蛇王 1；10 張取得方式待核。不把 `sunken_story`、`prt_castle`（storyOnly）或 `louyang`（season）當作一般怪物掉卡；燈籠節的墨蛇君是稀有 Boss，但 4330 卡片由蛇王扭蛋取得。部份卡片效果、裝備效果、限制仍待更深官方機制驗證。
+- 維基資料核對以 `scripts/reconcile-official.cjs` + `scripts/official-card-audit.cjs` + `scripts/official-equipment-audit.cjs` 為入口；拒絕不符預期的版本結構。GitHub Actions 的每日來源 SHA 更新提醒仍是手動審核再部署，不能自動拷貝原始遊戲程式或圖片。
+
+## 2026-11-18 暗色版（歷史：已於 PR #6 發布）
 
 - 工作分支 `dev/source-integrity-dark-ui-20261118`；正式 `main` 不變。2026-11-18 現行官方來源 `main-CsViiXMb.js` SHA `1182a9e35bbb81a40cec9d83ab768f620f5c792f6d93b7e5ac1b81d4416d9bdd`、`soul_linker-DH9JY1wS.js` SHA `eb2625bb2b88d9e08441a3acbffe4a8f3789fec621f3dfe60516b0af9232ba82`、素材 manifest SHA `c3ef55cba6cc6d440e8a35f6c9e72d0727a340c3e8fe5eae205452d7749f49a5`。原始二進位／JS 僅存 gitignored `evidence/current-source-20261118/`，**不可發佈**。
 - 287 裝備與 98 卡片以原站 manifest 的數字 ID + 原文對位檢查遊戲官方繁體中文譯名；6 件裝備改名。舊 twRO 名表保留參考，但不再覆蓋現行遊戲內官方譯名。怪物 98 筆對應卡片名稱更新，其餘特殊怪物仍有待核項目。

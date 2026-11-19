@@ -45,7 +45,7 @@ test('cooldown cards are discoverable without a text search, but not falsely end
  const cooldown=data.cards.filter(c=>c.tags.includes('cooldown'));
  assert.equal(cooldown.length,5);
  assert.ok(cooldown.every(c=>c.bonuses.some(b=>b.includes('冷卻'))));
- assert.ok(cooldown.every(c=>c.sources.every(s=>s.verificationState!=='official')));
+ assert.ok(cooldown.every(c=>c.fieldProvenance.bonuses!=='official'),'Source verification must not automatically endorse effect descriptions');
 });
 test('official accessory example has a verified drop and stage join',()=>{
  const necklace=data.items.find(i=>i.id===2603);

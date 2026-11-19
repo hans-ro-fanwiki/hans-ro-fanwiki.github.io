@@ -6,6 +6,8 @@ const path = require('node:path');
 const crypto = require('node:crypto');
 const assert = require('node:assert/strict');
 const {sourceStageTiers} = require('./catalog-enrichment.cjs');
+const {reviewCardSources} = require('./official-card-audit.cjs');
+const {reviewEquipmentDefinitions} = require('./official-equipment-audit.cjs');
 
 function sha(buffer) { return crypto.createHash('sha256').update(buffer).digest('hex'); }
 function balanced(src, start, open='{', close='}') {
@@ -39,7 +41,10 @@ function parseStages(src,stages) {
     const mini=[...new Set([...bossText.matchAll(/\{t:\d+,id:"([^"]+)"\}/g)].map(m=>m[1]))];
     assert.ok(waveText&&normal.length,'Official stage waves changed: '+stage.id);
     assert.ok(mini.length,'Official stage bosses changed: '+stage.id);
-    parsed.set(stage.id,{normal,mini});
+    const rare=literal.match(/rare:\{id:"([a-z0-9_]+)"/)?.[1]||null;
+    const storyOnly=/storyOnly:!0/.test(literal);
+    const season=/season:!0/.test(literal);
+    parsed.set(stage.id,{normal,mini,rare,storyOnly,season});
   }
   return parsed;
 }
@@ -74,7 +79,7 @@ function removeShadowAliases(entries) {
   }
 }
 function extractFestival(soul) {
-  const start=soul.indexOf('const hb="faroles"');
+  const start=soul.search(/const [A-Za-z_$][\w$]*="faroles"/);
   const end=soul.indexOf('const ZN=',start);
   assert.ok(start>0&&end>start,'Festival item registry missing');
   const segment=soul.slice(start,end);
@@ -108,7 +113,10 @@ function main() {
   const [main,soul]=buffers.map(b=>b.toString('utf8'));
   const manifest=JSON.parse(buffers[2].toString('utf8'));
   const hashes=buffers.map(sha);
-  const fileNames=['main-CsViiXMb.js','soul_linker-DH9JY1wS.js','assets/manifest.json'];
+  const sourceFiles=JSON.parse(fs.readFileSync(path.join(evidence,'source-names.json'),'utf8'));
+  assert.match(sourceFiles.main,/^main-[A-Za-z0-9_-]+\.js$/);
+  assert.match(sourceFiles.soul,/^soul_linker-[A-Za-z0-9_-]+\.js$/);
+  const fileNames=[sourceFiles.main,sourceFiles.soul,'assets/manifest.json'];
   const catalogPath='public/data/catalog.json', auditPath='docs/SOURCE_AUDIT.json';
   const catalog=JSON.parse(fs.readFileSync(catalogPath,'utf8'));
   const audit=JSON.parse(fs.readFileSync(auditPath,'utf8'));
@@ -122,9 +130,14 @@ function main() {
       if(stage.provenance.boss==='official')assert.deepEqual(actual.mini,stage.bossMonsterIds,'Boss list changed: '+stage.id);
       stage.normalMonsterIds=actual.normal;
       stage.bossMonsterIds=actual.mini;
+      stage.story=actual.storyOnly;
+      stage.season=actual.season;
+      stage.provenance.story='official';
+      stage.provenance.season='official';
     }
   }
   const festival=extractFestival(soul),starter=extractStarter(soul),drops=officialDrops(soul);
+  const equipmentAudit=reviewEquipmentDefinitions(catalog,soul);
   const itemIds=new Set(catalog.items.map(i=>i.id));
   assert.ok([...festival,...starter].every(id=>itemIds.has(id)),'Official equipment ID not indexed');
   const oldEvents=new Set(catalog.items.filter(i=>i.sources.some(s=>s.sourceType==='event')).map(i=>i.id));
@@ -149,6 +162,19 @@ function main() {
     if(monster&&card.name.endsWith('卡片'))setName(monster,card.name.slice(0,-2));
   }
   removeShadowAliases(catalog.monsters);
+  // Keep monster appearance links in sync with official wave, boss and rare-spawn tables.
+  for(const monster of catalog.monsters){
+    const confirmed=[...stageSources.entries()].flatMap(([id,stage])=>{
+      if(!stage)return [];
+      const boss=stage.mini.includes(monster.id)||stage.rare===monster.id;
+      if(!boss&&!stage.normal.includes(monster.id))return [];
+      return [{id,boss,verified:true}];
+    });
+    const candidates=monster.stages.filter(s=>!confirmed.some(r=>r.id===s.id)).map(s=>({...s,verified:false}));
+    monster.stages=[...confirmed,...candidates];
+    if(confirmed.length)monster.fieldProvenance.stages='official';
+  }
+  const cardAudit=reviewCardSources(catalog,main,soul,stageSources,fileNames,hashes);
   for(const item of catalog.items) {
     if(festival.has(item.id)) {
       verifiedFestival++;
@@ -187,33 +213,35 @@ function main() {
     }
     // Story/reward claims remain candidates until their award path is audited.
   }
-  catalog.generatedAt='2026-11-18';
-  catalog.sourceVersion='20261118-reviewed-local';
+  catalog.generatedAt='2026-11-19';
+  catalog.sourceVersion='20261119-reviewed-local';
   catalog.official={
     main:{file:fileNames[0],sha256:hashes[0]},
     soul:{file:fileNames[1],sha256:hashes[1]},
     manifest:{file:fileNames[2],sha256:hashes[2]},
     baseUrl:'https://ro-survivors.com'
   };
-  audit.generatedAt='2026-11-18';
+  audit.generatedAt='2026-11-19';
   audit.officialBundles=catalog.official;
   // Reviewed thumbnail derivatives remain pinned to their own original source manifest.
   audit.thumbnailSourceManifestSha256=JSON.parse(fs.readFileSync('public/fan-thumbs/manifest.json','utf8')).sourceManifestSha256;
   audit.officialItemMonsterDrops=verifiedDrops;
+  audit.officialCards=cardAudit;
+  audit.officialEquipmentDefinitions=equipmentAudit;
   audit.fullVerifiedStageDropEdges=catalog.items.flatMap(i=>i.sources).filter(s=>s.sourceType==='monsterDrop').flatMap(s=>s.stageRefs).filter(r=>r.verified).length;
   audit.verifiedFestivalItems=verifiedFestival;
   audit.verifiedStarterItems=verifiedStarter;
   audit.officialNameMatches={items:catalog.items.length,cards:catalog.cards.length,changed:changedNames};
   audit.unresolved=[
     'Unverified story/reward items and 96 source-less items remain hidden by default',
-    'Card effect/monster drops still require field-by-field official checks',
-    'Festival ball distribution by rarity is not separately verified',
+    'Card monster IDs, compound slots, normal-stage joins and festival ball pools checked; localized card effect numbers remain candidate until separately reconciled',
+    'Festival equipment ball distribution by rarity is not separately verified; card balls are verified',
     'Noncommercial third-party image permissions have not been established'
   ];
   audit.sample=catalog.items.filter(i=>i.id===2603).map(i=>({id:i.id,slot:i.slot,sources:i.sources}));
   const counts={
     reviewedNames:catalog.items.length+catalog.cards.length,changedNames,translations,
-    verifiedFestival,verifiedStarter,verifiedDrops,
+    verifiedFestival,verifiedStarter,verifiedDrops,cardAudit,equipmentAudit,
     noSources:catalog.items.filter(i=>!i.sources.length).length,
     remainingCandidate:catalog.items.filter(i=>i.sources.length>0&&!i.sources.some(s=>s.verificationState==='official')).length
   };
