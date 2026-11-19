@@ -8,7 +8,7 @@
 - 移轉前 Pages 網址：https://lockgipo.github.io/ro-survivors-hans-wiki/
 - 舊 Pages 網址：https://lockgipo.github.io/ro-survivors-wiki/ （GitHub 不保證專案網站改名後自動轉址）
 - **發布規則**：使用者已授權 HANS 正式版部署，日後維基修正經 Linux 驗證後預設直接更新 `main`，由 GitHub Actions 發布。
-- 組織移轉：`hans-ro-fanwiki`，Pages 首頁倉庫 `hans-ro-fanwiki.github.io`；此 `dev/**` 分支為搬遷準備，**組織建立及倉庫移轉完成前不可合併到 main**。詳見 `docs/ORG_FANWIKI_MOVE.md`。
+- 組織移轉：2026-11-19 從個人帳號完整移入 `hans-ro-fanwiki`，改名為 Pages 首頁倉庫 `hans-ro-fanwiki.github.io`，保留原 Repository ID、Issues、PR 與提交歷史。詳見 `docs/ORG_FANWIKI_MOVE.md`。
 - 歷史開發分支：`dev/hans-only-wiki-20261119`；正式版本以 `main` 為準。
 
 ## HANS 專屬資料（來源快照 2026-11-19）

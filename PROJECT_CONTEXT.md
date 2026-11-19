@@ -1,8 +1,8 @@
 # RO 倖存者｜HANS 粉絲維基（HANS）：專案狀態（2026-11-19）
 
 ## 實際來源與分支
-- **準備移轉**：目前 Repository 仍為 `lockgipo/ro-survivors-hans-wiki`；計畫轉入新組織 `hans-ro-fanwiki` 並改名 `hans-ro-fanwiki.github.io`，保留歷史提交與分支。尚未建立組織之前不得把候選網址當作已上線。
-- **目前正式網站**：https://lockgipo.github.io/ro-survivors-hans-wiki/；**目標新網站**：https://hans-ro-fanwiki.github.io/。GitHub Pages 移轉不自動轉址。此分支為部署前準備，不得在組織／Pages 準備前合併。詳見 `docs/ORG_FANWIKI_MOVE.md`。
+- **目前 Repository**：`hans-ro-fanwiki/hans-ro-fanwiki.github.io`（2026-11-19 從 `lockgipo/ro-survivors-hans-wiki` 原庫移轉並改名；原 Repository ID `1460983693`、Git 歷史、Issues 與 PR 保留）。
+- **組織 Pages 設定**：https://hans-ro-fanwiki.github.io/（workflow 建置；請以 GitHub Actions 部署及實際 HTTP 驗證為上線依據）。舊網址 https://lockgipo.github.io/ro-survivors-hans-wiki/ 不保證轉址；詳見 `docs/ORG_FANWIKI_MOVE.md`。
 - 正式分支：`main`，GitHub Actions 通過驗證後部署 Pages。HANS 原始改版分支 `dev/hans-only-wiki-20261119` 源自舊 `main` commit `20585eb`；上線後以 `main` 為準。
 - 開發主機根目錄：`C:\AI-Workspace\ro-survivors-wiki`。
 - HANS 唯一上游遊戲網址：https://ro.hans-webgametw.com/。
