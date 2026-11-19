@@ -1,36 +1,33 @@
-# RO Survivors Drop Wiki Project Context
+# RO 倖存者｜漢斯服維基（HANS）：專案狀態（2026-11-19）
 
-## 2026-11-19 正式資料校正（最新狀態）
+## 實際來源與分支
+- Repository: `lockgipo/ro-survivors-hans-wiki`（由舊 `ro-survivors-wiki` 更名；維持歷史提交與分支）。
+- HANS 正式網站：https://lockgipo.github.io/ro-survivors-hans-wiki/。GitHub Pages 專案站改名後舊網址**不保證轉址**。
+- 正式分支：`main`，GitHub Actions 通過驗證後部署 Pages。HANS 原始改版分支 `dev/hans-only-wiki-20261119` 源自舊 `main` commit `20585eb`；上線後以 `main` 為準。
+- 開發主機根目錄：`C:\AI-Workspace\ro-survivors-wiki`。
+- HANS 唯一上游遊戲網址：https://ro.hans-webgametw.com/。
+- 所有新版靜態資料以 `docs/HANS_SOURCE_AUDIT.json` 記錄的 2026-11-19 HANS bundle SHA-256／manifest 為準；不混用咖啡版 `ro-survivors.com` 的數據、素材或 twRO 數值。
 
-- 使用者明確要求「全部再次檢查一輪，修改後直接上正式」；從 `origin/main` 之 PR #6 合併提交 `cb98cdb` 建立 `dev/full-source-card-audit-20261119`，此版本完成 Dev 驗證後由現有 main Linux CI/Pages 發布。正式網站： https://lockgipo.github.io/ro-survivors-wiki/ 。
-- 最新官方 2026-11-19 bundle：`main-DYrSsWlK.js` SHA `b45a01de3f32ef843318c82b6745e1c26e1890d5920d04ed57cb2730b06e79c7`、`soul_linker-DK2o6MJV.js` SHA `78a81fe70c14f74d2756ddc7f102010a70b4df37c76579f128962622ae783493`、原 manifest SHA `c3ef55cba6cc6d440e8a35f6c9e72d0727a340c3e8fe5eae205452d7749f49a5`。原始程式碼與素材僅在 gitignored `evidence/current-source-20261119/`。
-- 287 裝備／98 卡片皆核對官方 ID 與繁中名稱；裝備 287 部位、171 件數值型基本屬性、50 節慶裝備 Tier 2、9 初始裝備、155 怪物裝備掉落核實；另 108 件裝備來源仍為未核實、預設不顯示（可手動開啟）。
-- 卡片 77 張正常刷圖怪物掉落已核實來源、11 張活動卡片精確分配節慶扭蛋 9、白素貞 1、蛇王 1；10 張取得方式待核。不把 `sunken_story`、`prt_castle`（storyOnly）或 `louyang`（season）當作一般怪物掉卡；燈籠節的墨蛇君是稀有 Boss，但 4330 卡片由蛇王扭蛋取得。部份卡片效果、裝備效果、限制仍待更深官方機制驗證。
-- 維基資料核對以 `scripts/reconcile-official.cjs` + `scripts/official-card-audit.cjs` + `scripts/official-equipment-audit.cjs` 為入口；拒絕不符預期的版本結構。GitHub Actions 的每日來源 SHA 更新提醒仍是手動審核再部署，不能自動拷貝原始遊戲程式或圖片。
+## 目前已實作
+- 獨立重新擷取 `public/data/catalog.json`（`server: hans`）：
+  - 523 筆 HANS 裝備；437 筆有至少一個官方登錄來源，未確認裝備預設隱藏
+  - 188 筆 HANS 卡片，實際 HANS 修飾器效果已抽取；怪物名稱關聯不當直接掉卡證明
+  - 195 筆怪物；17 筆關卡（第二章 5 筆）；怪物池 207 個關卡關聯
+- `scripts/import-hans-source.cjs` 使用 TypeScript AST **只解析本機 Gitignored 快照，不執行原站 JavaScript**；SHA 不符就中止。HANS 主程式／模組／manifest 的原始完整檔案放 `evidence/hans-20261119`，不放入公開 Git。
+- `src/main.tsx` 保留三個頁面：裝備／卡片／關卡；支援繁中 + 英文原名與屬性搜尋、部位與職業篩選、雙向反查，HANS-only guard，深色主題。
+- 官方監控 `scripts/check-official.mjs` 已切 HANS，`source-check.yml` 仍每天一次提醒 GitHub Issue，不做自動改版或正式部署。
+- 原咖啡版 WebP／FanKit、來源審核文件、舊驗證腳本已從 Dev 追蹤移除；新公開建置禁止輸出未獲授權圖片，和私人 HANS 來源研究快照分隔。
+- `tests/hans-catalog.test.mjs`：8 項新測試；TypeScript／Vite／公開 dist 安全檢查已通過（2026-11-19）。HANS 上游偶發 HTTP 503，後已恢復且三個來源 SHA 核對相同。
 
-## 2026-11-18 暗色版（歷史：已於 PR #6 發布）
+## 關鍵不確定性
+- 卡片 `Me` register 表示卡片與怪物對應，**不保證掉卡**；卡片來源暫為 candidate。需追查直接掉卡／扭蛋／活動限定。
+- 角色裝備職業限制、二三轉、特殊掉落、季節活動開放與遊戲圖片尚未完整確認；第二章 Tier 依周目可能 T6–8，不能用關卡最高 Tier 當每件裝備實際等級。
+- 使用者已於 2026-11-19 授權 HANS 改版正式上線，並要求未來維基修改通過基本檢查後預設直接上正式。未核實的遊戲資料仍維持未知或候選，不應為了發布而編造。
 
-- 工作分支 `dev/source-integrity-dark-ui-20261118`；正式 `main` 不變。2026-11-18 現行官方來源 `main-CsViiXMb.js` SHA `1182a9e35bbb81a40cec9d83ab768f620f5c792f6d93b7e5ac1b81d4416d9bdd`、`soul_linker-DH9JY1wS.js` SHA `eb2625bb2b88d9e08441a3acbffe4a8f3789fec621f3dfe60516b0af9232ba82`、素材 manifest SHA `c3ef55cba6cc6d440e8a35f6c9e72d0727a340c3e8fe5eae205452d7749f49a5`。原始二進位／JS 僅存 gitignored `evidence/current-source-20261118/`，**不可發佈**。
-- 287 裝備與 98 卡片以原站 manifest 的數字 ID + 原文對位檢查遊戲官方繁體中文譯名；6 件裝備改名。舊 twRO 名表保留參考，但不再覆蓋現行遊戲內官方譯名。怪物 98 筆對應卡片名稱更新，其餘特殊怪物仍有待核項目。
-- 現行程式的燈籠節 `faroles` 專屬裝備集合核實 50 件，取得來源為活動扭蛋且 Tier 2；另核實 9 件初始裝備，155 個既有官方怪物掉落來源映射（關卡關聯只標記實際可驗）。**無資料的 96 件與僅候選的 12 件不能假稱可掉落**，維基 UI 預設隱藏，使用者可勾選查看；預設列表 179 件、選取後 287 件。掉落權重仍不當實際機率。
-- 介面：下方只留裝備／卡片／關卡；裝備及關卡的職業篩選保留；關卡支援全部展開、全部收合、多人同時展開，使用已發佈小尺寸 Boss 缩圖代表（無圖回退一般圖示），深石板主題與 Safari 的橫向溢出修正。
-- 首次新增 Dev source-monitor GitHub Issues 去重通知（每天一次的 Linux source-check workflow），只通報雜湊差異，不直接更新、下載圖片或部署。公開縮圖仍以**原始審核時** manifest `bdbde78da2fd3d8c9084291935a279f2af53f4b456f1141aba6b1fce2db6f526` 審核，`docs/SOURCE_AUDIT.json.thumbnailSourceManifestSha256` 與「最新資料來源 SHA」分別保存；這不授權任何新圖。
-- 新腳本 `scripts/reconcile-official.cjs` 是讀取預先人工檢查之官方本地快照的受限核對程序；舊重建腳本需特別聲明才允許執行，以免覆蓋新版來源資料。
-- Node 型別檢查、28/28 自動測試、公開模式安全建置及 789 WebP 白名單驗證、Chrome 320／375／390／430 px 深色版流程與展開操作 PASS；**真實 iPhone Safari 驗收仍待使用者完成**。完整結果見 `docs/TEST_REPORT.md`。
+## 後續步驟
+1. 檢查 HANS 2026-11-19 最新遊戲與資料差異，修正卡片、活動、劇情取得管道；保守處理來源／掉落率。
+2. 檢查圖片的私人預覽顯示與公開授權；若暫不發布圖片則使用中性佔位圖示，禁止沿用咖啡版圖片。
+3. 更新及驗證前端搜尋與關卡 UI，Chrome 模擬窄螢幕／iPhone Safari 待實際驗收。
+4. 日常維基改動在 Linux typecheck/test/build 通過後更新 `main`，GitHub Actions 自動部署 Pages；大型研究可先在 `dev/**` 測試，無須每次詢問上線同意。
 
-- Scope: P0 source audit + P1 mobile-first reverse lookup wiki, requirements v1.1 (2026-11-17).
-- Independent repo: lockgipo/ro-survivors-wiki. Local root: C:\\AI-Workspace\\ro-survivors-wiki.
-- Status (2026-11-17): GitHub repository PUBLIC and noncommercial GitHub Pages LIVE at https://lockgipo.github.io/ro-survivors-wiki/ ; deployed merge commit 7785ce5 (workflow 44047794091 successful). Public index, catalog.json and Poring thumbnail all externally verified HTTP 200; public-site Chrome mobile smoke passed. Tailscale private full-image Preview remains http://100.116.225.68:4177/ (OpenChatX bash-80924), requires PC + iPhone Tailscale online.
-- Primary source: ro-survivors.com current bundle main-2n_YvaNQ.js and soul_linker-BNTKE1pN.js, documented exact SHA-256 in docs/SOURCE_AUDIT.json.
-- Candidate source: third-party RO 倖存者小百科; candidate names and unverified card/class/open status must remain labeled.
-- Content: current candidate records fully indexed: 287 equipment across all nine slots (including 29 armor), 98 cards, 109 monsters, 10 stages. Source attribution remains per field; coverage is not a claim that all items in the entire game have been verified. Equipment list pages display 40 at a time. Duplicate Chinese names retain their unique game item IDs.
-- Images update (user-approved public fan-reference thumbnails 2026-11-17): original RO Survivors PNG art remains copyrighted/unlicensed for broad reuse; hotlink returns HTTP 403. Owner-only Tailscale Preview keeps 720 full/source PNGs in gitignored evidence/private-art and dist/game-assets. Public site now has ID-matched **low-resolution WebP only**: 287 equipment (plus 287 icon variants), 98 cards, 107 monster representative frames = 779 fan thumbnails (~988,616 bytes), and 10 existing GungHo Fan Kit images. Missing 2 monster frames use fallback; source URLs/hashes and limitations documented in docs/PUBLIC_ASSETS.md. Noncommercial disclaimer/takedown do not substitute for permission; remove disputed imagery promptly.
-- Stage pool and Boss references parsed from author's public bundle; item drop pairs verified against literal source IDs. Equipment rule and card effect meanings still pending P0 deeper checks.
-- UI (2026-11-17): Search across equipment/cards with Chinese stat aliases, common attribute chips, advanced filters and shareable `q`/`attr` URL parameters. Stage browsing uses a single accessible accordion with inline equipment/card/slot/job/attribute filters; direct item/monster -> stage links switch to and expand the stages tab, and legacy `?detail=stage:*` deep links redirect to it. Hide all drop weights from players while preserving `rawRate` in internal JSON. Full-star effect rows are identified in item detail.
-- Publication: PUBLIC GitHub Pages at https://lockgipo.github.io/ro-survivors-wiki/ uses single low-cost Linux workflow. As of 2026-11-17 user explicitly approved public small fan-reference thumbnails; `VITE_PUBLIC_MODE=1` serves only the fixed `fan-thumbs` + 10 prior Fan Kit images. CI never fetches original PNG; `scripts/verify-public-dist.mjs` verifies all 789 WebP files by strict ID coverage, size, source metadata and hash, rejects original game assets. See docs/PUBLIC_ASSETS.md for rights caveats; future game updates cannot auto-publish new art.
-- Validation: 21 Node tests, public TypeScript/Vite build, image-manifest/hash safety guard (789 low-res WebP, zero raw PNG), public headless Chrome 320/375/390/430px smoke passed including item 2603, Poring card 4001, Poring monster art, fan footer, no private-game-assets requests or page errors. Owner-only Tailscale preview retains 720 raw images, native Safari acceptance pending.
-- Nonofficial fan footer (2026-11-17): `src/SiteFooter.tsx` + dedicated mobile CSS shows compact free/noncommercial/source-public disclosure, native expandable copyright disclaimer, GungHo Fan Kit source/credit (public build only), and live GitHub Issues link using `.github/ISSUE_TEMPLATE/content-removal.yml` to triage rights-holder concerns. GitHub Issues enabled; the Issue is PUBLIC, no invented private email. Clarifies that noncommercial/open source claims do not grant image rights. Public includes only tiny user-authorized WebP identification derivatives and the 10 Fan Kit illustrations, never the source PNG.
-- Taiwan RO localization + Tier + filter revision (Dev tested 2026-11-17, user approved publication 2026-11-18): branch `dev/twro-tier-filters-20261117` uses Taiwan RO IDs from OpenKore twRO display table, with 281 equipment + 98 cards names, 98 card-linked monster translations, 3 manual item translations and 5 manual special-monster translations, and conflict-free old-name aliases (English always retained). See `docs/TWRO_LOCALIZATION.md` and `docs/TWRO_NAMES.json` for exact source commit/hash and exceptions. Existing game stats/drop rules unchanged.
-- Tier source: audited current official `main-2n_YvaNQ.js` stage table `Le`; Stage.tier is 1/2/3 by stage. Item instance Tier is assigned by acquisition stage, **not fixed per item ID or weapon level**. UI `src/tier.ts` shows known drop-stage tiers or candidate/unknown, stages show their exact Tier. Do not invent player-held item Tier in static wiki.
-- Filter UI Dev: equipment page directly shows equipment slots/jobs, advanced properties + acquisition within collapsed panel with active filter count, removes top cooldown/INT/DEX/crit shortcuts and hidden duplicate slot/job filters. All item names no longer append #itemId, but ID remains used for routing and distinct records.
-- UI stack: React 19 + TypeScript + Vite. All static, no auth, no production data.
+本檔是活的交接紀錄。以 Git branch、原始碼、測試和審核 SHA 為準，不用過去對話推測專案狀態。

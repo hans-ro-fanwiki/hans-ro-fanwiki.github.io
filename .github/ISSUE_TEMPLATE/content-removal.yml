@@ -14,7 +14,7 @@ body:
     attributes:
       label: 涉及的本站頁面
       description: 請貼上網站中相關內容的網址。
-      placeholder: https://lockgipo.github.io/ro-survivors-wiki/?detail=...
+      placeholder: https://lockgipo.github.io/ro-survivors-hans-wiki/?detail=...
     validations:
       required: true
   - type: textarea

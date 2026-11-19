@@ -1,4 +1,4 @@
-// GitHub Actions: one open notification issue per unresolved official drift.
+// GitHub Actions: one open notification issue per unresolved HANS source drift.
 // Never includes upstream source code, asset bytes, or credentials in the issue.
 import {readFileSync} from 'node:fs';
 const reportPath=process.argv[2];
@@ -16,12 +16,12 @@ async function api(path,method='GET',body) {
  if(!response.ok)throw Error('GitHub '+method+' '+path+' returned '+response.status);
  return response.json();
 }
-const title='RO Survivors 官方資料有更新：等待維基核對';
+const title='HANS 漢斯服遊戲資料有更新：等待維基核對';
 const changed=report.sources.filter(s=>!s.unchanged);
 const fingerprint=changed.map(s=>s.source.split('/').at(-1)+':'+s.sha256).join('|');
 const marker='來源指紋：'+fingerprint;
 const body=[
- '官方公開資料和維基目前審核版本不同，請先人工核實，不會自動修改資料或發布網站。',
+ 'HANS 漢斯服公開資料和維基已審核版本不同。請先人工核實，不會自動修改資料或發布網站。',
  '',
  '檢測時間：'+report.checkedAt,
  '',
@@ -29,8 +29,8 @@ const body=[
  '',
  marker,
  '',
- '待處理：核對官方中文名稱、裝備與卡片 ID、取得來源、Tier、活動扭蛋、關卡資料；驗證 Linux CI 與 iPhone 預覽後才考慮合併 main。',
- '檢查方法：`npm run check:source`。請勿把原站完整 JS、原始圖片或私人密鑰提交至此公開 repo。'
+ '待處理：檢查 HANS 職業、裝備與卡片 ID、取得來源、二章與周目 Tier、活動扭蛋和關卡；完成 Linux CI 與手機預覽驗收後才可合併 main。',
+ '檢查方法：`npm run check:source`。請勿把 HANS 完整 JS、原始圖片或私人密鑰提交至此公開 repo。'
 ].join('\n');
 const issues=await api('/issues?state=open&per_page=100');
 const existing=issues.find(i=>!i.pull_request&&i.title===title);

@@ -6,7 +6,6 @@ import './styles.css';
 import './search.css';
 import './dark.css';
 import {ATTRIBUTE_GROUPS,entryMatches,matchedEffect} from './search';
-import {approvedFanKitThumb} from './public-thumbs';
 import {SiteFooter} from './SiteFooter';
 import {equipmentTier} from './tier';
 import {hasConfirmedAcquisition} from './acquisition';
@@ -14,12 +13,12 @@ import {hasConfirmedAcquisition} from './acquisition';
 type View={page:Page;slot:string;job:string;effect:string;source:string;query:string;attr:string;mode:'list'|'stages';onlyOpen:boolean;showUnknown:boolean;detail:string|null};
 type GameEntry=Equipment|Card;
 const SLOTS:Record<string,string>={weapon:'武器',head_top:'頭飾（上）',head_mid:'頭飾（中）',head_low:'頭飾（下）',armor:'衣服',shield:'盾牌',garment:'披肩',shoes:'鞋子',acc:'飾品'};
-const JOBS:Record<string,string>={all:'全部',mage:'魔法師系',swordsman:'劍士系',archer:'弓箭手系',acolyte:'服事系',thief:'盜賊系',merchant:'商人系',ninja:'忍者系'};
+const JOBS:Record<string,string>={all:'全部',mage:'魔法師系',swordsman:'劍士系',archer:'弓箭手系',acolyte:'服事系',thief:'盜賊系',merchant:'商人系',taekwon:'跆拳道系',ninja:'忍者系',gunslinger:'神槍手系'};
 const SOURCES:Record<string,string>={monsterDrop:'怪物掉落',bossDrop:'Boss 掉落',story:'劇情',event:'活動',reward:'獎勵',starter:'初始裝備'};
 const LABELS:Record<Page,string>={items:'裝備',cards:'卡片',stages:'關卡'};
-// Public Pages includes only dedicated low-resolution, ID-matched fan-reference thumbnails.
+// HANS-only. Original artwork is shown via HANS source only in private Dev; no art ships in public Pages.
 const PUBLIC_MODE=import.meta.env.VITE_PUBLIC_MODE==='1';
-const ASSET_ROOT=import.meta.env.BASE_URL+'game-assets/';
+const ASSET_ROOT='https://ro.hans-webgametw.com/assets/';
 const EMPTY:View={page:'items',slot:'all',job:'all',effect:'all',source:'all',query:'',attr:'all',mode:'list',onlyOpen:true,showUnknown:false,detail:null};
 function readLocation():View{
  const q=new URLSearchParams(location.search);
@@ -53,15 +52,12 @@ function Artwork({kind,entity,large=false}:{kind:Kind;entity?:Equipment|Card|Mon
  const item=kind==='item'?entity as Equipment:undefined;
  const card=kind==='card'?entity as Card:undefined;
  const monster=kind==='monster'?entity as Monster:undefined;
- const fanRoot=import.meta.env.BASE_URL+'fan-thumbs/';
- const initial=PUBLIC_MODE?
-  (item?fanRoot+'items/'+item.id+'.webp':card?fanRoot+'cards/'+card.id+'.webp':monster?.spriteFrame&&/^[a-z0-9_-]+$/.test(monster.id)?fanRoot+'monsters/'+monster.id+'.webp':monster?approvedFanKitThumb(monster.id):null):
-  safeImageUrl(item?.image||card?.image);
- const backup=PUBLIC_MODE&&item?fanRoot+'items/'+item.id+'_icon.webp':safeImageUrl(item?.icon);
+ const initial=PUBLIC_MODE?null:safeImageUrl(item?.image||card?.image);
+ const backup=PUBLIC_MODE?null:safeImageUrl(item?.icon);
  const [imageUrl,setImageUrl]=useState(initial);
  useEffect(()=>setImageUrl(initial),[initial]);
  const Icon=kind==='card'?BookOpen:kind==='monster'?Target:kind==='stage'?MapIcon:item?.slot==='acc'?Gem:item?.slot==='weapon'?Swords:Shield;
- const frame=PUBLIC_MODE?null:monster?.spriteFrame;
+ const frame=null as Monster['spriteFrame']|null;
  const edge=large?112:58;
  const scale=frame?Math.min((edge-8)/frame.width,(edge-8)/frame.height,large?1.5:1):1;
  return <span className={'art '+kind+(large?' large':'')}>
@@ -90,7 +86,7 @@ function sourceMonsterName(src:Source,monsterMap:Map<string,Monster>){
 function stageRows(data:Catalog,stageId:string){
  const result:{item:GameEntry;kind:'item'|'card';source:Source;boss:boolean}[]=[];
  for(const [kind,list] of [['item',data.items],['card',data.cards]] as const)for(const item of list)for(const source of item.sources){
-  const ref=source.stageRefs.find(r=>r.stageId===stageId&&r.verified&&r.verificationState==='official');
+  const ref=source.stageRefs.find(r=>r.stageId===stageId);
   if(source.sourceType==='monsterDrop'&&ref)result.push({item,kind,source,boss:ref.boss});
  }
  return result.sort((a,b)=>Number(b.source.verificationState==='official')-Number(a.source.verificationState==='official')||a.item.name.localeCompare(b.item.name,'zh'));
@@ -104,7 +100,7 @@ function App(){
  const [focusedStage,setFocusedStage]=useState<string|null>(null);
  useEffect(()=>{
   const ac=new AbortController();
-  fetch(import.meta.env.BASE_URL+'data/catalog.json',{signal:ac.signal}).then(r=>{if(!r.ok)throw Error(String(r.status));return r.json()}).then(d=>setCatalog(d as Catalog)).catch(e=>{if(e.name!=='AbortError')setError('資料載入失敗，請重新整理。')});
+  fetch(import.meta.env.BASE_URL+'data/catalog.json',{signal:ac.signal}).then(r=>{if(!r.ok)throw Error(String(r.status));return r.json()}).then(d=>{if(d.server!=='hans')throw Error('資料來源不是 HANS');setCatalog(d as Catalog)}).catch(e=>{if(e.name!=='AbortError')setError('資料載入失敗，請重新整理。')});
   return ()=>ac.abort();
  },[]);
  useEffect(()=>{
@@ -167,7 +163,7 @@ function App(){
   return '尚無已確認取得管道';
  };
  return <>
-  <header className="topbar"><div className="top-inner"><span className="brand-mark">R</span><span className="brand-names"><strong>RO Survivors</strong><small>掉落圖鑑</small></span></div></header>
+  <header className="topbar"><div className="top-inner"><span className="brand-mark">H</span><span className="brand-names"><strong>RO 倖存者｜漢斯服維基</strong><small>HANS 專屬{PUBLIC_MODE?'':' · 開發預覽'}</small></span></div></header>
   <main className="container">
    <section className="content-section">
     <div className="section-heading"><h1>{LABELS[state.page]}</h1><span className="heading-count">
@@ -198,7 +194,7 @@ function App(){
        <div className="segment"><button className={state.mode==='list'?'on':''} onClick={()=>navigate({mode:'list'})}>依{state.page==='items'?'裝備':'卡片'}看</button><button className={state.mode==='stages'?'on':''} onClick={()=>navigate({mode:'stages'})}>依關卡看</button></div>
        <label className="toggle"><input type="checkbox" checked={state.onlyOpen} onChange={e=>navigate({onlyOpen:e.target.checked})}/>只看已開放關卡</label>
       </div>
-      {state.page==='items'&&<div className="source-visibility"><label className="toggle"><input type="checkbox" checked={state.showUnknown} onChange={e=>navigate({showUnknown:e.target.checked})}/>顯示取得方式未確認的裝備</label><small>{state.showUnknown?'已包含未確認資料':hiddenEquipCount>0?'已隱藏 '+hiddenEquipCount+' 件未核實裝備':'目前沒有被隱藏的裝備'}</small></div>}
+      {(state.page==='items'||state.page==='cards')&&<div className="source-visibility"><label className="toggle"><input type="checkbox" checked={state.showUnknown} onChange={e=>navigate({showUnknown:e.target.checked})}/>{state.page==='items'?'顯示取得方式未確認的裝備':'顯示尚未核實掉卡方式的關卡關聯'}</label><small>{state.page==='items'?(state.showUnknown?'已包含未確認資料':hiddenEquipCount>0?'已隱藏 '+hiddenEquipCount+' 件未核實裝備':'目前沒有被隱藏的裝備'):'卡片與怪物的對應已收錄，但不能據此斷言怪物會直接掉卡'}</small></div>}
       {state.mode==='list'?<div className="cards-list">
        {list.slice(0,visibleCount).map(entry=><button className="result-card" key={entry.id} onClick={()=>openDetail(state.page==='items'?'item':'card',entry.id)}>
         <Artwork kind={state.page==='items'?'item':'card'} entity={entry}/>
@@ -219,7 +215,7 @@ function App(){
        </button>)}{(state.page==='items'?cardList:equip).length>40&&<button className="load-more" type="button" onClick={()=>navigate({page:state.page==='items'?'cards':'items',mode:'list'},true)}>查看更多{state.page==='items'?'卡片':'裝備'}</button>}</div>
       </section>}
      </>}
-     {state.page==='stages'&&<><div className="stage-view-toolbar"><span className="search-hint">點擊關卡即可展開或收合</span><label className="toggle"><input type="checkbox" checked={state.onlyOpen} onChange={e=>navigate({onlyOpen:e.target.checked})}/>只看已開放關卡</label></div><StageBrowser data={catalog} query={state.query} attr={state.attr} onlyOpen={state.onlyOpen} focusedStage={focusedStage} openDetail={openDetail} showUnknown={state.showUnknown}/></>}
+     {state.page==='stages'&&<><div className="stage-view-toolbar"><span className="search-hint">點擊關卡即可展開或收合</span><label className="toggle"><input type="checkbox" checked={state.onlyOpen} onChange={e=>navigate({onlyOpen:e.target.checked})}/>只看已開放關卡</label><label className="toggle"><input type="checkbox" checked={state.showUnknown} onChange={e=>navigate({showUnknown:e.target.checked})}/>顯示未核實卡片關聯</label></div><StageBrowser data={catalog} query={state.query} attr={state.attr} onlyOpen={state.onlyOpen} focusedStage={focusedStage} openDetail={openDetail} showUnknown={state.showUnknown}/></>}
     </>}
    </section>
   </main>
@@ -254,6 +250,7 @@ function StageBrowser({data,query,attr,onlyOpen,focusedStage,openDetail,slot='al
  const visible=data.stages.filter(s=>!onlyOpen||s.open);
  const eligible=(row:ReturnType<typeof stageRows>[number])=>{
   if(kind!=='all'&&row.kind!==kind)return false;
+  if(row.source.verificationState!=='official'&&!showUnknown)return false;
   if(source==='bossDrop'&&!row.boss)return false;
   if(source!=='all'&&source!=='bossDrop'&&source!=='monsterDrop')return false;
   if(!entryMatches(row.item,query,attr)||!entryMatches(row.item,'',localAttr))return false;
@@ -273,7 +270,7 @@ function StageBrowser({data,query,attr,onlyOpen,focusedStage,openDetail,slot='al
    return <section className="stage-entry" key={stage.id}>
     <button type="button" className="stage-heading" aria-expanded={opened} aria-controls={'stage-'+stage.id} onClick={()=>setExpanded(previous=>{const next=new Set(previous);if(next.has(stage.id))next.delete(stage.id);else next.add(stage.id);return next})}>
      {cover?<Artwork kind="monster" entity={cover}/>:<Artwork kind="stage"/>}
-     <span className="result-main"><strong>{stage.name}</strong><small>Tier {stage.tier} · Lv {stage.levels} · {rows.length} 筆符合掉落</small></span>
+     <span className="result-main"><strong>{stage.name}</strong><small>{stage.id.startsWith('c2_')?'二章 T6–8（依周目）':'Tier '+stage.tier} · Lv {stage.levels} · {rows.filter(r=>r.source.verificationState==='official').length} 筆掉落{rows.some(r=>r.source.verificationState!=='official')?' · '+rows.filter(r=>r.source.verificationState!=='official').length+' 筆待核關聯':''}</small></span>
      <ChevronDown size={20} style={{transform:opened?'rotate(180deg)':undefined}}/>
     </button>
     {opened&&<div id={'stage-'+stage.id} className="stage-body">
@@ -287,7 +284,7 @@ function StageBrowser({data,query,attr,onlyOpen,focusedStage,openDetail,slot='al
      </div>
      {rows.length?<div className="compact-results">{rows.map((row,i)=><button type="button" className="compact-item" key={row.kind+'-'+row.item.id+'-'+row.source.monsterId+'-'+i} onClick={()=>openDetail(row.kind,row.item.id)}>
       <Artwork kind={row.kind} entity={row.item}/>
-      <span className="compact-copy"><b>{row.item.name}</b><small>{row.kind==='item'?'Tier '+stage.tier+' · ':''}{matchedEffect(row.item,query,localAttr!=='all'?localAttr:attr)||shortStats(row.item,3)}</small><small>{row.boss?'Boss · ':''}{sourceMonsterName(row.source,monsterMap)||'怪物未知'}</small></span><ChevronRight size={16}/>
+      <span className="compact-copy"><b>{row.item.name}</b><small>{row.kind==='item'?(stage.id.startsWith('c2_')?'二章 T6–8 · ':'Tier '+stage.tier+' · '):''}{row.source.verificationState!=='official'?'未確認掉卡 · ':''}{matchedEffect(row.item,query,localAttr!=='all'?localAttr:attr)||shortStats(row.item,3)}</small><small>{row.boss?'Boss · ':''}{sourceMonsterName(row.source,monsterMap)||'怪物未知'}</small></span><ChevronRight size={16}/>
      </button>)}</div>:<div className="stage-no-results">這個關卡沒有符合條件的掉落物</div>}
     </div>}
    </section>;
@@ -299,7 +296,7 @@ function EmptyState({children}:{children:React.ReactNode}){return <div className
 function DropRoutes({sources,stages,monsters,openDetail}:{sources:Source[];stages:Map<string,Stage>;monsters:Map<string,Monster>;openDetail:(kind:Kind,id:string|number)=>void}){
  if(!sources.length)return <EmptyState>尚無取得資訊</EmptyState>;
  return <div className="route-list">{sources.map((s,i)=><div className="route" key={i}>
-  <div className="route-top"><strong>{s.sourceType==='monsterDrop'&&s.verificationState!=='official'?'可能掉落':SOURCES[s.sourceType]||s.sourceType}{s.stageRefs.some(r=>r.boss)?' · Boss':''}</strong></div>
+  <div className="route-top"><strong>{s.sourceType==='monsterDrop'&&s.verificationState!=='official'?'怪物關聯（掉卡方式未確認）':SOURCES[s.sourceType]||s.sourceType}{s.stageRefs.some(r=>r.boss)?' · Boss':''}</strong></div>
   {s.detail&&<p className="source-detail">{s.detail}{Number.isInteger(s.sourceTier)?' · Tier '+s.sourceTier:''}</p>}
   {s.monsterId&&<button onClick={()=>openDetail('monster',s.monsterId!)}><Target size={16}/><span>{sourceMonsterName(s,monsters)}</span><ChevronRight size={16}/></button>}
   {s.stageRefs.map(r=><button key={r.stageId} onClick={()=>openDetail('stage',r.stageId)}><MapIcon size={16}/><span>{stages.get(r.stageId)?.name||r.stageId}{r.boss?'（Boss）':''}{r.verified?'':'（未核實）'}</span><ChevronRight size={16}/></button>)}
@@ -307,7 +304,7 @@ function DropRoutes({sources,stages,monsters,openDetail}:{sources:Source[];stage
  </div>)}</div>;
 }
 function DetailHero({kind,entry,title,sub}:{kind:Kind;entry?:Equipment|Card|Monster;title:string;sub?:string}){
- return <div className="detail-hero"><Artwork kind={kind} entity={entry} large/><div className="hero-info"><h2>{title}</h2>{sub&&<p>{sub}</p>}{PUBLIC_MODE&&kind==='monster'&&entry&&approvedFanKitThumb((entry as Monster).id)&&!(entry as Monster).spriteFrame&&<small className="art-inline-credit">RO Fan Kit 插畫 © Gravity Co., Ltd. &amp; Lee MyoungJin(studio DTDS). All Rights Reserved. Published by GungHo Online Entertainment, Inc.</small>}</div></div>;
+ return <div className="detail-hero"><Artwork kind={kind} entity={entry} large/><div className="hero-info"><h2>{title}</h2>{sub&&<p>{sub}</p>}</div></div>;
 }
 function StatSection({entry}:{entry:GameEntry}){
  const e=effects(entry);if(!e.length)return null;
@@ -321,7 +318,7 @@ function StatSection({entry}:{entry:GameEntry}){
 function EquipmentDetail({item,stages,monsters,openDetail}:{item:Equipment;stages:Map<string,Stage>;monsters:Map<string,Monster>;openDetail:(kind:Kind,id:string|number)=>void}){
  const tier=equipmentTier(item,stages);
  return <><DetailHero kind="item" entry={item} title={item.name} sub={(SLOTS[item.slot]||item.slot)+' · '+tier.text}/>
-  <p className="tier-note">Tier 由取得關卡決定，同一裝備可能有不同階級；此處非你持有裝備的實際 Tier。</p>
+  <p className="tier-note">HANS 裝備等級依取得來源標示；二章裝備的難度與周目階級仍需個別校準。</p>
   <StatSection entry={item}/>
   {item.jobs.length>0&&<><h3 className="sheet-section">可用職業</h3><div className="bonus-list">{item.jobs.map(j=><span key={j}>{JOBS[j]||j}</span>)}</div></>}
   <h3 className="sheet-section">取得方式</h3><DropRoutes sources={item.sources} stages={stages} monsters={monsters} openDetail={openDetail}/>
@@ -340,7 +337,7 @@ function MonsterDetail({monster,data,stages,openDetail}:{monster:Monster;data:Ca
  });
  return <><DetailHero kind="monster" entry={monster} title={monster.name} sub={monster.boss?'Boss':'怪物'}/>
   <h3 className="sheet-section">出現關卡</h3><div className="sub-list">{monster.stages.map(s=><button key={s.id} onClick={()=>openDetail('stage',s.id)}><MapIcon size={18}/><span>{stages.get(s.id)?.name||s.id}{s.boss?' · Boss':''}</span><ChevronRight size={16}/></button>)}</div>
-  <h3 className="sheet-section">掉落物品</h3><div className="stage-loot-list">{results.map((r,i)=><button key={r.entry.id+'-'+i} className="loot-row" onClick={()=>openDetail(r.kind,r.entry.id)}><Artwork kind={r.kind} entity={r.entry}/><span className="loot-copy"><b>{r.entry.name}</b><small>{r.source.verificationState==='official'?'':'取得待確認 · '}{r.kind==='item'?equipmentTier(r.entry as Equipment,stages).text+' · ':''}{shortStats(r.entry,3)}</small></span><ChevronRight size={16}/></button>)}</div>
+  <h3 className="sheet-section">裝備掉落與卡片關聯</h3><div className="stage-loot-list">{results.map((r,i)=><button key={r.entry.id+'-'+i} className="loot-row" onClick={()=>openDetail(r.kind,r.entry.id)}><Artwork kind={r.kind} entity={r.entry}/><span className="loot-copy"><b>{r.entry.name}</b><small>{r.source.verificationState==='official'?'':'取得待確認 · '}{r.kind==='item'?equipmentTier(r.entry as Equipment,stages).text+' · ':''}{shortStats(r.entry,3)}</small></span><ChevronRight size={16}/></button>)}</div>
   {!results.length&&<EmptyState>目前沒有已收錄掉落物品</EmptyState>}
  </>;
 }
