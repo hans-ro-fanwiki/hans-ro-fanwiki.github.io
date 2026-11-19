@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.1 — 2026-11-19 (HANS fan wiki organization migration)
+
+- Transferred original repository to the free `hans-ro-fanwiki` GitHub Organization while retaining repository ID, Git history, Issues, PRs, and branches.
+- Renamed the same repository to `hans-ro-fanwiki.github.io` for a short GitHub Pages organization homepage URL.
+- Updated website name to **RO 倖存者｜HANS 粉絲維基** and emphasized independent, nonofficial fan production.
+- Updated canonical, attribution/footer, issue-reporting, and source-code links for the new organization URL.
+- No HANS game data or images changed in this release.
+
 ## 0.2.0 — 2026-11-19 (HANS production release)
 
 - Complete pivot to HANS-only RO Survivors wiki, retaining repository and mobile layout.

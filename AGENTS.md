@@ -1,6 +1,6 @@
-# RO 倖存者｜漢斯服維基（HANS） — Agents 工作規則
+# RO 倖存者｜HANS 粉絲維基 — Agents 工作規則
 
-- 專案是 HANS-only，GitHub repo `lockgipo/ro-survivors-hans-wiki`，正式 Pages 為 `https://lockgipo.github.io/ro-survivors-hans-wiki/`，以 `main` 為正式資料來源。使用者已授權 2026-11-19 上正式，並指定之後維基修改預設通過驗證後直接發布；舊 Pages 網址不保證轉址。
+- 專案是 HANS-only，GitHub repo **已移轉**為 `hans-ro-fanwiki/hans-ro-fanwiki.github.io`，正式 Pages URL 為 `https://hans-ro-fanwiki.github.io/`，以 `main` 為正式資料來源。使用者已授權 2026-11-19 上正式，並指定之後維基修改預設通過驗證後直接發布；舊 Pages 網址不保證轉址。
 - Source of truth：`README.md`、`PROJECT_CONTEXT.md`、`docs/HANS_SOURCE_AUDIT.json`、實際 repo branch 和 `public/data/catalog.json` 的 `server:'hans'`。唯一遊戲原站 https://ro.hans-webgametw.com/。
 - 禁止用咖啡版／twRO 的卡片、屬性、裝備、地圖或素材補洞；HANS 來源不明的資料保持 candidate/unknown。
 - 僅使用本機 Gitignored、雜湊驗證的 HANS JS/manifest 進行 AST 靜態分析；不在公開 repo 包含原始遊戲 bundle、未授權圖片、完整角色圖集、秘密或帳號資料。
@@ -11,3 +11,5 @@
 - 圖像必須經獨立來源、授權及技術驗證；未確認時公開 Pages 用圖示佔位，不把私人 Dev 原圖／hotlink 當公開授權。
 - 開發節省 CI：一般 commit 只跑 Linux TypeScript/test/build；`dev/**` 不部署，`main` 通過 CI 後自動發布；避免重複 push/PR workflow。大型未驗證改動仍先測試，資料不確定性不得省略。
 - 常用驗證：`node scripts/import-hans-source.cjs`（僅有本機快照才能重建）、`npm test`、`npm run typecheck`、`VITE_PUBLIC_MODE=1 npm run build`、`node scripts/verify-public-dist.mjs`、`npm run check:source`。網站檢查 HTTP 503 代表上游暫不可用，不是 HANS 更新。
+
+- 組織移轉已於 2026-11-19 完成，實際移轉及驗收見 `docs/ORG_FANWIKI_MOVE.md`。GitHub Pages 採用 Organization 首頁倉庫；任何網站連結更新均需通過 Dev CI、`main` Pages 部署及實際 HTTP 驗證。新組織若尚未授權 GitHub App，使用已授權的本機 GitHub CLI 或請使用者授權，不得假定外部工具已擁有新組織權限。

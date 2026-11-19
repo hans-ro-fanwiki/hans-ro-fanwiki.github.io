@@ -163,7 +163,7 @@ function App(){
   return '尚無已確認取得管道';
  };
  return <>
-  <header className="topbar"><div className="top-inner"><span className="brand-mark">H</span><span className="brand-names"><strong>RO 倖存者｜漢斯服維基</strong><small>HANS 專屬{PUBLIC_MODE?'':' · 開發預覽'}</small></span></div></header>
+  <header className="topbar"><div className="top-inner"><span className="brand-mark">H</span><span className="brand-names"><strong>RO 倖存者｜HANS 粉絲維基</strong><small>非官方玩家製作 · HANS 專屬{PUBLIC_MODE?'':' · 開發預覽'}</small></span></div></header>
   <main className="container">
    <section className="content-section">
     <div className="section-heading"><h1>{LABELS[state.page]}</h1><span className="heading-count">
