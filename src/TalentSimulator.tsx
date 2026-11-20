@@ -1,4 +1,4 @@
-import {useEffect,useMemo,useState} from 'react';
+import {useEffect,useLayoutEffect,useMemo,useRef,useState} from 'react';
 import {
  ArrowRight,BookOpen,Check,ChevronDown,ChevronUp,Copy,Crosshair,Droplets,ExternalLink,
  Flame,Footprints,Gem,Heart,Leaf,Link2,Minus,Mountain,Plus,RotateCcw,Share2,
@@ -77,21 +77,22 @@ function JobSelector({data,job,onChoose,expanded,setExpanded}:{
  </section>;
 }
 type DetailPosition={left:number;top:number};
-function placeDetail(anchor:HTMLElement):DetailPosition{
+function placeDetail(anchor:HTMLElement,panel?:HTMLElement|null):DetailPosition{
  const r=anchor.getBoundingClientRect();
- const width=Math.min(350,window.innerWidth-24);
- const gap=12,edge=12;
- const right=r.right+gap;
- const left=r.left-width-gap;
- const x=right+width+edge<=window.innerWidth?right:left>=edge?left:Math.max(edge,Math.min(window.innerWidth-width-edge,r.right+gap));
- // Estimated height fits the most common descriptions; panel itself scrolls if longer.
- const height=Math.min(350,window.innerHeight-24);
- const y=Math.max(edge,Math.min(r.top-30,window.innerHeight-height-edge));
+ const edge=12,gap=10;
+ const width=panel?.getBoundingClientRect().width||Math.min(350,window.innerWidth-24);
+ const height=panel?.getBoundingClientRect().height||240;
+ // Prefer directly below the skill, centered horizontally, then clamp to the viewport.
+ const x=Math.max(edge,Math.min(r.left+r.width/2-width/2,window.innerWidth-width-edge));
+ const below=r.bottom+gap;
+ const above=r.top-height-gap;
+ const y=below+height+edge<=window.innerHeight?below:
+  above>=edge?above:Math.max(edge,Math.min(below,window.innerHeight-height-edge));
  return {left:Math.round(x),top:Math.round(y)};
 }
-function TreePanel({job,branch,build,selectedId,onSelect,onAllocate,total,gate}:{
+function TreePanel({job,branch,build,selectedId,onSelect,onLeave,onAllocate,total,gate}:{
  job:TalentJob;branch:TalentBranch;build:TalentBuild;selectedId:string|null;
- onSelect:(id:string,anchor:HTMLElement)=>void;onAllocate:(id:string,delta:1|-1)=>void;total:number;gate:number
+ onSelect:(id:string,anchor:HTMLElement)=>void;onLeave:()=>void;onAllocate:(id:string,delta:1|-1)=>void;total:number;gate:number
 }){
  const nodes=useMemo(()=>new Map(branch.talents.map(x=>[x.id,x])),[branch]);
  const rows=branch.rows||Math.max(1,...branch.talents.map(n=>n.row+1));
@@ -134,6 +135,7 @@ function TreePanel({job,branch,build,selectedId,onSelect,onAllocate,total,gate}:
      aria-label={node.name+'，'+rank+'/'+node.maxRank+' 點；滑鼠左鍵加點、右鍵退點，觸控點選查看'}
      aria-pressed={selectedId===node.id}
      onMouseEnter={e=>{if(window.matchMedia('(hover:hover) and (pointer:fine)').matches)onSelect(node.id,e.currentTarget)}}
+     onMouseLeave={()=>{if(window.matchMedia('(hover:hover) and (pointer:fine)').matches)onLeave()}}
      onFocus={e=>onSelect(node.id,e.currentTarget)}
      onContextMenu={e=>{e.preventDefault();onSelect(node.id,e.currentTarget);if(!window.matchMedia('(pointer:coarse)').matches)onAllocate(node.id,-1)}}
      onClick={e=>{onSelect(node.id,e.currentTarget);if(window.matchMedia('(pointer:coarse)').matches)return;if(e.shiftKey)onAllocate(node.id,-1);else if(canAdd)onAllocate(node.id,1)}}
@@ -152,11 +154,27 @@ export function TalentSimulator({jobId,token,onRoute}:Props){
  const [error,setError]=useState('');
  const [selectedId,setSelectedId]=useState<string|null>(null);
  const [detailPosition,setDetailPosition]=useState<DetailPosition|null>(null);
+ const detailRef=useRef<HTMLElement|null>(null);
+ const anchorRef=useRef<HTMLElement|null>(null);
+ const dismissTimer=useRef<ReturnType<typeof setTimeout>|null>(null);
  const [detailExpanded,setDetailExpanded]=useState(false);
  const [isCompact,setIsCompact]=useState(()=>window.matchMedia('(max-width:750px)').matches);
  const [branchIndex,setBranchIndex]=useState(0);
  const [showJobs,setShowJobs]=useState(()=>window.innerWidth>750);
  const [feedback,setFeedback]=useState('');
+ const cancelDismiss=()=>{
+  if(dismissTimer.current!==null){clearTimeout(dismissTimer.current);dismissTimer.current=null}
+ };
+ const scheduleDismiss=()=>{
+  if(isCompact)return;
+  cancelDismiss();
+  dismissTimer.current=setTimeout(()=>{
+   dismissTimer.current=null;
+   setSelectedId(null);
+   setDetailExpanded(false);
+  },320);
+ };
+ useEffect(()=>()=>{if(dismissTimer.current!==null)clearTimeout(dismissTimer.current)},[]);
  useEffect(()=>{
   const ac=new AbortController();
   fetch(import.meta.env.BASE_URL+'data/talents.json',{signal:ac.signal}).then(r=>{if(!r.ok)throw Error(String(r.status));return r.json()})
@@ -164,7 +182,7 @@ export function TalentSimulator({jobId,token,onRoute}:Props){
    .catch(e=>{if(e.name!=='AbortError')setError('天賦資料載入失敗，請稍後重新整理。')});
   return ()=>ac.abort();
  },[]);
- useEffect(()=>{setBranchIndex(0);setSelectedId(null);setDetailExpanded(false);setFeedback('')},[jobId]);
+ useEffect(()=>{cancelDismiss();setBranchIndex(0);setSelectedId(null);setDetailExpanded(false);setFeedback('')},[jobId]);
  useEffect(()=>{
   const query=window.matchMedia('(max-width:750px)');
   const onChange=(e:MediaQueryListEvent)=>setIsCompact(e.matches);
@@ -178,16 +196,21 @@ export function TalentSimulator({jobId,token,onRoute}:Props){
    if(node){
     const r=node.getBoundingClientRect();
     if(r.bottom<0||r.top>window.innerHeight){setSelectedId(null);return}
-    setDetailPosition(placeDetail(node));
+    setDetailPosition(placeDetail(node,detailRef.current));
    }
   };
   window.addEventListener('scroll',refresh,true);
   window.addEventListener('resize',refresh);
   return ()=>{window.removeEventListener('scroll',refresh,true);window.removeEventListener('resize',refresh)};
  },[selectedId,isCompact]);
+ useLayoutEffect(()=>{
+  if(!selectedId||isCompact||!anchorRef.current||!detailRef.current)return;
+  const position=placeDetail(anchorRef.current,detailRef.current);
+  setDetailPosition(previous=>previous?.left===position.left&&previous.top===position.top?previous:position);
+ },[selectedId,isCompact,detailExpanded]);
  useEffect(()=>{
   if(!selectedId)return;
-  const onKey=(e:KeyboardEvent)=>{if(e.key==='Escape'){setSelectedId(null);setDetailExpanded(false)}};
+  const onKey=(e:KeyboardEvent)=>{if(e.key==='Escape'){cancelDismiss();setSelectedId(null);setDetailExpanded(false)}};
   window.addEventListener('keydown',onKey);
   return ()=>window.removeEventListener('keydown',onKey);
  },[selectedId]);
@@ -200,9 +223,13 @@ export function TalentSimulator({jobId,token,onRoute}:Props){
  const selectedBranch=job?.branches.find(b=>b.talents.some(n=>n.id===selectedId));
  const update=(buildNext:TalentBuild)=>{if(job&&data){setFeedback('');onRoute(job.job,encodeBuild(job,buildNext,data.sourceCommit),true)}};
  const selectNode=(id:string,anchor:HTMLElement)=>{
+  cancelDismiss();
   if(id!==selectedId)setDetailExpanded(false);
   setSelectedId(id);
-  if(!isCompact)setDetailPosition(placeDetail(anchor));
+  if(!isCompact){
+   anchorRef.current=anchor;
+   setDetailPosition(placeDetail(anchor,detailRef.current));
+  }
  };
  const change=(id:string,delta:1|-1)=>{
   if(!job||!data)return;
@@ -236,7 +263,7 @@ export function TalentSimulator({jobId,token,onRoute}:Props){
  return <div className="talent-simulator tg-game">
   <div className="tg-top"><span><Workflow size={20}/>HANS 職業天賦樹</span><small>粉絲製作 · 模擬配點</small></div>
   <div className="tg-body">
-   <p className="tg-lead"><span className="tg-help-desktop">參照 HANS 官方天賦樹。滑鼠移到圖示可查看技能，左鍵加 1 點、右鍵退 1 點；按 Esc 可關閉說明。</span><span className="tg-help-mobile">點一下技能查看說明，再用面板的 ＋／－ 配點，避免誤觸。</span></p>
+   <p className="tg-lead"><span className="tg-help-desktop">參照 HANS 官方天賦樹。滑鼠移到圖示可查看技能，左鍵加 1 點、右鍵退 1 點；說明顯示在技能下方，移開稍後自動收起，按 Esc 可立即關閉。</span><span className="tg-help-mobile">點一下技能查看說明，再用面板的 ＋／－ 配點，避免誤觸。</span></p>
    <JobSelector data={data} job={job} expanded={showJobs} setExpanded={setShowJobs}
     onChoose={id=>{onRoute(id,'');setShowJobs(false)}}/>
    <div className="tg-job-title">
@@ -276,13 +303,13 @@ export function TalentSimulator({jobId,token,onRoute}:Props){
    <div className="tg-trees">
     {job.branches.map((b,i)=><div key={job.job+'-'+b.id} className={'tg-tree-wrap'+(branchIndex!==i?' tg-mobile-hidden':'')}>
      <TreePanel job={job} branch={b} build={build} total={total} gate={data.branchGate}
-      selectedId={selectedId} onSelect={selectNode} onAllocate={change}/>
+      selectedId={selectedId} onSelect={selectNode} onLeave={scheduleDismiss} onAllocate={change}/>
     </div>)}
    </div>
-   {selectedNode&&selectedBranch&&<aside className={'tg-detail'+(detailExpanded?' tg-expanded':'')} style={!isCompact?(detailPosition||undefined):undefined} aria-label="天賦詳細說明">
+   {selectedNode&&selectedBranch&&<aside ref={detailRef} className={'tg-detail'+(detailExpanded?' tg-expanded':'')} style={!isCompact?(detailPosition||undefined):undefined} onMouseEnter={cancelDismiss} onMouseLeave={scheduleDismiss} onFocusCapture={cancelDismiss} aria-label="天賦詳細說明">
     <div className="tg-detail-head"><TalentIcon node={selectedNode} active={(build[selectedNode.id]||0)>0}/>
      <div><h3>{selectedNode.name}</h3><span aria-live="polite">{selectedBranch.name} · {selectedNode.learn?'學會技能':'等級 '+(build[selectedNode.id]||0)+' / '+selectedNode.maxRank}</span></div>
-     <button type="button" aria-label="關閉天賦說明" onClick={()=>{setSelectedId(null);setDetailExpanded(false)}}><X size={18}/></button>
+     <button type="button" aria-label="關閉天賦說明" onClick={()=>{cancelDismiss();setSelectedId(null);setDetailExpanded(false)}}><X size={18}/></button>
     </div>
     <div className="tg-detail-copy">
      {selectedNode.summary&&<p className="tg-effect">{selectedNode.summary}</p>}

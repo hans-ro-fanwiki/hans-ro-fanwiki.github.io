@@ -205,6 +205,7 @@ try{
   assert.ok(await desktop.locator('.tg-trees').isVisible(),'Desktop navigation returns to talent simulator');
   await desktop.goto(base+'?page=talents&tj=mage',{waitUntil:'networkidle'});
   const desktopFlame=desktop.locator('[data-talent="mage.0.firebolt_dmg"]');
+  await desktopFlame.evaluate(node=>node.scrollIntoView({block:'center',behavior:'instant'}));
   await desktopFlame.hover();
   assert.match(await desktopFlame.locator('.tg-rank').innerText(),/0\/5/,'Desktop hover cannot allocate points');
   const popup=desktop.locator('.tg-detail');
@@ -212,7 +213,28 @@ try{
   const popupBounds=await popup.boundingBox(),talentBounds=await desktopFlame.boundingBox();
   assert.ok(popupBounds&&talentBounds);
   assert.ok(popupBounds.x>=0&&popupBounds.x+popupBounds.width<=1280&&popupBounds.y>=0&&popupBounds.y+popupBounds.height<=900,'Desktop talent popup must remain within viewport');
-  assert.ok(Math.abs(popupBounds.x-talentBounds.x)<380,'Desktop popup must follow selected talent');
+  if(talentBounds.y+talentBounds.height+popupBounds.height+24<900){
+   assert.ok(popupBounds.y>=talentBounds.y+talentBounds.height+5,'Desktop talent popup should appear below hovered skill');
+  }
+  assert.ok(Math.abs((popupBounds.x+popupBounds.width/2)-(talentBounds.x+talentBounds.width/2))<190,'Desktop popup should align horizontally with selected skill');
+  await desktop.mouse.move(4,4);
+  await desktop.waitForTimeout(130);
+  assert.equal(await popup.count(),1,'Tooltip should not disappear immediately after mouseleave');
+  await desktop.waitForTimeout(300);
+  assert.equal(await popup.count(),0,'Tooltip should dismiss after hover grace period');
+  await desktopFlame.hover();
+  const popupForInteraction=await popup.boundingBox();
+  assert.ok(popupForInteraction);
+  await desktop.mouse.move(popupForInteraction.x+40,popupForInteraction.y+34,{steps:1});
+  await desktop.waitForTimeout(430);
+  assert.equal(await popup.count(),1,'Moving into the tooltip cancels the dismissal timer');
+  await popup.getByRole('button',{name:'加一點'}).click();
+  assert.match(await desktopFlame.locator('.tg-rank').innerText(),/1\/5/,'Tooltip controls remain usable');
+  await popup.getByRole('button',{name:'退一點'}).click();
+  assert.match(await desktopFlame.locator('.tg-rank').innerText(),/0\/5/,'Tooltip decrement remains usable');
+  await desktop.mouse.move(4,4);
+  await desktop.waitForTimeout(400);
+  assert.equal(await popup.count(),0,'Leaving tooltip should dismiss after grace period');
   await desktopFlame.click();
   assert.match(await desktopFlame.locator('.tg-rank').innerText(),/1\/5/,'Desktop left click adds one point');
   await desktopFlame.click({button:'right'});

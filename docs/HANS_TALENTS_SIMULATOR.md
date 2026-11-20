@@ -29,6 +29,8 @@
 - `scripts/hans-ui-smoke.mjs` 已驗證裝備、卡片、一轉及三轉圖片在隔離 Chrome 中實際載入成功（naturalWidth > 0）、所有遠端圖片請求都位於 HANS 白名單路徑、320–430px 沒有橫向溢出；原站未來更換路徑會退回替代圖示。
 - 不需要登入或資料庫，不會改變遊戲角色。
 
+- 2026-11-20 提示框定位微調：電腦版說明優先在技能下方置中顯示，靠視窗邊緣時夾取位置、下方不足時才放上方；滑鼠離開技能後給 320ms 過渡時間，如果進入詳情框可持續操作，離開詳情框才重新計時。這不是滑鼠離開節點就立即關閉，因此可順暢點選詳情框內的加減點；行為已加入隔離 Chrome 回歸測試。手機面板維持原樣。
+
 ## 驗證與限制
 - `npm run typecheck`、`npm test`、`VITE_PUBLIC_MODE=1 npm run build`、`node scripts/verify-public-dist.mjs`。
 - `node scripts/hans-ui-smoke.mjs` 在隔離 Chrome 測試配點、分享、重載、重置、二轉／三轉、圖片、手機 320／375／390／430px／桌面 761／900／1280px、滑鼠左／右鍵、contextmenu 防止、hover tooltip 靠近技能、鍵盤加減／Esc、手機首次點選不誤配、可展開詳情、sticky 分支 tabs 及面板不蓋底部導航。不修改使用者既有 Chrome，完成後關閉。真機 Safari 待使用者驗收。

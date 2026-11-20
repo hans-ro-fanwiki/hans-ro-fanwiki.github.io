@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0-dev.7 — 2026-11-20 (talent popup placement and hover grace)
+
+- Move desktop talent details below the hovered skill and center horizontally; clamp to viewport edges and flip above only when below has insufficient space.
+- Close desktop details after a 320 ms mouse-leave grace period. Entering the popover cancels dismissal so its allocation buttons remain usable; leaving the popover restarts the timer.
+- Keep keyboard controls and the separate mobile bottom-sheet interaction unchanged. Add browser regression coverage for positioning, delayed dismissal and interaction inside the popup.
+
+
 ## 0.3.0-dev.6 — 2026-11-20 (HANS talent tree desktop and mobile interactions)
 
 - Refined the skill-tree interface against HANS's official talent layout while preserving its actual branch positions, source icons and connecting paths.
