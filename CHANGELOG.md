@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.0-dev.6 — 2026-11-20 (HANS talent tree desktop and mobile interactions)
+
+- Refined the skill-tree interface against HANS's official talent layout while preserving its actual branch positions, source icons and connecting paths.
+- Desktop: hovering or keyboard focus previews the selected talent in a nearby viewport-clamped panel, left click allocates, right click unallocates (without browser context menu), +/- keyboard shortcuts and Escape to dismiss; Shift+click also unallocates.
+- Mobile: first tap only selects and previews without changing points; explicit 48px +/- controls manage allocations in a compact bottom sheet, with optional expanded prerequisites and effects.
+- Made branch switching sticky on mobile and reduced nonessential skill-bar clutter; respected the bottom navigation and small 320px viewports.
+- Extended Playwright coverage for pointer/touch, right-click, keyboard, popover placement, share URL, resets, mobile details and sticky tabs, while keeping original remote image loading and validation rules.
+
+
 ## 0.3.0-dev.5 — 2026-11-20
 
 - Verify HANS card drops against the monster-kill routine and include four intruder boss routes.

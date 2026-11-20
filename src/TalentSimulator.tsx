@@ -76,9 +76,22 @@ function JobSelector({data,job,onChoose,expanded,setExpanded}:{
   </div>}
  </section>;
 }
+type DetailPosition={left:number;top:number};
+function placeDetail(anchor:HTMLElement):DetailPosition{
+ const r=anchor.getBoundingClientRect();
+ const width=Math.min(350,window.innerWidth-24);
+ const gap=12,edge=12;
+ const right=r.right+gap;
+ const left=r.left-width-gap;
+ const x=right+width+edge<=window.innerWidth?right:left>=edge?left:Math.max(edge,Math.min(window.innerWidth-width-edge,r.right+gap));
+ // Estimated height fits the most common descriptions; panel itself scrolls if longer.
+ const height=Math.min(350,window.innerHeight-24);
+ const y=Math.max(edge,Math.min(r.top-30,window.innerHeight-height-edge));
+ return {left:Math.round(x),top:Math.round(y)};
+}
 function TreePanel({job,branch,build,selectedId,onSelect,onAllocate,total,gate}:{
  job:TalentJob;branch:TalentBranch;build:TalentBuild;selectedId:string|null;
- onSelect:(id:string)=>void;onAllocate:(id:string,delta:1|-1)=>void;total:number;gate:number
+ onSelect:(id:string,anchor:HTMLElement)=>void;onAllocate:(id:string,delta:1|-1)=>void;total:number;gate:number
 }){
  const nodes=useMemo(()=>new Map(branch.talents.map(x=>[x.id,x])),[branch]);
  const rows=branch.rows||Math.max(1,...branch.talents.map(n=>n.row+1));
@@ -118,11 +131,13 @@ function TreePanel({job,branch,build,selectedId,onSelect,onAllocate,total,gate}:
     return <button type="button" key={node.id} data-talent={node.id}
      className={'tg-node talent-tile'+(rank?' tg-taken':'')+(selectedId===node.id?' tg-selected':'')+(isLocked?' tg-node-locked':'')+(node.ultimate?' tg-ultimate':'')}
      style={{left:(node.col+.5)/cols*100+'%',top:(node.row+.5)/rows*100+'%'}}
-     title={node.name+(node.summary?'\n'+node.summary:'')}
-     aria-label={node.name+'，'+rank+'/'+node.maxRank+' 點'}
+     aria-label={node.name+'，'+rank+'/'+node.maxRank+' 點；滑鼠左鍵加點、右鍵退點，觸控點選查看'}
      aria-pressed={selectedId===node.id}
-     onMouseEnter={()=>onSelect(node.id)}
-     onClick={e=>{onSelect(node.id);if(e.shiftKey&&rank>0)onAllocate(node.id,-1);else if(canAdd)onAllocate(node.id,1);}}>
+     onMouseEnter={e=>{if(window.matchMedia('(hover:hover) and (pointer:fine)').matches)onSelect(node.id,e.currentTarget)}}
+     onFocus={e=>onSelect(node.id,e.currentTarget)}
+     onContextMenu={e=>{e.preventDefault();onSelect(node.id,e.currentTarget);if(!window.matchMedia('(pointer:coarse)').matches)onAllocate(node.id,-1)}}
+     onClick={e=>{onSelect(node.id,e.currentTarget);if(window.matchMedia('(pointer:coarse)').matches)return;if(e.shiftKey)onAllocate(node.id,-1);else if(canAdd)onAllocate(node.id,1)}}
+     onKeyDown={e=>{if(e.key==='+'||e.key==='-'){e.preventDefault();onSelect(node.id,e.currentTarget);onAllocate(node.id,e.key==='+'?1:-1)}}}>
      <TalentIcon node={node} active={rank>0}/>
      <span className="tg-rank talent-rank">{node.learn?(rank>0?'★':'0/1'):rank+'/'+node.maxRank}</span>
      {node.weapon&&<span className="tg-weapon">⚔</span>}
@@ -136,6 +151,9 @@ export function TalentSimulator({jobId,token,onRoute}:Props){
  const [data,setData]=useState<TalentCatalog|null>(null);
  const [error,setError]=useState('');
  const [selectedId,setSelectedId]=useState<string|null>(null);
+ const [detailPosition,setDetailPosition]=useState<DetailPosition|null>(null);
+ const [detailExpanded,setDetailExpanded]=useState(false);
+ const [isCompact,setIsCompact]=useState(()=>window.matchMedia('(max-width:750px)').matches);
  const [branchIndex,setBranchIndex]=useState(0);
  const [showJobs,setShowJobs]=useState(()=>window.innerWidth>750);
  const [feedback,setFeedback]=useState('');
@@ -146,7 +164,33 @@ export function TalentSimulator({jobId,token,onRoute}:Props){
    .catch(e=>{if(e.name!=='AbortError')setError('天賦資料載入失敗，請稍後重新整理。')});
   return ()=>ac.abort();
  },[]);
- useEffect(()=>{setBranchIndex(0);setSelectedId(null);setFeedback('')},[jobId]);
+ useEffect(()=>{setBranchIndex(0);setSelectedId(null);setDetailExpanded(false);setFeedback('')},[jobId]);
+ useEffect(()=>{
+  const query=window.matchMedia('(max-width:750px)');
+  const onChange=(e:MediaQueryListEvent)=>setIsCompact(e.matches);
+  query.addEventListener('change',onChange);
+  return ()=>query.removeEventListener('change',onChange);
+ },[]);
+ useEffect(()=>{
+  if(!selectedId||isCompact)return;
+  const refresh=()=>{
+   const node=document.querySelector<HTMLElement>('[data-talent="'+selectedId+'"]');
+   if(node){
+    const r=node.getBoundingClientRect();
+    if(r.bottom<0||r.top>window.innerHeight){setSelectedId(null);return}
+    setDetailPosition(placeDetail(node));
+   }
+  };
+  window.addEventListener('scroll',refresh,true);
+  window.addEventListener('resize',refresh);
+  return ()=>{window.removeEventListener('scroll',refresh,true);window.removeEventListener('resize',refresh)};
+ },[selectedId,isCompact]);
+ useEffect(()=>{
+  if(!selectedId)return;
+  const onKey=(e:KeyboardEvent)=>{if(e.key==='Escape'){setSelectedId(null);setDetailExpanded(false)}};
+  window.addEventListener('keydown',onKey);
+  return ()=>window.removeEventListener('keydown',onKey);
+ },[selectedId]);
  const job=useMemo(()=>data?.jobs.find(j=>j.job===jobId)||data?.jobs[0]||null,[data,jobId]);
  const total=job&&data?talentBudget(data,job):50;
  const parsed=useMemo(()=>job&&data?decodeBuild(job,token,data.sourceCommit,total,data.branchGate):{build:{},error:null},[data,job,token,total]);
@@ -155,6 +199,11 @@ export function TalentSimulator({jobId,token,onRoute}:Props){
  const selectedNode=job?talentList(job).find(n=>n.id===selectedId):null;
  const selectedBranch=job?.branches.find(b=>b.talents.some(n=>n.id===selectedId));
  const update=(buildNext:TalentBuild)=>{if(job&&data){setFeedback('');onRoute(job.job,encodeBuild(job,buildNext,data.sourceCommit),true)}};
+ const selectNode=(id:string,anchor:HTMLElement)=>{
+  if(id!==selectedId)setDetailExpanded(false);
+  setSelectedId(id);
+  if(!isCompact)setDetailPosition(placeDetail(anchor));
+ };
  const change=(id:string,delta:1|-1)=>{
   if(!job||!data)return;
   const next=changeRank(job,build,id,delta,total,data.branchGate);
@@ -187,7 +236,7 @@ export function TalentSimulator({jobId,token,onRoute}:Props){
  return <div className="talent-simulator tg-game">
   <div className="tg-top"><span><Workflow size={20}/>HANS 職業天賦樹</span><small>粉絲製作 · 模擬配點</small></div>
   <div className="tg-body">
-   <p className="tg-lead">參照 HANS 官方天賦樹配置。點選圖示配點，點數與解鎖狀態即時更新；可複製配置網址與朋友討論。</p>
+   <p className="tg-lead"><span className="tg-help-desktop">參照 HANS 官方天賦樹。滑鼠移到圖示可查看技能，左鍵加 1 點、右鍵退 1 點；按 Esc 可關閉說明。</span><span className="tg-help-mobile">點一下技能查看說明，再用面板的 ＋／－ 配點，避免誤觸。</span></p>
    <JobSelector data={data} job={job} expanded={showJobs} setExpanded={setShowJobs}
     onChoose={id=>{onRoute(id,'');setShowJobs(false)}}/>
    <div className="tg-job-title">
@@ -221,25 +270,32 @@ export function TalentSimulator({jobId,token,onRoute}:Props){
    )}</div>
    <div className="talent-branch-tabs tg-mobile-tabs" role="tablist" aria-label="天賦分支">
     {job.branches.map((b,i)=><button type="button" key={b.id} role="tab" aria-selected={branchIndex===i}
-     className={branchIndex===i?'active':''} onClick={()=>{setBranchIndex(i);setSelectedId(null)}}>
+     className={branchIndex===i?'active':''} onClick={()=>{setBranchIndex(i);setSelectedId(null);setDetailExpanded(false)}}>
      {b.name}<small>{b.talents.reduce((n,t)=>n+(build[t.id]||0),0)} 點</small></button>)}
    </div>
    <div className="tg-trees">
     {job.branches.map((b,i)=><div key={job.job+'-'+b.id} className={'tg-tree-wrap'+(branchIndex!==i?' tg-mobile-hidden':'')}>
      <TreePanel job={job} branch={b} build={build} total={total} gate={data.branchGate}
-      selectedId={selectedId} onSelect={setSelectedId} onAllocate={change}/>
+      selectedId={selectedId} onSelect={selectNode} onAllocate={change}/>
     </div>)}
    </div>
-   {selectedNode&&selectedBranch&&<aside className="tg-detail" aria-label="天賦詳細說明">
+   {selectedNode&&selectedBranch&&<aside className={'tg-detail'+(detailExpanded?' tg-expanded':'')} style={!isCompact?(detailPosition||undefined):undefined} aria-label="天賦詳細說明">
     <div className="tg-detail-head"><TalentIcon node={selectedNode} active={(build[selectedNode.id]||0)>0}/>
-     <div><h3>{selectedNode.name}</h3><span>{selectedBranch.name} · {selectedNode.learn?'學會技能':'等級 '+(build[selectedNode.id]||0)+' / '+selectedNode.maxRank}</span></div>
-     <button type="button" aria-label="關閉天賦說明" onClick={()=>setSelectedId(null)}><X size={18}/></button>
+     <div><h3>{selectedNode.name}</h3><span aria-live="polite">{selectedBranch.name} · {selectedNode.learn?'學會技能':'等級 '+(build[selectedNode.id]||0)+' / '+selectedNode.maxRank}</span></div>
+     <button type="button" aria-label="關閉天賦說明" onClick={()=>{setSelectedId(null);setDetailExpanded(false)}}><X size={18}/></button>
     </div>
-    {selectedNode.summary&&<p>{selectedNode.summary}</p>}
-    {selectedNode.maxEffect&&<p className="tg-maxeffect">{selectedNode.maxEffect}</p>}
-    {selectedNode.notes?.map((x,i)=><p className="tg-condition" key={i}>{x}</p>)}
-    {selectedNode.requires.map(id=>{const n=talentList(job).find(x=>x.id===id);return n?<p className="tg-condition" key={id}>前置：{n.name} 需點滿 {n.maxRank} 點，目前 {build[id]||0} 點</p>:null})}
-    {selectedNode.row>0&&<p className="tg-condition">前列點數門檻：{gateFor(selectedNode,selectedBranch,data.branchGate)} 點</p>}
+    <div className="tg-detail-copy">
+     {selectedNode.summary&&<p className="tg-effect">{selectedNode.summary}</p>}
+     <div className="tg-detail-more">
+      {selectedNode.maxEffect&&<p className="tg-maxeffect">{selectedNode.maxEffect}</p>}
+      {selectedNode.notes?.map((x,i)=><p className="tg-condition" key={i}>{x}</p>)}
+      {selectedNode.requires.map(id=>{const n=talentList(job).find(x=>x.id===id);return n?<p className="tg-condition" key={id}>前置：{n.name} 需點滿 {n.maxRank} 點，目前 {build[id]||0} 點</p>:null})}
+      {selectedNode.row>0&&<p className="tg-condition">前列點數門檻：{gateFor(selectedNode,selectedBranch,data.branchGate)} 點</p>}
+     </div>
+    </div>
+    <button type="button" className="tg-detail-expand" aria-expanded={detailExpanded} onClick={()=>setDetailExpanded(!detailExpanded)}>
+     {detailExpanded?'收合詳細說明':'查看完整說明與前置條件'} {detailExpanded?<ChevronUp size={15}/>:<ChevronDown size={15}/>}
+    </button>
     <div className="tg-detail-actions">
      <button type="button" disabled={changeRank(job,build,selectedNode.id,-1,total,data.branchGate)===null} onClick={()=>change(selectedNode.id,-1)}><Minus size={18}/>退一點</button>
      <button type="button" disabled={changeRank(job,build,selectedNode.id,1,total,data.branchGate)===null} onClick={()=>change(selectedNode.id,1)}><Plus size={18}/>加一點</button>

@@ -30,7 +30,8 @@
 - 三轉天賦部分名稱尚為遊戲程式英文原名，公式僅能靜態確認的項目轉成中文效果摘要，來源無法確認的數值不可猜測。
 - 2026-11-20 圖示修正：前一版故意以 `VITE_PUBLIC_MODE=1` 封鎖裝備／卡片及天賦圖示，造成正式站只看到 Lucide；**實際上圖示代碼及圖片 URL 已完整保存在 HANS 資料快照中，並非分支漏合併**。依使用者明確要求，現在在正式版僅引用原站 `assets/icons/`、`assets/items/`、`assets/cards/` 的 HTTPS 圖片，不打包、不存 Git，失敗退回中性圖示。Playwright 已確認四種圖示（裝備、卡片、一轉、三轉）自然寬度 >0，320–430px 排版通過，安全 dist 中仍 0 圖片。圖像權利未因此變為公開授權；保留來源與下架聲明。詳見 `docs/HANS_TALENTS_SIMULATOR.md`。
 - 2026-11-20 桌面導航修正：之前 `.bottom-nav{display:none}`，只在 mobile CSS 打開，造成桌面無法切換裝備／卡片／關卡／天賦。已將同一組四分頁放進頂端 header，桌面橫向顯示、手機維持底部 fixed；Playwright 驗證 761/900/1280px 桌面導航可見、四頁可點、無橫向溢出，手機 320–430px 亦正常。
-- 天賦新增「全部重置」，清空目前職業三條分支、關閉節點詳情並從網址移除配點。卡片的關卡連結會開啟指定關卡，節慶關也可直接開啟。詳見 `docs/HANS_TALENTS_SIMULATOR.md`。
+- 天賦新增「全部重置」，清空目前職業三條分支、關閉節點詳情並從網址移除配點。卡片的關卡連結會開啟指定關卡，節慶關也可直接開啟。
+- 2026-11-20 天賦 UX 優化：針對 HANS 官方 `talents.html#swordsman` 樹狀界面和使用者桌面／手機截圖，由 OpenChatX 的 `skills.design-taste-review` 及 `skills.apple-design` 指引調整操作。電腦左鍵 +1、右鍵 -1、hover／focus 靠近節點的詳情框、`+`／`-` 與 `Esc` 鍵盤操作；手機單擊只預覽，獨立 `+`／`-` 按鈕控制、可展開精簡底部說明、分支 tabs sticky；仍保留原 41 職 3,168 點、分享網址、全部重置、實際圖示與限制。已在隔離 Chrome 驗證手機 320／375／390／430px、桌面 761／900／1280px、mouse/contextmenu、鍵盤、tooltip、URL 分享，真機 Safari 尚待使用者測試。詳見 `docs/HANS_TALENTS_SIMULATOR.md`。
 
 ## 關鍵不確定性
 - 卡片掉落已核對 HANS 的 `killEnemy`、`kW` 與關卡怪物池。匯入器納入 4 個 `intruder` Boss 並排除劇情掉落。11/20 線上版本的關卡表及此擊殺邏輯與 11/19 審核快照相同。活動抽獎與卡片回收員的逐卡獎池尚未確認。
