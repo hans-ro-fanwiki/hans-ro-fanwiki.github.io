@@ -1,30 +1,31 @@
 import {useCallback,useEffect,useMemo,useState} from 'react';
 import {createRoot} from 'react-dom/client';
-import {ArrowLeft,BookOpen,ChevronDown,ChevronRight,Gem,Map as MapIcon,Search,Shield,SlidersHorizontal,Swords,Target,X} from 'lucide-react';
+import {ArrowLeft,BookOpen,ChevronDown,ChevronRight,Gem,GitBranch,Map as MapIcon,Search,Shield,SlidersHorizontal,Swords,Target,X} from 'lucide-react';
 import type {Card,Catalog,Equipment,ImageEvidence,Kind,Monster,Page,Source,Stage} from './types';
 import './styles.css';
 import './search.css';
 import './dark.css';
 import {ATTRIBUTE_GROUPS,entryMatches,matchedEffect} from './search';
 import {SiteFooter} from './SiteFooter';
+import {TalentSimulator} from './TalentSimulator';
 import {equipmentTier} from './tier';
 import {hasConfirmedAcquisition} from './acquisition';
 
-type View={page:Page;slot:string;job:string;effect:string;source:string;query:string;attr:string;mode:'list'|'stages';onlyOpen:boolean;showUnknown:boolean;detail:string|null};
+type View={page:Page;slot:string;job:string;effect:string;source:string;query:string;attr:string;mode:'list'|'stages';onlyOpen:boolean;showUnknown:boolean;detail:string|null;tj:string;tb:string};
 type GameEntry=Equipment|Card;
 const SLOTS:Record<string,string>={weapon:'武器',head_top:'頭飾（上）',head_mid:'頭飾（中）',head_low:'頭飾（下）',armor:'衣服',shield:'盾牌',garment:'披肩',shoes:'鞋子',acc:'飾品'};
 const JOBS:Record<string,string>={all:'全部',mage:'魔法師系',swordsman:'劍士系',archer:'弓箭手系',acolyte:'服事系',thief:'盜賊系',merchant:'商人系',taekwon:'跆拳道系',ninja:'忍者系',gunslinger:'神槍手系'};
 const SOURCES:Record<string,string>={monsterDrop:'怪物掉落',bossDrop:'Boss 掉落',story:'劇情',event:'活動',reward:'獎勵',starter:'初始裝備'};
-const LABELS:Record<Page,string>={items:'裝備',cards:'卡片',stages:'關卡'};
+const LABELS:Record<Page,string>={items:'裝備',cards:'卡片',stages:'關卡',talents:'天賦'};
 // HANS-only. Original artwork is shown via HANS source only in private Dev; no art ships in public Pages.
 const PUBLIC_MODE=import.meta.env.VITE_PUBLIC_MODE==='1';
 const ASSET_ROOT='https://ro.hans-webgametw.com/assets/';
-const EMPTY:View={page:'items',slot:'all',job:'all',effect:'all',source:'all',query:'',attr:'all',mode:'list',onlyOpen:true,showUnknown:false,detail:null};
+const EMPTY:View={page:'items',slot:'all',job:'all',effect:'all',source:'all',query:'',attr:'all',mode:'list',onlyOpen:true,showUnknown:false,detail:null,tj:'swordsman',tb:''};
 function readLocation():View{
  const q=new URLSearchParams(location.search);
  const page=q.get('page')||'items';
  return {page:(page in LABELS?page:'items') as Page,slot:q.get('slot')||'all',job:q.get('job')||'all',effect:q.get('effect')||'all',
- source:q.get('source')||'all',query:q.get('q')||'',attr:q.get('attr')||'all',mode:q.get('mode')==='stages'?'stages':'list',onlyOpen:q.get('open')!=='0',showUnknown:q.get('unknown')==='1',detail:q.get('detail')||null};
+ source:q.get('source')||'all',query:q.get('q')||'',attr:q.get('attr')||'all',mode:q.get('mode')==='stages'?'stages':'list',onlyOpen:q.get('open')!=='0',showUnknown:q.get('unknown')==='1',detail:q.get('detail')||null,tj:q.get('tj')||'swordsman',tb:q.get('tb')||''};
 }
 function pathFor(v:View){
  const q=new URLSearchParams();
@@ -39,6 +40,7 @@ function pathFor(v:View){
  if(!v.onlyOpen)q.set('open','0');
  if(v.showUnknown)q.set('unknown','1');
  if(v.detail)q.set('detail',v.detail);
+ if(v.page==='talents'){if(v.tj!=='swordsman')q.set('tj',v.tj);if(v.tb)q.set('tb',v.tb);}
  return location.pathname+(q.size?'?'+q.toString():'');
 }
 function Chip({active,children,onClick}:{active:boolean;children:React.ReactNode;onClick:()=>void}){
@@ -166,9 +168,10 @@ function App(){
   <header className="topbar"><div className="top-inner"><span className="brand-mark">H</span><span className="brand-names"><strong>RO 倖存者｜HANS 粉絲維基</strong><small>非官方玩家製作 · HANS 專屬{PUBLIC_MODE?'':' · 開發預覽'}</small></span></div></header>
   <main className="container">
    <section className="content-section">
-    <div className="section-heading"><h1>{LABELS[state.page]}</h1><span className="heading-count">
-      {state.page==='items'?equip.length:state.page==='cards'?cardList.length:state.page==='stages'?catalog?.stages.length||0:''}
-     </span></div>
+    <div className="section-heading"><h1>{LABELS[state.page]}</h1>{state.page!=='talents'&&<span className="heading-count">
+      {state.page==='items'?equip.length:state.page==='cards'?cardList.length:catalog?.stages.length||0}
+     </span>}</div>
+    {state.page==='talents'?<TalentSimulator jobId={state.tj} token={state.tb} onRoute={(tj,tb,replace=false)=>navigate({tj,tb,page:'talents'},false,replace)}/>:<>
     {error&&<div className="empty-state">{error}</div>}
     {!catalog&&!error&&<div className="empty-state">讀取中…</div>}
     {catalog&&<>
@@ -217,11 +220,12 @@ function App(){
      </>}
      {state.page==='stages'&&<><div className="stage-view-toolbar"><span className="search-hint">點擊關卡即可展開或收合</span><label className="toggle"><input type="checkbox" checked={state.onlyOpen} onChange={e=>navigate({onlyOpen:e.target.checked})}/>只看已開放關卡</label><label className="toggle"><input type="checkbox" checked={state.showUnknown} onChange={e=>navigate({showUnknown:e.target.checked})}/>顯示未核實卡片關聯</label></div><StageBrowser data={catalog} query={state.query} attr={state.attr} onlyOpen={state.onlyOpen} focusedStage={focusedStage} openDetail={openDetail} showUnknown={state.showUnknown}/></>}
     </>}
+    </>}
    </section>
   </main>
   <SiteFooter publicMode={PUBLIC_MODE}/>
   <nav className="bottom-nav" aria-label="分類">
-   {([['items',Shield],['cards',BookOpen],['stages',MapIcon]] as const).map(([page,Icon])=><button key={page} className={state.page===page?'active':''} onClick={()=>navigate({...EMPTY,page,showUnknown:state.showUnknown},true)} aria-current={state.page===page?'page':undefined}><Icon size={21}/><span>{LABELS[page]}</span></button>)}
+   {([['items',Shield],['cards',BookOpen],['stages',MapIcon],['talents',GitBranch]] as const).map(([page,Icon])=><button key={page} className={state.page===page?'active':''} onClick={()=>navigate({...EMPTY,page,showUnknown:state.showUnknown},true)} aria-current={state.page===page?'page':undefined}><Icon size={21}/><span>{LABELS[page]}</span></button>)}
   </nav>
   {state.detail&&catalog&&<div className="sheet-backdrop" onMouseDown={e=>{if(e.target===e.currentTarget)closeDetail()}}>
    <section className="sheet" role="dialog" aria-modal="true" aria-label="詳細資訊"><div className="sheet-grab"/>

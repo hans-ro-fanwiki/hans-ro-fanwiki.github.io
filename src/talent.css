@@ -1,0 +1,62 @@
+/* HANS talent simulator — extends the established dark wiki palette. */
+.talent-simulator{color:var(--wiki-text)}
+.talent-intro{font-size:14px;color:var(--wiki-muted);margin:0 0 17px}
+.talent-job-picker{display:flex;align-items:center;gap:12px;margin:0 0 16px;font-weight:700;font-size:14px;color:var(--wiki-muted)}
+.talent-job-picker select{min-height:44px;flex:1;max-width:340px;background:#172429;border:1px solid var(--wiki-border);border-radius:10px;padding:9px 12px;color:var(--wiki-text)}
+.talent-summary{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:15px;border-radius:14px;background:#17282c;border:1px solid var(--wiki-border);margin-bottom:18px}
+.talent-summary>div:not(.talent-main-actions){display:flex;flex-direction:column;gap:2px}
+.talent-summary small{font-size:12px;color:var(--wiki-muted)}
+.talent-summary strong{font-size:25px;font-variant-numeric:tabular-nums;line-height:1.2}
+.talent-summary strong span{font-size:14px;color:var(--wiki-muted)}
+.talent-main-actions{margin-left:auto;display:flex;flex-wrap:wrap;gap:7px}
+.talent-main-actions button{min-height:41px;display:inline-flex;justify-content:center;align-items:center;gap:5px;border-radius:9px;font-size:12px;font-weight:700;padding:8px 10px}
+.talent-share{background:#3c8069;border:1px solid #63b795;color:#f3fff9}
+.talent-action{background:var(--wiki-raised);color:var(--wiki-text);border:1px solid var(--wiki-border)}
+.talent-main-actions button:disabled{opacity:.45;cursor:not-allowed}
+.talent-branch-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-bottom:18px}
+.talent-branch-tabs button{display:flex;flex-direction:column;align-items:center;gap:2px;justify-content:center;min-height:58px;border-radius:11px;border:1px solid var(--wiki-border);background:var(--wiki-raised);color:var(--wiki-text);font-size:14px;font-weight:800;padding:7px}
+.talent-branch-tabs button small{color:var(--wiki-muted);font-size:11px;font-weight:500}
+.talent-branch-tabs button.active{border-color:var(--wiki-accent);background:#2c5547;color:#def7e9}
+.talent-branch-heading{display:flex;align-items:baseline;flex-wrap:wrap;justify-content:space-between;gap:7px;margin:0 0 10px}
+.talent-branch-heading h2{font-size:17px;margin:0}
+.talent-branch-heading span{color:var(--wiki-muted);font-size:12px}
+.talent-tree-scroll{overflow-x:auto;overscroll-behavior-x:contain;border:1px solid var(--wiki-border);border-radius:13px;background:#19272c;padding:10px;scrollbar-width:thin}
+.talent-tree{position:relative;max-width:650px;margin:auto}
+.talent-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:row;column-gap:7px;position:relative;z-index:1}
+.talent-connections{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.talent-path{fill:none;stroke:#4f686b;stroke-width:3;stroke-dasharray:6 5}
+.talent-path.active{stroke:#78be9f;stroke-dasharray:none}
+.talent-tile{min-width:0;align-self:stretch;justify-self:stretch;display:flex;flex-direction:column;align-items:stretch;gap:3px;padding:2px}
+.talent-core{display:flex;flex-direction:column;gap:2px;align-items:center;justify-content:center;min-width:0;flex:1;padding:6px 2px;border:1px solid #456367;border-radius:9px;background:#26393d;color:var(--wiki-text);text-align:center}
+.talent-emblem{display:grid;place-items:center;min-width:25px;min-height:25px;border-radius:8px;background:#3d5859;color:#d5e9dd;font-size:14px;font-weight:800}
+.talent-name{font-size:12px;line-height:1.16;font-weight:700;max-width:100%;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.talent-rank{font-size:11px;color:#bdcec6;font-variant-numeric:tabular-nums}
+.talent-tile.invested .talent-core{background:#2e594c;border-color:#70c29e}
+.talent-tile.invested .talent-emblem{background:#56977b;color:#11291f}
+.talent-tile.focused .talent-core{outline:2px solid #aee5c4;outline-offset:1px}
+.talent-stepper{display:flex;justify-content:center;gap:4px}
+.talent-stepper button{width:27px;height:25px;display:grid;place-items:center;background:#35534d;border:1px solid #527a6b;color:#edfff3;border-radius:6px}
+.talent-stepper button:disabled{background:#24363a;border-color:#354f53;color:#60787b;cursor:not-allowed}
+.talent-inspect{margin:13px 0 0;padding:15px;border:1px solid var(--wiki-border);border-radius:12px;background:#25383d}
+.talent-inspect strong{display:block;font-size:17px}
+.talent-inspect small{display:block;margin-top:4px;color:var(--wiki-muted)}
+.talent-inspect p{font-size:13px;margin:8px 0;color:#d9e9e0}
+.talent-inspect a{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--wiki-accent);margin-top:4px}
+.talent-footnote{display:flex;gap:8px;align-items:flex-start;margin:18px 0 0;color:var(--wiki-muted);font-size:12px}
+.talent-footnote svg{flex-shrink:0;margin-top:2px}
+.talent-warning,.talent-success,.talent-notice{padding:10px 12px;border:1px solid var(--wiki-border);border-radius:9px;background:#25383d;font-size:13px;color:var(--wiki-text)}
+.talent-warning{border-color:#967642;color:#ffdf99}
+.talent-success{display:flex;align-items:center;gap:6px;border-color:#57846c;color:#b9f2ce}
+@media(max-width:600px){
+ .talent-summary{gap:12px;padding:12px}
+ .talent-summary strong{font-size:22px}
+ .talent-main-actions{width:100%;margin-left:0}
+ .talent-main-actions button{flex:1;min-height:43px}
+ .talent-main-actions .talent-share{flex:1.2}
+ .talent-tree-scroll{padding:5px}
+ .talent-grid{column-gap:2px}
+ .talent-core{padding:4px 1px}
+ .talent-name{font-size:10.5px}
+ .talent-emblem{min-width:23px;min-height:23px}
+ .talent-branch-tabs button{font-size:12px;padding:7px 3px}
+}

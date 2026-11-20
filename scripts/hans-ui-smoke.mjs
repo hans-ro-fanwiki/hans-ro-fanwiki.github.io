@@ -24,7 +24,7 @@ try{
  await page.goto(base,{waitUntil:'networkidle'});
  await page.locator('.heading-count').waitFor();
  assert.match(await page.locator('.topbar').innerText(),/HANS/);
- assert.equal(await page.locator('.bottom-nav button').count(),3);
+ assert.equal(await page.locator('.bottom-nav button').count(),4);
  const initial=Number((await page.locator('.heading-count').innerText()).trim());
  assert.ok(initial>350 && initial<523,'Only verified obtainable equipment shown');
  checks.push({page:'items',items:initial});
@@ -58,6 +58,37 @@ try{
   checks.push({width,...dims});
  }
  await page.screenshot({path:path.join(folder,'hans-stages-390.png')});
+ await page.goto(base+'?page=talents&tj=mage',{waitUntil:'networkidle'});
+ assert.equal(await page.locator('.talent-branch-tabs button').count(),3);
+ assert.ok(await page.locator('.talent-tile').count()>8,'Talent branch contains multiple nodes');
+ const flame=page.locator('.talent-tile').filter({hasText:'生命火焰'}).first();
+ await flame.locator('.talent-core').click();
+ assert.ok((await flame.locator('.talent-rank').innerText()).startsWith('1/'));
+ const wall=page.locator('.talent-tile').filter({hasText:'灼熱火牆'}).first();
+ assert.ok(await wall.getByRole('button',{name:/增加 灼熱火牆/}).isDisabled(),'Tier 2 is gated before 5 points');
+ for(let i=0;i<4;i++)await flame.getByRole('button',{name:/增加 生命火焰/}).click();
+ assert.ok(await wall.getByRole('button',{name:/增加 灼熱火牆/}).isEnabled(),'Tier 2 unlocks at 5');
+ await wall.getByRole('button',{name:/增加 灼熱火牆/}).click();
+ assert.ok(await flame.getByRole('button',{name:/減少 生命火焰/}).isDisabled(),'Cannot unspend prerequisite tier');
+ const buildUrl=page.url();
+ assert.ok(buildUrl.includes('tb=v1.'),'URL preserves talent allocations');
+ await context.grantPermissions(['clipboard-read','clipboard-write']);
+ await page.getByRole('button',{name:'複製連結'}).click();
+ const copied=await page.evaluate(()=>navigator.clipboard.readText());
+ assert.equal(copied,buildUrl,'Copied share link matches current allocation');
+ await page.reload({waitUntil:'networkidle'});
+ assert.ok((await page.locator('.talent-tile').filter({hasText:'生命火焰'}).first().locator('.talent-rank').innerText()).startsWith('5/'),'Reload restores shared build');
+ await page.setViewportSize({width:390,height:844});
+ await page.screenshot({path:path.join(folder,'hans-talents-390.png'),fullPage:true});
+ page.once('dialog',dialog=>dialog.accept());
+ await page.getByRole('button',{name:'重置'}).click();
+ assert.ok((await page.locator('.talent-tile').filter({hasText:'生命火焰'}).first().locator('.talent-rank').innerText()).startsWith('0/'),'Reset clears allocations');
+ for(const width of [320,375,390,430]){
+  await page.setViewportSize({width,height:844});
+  const dims=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth}));
+  assert.ok(dims.scroll<=dims.width+2,'Talent page horizontal overflow '+width+': '+JSON.stringify(dims));
+  checks.push({page:'talents',width,...dims});
+ }
  assert.deepEqual(errors,[],'No unhandled client errors');
  assert.ok(requested.every(url=>!/(?:fan-thumbs|approved-thumbs|game-assets)/.test(url)),
   'No Coffee art path may be requested');

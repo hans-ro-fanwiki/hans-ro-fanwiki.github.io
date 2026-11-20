@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0-dev — 2026-11-20 (first-job talent simulator preview)
+
+- Added a fourth Talents tab with nine HANS first-job trees, 27 branches and 444 audited talent nodes.
+- Added 50-point budgeting, prerequisite/tier enforcement, increment/decrement, reset, build serialization and revision-checked share links.
+- Added isolated AST-only HANS talent topology importer and source hash pinning, without redistributing game scripts or unlicensed images.
+- Added four talent tests and responsive Chrome smoke tests at 320/375/390/430px.
+- Second/third-job trees, individual talent effects and original artwork remain pending verification. Dev only; production unchanged.
+
 ## 0.2.1 — 2026-11-19 (HANS fan wiki organization migration)
 
 - Transferred original repository to the free `hans-ro-fanwiki` GitHub Organization while retaining repository ID, Git history, Issues, PRs, and branches.

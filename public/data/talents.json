@@ -1,0 +1,5006 @@
+{
+  "server": "hans",
+  "version": 1,
+  "sourceCommit": "1b3ae686",
+  "sourceDate": "2026-11-12",
+  "sha256": "0201182d55c963b52c029016dd74651640e02c783d487f9077a7cd92ce5bf600",
+  "pointsPerJob": 50,
+  "branchGate": 5,
+  "jobs": [
+    {
+      "job": "swordsman",
+      "branches": [
+        {
+          "id": 0,
+          "name": "武器",
+          "originalName": "Armas",
+          "talents": [
+            {
+              "id": "swordsman.0.sword_mastery",
+              "row": 0,
+              "col": 0,
+              "name": "單手劍使用熟練度",
+              "originalName": "Sword Mastery",
+              "maxRank": 5,
+              "icon": "sm_sword",
+              "requires": []
+            },
+            {
+              "id": "swordsman.0.tempered",
+              "row": 1,
+              "col": 0,
+              "name": "淬火之刃",
+              "originalName": "Filo templado",
+              "maxRank": 3,
+              "icon": "kn_onehand",
+              "requires": []
+            },
+            {
+              "id": "swordsman.0.bash_dmg",
+              "row": 0,
+              "col": 1,
+              "name": "進階狂擊",
+              "originalName": "Bash mejorado",
+              "maxRank": 5,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "swordsman.0.deep_cut",
+              "row": 2,
+              "col": 0,
+              "name": "深度斬擊",
+              "originalName": "Tajo profundo",
+              "maxRank": 2,
+              "icon": "lk_headcrush",
+              "requires": [
+                "swordsman.0.tempered"
+              ]
+            },
+            {
+              "id": "swordsman.0.fatal_blow",
+              "row": 2,
+              "col": 1,
+              "name": "攻擊弱點",
+              "originalName": "Fatal Blow",
+              "maxRank": 3,
+              "icon": "sm_fatalblow",
+              "requires": [
+                "swordsman.0.bash_dmg"
+              ]
+            },
+            {
+              "id": "swordsman.0.magnum_dmg",
+              "row": 2,
+              "col": 3,
+              "name": "增幅怒爆",
+              "originalName": "Magnum potenciado",
+              "maxRank": 5,
+              "icon": "rk_ignitionbreak",
+              "requires": []
+            },
+            {
+              "id": "swordsman.0.two_hand",
+              "row": 2,
+              "col": 2,
+              "name": "雙手劍使用熟練度",
+              "originalName": "Two-Hand Mastery",
+              "maxRank": 5,
+              "icon": "sm_twohand",
+              "requires": []
+            },
+            {
+              "id": "swordsman.0.weapon_mastery",
+              "row": 4,
+              "col": 0,
+              "name": "武器熟練",
+              "originalName": "Maestría del arma",
+              "maxRank": 3,
+              "icon": "kn_pierce",
+              "requires": []
+            },
+            {
+              "id": "swordsman.0.giant_slayer",
+              "row": 3,
+              "col": 2,
+              "name": "巨人殺手",
+              "originalName": "Matagigantes",
+              "maxRank": 3,
+              "icon": "rk_giantgrowth",
+              "requires": []
+            },
+            {
+              "id": "swordsman.0.magnum_cd",
+              "row": 3,
+              "col": 3,
+              "name": "迅速怒爆",
+              "originalName": "Magnum rápido",
+              "maxRank": 3,
+              "icon": "rk_windcutter",
+              "requires": [
+                "swordsman.0.magnum_dmg"
+              ]
+            },
+            {
+              "id": "swordsman.0.coup",
+              "row": 4,
+              "col": 1,
+              "name": "終結一擊",
+              "originalName": "Golpe de gracia",
+              "maxRank": 1,
+              "icon": "lk_jointbeat",
+              "requires": [
+                "swordsman.0.fatal_blow"
+              ]
+            },
+            {
+              "id": "swordsman.0.magnum_mark",
+              "row": 4,
+              "col": 3,
+              "name": "怒爆烈焰",
+              "originalName": "Llamas de Magnum",
+              "maxRank": 2,
+              "icon": "rk_enchantblade",
+              "requires": [
+                "swordsman.0.magnum_cd"
+              ]
+            },
+            {
+              "id": "swordsman.0.lethal",
+              "row": 5,
+              "col": 0,
+              "name": "致命精確",
+              "originalName": "Precisión letal",
+              "maxRank": 3,
+              "icon": "lk_concentration",
+              "requires": []
+            },
+            {
+              "id": "swordsman.0.warrior_reach",
+              "row": 4,
+              "col": 2,
+              "name": "戰士的近戰距離",
+              "originalName": "Alcance del guerrero",
+              "maxRank": 2,
+              "icon": "kn_spearstab",
+              "requires": [
+                "swordsman.0.giant_slayer"
+              ]
+            },
+            {
+              "id": "swordsman.0.magnum_inferno",
+              "row": 5,
+              "col": 2,
+              "name": "煉獄怒爆",
+              "originalName": "Magnum infernal",
+              "maxRank": 1,
+              "icon": "mh_magma_flow",
+              "requires": []
+            },
+            {
+              "id": "swordsman.0.shout_weaken",
+              "row": 0,
+              "col": 3,
+              "name": "指揮之聲",
+              "originalName": "Voz de mando",
+              "maxRank": 5,
+              "icon": "gd_battleorder",
+              "requires": []
+            },
+            {
+              "id": "swordsman.0.shout_dread",
+              "row": 1,
+              "col": 3,
+              "name": "恐懼",
+              "originalName": "Pavor",
+              "maxRank": 2,
+              "icon": "sc_chaospanic",
+              "requires": [
+                "swordsman.0.shout_weaken"
+              ]
+            },
+            {
+              "id": "swordsman.0.bowling_bash",
+              "row": 6,
+              "col": 1,
+              "name": "壓碎狂擊",
+              "originalName": "Bash demoledor",
+              "maxRank": 1,
+              "icon": "kn_bowlingbash",
+              "requires": [
+                "swordsman.0.coup"
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "name": "狂怒",
+          "originalName": "Furia",
+          "talents": [
+            {
+              "id": "swordsman.1.brutality",
+              "row": 0,
+              "col": 1,
+              "name": "兇殘",
+              "originalName": "Brutalidad",
+              "maxRank": 5,
+              "icon": "rk_fightingspirit",
+              "requires": []
+            },
+            {
+              "id": "swordsman.1.charge",
+              "row": 1,
+              "col": 0,
+              "name": "衝鋒",
+              "originalName": "Carga",
+              "maxRank": 2,
+              "icon": "cr_spearquicken",
+              "requires": []
+            },
+            {
+              "id": "swordsman.1.double_slash",
+              "row": 1,
+              "col": 1,
+              "name": "二連斬",
+              "originalName": "Doble tajo",
+              "maxRank": 5,
+              "icon": "rk_hundredspear",
+              "requires": []
+            },
+            {
+              "id": "swordsman.1.frenzy",
+              "row": 2,
+              "col": 0,
+              "name": "狂熱",
+              "originalName": "Frenesí",
+              "maxRank": 5,
+              "icon": "lg_rageburst",
+              "requires": []
+            },
+            {
+              "id": "swordsman.1.auto_berserk",
+              "row": 2,
+              "col": 1,
+              "name": "狂暴狀態",
+              "originalName": "Auto Berserk",
+              "maxRank": 3,
+              "icon": "sm_autoberserk",
+              "requires": []
+            },
+            {
+              "id": "swordsman.1.quicken",
+              "row": 2,
+              "col": 3,
+              "name": "雙手劍攻擊速度增加",
+              "originalName": "Two-Hand Quicken",
+              "maxRank": 3,
+              "icon": "kn_twohandquicken",
+              "requires": []
+            },
+            {
+              "id": "swordsman.1.bloodthirst",
+              "row": 3,
+              "col": 1,
+              "name": "嗜血",
+              "originalName": "Sed de sangre",
+              "maxRank": 2,
+              "icon": "rk_deathbound",
+              "requires": [
+                "swordsman.1.auto_berserk"
+              ]
+            },
+            {
+              "id": "swordsman.1.relentless",
+              "row": 0,
+              "col": 2,
+              "name": "冷酷之刃",
+              "originalName": "Filo implacable",
+              "maxRank": 5,
+              "icon": "lg_moonslasher",
+              "requires": []
+            },
+            {
+              "id": "swordsman.1.cleave",
+              "row": 3,
+              "col": 3,
+              "name": "連環斬擊",
+              "originalName": "Tajos encadenados",
+              "maxRank": 1,
+              "icon": "lg_cannonspear",
+              "requires": []
+            },
+            {
+              "id": "swordsman.1.adrenaline",
+              "row": 4,
+              "col": 0,
+              "name": "腎上腺素",
+              "originalName": "Adrenalina",
+              "maxRank": 2,
+              "icon": "rk_vitalityactivation",
+              "requires": []
+            },
+            {
+              "id": "swordsman.1.roar",
+              "row": 5,
+              "col": 0,
+              "name": "咆哮",
+              "originalName": "Rugido",
+              "maxRank": 2,
+              "icon": "rk_dragonhowling",
+              "requires": []
+            },
+            {
+              "id": "swordsman.1.steel_fury",
+              "row": 5,
+              "col": 3,
+              "name": "鋼鐵怒火",
+              "originalName": "Furia de acero",
+              "maxRank": 2,
+              "icon": "lk_aurablade",
+              "requires": [
+                "swordsman.1.cleave"
+              ]
+            },
+            {
+              "id": "swordsman.1.berserk",
+              "row": 6,
+              "col": 1,
+              "name": "狂暴",
+              "originalName": "Berserk",
+              "maxRank": 1,
+              "icon": "lk_berserk",
+              "requires": [
+                "swordsman.1.bloodthirst"
+              ]
+            },
+            {
+              "id": "swordsman.1.dance_dmg",
+              "row": 1,
+              "col": 2,
+              "name": "舞步",
+              "originalName": "Paso de baile",
+              "maxRank": 5,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "swordsman.1.dance_cd",
+              "row": 3,
+              "col": 2,
+              "name": "疾速之舞",
+              "originalName": "Danza veloz",
+              "maxRank": 3,
+              "icon": "rk_sonicwave",
+              "requires": [
+                "swordsman.1.dance_dmg"
+              ]
+            },
+            {
+              "id": "swordsman.1.dance_area",
+              "row": 5,
+              "col": 2,
+              "name": "旋風",
+              "originalName": "Torbellino",
+              "maxRank": 2,
+              "icon": "rk_stormblast",
+              "requires": []
+            },
+            {
+              "id": "swordsman.1.dance_finale",
+              "row": 6,
+              "col": 2,
+              "name": "死之舞",
+              "originalName": "Danza de la muerte",
+              "maxRank": 1,
+              "icon": "lk_spiralpierce",
+              "requires": [
+                "swordsman.1.dance_area"
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "守護",
+          "originalName": "Protección",
+          "talents": [
+            {
+              "id": "swordsman.2.hard_skin",
+              "row": 0,
+              "col": 0,
+              "name": "硬皮",
+              "originalName": "Piel dura",
+              "maxRank": 5,
+              "icon": "rk_stonehardskin",
+              "requires": []
+            },
+            {
+              "id": "swordsman.2.stance",
+              "row": 0,
+              "col": 1,
+              "name": "穩健架勢",
+              "originalName": "Postura firme",
+              "maxRank": 5,
+              "icon": "cr_autoguard",
+              "requires": []
+            },
+            {
+              "id": "swordsman.2.recovery",
+              "row": 1,
+              "col": 0,
+              "name": "回復",
+              "originalName": "Recuperación",
+              "maxRank": 3,
+              "icon": "sm_recovery",
+              "requires": [
+                "swordsman.2.hard_skin"
+              ]
+            },
+            {
+              "id": "swordsman.2.shield_mastery",
+              "row": 1,
+              "col": 1,
+              "name": "盾牌修練",
+              "originalName": "Maestría con escudo",
+              "maxRank": 3,
+              "icon": "cr_shieldcharge",
+              "requires": []
+            },
+            {
+              "id": "swordsman.2.provoke_area",
+              "row": 1,
+              "col": 2,
+              "name": "戰鬥吶喊",
+              "originalName": "Grito de guerra",
+              "maxRank": 3,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "swordsman.2.endure_cd",
+              "row": 0,
+              "col": 3,
+              "name": "堅韌",
+              "originalName": "Resistencia",
+              "maxRank": 3,
+              "icon": "sm_endure",
+              "requires": []
+            },
+            {
+              "id": "swordsman.2.moving_recovery",
+              "row": 2,
+              "col": 0,
+              "name": "移動時恢復HP",
+              "originalName": "Moving HP Recovery",
+              "maxRank": 2,
+              "icon": "sm_movingrecovery",
+              "requires": [
+                "swordsman.2.recovery"
+              ]
+            },
+            {
+              "id": "swordsman.2.guard_up",
+              "row": 2,
+              "col": 1,
+              "name": "舉盾戒備",
+              "originalName": "Guardia alzada",
+              "maxRank": 3,
+              "icon": "cr_defender",
+              "requires": []
+            },
+            {
+              "id": "swordsman.2.taunt",
+              "row": 2,
+              "col": 2,
+              "name": "野蠻挑釁",
+              "originalName": "Provocación brutal",
+              "maxRank": 2,
+              "icon": "pa_pressure",
+              "requires": [
+                "swordsman.2.provoke_area"
+              ]
+            },
+            {
+              "id": "swordsman.2.faith",
+              "row": 3,
+              "col": 1,
+              "name": "堅信",
+              "originalName": "Convicción",
+              "maxRank": 5,
+              "icon": "cr_trust",
+              "requires": []
+            },
+            {
+              "id": "swordsman.2.endure_heal",
+              "row": 1,
+              "col": 3,
+              "name": "毅力",
+              "originalName": "Tesón",
+              "maxRank": 2,
+              "icon": "lk_tensionrelax",
+              "requires": [
+                "swordsman.2.endure_cd"
+              ]
+            },
+            {
+              "id": "swordsman.2.shield_bash_dmg",
+              "row": 2,
+              "col": 3,
+              "name": "盾牌打擊",
+              "originalName": "Golpe de escudo",
+              "maxRank": 5,
+              "icon": "lg_shieldspell",
+              "requires": []
+            },
+            {
+              "id": "swordsman.2.shield_bash_reach",
+              "row": 4,
+              "col": 3,
+              "name": "先鋒",
+              "originalName": "Vanguardia",
+              "maxRank": 2,
+              "icon": "lg_forceofvanguard",
+              "requires": [
+                "swordsman.2.shield_bash_dmg"
+              ]
+            },
+            {
+              "id": "swordsman.2.bulldozer",
+              "row": 5,
+              "col": 3,
+              "name": "壓路機",
+              "originalName": "Apisonadora",
+              "maxRank": 1,
+              "icon": "pa_shieldchain",
+              "requires": [
+                "swordsman.2.shield_bash_reach"
+              ]
+            },
+            {
+              "id": "swordsman.2.parry",
+              "row": 4,
+              "col": 0,
+              "name": "盾牌修練",
+              "originalName": "Shield Mastery",
+              "maxRank": 3,
+              "icon": "lk_parrying",
+              "requires": []
+            },
+            {
+              "id": "swordsman.2.presence",
+              "row": 4,
+              "col": 2,
+              "name": "威勢",
+              "originalName": "Presencia",
+              "maxRank": 2,
+              "icon": "lg_prestige",
+              "requires": []
+            },
+            {
+              "id": "swordsman.2.immovable",
+              "row": 5,
+              "col": 0,
+              "name": "屹立不搖",
+              "originalName": "Inamovible",
+              "maxRank": 2,
+              "icon": "rk_refresh",
+              "requires": []
+            },
+            {
+              "id": "swordsman.2.wall",
+              "row": 5,
+              "col": 1,
+              "name": "壁壘",
+              "originalName": "Muro",
+              "maxRank": 2,
+              "icon": "lg_shieldpress",
+              "requires": []
+            },
+            {
+              "id": "swordsman.2.last_breath",
+              "row": 6,
+              "col": 1,
+              "name": "最後一口氣",
+              "originalName": "Último aliento",
+              "maxRank": 1,
+              "icon": "lg_kings_grace",
+              "requires": [
+                "swordsman.2.wall"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "job": "mage",
+      "branches": [
+        {
+          "id": 0,
+          "name": "火",
+          "originalName": "Fuego",
+          "talents": [
+            {
+              "id": "mage.0.firebolt_dmg",
+              "row": 0,
+              "col": 0,
+              "name": "生命火焰",
+              "originalName": "Llama viva",
+              "maxRank": 5,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "mage.0.firewall_dmg",
+              "row": 1,
+              "col": 1,
+              "name": "灼熱火牆",
+              "originalName": "Muro abrasador",
+              "maxRank": 5,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "mage.0.inner_heat",
+              "row": 0,
+              "col": 2,
+              "name": "內在之火",
+              "originalName": "Calor interior",
+              "maxRank": 5,
+              "icon": "sa_elementfire",
+              "requires": []
+            },
+            {
+              "id": "mage.0.firebolt_bolts",
+              "row": 0,
+              "col": 3,
+              "name": "烈焰連擊",
+              "originalName": "Ráfaga ígnea",
+              "maxRank": 2,
+              "icon": "wl_summonfb",
+              "requires": []
+            },
+            {
+              "id": "mage.0.fire_infusion",
+              "row": 1,
+              "col": 0,
+              "name": "火焰附魔",
+              "originalName": "Infusión de fuego",
+              "maxRank": 1,
+              "icon": null,
+              "requires": [
+                "mage.0.firebolt_dmg"
+              ]
+            },
+            {
+              "id": "mage.0.firebolt_count",
+              "row": 2,
+              "col": 3,
+              "name": "多重火焰",
+              "originalName": "Fuego múltiple",
+              "maxRank": 1,
+              "icon": "sa_flamelauncher",
+              "requires": [
+                "mage.0.combustion"
+              ]
+            },
+            {
+              "id": "mage.0.firewall_cd",
+              "row": 2,
+              "col": 1,
+              "name": "快速火牆",
+              "originalName": "Muro rápido",
+              "maxRank": 3,
+              "icon": "wz_firepillar",
+              "requires": [
+                "mage.0.firewall_dmg"
+              ]
+            },
+            {
+              "id": "mage.0.combustion",
+              "row": 1,
+              "col": 3,
+              "name": "燃燒",
+              "originalName": "Combustión",
+              "maxRank": 3,
+              "icon": "mg_fireball",
+              "requires": []
+            },
+            {
+              "id": "mage.0.sight_count",
+              "row": 2,
+              "col": 2,
+              "name": "額外火焰",
+              "originalName": "Más llamas",
+              "maxRank": 3,
+              "icon": "wz_sightrasher",
+              "requires": []
+            },
+            {
+              "id": "mage.0.pyro",
+              "row": 1,
+              "col": 2,
+              "name": "焰火術",
+              "originalName": "Pirotecnia",
+              "maxRank": 2,
+              "icon": "wz_sightblaster",
+              "requires": [
+                "mage.0.inner_heat"
+              ]
+            },
+            {
+              "id": "mage.0.warmth",
+              "row": 3,
+              "col": 3,
+              "name": "暖心的溫度",
+              "originalName": "Calor reconfortante",
+              "maxRank": 5,
+              "icon": "so_warmer",
+              "requires": []
+            },
+            {
+              "id": "mage.0.eternal_fire",
+              "row": 4,
+              "col": 1,
+              "name": "不滅之火",
+              "originalName": "Fuego eterno",
+              "maxRank": 5,
+              "icon": "am_flamecontrol",
+              "requires": []
+            },
+            {
+              "id": "mage.0.fire_conduit",
+              "row": 3,
+              "col": 0,
+              "name": "火焰媒介",
+              "originalName": "Conducto ígneo",
+              "maxRank": 1,
+              "icon": "sa_autospell",
+              "requires": [
+                "mage.0.fire_infusion"
+              ]
+            },
+            {
+              "id": "mage.0.heat_wave",
+              "row": 5,
+              "col": 3,
+              "name": "熱浪",
+              "originalName": "Ola de calor",
+              "maxRank": 3,
+              "icon": "wz_heaven",
+              "requires": []
+            },
+            {
+              "id": "mage.0.orbit_flames",
+              "row": 4,
+              "col": 2,
+              "name": "環繞之焰",
+              "originalName": "Llamas orbitales",
+              "maxRank": 2,
+              "icon": "hw_magicpower",
+              "requires": [
+                "mage.0.sight_count"
+              ]
+            },
+            {
+              "id": "mage.0.pyromaniac",
+              "row": 5,
+              "col": 0,
+              "name": "縱火魔",
+              "originalName": "Pirómano",
+              "maxRank": 1,
+              "icon": "wl_hellinferno",
+              "requires": []
+            },
+            {
+              "id": "mage.0.firestorm",
+              "row": 4,
+              "col": 3,
+              "name": "烈焰風暴",
+              "originalName": "Firestorm",
+              "maxRank": 1,
+              "icon": "wz_meteorstorm",
+              "requires": []
+            },
+            {
+              "id": "mage.0.meteor",
+              "row": 6,
+              "col": 1,
+              "name": "孿生之火",
+              "originalName": "Fuego gemelo",
+              "maxRank": 1,
+              "icon": "wz_meteor",
+              "requires": [
+                "mage.0.eternal_fire"
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "name": "冰",
+          "originalName": "Hielo",
+          "talents": [
+            {
+              "id": "mage.1.coldbolt_dmg",
+              "row": 0,
+              "col": 0,
+              "name": "刺骨寒意",
+              "originalName": "Frío penetrante",
+              "maxRank": 5,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "mage.1.coldbolt_bolts",
+              "row": 0,
+              "col": 3,
+              "name": "冰霜連擊",
+              "originalName": "Ráfaga gélida",
+              "maxRank": 2,
+              "icon": "wl_summonwb",
+              "requires": []
+            },
+            {
+              "id": "mage.1.frost_dmg",
+              "row": 0,
+              "col": 2,
+              "name": "禪心",
+              "originalName": "Increase SP Recovery",
+              "maxRank": 5,
+              "icon": "mg_srecovery",
+              "requires": []
+            },
+            {
+              "id": "mage.1.energy_coat",
+              "row": 1,
+              "col": 1,
+              "name": "能量外套",
+              "originalName": "Energy Coat",
+              "maxRank": 5,
+              "icon": "mg_energycoat",
+              "requires": []
+            },
+            {
+              "id": "mage.1.water_infusion",
+              "row": 1,
+              "col": 0,
+              "name": "冰霜附魔",
+              "originalName": "Infusión de hielo",
+              "maxRank": 1,
+              "icon": null,
+              "requires": [
+                "mage.1.coldbolt_dmg"
+              ]
+            },
+            {
+              "id": "mage.1.freeze",
+              "row": 1,
+              "col": 3,
+              "name": "冰凍",
+              "originalName": "Congelación",
+              "maxRank": 5,
+              "icon": "wz_frostnova",
+              "requires": []
+            },
+            {
+              "id": "mage.1.shatter",
+              "row": 2,
+              "col": 3,
+              "name": "粉碎",
+              "originalName": "Fragmentación",
+              "maxRank": 2,
+              "icon": "wz_icewall",
+              "requires": [
+                "mage.1.freeze"
+              ]
+            },
+            {
+              "id": "mage.1.glaciation",
+              "row": 2,
+              "col": 2,
+              "name": "冰川化",
+              "originalName": "Glaciación",
+              "maxRank": 5,
+              "icon": "sa_elementwater",
+              "requires": []
+            },
+            {
+              "id": "mage.1.frost_armor",
+              "row": 1,
+              "col": 2,
+              "name": "寒霜護甲",
+              "originalName": "Armadura de escarcha",
+              "maxRank": 3,
+              "icon": "sa_deluge",
+              "requires": []
+            },
+            {
+              "id": "mage.1.ice_rain",
+              "row": 4,
+              "col": 1,
+              "name": "冰雨",
+              "originalName": "Lluvia de hielo",
+              "maxRank": 5,
+              "icon": "wz_waterball",
+              "requires": []
+            },
+            {
+              "id": "mage.1.frost_chain",
+              "row": 3,
+              "col": 2,
+              "name": "冰霜連鎖",
+              "originalName": "Escarcha en cadena",
+              "maxRank": 2,
+              "icon": "wz_stormgust",
+              "requires": [
+                "mage.1.glaciation"
+              ]
+            },
+            {
+              "id": "mage.1.water_conduit",
+              "row": 3,
+              "col": 0,
+              "name": "寒冰媒介",
+              "originalName": "Conducto gélido",
+              "maxRank": 1,
+              "icon": "so_spellfist",
+              "requires": [
+                "mage.1.water_infusion"
+              ]
+            },
+            {
+              "id": "mage.1.winter_skin",
+              "row": 3,
+              "col": 3,
+              "name": "寒冬之膚",
+              "originalName": "Piel de invierno",
+              "maxRank": 5,
+              "icon": "sa_landprotector",
+              "requires": []
+            },
+            {
+              "id": "mage.1.slow",
+              "row": 5,
+              "col": 0,
+              "name": "殘留冰霜",
+              "originalName": "Escarcha persistente",
+              "maxRank": 1,
+              "icon": "wz_quagmire",
+              "requires": [
+                "mage.1.water_conduit"
+              ]
+            },
+            {
+              "id": "mage.1.frost_area",
+              "row": 5,
+              "col": 2,
+              "name": "暴風雪",
+              "originalName": "Ventisca",
+              "maxRank": 1,
+              "icon": "sa_violentgale",
+              "requires": [
+                "mage.1.frost_chain"
+              ]
+            },
+            {
+              "id": "mage.1.eternal_winter",
+              "row": 6,
+              "col": 1,
+              "name": "極寒凍結",
+              "originalName": "Deep Freeze",
+              "maxRank": 1,
+              "icon": "wl_jackfrost",
+              "requires": [
+                "mage.1.ice_rain"
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "奧術",
+          "originalName": "Arcano",
+          "talents": [
+            {
+              "id": "mage.2.soul_dmg",
+              "row": 0,
+              "col": 3,
+              "name": "強韌之魂",
+              "originalName": "Alma poderosa",
+              "maxRank": 5,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "mage.2.lightning_dmg",
+              "row": 0,
+              "col": 0,
+              "name": "高壓電",
+              "originalName": "Alto voltaje",
+              "maxRank": 5,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "mage.2.lightning_bolts",
+              "row": 0,
+              "col": 2,
+              "name": "雷電連擊",
+              "originalName": "Ráfaga voltaica",
+              "maxRank": 2,
+              "icon": "wl_summonbl",
+              "requires": []
+            },
+            {
+              "id": "mage.2.quick_cast",
+              "row": 1,
+              "col": 2,
+              "name": "迅捷詠唱",
+              "originalName": "Conjuro veloz",
+              "maxRank": 5,
+              "icon": "sa_freecast",
+              "requires": []
+            },
+            {
+              "id": "mage.2.wind_infusion",
+              "row": 1,
+              "col": 0,
+              "name": "雷電附魔",
+              "originalName": "Infusión de rayo",
+              "maxRank": 1,
+              "icon": null,
+              "requires": [
+                "mage.2.lightning_dmg"
+              ]
+            },
+            {
+              "id": "mage.2.stone_curse",
+              "row": 2,
+              "col": 2,
+              "name": "石化術",
+              "originalName": "Stone Curse",
+              "maxRank": 3,
+              "icon": "mg_stonecurse",
+              "requires": []
+            },
+            {
+              "id": "mage.2.soul_count",
+              "row": 1,
+              "col": 3,
+              "name": "亡魂大軍",
+              "originalName": "Legión de almas",
+              "maxRank": 2,
+              "icon": "hw_souldrain",
+              "requires": [
+                "mage.2.soul_dmg"
+              ]
+            },
+            {
+              "id": "mage.2.storm_dmg",
+              "row": 1,
+              "col": 1,
+              "name": "狂怒風暴",
+              "originalName": "Tormenta furiosa",
+              "maxRank": 3,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "mage.2.storm_area",
+              "row": 2,
+              "col": 1,
+              "name": "風暴鋒面",
+              "originalName": "Frente tormentoso",
+              "maxRank": 2,
+              "icon": "wz_heavendrive",
+              "requires": [
+                "mage.2.storm_dmg"
+              ]
+            },
+            {
+              "id": "mage.2.storm_cd",
+              "row": 3,
+              "col": 1,
+              "name": "快速風暴",
+              "originalName": "Tormenta rápida",
+              "maxRank": 3,
+              "icon": "sa_lightningloader",
+              "requires": [
+                "mage.2.storm_area"
+              ]
+            },
+            {
+              "id": "mage.2.napalm_area",
+              "row": 3,
+              "col": 2,
+              "name": "強化版心靈爆破",
+              "originalName": "Napalm potenciado",
+              "maxRank": 5,
+              "icon": "hw_napalmvulcan",
+              "requires": []
+            },
+            {
+              "id": "mage.2.wind_conduit",
+              "row": 3,
+              "col": 0,
+              "name": "伏特導管",
+              "originalName": "Conducto voltaico",
+              "maxRank": 1,
+              "icon": "wl_release",
+              "requires": [
+                "mage.2.wind_infusion"
+              ]
+            },
+            {
+              "id": "mage.2.double_cast",
+              "row": 5,
+              "col": 0,
+              "name": "雙倍投擲",
+              "originalName": "Double Casting",
+              "maxRank": 3,
+              "icon": "pf_doublecasting",
+              "requires": []
+            },
+            {
+              "id": "mage.2.arcane_power",
+              "row": 5,
+              "col": 2,
+              "name": "奧術力量",
+              "originalName": "Poder arcano",
+              "maxRank": 3,
+              "icon": "hw_magiccrasher",
+              "requires": []
+            },
+            {
+              "id": "mage.2.clearcast",
+              "row": 4,
+              "col": 2,
+              "name": "澄心詠唱",
+              "originalName": "Clearcast",
+              "maxRank": 2,
+              "icon": "pf_memorize",
+              "requires": [
+                "mage.2.napalm_area"
+              ]
+            },
+            {
+              "id": "mage.2.soul_split",
+              "row": 3,
+              "col": 3,
+              "name": "分裂之魂",
+              "originalName": "Alma dividida",
+              "maxRank": 5,
+              "icon": "wl_soulexpansion",
+              "requires": [
+                "mage.2.soul_count"
+              ]
+            },
+            {
+              "id": "mage.2.soul_ward",
+              "row": 6,
+              "col": 3,
+              "name": "靈魂護盾",
+              "originalName": "Escudo de almas",
+              "maxRank": 1,
+              "icon": "so_elemental_shield",
+              "requires": [
+                "mage.2.soul_split"
+              ]
+            },
+            {
+              "id": "mage.2.lord_of_storms",
+              "row": 6,
+              "col": 1,
+              "name": "電能狂潮",
+              "originalName": "Electrical Mayhem",
+              "maxRank": 1,
+              "icon": "wz_vermilion",
+              "requires": [
+                "mage.2.storm_cd"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "job": "archer",
+      "branches": [
+        {
+          "id": 0,
+          "name": "神射手",
+          "originalName": "Tirador",
+          "talents": [
+            {
+              "id": "archer.0.aa_owl",
+              "row": 0,
+              "col": 0,
+              "name": "鶚梟之眼",
+              "originalName": "Owl's Eye",
+              "maxRank": 5,
+              "icon": "ac_owl",
+              "requires": []
+            },
+            {
+              "id": "archer.0.aa_ds_dmg",
+              "row": 0,
+              "col": 1,
+              "name": "磨利箭矢",
+              "originalName": "Flechas afiladas",
+              "maxRank": 5,
+              "icon": "ma_double",
+              "requires": []
+            },
+            {
+              "id": "archer.0.aa_bow",
+              "row": 0,
+              "col": 2,
+              "name": "弓術精通",
+              "originalName": "Maestría con el arco",
+              "maxRank": 5,
+              "icon": "ht_beastbane",
+              "requires": []
+            },
+            {
+              "id": "archer.0.aa_kite",
+              "row": 1,
+              "col": 0,
+              "name": "弓手之步",
+              "originalName": "Paso de arquero",
+              "maxRank": 3,
+              "icon": "st_preserve",
+              "requires": []
+            },
+            {
+              "id": "archer.0.aa_ds_cd",
+              "row": 1,
+              "col": 1,
+              "name": "快速拉弓",
+              "originalName": "Tensado rápido",
+              "maxRank": 3,
+              "icon": "dc_throwarrow",
+              "requires": [
+                "archer.0.aa_ds_dmg"
+              ]
+            },
+            {
+              "id": "archer.0.aa_draw",
+              "row": 1,
+              "col": 2,
+              "name": "疾速拉弦",
+              "originalName": "Rapid Draw",
+              "maxRank": 5,
+              "icon": "ac_chargearrow",
+              "requires": [
+                "archer.0.aa_bow"
+              ]
+            },
+            {
+              "id": "archer.0.aa_prey",
+              "row": 2,
+              "col": 0,
+              "name": "標記獵物",
+              "originalName": "Presa marcada",
+              "maxRank": 2,
+              "icon": "sn_sight",
+              "requires": []
+            },
+            {
+              "id": "archer.0.aa_pierce",
+              "row": 2,
+              "col": 2,
+              "name": "穿透箭",
+              "originalName": "Flecha penetrante",
+              "maxRank": 2,
+              "icon": "ht_steelcrow",
+              "requires": [
+                "archer.0.aa_draw"
+              ]
+            },
+            {
+              "id": "archer.0.aa_serrated",
+              "row": 2,
+              "col": 3,
+              "name": "鋸齒箭頭",
+              "originalName": "Puntas dentadas",
+              "maxRank": 3,
+              "icon": "ra_toothofwug",
+              "requires": []
+            },
+            {
+              "id": "archer.0.aa_hunter",
+              "row": 3,
+              "col": 0,
+              "name": "獵人直覺",
+              "originalName": "Instinto de cazador",
+              "maxRank": 3,
+              "icon": "ht_detecting",
+              "requires": []
+            },
+            {
+              "id": "archer.0.aa_heavy",
+              "row": 3,
+              "col": 2,
+              "name": "重弓",
+              "originalName": "Heavy Draw",
+              "maxRank": 3,
+              "icon": "ma_chargearrow",
+              "requires": [
+                "archer.0.aa_pierce"
+              ]
+            },
+            {
+              "id": "archer.0.aa_lethal",
+              "row": 3,
+              "col": 3,
+              "name": "要害瞄準",
+              "originalName": "Lethal Aim",
+              "maxRank": 3,
+              "icon": "ra_aimedbolt",
+              "requires": [
+                "archer.0.aa_serrated"
+              ]
+            },
+            {
+              "id": "archer.0.aa_vulture",
+              "row": 4,
+              "col": 0,
+              "name": "蒼鷹之眼",
+              "originalName": "Vulture's Eye",
+              "maxRank": 2,
+              "icon": "ac_vulture",
+              "requires": []
+            },
+            {
+              "id": "archer.0.aa_storm",
+              "row": 4,
+              "col": 1,
+              "name": "齊射風暴",
+              "originalName": "Tormenta de salvas",
+              "maxRank": 1,
+              "icon": "sn_falconassault",
+              "requires": [
+                "archer.0.aa_ds_cd"
+              ]
+            },
+            {
+              "id": "archer.0.aa_rapid",
+              "row": 4,
+              "col": 2,
+              "name": "連珠箭",
+              "originalName": "Rapid Volley",
+              "maxRank": 3,
+              "icon": "cg_arrowvulcan",
+              "requires": [
+                "archer.0.aa_heavy"
+              ]
+            },
+            {
+              "id": "archer.0.aa_breaker",
+              "row": 5,
+              "col": 2,
+              "name": "破甲之箭",
+              "originalName": "Breach Shot",
+              "maxRank": 2,
+              "icon": "ht_blastmine",
+              "requires": [
+                "archer.0.aa_rapid"
+              ]
+            },
+            {
+              "id": "archer.0.aa_weak",
+              "row": 5,
+              "col": 3,
+              "name": "弱點",
+              "originalName": "Punto débil",
+              "maxRank": 5,
+              "icon": "sn_sharpshooting",
+              "requires": []
+            },
+            {
+              "id": "archer.0.aa_focus",
+              "row": 6,
+              "col": 2,
+              "name": "鷹眼凝神",
+              "originalName": "Hawkeye Focus",
+              "maxRank": 1,
+              "icon": "ra_arrowstorm",
+              "requires": [
+                "archer.0.aa_breaker"
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "name": "奧術",
+          "originalName": "Arcano",
+          "talents": [
+            {
+              "id": "archer.1.haste",
+              "row": 0,
+              "col": 0,
+              "name": "敏捷心智",
+              "originalName": "Mente ágil",
+              "maxRank": 5,
+              "icon": "wm_song_of_mana",
+              "requires": []
+            },
+            {
+              "id": "archer.1.arcane_dmg",
+              "row": 0,
+              "col": 1,
+              "name": "奧術射擊專精",
+              "originalName": "Disparo arcano",
+              "maxRank": 5,
+              "icon": "wm_dominion_impulse",
+              "requires": []
+            },
+            {
+              "id": "archer.1.pulse_area",
+              "row": 1,
+              "col": 1,
+              "name": "廣域脈衝",
+              "originalName": "Pulso amplio",
+              "maxRank": 3,
+              "icon": "wm_voiceofsiren",
+              "requires": [
+                "archer.1.arcane_dmg"
+              ]
+            },
+            {
+              "id": "archer.1.live_flame",
+              "row": 1,
+              "col": 2,
+              "name": "生命火焰",
+              "originalName": "Llama viva",
+              "maxRank": 5,
+              "icon": "ra_firingtrap",
+              "requires": []
+            },
+            {
+              "id": "archer.1.fire_area",
+              "row": 3,
+              "col": 2,
+              "name": "火勢蔓延",
+              "originalName": "Fuego extendido",
+              "maxRank": 3,
+              "icon": "ra_clusterbomb",
+              "requires": [
+                "archer.1.live_flame"
+              ]
+            },
+            {
+              "id": "archer.1.insight",
+              "row": 2,
+              "col": 3,
+              "name": "洞察",
+              "originalName": "Intuición",
+              "maxRank": 5,
+              "icon": "ab_praefatio",
+              "requires": []
+            },
+            {
+              "id": "archer.1.fire_targets",
+              "row": 5,
+              "col": 0,
+              "name": "火矢",
+              "originalName": "Flechas ígneas",
+              "maxRank": 2,
+              "icon": "ra_detonator",
+              "requires": [
+                "archer.1.embers"
+              ]
+            },
+            {
+              "id": "archer.1.arcane_surge",
+              "row": 2,
+              "col": 0,
+              "name": "奧術連擊",
+              "originalName": "Ráfaga arcana",
+              "maxRank": 3,
+              "icon": "ra_unlimit",
+              "requires": []
+            },
+            {
+              "id": "archer.1.gravity",
+              "row": 4,
+              "col": 1,
+              "name": "重力",
+              "originalName": "Gravedad",
+              "maxRank": 2,
+              "icon": "ra_verduretrap",
+              "requires": []
+            },
+            {
+              "id": "archer.1.elemental_focus",
+              "row": 3,
+              "col": 3,
+              "name": "元素聚焦",
+              "originalName": "Foco elemental",
+              "maxRank": 5,
+              "icon": "ab_canto",
+              "requires": []
+            },
+            {
+              "id": "archer.1.embers",
+              "row": 3,
+              "col": 0,
+              "name": "餘燼",
+              "originalName": "Ascuas",
+              "maxRank": 3,
+              "icon": "ra_researchtrap",
+              "requires": []
+            },
+            {
+              "id": "archer.1.arcane_twin",
+              "row": 3,
+              "col": 1,
+              "name": "雙發射擊",
+              "originalName": "Disparo doble",
+              "maxRank": 1,
+              "icon": "wm_metalicsound",
+              "requires": [
+                "archer.1.pulse_area"
+              ]
+            },
+            {
+              "id": "archer.1.reach",
+              "row": 4,
+              "col": 2,
+              "name": "奧術範圍",
+              "originalName": "Alcance arcano",
+              "maxRank": 3,
+              "icon": "wm_great_echo",
+              "requires": []
+            },
+            {
+              "id": "archer.1.flow",
+              "row": 5,
+              "col": 3,
+              "name": "奧術流動",
+              "originalName": "Flujo arcano",
+              "maxRank": 5,
+              "icon": "wm_lerads_dew",
+              "requires": []
+            },
+            {
+              "id": "archer.1.convergence",
+              "row": 6,
+              "col": 1,
+              "name": "元素交融",
+              "originalName": "Convergencia elemental",
+              "maxRank": 1,
+              "icon": "wz_meteorstorm",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "圍攻",
+          "originalName": "Asedio",
+          "talents": [
+            {
+              "id": "archer.2.field",
+              "row": 5,
+              "col": 0,
+              "name": "靶場",
+              "originalName": "Campo de tiro",
+              "maxRank": 5,
+              "icon": "ht_power",
+              "requires": []
+            },
+            {
+              "id": "archer.2.improve_concentration",
+              "row": 1,
+              "col": 0,
+              "name": "長效專注",
+              "originalName": "Concentración prolongada",
+              "maxRank": 3,
+              "icon": "ba_poembragi",
+              "requires": []
+            },
+            {
+              "id": "archer.2.siege_stance",
+              "row": 2,
+              "col": 0,
+              "name": "攻城架勢",
+              "originalName": "Posición de asedio",
+              "maxRank": 5,
+              "icon": "dc_dontforgetme",
+              "requires": []
+            },
+            {
+              "id": "archer.2.camouflage",
+              "row": 3,
+              "col": 0,
+              "name": "偽裝",
+              "originalName": "Camuflaje",
+              "maxRank": 3,
+              "icon": "ht_phantasmic",
+              "requires": []
+            },
+            {
+              "id": "archer.2.shower_dmg",
+              "row": 0,
+              "col": 1,
+              "name": "奪命扇射",
+              "originalName": "Abanico letal",
+              "maxRank": 5,
+              "icon": "ba_musicalstrike",
+              "requires": []
+            },
+            {
+              "id": "archer.2.shower_volley",
+              "row": 4,
+              "col": 1,
+              "name": "追加齊射",
+              "originalName": "Andanada extra",
+              "maxRank": 1,
+              "icon": "ba_frostjoker",
+              "requires": [
+                "archer.2.mark_prey"
+              ]
+            },
+            {
+              "id": "archer.2.mark_prey",
+              "row": 2,
+              "col": 1,
+              "name": "標記獵物",
+              "originalName": "Marcar presa",
+              "maxRank": 3,
+              "icon": "ht_flasher",
+              "requires": [
+                "archer.2.shower_dmg"
+              ]
+            },
+            {
+              "id": "archer.2.rain_dmg",
+              "row": 0,
+              "col": 2,
+              "name": "奪命之雨",
+              "originalName": "Lluvia letal",
+              "maxRank": 5,
+              "icon": "ba_dissonance",
+              "requires": []
+            },
+            {
+              "id": "archer.2.more_arrows",
+              "row": 3,
+              "col": 2,
+              "name": "額外箭矢",
+              "originalName": "Más flechas",
+              "maxRank": 2,
+              "icon": "ba_pangvoice",
+              "requires": [
+                "archer.2.weighted"
+              ]
+            },
+            {
+              "id": "archer.2.weighted",
+              "row": 1,
+              "col": 2,
+              "name": "配重箭矢",
+              "originalName": "Flechas lastradas",
+              "maxRank": 2,
+              "icon": "ht_anklesnare",
+              "requires": [
+                "archer.2.rain_dmg"
+              ]
+            },
+            {
+              "id": "archer.2.repel_dmg",
+              "row": 1,
+              "col": 3,
+              "name": "蓄力箭",
+              "originalName": "Flecha cargada",
+              "maxRank": 5,
+              "icon": "ht_shockwave",
+              "requires": []
+            },
+            {
+              "id": "archer.2.repel_cd",
+              "row": 2,
+              "col": 3,
+              "name": "快速裝填",
+              "originalName": "Recarga rápida",
+              "maxRank": 3,
+              "icon": "ht_springtrap",
+              "requires": [
+                "archer.2.repel_dmg"
+              ]
+            },
+            {
+              "id": "archer.2.repel_wide",
+              "row": 4,
+              "col": 3,
+              "name": "暈眩箭",
+              "originalName": "Saeta aturdidora",
+              "maxRank": 3,
+              "icon": "ht_sandman",
+              "requires": [
+                "archer.2.repel_cd"
+              ]
+            },
+            {
+              "id": "archer.2.arrow_crafting",
+              "row": 5,
+              "col": 3,
+              "name": "製作箭",
+              "originalName": "Arrow Crafting",
+              "maxRank": 1,
+              "icon": "ac_makingarrow",
+              "requires": []
+            },
+            {
+              "id": "archer.2.siege_rain",
+              "row": 6,
+              "col": 1,
+              "name": "全面攻城",
+              "originalName": "Asedio total",
+              "maxRank": 1,
+              "icon": "ra_arrowstorm",
+              "requires": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "job": "acolyte",
+      "branches": [
+        {
+          "id": 0,
+          "name": "神聖",
+          "originalName": "Sagrado",
+          "talents": [
+            {
+              "id": "acolyte.0.angelus",
+              "row": 0,
+              "col": 0,
+              "name": "天使之障壁",
+              "originalName": "Angelus",
+              "maxRank": 5,
+              "icon": "al_angelus",
+              "requires": []
+            },
+            {
+              "id": "acolyte.0.heal_dmg",
+              "row": 0,
+              "col": 1,
+              "name": "神聖療癒",
+              "originalName": "Sanación divina",
+              "maxRank": 5,
+              "icon": "cd_dilectio_heal",
+              "requires": []
+            },
+            {
+              "id": "acolyte.0.aqua_dmg",
+              "row": 0,
+              "col": 2,
+              "name": "聖水",
+              "originalName": "Agua bendita",
+              "maxRank": 5,
+              "icon": "iq_oleum_sanctum",
+              "requires": []
+            },
+            {
+              "id": "acolyte.0.divine_protection",
+              "row": 1,
+              "col": 0,
+              "name": "天使之護",
+              "originalName": "Divine Protection",
+              "maxRank": 5,
+              "icon": "al_dp",
+              "requires": []
+            },
+            {
+              "id": "acolyte.0.heal_area",
+              "row": 1,
+              "col": 1,
+              "name": "廣域脈衝",
+              "originalName": "Pulso amplio",
+              "maxRank": 3,
+              "icon": "cd_mediale_votum",
+              "requires": [
+                "acolyte.0.heal_dmg"
+              ]
+            },
+            {
+              "id": "acolyte.0.bless_dur",
+              "row": 1,
+              "col": 3,
+              "name": "持久祝福",
+              "originalName": "Bendición duradera",
+              "maxRank": 3,
+              "icon": "cd_benedictum",
+              "requires": []
+            },
+            {
+              "id": "acolyte.0.grace_dmg",
+              "row": 3,
+              "col": 1,
+              "name": "恩典滿溢",
+              "originalName": "Gracia desbordante",
+              "maxRank": 2,
+              "icon": "cd_divinus_flos",
+              "requires": []
+            },
+            {
+              "id": "acolyte.0.aqua_area",
+              "row": 2,
+              "col": 2,
+              "name": "廣闊水窪",
+              "originalName": "Charco extenso",
+              "maxRank": 3,
+              "icon": "cd_religio",
+              "requires": [
+                "acolyte.0.aqua_dmg"
+              ]
+            },
+            {
+              "id": "acolyte.0.meditatio",
+              "row": 3,
+              "col": 0,
+              "name": "冥想",
+              "originalName": "Meditatio",
+              "maxRank": 3,
+              "icon": "hp_meditatio",
+              "requires": []
+            },
+            {
+              "id": "acolyte.0.heal_cd",
+              "row": 2,
+              "col": 1,
+              "name": "快速治癒",
+              "originalName": "Heal rápido",
+              "maxRank": 3,
+              "icon": "al_cure",
+              "requires": [
+                "acolyte.0.heal_area"
+              ]
+            },
+            {
+              "id": "acolyte.0.aqua_heal",
+              "row": 3,
+              "col": 2,
+              "name": "活水",
+              "originalName": "Agua viva",
+              "maxRank": 3,
+              "icon": "cd_reparatio",
+              "requires": []
+            },
+            {
+              "id": "acolyte.0.bless_haste",
+              "row": 3,
+              "col": 3,
+              "name": "共享祝福",
+              "originalName": "Bendición compartida",
+              "maxRank": 1,
+              "icon": "pr_gloria",
+              "requires": [
+                "acolyte.0.bless_dur"
+              ]
+            },
+            {
+              "id": "acolyte.0.assumptio",
+              "row": 4,
+              "col": 0,
+              "name": "聖母之祈福",
+              "originalName": "Assumptio",
+              "maxRank": 3,
+              "icon": "hp_assumptio",
+              "requires": []
+            },
+            {
+              "id": "acolyte.0.aqua_slow",
+              "row": 4,
+              "col": 2,
+              "name": "聖水窪",
+              "originalName": "Charco sagrado",
+              "maxRank": 2,
+              "icon": "pr_slowpoison",
+              "requires": []
+            },
+            {
+              "id": "acolyte.0.basilica",
+              "row": 5,
+              "col": 1,
+              "name": "聖殿",
+              "originalName": "Basilica",
+              "maxRank": 3,
+              "icon": "hp_basilica",
+              "requires": []
+            },
+            {
+              "id": "acolyte.0.mana_recharge",
+              "row": 4,
+              "col": 3,
+              "name": "魔力減免",
+              "originalName": "Mana Recharge",
+              "maxRank": 5,
+              "icon": "hp_manarecharge",
+              "requires": []
+            },
+            {
+              "id": "acolyte.0.fountain",
+              "row": 6,
+              "col": 1,
+              "name": "生命泉源",
+              "originalName": "Fuente de vida",
+              "maxRank": 1,
+              "icon": "ab_convenio",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "name": "驅魔",
+          "originalName": "Exorcismo",
+          "talents": [
+            {
+              "id": "acolyte.1.demon_bane",
+              "row": 0,
+              "col": 0,
+              "name": "天使之擊",
+              "originalName": "Demon Bane",
+              "maxRank": 5,
+              "icon": "al_demonbane",
+              "requires": []
+            },
+            {
+              "id": "acolyte.1.holy_dmg",
+              "row": 0,
+              "col": 1,
+              "name": "刺眼強光",
+              "originalName": "Luz cegadora",
+              "maxRank": 5,
+              "icon": "cd_arbitrium",
+              "requires": []
+            },
+            {
+              "id": "acolyte.1.crucis_dmg",
+              "row": 0,
+              "col": 2,
+              "name": "烈焰十字",
+              "originalName": "Cruz ardiente",
+              "maxRank": 5,
+              "icon": "iq_first_brand",
+              "requires": []
+            },
+            {
+              "id": "acolyte.1.holy_cd",
+              "row": 1,
+              "col": 1,
+              "name": "迅速禱告",
+              "originalName": "Plegaria rápida",
+              "maxRank": 3,
+              "icon": "cd_presens_acies",
+              "requires": [
+                "acolyte.1.holy_dmg"
+              ]
+            },
+            {
+              "id": "acolyte.1.crucis_area",
+              "row": 1,
+              "col": 2,
+              "name": "擴展十字",
+              "originalName": "Cruz extendida",
+              "maxRank": 3,
+              "icon": "iq_third_consecration",
+              "requires": [
+                "acolyte.1.crucis_dmg"
+              ]
+            },
+            {
+              "id": "acolyte.1.decagi_area",
+              "row": 1,
+              "col": 3,
+              "name": "神聖緩速",
+              "originalName": "Lentitud divina",
+              "maxRank": 2,
+              "icon": "iq_second_judgement",
+              "requires": []
+            },
+            {
+              "id": "acolyte.1.lex_divina",
+              "row": 2,
+              "col": 0,
+              "name": "沉默之術",
+              "originalName": "Lex Divina",
+              "maxRank": 2,
+              "icon": "pr_lexdivina",
+              "requires": []
+            },
+            {
+              "id": "acolyte.1.holy_count",
+              "row": 2,
+              "col": 1,
+              "name": "雙重光芒",
+              "originalName": "Doble luz",
+              "maxRank": 2,
+              "icon": "cd_argutus_telum",
+              "requires": [
+                "acolyte.1.holy_cd"
+              ]
+            },
+            {
+              "id": "acolyte.1.sin",
+              "row": 2,
+              "col": 3,
+              "name": "罪之重量",
+              "originalName": "Peso del pecado",
+              "maxRank": 2,
+              "icon": "iq_third_punish",
+              "requires": []
+            },
+            {
+              "id": "acolyte.1.lex_aeterna",
+              "row": 4,
+              "col": 1,
+              "name": "天使之怒",
+              "originalName": "Lex Aeterna",
+              "maxRank": 3,
+              "icon": "pr_lexaeterna",
+              "requires": [
+                "acolyte.1.holy_count"
+              ]
+            },
+            {
+              "id": "acolyte.1.condemn",
+              "row": 3,
+              "col": 2,
+              "name": "判罪",
+              "originalName": "Condena",
+              "maxRank": 3,
+              "icon": "cd_effligo",
+              "requires": [
+                "acolyte.1.crucis_area"
+              ]
+            },
+            {
+              "id": "acolyte.1.judgement",
+              "row": 5,
+              "col": 3,
+              "name": "審判",
+              "originalName": "Juicio",
+              "maxRank": 2,
+              "icon": "iq_judge",
+              "requires": []
+            },
+            {
+              "id": "acolyte.1.faith",
+              "row": 4,
+              "col": 0,
+              "name": "信任",
+              "originalName": "Fe",
+              "maxRank": 5,
+              "icon": "iq_firm_faith",
+              "requires": []
+            },
+            {
+              "id": "acolyte.1.crucis_dur",
+              "row": 5,
+              "col": 2,
+              "name": "聖化大地",
+              "originalName": "Suelo consagrado",
+              "maxRank": 3,
+              "icon": "pr_aspersio",
+              "requires": []
+            },
+            {
+              "id": "acolyte.1.suffragium",
+              "row": 4,
+              "col": 3,
+              "name": "犧牲祈福",
+              "originalName": "Suffragium",
+              "maxRank": 3,
+              "icon": "pr_suffragium",
+              "requires": []
+            },
+            {
+              "id": "acolyte.1.purify",
+              "row": 3,
+              "col": 0,
+              "name": "淨化",
+              "originalName": "Purificación",
+              "maxRank": 3,
+              "icon": "pr_turnundead",
+              "requires": []
+            },
+            {
+              "id": "acolyte.1.zeal",
+              "row": 3,
+              "col": 3,
+              "name": "熱忱",
+              "originalName": "Celo",
+              "maxRank": 2,
+              "icon": "iq_powerful_faith",
+              "requires": []
+            },
+            {
+              "id": "acolyte.1.divine_judgement",
+              "row": 6,
+              "col": 1,
+              "name": "神聖審判",
+              "originalName": "Juicio divino",
+              "maxRank": 1,
+              "icon": "cd_pneumaticus_procella",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "報應之擊",
+          "originalName": "Retribution",
+          "talents": [
+            {
+              "id": "acolyte.2.mace_mastery",
+              "row": 0,
+              "col": 0,
+              "name": "權杖使用熟練度",
+              "originalName": "Mace Mastery",
+              "maxRank": 5,
+              "icon": "cd_mace_book_m",
+              "requires": []
+            },
+            {
+              "id": "acolyte.2.smite_dmg",
+              "row": 0,
+              "col": 1,
+              "name": "重錘",
+              "originalName": "Mazazo",
+              "maxRank": 5,
+              "icon": "iq_exposion_blaster",
+              "requires": []
+            },
+            {
+              "id": "acolyte.2.ruwach_dmg",
+              "row": 0,
+              "col": 2,
+              "name": "灼熱光球",
+              "originalName": "Orbes ardientes",
+              "maxRank": 5,
+              "icon": "cd_argutus_vita",
+              "requires": []
+            },
+            {
+              "id": "acolyte.2.increase_agi",
+              "row": 1,
+              "col": 3,
+              "name": "加速術",
+              "originalName": "Increase AGI",
+              "maxRank": 5,
+              "icon": "al_incagi",
+              "requires": []
+            },
+            {
+              "id": "acolyte.2.fervor",
+              "row": 2,
+              "col": 1,
+              "name": "熱忱",
+              "originalName": "Fervor",
+              "maxRank": 2,
+              "icon": "iq_sincere_faith",
+              "requires": [
+                "acolyte.2.smite_dmg"
+              ]
+            },
+            {
+              "id": "acolyte.2.ruwach_count",
+              "row": 1,
+              "col": 2,
+              "name": "額外光球",
+              "originalName": "Más orbes",
+              "maxRank": 1,
+              "icon": "cd_fidus_animus",
+              "requires": [
+                "acolyte.2.ruwach_dmg"
+              ]
+            },
+            {
+              "id": "acolyte.2.iron_hand",
+              "row": 2,
+              "col": 3,
+              "name": "鐵沙掌",
+              "originalName": "Iron Hand",
+              "maxRank": 5,
+              "icon": "mo_ironhand",
+              "requires": []
+            },
+            {
+              "id": "acolyte.2.smite_cd",
+              "row": 4,
+              "col": 0,
+              "name": "精準懲戒",
+              "originalName": "Castigo certero",
+              "maxRank": 3,
+              "icon": "ch_palmstrike",
+              "requires": [
+                "acolyte.2.holy_sweep"
+              ]
+            },
+            {
+              "id": "acolyte.2.triple_attack",
+              "row": 3,
+              "col": 3,
+              "name": "六合拳",
+              "originalName": "Triple Attack",
+              "maxRank": 5,
+              "icon": "mo_tripleattack",
+              "requires": []
+            },
+            {
+              "id": "acolyte.2.ruwach_cd",
+              "row": 3,
+              "col": 2,
+              "name": "疾速光球",
+              "originalName": "Orbes veloces",
+              "maxRank": 1,
+              "icon": "iq_will_of_faith",
+              "requires": [
+                "acolyte.2.ruwach_count"
+              ]
+            },
+            {
+              "id": "acolyte.2.blessed_hand",
+              "row": 4,
+              "col": 1,
+              "name": "祝福之手",
+              "originalName": "Mano bendita",
+              "maxRank": 1,
+              "icon": "mo_balkyoung",
+              "requires": []
+            },
+            {
+              "id": "acolyte.2.investigate",
+              "row": 4,
+              "col": 2,
+              "name": "浸透勁",
+              "originalName": "Investigate",
+              "maxRank": 3,
+              "icon": "mo_investigate",
+              "requires": []
+            },
+            {
+              "id": "acolyte.2.holy_rhythm",
+              "row": 5,
+              "col": 0,
+              "name": "神聖律動",
+              "originalName": "Ritmo sagrado",
+              "maxRank": 3,
+              "icon": "iq_second_flame",
+              "requires": [
+                "acolyte.2.smite_cd"
+              ]
+            },
+            {
+              "id": "acolyte.2.holy_sweep",
+              "row": 2,
+              "col": 0,
+              "name": "聖光橫掃",
+              "originalName": "Barrido sagrado",
+              "maxRank": 1,
+              "icon": "iq_massive_f_blaster",
+              "requires": [
+                "acolyte.2.bless_proc",
+                "acolyte.2.fervor"
+              ]
+            },
+            {
+              "id": "acolyte.2.faith_power",
+              "row": 5,
+              "col": 2,
+              "name": "信任之力",
+              "originalName": "Fuerza de la fe",
+              "maxRank": 2,
+              "icon": "iq_first_faith_power",
+              "requires": []
+            },
+            {
+              "id": "acolyte.2.bless_proc",
+              "row": 1,
+              "col": 0,
+              "name": "瞬間祝福",
+              "originalName": "Bendición fugaz",
+              "maxRank": 3,
+              "icon": "iq_third_exor_flame",
+              "requires": [
+                "acolyte.2.mace_mastery"
+              ]
+            },
+            {
+              "id": "acolyte.2.light_strike",
+              "row": 6,
+              "col": 1,
+              "name": "光之擊",
+              "originalName": "Golpe de luz",
+              "maxRank": 1,
+              "icon": "cd_framen",
+              "requires": [
+                "acolyte.2.blessed_hand"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "job": "thief",
+      "branches": [
+        {
+          "id": 0,
+          "name": "暗殺",
+          "originalName": "Asesinato",
+          "talents": [
+            {
+              "id": "thief.0.toxicology",
+              "row": 0,
+              "col": 0,
+              "name": "毒理學",
+              "originalName": "Toxicología",
+              "maxRank": 5,
+              "icon": "asc_cdp",
+              "requires": []
+            },
+            {
+              "id": "thief.0.edp",
+              "row": 2,
+              "col": 0,
+              "name": "致命塗毒",
+              "originalName": "Enchant Deadly Poison",
+              "maxRank": 5,
+              "icon": "asc_edp",
+              "requires": []
+            },
+            {
+              "id": "thief.0.venom_mix",
+              "row": 4,
+              "col": 0,
+              "name": "複合毒素",
+              "originalName": "Venenos combinados",
+              "maxRank": 1,
+              "icon": "gc_venomimpress",
+              "requires": [
+                "thief.0.edp"
+              ]
+            },
+            {
+              "id": "thief.0.poison",
+              "row": 0,
+              "col": 1,
+              "name": "濃縮毒素",
+              "originalName": "Veneno concentrado",
+              "maxRank": 5,
+              "icon": "as_enchantpoison",
+              "requires": []
+            },
+            {
+              "id": "thief.0.envenom_cd",
+              "row": 1,
+              "col": 1,
+              "name": "快速連刺",
+              "originalName": "Puñaladas rápidas",
+              "maxRank": 3,
+              "icon": "as_right",
+              "requires": []
+            },
+            {
+              "id": "thief.0.fan",
+              "row": 2,
+              "col": 1,
+              "name": "扇形飛刀",
+              "originalName": "Puñales en abanico",
+              "maxRank": 1,
+              "icon": "as_grimtooth",
+              "requires": [
+                "thief.0.envenom_cd"
+              ]
+            },
+            {
+              "id": "thief.0.poison_react",
+              "row": 5,
+              "col": 1,
+              "name": "中毒反應",
+              "originalName": "Reacción tóxica",
+              "maxRank": 3,
+              "icon": "as_poisonreact",
+              "requires": []
+            },
+            {
+              "id": "thief.0.venom_splasher",
+              "row": 6,
+              "col": 1,
+              "name": "毒性感染",
+              "originalName": "Venom Splasher",
+              "maxRank": 1,
+              "icon": "as_splasher",
+              "requires": [
+                "thief.0.poison_react"
+              ]
+            },
+            {
+              "id": "thief.0.bomb_area",
+              "row": 1,
+              "col": 2,
+              "name": "劇毒噴濺",
+              "originalName": "Salpicadura tóxica",
+              "maxRank": 5,
+              "icon": "am_demonstration",
+              "requires": []
+            },
+            {
+              "id": "thief.0.bomb_cd",
+              "row": 3,
+              "col": 2,
+              "name": "隨手藥瓶",
+              "originalName": "Frascos a mano",
+              "maxRank": 3,
+              "icon": "gc_poisoningweapon",
+              "requires": [
+                "thief.0.bomb_area"
+              ]
+            },
+            {
+              "id": "thief.0.toxin",
+              "row": 4,
+              "col": 2,
+              "name": "慢性毒素",
+              "originalName": "Toxina lenta",
+              "maxRank": 2,
+              "icon": "gc_researchnewpoison",
+              "requires": []
+            },
+            {
+              "id": "thief.0.bomb_count",
+              "row": 5,
+              "col": 2,
+              "name": "藥瓶連投",
+              "originalName": "Lluvia de frascos",
+              "maxRank": 1,
+              "icon": "so_poison_buster",
+              "requires": [
+                "thief.0.toxin"
+              ]
+            },
+            {
+              "id": "thief.0.envenom_dmg",
+              "row": 0,
+              "col": 3,
+              "name": "毒刃",
+              "originalName": "Hoja tóxica",
+              "maxRank": 3,
+              "icon": "tf_poison",
+              "requires": []
+            },
+            {
+              "id": "thief.0.potent",
+              "row": 3,
+              "col": 3,
+              "name": "猛毒",
+              "originalName": "Venenos potentes",
+              "maxRank": 3,
+              "icon": "gc_venompressure",
+              "requires": []
+            },
+            {
+              "id": "thief.0.fumes",
+              "row": 1,
+              "col": 3,
+              "name": "毒性蒸氣",
+              "originalName": "Vapores tóxicos",
+              "maxRank": 5,
+              "icon": "as_venomdust",
+              "requires": []
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "name": "戰鬥",
+          "originalName": "Combate",
+          "talents": [
+            {
+              "id": "thief.1.double_attack",
+              "row": 0,
+              "col": 0,
+              "name": "二刀連擊",
+              "originalName": "Double Attack",
+              "maxRank": 5,
+              "icon": "tf_double",
+              "requires": []
+            },
+            {
+              "id": "thief.1.dagger",
+              "row": 0,
+              "col": 3,
+              "name": "刀刃修練",
+              "originalName": "Maestría con la hoja",
+              "maxRank": 5,
+              "icon": "rg_backstap",
+              "requires": []
+            },
+            {
+              "id": "thief.1.quick_hands",
+              "row": 1,
+              "col": 3,
+              "name": "快手",
+              "originalName": "Manos rápidas",
+              "maxRank": 5,
+              "icon": "gc_phantommenace",
+              "requires": []
+            },
+            {
+              "id": "thief.1.fan_dmg",
+              "row": 1,
+              "col": 0,
+              "name": "精磨刀鋒",
+              "originalName": "Cuchillas afiladas",
+              "maxRank": 3,
+              "icon": "sc_triangleshot",
+              "requires": []
+            },
+            {
+              "id": "thief.1.blind",
+              "row": 2,
+              "col": 2,
+              "name": "黑暗",
+              "originalName": "Ceguera",
+              "maxRank": 3,
+              "icon": "sc_bodypaint",
+              "requires": [
+                "thief.1.sand_cd"
+              ]
+            },
+            {
+              "id": "thief.1.fan_area",
+              "row": 2,
+              "col": 0,
+              "name": "展開的刀扇",
+              "originalName": "Abanico abierto",
+              "maxRank": 2,
+              "icon": "sc_maelstrom",
+              "requires": [
+                "thief.1.fan_dmg"
+              ]
+            },
+            {
+              "id": "thief.1.stone_dmg",
+              "row": 2,
+              "col": 1,
+              "name": "擲石",
+              "originalName": "Pedrada",
+              "maxRank": 5,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "thief.1.sand_cd",
+              "row": 0,
+              "col": 2,
+              "name": "隨手抓沙",
+              "originalName": "Arena a mano",
+              "maxRank": 3,
+              "icon": "rg_graffiti",
+              "requires": []
+            },
+            {
+              "id": "thief.1.strip",
+              "row": 2,
+              "col": 3,
+              "name": "卸除鎧甲",
+              "originalName": "Strip Armor",
+              "maxRank": 3,
+              "icon": "rg_striparmor",
+              "requires": [
+                "thief.1.quick_hands"
+              ]
+            },
+            {
+              "id": "thief.1.thief_eye",
+              "row": 1,
+              "col": 1,
+              "name": "盜賊之眼",
+              "originalName": "Ojo de ladrón",
+              "maxRank": 5,
+              "icon": "rg_intimidate",
+              "requires": []
+            },
+            {
+              "id": "thief.1.stone_stun",
+              "row": 4,
+              "col": 1,
+              "name": "精確投石",
+              "originalName": "Piedra certera",
+              "maxRank": 2,
+              "icon": "tf_pickstone",
+              "requires": [
+                "thief.1.stone_dmg"
+              ]
+            },
+            {
+              "id": "thief.1.sand_area",
+              "row": 3,
+              "col": 2,
+              "name": "遠程撒沙",
+              "originalName": "Arena a distancia",
+              "maxRank": 2,
+              "icon": "rg_tunneldrive",
+              "requires": [
+                "thief.1.blind"
+              ]
+            },
+            {
+              "id": "thief.1.raid",
+              "row": 3,
+              "col": 3,
+              "name": "陰險橫掃",
+              "originalName": "Barrido traicionero",
+              "maxRank": 1,
+              "icon": "rg_raid",
+              "requires": [
+                "thief.1.strip"
+              ]
+            },
+            {
+              "id": "thief.1.stone_count",
+              "row": 5,
+              "col": 1,
+              "name": "石雨",
+              "originalName": "Lluvia de piedras",
+              "maxRank": 1,
+              "icon": "rg_flaggraffiti",
+              "requires": [
+                "thief.1.stone_stun"
+              ]
+            },
+            {
+              "id": "thief.1.reflexes",
+              "row": 4,
+              "col": 0,
+              "name": "反射神經",
+              "originalName": "Reflejos",
+              "maxRank": 3,
+              "icon": "as_sonicaccel",
+              "requires": []
+            },
+            {
+              "id": "thief.1.crit_blow",
+              "row": 5,
+              "col": 0,
+              "name": "必中之刃",
+              "originalName": "Filo certero",
+              "maxRank": 2,
+              "icon": "as_sonicblow",
+              "requires": []
+            },
+            {
+              "id": "thief.1.gangster",
+              "row": 5,
+              "col": 2,
+              "name": "流氓天國",
+              "originalName": "Gangster Paradise",
+              "maxRank": 2,
+              "icon": "rg_gangster",
+              "requires": []
+            },
+            {
+              "id": "thief.1.sonic_blow",
+              "row": 6,
+              "col": 2,
+              "name": "速度激發",
+              "originalName": "Adrenaline Rush",
+              "maxRank": 1,
+              "icon": "bs_adrenaline",
+              "requires": [
+                "thief.1.gangster"
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "暗影",
+          "originalName": "Sombras",
+          "talents": [
+            {
+              "id": "thief.2.improve_dodge",
+              "row": 0,
+              "col": 0,
+              "name": "殘影",
+              "originalName": "Improve Dodge",
+              "maxRank": 5,
+              "icon": "tf_miss",
+              "requires": []
+            },
+            {
+              "id": "thief.2.stealth",
+              "row": 0,
+              "col": 1,
+              "name": "潛行",
+              "originalName": "Sigilo",
+              "maxRank": 5,
+              "icon": "st_chasewalk",
+              "requires": []
+            },
+            {
+              "id": "thief.2.hiding_cd",
+              "row": 0,
+              "col": 2,
+              "name": "迅速隱匿",
+              "originalName": "Ocultación rápida",
+              "maxRank": 3,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "thief.2.breath",
+              "row": 1,
+              "col": 0,
+              "name": "喘息",
+              "originalName": "Respiro",
+              "maxRank": 2,
+              "icon": "tf_detoxify",
+              "requires": []
+            },
+            {
+              "id": "thief.2.hiding_dur",
+              "row": 1,
+              "col": 2,
+              "name": "延長隱匿",
+              "originalName": "Ocultación larga",
+              "maxRank": 3,
+              "icon": "as_cloaking",
+              "requires": [
+                "thief.2.hiding_cd"
+              ]
+            },
+            {
+              "id": "thief.2.shadow_fan",
+              "row": 3,
+              "col": 2,
+              "name": "從陰影現身",
+              "originalName": "Salida de las sombras",
+              "maxRank": 1,
+              "icon": "gc_counterslash",
+              "requires": [
+                "thief.2.hiding_dur"
+              ]
+            },
+            {
+              "id": "thief.2.backslide",
+              "row": 2,
+              "col": 0,
+              "name": "後撤步",
+              "originalName": "Paso atrás",
+              "maxRank": 3,
+              "icon": "tf_backsliding",
+              "requires": []
+            },
+            {
+              "id": "thief.2.reject",
+              "row": 5,
+              "col": 0,
+              "name": "霸王魂",
+              "originalName": "Reject Sword",
+              "maxRank": 2,
+              "icon": "st_rejectsword",
+              "requires": []
+            },
+            {
+              "id": "thief.2.step_cd",
+              "row": 4,
+              "col": 3,
+              "name": "疾步",
+              "originalName": "Paso fugaz",
+              "maxRank": 2,
+              "icon": "sc_escape",
+              "requires": [
+                "thief.2.step_dur"
+              ]
+            },
+            {
+              "id": "thief.2.tough",
+              "row": 2,
+              "col": 3,
+              "name": "硬皮",
+              "originalName": "Piel curtida",
+              "maxRank": 3,
+              "icon": "gc_weaponblocking",
+              "requires": []
+            },
+            {
+              "id": "thief.2.preserve",
+              "row": 3,
+              "col": 0,
+              "name": "自由保護",
+              "originalName": "Preserve",
+              "maxRank": 3,
+              "icon": "st_preserve",
+              "requires": []
+            },
+            {
+              "id": "thief.2.opportunist",
+              "row": 1,
+              "col": 3,
+              "name": "投機者",
+              "originalName": "Oportunista",
+              "maxRank": 3,
+              "icon": "sc_autoshadowspell",
+              "requires": []
+            },
+            {
+              "id": "thief.2.step_dur",
+              "row": 3,
+              "col": 3,
+              "name": "殘留之影",
+              "originalName": "Sombra persistente",
+              "maxRank": 5,
+              "icon": "sc_shadowform",
+              "requires": []
+            },
+            {
+              "id": "thief.2.caltrop_count",
+              "row": 1,
+              "col": 1,
+              "name": "更多鐵蒺藜",
+              "originalName": "Más abrojos",
+              "maxRank": 2,
+              "icon": "rg_compulsion",
+              "requires": []
+            },
+            {
+              "id": "thief.2.instinct",
+              "row": 4,
+              "col": 1,
+              "name": "本能",
+              "originalName": "Instinto",
+              "maxRank": 3,
+              "icon": "gc_hallucinationwalk",
+              "requires": []
+            },
+            {
+              "id": "thief.2.caltrop_dur",
+              "row": 2,
+              "col": 1,
+              "name": "生鏽的鐵蒺藜",
+              "originalName": "Abrojos oxidados",
+              "maxRank": 2,
+              "icon": "sc_feintbomb",
+              "requires": [
+                "thief.2.caltrop_count"
+              ]
+            },
+            {
+              "id": "thief.2.ambush",
+              "row": 5,
+              "col": 1,
+              "name": "伏擊",
+              "originalName": "Emboscada",
+              "maxRank": 1,
+              "icon": "rg_closeconfine",
+              "requires": [
+                "thief.2.instinct"
+              ]
+            },
+            {
+              "id": "thief.2.dimension_door",
+              "row": 5,
+              "col": 3,
+              "name": "異次元之門",
+              "originalName": "Dimension Door",
+              "maxRank": 3,
+              "icon": "sc_dimensiondoor",
+              "requires": [
+                "thief.2.step_cd"
+              ]
+            },
+            {
+              "id": "thief.2.cloaking",
+              "row": 6,
+              "col": 3,
+              "name": "遊蕩之影",
+              "originalName": "Sombra errante",
+              "maxRank": 1,
+              "icon": "gc_cloakingexceed",
+              "requires": [
+                "thief.2.dimension_door"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "job": "merchant",
+      "branches": [
+        {
+          "id": 0,
+          "name": "交易",
+          "originalName": "Comercio",
+          "talents": [
+            {
+              "id": "merchant.0.overcharge",
+              "row": 0,
+              "col": 0,
+              "name": "高價賣出",
+              "originalName": "Overcharge",
+              "maxRank": 5,
+              "icon": "mc_overcharge",
+              "requires": []
+            },
+            {
+              "id": "merchant.0.haggle",
+              "row": 1,
+              "col": 0,
+              "name": "殺價",
+              "originalName": "Regateo",
+              "maxRank": 5,
+              "icon": "bs_unfairlytrick",
+              "requires": []
+            },
+            {
+              "id": "merchant.0.discount",
+              "row": 0,
+              "col": 3,
+              "name": "低價買進",
+              "originalName": "Discount",
+              "maxRank": 5,
+              "icon": "mc_discount",
+              "requires": []
+            },
+            {
+              "id": "merchant.0.zeny_count",
+              "row": 0,
+              "col": 1,
+              "name": "密集雨勢",
+              "originalName": "Lluvia densa",
+              "maxRank": 2,
+              "icon": "gn_slingitem",
+              "requires": []
+            },
+            {
+              "id": "merchant.0.vend_cd",
+              "row": 1,
+              "col": 2,
+              "name": "補貨",
+              "originalName": "Reposición",
+              "maxRank": 3,
+              "icon": "nc_repair",
+              "requires": []
+            },
+            {
+              "id": "merchant.0.good_eye",
+              "row": 1,
+              "col": 3,
+              "name": "好眼光",
+              "originalName": "Buen ojo",
+              "maxRank": 3,
+              "icon": "mc_identify",
+              "requires": []
+            },
+            {
+              "id": "merchant.0.zeny_slow",
+              "row": 2,
+              "col": 3,
+              "name": "零錢",
+              "originalName": "Calderilla",
+              "maxRank": 1,
+              "icon": "ws_createcoin",
+              "requires": [
+                "merchant.0.good_eye"
+              ]
+            },
+            {
+              "id": "merchant.0.zeny_mark",
+              "row": 2,
+              "col": 1,
+              "name": "持久標記",
+              "originalName": "Marca duradera",
+              "maxRank": 3,
+              "icon": "nc_infraredscan",
+              "requires": [
+                "merchant.0.zeny_count"
+              ]
+            },
+            {
+              "id": "merchant.0.vend_lure",
+              "row": 5,
+              "col": 2,
+              "name": "誘餌",
+              "originalName": "Reclamo",
+              "maxRank": 3,
+              "icon": "nc_magicdecoy",
+              "requires": [
+                "merchant.0.vend_dur"
+              ]
+            },
+            {
+              "id": "merchant.0.efficient",
+              "row": 4,
+              "col": 0,
+              "name": "負重效率",
+              "originalName": "Carga eficiente",
+              "maxRank": 3,
+              "icon": "bs_greed",
+              "requires": []
+            },
+            {
+              "id": "merchant.0.vend_dur",
+              "row": 3,
+              "col": 2,
+              "name": "出清大特賣",
+              "originalName": "Liquidación",
+              "maxRank": 5,
+              "icon": "nc_mainframe",
+              "requires": []
+            },
+            {
+              "id": "merchant.0.zeny_cd",
+              "row": 3,
+              "col": 3,
+              "name": "大錢包",
+              "originalName": "Bolsa amplia",
+              "maxRank": 3,
+              "icon": "ws_createnugget",
+              "requires": []
+            },
+            {
+              "id": "merchant.0.zeny_pierce",
+              "row": 3,
+              "col": 1,
+              "name": "特價品",
+              "originalName": "Saldo",
+              "maxRank": 1,
+              "icon": "nc_axeboomerang",
+              "requires": [
+                "merchant.0.zeny_mark"
+              ]
+            },
+            {
+              "id": "merchant.0.investment",
+              "row": 2,
+              "col": 2,
+              "name": "投資",
+              "originalName": "Inversión",
+              "maxRank": 3,
+              "icon": "ws_systemcreate",
+              "requires": []
+            },
+            {
+              "id": "merchant.0.vending",
+              "row": 6,
+              "col": 2,
+              "name": "商業大亨",
+              "originalName": "Gran comerciante",
+              "maxRank": 1,
+              "icon": "bs_making_scrolls",
+              "requires": [
+                "merchant.0.vend_lure"
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "name": "手推車",
+          "originalName": "Carro",
+          "talents": [
+            {
+              "id": "merchant.1.pushcart",
+              "row": 0,
+              "col": 0,
+              "name": "手推車使用",
+              "originalName": "Pushcart",
+              "maxRank": 5,
+              "icon": "mc_pushcart",
+              "requires": []
+            },
+            {
+              "id": "merchant.1.cart_dmg",
+              "row": 0,
+              "col": 1,
+              "name": "重裝手推車",
+              "originalName": "Carro pesado",
+              "maxRank": 5,
+              "icon": "gn_cartcannon",
+              "requires": []
+            },
+            {
+              "id": "merchant.1.rush_dmg",
+              "row": 0,
+              "col": 2,
+              "name": "衝鋒",
+              "originalName": "Embestida",
+              "maxRank": 3,
+              "icon": "mt_rush_strike",
+              "requires": []
+            },
+            {
+              "id": "merchant.1.reinforced",
+              "row": 1,
+              "col": 0,
+              "name": "加固手推車",
+              "originalName": "Carro reforzado",
+              "maxRank": 3,
+              "icon": "bs_orideocon",
+              "requires": []
+            },
+            {
+              "id": "merchant.1.cart_cd",
+              "row": 2,
+              "col": 1,
+              "name": "順滑車輪",
+              "originalName": "Ruedas engrasadas",
+              "maxRank": 3,
+              "icon": "ws_cartboost",
+              "requires": [
+                "merchant.1.cart_dmg"
+              ]
+            },
+            {
+              "id": "merchant.1.cart_area",
+              "row": 5,
+              "col": 3,
+              "name": "遠程手推車",
+              "originalName": "Carro de largo alcance",
+              "maxRank": 3,
+              "icon": "gn_cart_tornado",
+              "requires": [
+                "merchant.1.momentum"
+              ]
+            },
+            {
+              "id": "merchant.1.rush_cd",
+              "row": 2,
+              "col": 2,
+              "name": "新車輪",
+              "originalName": "Ruedas nuevas",
+              "maxRank": 3,
+              "icon": "nc_hovering",
+              "requires": [
+                "merchant.1.rush_dmg"
+              ]
+            },
+            {
+              "id": "merchant.1.brute",
+              "row": 5,
+              "col": 2,
+              "name": "蠻力",
+              "originalName": "Fuerza bruta",
+              "maxRank": 3,
+              "icon": "bs_steel",
+              "requires": []
+            },
+            {
+              "id": "merchant.1.enlarge_cd",
+              "row": 2,
+              "col": 3,
+              "name": "輕裝",
+              "originalName": "Carga aligerada",
+              "maxRank": 3,
+              "icon": "nc_neutralbarrier",
+              "requires": [
+                "merchant.1.enlarge_dur"
+              ]
+            },
+            {
+              "id": "merchant.1.rush_stun",
+              "row": 3,
+              "col": 2,
+              "name": "碾壓",
+              "originalName": "Arrollar",
+              "maxRank": 5,
+              "icon": "mt_rush_quake",
+              "requires": [
+                "merchant.1.rush_cd"
+              ]
+            },
+            {
+              "id": "merchant.1.cart_count",
+              "row": 4,
+              "col": 2,
+              "name": "二連迴旋",
+              "originalName": "Doble vuelta",
+              "maxRank": 1,
+              "icon": "gn_remodeling_cart",
+              "requires": [
+                "merchant.1.rush_knock"
+              ]
+            },
+            {
+              "id": "merchant.1.enlarge_dur",
+              "row": 0,
+              "col": 3,
+              "name": "滿載",
+              "originalName": "Carga máxima",
+              "maxRank": 2,
+              "icon": "am_cp_armor",
+              "requires": []
+            },
+            {
+              "id": "merchant.1.rush_knock",
+              "row": 4,
+              "col": 1,
+              "name": "必中一擊",
+              "originalName": "Golpe certero",
+              "maxRank": 3,
+              "icon": "mt_twoaxedef",
+              "requires": []
+            },
+            {
+              "id": "merchant.1.axe_mastery",
+              "row": 3,
+              "col": 0,
+              "name": "斧術熟練",
+              "originalName": "Maestría con hacha",
+              "maxRank": 2,
+              "icon": "am_axemastery",
+              "requires": []
+            },
+            {
+              "id": "merchant.1.momentum",
+              "row": 3,
+              "col": 3,
+              "name": "動能",
+              "originalName": "Momento",
+              "maxRank": 3,
+              "icon": "nc_powerswing",
+              "requires": []
+            },
+            {
+              "id": "merchant.1.cart_termination",
+              "row": 6,
+              "col": 1,
+              "name": "手推車終結技",
+              "originalName": "Cart Termination",
+              "maxRank": 1,
+              "icon": "ws_carttermination",
+              "requires": [
+                "merchant.1.rush_knock"
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "鍛冶",
+          "originalName": "Herrería",
+          "talents": [
+            {
+              "id": "merchant.2.strength",
+              "row": 0,
+              "col": 0,
+              "name": "力量",
+              "originalName": "Fuerza",
+              "maxRank": 5,
+              "icon": "bs_axe",
+              "requires": []
+            },
+            {
+              "id": "merchant.2.mammo_dmg",
+              "row": 0,
+              "col": 1,
+              "name": "沉甸甸的 Zeny",
+              "originalName": "Zeny pesado",
+              "maxRank": 5,
+              "icon": "mt_mighty_smash",
+              "requires": []
+            },
+            {
+              "id": "merchant.2.weapon_research",
+              "row": 1,
+              "col": 0,
+              "name": "武器研究",
+              "originalName": "Weapon Research",
+              "maxRank": 3,
+              "icon": "bs_weaponresearch",
+              "requires": []
+            },
+            {
+              "id": "merchant.2.mammo_cd",
+              "row": 1,
+              "col": 1,
+              "name": "快速打擊",
+              "originalName": "Golpe rápido",
+              "maxRank": 3,
+              "icon": "mt_powerful_swing",
+              "requires": []
+            },
+            {
+              "id": "merchant.2.uproar_cd",
+              "row": 0,
+              "col": 2,
+              "name": "連聲吶喊",
+              "originalName": "Grito frecuente",
+              "maxRank": 3,
+              "icon": "bs_adrenaline2",
+              "requires": []
+            },
+            {
+              "id": "merchant.2.mammo_area",
+              "row": 2,
+              "col": 1,
+              "name": "衝擊",
+              "originalName": "Impacto",
+              "maxRank": 2,
+              "icon": "mt_axe_stomp",
+              "requires": []
+            },
+            {
+              "id": "merchant.2.uproar_dur",
+              "row": 2,
+              "col": 2,
+              "name": "宏亮吶喊",
+              "originalName": "Grito potente",
+              "maxRank": 2,
+              "icon": "mc_loud_on",
+              "requires": [
+                "merchant.2.uproar_cd"
+              ]
+            },
+            {
+              "id": "merchant.2.aim",
+              "row": 2,
+              "col": 3,
+              "name": "瞄準",
+              "originalName": "Puntería",
+              "maxRank": 5,
+              "icon": "bs_weaponperfect",
+              "requires": []
+            },
+            {
+              "id": "merchant.2.hilt",
+              "row": 3,
+              "col": 0,
+              "name": "武器保有",
+              "originalName": "Hilt Binding",
+              "maxRank": 2,
+              "icon": "bs_hiltbinding",
+              "requires": [
+                "merchant.2.weapon_research"
+              ]
+            },
+            {
+              "id": "merchant.2.hammerfall",
+              "row": 3,
+              "col": 1,
+              "name": "大地之擊",
+              "originalName": "Hammer Fall",
+              "maxRank": 5,
+              "icon": "bs_hammerfall",
+              "requires": []
+            },
+            {
+              "id": "merchant.2.armor_break",
+              "row": 3,
+              "col": 2,
+              "name": "破甲手",
+              "originalName": "Rompecorazas",
+              "maxRank": 3,
+              "icon": "bs_findingore",
+              "requires": []
+            },
+            {
+              "id": "merchant.2.crit_hit",
+              "row": 4,
+              "col": 3,
+              "name": "爆擊重擊",
+              "originalName": "Golpe crítico",
+              "maxRank": 2,
+              "icon": "ws_overthrustmax",
+              "requires": []
+            },
+            {
+              "id": "merchant.2.adrenaline",
+              "row": 4,
+              "col": 0,
+              "name": "速度激發",
+              "originalName": "Adrenaline Rush",
+              "maxRank": 3,
+              "icon": "bs_adrenaline",
+              "requires": []
+            },
+            {
+              "id": "merchant.2.overthrust",
+              "row": 4,
+              "col": 2,
+              "name": "凶砍",
+              "originalName": "Over Thrust",
+              "maxRank": 3,
+              "icon": "bs_overthrust",
+              "requires": []
+            },
+            {
+              "id": "merchant.2.melt",
+              "row": 1,
+              "col": 3,
+              "name": "野蠻凶砍",
+              "originalName": "Meltdown",
+              "maxRank": 2,
+              "icon": "ws_meltdown",
+              "requires": []
+            },
+            {
+              "id": "merchant.2.maximize",
+              "row": 6,
+              "col": 1,
+              "name": "武器值最大化",
+              "originalName": "Maximize Power",
+              "maxRank": 1,
+              "icon": "bs_maximize",
+              "requires": [
+                "merchant.2.hammerfall"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "job": "taekwon",
+      "branches": [
+        {
+          "id": 0,
+          "name": "暴風雨",
+          "originalName": "Tormenta",
+          "talents": [
+            {
+              "id": "taekwon.0.mild_wind",
+              "row": 0,
+              "col": 0,
+              "name": "溫和之風",
+              "originalName": "Mild Wind",
+              "maxRank": 5,
+              "icon": "tk_sevenwind",
+              "requires": []
+            },
+            {
+              "id": "taekwon.0.tornado_dmg",
+              "row": 0,
+              "col": 1,
+              "name": "颶風踢",
+              "originalName": "Patada huracanada",
+              "maxRank": 5,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "taekwon.0.wind",
+              "row": 1,
+              "col": 0,
+              "name": "風",
+              "originalName": "Viento",
+              "maxRank": 3,
+              "icon": "sg_sun_warm",
+              "requires": []
+            },
+            {
+              "id": "taekwon.0.tornado_cd",
+              "row": 1,
+              "col": 1,
+              "name": "快速迴旋",
+              "originalName": "Giro rápido",
+              "maxRank": 3,
+              "icon": "tk_readystorm",
+              "requires": []
+            },
+            {
+              "id": "taekwon.0.round_dmg",
+              "row": 1,
+              "col": 2,
+              "name": "迴旋踢",
+              "originalName": "Patada circular",
+              "maxRank": 3,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "taekwon.0.dizzy",
+              "row": 2,
+              "col": 1,
+              "name": "暈頭轉向",
+              "originalName": "Mareo",
+              "maxRank": 3,
+              "icon": "sg_moon_warm",
+              "requires": [
+                "taekwon.0.tornado_cd"
+              ]
+            },
+            {
+              "id": "taekwon.0.round_area",
+              "row": 2,
+              "col": 2,
+              "name": "大掃蕩",
+              "originalName": "Gran barrido",
+              "maxRank": 2,
+              "icon": "tk_readyturn",
+              "requires": [
+                "taekwon.0.round_dmg"
+              ]
+            },
+            {
+              "id": "taekwon.0.lightness",
+              "row": 2,
+              "col": 3,
+              "name": "輕盈",
+              "originalName": "Ligereza",
+              "maxRank": 3,
+              "icon": "tk_run",
+              "requires": []
+            },
+            {
+              "id": "taekwon.0.whirl",
+              "row": 3,
+              "col": 0,
+              "name": "旋風",
+              "originalName": "Remolino",
+              "maxRank": 3,
+              "icon": "sg_star_warm",
+              "requires": []
+            },
+            {
+              "id": "taekwon.0.round_cd",
+              "row": 3,
+              "col": 2,
+              "name": "迴旋律動",
+              "originalName": "Ritmo circular",
+              "maxRank": 3,
+              "icon": "sg_moon_comfort",
+              "requires": []
+            },
+            {
+              "id": "taekwon.0.storm_eye",
+              "row": 4,
+              "col": 1,
+              "name": "颶風之眼",
+              "originalName": "Ojo del huracán",
+              "maxRank": 3,
+              "icon": "sg_sun_anger",
+              "requires": [
+                "taekwon.0.dizzy"
+              ]
+            },
+            {
+              "id": "taekwon.0.gale",
+              "row": 4,
+              "col": 3,
+              "name": "狂風",
+              "originalName": "Vendaval",
+              "maxRank": 2,
+              "icon": "sl_swoo",
+              "requires": []
+            },
+            {
+              "id": "taekwon.0.warm",
+              "row": 5,
+              "col": 0,
+              "name": "溫暖之風",
+              "originalName": "Warm Wind",
+              "maxRank": 2,
+              "icon": "sg_star_comfort",
+              "requires": []
+            },
+            {
+              "id": "taekwon.0.cyclone",
+              "row": 5,
+              "col": 1,
+              "name": "氣旋",
+              "originalName": "Ciclón",
+              "maxRank": 2,
+              "icon": "sg_fusion",
+              "requires": [
+                "taekwon.0.storm_eye"
+              ]
+            },
+            {
+              "id": "taekwon.0.typhoon",
+              "row": 6,
+              "col": 1,
+              "name": "颱風",
+              "originalName": "Tifón",
+              "maxRank": 1,
+              "icon": "tk_stormkick",
+              "requires": [
+                "taekwon.0.cyclone"
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "name": "戰鬥",
+          "originalName": "Combate",
+          "talents": [
+            {
+              "id": "taekwon.1.kihop",
+              "row": 0,
+              "col": 0,
+              "name": "氣合",
+              "originalName": "Kihop",
+              "maxRank": 5,
+              "icon": "tk_power",
+              "requires": []
+            },
+            {
+              "id": "taekwon.1.heel_dmg",
+              "row": 0,
+              "col": 1,
+              "name": "踵擊",
+              "originalName": "Talonazo",
+              "maxRank": 5,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "taekwon.1.fist",
+              "row": 0,
+              "col": 2,
+              "name": "鐵拳",
+              "originalName": "Puños de acero",
+              "maxRank": 3,
+              "icon": "tk_jumpkick",
+              "requires": []
+            },
+            {
+              "id": "taekwon.1.heel_cd",
+              "row": 1,
+              "col": 1,
+              "name": "節奏",
+              "originalName": "Ritmo",
+              "maxRank": 3,
+              "icon": "tk_readydown",
+              "requires": []
+            },
+            {
+              "id": "taekwon.1.counter_dmg",
+              "row": 1,
+              "col": 2,
+              "name": "反擊",
+              "originalName": "Contragolpe",
+              "maxRank": 3,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "taekwon.1.precision",
+              "row": 1,
+              "col": 3,
+              "name": "精準",
+              "originalName": "Precisión",
+              "maxRank": 3,
+              "icon": "sg_hate",
+              "requires": []
+            },
+            {
+              "id": "taekwon.1.concussion",
+              "row": 2,
+              "col": 1,
+              "name": "腦震盪",
+              "originalName": "Conmoción",
+              "maxRank": 3,
+              "icon": "sg_moon_anger",
+              "requires": [
+                "taekwon.1.heel_cd"
+              ]
+            },
+            {
+              "id": "taekwon.1.counter_cd",
+              "row": 2,
+              "col": 2,
+              "name": "反射神經",
+              "originalName": "Reflejos",
+              "maxRank": 3,
+              "icon": "tk_readycounter",
+              "requires": [
+                "taekwon.1.counter_dmg"
+              ]
+            },
+            {
+              "id": "taekwon.1.vital",
+              "row": 3,
+              "col": 0,
+              "name": "要害一擊",
+              "originalName": "Golpe vital",
+              "maxRank": 2,
+              "icon": "sg_star_anger",
+              "requires": []
+            },
+            {
+              "id": "taekwon.1.counter_area",
+              "row": 3,
+              "col": 2,
+              "name": "大範圍反擊",
+              "originalName": "Contraataque amplio",
+              "maxRank": 2,
+              "icon": "tk_counter",
+              "requires": [
+                "taekwon.1.counter_cd"
+              ]
+            },
+            {
+              "id": "taekwon.1.flying",
+              "row": 3,
+              "col": 3,
+              "name": "飛踢",
+              "originalName": "Patada voladora",
+              "maxRank": 3,
+              "icon": "tk_highjump",
+              "requires": []
+            },
+            {
+              "id": "taekwon.1.heel_area",
+              "row": 4,
+              "col": 1,
+              "name": "斧踵踢",
+              "originalName": "Hacha de talón",
+              "maxRank": 2,
+              "icon": "tk_downkick",
+              "requires": [
+                "taekwon.1.concussion"
+              ]
+            },
+            {
+              "id": "taekwon.1.combo",
+              "row": 4,
+              "col": 3,
+              "name": "連擊",
+              "originalName": "Combo",
+              "maxRank": 3,
+              "icon": "sl_stun",
+              "requires": []
+            },
+            {
+              "id": "taekwon.1.feeling",
+              "row": 5,
+              "col": 0,
+              "name": "太陽和月亮和星星的感覺",
+              "originalName": "Feeling",
+              "maxRank": 2,
+              "icon": "sg_feel",
+              "requires": []
+            },
+            {
+              "id": "taekwon.1.devil",
+              "row": 5,
+              "col": 1,
+              "name": "太陽和月亮和星星的惡魔",
+              "originalName": "Devil",
+              "maxRank": 2,
+              "icon": "sg_devil",
+              "requires": [
+                "taekwon.1.heel_area"
+              ]
+            },
+            {
+              "id": "taekwon.1.celestial",
+              "row": 6,
+              "col": 1,
+              "name": "天空之斧",
+              "originalName": "Hacha celeste",
+              "maxRank": 1,
+              "icon": "sg_star_bless",
+              "requires": [
+                "taekwon.1.devil"
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "修練",
+          "originalName": "Disciplina",
+          "talents": [
+            {
+              "id": "taekwon.2.peaceful_break",
+              "row": 0,
+              "col": 0,
+              "name": "平安的休息",
+              "originalName": "Peaceful Break",
+              "maxRank": 5,
+              "icon": "tk_hptime",
+              "requires": []
+            },
+            {
+              "id": "taekwon.2.tempered",
+              "row": 0,
+              "col": 1,
+              "name": "淬火之軀",
+              "originalName": "Cuerpo templado",
+              "maxRank": 5,
+              "icon": "tk_sptime",
+              "requires": []
+            },
+            {
+              "id": "taekwon.2.breathing",
+              "row": 1,
+              "col": 0,
+              "name": "呼吸",
+              "originalName": "Respiración",
+              "maxRank": 3,
+              "icon": "sl_kaupe",
+              "requires": []
+            },
+            {
+              "id": "taekwon.2.sprint_cd",
+              "row": 1,
+              "col": 1,
+              "name": "助跑",
+              "originalName": "Carrerilla",
+              "maxRank": 3,
+              "icon": "tk_run",
+              "requires": []
+            },
+            {
+              "id": "taekwon.2.guard",
+              "row": 1,
+              "col": 2,
+              "name": "防禦",
+              "originalName": "Guardia",
+              "maxRank": 3,
+              "icon": "tk_dodge",
+              "requires": []
+            },
+            {
+              "id": "taekwon.2.sprint_dur",
+              "row": 2,
+              "col": 1,
+              "name": "耐力",
+              "originalName": "Fondo",
+              "maxRank": 2,
+              "icon": "sl_kaite",
+              "requires": [
+                "taekwon.2.sprint_cd"
+              ]
+            },
+            {
+              "id": "taekwon.2.temper",
+              "row": 2,
+              "col": 2,
+              "name": "淬鍊",
+              "originalName": "Temple",
+              "maxRank": 3,
+              "icon": "sl_kaizel",
+              "requires": [
+                "taekwon.2.guard"
+              ]
+            },
+            {
+              "id": "taekwon.2.dodge",
+              "row": 2,
+              "col": 3,
+              "name": "Flee（迴避）",
+              "originalName": "Flee",
+              "maxRank": 3,
+              "icon": "tk_dodge",
+              "requires": []
+            },
+            {
+              "id": "taekwon.2.meditation",
+              "row": 3,
+              "col": 0,
+              "name": "冥想",
+              "originalName": "Meditación",
+              "maxRank": 2,
+              "icon": "tk_mission",
+              "requires": []
+            },
+            {
+              "id": "taekwon.2.mission",
+              "row": 3,
+              "col": 3,
+              "name": "太拳任務",
+              "originalName": "Taekwon Mission",
+              "maxRank": 2,
+              "icon": "tk_mission",
+              "requires": []
+            },
+            {
+              "id": "taekwon.2.stride",
+              "row": 4,
+              "col": 1,
+              "name": "跨步",
+              "originalName": "Zancada",
+              "maxRank": 2,
+              "icon": "sl_kaahi",
+              "requires": [
+                "taekwon.2.sprint_dur"
+              ]
+            },
+            {
+              "id": "taekwon.2.iron_body",
+              "row": 4,
+              "col": 2,
+              "name": "鐵骨之軀",
+              "originalName": "Cuerpo de hierro",
+              "maxRank": 2,
+              "icon": "sl_kaina",
+              "requires": []
+            },
+            {
+              "id": "taekwon.2.comfort",
+              "row": 5,
+              "col": 0,
+              "name": "太陽、月亮與星星的安樂",
+              "originalName": "Comfort",
+              "maxRank": 2,
+              "icon": "sg_sun_comfort",
+              "requires": []
+            },
+            {
+              "id": "taekwon.2.knowledge",
+              "row": 5,
+              "col": 1,
+              "name": "太陽和月亮和星星的知識",
+              "originalName": "Knowledge",
+              "maxRank": 2,
+              "icon": "sg_knowledge",
+              "requires": [
+                "taekwon.2.stride"
+              ]
+            },
+            {
+              "id": "taekwon.2.soul_link",
+              "row": 6,
+              "col": 1,
+              "name": "靈魂鏈結",
+              "originalName": "Soul Link",
+              "maxRank": 1,
+              "icon": "sl_soullinker",
+              "requires": [
+                "taekwon.2.knowledge"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "job": "ninja",
+      "branches": [
+        {
+          "id": 0,
+          "name": "投擲",
+          "originalName": "Arrojadizas",
+          "talents": [
+            {
+              "id": "ninja.0.dagger_throwing",
+              "row": 0,
+              "col": 0,
+              "name": "飛刀修練",
+              "originalName": "Dagger Throwing Practice",
+              "maxRank": 5,
+              "icon": "nj_tobidougu",
+              "requires": []
+            },
+            {
+              "id": "ninja.0.shuriken_dmg",
+              "row": 0,
+              "col": 1,
+              "name": "手裡劍鋒刃",
+              "originalName": "Filo de shuriken",
+              "maxRank": 5,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "ninja.0.wrist",
+              "row": 1,
+              "col": 0,
+              "name": "穩健手腕",
+              "originalName": "Muñeca firme",
+              "maxRank": 3,
+              "icon": "nj_tobidougu",
+              "requires": []
+            },
+            {
+              "id": "ninja.0.shuriken_cd",
+              "row": 1,
+              "col": 1,
+              "name": "快速投擲",
+              "originalName": "Lanzamiento rápido",
+              "maxRank": 3,
+              "icon": "ko_muchanage",
+              "requires": []
+            },
+            {
+              "id": "ninja.0.huuma_dmg",
+              "row": 1,
+              "col": 2,
+              "name": "鋒利風魔",
+              "originalName": "Huuma afilado",
+              "maxRank": 3,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "ninja.0.shuriken_count",
+              "row": 2,
+              "col": 1,
+              "name": "手裡劍加量",
+              "originalName": "Más shurikens",
+              "maxRank": 2,
+              "icon": "ko_happokunai",
+              "requires": [
+                "ninja.0.shuriken_cd"
+              ]
+            },
+            {
+              "id": "ninja.0.huuma_cd",
+              "row": 2,
+              "col": 2,
+              "name": "迅捷風魔",
+              "originalName": "Huuma rápido",
+              "maxRank": 3,
+              "icon": "ko_huumaranka",
+              "requires": [
+                "ninja.0.huuma_dmg"
+              ]
+            },
+            {
+              "id": "ninja.0.zeny_throw",
+              "row": 2,
+              "col": 3,
+              "name": "擲錢",
+              "originalName": "Zeny Nage",
+              "maxRank": 3,
+              "icon": "nj_zenynage",
+              "requires": []
+            },
+            {
+              "id": "ninja.0.pierce",
+              "row": 3,
+              "col": 0,
+              "name": "穿透手裡劍",
+              "originalName": "Shuriken perforante",
+              "maxRank": 2,
+              "icon": "nj_kirikage",
+              "requires": []
+            },
+            {
+              "id": "ninja.0.huuma_pierce",
+              "row": 3,
+              "col": 2,
+              "name": "穿透風魔",
+              "originalName": "Huuma perforante",
+              "maxRank": 2,
+              "icon": "ko_setsudan",
+              "requires": []
+            },
+            {
+              "id": "ninja.0.barrage",
+              "row": 4,
+              "col": 1,
+              "name": "齊射",
+              "originalName": "Andanada",
+              "maxRank": 3,
+              "icon": "ko_jyumonjikiri",
+              "requires": [
+                "ninja.0.shuriken_count"
+              ]
+            },
+            {
+              "id": "ninja.0.huuma_basic",
+              "row": 4,
+              "col": 3,
+              "name": "風魔近擊",
+              "originalName": "Huuma al cuerpo",
+              "maxRank": 2,
+              "icon": "nj_huuma",
+              "requires": []
+            },
+            {
+              "id": "ninja.0.kunai_rain",
+              "row": 5,
+              "col": 0,
+              "name": "苦無雨",
+              "originalName": "Lluvia de kunais",
+              "maxRank": 1,
+              "icon": "ko_makibishi",
+              "requires": []
+            },
+            {
+              "id": "ninja.0.giant_wheel",
+              "row": 5,
+              "col": 1,
+              "name": "巨輪",
+              "originalName": "Rueda gigante",
+              "maxRank": 2,
+              "icon": "ko_huumaranka",
+              "requires": [
+                "ninja.0.barrage"
+              ]
+            },
+            {
+              "id": "ninja.0.blaze_shuriken",
+              "row": 6,
+              "col": 1,
+              "name": "火焰手裡劍",
+              "originalName": "Blaze Shuriken",
+              "maxRank": 1,
+              "icon": "ko_happokunai",
+              "requires": [
+                "ninja.0.giant_wheel"
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "name": "忍術",
+          "originalName": "Ninjutsu",
+          "talents": [
+            {
+              "id": "ninja.1.ninja_soul",
+              "row": 0,
+              "col": 0,
+              "name": "念",
+              "originalName": "Soul",
+              "maxRank": 5,
+              "icon": "nj_nen",
+              "requires": []
+            },
+            {
+              "id": "ninja.1.petals_dmg",
+              "row": 0,
+              "col": 1,
+              "name": "火焰花瓣",
+              "originalName": "Pétalos ardientes",
+              "maxRank": 5,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "ninja.1.strike_dmg",
+              "row": 0,
+              "col": 2,
+              "name": "放電",
+              "originalName": "Descarga",
+              "maxRank": 5,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "ninja.1.chakra",
+              "row": 1,
+              "col": 0,
+              "name": "查克拉",
+              "originalName": "Chakra",
+              "maxRank": 3,
+              "icon": "nj_ninpou",
+              "requires": []
+            },
+            {
+              "id": "ninja.1.petals_count",
+              "row": 1,
+              "col": 1,
+              "name": "額外花瓣",
+              "originalName": "Más pétalos",
+              "maxRank": 2,
+              "icon": "nj_kaensin",
+              "requires": []
+            },
+            {
+              "id": "ninja.1.strike_area",
+              "row": 1,
+              "col": 2,
+              "name": "電場",
+              "originalName": "Campo eléctrico",
+              "maxRank": 3,
+              "icon": "nj_huujin",
+              "requires": []
+            },
+            {
+              "id": "ninja.1.petals_cd",
+              "row": 2,
+              "col": 1,
+              "name": "快速結印",
+              "originalName": "Sellos rápidos",
+              "maxRank": 3,
+              "icon": "nj_bakuenryu",
+              "requires": [
+                "ninja.1.petals_count"
+              ]
+            },
+            {
+              "id": "ninja.1.strike_cd",
+              "row": 2,
+              "col": 2,
+              "name": "迅雷",
+              "originalName": "Trueno veloz",
+              "maxRank": 3,
+              "icon": "nj_kamaitachi",
+              "requires": [
+                "ninja.1.strike_area"
+              ]
+            },
+            {
+              "id": "ninja.1.expansion",
+              "row": 2,
+              "col": 3,
+              "name": "擴張",
+              "originalName": "Expansión",
+              "maxRank": 3,
+              "icon": "nj_suiton",
+              "requires": []
+            },
+            {
+              "id": "ninja.1.casting",
+              "row": 3,
+              "col": 0,
+              "name": "結印",
+              "originalName": "Sellos de mano",
+              "maxRank": 3,
+              "icon": "nj_ninpou",
+              "requires": []
+            },
+            {
+              "id": "ninja.1.ice",
+              "row": 3,
+              "col": 2,
+              "name": "冰閃槍",
+              "originalName": "Hyousensou",
+              "maxRank": 2,
+              "icon": "nj_hyousensou",
+              "requires": []
+            },
+            {
+              "id": "ninja.1.fire_dragon",
+              "row": 4,
+              "col": 1,
+              "name": "火龍",
+              "originalName": "Dragón de fuego",
+              "maxRank": 2,
+              "icon": "nj_bakuenryu",
+              "requires": [
+                "ninja.1.petals_cd"
+              ]
+            },
+            {
+              "id": "ninja.1.exorcism",
+              "row": 4,
+              "col": 3,
+              "name": "忍者除靈",
+              "originalName": "Exorcismo ninja",
+              "maxRank": 3,
+              "icon": "ko_kaihou",
+              "requires": []
+            },
+            {
+              "id": "ninja.1.izayoi",
+              "row": 5,
+              "col": 0,
+              "name": "十六夜",
+              "originalName": "Izayoi",
+              "maxRank": 2,
+              "icon": "ko_izayoi",
+              "requires": []
+            },
+            {
+              "id": "ninja.1.elements",
+              "row": 5,
+              "col": 1,
+              "name": "屬性精通",
+              "originalName": "Dominio elemental",
+              "maxRank": 2,
+              "icon": "ko_zenkai",
+              "requires": [
+                "ninja.1.fire_dragon"
+              ]
+            },
+            {
+              "id": "ninja.1.raigeki",
+              "row": 6,
+              "col": 1,
+              "name": "雷擊",
+              "originalName": "Raigeki",
+              "maxRank": 1,
+              "icon": "nj_raigekisai",
+              "requires": [
+                "ninja.1.elements"
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "潛行",
+          "originalName": "Sigilo",
+          "talents": [
+            {
+              "id": "ninja.2.cicada",
+              "row": 0,
+              "col": 0,
+              "name": "金蟬脫殼",
+              "originalName": "Cicada Skin Shed",
+              "maxRank": 5,
+              "icon": "nj_utsusemi",
+              "requires": []
+            },
+            {
+              "id": "ninja.2.kunai_dmg",
+              "row": 0,
+              "col": 1,
+              "name": "淬毒苦無",
+              "originalName": "Kunai envenenado",
+              "maxRank": 5,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "ninja.2.wind_feet",
+              "row": 1,
+              "col": 0,
+              "name": "疾風足",
+              "originalName": "Pies de viento",
+              "maxRank": 3,
+              "icon": "nj_shadowjump",
+              "requires": []
+            },
+            {
+              "id": "ninja.2.kunai_cd",
+              "row": 1,
+              "col": 1,
+              "name": "快手",
+              "originalName": "Mano rápida",
+              "maxRank": 3,
+              "icon": "ko_left",
+              "requires": []
+            },
+            {
+              "id": "ninja.2.vital_point",
+              "row": 1,
+              "col": 2,
+              "name": "要害",
+              "originalName": "Punto vital",
+              "maxRank": 3,
+              "icon": "ko_right",
+              "requires": []
+            },
+            {
+              "id": "ninja.2.kunai_count",
+              "row": 2,
+              "col": 1,
+              "name": "更多苦無",
+              "originalName": "Más kunais",
+              "maxRank": 2,
+              "icon": "ko_happokunai",
+              "requires": [
+                "ninja.2.kunai_cd"
+              ]
+            },
+            {
+              "id": "ninja.2.lethal",
+              "row": 2,
+              "col": 2,
+              "name": "致命打擊",
+              "originalName": "Golpe letal",
+              "maxRank": 2,
+              "icon": "ko_jyusatsu",
+              "requires": [
+                "ninja.2.vital_point"
+              ]
+            },
+            {
+              "id": "ninja.2.illusion",
+              "row": 2,
+              "col": 3,
+              "name": "幻影",
+              "originalName": "Ilusión",
+              "maxRank": 3,
+              "icon": "nj_bunsinjyutsu",
+              "requires": []
+            },
+            {
+              "id": "ninja.2.shadow",
+              "row": 3,
+              "col": 0,
+              "name": "暗影",
+              "originalName": "Sombra",
+              "maxRank": 2,
+              "icon": "ko_zanzou",
+              "requires": []
+            },
+            {
+              "id": "ninja.2.mist",
+              "row": 3,
+              "col": 2,
+              "name": "霞斬",
+              "originalName": "Kasumikiri",
+              "maxRank": 2,
+              "icon": "nj_kasumikiri",
+              "requires": []
+            },
+            {
+              "id": "ninja.2.kunai_poison",
+              "row": 4,
+              "col": 1,
+              "name": "忍毒",
+              "originalName": "Veneno ninja",
+              "maxRank": 3,
+              "icon": "ko_jyusatsu",
+              "requires": [
+                "ninja.2.kunai_count"
+              ]
+            },
+            {
+              "id": "ninja.2.tatami",
+              "row": 4,
+              "col": 3,
+              "name": "掀榻榻米",
+              "originalName": "Tatami Gaeshi",
+              "maxRank": 3,
+              "icon": "nj_tatamigaeshi",
+              "requires": []
+            },
+            {
+              "id": "ninja.2.issen",
+              "row": 5,
+              "col": 0,
+              "name": "一閃擊",
+              "originalName": "Final Strike",
+              "maxRank": 2,
+              "icon": "nj_issen",
+              "requires": []
+            },
+            {
+              "id": "ninja.2.yamikumo",
+              "row": 5,
+              "col": 1,
+              "name": "闇雲",
+              "originalName": "Yamikumo",
+              "maxRank": 2,
+              "icon": "ko_yamikumo",
+              "requires": [
+                "ninja.2.kunai_poison"
+              ]
+            },
+            {
+              "id": "ninja.2.kunai_storm",
+              "row": 6,
+              "col": 1,
+              "name": "苦無暴雨",
+              "originalName": "Tormenta de kunais",
+              "maxRank": 1,
+              "icon": "ko_genwaku",
+              "requires": [
+                "ninja.2.yamikumo"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "job": "gunslinger",
+      "branches": [
+        {
+          "id": 0,
+          "name": "手槍客",
+          "originalName": "Pistolero",
+          "talents": [
+            {
+              "id": "gunslinger.0.chain_action",
+              "row": 0,
+              "col": 0,
+              "name": "連鎖衝擊",
+              "originalName": "Chain Action",
+              "maxRank": 5,
+              "icon": "gs_chainaction",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.0.triple_dmg",
+              "row": 0,
+              "col": 1,
+              "name": "空尖彈",
+              "originalName": "Balas de punta hueca",
+              "maxRank": 5,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "gunslinger.0.rapid_dmg",
+              "row": 0,
+              "col": 2,
+              "name": "扣扳機狂",
+              "originalName": "Gatillo fácil",
+              "maxRank": 3,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "gunslinger.0.triple_cd",
+              "row": 1,
+              "col": 1,
+              "name": "快速裝填",
+              "originalName": "Recarga rápida",
+              "maxRank": 3,
+              "icon": "gs_increasing",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.0.rapid_count",
+              "row": 1,
+              "col": 2,
+              "name": "長連發",
+              "originalName": "Ráfaga larga",
+              "maxRank": 2,
+              "icon": "gs_gatlingfever",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.0.gun_mastery",
+              "row": 1,
+              "col": 3,
+              "name": "速扣扳機",
+              "originalName": "Gatillo rápido",
+              "maxRank": 3,
+              "icon": "rl_qd_shot",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.0.triple_count",
+              "row": 2,
+              "col": 1,
+              "name": "加長彈匣",
+              "originalName": "Cargador ampliado",
+              "maxRank": 2,
+              "icon": "gs_fullbuster",
+              "requires": [
+                "gunslinger.0.triple_cd"
+              ]
+            },
+            {
+              "id": "gunslinger.0.rapid_cd",
+              "row": 2,
+              "col": 2,
+              "name": "連續射擊",
+              "originalName": "Fuego continuo",
+              "maxRank": 3,
+              "icon": "rl_firedance",
+              "requires": [
+                "gunslinger.0.rapid_count"
+              ]
+            },
+            {
+              "id": "gunslinger.0.fling",
+              "row": 3,
+              "col": 0,
+              "name": "投擲硬幣",
+              "originalName": "Fling",
+              "maxRank": 2,
+              "icon": "gs_fling",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.0.basic_count",
+              "row": 3,
+              "col": 3,
+              "name": "雙發射擊",
+              "originalName": "Disparo doble",
+              "maxRank": 1,
+              "icon": "rl_e_chain",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.0.gatling",
+              "row": 4,
+              "col": 1,
+              "name": "格林狂熱",
+              "originalName": "Gatling Fever",
+              "maxRank": 3,
+              "icon": "gs_gatlingfever",
+              "requires": [
+                "gunslinger.0.triple_count"
+              ]
+            },
+            {
+              "id": "gunslinger.0.adjustment",
+              "row": 4,
+              "col": 2,
+              "name": "終極閃躲",
+              "originalName": "Adjustment",
+              "maxRank": 2,
+              "icon": "gs_adjustment",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.0.heat_barrel",
+              "row": 5,
+              "col": 0,
+              "name": "加速子彈",
+              "originalName": "Heat Barrel",
+              "maxRank": 2,
+              "icon": "rl_heat_barrel",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.0.fire_dance",
+              "row": 5,
+              "col": 1,
+              "name": "殺戮暗舞",
+              "originalName": "Fire Dance",
+              "maxRank": 2,
+              "icon": "rl_firedance",
+              "requires": [
+                "gunslinger.0.gatling"
+              ]
+            },
+            {
+              "id": "gunslinger.0.full_buster",
+              "row": 6,
+              "col": 1,
+              "name": "全面破壞",
+              "originalName": "Full Buster",
+              "maxRank": 1,
+              "icon": "gs_fullbuster",
+              "requires": [
+                "gunslinger.0.fire_dance"
+              ]
+            }
+          ]
+        },
+        {
+          "id": 1,
+          "name": "霰彈槍",
+          "originalName": "Escopeta",
+          "talents": [
+            {
+              "id": "gunslinger.1.madness",
+              "row": 0,
+              "col": 0,
+              "name": "瘋狂凱斯樂",
+              "originalName": "Madness Canceller",
+              "maxRank": 5,
+              "icon": "gs_madnesscancel",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.1.spread_dmg",
+              "row": 0,
+              "col": 1,
+              "name": "鹿彈",
+              "originalName": "Perdigones",
+              "maxRank": 5,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "gunslinger.1.desperado_dmg",
+              "row": 0,
+              "col": 2,
+              "name": "奪命亡命之徒",
+              "originalName": "Desperado letal",
+              "maxRank": 3,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "gunslinger.1.vest",
+              "row": 1,
+              "col": 0,
+              "name": "防彈背心",
+              "originalName": "Chaleco",
+              "maxRank": 3,
+              "icon": "rl_p_alter",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.1.spread_area",
+              "row": 1,
+              "col": 1,
+              "name": "廣角錐形",
+              "originalName": "Cono amplio",
+              "maxRank": 3,
+              "icon": "rl_s_storm",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.1.desperado_count",
+              "row": 1,
+              "col": 2,
+              "name": "更多連發",
+              "originalName": "Más ráfagas",
+              "maxRank": 2,
+              "icon": "gs_desperado",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.1.spread_cd",
+              "row": 2,
+              "col": 1,
+              "name": "快速上膛",
+              "originalName": "Bombeo rápido",
+              "maxRank": 3,
+              "icon": "rl_slugshot",
+              "requires": [
+                "gunslinger.1.spread_area"
+              ]
+            },
+            {
+              "id": "gunslinger.1.desperado_cd",
+              "row": 2,
+              "col": 2,
+              "name": "快速拔槍",
+              "originalName": "Desenfunde",
+              "maxRank": 3,
+              "icon": "rl_flicker",
+              "requires": [
+                "gunslinger.1.desperado_count"
+              ]
+            },
+            {
+              "id": "gunslinger.1.tough",
+              "row": 2,
+              "col": 3,
+              "name": "硬朗",
+              "originalName": "Duro",
+              "maxRank": 3,
+              "icon": "rl_d_tail",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.1.knockback",
+              "row": 3,
+              "col": 0,
+              "name": "獨頭彈",
+              "originalName": "Postas",
+              "maxRank": 2,
+              "icon": "gs_cracker",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.1.dust",
+              "row": 3,
+              "col": 2,
+              "name": "彈片四射",
+              "originalName": "Dust",
+              "maxRank": 2,
+              "icon": "gs_dust",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.1.slug",
+              "row": 4,
+              "col": 1,
+              "name": "根源破壞",
+              "originalName": "Slug Shot",
+              "maxRank": 2,
+              "icon": "rl_slugshot",
+              "requires": [
+                "gunslinger.1.spread_cd"
+              ]
+            },
+            {
+              "id": "gunslinger.1.p_alter",
+              "row": 4,
+              "col": 3,
+              "name": "白金祭壇",
+              "originalName": "Platinum Alter",
+              "maxRank": 2,
+              "icon": "rl_p_alter",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.1.mass_spiral",
+              "row": 5,
+              "col": 0,
+              "name": "絕對貫穿",
+              "originalName": "Mass Spiral",
+              "maxRank": 2,
+              "icon": "rl_mass_spiral",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.1.banishing",
+              "row": 5,
+              "col": 1,
+              "name": "強制驅逐",
+              "originalName": "Banishing Buster",
+              "maxRank": 2,
+              "icon": "rl_banishing_buster",
+              "requires": [
+                "gunslinger.1.slug"
+              ]
+            },
+            {
+              "id": "gunslinger.1.last_stand",
+              "row": 6,
+              "col": 1,
+              "name": "無止盡的亡命之徒",
+              "originalName": "Desperado infinito",
+              "maxRank": 1,
+              "icon": "rl_fire_rain",
+              "requires": [
+                "gunslinger.1.banishing"
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "name": "狙擊手",
+          "originalName": "Francotirador",
+          "talents": [
+            {
+              "id": "gunslinger.2.single_action",
+              "row": 0,
+              "col": 0,
+              "name": "單槍射擊",
+              "originalName": "Single Action",
+              "maxRank": 5,
+              "icon": "gs_singleaction",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.2.tracking_dmg",
+              "row": 0,
+              "col": 1,
+              "name": "穿甲彈",
+              "originalName": "Bala perforante",
+              "maxRank": 5,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "gunslinger.2.snake_eye",
+              "row": 0,
+              "col": 2,
+              "name": "瞄準之眼",
+              "originalName": "Snake Eye",
+              "maxRank": 5,
+              "icon": "gs_snakeeye",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.2.tracking_cd",
+              "row": 1,
+              "col": 1,
+              "name": "栓式槍機",
+              "originalName": "Cerrojo",
+              "maxRank": 3,
+              "icon": "gs_bullseye",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.2.drift_dmg",
+              "row": 1,
+              "col": 2,
+              "name": "強化榴彈",
+              "originalName": "Granada potente",
+              "maxRank": 3,
+              "icon": null,
+              "requires": []
+            },
+            {
+              "id": "gunslinger.2.sight",
+              "row": 1,
+              "col": 3,
+              "name": "瞄準鏡",
+              "originalName": "Mira",
+              "maxRank": 3,
+              "icon": "gs_glittering",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.2.headshot",
+              "row": 2,
+              "col": 1,
+              "name": "爆頭",
+              "originalName": "Disparo en la cabeza",
+              "maxRank": 2,
+              "icon": "gs_piercingshot",
+              "requires": [
+                "gunslinger.2.tracking_cd"
+              ]
+            },
+            {
+              "id": "gunslinger.2.drift_area",
+              "row": 2,
+              "col": 2,
+              "name": "破片",
+              "originalName": "Metralla",
+              "maxRank": 2,
+              "icon": "rl_h_mine",
+              "requires": [
+                "gunslinger.2.drift_dmg"
+              ]
+            },
+            {
+              "id": "gunslinger.2.calm",
+              "row": 3,
+              "col": 0,
+              "name": "冷靜",
+              "originalName": "Calma",
+              "maxRank": 3,
+              "icon": "gs_glittering",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.2.drift_cd",
+              "row": 3,
+              "col": 2,
+              "name": "連發榴彈",
+              "originalName": "Granadas en serie",
+              "maxRank": 3,
+              "icon": "rl_b_trap",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.2.tracking_count",
+              "row": 3,
+              "col": 3,
+              "name": "雙重目標",
+              "originalName": "Doble objetivo",
+              "maxRank": 1,
+              "icon": "rl_c_marker",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.2.bullseye",
+              "row": 4,
+              "col": 1,
+              "name": "公牛之眼",
+              "originalName": "Bull's Eye",
+              "maxRank": 3,
+              "icon": "gs_bullseye",
+              "requires": [
+                "gunslinger.2.headshot"
+              ]
+            },
+            {
+              "id": "gunslinger.2.drift_stun",
+              "row": 4,
+              "col": 2,
+              "name": "衝擊波",
+              "originalName": "Onda expansiva",
+              "maxRank": 2,
+              "icon": "rl_am_blast",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.2.magical_bullet",
+              "row": 5,
+              "col": 0,
+              "name": "魔術彈",
+              "originalName": "Magical Bullet",
+              "maxRank": 2,
+              "icon": "gs_magicalbullet",
+              "requires": []
+            },
+            {
+              "id": "gunslinger.2.fallen_angel",
+              "row": 5,
+              "col": 1,
+              "name": "墮落天使",
+              "originalName": "Fallen Angel",
+              "maxRank": 2,
+              "icon": "rl_fallen_angel",
+              "requires": [
+                "gunslinger.2.bullseye"
+              ]
+            },
+            {
+              "id": "gunslinger.2.hammer_of_god",
+              "row": 6,
+              "col": 1,
+              "name": "天神憤怒",
+              "originalName": "Hammer of God",
+              "maxRank": 1,
+              "icon": "rl_hammer_of_god",
+              "requires": [
+                "gunslinger.2.fallen_angel"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

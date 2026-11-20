@@ -19,6 +19,13 @@
 - 原咖啡版 WebP／FanKit、來源審核文件、舊驗證腳本已從 Dev 追蹤移除；新公開建置禁止輸出未獲授權圖片，和私人 HANS 來源研究快照分隔。
 - `tests/hans-catalog.test.mjs`：8 項新測試；TypeScript／Vite／公開 dist 安全檢查已通過（2026-11-19）。HANS 上游偶發 HTTP 503，後已恢復且三個來源 SHA 核對相同。
 
+## 2026-11-20 天賦模擬器（Dev，未發布）
+- 開發分支 `dev/talent-simulator-20261120`，在原本的組織 Pages 倉庫中開發；尚未合併 main。
+- 2026-11-20 HANS 官方天賦頁 1b3ae686 對應資料 SHA 審核後，透過 AST 靜態抽取九個一轉職業、27 個分支、444 個節點，輸出 `public/data/talents.json`；原始腳本僅留 Gitignored evidence。
+- 新增 `src/TalentSimulator.tsx`、`src/talents.ts` 與暗色手機版樣式，使用 50 點上限、列門檻、前置依賴檢查，分享網址經來源版本與配置驗證。
+- 未整合二轉／三轉、路徑互斥、精確天賦效果及未授權原站圖示。僅視為一轉配點模擬器，不能當作遊戲傷害計算器。
+- 詳見 `docs/HANS_TALENTS_SIMULATOR.md`；所有新功能完成前避免使用舊 Coffee 數據。
+
 ## 關鍵不確定性
 - 卡片 `Me` register 表示卡片與怪物對應，**不保證掉卡**；卡片來源暫為 candidate。需追查直接掉卡／扭蛋／活動限定。
 - 角色裝備職業限制、二三轉、特殊掉落、季節活動開放與遊戲圖片尚未完整確認；第二章 Tier 依周目可能 T6–8，不能用關卡最高 Tier 當每件裝備實際等級。
