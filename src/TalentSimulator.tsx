@@ -35,12 +35,12 @@ function TalentIcon({node,active=false}:{node:{icon?:string|null;name?:string};a
  const Icon=GLYPHS[kind]||Sparkles;
  const [failed,setFailed]=useState(false);
  useEffect(()=>setFailed(false),[node.icon]);
- // Private Vite Dev only: remote HANS icons make the preview visually comparable.
- // No game artwork is packaged, requested, or rendered by the public Pages build.
- const asset=import.meta.env.VITE_PUBLIC_MODE!=='1'&&node.icon&&/^[a-z0-9_-]+$/i.test(node.icon)
+ // Display HANS icons through source-site image references; do not copy any
+ // artwork to Git or the Pages deployment. Fall back to local vector icons.
+ const asset=node.icon&&/^[a-z0-9_-]+$/i.test(node.icon)
   ?'https://ro.hans-webgametw.com/assets/icons/'+node.icon+'.png':null;
  return <span className={'tg-icon tg-icon-'+kind+(active?' tg-icon-active':'')+(asset&&!failed?' tg-official-preview':'')} aria-hidden="true">
-  <span className="tg-icon-glow"/>{asset&&!failed?<img src={asset} alt="" loading="lazy" decoding="async" onError={()=>setFailed(true)}/>:<Icon size={26} strokeWidth={1.8}/>}
+  <span className="tg-icon-glow"/>{asset&&!failed?<img src={asset} alt="" loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={()=>setFailed(true)}/>:<Icon size={26} strokeWidth={1.8}/>}
  </span>;
 }
 function JobSelector({data,job,onChoose,expanded,setExpanded}:{

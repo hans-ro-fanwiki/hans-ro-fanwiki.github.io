@@ -17,7 +17,8 @@ const SLOTS:Record<string,string>={weapon:'武器',head_top:'頭飾（上）',he
 const JOBS:Record<string,string>={all:'全部',mage:'魔法師系',swordsman:'劍士系',archer:'弓箭手系',acolyte:'服事系',thief:'盜賊系',merchant:'商人系',taekwon:'跆拳道系',ninja:'忍者系',gunslinger:'神槍手系'};
 const SOURCES:Record<string,string>={monsterDrop:'怪物掉落',bossDrop:'Boss 掉落',story:'劇情',event:'活動',reward:'獎勵',starter:'初始裝備'};
 const LABELS:Record<Page,string>={items:'裝備',cards:'卡片',stages:'關卡',talents:'天賦'};
-// HANS-only. Original artwork is shown via HANS source only in private Dev; no art ships in public Pages.
+// HANS-only. All artwork is loaded by reference from the HANS image host;
+// the public repository and Pages artifact never contain game image files.
 const PUBLIC_MODE=import.meta.env.VITE_PUBLIC_MODE==='1';
 const ASSET_ROOT='https://ro.hans-webgametw.com/assets/';
 const EMPTY:View={page:'items',slot:'all',job:'all',effect:'all',source:'all',query:'',attr:'all',mode:'list',onlyOpen:true,showUnknown:false,detail:null,tj:'swordsman',tb:''};
@@ -47,15 +48,15 @@ function Chip({active,children,onClick}:{active:boolean;children:React.ReactNode
  return <button type="button" className={'chip '+(active?'selected':'')} aria-pressed={active} onClick={onClick}>{children}</button>;
 }
 function safeImageUrl(x:ImageEvidence|null|undefined):string|null{
- if(PUBLIC_MODE||!x || !/^(items|cards)\/[a-zA-Z0-9_-]+(?:_art)?\.png$/.test(x.officialPath))return null;
+ if(!x || !/^(items|cards)\/[a-zA-Z0-9_-]+(?:_art)?\.png$/.test(x.officialPath))return null;
  return ASSET_ROOT+x.officialPath;
 }
 function Artwork({kind,entity,large=false}:{kind:Kind;entity?:Equipment|Card|Monster|null;large?:boolean}){
  const item=kind==='item'?entity as Equipment:undefined;
  const card=kind==='card'?entity as Card:undefined;
  const monster=kind==='monster'?entity as Monster:undefined;
- const initial=PUBLIC_MODE?null:safeImageUrl(item?.image||card?.image);
- const backup=PUBLIC_MODE?null:safeImageUrl(item?.icon);
+ const initial=safeImageUrl(item?.image||card?.image);
+ const backup=safeImageUrl(item?.icon);
  const [imageUrl,setImageUrl]=useState(initial);
  useEffect(()=>setImageUrl(initial),[initial]);
  const Icon=kind==='card'?BookOpen:kind==='monster'?Target:kind==='stage'?MapIcon:item?.slot==='acc'?Gem:item?.slot==='weapon'?Swords:Shield;
@@ -63,7 +64,7 @@ function Artwork({kind,entity,large=false}:{kind:Kind;entity?:Equipment|Card|Mon
  const edge=large?112:58;
  const scale=frame?Math.min((edge-8)/frame.width,(edge-8)/frame.height,large?1.5:1):1;
  return <span className={'art '+kind+(large?' large':'')}>
-  {imageUrl?<img loading={large?'eager':'lazy'} decoding="async" src={imageUrl} alt={entity?.name||'裝備圖片'}
+  {imageUrl?<img loading={large?'eager':'lazy'} decoding="async" referrerPolicy="no-referrer" src={imageUrl} alt={entity?.name||'裝備圖片'}
    className={kind==='card'?'card-image':kind==='monster'?'art-image':item?.image?.officialPath?.endsWith('_art.png')?'art-image':'art-icon-image'}
    onError={()=>setImageUrl(imageUrl===initial&&backup!==initial?backup:null)}/>
   :frame&&/^sprites\/[\w-]+\.png$/.test(frame.url)?<span className="sprite-frame" role="img" aria-label={monster?.name||'怪物'}

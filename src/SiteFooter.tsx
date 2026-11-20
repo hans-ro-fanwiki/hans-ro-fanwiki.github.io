@@ -8,7 +8,7 @@ export function SiteFooter({publicMode}:{publicMode:boolean}){
  return <footer className="site-footer" aria-label="網站聲明">
   <div className="site-footer-inner">
    <p className="site-footer-lead">HANS 粉絲維基 · 免費 · 非官方</p>
-   <p className="site-footer-intro">本站專門整理 HANS 漢斯服的《RO 倖存者》裝備、卡片、怪物與關卡資訊；本網站由玩家獨立製作，與 HANS 伺服器營運團隊、遊戲開發者及權利人均無隸屬或合作關係。與其他版本的遊戲資料不混用。</p>
+   <p className="site-footer-intro">本站專門整理 HANS 漢斯服的《RO 倖存者》裝備、卡片、怪物、關卡與職業天賦資訊；本網站由玩家獨立製作，與 HANS 伺服器營運團隊、遊戲開發者及權利人均無隸屬或合作關係。與其他版本的遊戲資料不混用。</p>
    <details className="site-footer-disclosure">
     <summary>資料來源與著作權聲明 <ChevronDown size={16} aria-hidden="true"/></summary>
     <div className="site-footer-disclosure-body">
@@ -22,7 +22,7 @@ export function SiteFooter({publicMode}:{publicMode:boolean}){
     <a href={REPORT_URL} target="_blank" rel="noopener noreferrer">內容疑慮／下架聯絡 <ExternalLink size={13} aria-hidden="true"/></a>
     <a href="https://github.com/hans-ro-fanwiki/hans-ro-fanwiki.github.io" target="_blank" rel="noopener noreferrer">資料站原始碼 <ExternalLink size={13} aria-hidden="true"/></a>
    </nav>
-   {publicMode&&<p className="site-footer-note">公開版本目前不附帶未經獨立審核的 HANS 原始遊戲圖像；私人開發預覽顯示的遊戲來源圖片不包含在公開發佈物中。</p>}
+   {publicMode&&<p className="site-footer-note">遊戲圖片由訪客瀏覽器直接從 HANS 原站載入；本站與 GitHub 不另行保存或發布圖片檔。素材仍屬各權利人，這不代表本站擁有圖像授權。來源圖片失效時會自動使用替代圖示。</p>}
   </div>
  </footer>;
 }

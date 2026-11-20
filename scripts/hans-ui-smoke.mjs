@@ -5,7 +5,7 @@ import {mkdirSync,writeFileSync} from 'node:fs';
 import path from 'node:path';
 import assert from 'node:assert/strict';
 
-process.env.VITE_PUBLIC_MODE='1'; // Check safe release behavior without fetching HANS copyrighted images.
+process.env.VITE_PUBLIC_MODE='1'; // Public build references HANS originals without bundling any game images.
 const server=await createServer({configFile:'vite.config.ts',server:{host:'127.0.0.1',port:5188,strictPort:false}});
 const folder=path.resolve('evidence/hans-20261119');
 mkdirSync(folder,{recursive:true});
@@ -23,6 +23,9 @@ try{
  page.on('request',r=>requested.push(r.url()));
  await page.goto(base,{waitUntil:'networkidle'});
  await page.locator('.heading-count').waitFor();
+ await page.locator('.result-card img.art-image, .result-card img.art-icon-image').first().waitFor({timeout:14000});
+ assert.ok(await page.locator('.result-card img').first().evaluate(img=>img instanceof HTMLImageElement&&img.complete&&img.naturalWidth>0),'Equip artwork loaded from HANS source');
+ checks.push({art:'equipment',loaded:true});
  assert.match(await page.locator('.topbar').innerText(),/HANS/);
  assert.equal(await page.locator('.bottom-nav button').count(),4);
  const initial=Number((await page.locator('.heading-count').innerText()).trim());
@@ -38,6 +41,9 @@ try{
  assert.ok(Number((await page.locator('.heading-count').innerText()).trim())>=1);
  await page.goto(base+'?detail=card:4001&page=cards',{waitUntil:'networkidle'});
  assert.ok((await page.getByRole('dialog').innerText()).includes('迴避 +3%'));
+ await page.getByRole('dialog').locator('img.card-image').first().waitFor({timeout:14000});
+ assert.ok(await page.getByRole('dialog').locator('img.card-image').first().evaluate(img=>img instanceof HTMLImageElement&&img.complete&&img.naturalWidth>0),'Card art loaded from HANS source');
+ checks.push({art:'card',loaded:true});
  assert.ok((await page.getByRole('dialog').innerText()).includes('怪物關聯（掉卡方式未確認）'));
  await page.goto(base+'?page=cards',{waitUntil:'networkidle'});
  assert.equal(Number((await page.locator('.heading-count').innerText()).trim()),188);
@@ -64,6 +70,9 @@ try{
  await page.getByRole('button',{name:/職業選擇/}).click();
  assert.equal(await page.locator('.tg-trees .tg-tree-panel').count(),3,'Three talent branches retained');
  assert.ok(await page.locator('.tg-tree-panel').first().locator('.tg-node').count()>8,'Each branch contains talent icons');
+ await page.locator('[data-talent="mage.0.firebolt_dmg"] img').waitFor({timeout:14000});
+ assert.ok(await page.locator('[data-talent="mage.0.firebolt_dmg"] img').evaluate(img=>img instanceof HTMLImageElement&&img.complete&&img.naturalWidth>0),'First-job talent icon loaded');
+ checks.push({art:'talent-1',loaded:true});
  const flame=page.locator('[data-talent="mage.0.firebolt_dmg"]');
  const wall=page.locator('[data-talent="mage.0.firewall_dmg"]');
  assert.match(await flame.locator('.tg-rank').innerText(),/0\/5/);
@@ -98,6 +107,9 @@ try{
  assert.match(await page.locator('.tg-job-title').innerText(),/三轉/);
  assert.equal(await page.locator('.tg-trees .tg-tree-panel').count(),3);
  assert.equal(await page.locator('.tg-node').count(),93);
+ await page.locator('[data-talent="warlock.0.s1"] img').waitFor({timeout:14000});
+ assert.ok(await page.locator('[data-talent="warlock.0.s1"] img').evaluate(img=>img instanceof HTMLImageElement&&img.complete&&img.naturalWidth>0),'Third-job talent icon loaded');
+ checks.push({art:'talent-3',loaded:true});
  assert.match(await page.locator('.tg-summary').innerText(),/70/,'Third tier has 70 talent points');
  await page.locator('[data-talent="warlock.0.s1"]').click();
  assert.match(await page.locator('[data-talent="warlock.0.s1"] .tg-rank').innerText(),/★/);
@@ -119,8 +131,11 @@ try{
  assert.deepEqual(errors,[],'No unhandled client errors');
  assert.ok(requested.every(url=>!/(?:fan-thumbs|approved-thumbs|game-assets)/.test(url)),
   'No Coffee art path may be requested');
- assert.ok(requested.every(url=>!url.includes('ro.hans-webgametw.com/assets/icons/')),
-  'Public-safe talent simulator must not request unapproved HANS icons');
+ const artRequests=requested.filter(url=>url.startsWith('https://ro.hans-webgametw.com/assets/'));
+ assert.ok(artRequests.length>0,'Public site must actually request HANS image sources');
+ assert.ok(artRequests.every(url=>/^https:\/\/ro\.hans-webgametw\.com\/assets\/(?:icons|items|cards)\/[A-Za-z0-9_-]+(?:_art)?\.png$/.test(url)),
+  'Game images only from allowlisted HANS icon/item/card paths');
+ checks.push({artRequests:artRequests.length});
  checks.push({status:'PASS',errors:errors.length});
  writeFileSync(path.join(folder,'hans-mobile-smoke.json'),JSON.stringify(checks,null,2)+'\n');
  console.log(JSON.stringify(checks,null,2));

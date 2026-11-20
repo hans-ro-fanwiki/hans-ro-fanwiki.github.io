@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0-dev.3 — 2026-11-20 (visible HANS item/card/talent icons)
+
+- Restored public page source-linked artwork for equipment, cards, and all first/second/third-job talent tiles; the previous VITE_PUBLIC_MODE image guard mistakenly left every public entry as a generic icon.
+- Image requests use HANS allowlisted HTTPS icon/item/card URLs; missing assets fall back to local Lucide icons. Equipment list thumbnails are larger for recognition.
+- Public Git and Pages artifact still ship zero HANS image files. The copyright notice explicitly states remote referencing does not grant image reuse rights.
+- Isolated Chrome regression checks successful load for all four art categories, mobile widths and safe remote URL destinations.
+
+
 ## 0.3.0-dev.2 — 2026-11-20 (HANS third-job talent trees; published to Pages)
 
 - Added 16 game-registered third jobs, 48 third-job branches and 1,488 talent nodes by static AST inspection of a pinned HANS game bundle; 41 total jobs, 123 branches, 3,168 talents.
