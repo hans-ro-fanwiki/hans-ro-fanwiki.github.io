@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0-dev.5 — 2026-11-20
+
+- Verify HANS card drops against the monster-kill routine and include four intruder boss routes.
+- Link card and equipment sources to shareable, expanded stage views, including seasonal maps. Keep card effects applied in the stage view and clarify the regular expedition filter.
+- Add an explicit reset for all points in the current talent tree, including the build in the URL.
+
 ## 0.3.0-dev.4 — 2026-11-20 (desktop navigation fix)
 
 - Fixed missing desktop navigation: the single four-tab menu had been hidden at widths above 760px.

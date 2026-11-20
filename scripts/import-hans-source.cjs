@@ -127,7 +127,10 @@ function actualBonuses(row){
   return [label+' '+(n>=0?'+':'')+display(n)+(unit==='%'?'%':unit==='hpsec'?' HP/s':'')];
  });
 }
-for (const row of soul.calls(['Z', 're', 'wr', 'Me'])) {
+const registrations = soul.calls(['Z', 're', 'wr', 'Me']);
+// The game builds kW with Object.fromEntries, so the last registration wins for a monster.
+const cardIdByMonster = new Map(registrations.filter(row=>row.op==='Me').map(row=>[row.args[1],row.args[0]]));
+for (const row of registrations) {
   const [id, slotOrMonster, numberOrSlot, bonusesOrBase, extra] = row.args;
   if (row.op === 'Me') {
     const itemName = name(id, manifest.cards);
@@ -178,26 +181,28 @@ const stages = stageDefs.map(entry => {
   if (!config || !Array.isArray(config.waves) || !Array.isArray(config.bosses))
     throw Error('HANS stage data not statically verifiable: ' + entry.id);
   const normalMonsterIds = [...new Set(config.waves.flatMap(wave => Array.isArray(wave.pool) ? wave.pool : []))];
-  const bossMonsterIds = [...new Set(config.bosses.map(boss => boss.id).filter(Boolean))];
+  const intruderBossId = config.intruder?.id;
+  const bossMonsterIds = [...new Set([intruderBossId,...config.bosses.map(boss=>boss.id)].filter(Boolean))];
   for (const monster of normalMonsterIds) link(monster, entry.id, false);
   for (const monster of bossMonsterIds) link(monster, entry.id, true);
   const stage = {id:entry.id,name:zh(entry.name),tier:entry.tier,levels:entry.levels,
     open:!entry.special&&!config.storyOnly,season:!!entry.special,story:!!config.storyOnly,planned:false,
-    normalMonsterIds,bossMonsterIds,candidatePoolCount:normalMonsterIds.length,
+    normalMonsterIds,bossMonsterIds,...(intruderBossId?{intruderBossId}:{}),candidatePoolCount:normalMonsterIds.length,
     candidateBossCount:bossMonsterIds.length,provenance:{stage:'official',monsterPool:'official'}};
   stageIds.set(stage.id,stage);
   return stage;
 });
-function stageRefs(monsterId, authoritative) {
+function dropStageRefs(monsterId) {
   return [...(memberStage.get(monsterId)?.entries() || [])]
-    .map(([stageId,boss]) => ({stageId,boss,verified:authoritative,verificationState:authoritative?'official':'candidate'}));
+    .filter(([stageId])=>!stageIds.get(stageId).story)
+    .map(([stageId,boss]) => ({stageId,boss,verified:true,verificationState:'official'}));
 }
 for (const [monsterId, drops] of Object.entries(dropTables)) {
   if (!Array.isArray(drops)) continue;
   for (const drop of drops) {
     const item = equipment.get(drop.id);
     if (!item) continue;
-    const refs = stageRefs(monsterId, true);
+    const refs = dropStageRefs(monsterId);
     item.sources.push({sourceType:'monsterDrop',monsterId,stageRefs:refs,
       rawRate:typeof drop.rate==='number'?drop.rate:null,
       verificationState:refs.length?'official':'candidate',evidence:evidence(audit.hans.soul.file,'UA:'+monsterId+':'+drop.id)});
@@ -217,12 +222,15 @@ for(const item of equipment.values()) {
       verificationState:'official',evidence:evidence(audit.hans.soul.file,'wr:'+item.id)});
   delete item.starter;
 }
-// Card registration establishes association with its monster, NOT necessarily obtainable drops.
-// Do not infer gacha and festival card routes from names or the monster registry.
+// The audited main killEnemy method rolls kW[enemy.id] for normal enemies and bosses.
+// It suppresses story drops, including story instances of otherwise playable maps.
 for (const card of cards.values()) {
+  const refs = cardIdByMonster.get(card.monsterId)===card.id
+    ? dropStageRefs(card.monsterId) : [];
   card.sources = [{
-    sourceType:'monsterDrop',monsterId:card.monsterId,stageRefs:stageRefs(card.monsterId,false),
-    verificationState:'candidate',evidence:evidence(audit.hans.soul.file,'Me:'+card.id)
+    sourceType:'monsterDrop',monsterId:card.monsterId,stageRefs:refs,
+    verificationState:refs.length?'official':'candidate',
+    evidence:refs.length?evidence(audit.hans.main.file,'killEnemy:kW:'+card.id):evidence(audit.hans.soul.file,'Me:'+card.id)
   }];
   const description = card.bonuses.join(' ').toLowerCase();
   if (/cooldown|recharge|冷卻/.test(description)) card.tags.push('cooldown');
@@ -246,7 +254,7 @@ const monsters = [...monsterIds].filter(Boolean).map(id => {
 const catalog = {schemaVersion:1,server:'hans',generatedAt:audit.reviewedAt,
   sourceVersion:'HANS '+audit.reviewedAt,
   official:{main:audit.hans.main,soul:audit.hans.soul,manifest:audit.hans.manifest,baseUrl:audit.hans.baseUrl},
-  policy:'HANS server only. Monster equipment table is sourced from HANS. Card source is a candidate until acquisition mechanics are verified. No external game artwork shipped.',
+  policy:'HANS server only. Monster equipment table is sourced from HANS. Card drops follow the audited HANS killEnemy registry and non-story stage pools, including intruders. No external game artwork shipped.',
   items:[...equipment.values()].sort((a,b)=>a.id-b.id),
   cards:[...cards.values()].sort((a,b)=>a.id-b.id),monsters,stages};
 fs.mkdirSync(path.join(root,'public/data'),{recursive:true});

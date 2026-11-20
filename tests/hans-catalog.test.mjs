@@ -40,13 +40,28 @@ test('no weights are invented into percentage drop rates',()=>{
  for(const item of catalog.items)for(const src of item.sources)
   assert.ok(!('dropChance' in src)&&!('dropPercent' in src));
 });
-test('card registration does not falsely certify card drop source',()=>{
- const card=catalog.cards.find(c=>c.id===4001);
- assert.equal(card.name,'波利卡片');
- assert.equal(card.monsterId,'poring');
- assert.deepEqual(card.bonuses,['迴避 +3%','爆擊率 +2%']);
- assert.ok(card.sources.every(src=>src.verificationState==='candidate'));
- assert.ok(card.sources.every(src=>src.stageRefs.every(ref=>!ref.verified)));
+test('HANS cards link to real monster and boss drops on non-story stages',()=>{
+ const stages=new Map(catalog.stages.map(stage=>[stage.id,stage]));
+ const poring=catalog.cards.find(card=>card.id===4001);
+ assert.equal(poring.name,'波利卡片');
+ assert.deepEqual(poring.bonuses,['迴避 +3%','爆擊率 +2%']);
+ assert.ok(poring.sources[0].stageRefs.some(ref=>ref.stageId==='prontera'&&!ref.boss));
+ for(const card of catalog.cards){
+  const [source]=card.sources;
+  assert.equal(source.monsterId,card.monsterId);
+  assert.equal(source.verificationState,'official');
+  assert.ok(source.stageRefs.length);
+  for(const ref of source.stageRefs){
+   const stage=stages.get(ref.stageId);
+   assert.ok(ref.verified&&!stage.story);
+   assert.ok((ref.boss?stage.bossMonsterIds:stage.normalMonsterIds).includes(card.monsterId));
+  }
+ }
+ for(const [id,stageId] of [[4318,'xmas'],[4330,'louyang'],[4419,'c2_abyss'],[4441,'c2_nif']]){
+  const card=catalog.cards.find(entry=>entry.id===id);
+  assert.equal(stages.get(stageId).intruderBossId,card.monsterId);
+  assert.ok(card.sources[0].stageRefs.some(ref=>ref.stageId===stageId&&ref.boss&&ref.verified));
+ }
 });
 test('source-only private art is never approved for public download',()=>{
  for(const item of [...catalog.items,...catalog.cards]){

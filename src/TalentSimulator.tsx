@@ -206,7 +206,13 @@ export function TalentSimulator({jobId,token,onRoute}:Props){
     <div><span>剩餘點數</span><b>{remaining}</b></div>
     <button type="button" className="tg-action tg-primary" onClick={share}><Share2 size={17}/>分享配點</button>
     <button type="button" className="tg-action" onClick={copy}><Copy size={16}/>複製連結</button>
-    <button type="button" className="tg-action" disabled={!spent} onClick={()=>{if(window.confirm('確定重置此職業的全部配點嗎？'))update({})}}><RotateCcw size={16}/>重置</button>
+    <button type="button" className="tg-action" disabled={!token&&!spent} onClick={()=>{
+     if(window.confirm('確定清空目前職業三條分支的所有配點嗎？')){
+      onRoute(job.job,'',true);
+      setSelectedId(null);
+      setFeedback('已重置目前職業的所有配點');
+     }
+    }}><RotateCcw size={16}/>全部重置</button>
    </div>
    {parsed.error&&<p className="tg-error" role="alert">{parsed.error}</p>}
    {feedback&&<p className="tg-feedback" role="status"><Check size={15}/>{feedback}</p>}

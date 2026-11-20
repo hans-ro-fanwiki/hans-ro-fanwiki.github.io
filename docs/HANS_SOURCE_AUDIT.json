@@ -20,7 +20,7 @@
   "reviewNotes": [
     "Sources were downloaded from HANS on 2026-11-19 into gitignored evidence/hans-20261119 only.",
     "Equipment registrations, monster equipment-drop table, stage wave/boss pools, and card registrations are independently sourced from HANS.",
-    "Card-to-monster registrations alone do not prove an obtainable card; card drops are candidate only.",
+    "HANS main killEnemy uses the soul kW monster-to-card index for normal and boss pickups, except in story mode or before a linked boss group is defeated. Stage script intruder entries supply the four extra boss routes. The current November 20 main killEnemy and xe definitions and soul kW, yW and UA definitions match the audited snapshot. Per-card draw pools are server-provided and are not inferred.",
     "Item names and descriptions originate from the current HANS manifest; no old Coffee catalog content is merged.",
     "Original bundled game code and full-resolution art must not be committed or deployed."
   ]

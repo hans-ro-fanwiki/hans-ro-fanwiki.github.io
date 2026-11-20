@@ -19,7 +19,7 @@
     },
     "baseUrl": "https://ro.hans-webgametw.com"
   },
-  "policy": "HANS server only. Monster equipment table is sourced from HANS. Card source is a candidate until acquisition mechanics are verified. No external game artwork shipped.",
+  "policy": "HANS server only. Monster equipment table is sourced from HANS. Card drops follow the audited HANS killEnemy registry and non-story stage pools, including intruders. No external game artwork shipped.",
   "items": [
     {
       "id": 1101,
@@ -1295,9 +1295,16 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "stormy_knight",
-          "stageRefs": [],
+          "stageRefs": [
+            {
+              "stageId": "xmas",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
           "rawRate": 100,
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
             "file": "soul_linker-DllBVIRO.hza78cd192.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
@@ -4470,9 +4477,16 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "ktullanux",
-          "stageRefs": [],
+          "stageRefs": [
+            {
+              "stageId": "c2_abyss",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
           "rawRate": 100,
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
             "file": "soul_linker-DllBVIRO.hza78cd192.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
@@ -4648,12 +4662,6 @@
           "sourceType": "monsterDrop",
           "monsterId": "orc_warrior",
           "stageRefs": [
-            {
-              "stageId": "prt_castle",
-              "boss": false,
-              "verified": true,
-              "verificationState": "official"
-            },
             {
               "stageId": "orcs",
               "boss": false,
@@ -5568,9 +5576,16 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "stormy_knight",
-          "stageRefs": [],
+          "stageRefs": [
+            {
+              "stageId": "xmas",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
           "rawRate": 100,
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
             "file": "soul_linker-DllBVIRO.hza78cd192.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
@@ -5637,9 +5652,16 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "evil_snake_lord",
-          "stageRefs": [],
+          "stageRefs": [
+            {
+              "stageId": "louyang",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
           "rawRate": 100,
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
             "file": "soul_linker-DllBVIRO.hza78cd192.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
@@ -5818,9 +5840,16 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "evil_snake_lord",
-          "stageRefs": [],
+          "stageRefs": [
+            {
+              "stageId": "louyang",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
           "rawRate": 100,
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
             "file": "soul_linker-DllBVIRO.hza78cd192.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
@@ -7488,9 +7517,16 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "ktullanux",
-          "stageRefs": [],
+          "stageRefs": [
+            {
+              "stageId": "c2_abyss",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
           "rawRate": 100,
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
             "file": "soul_linker-DllBVIRO.hza78cd192.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
@@ -10028,9 +10064,16 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "evil_snake_lord",
-          "stageRefs": [],
+          "stageRefs": [
+            {
+              "stageId": "louyang",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
           "rawRate": 100,
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
             "file": "soul_linker-DllBVIRO.hza78cd192.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
@@ -11446,9 +11489,16 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "ktullanux",
-          "stageRefs": [],
+          "stageRefs": [
+            {
+              "stageId": "c2_abyss",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
           "rawRate": 100,
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
             "file": "soul_linker-DllBVIRO.hza78cd192.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
@@ -13113,9 +13163,16 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "stormy_knight",
-          "stageRefs": [],
+          "stageRefs": [
+            {
+              "stageId": "xmas",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
           "rawRate": 100,
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
             "file": "soul_linker-DllBVIRO.hza78cd192.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
@@ -13989,12 +14046,6 @@
           "sourceType": "monsterDrop",
           "monsterId": "orc_warrior",
           "stageRefs": [
-            {
-              "stageId": "prt_castle",
-              "boss": false,
-              "verified": true,
-              "verificationState": "official"
-            },
             {
               "stageId": "orcs",
               "boss": false,
@@ -17147,12 +17198,6 @@
           "monsterId": "orc_warrior",
           "stageRefs": [
             {
-              "stageId": "prt_castle",
-              "boss": false,
-              "verified": true,
-              "verificationState": "official"
-            },
-            {
               "stageId": "orcs",
               "boss": false,
               "verified": true,
@@ -18333,9 +18378,16 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "fallen_bishop_hibram",
-          "stageRefs": [],
+          "stageRefs": [
+            {
+              "stageId": "c2_nif",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
           "rawRate": 100,
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
             "file": "soul_linker-DllBVIRO.hza78cd192.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
@@ -18378,9 +18430,16 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "fallen_bishop_hibram",
-          "stageRefs": [],
+          "stageRefs": [
+            {
+              "stageId": "c2_nif",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
           "rawRate": 100,
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
             "file": "soul_linker-DllBVIRO.hza78cd192.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
@@ -18628,12 +18687,6 @@
           "sourceType": "monsterDrop",
           "monsterId": "orc_lady",
           "stageRefs": [
-            {
-              "stageId": "prt_castle",
-              "boss": false,
-              "verified": true,
-              "verificationState": "official"
-            },
             {
               "stageId": "orcs",
               "boss": false,
@@ -19657,12 +19710,6 @@
           "sourceType": "monsterDrop",
           "monsterId": "orc_lady",
           "stageRefs": [
-            {
-              "stageId": "prt_castle",
-              "boss": false,
-              "verified": true,
-              "verificationState": "official"
-            },
             {
               "stageId": "orcs",
               "boss": false,
@@ -20757,9 +20804,16 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "fallen_bishop_hibram",
-          "stageRefs": [],
+          "stageRefs": [
+            {
+              "stageId": "c2_nif",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
           "rawRate": 100,
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
             "file": "soul_linker-DllBVIRO.hza78cd192.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
@@ -21361,12 +21415,6 @@
           "sourceType": "monsterDrop",
           "monsterId": "orc_lady",
           "stageRefs": [
-            {
-              "stageId": "prt_castle",
-              "boss": false,
-              "verified": true,
-              "verificationState": "official"
-            },
             {
               "stageId": "orcs",
               "boss": false,
@@ -22559,9 +22607,16 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "evil_snake_lord",
-          "stageRefs": [],
+          "stageRefs": [
+            {
+              "stageId": "louyang",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
           "rawRate": 100,
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
             "file": "soul_linker-DllBVIRO.hza78cd192.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
@@ -24852,9 +24907,16 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "fallen_bishop_hibram",
-          "stageRefs": [],
+          "stageRefs": [
+            {
+              "stageId": "c2_nif",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
           "rawRate": 100,
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
             "file": "soul_linker-DllBVIRO.hza78cd192.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
@@ -25157,9 +25219,16 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "evil_snake_lord",
-          "stageRefs": [],
+          "stageRefs": [
+            {
+              "stageId": "louyang",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
           "rawRate": 100,
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
             "file": "soul_linker-DllBVIRO.hza78cd192.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
@@ -25358,9 +25427,16 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "stormy_knight",
-          "stageRefs": [],
+          "stageRefs": [
+            {
+              "stageId": "xmas",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
           "rawRate": 100,
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
             "file": "soul_linker-DllBVIRO.hza78cd192.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
@@ -26425,9 +26501,16 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "evil_snake_lord",
-          "stageRefs": [],
+          "stageRefs": [
+            {
+              "stageId": "louyang",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
           "rawRate": 100,
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
             "file": "soul_linker-DllBVIRO.hza78cd192.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
@@ -27523,9 +27606,16 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "ktullanux",
-          "stageRefs": [],
+          "stageRefs": [
+            {
+              "stageId": "c2_abyss",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
           "rawRate": 100,
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
             "file": "soul_linker-DllBVIRO.hza78cd192.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
@@ -28713,16 +28803,16 @@
             {
               "stageId": "prontera",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4001"
+            "key": "killEnemy:kW:4001"
           }
         }
       ],
@@ -28757,16 +28847,16 @@
             {
               "stageId": "prontera",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4002"
+            "key": "killEnemy:kW:4002"
           }
         }
       ],
@@ -28801,16 +28891,16 @@
             {
               "stageId": "prontera",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4003"
+            "key": "killEnemy:kW:4003"
           }
         }
       ],
@@ -28846,16 +28936,16 @@
             {
               "stageId": "prontera",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4004"
+            "key": "killEnemy:kW:4004"
           }
         }
       ],
@@ -28891,16 +28981,16 @@
             {
               "stageId": "prontera",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4006"
+            "key": "killEnemy:kW:4006"
           }
         }
       ],
@@ -28933,16 +29023,16 @@
             {
               "stageId": "prontera",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4007"
+            "key": "killEnemy:kW:4007"
           }
         }
       ],
@@ -28979,16 +29069,16 @@
             {
               "stageId": "prontera",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4008"
+            "key": "killEnemy:kW:4008"
           }
         }
       ],
@@ -29021,16 +29111,16 @@
             {
               "stageId": "prontera",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4009"
+            "key": "killEnemy:kW:4009"
           }
         }
       ],
@@ -29065,16 +29155,16 @@
             {
               "stageId": "payon",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4010"
+            "key": "killEnemy:kW:4010"
           }
         }
       ],
@@ -29110,16 +29200,16 @@
             {
               "stageId": "sewer",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4012"
+            "key": "killEnemy:kW:4012"
           }
         }
       ],
@@ -29154,16 +29244,16 @@
             {
               "stageId": "prontera",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4014"
+            "key": "killEnemy:kW:4014"
           }
         }
       ],
@@ -29196,16 +29286,16 @@
             {
               "stageId": "prontera",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4015"
+            "key": "killEnemy:kW:4015"
           }
         }
       ],
@@ -29238,16 +29328,16 @@
             {
               "stageId": "sewer",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4016"
+            "key": "killEnemy:kW:4016"
           }
         }
       ],
@@ -29280,16 +29370,16 @@
             {
               "stageId": "prontera",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4017"
+            "key": "killEnemy:kW:4017"
           }
         }
       ],
@@ -29326,16 +29416,16 @@
             {
               "stageId": "prontera",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4019"
+            "key": "killEnemy:kW:4019"
           }
         }
       ],
@@ -29368,16 +29458,16 @@
             {
               "stageId": "sewer",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4020"
+            "key": "killEnemy:kW:4020"
           }
         }
       ],
@@ -29412,16 +29502,16 @@
             {
               "stageId": "prontera",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4021"
+            "key": "killEnemy:kW:4021"
           }
         }
       ],
@@ -29454,16 +29544,16 @@
             {
               "stageId": "payon",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4022"
+            "key": "killEnemy:kW:4022"
           }
         }
       ],
@@ -29498,16 +29588,16 @@
             {
               "stageId": "prontera",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4023"
+            "key": "killEnemy:kW:4023"
           }
         }
       ],
@@ -29540,16 +29630,16 @@
             {
               "stageId": "sewer",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4024"
+            "key": "killEnemy:kW:4024"
           }
         }
       ],
@@ -29585,22 +29675,22 @@
             {
               "stageId": "payon_cave",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             },
             {
               "stageId": "pyramid",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4025"
+            "key": "killEnemy:kW:4025"
           }
         }
       ],
@@ -29637,16 +29727,16 @@
             {
               "stageId": "sewer",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4026"
+            "key": "killEnemy:kW:4026"
           }
         }
       ],
@@ -29679,16 +29769,16 @@
             {
               "stageId": "sunken",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4027"
+            "key": "killEnemy:kW:4027"
           }
         }
       ],
@@ -29721,16 +29811,16 @@
             {
               "stageId": "sewer",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4028"
+            "key": "killEnemy:kW:4028"
           }
         }
       ],
@@ -29767,22 +29857,22 @@
             {
               "stageId": "payon",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             },
             {
               "stageId": "orcs",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4029"
+            "key": "killEnemy:kW:4029"
           }
         }
       ],
@@ -29817,16 +29907,16 @@
             {
               "stageId": "prontera",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4030"
+            "key": "killEnemy:kW:4030"
           }
         }
       ],
@@ -29861,22 +29951,22 @@
             {
               "stageId": "payon",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             },
             {
               "stageId": "payon_cave",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4033"
+            "key": "killEnemy:kW:4033"
           }
         }
       ],
@@ -29909,16 +29999,16 @@
             {
               "stageId": "payon",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4034"
+            "key": "killEnemy:kW:4034"
           }
         }
       ],
@@ -29953,16 +30043,16 @@
             {
               "stageId": "sunken",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4035"
+            "key": "killEnemy:kW:4035"
           }
         }
       ],
@@ -29999,16 +30089,16 @@
             {
               "stageId": "payon",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4037"
+            "key": "killEnemy:kW:4037"
           }
         }
       ],
@@ -30043,22 +30133,22 @@
             {
               "stageId": "payon_cave",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             },
             {
               "stageId": "pyramid",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4038"
+            "key": "killEnemy:kW:4038"
           }
         }
       ],
@@ -30092,16 +30182,16 @@
             {
               "stageId": "prontera",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4040"
+            "key": "killEnemy:kW:4040"
           }
         }
       ],
@@ -30135,16 +30225,16 @@
             {
               "stageId": "payon",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4044"
+            "key": "killEnemy:kW:4044"
           }
         }
       ],
@@ -30180,22 +30270,22 @@
             {
               "stageId": "sunken",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             },
             {
               "stageId": "pyramid",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4047"
+            "key": "killEnemy:kW:4047"
           }
         }
       ],
@@ -30228,16 +30318,16 @@
             {
               "stageId": "payon",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4048"
+            "key": "killEnemy:kW:4048"
           }
         }
       ],
@@ -30272,16 +30362,16 @@
             {
               "stageId": "byalan",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4049"
+            "key": "killEnemy:kW:4049"
           }
         }
       ],
@@ -30314,16 +30404,16 @@
             {
               "stageId": "payon",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4052"
+            "key": "killEnemy:kW:4052"
           }
         }
       ],
@@ -30359,16 +30449,16 @@
             {
               "stageId": "payon",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4054"
+            "key": "killEnemy:kW:4054"
           }
         }
       ],
@@ -30404,16 +30494,16 @@
             {
               "stageId": "sunken",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4055"
+            "key": "killEnemy:kW:4055"
           }
         }
       ],
@@ -30448,16 +30538,16 @@
             {
               "stageId": "orcs",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4060"
+            "key": "killEnemy:kW:4060"
           }
         }
       ],
@@ -30491,16 +30581,16 @@
             {
               "stageId": "byalan",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4061"
+            "key": "killEnemy:kW:4061"
           }
         }
       ],
@@ -30531,24 +30621,18 @@
           "monsterId": "orc_warrior",
           "stageRefs": [
             {
-              "stageId": "prt_castle",
-              "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
-            },
-            {
               "stageId": "orcs",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4066"
+            "key": "killEnemy:kW:4066"
           }
         }
       ],
@@ -30583,22 +30667,22 @@
             {
               "stageId": "sewer",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             },
             {
               "stageId": "c2_gef",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4069"
+            "key": "killEnemy:kW:4069"
           }
         }
       ],
@@ -30632,16 +30716,16 @@
             {
               "stageId": "orcs",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4071"
+            "key": "killEnemy:kW:4071"
           }
         }
       ],
@@ -30674,16 +30758,16 @@
             {
               "stageId": "sunken",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4073"
+            "key": "killEnemy:kW:4073"
           }
         }
       ],
@@ -30716,16 +30800,16 @@
             {
               "stageId": "payon",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4074"
+            "key": "killEnemy:kW:4074"
           }
         }
       ],
@@ -30760,16 +30844,16 @@
             {
               "stageId": "byalan",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4077"
+            "key": "killEnemy:kW:4077"
           }
         }
       ],
@@ -30802,16 +30886,16 @@
             {
               "stageId": "byalan",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4084"
+            "key": "killEnemy:kW:4084"
           }
         }
       ],
@@ -30846,16 +30930,16 @@
             {
               "stageId": "pyramid",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4085"
+            "key": "killEnemy:kW:4085"
           }
         }
       ],
@@ -30890,22 +30974,22 @@
             {
               "stageId": "payon_cave",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             },
             {
               "stageId": "pyramid",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4086"
+            "key": "killEnemy:kW:4086"
           }
         }
       ],
@@ -30939,16 +31023,16 @@
             {
               "stageId": "sunken",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4089"
+            "key": "killEnemy:kW:4089"
           }
         }
       ],
@@ -30981,16 +31065,16 @@
             {
               "stageId": "payon_cave",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4090"
+            "key": "killEnemy:kW:4090"
           }
         }
       ],
@@ -31025,16 +31109,16 @@
             {
               "stageId": "orcs",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4091"
+            "key": "killEnemy:kW:4091"
           }
         }
       ],
@@ -31069,16 +31153,16 @@
             {
               "stageId": "byalan",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4093"
+            "key": "killEnemy:kW:4093"
           }
         }
       ],
@@ -31114,22 +31198,22 @@
             {
               "stageId": "payon_cave",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             },
             {
               "stageId": "pyramid",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4094"
+            "key": "killEnemy:kW:4094"
           }
         }
       ],
@@ -31162,16 +31246,16 @@
             {
               "stageId": "byalan",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4095"
+            "key": "killEnemy:kW:4095"
           }
         }
       ],
@@ -31207,16 +31291,16 @@
             {
               "stageId": "pyramid",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4097"
+            "key": "killEnemy:kW:4097"
           }
         }
       ],
@@ -31250,16 +31334,16 @@
             {
               "stageId": "payon",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4098"
+            "key": "killEnemy:kW:4098"
           }
         }
       ],
@@ -31296,16 +31380,16 @@
             {
               "stageId": "payon_cave",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4100"
+            "key": "killEnemy:kW:4100"
           }
         }
       ],
@@ -31339,28 +31423,28 @@
             {
               "stageId": "sunken",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             },
             {
               "stageId": "c2_gef",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             },
             {
               "stageId": "c2_nif",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4102"
+            "key": "killEnemy:kW:4102"
           }
         }
       ],
@@ -31393,16 +31477,16 @@
             {
               "stageId": "payon_cave",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4103"
+            "key": "killEnemy:kW:4103"
           }
         }
       ],
@@ -31435,16 +31519,16 @@
             {
               "stageId": "pyramid",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4106"
+            "key": "killEnemy:kW:4106"
           }
         }
       ],
@@ -31479,16 +31563,16 @@
             {
               "stageId": "pyramid",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4107"
+            "key": "killEnemy:kW:4107"
           }
         }
       ],
@@ -31522,16 +31606,16 @@
             {
               "stageId": "c2_gef",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4109"
+            "key": "killEnemy:kW:4109"
           }
         }
       ],
@@ -31567,16 +31651,16 @@
             {
               "stageId": "c2_gef",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4110"
+            "key": "killEnemy:kW:4110"
           }
         }
       ],
@@ -31611,16 +31695,16 @@
             {
               "stageId": "byalan",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4111"
+            "key": "killEnemy:kW:4111"
           }
         }
       ],
@@ -31654,16 +31738,16 @@
             {
               "stageId": "c2_gef",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4113"
+            "key": "killEnemy:kW:4113"
           }
         }
       ],
@@ -31697,16 +31781,16 @@
             {
               "stageId": "maze",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4114"
+            "key": "killEnemy:kW:4114"
           }
         }
       ],
@@ -31743,16 +31827,16 @@
             {
               "stageId": "maze",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4115"
+            "key": "killEnemy:kW:4115"
           }
         }
       ],
@@ -31786,16 +31870,16 @@
             {
               "stageId": "pyramid",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4116"
+            "key": "killEnemy:kW:4116"
           }
         }
       ],
@@ -31828,16 +31912,16 @@
             {
               "stageId": "maze",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4117"
+            "key": "killEnemy:kW:4117"
           }
         }
       ],
@@ -31871,16 +31955,16 @@
             {
               "stageId": "c2_clock",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4119"
+            "key": "killEnemy:kW:4119"
           }
         }
       ],
@@ -31916,16 +32000,16 @@
             {
               "stageId": "c2_gef",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4122"
+            "key": "killEnemy:kW:4122"
           }
         }
       ],
@@ -31959,16 +32043,16 @@
             {
               "stageId": "payon",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4123"
+            "key": "killEnemy:kW:4123"
           }
         }
       ],
@@ -32003,16 +32087,16 @@
             {
               "stageId": "byalan",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4125"
+            "key": "killEnemy:kW:4125"
           }
         }
       ],
@@ -32048,16 +32132,16 @@
             {
               "stageId": "pyramid",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4126"
+            "key": "killEnemy:kW:4126"
           }
         }
       ],
@@ -32091,16 +32175,16 @@
             {
               "stageId": "c2_gef",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4127"
+            "key": "killEnemy:kW:4127"
           }
         }
       ],
@@ -32133,16 +32217,16 @@
             {
               "stageId": "sewer",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4128"
+            "key": "killEnemy:kW:4128"
           }
         }
       ],
@@ -32179,16 +32263,16 @@
             {
               "stageId": "maze",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4129"
+            "key": "killEnemy:kW:4129"
           }
         }
       ],
@@ -32224,16 +32308,16 @@
             {
               "stageId": "payon_cave",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4131"
+            "key": "killEnemy:kW:4131"
           }
         }
       ],
@@ -32267,16 +32351,16 @@
             {
               "stageId": "c2_glast",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4133"
+            "key": "killEnemy:kW:4133"
           }
         }
       ],
@@ -32313,16 +32397,16 @@
             {
               "stageId": "c2_gef",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4134"
+            "key": "killEnemy:kW:4134"
           }
         }
       ],
@@ -32358,16 +32442,16 @@
             {
               "stageId": "c2_glast",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4136"
+            "key": "killEnemy:kW:4136"
           }
         }
       ],
@@ -32403,16 +32487,16 @@
             {
               "stageId": "sunken",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4137"
+            "key": "killEnemy:kW:4137"
           }
         }
       ],
@@ -32446,16 +32530,16 @@
             {
               "stageId": "c2_clock",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4139"
+            "key": "killEnemy:kW:4139"
           }
         }
       ],
@@ -32491,16 +32575,16 @@
             {
               "stageId": "c2_glast",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4140"
+            "key": "killEnemy:kW:4140"
           }
         }
       ],
@@ -32536,16 +32620,16 @@
             {
               "stageId": "c2_glast",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4141"
+            "key": "killEnemy:kW:4141"
           }
         }
       ],
@@ -32582,16 +32666,16 @@
             {
               "stageId": "c2_gef",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4142"
+            "key": "killEnemy:kW:4142"
           }
         }
       ],
@@ -32627,16 +32711,16 @@
             {
               "stageId": "orcs",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4143"
+            "key": "killEnemy:kW:4143"
           }
         }
       ],
@@ -32669,16 +32753,16 @@
             {
               "stageId": "pyramid",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4144"
+            "key": "killEnemy:kW:4144"
           }
         }
       ],
@@ -32714,16 +32798,16 @@
             {
               "stageId": "maze",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4147"
+            "key": "killEnemy:kW:4147"
           }
         }
       ],
@@ -32759,16 +32843,16 @@
             {
               "stageId": "orcs",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4155"
+            "key": "killEnemy:kW:4155"
           }
         }
       ],
@@ -32805,16 +32889,16 @@
             {
               "stageId": "orcs",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4157"
+            "key": "killEnemy:kW:4157"
           }
         }
       ],
@@ -32848,22 +32932,22 @@
             {
               "stageId": "payon",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             },
             {
               "stageId": "payon_cave",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4159"
+            "key": "killEnemy:kW:4159"
           }
         }
       ],
@@ -32897,16 +32981,16 @@
             {
               "stageId": "c2_glast",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4168"
+            "key": "killEnemy:kW:4168"
           }
         }
       ],
@@ -32944,16 +33028,16 @@
             {
               "stageId": "c2_glast",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4169"
+            "key": "killEnemy:kW:4169"
           }
         }
       ],
@@ -32987,16 +33071,16 @@
             {
               "stageId": "c2_clock",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4170"
+            "key": "killEnemy:kW:4170"
           }
         }
       ],
@@ -33033,16 +33117,16 @@
             {
               "stageId": "louyang",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4172"
+            "key": "killEnemy:kW:4172"
           }
         }
       ],
@@ -33075,22 +33159,22 @@
             {
               "stageId": "payon",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             },
             {
               "stageId": "maze",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4174"
+            "key": "killEnemy:kW:4174"
           }
         }
       ],
@@ -33127,16 +33211,16 @@
             {
               "stageId": "c2_nif",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4176"
+            "key": "killEnemy:kW:4176"
           }
         }
       ],
@@ -33169,16 +33253,16 @@
             {
               "stageId": "payon",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4178"
+            "key": "killEnemy:kW:4178"
           }
         }
       ],
@@ -33212,16 +33296,16 @@
             {
               "stageId": "prontera",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4179"
+            "key": "killEnemy:kW:4179"
           }
         }
       ],
@@ -33255,16 +33339,16 @@
             {
               "stageId": "c2_nif",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4181"
+            "key": "killEnemy:kW:4181"
           }
         }
       ],
@@ -33300,16 +33384,16 @@
             {
               "stageId": "payon",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4183"
+            "key": "killEnemy:kW:4183"
           }
         }
       ],
@@ -33345,16 +33429,16 @@
             {
               "stageId": "c2_clock",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4185"
+            "key": "killEnemy:kW:4185"
           }
         }
       ],
@@ -33388,16 +33472,16 @@
             {
               "stageId": "c2_glast",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4187"
+            "key": "killEnemy:kW:4187"
           }
         }
       ],
@@ -33431,16 +33515,16 @@
             {
               "stageId": "maze",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4188"
+            "key": "killEnemy:kW:4188"
           }
         }
       ],
@@ -33476,16 +33560,16 @@
             {
               "stageId": "c2_glast",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4190"
+            "key": "killEnemy:kW:4190"
           }
         }
       ],
@@ -33521,16 +33605,16 @@
             {
               "stageId": "c2_nif",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4191"
+            "key": "killEnemy:kW:4191"
           }
         }
       ],
@@ -33566,16 +33650,16 @@
             {
               "stageId": "c2_nif",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4193"
+            "key": "killEnemy:kW:4193"
           }
         }
       ],
@@ -33609,16 +33693,16 @@
             {
               "stageId": "louyang",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4195"
+            "key": "killEnemy:kW:4195"
           }
         }
       ],
@@ -33654,16 +33738,16 @@
             {
               "stageId": "prontera",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4197"
+            "key": "killEnemy:kW:4197"
           }
         }
       ],
@@ -33698,16 +33782,16 @@
             {
               "stageId": "byalan",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4199"
+            "key": "killEnemy:kW:4199"
           }
         }
       ],
@@ -33741,16 +33825,16 @@
             {
               "stageId": "c2_clock",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4205"
+            "key": "killEnemy:kW:4205"
           }
         }
       ],
@@ -33784,16 +33868,16 @@
             {
               "stageId": "xmas",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4206"
+            "key": "killEnemy:kW:4206"
           }
         }
       ],
@@ -33827,16 +33911,16 @@
             {
               "stageId": "c2_clock",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4207"
+            "key": "killEnemy:kW:4207"
           }
         }
       ],
@@ -33870,16 +33954,16 @@
             {
               "stageId": "louyang",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4210"
+            "key": "killEnemy:kW:4210"
           }
         }
       ],
@@ -33913,16 +33997,16 @@
             {
               "stageId": "prontera",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4211"
+            "key": "killEnemy:kW:4211"
           }
         }
       ],
@@ -33955,16 +34039,16 @@
             {
               "stageId": "payon_cave",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4212"
+            "key": "killEnemy:kW:4212"
           }
         }
       ],
@@ -34001,16 +34085,16 @@
             {
               "stageId": "c2_nif",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4214"
+            "key": "killEnemy:kW:4214"
           }
         }
       ],
@@ -34046,16 +34130,16 @@
             {
               "stageId": "maze",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4216"
+            "key": "killEnemy:kW:4216"
           }
         }
       ],
@@ -34091,16 +34175,16 @@
             {
               "stageId": "louyang",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4217"
+            "key": "killEnemy:kW:4217"
           }
         }
       ],
@@ -34136,22 +34220,22 @@
             {
               "stageId": "payon_cave",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             },
             {
               "stageId": "pyramid",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4221"
+            "key": "killEnemy:kW:4221"
           }
         }
       ],
@@ -34185,16 +34269,16 @@
             {
               "stageId": "c2_glast",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4222"
+            "key": "killEnemy:kW:4222"
           }
         }
       ],
@@ -34230,16 +34314,16 @@
             {
               "stageId": "louyang",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4225"
+            "key": "killEnemy:kW:4225"
           }
         }
       ],
@@ -34273,16 +34357,16 @@
             {
               "stageId": "louyang",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4227"
+            "key": "killEnemy:kW:4227"
           }
         }
       ],
@@ -34318,16 +34402,16 @@
             {
               "stageId": "c2_clock",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4229"
+            "key": "killEnemy:kW:4229"
           }
         }
       ],
@@ -34361,16 +34445,16 @@
             {
               "stageId": "xmas",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4235"
+            "key": "killEnemy:kW:4235"
           }
         }
       ],
@@ -34406,16 +34490,16 @@
             {
               "stageId": "c2_clock",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4237"
+            "key": "killEnemy:kW:4237"
           }
         }
       ],
@@ -34451,16 +34535,16 @@
             {
               "stageId": "c2_clock",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4238"
+            "key": "killEnemy:kW:4238"
           }
         }
       ],
@@ -34494,16 +34578,16 @@
             {
               "stageId": "louyang",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4239"
+            "key": "killEnemy:kW:4239"
           }
         }
       ],
@@ -34538,16 +34622,16 @@
             {
               "stageId": "xmas",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4243"
+            "key": "killEnemy:kW:4243"
           }
         }
       ],
@@ -34583,16 +34667,16 @@
             {
               "stageId": "c2_clock",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4244"
+            "key": "killEnemy:kW:4244"
           }
         }
       ],
@@ -34628,16 +34712,16 @@
             {
               "stageId": "pyramid",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4248"
+            "key": "killEnemy:kW:4248"
           }
         }
       ],
@@ -34671,16 +34755,16 @@
             {
               "stageId": "c2_clock",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4250"
+            "key": "killEnemy:kW:4250"
           }
         }
       ],
@@ -34714,16 +34798,16 @@
             {
               "stageId": "c2_gef",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4254"
+            "key": "killEnemy:kW:4254"
           }
         }
       ],
@@ -34757,24 +34841,18 @@
           "monsterId": "orc_lady",
           "stageRefs": [
             {
-              "stageId": "prt_castle",
-              "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
-            },
-            {
               "stageId": "orcs",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4255"
+            "key": "killEnemy:kW:4255"
           }
         }
       ],
@@ -34807,16 +34885,16 @@
             {
               "stageId": "orcs",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4256"
+            "key": "killEnemy:kW:4256"
           }
         }
       ],
@@ -34852,16 +34930,16 @@
             {
               "stageId": "louyang",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4259"
+            "key": "killEnemy:kW:4259"
           }
         }
       ],
@@ -34897,16 +34975,16 @@
             {
               "stageId": "prontera",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4266"
+            "key": "killEnemy:kW:4266"
           }
         }
       ],
@@ -34940,16 +35018,16 @@
             {
               "stageId": "c2_glast",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4275"
+            "key": "killEnemy:kW:4275"
           }
         }
       ],
@@ -34986,16 +35064,16 @@
             {
               "stageId": "c2_nif",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4276"
+            "key": "killEnemy:kW:4276"
           }
         }
       ],
@@ -35031,16 +35109,16 @@
             {
               "stageId": "c2_nif",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4278"
+            "key": "killEnemy:kW:4278"
           }
         }
       ],
@@ -35076,16 +35154,16 @@
             {
               "stageId": "payon",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4283"
+            "key": "killEnemy:kW:4283"
           }
         }
       ],
@@ -35119,16 +35197,16 @@
             {
               "stageId": "louyang",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4287"
+            "key": "killEnemy:kW:4287"
           }
         }
       ],
@@ -35164,16 +35242,16 @@
             {
               "stageId": "payon_cave",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4290"
+            "key": "killEnemy:kW:4290"
           }
         }
       ],
@@ -35210,16 +35288,16 @@
             {
               "stageId": "orcs",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4291"
+            "key": "killEnemy:kW:4291"
           }
         }
       ],
@@ -35256,16 +35334,16 @@
             {
               "stageId": "xmas",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4293"
+            "key": "killEnemy:kW:4293"
           }
         }
       ],
@@ -35299,16 +35377,16 @@
             {
               "stageId": "c2_nif",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4294"
+            "key": "killEnemy:kW:4294"
           }
         }
       ],
@@ -35341,16 +35419,16 @@
             {
               "stageId": "sewer",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4296"
+            "key": "killEnemy:kW:4296"
           }
         }
       ],
@@ -35387,16 +35465,16 @@
             {
               "stageId": "xmas",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4297"
+            "key": "killEnemy:kW:4297"
           }
         }
       ],
@@ -35430,16 +35508,16 @@
             {
               "stageId": "c2_clock",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4299"
+            "key": "killEnemy:kW:4299"
           }
         }
       ],
@@ -35473,16 +35551,16 @@
             {
               "stageId": "c2_glast",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4300"
+            "key": "killEnemy:kW:4300"
           }
         }
       ],
@@ -35516,16 +35594,16 @@
             {
               "stageId": "maze",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4301"
+            "key": "killEnemy:kW:4301"
           }
         }
       ],
@@ -35561,16 +35639,16 @@
             {
               "stageId": "c2_gef",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4303"
+            "key": "killEnemy:kW:4303"
           }
         }
       ],
@@ -35603,16 +35681,16 @@
             {
               "stageId": "prontera",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4306"
+            "key": "killEnemy:kW:4306"
           }
         }
       ],
@@ -35646,16 +35724,16 @@
             {
               "stageId": "c2_clock",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4313"
+            "key": "killEnemy:kW:4313"
           }
         }
       ],
@@ -35688,16 +35766,16 @@
             {
               "stageId": "sunken",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4314"
+            "key": "killEnemy:kW:4314"
           }
         }
       ],
@@ -35730,13 +35808,20 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "stormy_knight",
-          "stageRefs": [],
-          "verificationState": "candidate",
+          "stageRefs": [
+            {
+              "stageId": "xmas",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4318"
+            "key": "killEnemy:kW:4318"
           }
         }
       ],
@@ -35773,16 +35858,16 @@
             {
               "stageId": "xmas",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4319"
+            "key": "killEnemy:kW:4319"
           }
         }
       ],
@@ -35818,16 +35903,16 @@
             {
               "stageId": "c2_glast",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4320"
+            "key": "killEnemy:kW:4320"
           }
         }
       ],
@@ -35863,16 +35948,16 @@
             {
               "stageId": "c2_nif",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4321"
+            "key": "killEnemy:kW:4321"
           }
         }
       ],
@@ -35904,24 +35989,18 @@
           "monsterId": "high_orc",
           "stageRefs": [
             {
-              "stageId": "prt_castle",
-              "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
-            },
-            {
               "stageId": "orcs",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4322"
+            "key": "killEnemy:kW:4322"
           }
         }
       ],
@@ -35957,16 +36036,16 @@
             {
               "stageId": "xmas",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4323"
+            "key": "killEnemy:kW:4323"
           }
         }
       ],
@@ -36000,16 +36079,16 @@
             {
               "stageId": "xmas",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4324"
+            "key": "killEnemy:kW:4324"
           }
         }
       ],
@@ -36043,16 +36122,16 @@
             {
               "stageId": "payon_cave",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4328"
+            "key": "killEnemy:kW:4328"
           }
         }
       ],
@@ -36083,13 +36162,20 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "evil_snake_lord",
-          "stageRefs": [],
-          "verificationState": "candidate",
+          "stageRefs": [
+            {
+              "stageId": "louyang",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4330"
+            "key": "killEnemy:kW:4330"
           }
         }
       ],
@@ -36122,16 +36208,16 @@
             {
               "stageId": "xmas",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4340"
+            "key": "killEnemy:kW:4340"
           }
         }
       ],
@@ -36168,16 +36254,16 @@
             {
               "stageId": "louyang",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4372"
+            "key": "killEnemy:kW:4372"
           }
         }
       ],
@@ -36211,16 +36297,16 @@
             {
               "stageId": "orcs",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4375"
+            "key": "killEnemy:kW:4375"
           }
         }
       ],
@@ -36257,16 +36343,16 @@
             {
               "stageId": "c2_abyss",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4378"
+            "key": "killEnemy:kW:4378"
           }
         }
       ],
@@ -36302,16 +36388,16 @@
             {
               "stageId": "c2_abyss",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4379"
+            "key": "killEnemy:kW:4379"
           }
         }
       ],
@@ -36348,16 +36434,16 @@
             {
               "stageId": "c2_abyss",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4380"
+            "key": "killEnemy:kW:4380"
           }
         }
       ],
@@ -36393,16 +36479,16 @@
             {
               "stageId": "c2_abyss",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4381"
+            "key": "killEnemy:kW:4381"
           }
         }
       ],
@@ -36438,16 +36524,16 @@
             {
               "stageId": "c2_abyss",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4382"
+            "key": "killEnemy:kW:4382"
           }
         }
       ],
@@ -36481,16 +36567,16 @@
             {
               "stageId": "c2_abyss",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4383"
+            "key": "killEnemy:kW:4383"
           }
         }
       ],
@@ -36526,16 +36612,16 @@
             {
               "stageId": "c2_abyss",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4384"
+            "key": "killEnemy:kW:4384"
           }
         }
       ],
@@ -36568,16 +36654,16 @@
             {
               "stageId": "c2_abyss",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4385"
+            "key": "killEnemy:kW:4385"
           }
         }
       ],
@@ -36611,16 +36697,16 @@
             {
               "stageId": "c2_abyss",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4386"
+            "key": "killEnemy:kW:4386"
           }
         }
       ],
@@ -36654,16 +36740,16 @@
             {
               "stageId": "c2_abyss",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4387"
+            "key": "killEnemy:kW:4387"
           }
         }
       ],
@@ -36697,16 +36783,16 @@
             {
               "stageId": "xmas",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4415"
+            "key": "killEnemy:kW:4415"
           }
         }
       ],
@@ -36742,16 +36828,16 @@
             {
               "stageId": "xmas",
               "boss": false,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4416"
+            "key": "killEnemy:kW:4416"
           }
         }
       ],
@@ -36787,16 +36873,16 @@
             {
               "stageId": "xmas",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4417"
+            "key": "killEnemy:kW:4417"
           }
         }
       ],
@@ -36832,16 +36918,16 @@
             {
               "stageId": "xmas",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4418"
+            "key": "killEnemy:kW:4418"
           }
         }
       ],
@@ -36874,13 +36960,20 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "ktullanux",
-          "stageRefs": [],
-          "verificationState": "candidate",
+          "stageRefs": [
+            {
+              "stageId": "c2_abyss",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4419"
+            "key": "killEnemy:kW:4419"
           }
         }
       ],
@@ -36914,13 +37007,20 @@
         {
           "sourceType": "monsterDrop",
           "monsterId": "fallen_bishop_hibram",
-          "stageRefs": [],
-          "verificationState": "candidate",
+          "stageRefs": [
+            {
+              "stageId": "c2_nif",
+              "boss": true,
+              "verified": true,
+              "verificationState": "official"
+            }
+          ],
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4441"
+            "key": "killEnemy:kW:4441"
           }
         }
       ],
@@ -36953,16 +37053,16 @@
             {
               "stageId": "byalan",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4524"
+            "key": "killEnemy:kW:4524"
           }
         }
       ],
@@ -36998,16 +37098,16 @@
             {
               "stageId": "byalan",
               "boss": true,
-              "verified": false,
-              "verificationState": "candidate"
+              "verified": true,
+              "verificationState": "official"
             }
           ],
-          "verificationState": "candidate",
+          "verificationState": "official",
           "evidence": {
-            "file": "soul_linker-DllBVIRO.hza78cd192.js",
+            "file": "main-BNOcv2PN.hzf64b3f03.js",
             "hash": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
             "kind": "hans-static-registration",
-            "key": "Me:4525"
+            "key": "killEnemy:kW:4525"
           }
         }
       ],
@@ -37156,8 +37256,14 @@
     {
       "id": "stormy_knight",
       "name": "冰暴騎士",
-      "boss": false,
-      "stages": [],
+      "boss": true,
+      "stages": [
+        {
+          "id": "xmas",
+          "boss": true,
+          "verified": true
+        }
+      ],
       "sprite": null,
       "fieldProvenance": {
         "name": "official",
@@ -37495,8 +37601,14 @@
     {
       "id": "fallen_bishop_hibram",
       "name": "墮落大神官 悉潘",
-      "boss": false,
-      "stages": [],
+      "boss": true,
+      "stages": [
+        {
+          "id": "c2_nif",
+          "boss": true,
+          "verified": true
+        }
+      ],
       "sprite": null,
       "fieldProvenance": {
         "name": "official",
@@ -38682,8 +38794,14 @@
     {
       "id": "evil_snake_lord",
       "name": "墨蛇君",
-      "boss": false,
-      "stages": [],
+      "boss": true,
+      "stages": [
+        {
+          "id": "louyang",
+          "boss": true,
+          "verified": true
+        }
+      ],
       "sprite": null,
       "fieldProvenance": {
         "name": "official",
@@ -39269,8 +39387,14 @@
     {
       "id": "ktullanux",
       "name": "水晶龍",
-      "boss": false,
-      "stages": [],
+      "boss": true,
+      "stages": [
+        {
+          "id": "c2_abyss",
+          "boss": true,
+          "verified": true
+        }
+      ],
       "sprite": null,
       "fieldProvenance": {
         "name": "official",
@@ -40741,6 +40865,7 @@
         "teddy_bear"
       ],
       "bossMonsterIds": [
+        "stormy_knight",
         "gazeti",
         "freezer",
         "ice_titan",
@@ -40748,8 +40873,9 @@
         "baby_hatii",
         "antonio"
       ],
+      "intruderBossId": "stormy_knight",
       "candidatePoolCount": 8,
-      "candidateBossCount": 6,
+      "candidateBossCount": 7,
       "provenance": {
         "stage": "official",
         "monsterPool": "official"
@@ -40774,6 +40900,7 @@
         "enchanted_peach_tree"
       ],
       "bossMonsterIds": [
+        "evil_snake_lord",
         "wooden_golem",
         "zhu_po_long",
         "the_paper",
@@ -40781,8 +40908,9 @@
         "green_maiden",
         "white_lady"
       ],
+      "intruderBossId": "evil_snake_lord",
       "candidatePoolCount": 7,
-      "candidateBossCount": 6,
+      "candidateBossCount": 7,
       "provenance": {
         "stage": "official",
         "monsterPool": "official"
@@ -40870,13 +40998,15 @@
         "acidus_acidus"
       ],
       "bossMonsterIds": [
+        "ktullanux",
         "ferus",
         "acidus",
         "hydrolancer",
         "detardeurus"
       ],
+      "intruderBossId": "ktullanux",
       "candidatePoolCount": 6,
-      "candidateBossCount": 4,
+      "candidateBossCount": 5,
       "provenance": {
         "stage": "official",
         "monsterPool": "official"
@@ -40932,13 +41062,15 @@
         "disguise"
       ],
       "bossMonsterIds": [
+        "fallen_bishop_hibram",
         "bloody_murderer",
         "loli_ruri",
         "dullahan",
         "lord_of_the_dead"
       ],
+      "intruderBossId": "fallen_bishop_hibram",
       "candidatePoolCount": 6,
-      "candidateBossCount": 4,
+      "candidateBossCount": 5,
       "provenance": {
         "stage": "official",
         "monsterPool": "official"
