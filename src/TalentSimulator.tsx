@@ -6,10 +6,10 @@ import {
  WandSparkles,Sword,Hand,ShieldCheck,CloudLightning
 } from 'lucide-react';
 import type {TalentBuild,TalentBranch,TalentCatalog,TalentJob} from './talents';
-import {changeRank,decodeBuild,encodeBuild,gateFor,talentBudget,talentList,usedPoints} from './talents';
+import {changeRank,chooseCareerJob,createCareer,decodeBuild,decodeCareer,encodeCareer,gateFor,talentBudget,talentList,usedPoints} from './talents';
 import './talent.css';
 
-type Props={jobId:string;token:string;onRoute:(job:string,token:string,replace?:boolean)=>void};
+type Props={jobId:string;token:string;packed:string;onRoute:(job:string,token:string,packed:string,replace?:boolean)=>void};
 type Glyph=typeof Flame;
 const GLYPHS:Record<string,Glyph>={
  fire:Flame,ice:Snowflake,wind:Wind,lightning:Zap,sword:Sword,shield:ShieldCheck,archer:Crosshair,
@@ -149,7 +149,7 @@ function TreePanel({job,branch,build,selectedId,onSelect,onLeave,onAllocate,tota
   </div>
  </section>;
 }
-export function TalentSimulator({jobId,token,onRoute}:Props){
+export function TalentSimulator({jobId,token,packed,onRoute}:Props){
  const [data,setData]=useState<TalentCatalog|null>(null);
  const [error,setError]=useState('');
  const [selectedId,setSelectedId]=useState<string|null>(null);
@@ -172,7 +172,7 @@ export function TalentSimulator({jobId,token,onRoute}:Props){
    dismissTimer.current=null;
    setSelectedId(null);
    setDetailExpanded(false);
-  },320);
+  },200);
  };
  useEffect(()=>()=>{if(dismissTimer.current!==null)clearTimeout(dismissTimer.current)},[]);
  useEffect(()=>{
@@ -182,7 +182,7 @@ export function TalentSimulator({jobId,token,onRoute}:Props){
    .catch(e=>{if(e.name!=='AbortError')setError('天賦資料載入失敗，請稍後重新整理。')});
   return ()=>ac.abort();
  },[]);
- useEffect(()=>{cancelDismiss();setBranchIndex(0);setSelectedId(null);setDetailExpanded(false);setFeedback('')},[jobId]);
+
  useEffect(()=>{
   const query=window.matchMedia('(max-width:750px)');
   const onChange=(e:MediaQueryListEvent)=>setIsCompact(e.matches);
@@ -214,14 +214,39 @@ export function TalentSimulator({jobId,token,onRoute}:Props){
   window.addEventListener('keydown',onKey);
   return ()=>window.removeEventListener('keydown',onKey);
  },[selectedId]);
- const job=useMemo(()=>data?.jobs.find(j=>j.job===jobId)||data?.jobs[0]||null,[data,jobId]);
+ const decoded=useMemo(()=>{
+  if(!data)return {career:null,error:null};
+  const legacy=data.jobs.find(j=>j.job===jobId)||data.jobs[0];
+  if(packed)return decodeCareer(data,packed);
+  const old=decodeBuild(legacy,token,data.sourceCommit,talentBudget(data,legacy),data.branchGate);
+  return {career:createCareer(data,legacy,old.build),error:old.error};
+ },[data,jobId,token,packed]);
+ const job=useMemo(()=>data?.jobs.find(j=>j.job===decoded.career?.active)||data?.jobs.find(j=>j.job===jobId)||data?.jobs[0]||null,[data,decoded.career?.active,jobId]);
+ const career=data&&job?(decoded.career||createCareer(data,job)):null;
+ useEffect(()=>{cancelDismiss();setBranchIndex(0);setSelectedId(null);setDetailExpanded(false);setFeedback('')},[job?.job]);
  const total=job&&data?talentBudget(data,job):50;
- const parsed=useMemo(()=>job&&data?decodeBuild(job,token,data.sourceCommit,total,data.branchGate):{build:{},error:null},[data,job,token,total]);
- const build=parsed.build;
+ const build=career&&job?career.builds[job.job]||{}:{};
  const spent=usedPoints(build),remaining=total-spent;
  const selectedNode=job?talentList(job).find(n=>n.id===selectedId):null;
  const selectedBranch=job?.branches.find(b=>b.talents.some(n=>n.id===selectedId));
- const update=(buildNext:TalentBuild)=>{if(job&&data){setFeedback('');onRoute(job.job,encodeBuild(job,buildNext,data.sourceCommit),true)}};
+ const update=(buildNext:TalentBuild)=>{
+  if(job&&data&&career){
+   setFeedback('');
+   onRoute(job.job,'',encodeCareer(data,{...career,builds:{...career.builds,[job.job]:buildNext}}),true);
+  }
+ };
+ const chooseJob=(id:string)=>{
+  if(!data||!career)return;
+  const target=data.jobs.find(j=>j.job===id);
+  if(!target)return;
+  const next=chooseCareerJob(data,career,target);
+  onRoute(id,'',encodeCareer(data,next));
+  setShowJobs(false);
+ };
+ const stages=[1,2,3].map(rank=>data?.jobs.find(j=>career?.jobs.includes(j.job)&&j.rank===rank));
+ const [firstStage,secondStage,thirdStage]=stages;
+ const secondOptions=data?.jobs.filter(j=>j.rank===2&&j.base===firstStage?.job)||[];
+ const thirdOptions=data?.jobs.filter(j=>j.rank===3&&(j.base===secondStage?.job||j.base===firstStage?.job))||[];
  const selectNode=(id:string,anchor:HTMLElement)=>{
   cancelDismiss();
   if(id!==selectedId)setDetailExpanded(false);
@@ -238,9 +263,7 @@ export function TalentSimulator({jobId,token,onRoute}:Props){
  };
  const shareUrl=()=>{
   const url=new URL(location.pathname,location.origin);
-  url.searchParams.set('page','talents');
-  url.searchParams.set('tj',job!.job);
-  url.searchParams.set('tb',encodeBuild(job!,build,data!.sourceCommit));
+  url.searchParams.set('t',encodeCareer(data!,career!));
   return url.href;
  };
  const share=async()=>{
@@ -263,9 +286,34 @@ export function TalentSimulator({jobId,token,onRoute}:Props){
  return <div className="talent-simulator tg-game">
   <div className="tg-top"><span><Workflow size={20}/>HANS 職業天賦樹</span><small>粉絲製作 · 模擬配點</small></div>
   <div className="tg-body">
-   <p className="tg-lead"><span className="tg-help-desktop">參照 HANS 官方天賦樹。滑鼠移到圖示可查看技能，左鍵加 1 點、右鍵退 1 點；說明顯示在技能下方，移開稍後自動收起，按 Esc 可立即關閉。</span><span className="tg-help-mobile">點一下技能查看說明，再用面板的 ＋／－ 配點，避免誤觸。</span></p>
-   <JobSelector data={data} job={job} expanded={showJobs} setExpanded={setShowJobs}
-    onChoose={id=>{onRoute(id,'');setShowJobs(false)}}/>
+   <p className="tg-lead"><span className="tg-help-desktop">參照 HANS 官方天賦樹。左鍵加點、右鍵退點；說明位於技能下方，滑鼠移開 200ms 後收起。可切換一／二／三轉並保留各階配點，分享一個短連結。</span><span className="tg-help-mobile">點技能查看說明，使用面板 ＋／－ 配點；一／二／三轉可以分別配置、合併分享。</span></p>
+   <JobSelector data={data} job={job} expanded={showJobs} setExpanded={setShowJobs} onChoose={chooseJob}/>
+   <nav className="tg-career-nav" aria-label="三階轉職配點">
+    <div className={'tg-career-stage'+(job.rank===1?' active':'')}>
+     <button type="button" onClick={()=>firstStage&&chooseJob(firstStage.job)} aria-current={job.rank===1?'step':undefined}>
+      <small>一轉</small><strong>{firstStage?.name||'選擇職業'}</strong>
+      <span>{firstStage?usedPoints(career?.builds[firstStage.job]||{}):0} / 50 點</span>
+     </button>
+    </div>
+    <div className={'tg-career-stage'+(job.rank===2?' active':'')}>
+     <button type="button" disabled={!secondStage} onClick={()=>secondStage&&chooseJob(secondStage.job)} aria-current={job.rank===2?'step':undefined}>
+      <small>二轉</small><strong>{secondStage?.name||'尚未選擇'}</strong>
+      <span>{secondStage?usedPoints(career?.builds[secondStage.job]||{}):0} / 50 點</span>
+     </button>
+     {secondOptions.length>0&&<select aria-label="選擇二轉職業" value={secondStage?.job||''} onChange={e=>e.target.value&&chooseJob(e.target.value)}>
+      <option value="">選擇二轉路線</option>{secondOptions.map(j=><option key={j.job} value={j.job}>{j.name}</option>)}
+     </select>}
+    </div>
+    <div className={'tg-career-stage'+(job.rank===3?' active':'')}>
+     <button type="button" disabled={!thirdStage} onClick={()=>thirdStage&&chooseJob(thirdStage.job)} aria-current={job.rank===3?'step':undefined}>
+      <small>三轉</small><strong>{thirdStage?.name||'尚未選擇'}</strong>
+      <span>{thirdStage?usedPoints(career?.builds[thirdStage.job]||{}):0} / 70 點</span>
+     </button>
+     {thirdOptions.length>0&&<select aria-label="選擇三轉職業" value={thirdStage?.job||''} onChange={e=>e.target.value&&chooseJob(e.target.value)}>
+      <option value="">選擇三轉路線</option>{thirdOptions.map(j=><option key={j.job} value={j.job}>{j.name}</option>)}
+     </select>}
+    </div>
+   </nav>
    <div className="tg-job-title">
     <TalentIcon node={{icon:job.branches[0]?.icon,name:job.name}} active/>
     <div><h2>{job.name||job.job}</h2><p>{job.description}</p></div>
@@ -275,22 +323,22 @@ export function TalentSimulator({jobId,token,onRoute}:Props){
    </div>
    {(job.rank??1)>=2&&<details className="tg-base-note"><summary><BookOpen size={16}/>由 {baseJob?.name||job.base} 轉職 · {job.rank===3?'三轉 70 點專精':'二轉 50 點專精'} <ChevronDown size={15}/></summary>
     <p>{job.rank===3?'三轉使用獨立 70 點天賦額度，終極天賦位於第 12 列，需先投入 55 點。資料取自 HANS 遊戲本體，獨立展示頁尚未收錄三轉。':'一轉配點獨立保留。二轉的 50 點只投入一條專精分支。'}兩者皆依照技能路線互斥與各列門檻計算。</p>
-    {baseJob&&<button type="button" onClick={()=>onRoute(baseJob.job,'')}>查看前一階 <ArrowRight size={14}/></button>}
+    {baseJob&&<button type="button" onClick={()=>chooseJob(baseJob.job)}>查看前一階 <ArrowRight size={14}/></button>}
    </details>}
    <div className="tg-summary">
     <div><span>已分配點數</span><b>{spent}<small> / {total}</small></b></div>
     <div><span>剩餘點數</span><b>{remaining}</b></div>
     <button type="button" className="tg-action tg-primary" onClick={share}><Share2 size={17}/>分享配點</button>
     <button type="button" className="tg-action" onClick={copy}><Copy size={16}/>複製連結</button>
-    <button type="button" className="tg-action" disabled={!token&&!spent} onClick={()=>{
-     if(window.confirm('確定清空目前職業三條分支的所有配點嗎？')){
-      onRoute(job.job,'',true);
+    <button type="button" className="tg-action" disabled={!career||!Object.values(career.builds).some(b=>usedPoints(b)>0)} onClick={()=>{
+     if(window.confirm('確定清空一轉、二轉、三轉所有天賦配點嗎？')){
+      onRoute(job.job,'',encodeCareer(data,{...career!,builds:{}}),true);
       setSelectedId(null);
-      setFeedback('已重置目前職業的所有配點');
+      setFeedback('已重置三階所有配點');
      }
     }}><RotateCcw size={16}/>全部重置</button>
    </div>
-   {parsed.error&&<p className="tg-error" role="alert">{parsed.error}</p>}
+   {decoded.error&&<p className="tg-error" role="alert">{decoded.error}</p>}
    {feedback&&<p className="tg-feedback" role="status"><Check size={15}/>{feedback}</p>}
    <div className="tg-skill-bar"><b>職業技能</b>{(job.skills||[]).map(s=>
     <span key={s.id} title={s.id}><TalentIcon node={{icon:s.icon,name:s.id}}/></span>

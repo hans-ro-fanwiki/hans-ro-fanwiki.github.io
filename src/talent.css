@@ -29,6 +29,16 @@ body:has(.tg-game) .section-heading{display:none}
 .tg-third small{font-size:10px;color:#7790be}
 .tg-third.active{background:#4165b5;color:#fff}
 .tg-third.active small{color:#f5f8ff}
+.tg-career-nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:0 0 14px}
+.tg-career-stage{min-width:0;border:1px solid #c5d5ef;background:#f1f5fd;border-radius:10px;padding:5px}
+.tg-career-stage.active{border-color:#4777c5;background:#dce9ff;box-shadow:0 0 0 1px #4777c536}
+.tg-career-stage>button{display:flex;flex-direction:column;text-align:left;gap:1px;width:100%;border:0;background:transparent;color:#345786;padding:6px 8px;min-height:55px}
+.tg-career-stage.active>button{color:#1d4a92}
+.tg-career-stage>button:disabled{opacity:.7}
+.tg-career-stage>button small{font-size:11px;font-weight:800}
+.tg-career-stage>button strong{font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:100%}
+.tg-career-stage>button span{font-size:11px;color:#627ca9}
+.tg-career-stage select{border:1px solid #bdcce9;background:#fff;border-radius:7px;color:#31548c;width:100%;min-width:0;min-height:35px;padding:5px;font-size:12px}
 .tg-job-title{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:0 0 12px}
 .tg-job-title>.tg-icon{width:43px;height:43px}
 .tg-job-title>div{flex:1;min-width:170px}
@@ -139,6 +149,12 @@ body:has(.tg-game) .section-heading{display:none}
  .tg-help-mobile{display:inline}
  body:has(.tg-game) .content-section{overflow:visible}
  .tg-skill-bar{display:none}
+ .tg-career-nav{gap:5px;margin-bottom:10px}
+ .tg-career-stage{padding:3px}
+ .tg-career-stage>button{padding:4px 5px;min-height:58px}
+ .tg-career-stage>button strong{font-size:12px}
+ .tg-career-stage>button span{font-size:10px}
+ .tg-career-stage select{font-size:11px;min-height:39px;padding:3px}
  .tg-job-title{gap:7px;margin-bottom:8px}
  .tg-job-title>.tg-icon{width:36px;height:36px}
  .tg-job-title h2{font-size:20px}

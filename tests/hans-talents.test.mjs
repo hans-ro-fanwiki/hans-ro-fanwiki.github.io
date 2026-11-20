@@ -113,3 +113,53 @@ test('share code roundtrips, rejects invalid and changed source revisions',()=>{
  assert.ok(decodeBuild(mage,token,'changed',50,5).error);
  assert.ok(decodeBuild(mage,token.replace(/.$/,'z'),data.sourceCommit,50,5).error);
 });
+
+test('one short link restores three independently allocated stages and their current tab',async()=>{
+ const {chooseCareerJob,createCareer,encodeCareer,decodeCareer}=await import('../src/talents.ts');
+ const wizard=data.jobs.find(j=>j.job==='wizard');
+ const warlock=data.jobs.find(j=>j.job==='warlock');
+ let career=createCareer(data,mage);
+ const used={};
+ for(const job of [mage,wizard,warlock]){
+  career=chooseCareerJob(data,career,job);
+  const node=job.branches[0].talents.find(n=>n.row===0);
+  used[job.job]={[node.id]:1};
+  career.builds[job.job]=used[job.job];
+ }
+ const token=encodeCareer(data,career);
+ assert.ok(token.length<65,'compact token should stay short for 3 simple builds: '+token.length);
+ const restored=decodeCareer(data,token);
+ assert.equal(restored.error,null);
+ assert.deepEqual(restored.career,career);
+ const legacyLength=[mage,wizard,warlock].reduce((sum,job)=>sum+encodeBuild(job,used[job.job],data.sourceCommit).length,0);
+ assert.ok(token.length<legacyLength/2);
+ assert.equal(restored.career.active,'warlock');
+ const backToFirst=chooseCareerJob(data,restored.career,mage);
+ assert.deepEqual(backToFirst.builds,used);
+ assert.equal(chooseCareerJob(data,backToFirst,wizard).builds.warlock[Object.keys(used.warlock)[0]],1);
+ const corrupt=token.slice(0,-1)+(token.at(-1)==='a'?'b':'a');
+ assert.ok(decodeCareer(data,corrupt).error);
+ assert.ok(decodeCareer({...data,sourceCommit:'ffffffff'},token).error);
+ assert.ok(decodeCareer(data,'notvalid').error);
+});
+
+test('changing a second-job path removes incompatible stages but keeps the shared first-job build',async()=>{
+ const {chooseCareerJob,createCareer,encodeCareer,decodeCareer}=await import('../src/talents.ts');
+ const wizard=data.jobs.find(j=>j.job==='wizard');
+ const sage=data.jobs.find(j=>j.job==='sage');
+ const warlock=data.jobs.find(j=>j.job==='warlock');
+ const career=chooseCareerJob(data,chooseCareerJob(data,createCareer(data,mage,{[mage.branches[0].talents[0].id]:1}),wizard),warlock);
+ career.builds[wizard.job]={[wizard.branches[0].talents[0].id]:1};
+ const changed=chooseCareerJob(data,career,sage);
+ assert.deepEqual(changed.jobs,['mage','sage']);
+ assert.ok(changed.builds.mage);
+ assert.equal(changed.builds.wizard,undefined);
+ assert.equal(changed.builds.warlock,undefined);
+ assert.deepEqual(decodeCareer(data,encodeCareer(data,changed)).career,changed);
+ const ninja=data.jobs.find(j=>j.job==='ninja');
+ const second=data.jobs.find(j=>j.rank===2&&j.base==='ninja');
+ const third=data.jobs.find(j=>j.rank===3&&j.base==='ninja');
+ assert.ok(ninja&&second&&third);
+ const direct=chooseCareerJob(data,chooseCareerJob(data,createCareer(data,ninja),second),third);
+ assert.deepEqual(decodeCareer(data,encodeCareer(data,direct)).career,direct);
+});

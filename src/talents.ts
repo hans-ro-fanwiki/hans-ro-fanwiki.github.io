@@ -80,3 +80,120 @@ export function decodeBuild(job:TalentJob,token:string,commit:string,total:numbe
  const error=checkBuild(job,build,total,step);
  return error?{build:{},error:'分享配點驗證失敗：'+error}:{build,error:null};
 }
+
+// All career stages share one stateless, version-checked URL. The legacy v1
+// single-job decoder above remains available for old shared links.
+export interface TalentCareer {active:string;jobs:string[];builds:Record<string,TalentBuild>}
+export function jobLineage(data:TalentCatalog,job:TalentJob):TalentJob[]{
+ const path:TalentJob[]=[];
+ let current:TalentJob|undefined=job;
+ while(current){
+  if(path.some(j=>j.job===current!.job))throw Error('Invalid talent job lineage');
+  path.unshift(current);
+  current=current.base?data.jobs.find(j=>j.job===current!.base):undefined;
+ }
+ return path;
+}
+export function createCareer(data:TalentCatalog,job:TalentJob,build:TalentBuild={}):TalentCareer{
+ return {active:job.job,jobs:jobLineage(data,job).map(j=>j.job),builds:Object.keys(build).length?{[job.job]:build}:{}};
+}
+export function chooseCareerJob(data:TalentCatalog,current:TalentCareer,selected:TalentJob):TalentCareer{
+ const lineage=jobLineage(data,selected).map(j=>j.job);
+ const previous=current.jobs.map(id=>data.jobs.find(j=>j.job===id)).filter((j):j is TalentJob=>!!j);
+ const root=previous.find(j=>j.rank===1);
+ let ids=lineage;
+ if(root?.job===lineage[0]){
+  if(selected.rank===1)ids=current.jobs;
+  else if(selected.rank===2){
+   const third=previous.find(j=>j.rank===3&&(j.base===selected.job||j.base===lineage[0]));
+   ids=[lineage[0],selected.job,...(third?[third.job]:[])];
+  }else if(selected.rank===3&&lineage.length===2){
+   const second=previous.find(j=>j.rank===2);
+   if(second)ids=[lineage[0],second.job,selected.job];
+  }
+ }
+ const builds:Record<string,TalentBuild>={};
+ for(const id of ids)if(current.builds[id])builds[id]=current.builds[id];
+ return {active:selected.job,jobs:ids,builds};
+}
+function checksum(bytes:number[]):number{
+ let crc=0xffff;
+ for(const b of bytes){
+  crc^=b<<8;
+  for(let i=0;i<8;i++)crc=(crc&0x8000)?((crc<<1)^0x1021)&0xffff:(crc<<1)&0xffff;
+ }
+ return crc;
+}
+export function encodeCareer(data:TalentCatalog,career:TalentCareer):string{
+ if(!/^[0-9a-f]{8}$/i.test(data.sourceCommit))throw Error('Invalid HANS source revision');
+ const active=data.jobs.find(j=>j.job===career.active);
+ if(!active)throw Error('Invalid active job');
+ const bytes=[0x20+(active.rank??1)];
+ for(let i=0;i<8;i+=2)bytes.push(parseInt(data.sourceCommit.slice(i,i+2),16));
+ for(const rank of [1,2,3]){
+  const job=data.jobs.find(j=>career.jobs.includes(j.job)&&j.rank===rank);
+  const index=job?data.jobs.indexOf(job):255;
+  const body:number[]=[];
+  if(job){
+   let last=-1;
+   talentList(job).forEach((node,index)=>{
+    const value=career.builds[job.job]?.[node.id]||0;
+    if(!value)return;
+    if(!Number.isInteger(value)||value<1||value>15)throw Error('Unencodable talent rank');
+    let gap=index-last-1;
+    while(gap>=15){body.push(0xf0);gap-=15}
+    body.push((gap<<4)|value);
+    last=index;
+   });
+  }
+  if(body.length>255)throw Error('Talent build too large');
+  bytes.push(index,body.length,...body);
+ }
+ const crc=checksum(bytes);
+ bytes.push(crc>>8,crc&255);
+ return btoa(String.fromCharCode(...bytes)).replaceAll('+','-').replaceAll('/','_').replace(/=+$/,'');
+}
+export function decodeCareer(data:TalentCatalog,token:string):{career:TalentCareer|null;error:string|null}{
+ const invalid='這份三階配點連結無效、損壞或與目前 HANS 天賦版本不相容';
+ if(!/^[A-Za-z0-9_-]{10,1024}$/.test(token))return {career:null,error:invalid};
+ try{
+  const raw=atob(token.replace(/-/g,'+').replace(/_/g,'/')+'='.repeat((4-token.length%4)%4));
+  const bytes=Array.from(raw,c=>c.charCodeAt(0));
+  if(bytes.length<13||bytes[0]<0x21||bytes[0]>0x23)return {career:null,error:invalid};
+  const expected=bytes.at(-2)!*256+bytes.at(-1)!;
+  if(checksum(bytes.slice(0,-2))!==expected)return {career:null,error:invalid};
+  if(bytes.slice(1,5).map(b=>b.toString(16).padStart(2,'0')).join('')!==data.sourceCommit.toLowerCase())return {career:null,error:invalid};
+  const jobs:TalentJob[]=[],builds:Record<string,TalentBuild>={};
+  let offset=5;
+  for(const rank of [1,2,3]){
+   if(offset+2>bytes.length-2)return {career:null,error:invalid};
+   const index=bytes[offset++],length=bytes[offset++];
+   if(offset+length>bytes.length-2)return {career:null,error:invalid};
+   if(index===255){if(length)return {career:null,error:invalid};continue}
+   const job=data.jobs[index];
+   if(!job||job.rank!==rank)return {career:null,error:invalid};
+   const build:TalentBuild={},nodes=talentList(job);
+   let pos=-1;
+   const end=offset+length;
+   while(offset<end){
+    const byte=bytes[offset++];
+    if(byte===0xf0){pos+=15;continue}
+    const value=byte&15;
+    pos+=(byte>>4)+1;
+    if(value===0||!nodes[pos]||value>nodes[pos].maxRank)return {career:null,error:invalid};
+    build[nodes[pos].id]=value;
+   }
+   const error=checkBuild(job,build,talentBudget(data,job),data.branchGate);
+   if(error)return {career:null,error:'分享配點驗證失敗：'+error};
+   jobs.push(job);
+   if(Object.keys(build).length)builds[job.job]=build;
+  }
+  if(offset!==bytes.length-2||!jobs.length||jobs[0].rank!==1)return {career:null,error:invalid};
+  if(jobs[1]&&jobs[1].rank===2&&jobs[1].base!==jobs[0].job)return {career:null,error:invalid};
+  const third=jobs.find(j=>j.rank===3),second=jobs.find(j=>j.rank===2);
+  if(third&&third.base!==jobs[0].job&&third.base!==second?.job)return {career:null,error:invalid};
+  const active=jobs.find(j=>j.rank===bytes[0]-0x20);
+  if(!active)return {career:null,error:invalid};
+  return {career:{active:active.job,jobs:jobs.map(j=>j.job),builds},error:null};
+ }catch{return {career:null,error:invalid}}
+}

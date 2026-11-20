@@ -11,7 +11,7 @@ import {TalentSimulator} from './TalentSimulator';
 import {equipmentTier} from './tier';
 import {hasConfirmedAcquisition} from './acquisition';
 
-type View={page:Page;slot:string;job:string;effect:string;source:string;query:string;attr:string;mode:'list'|'stages';onlyOpen:boolean;showUnknown:boolean;detail:string|null;stage:string|null;tj:string;tb:string};
+type View={page:Page;slot:string;job:string;effect:string;source:string;query:string;attr:string;mode:'list'|'stages';onlyOpen:boolean;showUnknown:boolean;detail:string|null;stage:string|null;tj:string;tb:string;t:string};
 type GameEntry=Equipment|Card;
 const SLOTS:Record<string,string>={weapon:'武器',head_top:'頭飾（上）',head_mid:'頭飾（中）',head_low:'頭飾（下）',armor:'衣服',shield:'盾牌',garment:'披肩',shoes:'鞋子',acc:'飾品'};
 const JOBS:Record<string,string>={all:'全部',mage:'魔法師系',swordsman:'劍士系',archer:'弓箭手系',acolyte:'服事系',thief:'盜賊系',merchant:'商人系',taekwon:'跆拳道系',ninja:'忍者系',gunslinger:'神槍手系'};
@@ -21,12 +21,12 @@ const LABELS:Record<Page,string>={items:'裝備',cards:'卡片',stages:'關卡',
 // the public repository and Pages artifact never contain game image files.
 const PUBLIC_MODE=import.meta.env.VITE_PUBLIC_MODE==='1';
 const ASSET_ROOT='https://ro.hans-webgametw.com/assets/';
-const EMPTY:View={page:'items',slot:'all',job:'all',effect:'all',source:'all',query:'',attr:'all',mode:'list',onlyOpen:true,showUnknown:false,detail:null,stage:null,tj:'swordsman',tb:''};
+const EMPTY:View={page:'items',slot:'all',job:'all',effect:'all',source:'all',query:'',attr:'all',mode:'list',onlyOpen:true,showUnknown:false,detail:null,stage:null,tj:'swordsman',tb:'',t:''};
 function readLocation():View{
  const q=new URLSearchParams(location.search);
- const page=q.get('page')||'items';
+ const page=q.get('page')||(q.has('t')?'talents':'items');
  return {page:(Object.prototype.hasOwnProperty.call(LABELS,page)?page:'items') as Page,slot:q.get('slot')||'all',job:q.get('job')||'all',effect:q.get('effect')||'all',
- source:q.get('source')||'all',query:q.get('q')||'',attr:q.get('attr')||'all',mode:q.get('mode')==='stages'?'stages':'list',onlyOpen:q.get('open')!=='0',showUnknown:q.get('unknown')==='1',detail:q.get('detail')||null,stage:q.get('stage')||null,tj:q.get('tj')||'swordsman',tb:q.get('tb')||''};
+ source:q.get('source')||'all',query:q.get('q')||'',attr:q.get('attr')||'all',mode:q.get('mode')==='stages'?'stages':'list',onlyOpen:q.get('open')!=='0',showUnknown:q.get('unknown')==='1',detail:q.get('detail')||null,stage:q.get('stage')||null,tj:q.get('tj')||'swordsman',tb:q.get('tb')||'',t:q.get('t')||''};
 }
 function pathFor(v:View){
  const q=new URLSearchParams();
@@ -42,7 +42,7 @@ function pathFor(v:View){
  if(v.showUnknown)q.set('unknown','1');
  if(v.detail)q.set('detail',v.detail);
  if(v.stage)q.set('stage',v.stage);
- if(v.page==='talents'){if(v.tj!=='swordsman')q.set('tj',v.tj);if(v.tb)q.set('tb',v.tb);}
+ if(v.page==='talents'){if(v.t)q.set('t',v.t);else{if(v.tj!=='swordsman')q.set('tj',v.tj);if(v.tb)q.set('tb',v.tb);}}
  return location.pathname+(q.size?'?'+q.toString():'');
 }
 function Chip({active,children,onClick}:{active:boolean;children:React.ReactNode;onClick:()=>void}){
@@ -200,7 +200,7 @@ function App(){
     <div className="section-heading"><h1>{LABELS[state.page]}</h1>{state.page!=='talents'&&<span className="heading-count">
       {state.page==='items'?equip.length:state.page==='cards'?cardList.length:catalog?.stages.filter(stage=>!state.onlyOpen||stage.open).length||0}
      </span>}</div>
-    {state.page==='talents'?<TalentSimulator jobId={state.tj} token={state.tb} onRoute={(tj,tb,replace=false)=>navigate({tj,tb,page:'talents'},false,replace)}/>:<>
+    {state.page==='talents'?<TalentSimulator jobId={state.tj} token={state.tb} packed={state.t} onRoute={(tj,tb,t,replace=false)=>navigate({tj,tb,t,page:'talents'},false,replace)}/>:<>
     {error&&<div className="empty-state">{error}</div>}
     {!catalog&&!error&&<div className="empty-state">讀取中…</div>}
     {catalog&&<>

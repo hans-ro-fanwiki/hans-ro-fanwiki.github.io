@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0-dev.8 — 2026-11-20 (career-wide talent planning and short share links)
+
+- Reduce desktop talent hover dismissal from 320ms to 200ms without losing popup re-entry grace.
+- Keep one first/second/third-job progression together; switching between compatible stages retains independent build allocations, with explicit stage buttons and specialization selectors.
+- Replace lengthy v1 single-stage share URLs with compact stateless `?t=` links that encode all three stages using a sparse scheme with revision and checksum validation; old links remain readable.
+- Make full reset clear all three stages while preserving the selected career; add targeted unit and responsive browser regressions for restoration, sharing and 200ms dismissal.
+
+
 ## 0.3.0-dev.7 — 2026-11-20 (talent popup placement and hover grace)
 
 - Move desktop talent details below the hovered skill and center horizontally; clamp to viewport edges and flip above only when below has insufficient space.
