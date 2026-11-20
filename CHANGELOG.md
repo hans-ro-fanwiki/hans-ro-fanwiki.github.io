@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.0-dev.11 — 2026-11-20 (fixed talent inspector and direct desktop allocation)
+
+- Replace the mouse-following 200ms hover popup with a fixed-height, in-flow desktop inspector above all three talent trees; hover and keyboard focus update the inspector, never overlay another skill icon.
+- Keep desktop direct left-click +1 / right-click -1 and keyboard + / - / Esc; allow continuous allocations without repositioning the pointer around a floating tooltip.
+- Mobile keeps tap-to-select and bottom navigation-safe compact allocation bar, with a separate intentional expansion for full skill notes and prerequisites.
+- Remove obsolete position calculations, hover dismissal timers and extra popup interaction controls; reserve desktop inspector height to avoid layout jumps.
+- Extend responsive browser tests with continuous left/right-click allocations, fixed inspector bounds, persistent preview and full-detail expansion without obscuring the tree.
+
+
 ## 0.3.0-dev.10 — 2026-11-20 (six-lap cards, per-job GS and stage tiers)
 
 - Import audited HANS lap multipliers, card ID offsets, exception card IDs, scoring weights and 41 job scaling profiles; retain 188 canonical cards with raw modifier metadata, rather than copying thousands of variants.

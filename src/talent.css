@@ -113,11 +113,22 @@ body:has(.tg-game) .section-heading{display:none}
 .tg-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .tg-tree-locked .tg-board{opacity:.58}
 .tg-branch-locked-label{position:absolute;z-index:3;right:10px;top:96px;border-radius:20px;background:#fff0d5;border:1px solid #e4c487;color:#835a25;padding:4px 9px;font-size:11px;font-weight:750}
-.tg-detail{position:fixed;z-index:35;width:min(350px,calc(100vw - 24px));max-height:min(420px,calc(100dvh - 24px));display:flex;flex-direction:column;overflow:hidden;box-shadow:0 12px 38px #17335d66;border:1px solid #9eb8e7;border-radius:12px;background:#f3f7ff;padding:13px 15px}
+.tg-inspector-slot{min-height:104px;margin:10px 0 13px}
+ .tg-inspector-empty{display:flex;align-items:center;justify-content:center;gap:10px;min-height:104px;border:1px dashed #afc4e5;border-radius:12px;background:#f1f6ff;color:#6076a3;font-size:13px;padding:15px;text-align:center}
+.tg-detail{position:relative;z-index:1;display:flex;flex-direction:column;gap:3px;width:100%;min-height:104px;overflow:hidden;border:1px solid #9eb8e7;border-radius:12px;background:#f3f7ff;padding:11px 14px}
+.tg-desktop-detail{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;gap:2px 16px;align-items:center}
+.tg-desktop-detail .tg-detail-head{grid-column:1;grid-row:1}
+.tg-desktop-detail .tg-detail-copy{grid-column:1;grid-row:2;max-width:100%}
+.tg-desktop-detail .tg-detail-expand{grid-column:2;grid-row:1/3;align-self:center}
+.tg-desktop-detail:not(.tg-expanded) .tg-detail-copy{display:flex;align-items:baseline;gap:14px;overflow:hidden}
+.tg-desktop-detail:not(.tg-expanded) .tg-detail-copy p{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tg-desktop-detail:not(.tg-expanded) .tg-maxeffect{text-align:right}
+.tg-desktop-detail.tg-expanded{overflow:visible}
+.tg-mobile-detail{display:flex;position:fixed;z-index:35;box-shadow:0 12px 38px #17335d66}
 .tg-detail-head{display:flex;align-items:center;gap:11px;flex-shrink:0}
 .tg-detail-copy{overflow-y:auto;overscroll-behavior:contain;min-height:0}
-.tg-detail-expand{display:none}
-.tg-detail-head>div{flex:1}
+.tg-detail-expand{display:flex;align-items:center;align-self:flex-end;justify-content:center;gap:5px;border:0;background:transparent;color:#3b63a7;min-height:26px;font-size:12px;font-weight:700;padding:2px 5px}
+.tg-detail-head>div{flex:1;min-width:0}
 .tg-detail h3{margin:0 0 2px;color:#1d468a;font-size:18px}
 .tg-detail-head span{font-size:12px;color:#59709a}
 .tg-detail-head>button{align-self:flex-start;border:0;background:#dfebfa;border-radius:7px;padding:6px;color:#426393}
@@ -184,16 +195,18 @@ body:has(.tg-game) .section-heading{display:none}
  .tg-node>.tg-icon{width:46px;height:46px}
  .tg-node .tg-icon svg{width:27px;height:27px}
  .tg-tree-desc{min-height:55px}
- .tg-detail{left:8px;right:8px;top:auto;bottom:calc(72px + env(safe-area-inset-bottom));width:auto;max-height:min(54dvh,420px);padding:10px 12px;gap:3px}
- .tg-detail:not(.tg-expanded) .tg-detail-more{display:none}
- .tg-detail:not(.tg-expanded) .tg-effect{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+ .tg-mobile-detail{left:8px;right:8px;top:auto;bottom:calc(72px + env(safe-area-inset-bottom));width:auto;min-height:0;max-height:min(54dvh,420px);padding:10px 12px;gap:3px}
+ .tg-mobile-detail:not(.tg-expanded) .tg-maxeffect{display:none}
+ .tg-mobile-detail:not(.tg-expanded) .tg-effect{display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+ .tg-mobile-detail .tg-detail-head{padding-right:93px}
+ .tg-mobile-detail .tg-detail-head>button{position:absolute;right:9px;top:10px;display:grid;place-items:center;min-width:34px;min-height:36px}
  .tg-detail-head>.tg-icon{height:38px;width:38px}
  .tg-detail h3{font-size:16px}
  .tg-detail p{font-size:12px;margin:5px 0}
- .tg-detail-expand{display:flex;align-items:center;justify-content:center;gap:5px;border:0;background:transparent;color:#3b63a7;min-height:27px;font-size:12px;font-weight:700;padding:3px}
+ .tg-mobile-detail .tg-detail-expand{position:absolute;top:10px;right:47px;align-self:center;min-height:36px;padding:5px 8px;border-radius:8px;background:#e2ebfa;color:#31578f}
  .tg-detail-actions{margin-top:3px}
  .tg-detail-actions button{flex:1;justify-content:center;min-height:48px}
- .tg-game:has(.tg-detail) .tg-body{padding-bottom:200px}
+ .tg-game:has(.tg-mobile-detail) .tg-body{padding-bottom:145px}
 }
 @media(max-width:380px){
  .tg-job{font-size:11px}
