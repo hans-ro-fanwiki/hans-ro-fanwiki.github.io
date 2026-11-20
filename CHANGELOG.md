@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.3.0-dev.1 — 2026-11-20 (HANS-style 25-job talent tree redesign)
+
+- Rebuilt the talent screen around HANS's actual three-tree layout, tier lines, dependency connectors, icon tiles, and contextual skill details; mobile now uses compact job selection and branch switching.
+- Added 16 second-job trees alongside 9 first jobs: 25 officially listed jobs, 75 branches and 1,680 nodes, including descriptions, rank limits and prerequisites.
+- Added second-job one-branch specialization and mutually exclusive skill paths. Second jobs are visibly marked as in development by HANS; third-job trees are not yet on the official talent page.
+- Kept versioned share links, reset and point allocations. Public build uses original vector substitutes; only private Dev may request HANS's remote artwork.
+- Updated normalization workflow and responsive browser regression tests, with no game JS or icon image bundles distributed.
+
 ## 0.3.0-dev — 2026-11-20 (first-job talent simulator preview)
 
 - Added a fourth Talents tab with nine HANS first-job trees, 27 branches and 444 audited talent nodes.

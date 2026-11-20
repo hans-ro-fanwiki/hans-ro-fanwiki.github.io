@@ -1,11 +1,12 @@
 export interface TalentNode {
  id:string;row:number;col:number;name:string;originalName:string|null;maxRank:number;
- icon:string|null;requires:string[];
+ icon:string|null;requires:string[];learn?:boolean;ultimate?:boolean;weapon?:boolean;
+ path?:string|null;summary?:string;maxEffect?:string;notes?:string[];
 }
-export interface TalentBranch {id:number;name:string;originalName:string;talents:TalentNode[]}
-export interface TalentJob {job:string;branches:TalentBranch[]}
+export interface TalentBranch {id:number;name:string;originalName:string;talents:TalentNode[];desc?:string;icon?:string|null;paths?:{name:string;desc:string}[];rows?:number;cols?:number;connections?:{from:string;to:string}[]}
+export interface TalentJob {job:string;name?:string;rank?:number;developing?:boolean;description?:string;rule?:string;base?:string;skills?:{id:string;icon:string|null}[];branches:TalentBranch[]}
 export interface TalentCatalog {
- server:'hans';version:number;sourceCommit:string;sourceDate:string;sha256:string;
+ server:'hans';version:number;sourceCommit:string;sourceDate:string;sha256:string;officialTalentPage?:string;
  pointsPerJob:number;branchGate:number;jobs:TalentJob[];
 }
 export type TalentBuild=Record<string,number>;
@@ -13,7 +14,20 @@ export const talentList=(job:TalentJob)=>job.branches.flatMap(b=>b.talents);
 export const usedPoints=(build:TalentBuild)=>Object.values(build).reduce((n,r)=>n+r,0);
 
 export function gateFor(node:TalentNode,branch:TalentBranch,step:number):number{
- const earlier=branch.talents.filter(x=>x.row<node.row).reduce((n,x)=>n+x.maxRank,0);
+ // Match HANS RO_TROW: mutually exclusive path variants count only the larger
+ // possible branch, not both, when computing a row's unlock threshold.
+ let earlier=0;
+ const paths=new Map<string,Map<string,number>>();
+ for(const talent of branch.talents){
+  if(talent.row>=node.row)continue;
+  if(talent.path){
+   const family=talent.path.slice(0,-1);
+   const variants=paths.get(family)||new Map<string,number>();
+   variants.set(talent.path,(variants.get(talent.path)||0)+talent.maxRank);
+   paths.set(family,variants);
+  }else earlier+=talent.maxRank;
+ }
+ for(const variants of paths.values())earlier+=Math.max(...variants.values());
  return Math.min(node.row*step,earlier);
 }
 export function checkBuild(job:TalentJob,build:TalentBuild,total:number,step:number):string|null{
@@ -24,6 +38,15 @@ export function checkBuild(job:TalentJob,build:TalentBuild,total:number,step:num
   if(!Number.isInteger(value)||value<0||value>node.maxRank)return '包含不合法的天賦等級';
  }
  if(usedPoints(build)>total)return '配點超過職業點數上限';
+ if((job.rank??1)>=2){
+  const usedBranches=job.branches.filter(branch=>branch.talents.some(node=>(build[node.id]||0)>0));
+  if(usedBranches.length>1)return '二轉只能在一條專精分支配點';
+  for(const branch of usedBranches)for(const skill of ['s1','s2']){
+   const pathA=branch.talents.some(node=>node.path===skill+'a'&&(build[node.id]||0)>0);
+   const pathB=branch.talents.some(node=>node.path===skill+'b'&&(build[node.id]||0)>0);
+   if(pathA&&pathB)return '相同技能的兩條進階路線不能同時配點';
+  }
+ }
  for(const branch of job.branches)for(const node of branch.talents){
   if(!build[node.id])continue;
   const spentBelow=branch.talents.filter(n=>n.row<node.row).reduce((n,x)=>n+(build[x.id]||0),0);

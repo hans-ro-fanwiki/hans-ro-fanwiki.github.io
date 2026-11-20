@@ -59,30 +59,40 @@ try{
  }
  await page.screenshot({path:path.join(folder,'hans-stages-390.png')});
  await page.goto(base+'?page=talents&tj=mage',{waitUntil:'networkidle'});
- assert.equal(await page.locator('.talent-branch-tabs button').count(),3);
- assert.ok(await page.locator('.talent-tile').count()>8,'Talent branch contains multiple nodes');
- const flame=page.locator('.talent-tile').filter({hasText:'生命火焰'}).first();
- await flame.locator('.talent-core').click();
- assert.ok((await flame.locator('.talent-rank').innerText()).startsWith('1/'));
- const wall=page.locator('.talent-tile').filter({hasText:'灼熱火牆'}).first();
- assert.ok(await wall.getByRole('button',{name:/增加 灼熱火牆/}).isDisabled(),'Tier 2 is gated before 5 points');
- for(let i=0;i<4;i++)await flame.getByRole('button',{name:/增加 生命火焰/}).click();
- assert.ok(await wall.getByRole('button',{name:/增加 灼熱火牆/}).isEnabled(),'Tier 2 unlocks at 5');
- await wall.getByRole('button',{name:/增加 灼熱火牆/}).click();
- assert.ok(await flame.getByRole('button',{name:/減少 生命火焰/}).isDisabled(),'Cannot unspend prerequisite tier');
+ await page.getByRole('button',{name:/職業選擇/}).click();
+ assert.equal(await page.locator('.tg-jobs-grid .tg-job-group').count(),9,'Game-like nine class groups');
+ await page.getByRole('button',{name:/職業選擇/}).click();
+ assert.equal(await page.locator('.tg-trees .tg-tree-panel').count(),3,'Three talent branches retained');
+ assert.ok(await page.locator('.tg-tree-panel').first().locator('.tg-node').count()>8,'Each branch contains talent icons');
+ const flame=page.locator('[data-talent="mage.0.firebolt_dmg"]');
+ const wall=page.locator('[data-talent="mage.0.firewall_dmg"]');
+ assert.match(await flame.locator('.tg-rank').innerText(),/0\/5/);
+ await flame.click();
+ assert.match(await flame.locator('.tg-rank').innerText(),/1\/5/);
+ assert.match(await page.locator('.tg-detail').innerText(),/火箭術/,'Game effect details are shown in wiki');
+ for(let i=0;i<4;i++)await flame.click();
+ assert.match(await flame.locator('.tg-rank').innerText(),/5\/5/);
+ await wall.click();
+ assert.match(await wall.locator('.tg-rank').innerText(),/1\/5/,'Tier opens after spending five points');
+ await flame.click();
+ assert.match(await flame.locator('.tg-rank').innerText(),/5\/5/,'Max rank cannot be exceeded');
  const buildUrl=page.url();
  assert.ok(buildUrl.includes('tb=v1.'),'URL preserves talent allocations');
  await context.grantPermissions(['clipboard-read','clipboard-write']);
  await page.getByRole('button',{name:'複製連結'}).click();
- const copied=await page.evaluate(()=>navigator.clipboard.readText());
- assert.equal(copied,buildUrl,'Copied share link matches current allocation');
+ assert.equal(await page.evaluate(()=>navigator.clipboard.readText()),buildUrl,'Copied share URL restores allocation');
  await page.reload({waitUntil:'networkidle'});
- assert.ok((await page.locator('.talent-tile').filter({hasText:'生命火焰'}).first().locator('.talent-rank').innerText()).startsWith('5/'),'Reload restores shared build');
+ assert.match(await page.locator('[data-talent="mage.0.firebolt_dmg"] .tg-rank').innerText(),/5\/5/,'Shared build reloads');
  await page.setViewportSize({width:390,height:844});
  await page.screenshot({path:path.join(folder,'hans-talents-390.png'),fullPage:true});
  page.once('dialog',dialog=>dialog.accept());
  await page.getByRole('button',{name:'重置'}).click();
- assert.ok((await page.locator('.talent-tile').filter({hasText:'生命火焰'}).first().locator('.talent-rank').innerText()).startsWith('0/'),'Reset clears allocations');
+ assert.match(await page.locator('[data-talent="mage.0.firebolt_dmg"] .tg-rank').innerText(),/0\/5/,'Reset clears allocations');
+ await page.goto(base+'?page=talents&tj=wizard',{waitUntil:'networkidle'});
+ assert.match(await page.locator('.tg-dev-tag').innerText(),/開發中/);
+ await page.locator('[data-talent="wizard.0.s1"]').click();
+ assert.match(await page.locator('[data-talent="wizard.0.s1"] .tg-rank').innerText(),/★/);
+ checks.push({page:'talents',job:'wizard',nodes:await page.locator('.tg-node').count()});
  for(const width of [320,375,390,430]){
   await page.setViewportSize({width,height:844});
   const dims=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth}));
@@ -92,6 +102,8 @@ try{
  assert.deepEqual(errors,[],'No unhandled client errors');
  assert.ok(requested.every(url=>!/(?:fan-thumbs|approved-thumbs|game-assets)/.test(url)),
   'No Coffee art path may be requested');
+ assert.ok(requested.every(url=>!url.includes('ro.hans-webgametw.com/assets/icons/')),
+  'Public-safe talent simulator must not request unapproved HANS icons');
  checks.push({status:'PASS',errors:errors.length});
  writeFileSync(path.join(folder,'hans-mobile-smoke.json'),JSON.stringify(checks,null,2)+'\n');
  console.log(JSON.stringify(checks,null,2));

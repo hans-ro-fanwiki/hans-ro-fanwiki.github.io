@@ -160,6 +160,7 @@ console.log('MISSING RANK examples',JSON.stringify(missingRank.slice(0,30)));
 console.log('MISSING NAME examples',JSON.stringify(missingName.slice(0,15)));
 if(process.argv.includes('--write')){
  if(missingName.length||missingRank.length)throw Error('Talent extraction incomplete; do not publish guessed metadata');
- fs.writeFileSync('public/data/talents.json',JSON.stringify(output,null,2)+'\n');
- console.log('WROTE public/data/talents.json');
+ const destination='evidence/hans-talents-20261120/first-job-talents.json';
+ fs.writeFileSync(destination,JSON.stringify(output,null,2)+'\n');
+ console.log('WROTE '+destination+' (private intermediate; not the public catalog)');
 }

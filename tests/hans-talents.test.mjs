@@ -6,12 +6,14 @@ import {changeRank,checkBuild,decodeBuild,encodeBuild,gateFor,talentList} from '
 const data=JSON.parse(readFileSync(new URL('../public/data/talents.json',import.meta.url),'utf8'));
 const mage=data.jobs.find(j=>j.job==='mage');
 
-test('HANS snapshot contains nine 1st jobs, 27 branches and 444 real talent nodes',()=>{
+test('HANS snapshot contains nine first jobs, 16 second jobs and 1,680 official talent nodes',()=>{
  assert.equal(data.server,'hans');
- assert.equal(data.jobs.length,9);
- assert.equal(data.jobs.flatMap(j=>j.branches).length,27);
+ assert.equal(data.jobs.length,25);
+ assert.equal(data.jobs.filter(j=>j.rank===1).length,9);
+ assert.equal(data.jobs.filter(j=>j.rank===2).length,16);
+ assert.equal(data.jobs.flatMap(j=>j.branches).length,75);
  const nodes=data.jobs.flatMap(talentList);
- assert.equal(nodes.length,444);
+ assert.equal(nodes.length,1680);
  assert.equal(new Set(nodes.map(n=>n.id)).size,nodes.length);
  for(const job of data.jobs) {
   const ids=new Set(talentList(job).map(n=>n.id));
@@ -19,7 +21,7 @@ test('HANS snapshot contains nine 1st jobs, 27 branches and 444 real talent node
    assert.ok(node.name.length>0);
    assert.ok(Number.isInteger(node.maxRank)&&node.maxRank>0&&node.maxRank<=10);
    assert.ok(Number.isInteger(node.row)&&node.row>=0);
-   assert.ok(Number.isInteger(node.col)&&node.col>=0&&node.col<4);
+   assert.ok(Number.isInteger(node.col)&&node.col>=0&&node.col<(job.rank===2?5:4));
    assert.ok(node.requires.every(id=>ids.has(id)),'unknown prerequisite '+node.id);
   }
  }
@@ -48,6 +50,20 @@ test('checkBuild validates dependents on point removal',()=>{
  assert.ok(changeRank(dummy,valid,'test.0.b',-1,50,5));
  assert.match(checkBuild(dummy,{'test.0.a':6},50,5),/不合法/);
  assert.match(checkBuild(dummy,{'test.0.a':5,'test.0.b':1},5,5),/超過/);
+});
+test('second-job specialization stays in one branch and skill paths are exclusive',()=>{
+ const wizard=data.jobs.find(j=>j.job==='wizard');
+ assert.equal(wizard.rank,2);
+ assert.equal(wizard.developing,true);
+ const first=wizard.branches[0].talents.find(t=>t.row===0&&t.maxRank===1);
+ const other=wizard.branches[1].talents.find(t=>t.row===0&&t.maxRank===1);
+ assert.ok(first&&other);
+ assert.match(checkBuild(wizard,{[first.id]:1,[other.id]:1},50,5),/專精/);
+ const a=wizard.branches[0].talents.find(n=>n.path==='s1a');
+ const b=wizard.branches[0].talents.find(n=>n.path==='s1b');
+ assert.ok(a&&b);
+ const conflict=checkBuild(wizard,{[a.id]:1,[b.id]:1},50,5);
+ assert.match(conflict||'',/路線/);
 });
 test('share code roundtrips, rejects invalid and changed source revisions',()=>{
  const initial=mage.branches[0].talents.find(n=>n.row===0);

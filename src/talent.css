@@ -1,62 +1,170 @@
-/* HANS talent simulator — extends the established dark wiki palette. */
-.talent-simulator{color:var(--wiki-text)}
-.talent-intro{font-size:14px;color:var(--wiki-muted);margin:0 0 17px}
-.talent-job-picker{display:flex;align-items:center;gap:12px;margin:0 0 16px;font-weight:700;font-size:14px;color:var(--wiki-muted)}
-.talent-job-picker select{min-height:44px;flex:1;max-width:340px;background:#172429;border:1px solid var(--wiki-border);border-radius:10px;padding:9px 12px;color:var(--wiki-text)}
-.talent-summary{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:15px;border-radius:14px;background:#17282c;border:1px solid var(--wiki-border);margin-bottom:18px}
-.talent-summary>div:not(.talent-main-actions){display:flex;flex-direction:column;gap:2px}
-.talent-summary small{font-size:12px;color:var(--wiki-muted)}
-.talent-summary strong{font-size:25px;font-variant-numeric:tabular-nums;line-height:1.2}
-.talent-summary strong span{font-size:14px;color:var(--wiki-muted)}
-.talent-main-actions{margin-left:auto;display:flex;flex-wrap:wrap;gap:7px}
-.talent-main-actions button{min-height:41px;display:inline-flex;justify-content:center;align-items:center;gap:5px;border-radius:9px;font-size:12px;font-weight:700;padding:8px 10px}
-.talent-share{background:#3c8069;border:1px solid #63b795;color:#f3fff9}
-.talent-action{background:var(--wiki-raised);color:var(--wiki-text);border:1px solid var(--wiki-border)}
-.talent-main-actions button:disabled{opacity:.45;cursor:not-allowed}
-.talent-branch-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px;margin-bottom:18px}
-.talent-branch-tabs button{display:flex;flex-direction:column;align-items:center;gap:2px;justify-content:center;min-height:58px;border-radius:11px;border:1px solid var(--wiki-border);background:var(--wiki-raised);color:var(--wiki-text);font-size:14px;font-weight:800;padding:7px}
-.talent-branch-tabs button small{color:var(--wiki-muted);font-size:11px;font-weight:500}
-.talent-branch-tabs button.active{border-color:var(--wiki-accent);background:#2c5547;color:#def7e9}
-.talent-branch-heading{display:flex;align-items:baseline;flex-wrap:wrap;justify-content:space-between;gap:7px;margin:0 0 10px}
-.talent-branch-heading h2{font-size:17px;margin:0}
-.talent-branch-heading span{color:var(--wiki-muted);font-size:12px}
-.talent-tree-scroll{overflow-x:auto;overscroll-behavior-x:contain;border:1px solid var(--wiki-border);border-radius:13px;background:#19272c;padding:10px;scrollbar-width:thin}
-.talent-tree{position:relative;max-width:650px;margin:auto}
-.talent-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-flow:row;column-gap:7px;position:relative;z-index:1}
-.talent-connections{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-.talent-path{fill:none;stroke:#4f686b;stroke-width:3;stroke-dasharray:6 5}
-.talent-path.active{stroke:#78be9f;stroke-dasharray:none}
-.talent-tile{min-width:0;align-self:stretch;justify-self:stretch;display:flex;flex-direction:column;align-items:stretch;gap:3px;padding:2px}
-.talent-core{display:flex;flex-direction:column;gap:2px;align-items:center;justify-content:center;min-width:0;flex:1;padding:6px 2px;border:1px solid #456367;border-radius:9px;background:#26393d;color:var(--wiki-text);text-align:center}
-.talent-emblem{display:grid;place-items:center;min-width:25px;min-height:25px;border-radius:8px;background:#3d5859;color:#d5e9dd;font-size:14px;font-weight:800}
-.talent-name{font-size:12px;line-height:1.16;font-weight:700;max-width:100%;overflow-wrap:anywhere;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.talent-rank{font-size:11px;color:#bdcec6;font-variant-numeric:tabular-nums}
-.talent-tile.invested .talent-core{background:#2e594c;border-color:#70c29e}
-.talent-tile.invested .talent-emblem{background:#56977b;color:#11291f}
-.talent-tile.focused .talent-core{outline:2px solid #aee5c4;outline-offset:1px}
-.talent-stepper{display:flex;justify-content:center;gap:4px}
-.talent-stepper button{width:27px;height:25px;display:grid;place-items:center;background:#35534d;border:1px solid #527a6b;color:#edfff3;border-radius:6px}
-.talent-stepper button:disabled{background:#24363a;border-color:#354f53;color:#60787b;cursor:not-allowed}
-.talent-inspect{margin:13px 0 0;padding:15px;border:1px solid var(--wiki-border);border-radius:12px;background:#25383d}
-.talent-inspect strong{display:block;font-size:17px}
-.talent-inspect small{display:block;margin-top:4px;color:var(--wiki-muted)}
-.talent-inspect p{font-size:13px;margin:8px 0;color:#d9e9e0}
-.talent-inspect a{display:inline-flex;align-items:center;gap:5px;font-size:13px;color:var(--wiki-accent);margin-top:4px}
-.talent-footnote{display:flex;gap:8px;align-items:flex-start;margin:18px 0 0;color:var(--wiki-muted);font-size:12px}
-.talent-footnote svg{flex-shrink:0;margin-top:2px}
-.talent-warning,.talent-success,.talent-notice{padding:10px 12px;border:1px solid var(--wiki-border);border-radius:9px;background:#25383d;font-size:13px;color:var(--wiki-text)}
-.talent-warning{border-color:#967642;color:#ffdf99}
-.talent-success{display:flex;align-items:center;gap:6px;border-color:#57846c;color:#b9f2ce}
-@media(max-width:600px){
- .talent-summary{gap:12px;padding:12px}
- .talent-summary strong{font-size:22px}
- .talent-main-actions{width:100%;margin-left:0}
- .talent-main-actions button{flex:1;min-height:43px}
- .talent-main-actions .talent-share{flex:1.2}
- .talent-tree-scroll{padding:5px}
- .talent-grid{column-gap:2px}
- .talent-core{padding:4px 1px}
- .talent-name{font-size:10.5px}
- .talent-emblem{min-width:23px;min-height:23px}
- .talent-branch-tabs button{font-size:12px;padding:7px 3px}
+/* HANS-inspired talent window. Original game icons are intentionally NOT copied.
+   All pictograms use the project's existing Lucide icon library. */
+body:has(.tg-game) .container{max-width:1280px}
+body:has(.tg-game) .content-section{padding:0;overflow:hidden;background:#eef3fc;border:1px solid #7895c6;color:#223865}
+body:has(.tg-game) .section-heading{display:none}
+.tg-game{font-family:"Noto Sans TC","PingFang TC",system-ui,sans-serif;color:#243867;background:#f9fbff}
+.tg-game button{touch-action:manipulation}
+.tg-game button:focus-visible,.tg-game select:focus-visible{outline:3px solid #286cc5;outline-offset:3px}
+.tg-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;color:#fff;font-size:18px;font-weight:900;background:linear-gradient(180deg,#93aee2 0%,#6689d2 48%,#3b5ba5 100%);border-bottom:1px solid #425e96}
+.tg-top>span{display:flex;align-items:center;gap:8px}
+.tg-top small{font-size:12px;color:#eff5ff;font-weight:600}
+.tg-body{padding:17px 20px 25px}
+.tg-lead{color:#536b9a;font-size:13px;margin:0 0 15px}
+.tg-jobs-toggle{display:flex;align-items:center;justify-content:space-between;gap:7px;width:100%;border:1px solid #bdcbec;background:#e9effc;border-radius:9px;padding:9px 12px;color:#31538e;font-size:13px;font-weight:700;margin-bottom:9px}
+.tg-jobs-toggle span{display:flex;gap:9px;align-items:center}
+.tg-jobs-toggle b{background:#456ab4;color:#fff;border-radius:8px;padding:3px 9px}
+.tg-jobs-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px;margin:0 0 19px}
+.tg-job-group{border:1px solid #c5d5f5;border-radius:12px;padding:6px 9px;background:#fff;min-width:0;display:flex;flex-direction:column;align-items:flex-start}
+.tg-job-group.related{border-color:#6e9be2;background:#f1f6ff}
+.tg-job{border:0;background:transparent;display:flex;align-items:center;gap:7px;padding:3px 6px;border-radius:30px;font-size:13px;font-weight:750;color:#1d4284;text-align:left}
+.tg-job.active{background:#4165b5;color:#fff}
+.tg-job .tg-icon{width:27px;height:27px;border-radius:5px;flex-shrink:0}
+.tg-job .tg-icon svg{width:17px;height:17px}
+.tg-job-children{display:flex;flex-wrap:wrap;gap:4px;margin:2px 0 2px 17px;padding-left:10px;border-left:2px solid #cddbf3;min-height:31px}
+.tg-second{font-weight:650}
+.tg-job-title{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:0 0 12px}
+.tg-job-title>.tg-icon{width:43px;height:43px}
+.tg-job-title>div{flex:1;min-width:170px}
+.tg-job-title h2{font-size:23px;margin:0;color:#224887}
+.tg-job-title p{font-size:13px;margin:2px 0 0;color:#61739e}
+.tg-rank-tag,.tg-dev-tag{padding:5px 10px;font-size:12px;border:1px solid #c0cfe6;border-radius:50px;color:#4b6697;background:#eef2fa;font-weight:700}
+.tg-dev-tag{color:#98621c;background:#fff3d9;border-color:#e5c58b}
+.tg-base-note{padding:9px 12px;margin-bottom:13px;border-radius:10px;background:#fff4df;color:#80591e;font-size:12px;line-height:1.55}
+.tg-base-note summary{display:flex;align-items:center;gap:7px;cursor:pointer;font-weight:750;list-style:none}
+.tg-base-note summary::-webkit-details-marker{display:none}
+.tg-base-note summary>svg:last-child{margin-left:auto}
+.tg-base-note[open] summary>svg:last-child{transform:rotate(180deg)}
+.tg-base-note p{margin:9px 0;font-size:12px}
+.tg-base-note button{margin-left:auto;border:1px solid #d2b486;border-radius:7px;background:#fff9eb;color:#846121;font-size:12px;padding:5px 9px;display:flex;align-items:center;gap:4px}
+.tg-summary{display:flex;flex-wrap:wrap;gap:10px;align-items:center;background:#e9f0fc;border:1px solid #c7d6ee;border-radius:10px;padding:12px;margin-bottom:13px}
+.tg-summary>div{display:flex;flex-direction:column;gap:1px;min-width:82px}
+.tg-summary>div span{font-size:11px;color:#536a9b}
+.tg-summary>div b{font-size:23px;font-variant-numeric:tabular-nums;color:#173c84;line-height:1.15}
+.tg-summary b small{font-size:12px;font-weight:500;color:#7184aa}
+.tg-action{display:flex;align-items:center;justify-content:center;gap:5px;min-height:40px;border:1px solid #abc1e7;background:#fff;color:#31578e;border-radius:8px;padding:8px 10px;font-size:12px;font-weight:750}
+.tg-action:disabled{opacity:.45;cursor:not-allowed}
+.tg-action.tg-primary{background:#446bb5;border-color:#4261a4;color:#fff;margin-left:auto}
+.tg-feedback,.tg-error{border-radius:8px;padding:9px 12px;font-size:12px;margin:0 0 12px}
+.tg-feedback{background:#dff6e8;color:#236c49}
+.tg-error{background:#fff1e8;color:#9c413b}
+.tg-feedback svg{vertical-align:middle;margin-right:5px}
+.tg-skill-bar{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin:0 0 14px}
+.tg-skill-bar>b{color:#58719e;font-size:12px;margin-right:7px}
+.tg-skill-bar .tg-icon{width:36px;height:36px;border-radius:6px}
+.tg-skill-bar .tg-icon svg{width:19px;height:19px}
+.tg-icon{position:relative;isolation:isolate;display:grid;place-items:center;flex-shrink:0;width:43px;height:43px;color:#c5e4ff;border:2px solid #b8c9ee;border-bottom-color:#738ac1;border-radius:8px;background:linear-gradient(140deg,#3d579c,#1c2f58 62%,#5067ab);box-shadow:inset 0 1px 4px #fff6,0 1px 2px #162c5355}
+.tg-icon::before{content:"";position:absolute;inset:3px;border:1px solid #aec8ff44;border-radius:4px;pointer-events:none}
+.tg-icon-glow{position:absolute;inset:5px;border-radius:50%;background:radial-gradient(circle,#a7d6ff30,transparent 70%);z-index:-1}
+.tg-icon svg{filter:drop-shadow(0 1px 1px #0e133c88)}
+.tg-icon.tg-official-preview{background:#f3f7ff;border-color:#a8bce5}
+.tg-icon.tg-official-preview::before,.tg-icon.tg-official-preview .tg-icon-glow{display:none}
+.tg-icon>img{height:100%;width:100%;object-fit:contain;image-rendering:pixelated;padding:2px}
+.tg-icon-fire{color:#ffcf71;background:linear-gradient(140deg,#dc7134,#5a2233 78%)}
+.tg-icon-ice,.tg-icon-frost,.tg-icon-water,.tg-icon-rain{color:#dbf7ff;background:linear-gradient(140deg,#77aed6,#245a96 78%)}
+.tg-icon-lightning,.tg-icon-thunder,.tg-icon-wind{color:#d9ecff;background:linear-gradient(140deg,#8782d1,#303778 78%)}
+.tg-icon-heal,.tg-icon-holy{color:#fff2af;background:linear-gradient(140deg,#d1b96c,#80633a 78%)}
+.tg-icon-poison,.tg-icon-leaf{color:#b0fba8;background:linear-gradient(140deg,#47985b,#1f5140 78%)}
+.tg-icon-shadow,.tg-icon-stealth{color:#c8b5fc;background:linear-gradient(140deg,#7d6cb7,#362c68 78%)}
+.tg-icon-gun,.tg-icon-pistol,.tg-icon-arrow,.tg-icon-bow{color:#ffdcad;background:linear-gradient(140deg,#9e784f,#4e3942 78%)}
+.tg-icon-sword,.tg-icon-shield,.tg-icon-spear,.tg-icon-axe{color:#d6efff;background:linear-gradient(140deg,#758eb4,#344d75 78%)}
+.tg-icon-active{outline:1px solid #ffd38b;border-color:#fae0a0}
+.tg-trees{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;align-items:start}
+.tg-tree-wrap{min-width:0}
+.tg-tree-panel{border:1px solid #b5c9eb;border-radius:11px;background:#fff;overflow:hidden;position:relative}
+.tg-tree-title{display:flex;align-items:center;gap:8px;height:40px;padding:4px 9px;background:linear-gradient(180deg,#8eace8,#496bbb 85%,#3a57a0);color:#fff}
+.tg-tree-title .tg-icon{height:27px;width:27px;border-radius:5px}
+.tg-tree-title .tg-icon svg{width:17px;height:17px}
+.tg-tree-title strong{font-size:15px;flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.tg-tree-title>span:last-child{font-size:11px;padding:3px 8px;border-radius:20px;background:#ffffff32;white-space:nowrap}
+.tg-tree-desc{font-size:12px;line-height:1.5;color:#546e9e;min-height:54px;padding:8px 11px;border-bottom:1px solid #d8e2f4}
+.tg-path-list{display:flex;flex-wrap:wrap;gap:3px;margin-top:4px}
+.tg-path-list span{font-size:10px;color:#4f6399;border:1px solid #d2dcf0;border-radius:4px;padding:2px 5px;background:#f0f5ff}
+.tg-board{position:relative;background:linear-gradient(0deg,#fbfcff,#f6f9ff);overflow:hidden}
+.tg-tier-line{position:absolute;left:0;right:0;height:0;border-top:1px dashed #cfdbf3}
+.tg-tier-line span{position:absolute;left:3px;top:1px;font-size:10px;font-weight:700;color:#8b9dc2}
+.tg-connections{position:absolute;inset:0;height:100%;width:100%;pointer-events:none}
+.tg-edge{stroke:#8da8e0;stroke-width:6;fill:none;opacity:.8;stroke-linejoin:round}
+.tg-edge.lit{stroke:#dba449;opacity:1}
+.tg-node{position:absolute;transform:translate(-50%,-50%);z-index:1;border:0;padding:0;background:transparent;width:55px;height:57px;display:flex;align-items:center;justify-content:center}
+.tg-node>.tg-icon{width:46px;height:46px}
+.tg-node-locked>.tg-icon{filter:grayscale(.6);opacity:.6}
+.tg-node.tg-taken>.tg-icon{filter:none;opacity:1;border-color:#ffbf62;box-shadow:0 0 0 2px #e3a95333,0 0 8px #ffcc7766}
+.tg-node.tg-selected>.tg-icon{outline:3px solid #ffda72;outline-offset:2px}
+.tg-rank{position:absolute;bottom:0;right:1px;background:#fff;color:#4e6194;border:1px solid #c7d3e9;border-radius:6px;font-size:10px;line-height:1.3;padding:1px 3px;font-weight:900;font-variant-numeric:tabular-nums;box-shadow:0 1px 2px #b1bfd0}
+.tg-taken .tg-rank{background:#fff2cd;color:#805b11}
+.tg-weapon{position:absolute;top:0;right:0;font-size:11px;color:#ffdb92;text-shadow:0 1px 2px #263d5b}
+.tg-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.tg-tree-locked .tg-board{opacity:.58}
+.tg-branch-locked-label{position:absolute;z-index:3;right:10px;top:96px;border-radius:20px;background:#fff0d5;border:1px solid #e4c487;color:#835a25;padding:4px 9px;font-size:11px;font-weight:750}
+.tg-detail{position:fixed;z-index:24;right:23px;bottom:22px;width:min(390px,calc(100vw - 22px));max-height:65vh;overflow-y:auto;box-shadow:0 12px 38px #17335d66;border:1px solid #9eb8e7;border-radius:12px;background:#f3f7ff;padding:13px 15px}
+.tg-detail-head{display:flex;align-items:center;gap:11px}
+.tg-detail-head>div{flex:1}
+.tg-detail h3{margin:0 0 2px;color:#1d468a;font-size:18px}
+.tg-detail-head span{font-size:12px;color:#59709a}
+.tg-detail-head>button{align-self:flex-start;border:0;background:#dfebfa;border-radius:7px;padding:6px;color:#426393}
+.tg-detail p{font-size:13px;color:#354f7b;line-height:1.6;margin:9px 0}
+.tg-detail .tg-condition{color:#916a2f}
+.tg-detail .tg-maxeffect{font-weight:700;color:#275e9a}
+.tg-detail-actions{display:flex;gap:9px;margin-top:10px}
+.tg-detail-actions button{border:1px solid #a9c2eb;background:#fff;border-radius:8px;padding:9px 14px;display:flex;align-items:center;gap:6px;color:#325a9a;font-weight:800;font-size:13px;min-height:42px}
+.tg-detail-actions button:last-child{background:#416bb7;color:#fff}
+.tg-detail-actions button:disabled{opacity:.38;cursor:not-allowed}
+.tg-footer{margin-top:17px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid #d3ddef;padding-top:13px;color:#7283a1;font-size:12px}
+.tg-footer>div,.tg-footer a{display:flex;gap:7px;align-items:center}
+.tg-footer a{color:#3a61a5}
+.tg-mobile-tabs{display:none}
+.tg-loading{padding:50px 18px;text-align:center}
+@media(max-width:900px){
+ .tg-jobs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .tg-tree-title strong{font-size:13px}
+ .tg-node{width:48px}
+ .tg-node>.tg-icon{width:39px;height:39px}
+ .tg-node .tg-icon svg{width:22px;height:22px}
 }
+@media(max-width:750px){
+ .tg-body{padding:11px 12px 17px}
+ .tg-top{padding:10px 13px}
+ .tg-top small{display:none}
+ .tg-lead{display:none}
+ .tg-job-title{gap:7px;margin-bottom:8px}
+ .tg-job-title>.tg-icon{width:36px;height:36px}
+ .tg-job-title h2{font-size:20px}
+ .tg-job-title p{font-size:12px;max-width:260px;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+ .tg-dev-tag,.tg-rank-tag{padding:3px 7px;font-size:11px}
+ .tg-base-note{margin-bottom:8px;padding:8px 10px}
+ .tg-jobs-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .tg-job-group{padding:5px}
+ .tg-job{font-size:12px}
+ .tg-job-children{margin-left:5px;padding-left:3px}
+ .tg-summary{gap:7px;padding:9px}
+ .tg-summary>div{min-width:65px}
+ .tg-summary>div b{font-size:20px}
+ .tg-action{flex:1;font-size:11px;padding:8px 5px}
+ .tg-action.tg-primary{margin-left:0;flex:1.1}
+ .tg-summary::before{content:"";flex-basis:100%;order:0;height:0;display:none}
+ .tg-summary>.tg-action:first-of-type{margin-left:auto}
+ .tg-mobile-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;margin:12px 0}
+ .tg-mobile-tabs button{border:1px solid #c2d2eb;background:#e9f0fb;color:#385588;border-radius:9px;min-height:53px;padding:6px 3px;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:12px;font-weight:800}
+ .tg-mobile-tabs button small{font-size:10px;color:#798eb3}
+ .tg-mobile-tabs button.active{background:#446fbd;color:#fff;border-color:#3863b0}
+ .tg-mobile-tabs button.active small{color:#e0eafa}
+ .tg-trees{display:block}
+ .tg-tree-wrap.tg-mobile-hidden{display:none}
+ .tg-tree-title strong{font-size:15px}
+ .tg-node{width:55px}
+ .tg-node>.tg-icon{width:46px;height:46px}
+ .tg-node .tg-icon svg{width:27px;height:27px}
+ .tg-tree-desc{min-height:55px}
+ .tg-detail{left:10px;right:10px;bottom:calc(72px + env(safe-area-inset-bottom));width:calc(100vw - 20px);max-height:45vh;padding:11px 13px}
+}
+@media(max-width:380px){
+ .tg-job{font-size:11px}
+ .tg-job-children{margin-left:2px;padding-left:2px;gap:0}
+ .tg-job-group{padding:3px}
+ .tg-node{width:49px}
+ .tg-node>.tg-icon{width:43px;height:43px}
+ .tg-node .tg-icon svg{width:24px;height:24px}
+ .tg-tree-title>span:last-child{padding:3px 5px}
+}
+@media(prefers-reduced-motion:reduce){.tg-game *{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
