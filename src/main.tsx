@@ -166,7 +166,16 @@ function App(){
   return '尚無已確認取得管道';
  };
  return <>
-  <header className="topbar"><div className="top-inner"><span className="brand-mark">H</span><span className="brand-names"><strong>RO 倖存者｜HANS 粉絲維基</strong><small>非官方玩家製作 · HANS 專屬{PUBLIC_MODE?'':' · 開發預覽'}</small></span></div></header>
+  <header className="topbar">
+   <div className="top-inner">
+    <span className="brand-mark">H</span>
+    <span className="brand-names"><strong>RO 倖存者｜HANS 粉絲維基</strong><small>非官方玩家製作 · HANS 專屬{PUBLIC_MODE?'':' · 開發預覽'}</small></span>
+    <nav className="bottom-nav" aria-label="主要分類">
+     {([['items',Shield],['cards',BookOpen],['stages',MapIcon],['talents',GitBranch]] as const).map(([page,Icon])=>
+      <button type="button" key={page} className={state.page===page?'active':''} onClick={()=>navigate({...EMPTY,page,showUnknown:state.showUnknown},true)} aria-current={state.page===page?'page':undefined}><Icon size={21}/><span>{LABELS[page]}</span></button>)}
+    </nav>
+   </div>
+  </header>
   <main className="container">
    <section className="content-section">
     <div className="section-heading"><h1>{LABELS[state.page]}</h1>{state.page!=='talents'&&<span className="heading-count">
@@ -225,9 +234,6 @@ function App(){
    </section>
   </main>
   <SiteFooter publicMode={PUBLIC_MODE}/>
-  <nav className="bottom-nav" aria-label="分類">
-   {([['items',Shield],['cards',BookOpen],['stages',MapIcon],['talents',GitBranch]] as const).map(([page,Icon])=><button key={page} className={state.page===page?'active':''} onClick={()=>navigate({...EMPTY,page,showUnknown:state.showUnknown},true)} aria-current={state.page===page?'page':undefined}><Icon size={21}/><span>{LABELS[page]}</span></button>)}
-  </nav>
   {state.detail&&catalog&&<div className="sheet-backdrop" onMouseDown={e=>{if(e.target===e.currentTarget)closeDetail()}}>
    <section className="sheet" role="dialog" aria-modal="true" aria-label="詳細資訊"><div className="sheet-grab"/>
     <div className="sheet-head"><button className="back-button" onClick={()=>history.back()}><ArrowLeft size={19}/>返回</button><button className="icon-button" aria-label="關閉" onClick={closeDetail}><X size={19}/></button></div>

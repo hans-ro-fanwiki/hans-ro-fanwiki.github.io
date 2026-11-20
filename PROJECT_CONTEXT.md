@@ -29,6 +29,7 @@
 - 三轉獨立 70 點、12 列、前列 55 點可解鎖終極；已跑 48 分支合法配點可達性測試。`kagerou` 與 `rebellion` 在二轉及三轉的遊戲登錄重複 ID，為維基選職／分享另用 `kagerou_rank3`、`rebellion_rank3` 別名（保留 `sourceJobId`）。
 - 三轉天賦部分名稱尚為遊戲程式英文原名，公式僅能靜態確認的項目轉成中文效果摘要，來源無法確認的數值不可猜測。
 - 2026-11-20 圖示修正：前一版故意以 `VITE_PUBLIC_MODE=1` 封鎖裝備／卡片及天賦圖示，造成正式站只看到 Lucide；**實際上圖示代碼及圖片 URL 已完整保存在 HANS 資料快照中，並非分支漏合併**。依使用者明確要求，現在在正式版僅引用原站 `assets/icons/`、`assets/items/`、`assets/cards/` 的 HTTPS 圖片，不打包、不存 Git，失敗退回中性圖示。Playwright 已確認四種圖示（裝備、卡片、一轉、三轉）自然寬度 >0，320–430px 排版通過，安全 dist 中仍 0 圖片。圖像權利未因此變為公開授權；保留來源與下架聲明。詳見 `docs/HANS_TALENTS_SIMULATOR.md`。
+- 2026-11-20 桌面導航修正：之前 `.bottom-nav{display:none}`，只在 mobile CSS 打開，造成桌面無法切換裝備／卡片／關卡／天賦。已將同一組四分頁放進頂端 header，桌面橫向顯示、手機維持底部 fixed；Playwright 驗證 761/900/1280px 桌面導航可見、四頁可點、無橫向溢出，手機 320–430px 亦正常。
 - 詳見 `docs/HANS_TALENTS_SIMULATOR.md`；所有新功能完成前避免使用舊 Coffee 數據。
 
 ## 關鍵不確定性

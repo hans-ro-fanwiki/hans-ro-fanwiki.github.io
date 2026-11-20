@@ -108,6 +108,11 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {
 .bottom-nav{background:#17252beb;border-color:var(--wiki-border)}
 .bottom-nav button{color:#a9beb6}
 .bottom-nav button.active{color:#a5eccd}
+@media(min-width:761px){
+ .topbar .bottom-nav{background:transparent}
+ .bottom-nav button.active{background:#2d5145;border-color:#4f8f74}
+ .bottom-nav button:hover{background:#344c44}
+}
 .art-credits,.art-inline-credit{color:var(--wiki-muted)}
 .art-credits a{color:var(--wiki-accent)}
 .site-footer.site-footer{background:#172429;border-top:1px solid var(--wiki-border);color:var(--wiki-muted)}

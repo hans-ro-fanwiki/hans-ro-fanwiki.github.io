@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0-dev.4 — 2026-11-20 (desktop navigation fix)
+
+- Fixed missing desktop navigation: the single four-tab menu had been hidden at widths above 760px.
+- Placed the category menu in the header for desktop layouts, retaining the existing fixed bottom bar on phones without duplicate navigation state.
+- Added responsive desktop 761/900/1280px visibility, overflow and four-page click-through browser regression tests, plus mobile fixed-position navigation checks.
+
+
 ## 0.3.0-dev.3 — 2026-11-20 (visible HANS item/card/talent icons)
 
 - Restored public page source-linked artwork for equipment, cards, and all first/second/third-job talent tiles; the previous VITE_PUBLIC_MODE image guard mistakenly left every public entry as a generic icon.

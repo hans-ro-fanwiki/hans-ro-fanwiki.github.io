@@ -28,6 +28,8 @@ try{
  checks.push({art:'equipment',loaded:true});
  assert.match(await page.locator('.topbar').innerText(),/HANS/);
  assert.equal(await page.locator('.bottom-nav button').count(),4);
+ assert.ok(await page.getByRole('navigation',{name:'主要分類'}).isVisible(),'Mobile category navigation stays visible');
+ assert.equal(await page.locator('.bottom-nav').evaluate(node=>getComputedStyle(node).position),'fixed','Mobile navigation stays at bottom');
  const initial=Number((await page.locator('.heading-count').innerText()).trim());
  assert.ok(initial>350 && initial<523,'Only verified obtainable equipment shown');
  checks.push({page:'items',items:initial});
@@ -128,6 +130,39 @@ try{
   assert.ok(dims.scroll<=dims.width+2,'Talent page horizontal overflow '+width+': '+JSON.stringify(dims));
   checks.push({page:'talents',width,...dims});
  }
+ const desktopContext=await browser.newContext({viewport:{width:1280,height:900},locale:'zh-TW'});
+ try{
+  const desktop=await desktopContext.newPage();
+  const desktopErrors=[];
+  desktop.on('pageerror',e=>desktopErrors.push(e.message));
+  await desktop.goto(base+'?page=talents&tj=warlock',{waitUntil:'networkidle'});
+  const categoryNav=desktop.getByRole('navigation',{name:'主要分類'});
+  assert.ok(await categoryNav.isVisible(),'Desktop category navigation is visible');
+  assert.equal(await categoryNav.locator('button').count(),4);
+  assert.equal(await desktop.locator('.bottom-nav').evaluate(node=>getComputedStyle(node).position),'static','Desktop navigation belongs in header');
+  assert.equal(await categoryNav.getByRole('button',{name:'天賦'}).getAttribute('aria-current'),'page');
+  for(const width of [761,900,1280]){
+   await desktop.setViewportSize({width,height:900});
+   const dims=await desktop.evaluate(()=>{
+    const rect=document.querySelector('.bottom-nav').getBoundingClientRect();
+    return {width:innerWidth,scroll:document.documentElement.scrollWidth,navLeft:rect.left,navRight:rect.right,navTop:rect.top};
+   });
+   assert.ok(dims.scroll<=width+2,'Desktop horizontal overflow '+JSON.stringify(dims));
+   assert.ok(dims.navRight<=width+2&&dims.navLeft>=-2&&dims.navTop<=110,'Desktop tabs must fit in header '+JSON.stringify(dims));
+   checks.push({page:'desktop-navigation',...dims});
+  }
+  await desktop.setViewportSize({width:1280,height:900});
+  for(const [label,heading] of [['卡片','卡片'],['關卡','關卡'],['裝備','裝備']] ){
+   await categoryNav.getByRole('button',{name:label,exact:true}).click();
+   assert.equal(await desktop.locator('.section-heading h1').innerText(),heading,'Desktop navigation click to '+label);
+   assert.equal(await categoryNav.getByRole('button',{name:label,exact:true}).getAttribute('aria-current'),'page');
+  }
+  await categoryNav.getByRole('button',{name:'天賦',exact:true}).click();
+  await desktop.locator('.tg-trees').waitFor({state:'visible',timeout:15000});
+  assert.ok(await desktop.locator('.tg-trees').isVisible(),'Desktop navigation returns to talent simulator');
+  assert.deepEqual(desktopErrors,[],'No desktop browser errors');
+  checks.push({page:'desktop-navigation',buttons:4,clicks:4,status:'PASS'});
+ }finally{await desktopContext.close();}
  assert.deepEqual(errors,[],'No unhandled client errors');
  assert.ok(requested.every(url=>!/(?:fan-thumbs|approved-thumbs|game-assets)/.test(url)),
   'No Coffee art path may be requested');

@@ -35,7 +35,7 @@
 
 ## 技術與驗證
 
-Stack：React 19、TypeScript、Vite；手機 Safari 優先，保留裝備／卡片／關卡／天賦、下方四分頁、中文與英文關鍵字、屬性／職業／部位篩選與反查。
+Stack：React 19、TypeScript、Vite；手機 Safari 優先，保留裝備／卡片／關卡／天賦四分頁（**桌面頂部、手機底部**）、中文與英文關鍵字、屬性／職業／部位篩選與反查。
 
 ```bash
 npm ci --ignore-scripts
