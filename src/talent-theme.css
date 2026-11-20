@@ -1,0 +1,190 @@
+/* HANS wiki visual bridge: preserve the talent tree geometry and game art,
+   but reuse the slate / mint palette from dark.css across all controls. */
+.tg-game {
+  color-scheme: dark;
+  --tg-bg: var(--wiki-surface, #202b30);
+  --tg-panel: var(--wiki-raised, #29373d);
+  --tg-deep: #19262b;
+  --tg-dark: #1c2b30;
+  --tg-border: var(--wiki-border, #385055);
+  --tg-text: var(--wiki-text, #eaf1ee);
+  --tg-muted: var(--wiki-muted, #bacbc4);
+  --tg-subtle: var(--wiki-subtle, #9aafa8);
+  --tg-accent: var(--wiki-accent, #85d3b4);
+  --tg-focus: var(--wiki-focus, #9fdec7);
+  --tg-active: #31594d;
+  --tg-active-border: #62a58b;
+  --tg-warning: #edd29e;
+  background: var(--tg-bg);
+  color: var(--tg-text);
+}
+body:has(.tg-game) .content-section {
+  background:var(--wiki-surface, #202b30);
+  border-color:var(--wiki-border, #385055);
+  color:var(--wiki-text, #eaf1ee);
+}
+.tg-game button:focus-visible,
+.tg-game select:focus-visible,
+.tg-game a:focus-visible {
+  outline:2px solid var(--tg-focus);
+  outline-offset:3px;
+}
+.tg-top {
+  background:linear-gradient(180deg,#2d4648,#25383c);
+  color:var(--tg-text);
+  border-color:var(--tg-border);
+}
+.tg-top small,.tg-lead,.tg-job-title p,.tg-summary>div span,.tg-skill-bar>b,
+.tg-tree-desc,.tg-footer,.tg-rank-tag,.tg-career-stage>button span {
+  color:var(--tg-muted);
+}
+.tg-jobs-toggle,.tg-career-stage,.tg-summary,.tg-detail,.tg-inspector-empty,
+.tg-tree-panel,.tg-job-group,.tg-base-note {
+  background:var(--tg-panel);
+  border-color:var(--tg-border);
+  color:var(--tg-text);
+}
+.tg-jobs-toggle,.tg-career-stage>button,.tg-job,.tg-job-title h2,
+.tg-detail h3,.tg-detail-head span,.tg-summary>div b {
+  color:var(--tg-text);
+}
+.tg-jobs-toggle b,.tg-job.active,.tg-action.tg-primary,.tg-mobile-tabs button.active {
+  background:var(--tg-active);
+  border-color:var(--tg-active-border);
+  color:#e7faef;
+}
+.tg-job.active,.tg-third.active{color:#e7faef}
+.tg-job:hover,.tg-job:focus-visible{background:#36524b;color:#eafff1}
+.tg-job-group.related,.tg-career-stage.active{
+  background:#29463d;
+  border-color:var(--tg-active-border);
+  box-shadow:none;
+}
+.tg-job-children{border-color:var(--tg-border)}
+.tg-third,.tg-rank-tag {
+  background:var(--tg-dark);
+  border-color:var(--tg-border);
+  color:var(--tg-muted);
+}
+.tg-third small,.tg-summary b small{color:var(--tg-subtle)}
+.tg-career-stage.active>button,.tg-career-stage.active>button strong{color:#e2fff0}
+.tg-career-stage select {
+  background:var(--tg-deep);
+  border-color:var(--tg-border);
+  color:var(--tg-text);
+  min-height:42px;
+}
+.tg-career-stage>button:hover:not(:disabled){background:#ffffff0b;border-radius:7px}
+.tg-career-stage>button:disabled{color:var(--tg-subtle)}
+.tg-dev-tag,.tg-base-note{
+  color:var(--tg-warning);
+  border-color:#776448;
+  background:#40392e;
+}
+.tg-base-note button{
+  background:#4b4233;
+  color:var(--tg-warning);
+  border-color:#776448;
+}
+.tg-action,.tg-detail-actions button,.tg-detail-head>button{
+  color:var(--tg-text);
+  background:#304147;
+  border-color:#4e6767;
+}
+.tg-action:hover:not(:disabled),.tg-detail-actions button:hover:not(:disabled){
+  background:#39564e;
+  border-color:var(--tg-active-border);
+}
+.tg-action.tg-primary:hover:not(:disabled),.tg-detail-actions button:last-child:hover:not(:disabled){
+  background:#417862;
+}
+.tg-action:disabled,.tg-detail-actions button:disabled{opacity:.45}
+.tg-feedback{background:#254637;color:#c3f2d7}
+.tg-error{background:#4a3030;color:#ffd8c6}
+.tg-icon{
+  color:#b9dfd1;
+  background:#304448;
+  border-color:#55716b;
+  border-bottom-color:#3e5653;
+  box-shadow:inset 0 1px 3px #ffffff12,0 1px 2px #0d171c55;
+}
+.tg-icon::before{border-color:#a8d5bd25}
+.tg-icon-glow{background:radial-gradient(circle,#7cdec72b,transparent 70%)}
+.tg-icon.tg-official-preview{background:#27383c;border-color:#516b68}
+.tg-icon-active{border-color:#e0c17d;outline-color:#d6ba7b}
+.tg-tree-panel{background:var(--tg-bg)}
+.tg-tree-title{
+  color:#e8f6ef;
+  background:#30544c;
+}
+.tg-tree-title>span:last-child{background:#ffffff1c}
+.tg-tree-desc{border-color:var(--tg-border)}
+.tg-path-list span{
+  color:#c9e4d6;
+  background:#253c39;
+  border-color:#48645b;
+}
+.tg-board{background:linear-gradient(180deg,#1c2a2f,#1a272b)}
+.tg-tier-line{border-color:#405357}
+.tg-tier-line span{color:#a6c3bc}
+.tg-edge{stroke:#536d6c;opacity:.85}
+.tg-edge.lit{stroke:#8bcbb1;opacity:1}
+.tg-node.tg-taken>.tg-icon{
+  border-color:#e2bd78;
+  box-shadow:0 0 0 2px #e2bd782b,0 0 8px #edcf6f44;
+}
+.tg-node.tg-selected>.tg-icon{outline:3px solid #d1df8c;outline-offset:2px}
+.tg-rank{
+  color:#e6f4ec;
+  background:#25373b;
+  border-color:#54736d;
+  box-shadow:0 1px 2px #101b1b66;
+  font-size:11px;
+}
+.tg-taken .tg-rank{color:#f9e5b7;background:#58462d;border-color:#957749}
+.tg-tree-locked .tg-board{opacity:.66}
+.tg-branch-locked-label{background:#463b2c;border-color:#816945;color:#f1d7a4}
+.tg-inspector-empty{color:var(--tg-muted);border-style:dashed}
+.tg-detail{
+  background:#26373b;
+  border-color:#55746c;
+  box-shadow:none;
+}
+.tg-mobile-detail{box-shadow:0 12px 38px #050e11aa}
+.tg-detail h3,.tg-detail .tg-maxeffect{color:#c6f0db}
+.tg-detail-head span,.tg-detail p{color:#d7e7de}
+.tg-detail .tg-condition{color:#ebd3a3}
+.tg-detail-expand{color:var(--tg-accent)}
+.tg-detail-head>button{background:#344d50;color:#d7f0e3}
+.tg-detail-actions button:last-child{
+  background:var(--tg-active);
+  border-color:var(--tg-active-border);
+  color:#f0fff7;
+}
+.tg-footer{border-color:var(--tg-border)}
+.tg-footer a{color:var(--tg-accent)}
+@media(max-width:750px){
+  .tg-mobile-tabs{
+    background:var(--tg-bg);
+    box-shadow:0 2px 7px #0c171b66;
+  }
+  .tg-mobile-tabs button{
+    color:var(--tg-muted);
+    background:#2b3e42;
+    border-color:var(--tg-border);
+  }
+  .tg-mobile-tabs button small{color:var(--tg-subtle)}
+  .tg-mobile-tabs button.active small{color:#c9eddb}
+  .tg-mobile-detail .tg-detail-expand{
+    background:#38514b;
+    color:#d8f8e6;
+  }
+  .tg-action,.tg-career-stage select,.tg-jobs-toggle{min-height:44px}
+  .tg-job{min-height:44px}
+  .tg-mobile-detail .tg-detail-head{padding-right:105px}
+  .tg-mobile-detail .tg-detail-head>button{top:7px;right:8px;min-width:44px;min-height:44px}
+  .tg-mobile-detail .tg-detail-expand{top:7px;right:56px;min-height:44px}
+}
+@media(prefers-reduced-motion:reduce){
+  .tg-game .tg-node,.tg-game .tg-action{transition:none!important}
+}

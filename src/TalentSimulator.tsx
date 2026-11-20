@@ -8,6 +8,7 @@ import {
 import type {TalentBuild,TalentBranch,TalentCatalog,TalentJob} from './talents';
 import {changeRank,chooseCareerJob,createCareer,decodeBuild,decodeCareer,encodeCareer,gateFor,talentBudget,talentList,usedPoints} from './talents';
 import './talent.css';
+import './talent-theme.css';
 
 type Props={jobId:string;token:string;packed:string;onRoute:(job:string,token:string,packed:string,replace?:boolean)=>void};
 type Glyph=typeof Flame;

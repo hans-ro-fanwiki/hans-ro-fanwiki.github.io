@@ -38,7 +38,9 @@ try{
  await page.getByRole('textbox',{name:'搜尋裝備、卡片或屬性'}).fill('天使之翼');
  await page.getByRole('button',{name:/天使之翼/}).first().click();
  assert.ok((await page.getByRole('dialog').innerText()).includes('HANS 裝備等級'));
- await page.getByRole('button',{name:'關閉'}).click();
+ assert.equal(await page.evaluate(()=>document.activeElement?.getAttribute('aria-label')),'關閉','Dialog receives visible keyboard focus');
+ await page.keyboard.press('Escape');
+ assert.equal(await page.getByRole('dialog').count(),0,'Escape closes detail dialog');
  await page.goto(base+'?page=cards&q=波利',{waitUntil:'networkidle'});
  assert.ok(Number((await page.locator('.heading-count').innerText()).trim())>=1);
  await page.goto(base+'?detail=card:4001&page=cards',{waitUntil:'networkidle'});
@@ -91,6 +93,12 @@ try{
  assert.equal(Number((await page.locator('.heading-count').innerText()).trim()),12);
  await page.goto(base+'?page=cards&effect=cooldown',{waitUntil:'networkidle'});
  assert.equal(Number((await page.locator('.heading-count').innerText()).trim()),12,'Old card effect URL still works');
+ assert.match(await page.locator('.applied-filters').innerText(),/已套用：冷卻/,'Collapsed filters show their active labels');
+ await page.getByRole('textbox',{name:'搜尋裝備、卡片或屬性'}).fill('不存在的卡片abc123');
+ assert.equal(Number((await page.locator('.heading-count').innerText()).trim()),0);
+ await page.getByRole('button',{name:'清除搜尋與篩選'}).click();
+ assert.equal(Number((await page.locator('.heading-count').innerText()).trim()),188,'Empty result offers immediate recovery');
+ assert.equal(await page.locator('.applied-filters').count(),0,'Reset clears hidden advanced filters');
  await page.getByRole('button',{name:'依關卡看'}).click();
  await page.getByRole('button',{name:'全部展開'}).click();
  assert.ok(await page.locator('.compact-item').count()>0);
@@ -297,6 +305,13 @@ try{
   await desktop.locator('.tg-trees').waitFor({state:'visible',timeout:15000});
   assert.ok(await desktop.locator('.tg-trees').isVisible(),'Desktop navigation returns to talent simulator');
   await desktop.goto(base+'?page=talents&tj=mage',{waitUntil:'networkidle'});
+  const themeColors=await desktop.evaluate(()=>{
+   const css=(selector)=>getComputedStyle(document.querySelector(selector)).backgroundColor;
+   return {wiki:css('.content-section'),talent:css('.tg-game'),tree:css('.tg-tree-panel'),summary:css('.tg-summary')};
+  });
+  assert.equal(themeColors.talent,themeColors.wiki,'Talent area matches site dark surface');
+  assert.ok(Object.values(themeColors).every(color=>color!=='rgb(255, 255, 255)'),'Talent surfaces cannot revert to bright white');
+  checks.push({page:'talent-theme',...themeColors});
   const desktopFlame=desktop.locator('[data-talent="mage.0.firebolt_dmg"]');
   await desktopFlame.evaluate(node=>node.scrollIntoView({block:'center',behavior:'instant'}));
   await desktopFlame.hover();

@@ -1,4 +1,4 @@
-import {useCallback,useEffect,useMemo,useState} from 'react';
+import {useCallback,useEffect,useMemo,useRef,useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import {ArrowLeft,BookOpen,ChevronDown,ChevronRight,Gem,GitBranch,Map as MapIcon,Search,Shield,SlidersHorizontal,Swords,Target,X} from 'lucide-react';
 import type {Card,Catalog,Equipment,ImageEvidence,Kind,Monster,Page,Source,Stage} from './types';
@@ -132,6 +132,8 @@ function App(){
  const [state,setState]=useState<View>(readLocation);
  const [visibleCount,setVisibleCount]=useState(40);
  const [showFilters,setShowFilters]=useState(false);
+ const detailTriggerRef=useRef<HTMLElement|null>(null);
+ const detailCloseRef=useRef<HTMLButtonElement|null>(null);
  const focusedStage=state.stage;
  useEffect(()=>{
   const ac=new AbortController();
@@ -159,6 +161,8 @@ function App(){
  const items=useMemo(()=>new Map((catalog?.items||[]).map(x=>[x.id,x])),[catalog]);
  const cards=useMemo(()=>new Map((catalog?.cards||[]).map(x=>[x.id,x])),[catalog]);
  const openDetail=(kind:Kind,id:string|number)=>{
+  if(kind!=='stage'&&document.activeElement instanceof HTMLElement&&!document.activeElement.closest('.sheet'))
+   detailTriggerRef.current=document.activeElement;
   if(kind==='stage'){
    navigate({...EMPTY,page:'stages',stage:String(id),lap:state.lap,gsJob:state.gsJob},true);
    return;
@@ -167,6 +171,32 @@ function App(){
  };
  const closeDetail=()=>navigate({detail:null},false,true);
  const backFromDetail=()=>{if(history.state?.detailParent)history.back();else closeDetail();};
+ useEffect(()=>{
+  if(!state.detail||!catalog)return;
+  const sheet=document.querySelector<HTMLElement>('.sheet');
+  if(!sheet)return;
+  detailCloseRef.current?.focus({preventScroll:true});
+  const onDialogKey=(event:KeyboardEvent)=>{
+   if(event.key==='Escape'){
+    event.preventDefault();
+    detailCloseRef.current?.click();
+    return;
+   }
+   if(event.key!=='Tab')return;
+   const focusable=Array.from(sheet.querySelectorAll<HTMLElement>('button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])'))
+    .filter(element=>element.getClientRects().length>0);
+   if(!focusable.length){event.preventDefault();sheet.focus();return}
+   const first=focusable[0],last=focusable[focusable.length-1],current=document.activeElement;
+   if(event.shiftKey&&(current===first||!sheet.contains(current))){event.preventDefault();last.focus()}
+   else if(!event.shiftKey&&(current===last||!sheet.contains(current))){event.preventDefault();first.focus()}
+  };
+  document.addEventListener('keydown',onDialogKey);
+  return ()=>{
+   document.removeEventListener('keydown',onDialogKey);
+   if(!document.querySelector('.sheet')&&detailTriggerRef.current?.isConnected)
+    detailTriggerRef.current.focus({preventScroll:true});
+  };
+ },[state.detail,catalog]);
  useEffect(()=>{
   const oldStage=state.detail?.match(/^stage:(.+)$/);
   if(oldStage&&catalog){
@@ -187,6 +217,16 @@ function App(){
  const list:GameEntry[]=state.page==='cards'?cardList:equip;
  const searchActive=Boolean(state.query.trim()||state.attr!=='all');
  const advancedCount=Number(state.attr!=='all')+Number(state.source!=='all');
+ const attributeName=ATTRIBUTE_GROUPS.reduce<string|undefined>((found,group)=>{
+  if(found)return found;
+  for(const [key,label] of group.options)if(key===state.attr)return label;
+  return undefined;
+ },undefined);
+ const activeAdvancedLabels=[
+  state.attr!=='all'?attributeName||state.attr:null,
+  state.source!=='all'?SOURCES[state.source]||state.source:null
+ ].filter(Boolean).join(' · ');
+ const clearSearchFilters=()=>navigate({query:'',slot:'all',job:'all',source:'all',attr:'all'});
  const slotOrder=['acc','weapon','shield','armor','shoes','garment','head_top','head_mid','head_low'];
  const slots=[...new Set(catalog?.items.map(i=>i.slot)||[])].sort((a,b)=>slotOrder.indexOf(a)-slotOrder.indexOf(b));
  const [detailKind,...detailParts]=state.detail?.split(':')||[];
@@ -237,6 +277,7 @@ function App(){
       </div>}
       <div className="search-filter-row">
        <button className="search-more" type="button" aria-expanded={showFilters} aria-controls="advanced-filters" onClick={()=>setShowFilters(v=>!v)}><SlidersHorizontal size={16}/>更多篩選{advancedCount>0?'（'+advancedCount+'）':''}<ChevronDown size={15}/></button>
+       {advancedCount>0&&<span className="applied-filters" aria-label="已套用的進階篩選">已套用：{activeAdvancedLabels}</span>}
        {advancedCount>0&&<button className="search-more clear-extra" type="button" onClick={()=>navigate({attr:'all',source:'all'})}>清除進階條件</button>}
       </div>
       {showFilters&&<div className="filter-panel" id="advanced-filters">
@@ -261,7 +302,9 @@ function App(){
         </span><small className="result-place">{sourceLine(entry)}</small></span><ChevronRight className="list-arrow" size={18}/>
        </button>)}
        {list.length>visibleCount&&<button type="button" className="load-more" onClick={()=>setVisibleCount(v=>v+40)}>顯示更多（還有 {list.length-visibleCount} 件）</button>}
-       {!list.length&&<EmptyState>{hiddenEquipCount>0&&state.page==='items'?'找到的裝備目前沒有核實取得方式，可勾選上方選項查看。':'沒有符合條件的裝備或卡片'}</EmptyState>}
+       {!list.length&&<div className="search-empty-recovery"><EmptyState>{hiddenEquipCount>0&&state.page==='items'?'找到的裝備目前沒有核實取得方式，可勾選上方選項查看。':'沒有符合條件的裝備或卡片'}</EmptyState>
+        <button type="button" className="search-more" onClick={clearSearchFilters}>清除搜尋與篩選</button>
+       </div>}
       </div>:<StageBrowser key={state.page} data={catalog} initialKind={state.page==='cards'?'card':'item'} query={state.query} attr={state.attr} stageType={state.stageType} onStageTypeChange={stageType=>navigate({stageType})} focusedStage={focusedStage} openDetail={openDetail} slot={state.slot} job={state.page==='items'?state.job:'all'} source={state.source} showUnknown={state.showUnknown} lap={state.lap} setLap={lap=>navigate({lap})}/>}
       {state.mode==='list'&&searchActive&&<section className="search-extra">
        <h2 className="search-subtitle">其他{state.page==='items'?'卡片':'裝備'}結果（{state.page==='items'?cardList.length:equip.length}）</h2>
@@ -279,7 +322,7 @@ function App(){
   <SiteFooter publicMode={PUBLIC_MODE}/>
   {state.detail&&catalog&&<div className="sheet-backdrop" onMouseDown={e=>{if(e.target===e.currentTarget)closeDetail()}}>
    <section className="sheet" role="dialog" aria-modal="true" aria-label="詳細資訊"><div className="sheet-grab"/>
-    <div className="sheet-head"><button className="back-button" onClick={backFromDetail}><ArrowLeft size={19}/>返回</button><button className="icon-button" aria-label="關閉" onClick={closeDetail}><X size={19}/></button></div>
+    <div className="sheet-head"><button className="back-button" onClick={backFromDetail}><ArrowLeft size={19}/>返回</button><button ref={detailCloseRef} className="icon-button" aria-label="關閉" onClick={closeDetail}><X size={19}/></button></div>
     <div className="sheet-body">
      {selectedItem&&<EquipmentDetail item={selectedItem} lap={state.lap} stages={stages} monsters={monsters} openDetail={openDetail}/>}
      {selectedCard&&<CardDetail card={selectedCard} rules={catalog.lapRules} lap={state.lap} setLap={lap=>navigate({lap},false,true)} gsJob={state.gsJob} setGsJob={gsJob=>navigate({gsJob},false,true)} stages={stages} monsters={monsters} openDetail={openDetail}/>}

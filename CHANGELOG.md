@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.0-dev.12 — 2026-11-20 (unified HANS dark theme and site UX review)
+
+- Restyle all talent simulator surfaces against the site’s existing dark slate / mint tokens, retaining official HANS images, card status, tree paths, direct allocation and responsive split/stack behavior. Larger touch targets and accessible focus states are preserved.
+- Review all four pages with OpenChatX design-taste-review and apple-design skills; add a practical review document with delivered work and deferred usability priorities.
+- Display labels for active advanced filters even when the drawer is collapsed, and provide a one-click filter/search reset on empty results.
+- Improve equipment/card detail dialog accessibility: focus opens on its close control, Escape dismisses, keyboard Tab stays in the dialog, and focus returns to the originating card when available.
+- Extend Chrome smoke tests for cross-page visual consistency, empty-state recovery, keyboard dialog operation, existing HANS art and talent share links.
+
+
 ## 0.3.0-dev.11 — 2026-11-20 (fixed talent inspector and direct desktop allocation)
 
 - Replace the mouse-following 200ms hover popup with a fixed-height, in-flow desktop inspector above all three talent trees; hover and keyboard focus update the inspector, never overlay another skill icon.

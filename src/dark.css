@@ -46,6 +46,10 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {
 .search-clear{color:var(--wiki-muted)}
 .search-more{color:#d5e5dc;background:var(--wiki-raised);border-color:var(--wiki-border)}
 .search-more:hover{background:#38504b}
+.applied-filters{color:var(--wiki-muted);font-size:12px;line-height:1.5;overflow-wrap:anywhere}
+.search-empty-recovery{display:flex;flex-direction:column;align-items:center;gap:10px;padding:12px 0}
+.search-empty-recovery .empty-state{width:100%;text-align:center}
+.search-empty-recovery .search-more{min-height:44px;background:#30594d;border-color:#589780;color:#e8faee}
 .search-subtitle{color:var(--wiki-text)}
 .filter-panel{background:#19272b;border-color:var(--wiki-border)}
 .search-filter-row .clear-extra{color:var(--wiki-accent);background:transparent}
