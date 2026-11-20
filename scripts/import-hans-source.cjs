@@ -128,6 +128,20 @@ function actualBonuses(row){
  });
 }
 const registrations = soul.calls(['Z', 're', 'wr', 'Me']);
+const scoringStats={Y:'damageMult',aa:'haste',ga:'speedMult',Ue:'maxHp',la:'armor',
+ ca:'damageReduction',Ee:'critChance',ua:'flee',ja:'areaMult',ro:'projSpeedMult',
+ mt:'regen',Lt:'bossUndeadMult',Js:'stunChance',mn:'zenyMult',zt:'doubleChance',
+ ls:'bossEliteMult',Fn:'expMult',Dd:'potionMult',rl:'pickupRadius',
+ Ls:'maxHpPct',Ks:'castHaste',za:'critMult',_u:'agi',qd:'str',
+ Oy:'vit',Sp:'int',Uy:'dex',jA:'extraProjectiles',ON:'pierceChance',
+ HA:'revives',bu:'regenMoving',Zr:'lowHpDamage',IA:'dotDmg'};
+function registeredEffects(row){
+ return row.effectCalls.map(effect=>{
+  if(!effect || !Object.prototype.hasOwnProperty.call(scoringStats,effect.fn) || !Number.isFinite(effect.value))
+   throw Error('Unscored HANS card modifier: '+JSON.stringify(effect));
+  return {stat:scoringStats[effect.fn],value:effect.value};
+ });
+}
 // The game builds kW with Object.fromEntries, so the last registration wins for a monster.
 const cardIdByMonster = new Map(registrations.filter(row=>row.op==='Me').map(row=>[row.args[1],row.args[0]]));
 for (const row of registrations) {
@@ -137,7 +151,8 @@ for (const row of registrations) {
     if (!itemName) continue;
     cards.set(id, {id, name:itemName.translated, originalName:itemName.original,
       monsterId:slotOrMonster, equipSlot:numberOrSlot, bonuses:actualBonuses(row),
-      tags:[], sources:[], image:artRecord(id,manifest.cards[id].image), fieldProvenance:{registration:'official',name:'official'}});
+      effects:registeredEffects(row),tags:[], sources:[], image:artRecord(id,manifest.cards[id].image),
+      fieldProvenance:{registration:'official',name:'official',effects:'official'}});
     continue;
   }
   const itemName = name(id, manifest.items);
@@ -168,8 +183,52 @@ const stageDefs = main.findLiteral('xe');
 const stageRules = soul.findLiteral('yW');
 const dropTables = soul.findLiteral('UA');
 const startingItems = soul.findLiteral('EW');
-if (!Array.isArray(stageDefs) || stageDefs.length < 15 || !stageRules || !dropTables)
-  throw Error('HANS stage/drop schema changed');
+const lapConfig=main.findLiteral('RO_LAPC');
+const chapter2Tiers=main.findLiteral('RO_C2T');
+const baseWeights=main.findLiteral('Bk');
+const classWeights=main.findLiteral('CC');
+const relativeWeights=main.findLiteral('TC');
+if (!Array.isArray(stageDefs) || stageDefs.length < 15 || !stageRules || !dropTables ||
+    lapConfig?.max!==6 || lapConfig.cardStep!==1000000 || lapConfig.cardMult?.length!==6 ||
+    !chapter2Tiers || !baseWeights || !classWeights || !relativeWeights)
+  throw Error('HANS audited lap / scoring schema changed');
+const floorSignature='const F={"mini":20,"mvp":30},M=[1,1.5,2,2.5,3,3.5],NO=new Set([4144])';
+if(!mainJs.includes(floorSignature) || lapConfig.cardNoScale?.join(',')!=='4144' ||
+   lapConfig.cardMult.join(',')!=='1,1.5,2,2.5,3,3.5')
+  throw Error('HANS card GS floor / scaling audit differs from bundled source');
+const liveJobs=[...soul.findLiteral('Mp'),...soul.findLiteral('vu'),...soul.findLiteral('RO_J3')];
+const talentCatalog=JSON.parse(fs.readFileSync(path.join(root,'public/data/talents.json'),'utf8'));
+const jobMap=new Map(liveJobs.map(job=>[job.id,job]));
+const jobs=talentCatalog.jobs.map(job=>{
+ const source=jobMap.get(job.sourceJobId||job.job);
+ if(!source || !['melee','ranged','magic'].includes(source.scaling))throw Error('Missing HANS job scoring profile: '+job.job);
+ return {id:job.job,name:job.name,rank:job.rank,scaling:source.scaling};
+});
+const lastFirstChapterTier=Math.max(...stageDefs.filter(s=>s.chapter!==2).map(s=>s.tier));
+const standardStages=stageDefs.filter(s=>!s.chapter&&!s.special&&!stageRules[s.id].storyOnly);
+const lastStandard=standardStages.at(-1);
+const gsAt=(entry,n)=>{
+ if(n===1)return entry.gsMin||0;
+ if(entry.chapter===2)return chapter2Tiers[entry.id]?.[n-1]?.gate ?? null;
+ if(stageRules[entry.id].storyOnly)return null;
+ const index=standardStages.findIndex(s=>s.id===entry.id);
+ if(index<0&&!entry.special)return null;
+ const k=index<0?standardStages.length-1:index;
+ const f=((n-2)*standardStages.length+k+1)/(standardStages.length*(lapConfig.max-1));
+ return Math.ceil(lastStandard.gsMin*Math.pow(lapConfig.curve.gs,f));
+};
+const tierAt=(entry,n)=>{
+ if(n===1&&entry.chapter!==2)return entry.tier;
+ if(entry.chapter===2)return chapter2Tiers[entry.id]?.[n-1]?.tier ?? null;
+ if(stageRules[entry.id].storyOnly)return null;
+ return lastFirstChapterTier+n-1;
+};
+const bossMvp=new Set(),bossMini=new Set();
+for(const entry of stageDefs){
+ const bosses=stageRules[entry.id].bosses;
+ if(bosses.length)bossMvp.add(bosses.at(-1).id);
+ for(const boss of bosses.slice(0,-1))bossMini.add(boss.id);
+}
 const stageIds = new Map();
 const memberStage = new Map();
 function link(monsterId, stageId, boss) {
@@ -192,6 +251,9 @@ const stages = stageDefs.map(entry => {
   for (const monster of normalMonsterIds) link(monster, entry.id, false);
   for (const monster of bossMonsterIds) link(monster, entry.id, true);
   const stage = {id:entry.id,name:zh(entry.name),tier:entry.tier,levels:entry.levels,image,
+    chapter:entry.chapter===2?2:1,gsMin:entry.gsMin||0,
+    lapTiers:Array.from({length:lapConfig.max},(_,index)=>tierAt(entry,index+1)),
+    lapGS:Array.from({length:lapConfig.max},(_,index)=>gsAt(entry,index+1)),
     open:!entry.special&&!config.storyOnly,season:!!entry.special,story:!!config.storyOnly,planned:false,
     normalMonsterIds,bossMonsterIds,...(intruderBossId?{intruderBossId}:{}),candidatePoolCount:normalMonsterIds.length,
     candidateBossCount:bossMonsterIds.length,provenance:{stage:'official',monsterPool:'official'}};
@@ -231,6 +293,7 @@ for(const item of equipment.values()) {
 // The audited main killEnemy method rolls kW[enemy.id] for normal enemies and bosses.
 // It suppresses story drops, including story instances of otherwise playable maps.
 for (const card of cards.values()) {
+  card.bossRank=bossMvp.has(card.monsterId)?'mvp':bossMini.has(card.monsterId)?'mini':'normal';
   const refs = cardIdByMonster.get(card.monsterId)===card.id
     ? dropStageRefs(card.monsterId) : [];
   card.sources = [{
@@ -257,10 +320,15 @@ const monsters = [...monsterIds].filter(Boolean).map(id => {
     stages:knownStages.map(([stageId,boss])=>({id:stageId,boss,verified:true})),
     sprite:null,fieldProvenance:{name:'official',stage:'official'}};
 }).sort((a,b)=>a.name.localeCompare(b.name,'zh'));
-const catalog = {schemaVersion:1,server:'hans',generatedAt:audit.reviewedAt,
+const catalog = {schemaVersion:2,server:'hans',generatedAt:audit.reviewedAt,
   sourceVersion:'HANS '+audit.reviewedAt,
   official:{main:audit.hans.main,soul:audit.hans.soul,manifest:audit.hans.manifest,baseUrl:audit.hans.baseUrl},
-  policy:'HANS server only. Monster equipment table is sourced from HANS. Card drops follow the audited HANS killEnemy registry and non-story stage pools, including intruders. No external game artwork shipped.',
+  policy:'HANS server only. Monster equipment table is sourced from HANS. Card drops follow the audited HANS killEnemy registry and non-story stage pools, including intruders. Lap tiers/GS and card effects derive from the audited HANS rules. No external game artwork shipped.',
+  lapRules:{max:lapConfig.max,cardStep:lapConfig.cardStep,
+    suffix:lapConfig.suffix,labels:lapConfig.label,multipliers:lapConfig.cardMult,
+    noScaleCardIds:lapConfig.cardNoScale,bossFloors:{mini:20,mvp:30},
+    scoring:{base:baseWeights,classes:classWeights,relative:relativeWeights},
+    jobs},
   items:[...equipment.values()].sort((a,b)=>a.id-b.id),
   cards:[...cards.values()].sort((a,b)=>a.id-b.id),monsters,stages};
 fs.mkdirSync(path.join(root,'public/data'),{recursive:true});

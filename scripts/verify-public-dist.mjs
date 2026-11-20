@@ -17,6 +17,11 @@ for(const source of ['main','soul','manifest'])
 assert.ok(deployed.items.length>=350,'Unexpectedly incomplete HANS equipment');
 assert.ok(deployed.cards.length>=130,'Unexpectedly incomplete HANS cards');
 assert.ok(deployed.stages.length>=15,'Unexpectedly incomplete HANS stage list');
+assert.equal(deployed.schemaVersion,2,'HANS lap-aware catalog missing');
+assert.equal(deployed.lapRules.max,6);
+assert.equal(deployed.lapRules.jobs.length,41);
+assert.ok(deployed.cards.every(c=>c.effects?.length===c.bonuses.length),'Card scoring modifiers missing');
+assert.ok(deployed.stages.every(s=>s.lapTiers?.length===6&&s.lapGS?.length===6),'Stage lap mapping incomplete');
 const stages=new Map(deployed.stages.map(stage=>[stage.id,stage]));
 for(const entry of [...deployed.items,...deployed.cards]){
  assert.ok(entry.name&&entry.originalName,'HANS source names missing');

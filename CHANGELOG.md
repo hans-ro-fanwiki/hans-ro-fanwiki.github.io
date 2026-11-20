@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0-dev.10 — 2026-11-20 (six-lap cards, per-job GS and stage tiers)
+
+- Import audited HANS lap multipliers, card ID offsets, exception card IDs, scoring weights and 41 job scaling profiles; retain 188 canonical cards with raw modifier metadata, rather than copying thousands of variants.
+- Add lap-aware card lists and detailed card view, preserving the chosen lap in URL; card details include effects for that lap and computed GS contribution for a selected job, including boss score floors and special unscaled cards.
+- Add stage lap picker showing the source-derived tier and GS entry requirement for all 17 stages; Chapter 2 uses its separate progression and story-only instances do not fake higher laps.
+- Keep equipment pages focused on source, base effects and gear tier, explicitly distinguishing random quality, refine and star enhancements rather than inventing per-item fixed GS.
+- Extend unit tests across all 188 cards × six laps × 41 jobs and browser smoke regressions for card display, GS, lap deep links, stage thresholds and responsive layouts.
+- Keep static HANS-only SHA source checks, publicly unbundled artwork, and original talent share links.
+
+
 ## 0.3.0-dev.9 — 2026-11-20 (map previews, cards and streamlined filters)
 
 - Remove the duplicate talent “分享配點” action; keep a single primary “複製連結” button for the existing compact three-rank share URL.

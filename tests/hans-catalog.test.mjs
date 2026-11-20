@@ -108,3 +108,63 @@ test('HANS card socket slots are known and combat/battle filters share one sourc
  assert.equal(catalog.cards.filter(c=>attributeMatches(c,'cooldown')).length,12);
  assert.ok(attributeMatches(catalog.cards.find(c=>c.id===4001),'crit'));
 });
+test('audited HANS lap rules cover six laps, 41 professions, and all 188 card registrations',async()=>{
+ const {cardEffects,cardId,cardName,cardScore,cardMultiplier}=await import('../src/laps.ts');
+ const rules=catalog.lapRules;
+ assert.equal(catalog.schemaVersion,2);
+ assert.deepEqual(rules.multipliers,[1,1.5,2,2.5,3,3.5]);
+ assert.deepEqual(rules.noScaleCardIds,[4144]);
+ assert.equal(rules.cardStep,1000000);
+ assert.equal(rules.jobs.length,41);
+ assert.deepEqual([...new Set(rules.jobs.map(j=>j.id))].length,41);
+ const allIds=new Set();
+ for(const card of catalog.cards){
+  assert.equal(card.bonuses.length,card.effects.length,card.name);
+  for(let lap=1;lap<=6;lap++){
+   const id=cardId(card,rules,lap);
+   assert.ok(!allIds.has(id),'Duplicate card id '+id);
+   allIds.add(id);
+   const effects=cardEffects(card,rules,lap);
+   assert.equal(effects.length,card.bonuses.length);
+   assert.ok(effects.every(effect=>!effect.includes('NaN')&&!effect.includes('undefined')));
+   for(const job of rules.jobs){
+    const score=cardScore(card,rules,lap,job.id);
+    assert.ok(Number.isInteger(score)&&score>=0,'Missing GS '+card.id+' / '+lap+' / '+job.id);
+   }
+  }
+ }
+ assert.equal(allIds.size,188*6);
+ const poring=catalog.cards.find(c=>c.id===4001);
+ assert.deepEqual(cardEffects(poring,rules,2),['迴避 +4.5%','爆擊率 +3%']);
+ assert.equal(cardId(poring,rules,2),1004001);
+ assert.match(cardName(poring,rules,3),/改²卡片$/);
+ assert.equal(cardScore(poring,rules,1,'swordsman'),10);
+ assert.equal(cardScore(poring,rules,2,'swordsman'),15);
+ const osiris=catalog.cards.find(c=>c.id===4144);
+ assert.equal(cardMultiplier(osiris,rules,6),1);
+ assert.deepEqual(cardEffects(osiris,rules,6),cardEffects(osiris,rules,1));
+ assert.equal(cardScore(osiris,rules,6,'swordsman'),cardScore(osiris,rules,1,'swordsman'));
+ const snake=catalog.cards.find(c=>c.id===4330);
+ assert.ok(cardScore(snake,rules,2,'mage')>cardScore(snake,rules,2,'swordsman'),'GS differs by job');
+ for(const card of catalog.cards.filter(c=>c.bossRank==='mvp'||c.bossRank==='mini'))
+  for(let lap=1;lap<=6;lap++)
+   assert.ok(cardScore(card,rules,lap,'swordsman')>=Math.round(rules.bossFloors[card.bossRank]*cardMultiplier(card,rules,lap)));
+});
+test('stage tier and gearscore are specific to chapter and selected lap',async()=>{
+ const {stageLapInfo,stageTierLabel}=await import('../src/laps.ts');
+ for(const stage of catalog.stages){
+  assert.equal(stage.lapTiers.length,6);
+  assert.equal(stage.lapGS.length,6);
+  assert.ok(stageLapInfo(stage,1),'Missing initial lap: '+stage.id);
+ }
+ const map=new Map(catalog.stages.map(s=>[s.id,s]));
+ assert.deepEqual(stageLapInfo(map.get('prontera'),1),{tier:1,gs:0});
+ assert.deepEqual(stageLapInfo(map.get('prontera'),2),{tier:4,gs:933});
+ assert.deepEqual(stageLapInfo(map.get('maze'),6),{tier:8,gs:4479});
+ assert.deepEqual(stageLapInfo(map.get('xmas'),6),{tier:8,gs:4479});
+ assert.deepEqual(stageLapInfo(map.get('c2_gef'),1),{tier:6,gs:2360});
+ assert.deepEqual(stageLapInfo(map.get('c2_gef'),2),{tier:7,gs:2650});
+ assert.deepEqual(stageLapInfo(map.get('c2_gef'),3),{tier:8,gs:2950});
+ assert.equal(stageTierLabel(map.get('c2_gef'),2),'二章 T7');
+ assert.equal(stageLapInfo(map.get('prt_castle'),2),null);
+});

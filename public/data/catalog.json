@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "server": "hans",
   "generatedAt": "2026-11-19",
   "sourceVersion": "HANS 2026-11-19",
@@ -19,7 +19,371 @@
     },
     "baseUrl": "https://ro.hans-webgametw.com"
   },
-  "policy": "HANS server only. Monster equipment table is sourced from HANS. Card drops follow the audited HANS killEnemy registry and non-story stage pools, including intruders. No external game artwork shipped.",
+  "policy": "HANS server only. Monster equipment table is sourced from HANS. Card drops follow the audited HANS killEnemy registry and non-story stage pools, including intruders. Lap tiers/GS and card effects derive from the audited HANS rules. No external game artwork shipped.",
+  "lapRules": {
+    "max": 6,
+    "cardStep": 1000000,
+    "suffix": [
+      "",
+      "・改",
+      "・改²",
+      "・改³",
+      "・改⁴",
+      "・改⁵"
+    ],
+    "labels": [
+      "一周目",
+      "二周目",
+      "三周目",
+      "四周目",
+      "五周目",
+      "六周目"
+    ],
+    "multipliers": [
+      1,
+      1.5,
+      2,
+      2.5,
+      3,
+      3.5
+    ],
+    "noScaleCardIds": [
+      4144
+    ],
+    "bossFloors": {
+      "mini": 20,
+      "mvp": 30
+    },
+    "scoring": {
+      "base": {
+        "damageMult": 250,
+        "speedMult": 120,
+        "areaMult": 100,
+        "extraProjectiles": 30,
+        "armor": 4,
+        "damageReduction": 250,
+        "maxHp": 0.25,
+        "maxHpPct": 180,
+        "regen": 12,
+        "regenStill": 6,
+        "regenMoving": 6,
+        "regen5": 2,
+        "lifesteal": 300,
+        "discovery": 80,
+        "dotDmg": 80,
+        "critChance": 150,
+        "pierceChance": 60,
+        "critMult": 50,
+        "doubleChance": 150,
+        "flee": 220,
+        "expMult": 60,
+        "zenyMult": 30,
+        "potionMult": 20,
+        "bossUndeadMult": 70,
+        "bossEliteMult": 70,
+        "lowHpDamage": 40,
+        "lowHpBleed": 50,
+        "endureReduction": 60,
+        "endureReflect": 40,
+        "berserk": 20,
+        "bleedLifesteal": 50,
+        "petrifyChance": 80,
+        "stunChance": 120,
+        "revives": 60,
+        "castHaste": 60,
+        "haste": 250,
+        "atk": 0.3,
+        "matk": 0.3,
+        "str": 1,
+        "agi": 1.5,
+        "vit": 1.5,
+        "int": 1,
+        "dex": 1.5,
+        "luk": 1.5
+      },
+      "classes": {
+        "melee": {
+          "atk": 1.2,
+          "str": 3,
+          "dex": 1.5,
+          "reachMult": 80,
+          "critChance": 180,
+          "castHaste": 40
+        },
+        "ranged": {
+          "atk": 1.2,
+          "dex": 3,
+          "str": 1,
+          "projSpeedMult": 40,
+          "extraProjectiles": 50,
+          "critChance": 180,
+          "pierceChance": 150,
+          "castHaste": 40
+        },
+        "magic": {
+          "matk": 1.2,
+          "int": 3,
+          "dex": 2.5,
+          "atk": 0.2,
+          "str": 0.3,
+          "castHaste": 180,
+          "critChance": 180,
+          "doubleChance": 40
+        }
+      },
+      "relative": {
+        "pickupRadius": 40
+      }
+    },
+    "jobs": [
+      {
+        "id": "swordsman",
+        "name": "劍士",
+        "rank": 1,
+        "scaling": "melee"
+      },
+      {
+        "id": "knight",
+        "name": "騎士",
+        "rank": 2,
+        "scaling": "melee"
+      },
+      {
+        "id": "crusader",
+        "name": "十字軍",
+        "rank": 2,
+        "scaling": "melee"
+      },
+      {
+        "id": "mage",
+        "name": "魔法師",
+        "rank": 1,
+        "scaling": "magic"
+      },
+      {
+        "id": "wizard",
+        "name": "巫師",
+        "rank": 2,
+        "scaling": "magic"
+      },
+      {
+        "id": "sage",
+        "name": "賢者",
+        "rank": 2,
+        "scaling": "magic"
+      },
+      {
+        "id": "archer",
+        "name": "弓箭手",
+        "rank": 1,
+        "scaling": "ranged"
+      },
+      {
+        "id": "hunter",
+        "name": "獵人",
+        "rank": 2,
+        "scaling": "ranged"
+      },
+      {
+        "id": "bard",
+        "name": "吟遊詩人 / 舞孃",
+        "rank": 2,
+        "scaling": "ranged"
+      },
+      {
+        "id": "acolyte",
+        "name": "服事",
+        "rank": 1,
+        "scaling": "magic"
+      },
+      {
+        "id": "priest",
+        "name": "祭司",
+        "rank": 2,
+        "scaling": "magic"
+      },
+      {
+        "id": "monk",
+        "name": "武道家",
+        "rank": 2,
+        "scaling": "melee"
+      },
+      {
+        "id": "thief",
+        "name": "盜賊",
+        "rank": 1,
+        "scaling": "melee"
+      },
+      {
+        "id": "assassin",
+        "name": "刺客",
+        "rank": 2,
+        "scaling": "melee"
+      },
+      {
+        "id": "rogue",
+        "name": "流氓",
+        "rank": 2,
+        "scaling": "melee"
+      },
+      {
+        "id": "merchant",
+        "name": "商人",
+        "rank": 1,
+        "scaling": "melee"
+      },
+      {
+        "id": "blacksmith",
+        "name": "鐵匠",
+        "rank": 2,
+        "scaling": "melee"
+      },
+      {
+        "id": "alchemist",
+        "name": "鍊金術師",
+        "rank": 2,
+        "scaling": "melee"
+      },
+      {
+        "id": "taekwon",
+        "name": "跆拳少年",
+        "rank": 1,
+        "scaling": "melee"
+      },
+      {
+        "id": "star_gladiator",
+        "name": "拳聖",
+        "rank": 2,
+        "scaling": "melee"
+      },
+      {
+        "id": "soul_linker",
+        "name": "悟靈士",
+        "rank": 2,
+        "scaling": "magic"
+      },
+      {
+        "id": "ninja",
+        "name": "忍者",
+        "rank": 1,
+        "scaling": "ranged"
+      },
+      {
+        "id": "kagerou",
+        "name": "影狼 / 朧",
+        "rank": 2,
+        "scaling": "ranged"
+      },
+      {
+        "id": "gunslinger",
+        "name": "神槍手",
+        "rank": 1,
+        "scaling": "ranged"
+      },
+      {
+        "id": "rebellion",
+        "name": "叛亂者",
+        "rank": 2,
+        "scaling": "ranged"
+      },
+      {
+        "id": "arch_bishop",
+        "name": "大主教",
+        "rank": 3,
+        "scaling": "magic"
+      },
+      {
+        "id": "genetic",
+        "name": "基因學者",
+        "rank": 3,
+        "scaling": "melee"
+      },
+      {
+        "id": "guillotine_cross",
+        "name": "十字斬首者",
+        "rank": 3,
+        "scaling": "melee"
+      },
+      {
+        "id": "kagerou_rank3",
+        "name": "影狼／朧（三轉）",
+        "rank": 3,
+        "scaling": "ranged"
+      },
+      {
+        "id": "mechanic",
+        "name": "機械工匠",
+        "rank": 3,
+        "scaling": "melee"
+      },
+      {
+        "id": "minstrel",
+        "name": "宮廷樂師／浪姬舞者",
+        "rank": 3,
+        "scaling": "ranged"
+      },
+      {
+        "id": "ranger",
+        "name": "遊俠",
+        "rank": 3,
+        "scaling": "ranged"
+      },
+      {
+        "id": "rebellion_rank3",
+        "name": "反叛者（三轉）",
+        "rank": 3,
+        "scaling": "ranged"
+      },
+      {
+        "id": "royal_guard",
+        "name": "皇家禁衛隊",
+        "rank": 3,
+        "scaling": "melee"
+      },
+      {
+        "id": "rune_knight",
+        "name": "盧恩騎士",
+        "rank": 3,
+        "scaling": "melee"
+      },
+      {
+        "id": "shadow_chaser",
+        "name": "魅影追蹤者",
+        "rank": 3,
+        "scaling": "melee"
+      },
+      {
+        "id": "sorcerer",
+        "name": "妖術師",
+        "rank": 3,
+        "scaling": "magic"
+      },
+      {
+        "id": "soul_reaper",
+        "name": "獵靈士",
+        "rank": 3,
+        "scaling": "magic"
+      },
+      {
+        "id": "star_emperor",
+        "name": "星帝",
+        "rank": 3,
+        "scaling": "melee"
+      },
+      {
+        "id": "sura",
+        "name": "修羅",
+        "rank": 3,
+        "scaling": "melee"
+      },
+      {
+        "id": "warlock",
+        "name": "咒術士",
+        "rank": 3,
+        "scaling": "magic"
+      }
+    ]
+  },
   "items": [
     {
       "id": 1101,
@@ -28792,6 +29156,16 @@
         "迴避 +3%",
         "爆擊率 +2%"
       ],
+      "effects": [
+        {
+          "stat": "flee",
+          "value": 0.03
+        },
+        {
+          "stat": "critChance",
+          "value": 0.02
+        }
+      ],
       "tags": [
         "crit"
       ],
@@ -28824,8 +29198,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4002,
@@ -28835,6 +29211,12 @@
       "equipSlot": "armor",
       "bonuses": [
         "HP +30"
+      ],
+      "effects": [
+        {
+          "stat": "maxHp",
+          "value": 30
+        }
       ],
       "tags": [
         "hp"
@@ -28868,8 +29250,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4003,
@@ -28879,6 +29263,12 @@
       "equipSlot": "armor",
       "bonuses": [
         "HP +40"
+      ],
+      "effects": [
+        {
+          "stat": "maxHp",
+          "value": 40
+        }
       ],
       "tags": [
         "hp"
@@ -28912,8 +29302,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4004,
@@ -28924,6 +29316,16 @@
       "bonuses": [
         "投射物速度 +6%",
         "傷害 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "projSpeedMult",
+          "value": 0.06
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.03
+        }
       ],
       "tags": [
         "damage"
@@ -28957,8 +29359,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4006,
@@ -28969,6 +29373,16 @@
       "bonuses": [
         "爆擊率 +3%",
         "迴避 +2%"
+      ],
+      "effects": [
+        {
+          "stat": "critChance",
+          "value": 0.03
+        },
+        {
+          "stat": "flee",
+          "value": 0.02
+        }
       ],
       "tags": [
         "crit"
@@ -29002,8 +29416,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4007,
@@ -29013,6 +29429,12 @@
       "equipSlot": "armor",
       "bonuses": [
         "減傷 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.03
+        }
       ],
       "tags": [],
       "sources": [
@@ -29044,8 +29466,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4008,
@@ -29056,6 +29480,16 @@
       "bonuses": [
         "傷害 +3%",
         "HP +10"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.03
+        },
+        {
+          "stat": "maxHp",
+          "value": 10
+        }
       ],
       "tags": [
         "damage",
@@ -29090,8 +29524,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4009,
@@ -29101,6 +29537,12 @@
       "equipSlot": "garment",
       "bonuses": [
         "移動速度 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "speedMult",
+          "value": 0.05
+        }
       ],
       "tags": [],
       "sources": [
@@ -29132,8 +29574,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4010,
@@ -29143,6 +29587,12 @@
       "equipSlot": "headgear",
       "bonuses": [
         "冷卻縮減 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "haste",
+          "value": 0.05
+        }
       ],
       "tags": [
         "cooldown"
@@ -29176,8 +29626,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4012,
@@ -29188,6 +29640,16 @@
       "bonuses": [
         "HP +25",
         "護甲 +1"
+      ],
+      "effects": [
+        {
+          "stat": "maxHp",
+          "value": 25
+        },
+        {
+          "stat": "armor",
+          "value": 1
+        }
       ],
       "tags": [
         "hp"
@@ -29221,8 +29683,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4014,
@@ -29232,6 +29696,12 @@
       "equipSlot": "armor",
       "bonuses": [
         "HP +40"
+      ],
+      "effects": [
+        {
+          "stat": "maxHp",
+          "value": 40
+        }
       ],
       "tags": [
         "hp"
@@ -29265,8 +29735,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4015,
@@ -29276,6 +29748,12 @@
       "equipSlot": "accessory",
       "bonuses": [
         "迴避 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "flee",
+          "value": 0.05
+        }
       ],
       "tags": [],
       "sources": [
@@ -29307,8 +29785,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4016,
@@ -29318,6 +29798,12 @@
       "equipSlot": "armor",
       "bonuses": [
         "迴避 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "flee",
+          "value": 0.03
+        }
       ],
       "tags": [],
       "sources": [
@@ -29349,8 +29835,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4017,
@@ -29360,6 +29848,12 @@
       "equipSlot": "weapon",
       "bonuses": [
         "命中暈眩率 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "stunChance",
+          "value": 0.05
+        }
       ],
       "tags": [],
       "sources": [
@@ -29391,8 +29885,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4019,
@@ -29403,6 +29899,16 @@
       "bonuses": [
         "傷害 +3%",
         "爆擊率 +1%"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.03
+        },
+        {
+          "stat": "critChance",
+          "value": 0.01
+        }
       ],
       "tags": [
         "crit",
@@ -29437,8 +29943,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4020,
@@ -29448,6 +29956,12 @@
       "equipSlot": "weapon",
       "bonuses": [
         "命中暈眩率 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "stunChance",
+          "value": 0.03
+        }
       ],
       "tags": [],
       "sources": [
@@ -29479,8 +29993,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4021,
@@ -29490,6 +30006,12 @@
       "equipSlot": "accessory",
       "bonuses": [
         "傷害 +4%"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.04
+        }
       ],
       "tags": [
         "damage"
@@ -29523,8 +30045,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4022,
@@ -29534,6 +30058,12 @@
       "equipSlot": "armor",
       "bonuses": [
         "護甲 +2"
+      ],
+      "effects": [
+        {
+          "stat": "armor",
+          "value": 2
+        }
       ],
       "tags": [],
       "sources": [
@@ -29565,8 +30095,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4023,
@@ -29576,6 +30108,12 @@
       "equipSlot": "weapon",
       "bonuses": [
         "冷卻縮減 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "haste",
+          "value": 0.03
+        }
       ],
       "tags": [
         "cooldown"
@@ -29609,8 +30147,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4024,
@@ -29620,6 +30160,12 @@
       "equipSlot": "weapon",
       "bonuses": [
         "命中暈眩率 +4%"
+      ],
+      "effects": [
+        {
+          "stat": "stunChance",
+          "value": 0.04
+        }
       ],
       "tags": [],
       "sources": [
@@ -29651,8 +30197,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4025,
@@ -29663,6 +30211,16 @@
       "bonuses": [
         "傷害 +4%",
         "命中暈眩率 +2%"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.04
+        },
+        {
+          "stat": "stunChance",
+          "value": 0.02
+        }
       ],
       "tags": [
         "damage"
@@ -29702,8 +30260,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4026,
@@ -29714,6 +30274,16 @@
       "bonuses": [
         "爆擊率 +2%",
         "傷害 +2%"
+      ],
+      "effects": [
+        {
+          "stat": "critChance",
+          "value": 0.02
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.02
+        }
       ],
       "tags": [
         "crit",
@@ -29748,8 +30318,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4027,
@@ -29759,6 +30331,12 @@
       "equipSlot": "accessory",
       "bonuses": [
         "AGI +2"
+      ],
+      "effects": [
+        {
+          "stat": "agi",
+          "value": 2
+        }
       ],
       "tags": [],
       "sources": [
@@ -29790,8 +30368,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4028,
@@ -29801,6 +30381,12 @@
       "equipSlot": "accessory",
       "bonuses": [
         "STR +2"
+      ],
+      "effects": [
+        {
+          "stat": "str",
+          "value": 2
+        }
       ],
       "tags": [],
       "sources": [
@@ -29832,8 +30418,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4029,
@@ -29844,6 +30432,16 @@
       "bonuses": [
         "傷害 +6%",
         "爆擊率 +2%"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.06
+        },
+        {
+          "stat": "critChance",
+          "value": 0.02
+        }
       ],
       "tags": [
         "crit",
@@ -29884,8 +30482,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4030,
@@ -29895,6 +30495,12 @@
       "equipSlot": "weapon",
       "bonuses": [
         "傷害 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.05
+        }
       ],
       "tags": [
         "damage"
@@ -29928,8 +30534,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4033,
@@ -29939,6 +30547,12 @@
       "equipSlot": "headgear",
       "bonuses": [
         "HP 回復 +0.5 HP/s"
+      ],
+      "effects": [
+        {
+          "stat": "regen",
+          "value": 0.5
+        }
       ],
       "tags": [
         "hp"
@@ -29978,8 +30592,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4034,
@@ -29989,6 +30605,12 @@
       "equipSlot": "accessory",
       "bonuses": [
         "DEX +2"
+      ],
+      "effects": [
+        {
+          "stat": "dex",
+          "value": 2
+        }
       ],
       "tags": [],
       "sources": [
@@ -30020,8 +30642,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4035,
@@ -30031,6 +30655,12 @@
       "equipSlot": "weapon",
       "bonuses": [
         "傷害 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.05
+        }
       ],
       "tags": [
         "damage"
@@ -30064,8 +30694,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4037,
@@ -30076,6 +30708,16 @@
       "bonuses": [
         "爆擊率 +3%",
         "傷害 +2%"
+      ],
+      "effects": [
+        {
+          "stat": "critChance",
+          "value": 0.03
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.02
+        }
       ],
       "tags": [
         "crit",
@@ -30110,8 +30752,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4038,
@@ -30121,6 +30765,12 @@
       "equipSlot": "armor",
       "bonuses": [
         "HP 回復 +1 HP/s"
+      ],
+      "effects": [
+        {
+          "stat": "regen",
+          "value": 1
+        }
       ],
       "tags": [
         "hp"
@@ -30160,8 +30810,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4040,
@@ -30172,6 +30824,16 @@
       "bonuses": [
         "移動速度 +4%",
         "迴避 +2%"
+      ],
+      "effects": [
+        {
+          "stat": "speedMult",
+          "value": 0.04
+        },
+        {
+          "stat": "flee",
+          "value": 0.02
+        }
       ],
       "tags": [],
       "sources": [
@@ -30203,8 +30865,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4044,
@@ -30215,6 +30879,16 @@
       "bonuses": [
         "拾取範圍 +12%",
         "移動速度 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "pickupRadius",
+          "value": 0.12
+        },
+        {
+          "stat": "speedMult",
+          "value": 0.03
+        }
       ],
       "tags": [],
       "sources": [
@@ -30246,8 +30920,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4047,
@@ -30258,6 +30934,16 @@
       "bonuses": [
         "迴避 +12%",
         "HP 回復 -0.5 HP/s"
+      ],
+      "effects": [
+        {
+          "stat": "flee",
+          "value": 0.12
+        },
+        {
+          "stat": "regen",
+          "value": -0.5
+        }
       ],
       "tags": [
         "hp"
@@ -30297,8 +30983,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4048,
@@ -30308,6 +30996,12 @@
       "equipSlot": "accessory",
       "bonuses": [
         "STR +2"
+      ],
+      "effects": [
+        {
+          "stat": "str",
+          "value": 2
+        }
       ],
       "tags": [],
       "sources": [
@@ -30339,8 +31033,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4049,
@@ -30350,6 +31046,12 @@
       "equipSlot": "weapon",
       "bonuses": [
         "傷害 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.05
+        }
       ],
       "tags": [
         "damage"
@@ -30383,8 +31085,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4052,
@@ -30394,6 +31098,12 @@
       "equipSlot": "headgear",
       "bonuses": [
         "INT +2"
+      ],
+      "effects": [
+        {
+          "stat": "int",
+          "value": 2
+        }
       ],
       "tags": [],
       "sources": [
@@ -30425,8 +31135,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4054,
@@ -30437,6 +31149,16 @@
       "bonuses": [
         "HP +60",
         "護甲 +2"
+      ],
+      "effects": [
+        {
+          "stat": "maxHp",
+          "value": 60
+        },
+        {
+          "stat": "armor",
+          "value": 2
+        }
       ],
       "tags": [
         "hp"
@@ -30470,8 +31192,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4055,
@@ -30482,6 +31206,16 @@
       "bonuses": [
         "命中暈眩率 +5%",
         "傷害 +2%"
+      ],
+      "effects": [
+        {
+          "stat": "stunChance",
+          "value": 0.05
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.02
+        }
       ],
       "tags": [
         "damage"
@@ -30515,8 +31249,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4060,
@@ -30526,6 +31262,12 @@
       "equipSlot": "weapon",
       "bonuses": [
         "傷害 +8%"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.08
+        }
       ],
       "tags": [
         "damage"
@@ -30559,8 +31301,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4061,
@@ -30571,6 +31315,16 @@
       "bonuses": [
         "護甲 +1",
         "減傷 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "armor",
+          "value": 1
+        },
+        {
+          "stat": "damageReduction",
+          "value": 0.03
+        }
       ],
       "tags": [],
       "sources": [
@@ -30602,8 +31356,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4066,
@@ -30613,6 +31369,12 @@
       "equipSlot": "shield",
       "bonuses": [
         "減傷 +8%"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.08
+        }
       ],
       "tags": [],
       "sources": [
@@ -30644,8 +31406,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4069,
@@ -30655,6 +31419,12 @@
       "equipSlot": "weapon",
       "bonuses": [
         "傷害 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.05
+        }
       ],
       "tags": [
         "damage"
@@ -30694,8 +31464,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4071,
@@ -30706,6 +31478,16 @@
       "bonuses": [
         "減傷 +5%",
         "迴避 +1%"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.05
+        },
+        {
+          "stat": "flee",
+          "value": 0.01
+        }
       ],
       "tags": [],
       "sources": [
@@ -30737,8 +31519,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4073,
@@ -30748,6 +31532,12 @@
       "equipSlot": "accessory",
       "bonuses": [
         "Zeny 獲得 +15%"
+      ],
+      "effects": [
+        {
+          "stat": "zenyMult",
+          "value": 0.15
+        }
       ],
       "tags": [],
       "sources": [
@@ -30779,8 +31569,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4074,
@@ -30790,6 +31582,12 @@
       "equipSlot": "shield",
       "bonuses": [
         "減傷 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.05
+        }
       ],
       "tags": [],
       "sources": [
@@ -30821,8 +31619,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4077,
@@ -30832,6 +31632,12 @@
       "equipSlot": "accessory",
       "bonuses": [
         "冷卻縮減 +4%"
+      ],
+      "effects": [
+        {
+          "stat": "haste",
+          "value": 0.04
+        }
       ],
       "tags": [
         "cooldown"
@@ -30865,8 +31671,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4084,
@@ -30876,6 +31684,12 @@
       "equipSlot": "accessory",
       "bonuses": [
         "攻擊範圍 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "areaMult",
+          "value": 0.05
+        }
       ],
       "tags": [],
       "sources": [
@@ -30907,8 +31721,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4085,
@@ -30918,6 +31734,12 @@
       "equipSlot": "weapon",
       "bonuses": [
         "Boss／不死系傷害 +12%"
+      ],
+      "effects": [
+        {
+          "stat": "bossUndeadMult",
+          "value": 0.12
+        }
       ],
       "tags": [
         "damage"
@@ -30951,8 +31773,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4086,
@@ -30962,6 +31786,12 @@
       "equipSlot": "weapon",
       "bonuses": [
         "爆擊率 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "critChance",
+          "value": 0.05
+        }
       ],
       "tags": [
         "crit"
@@ -31001,8 +31831,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4089,
@@ -31013,6 +31845,16 @@
       "bonuses": [
         "護甲 +1",
         "減傷 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "armor",
+          "value": 1
+        },
+        {
+          "stat": "damageReduction",
+          "value": 0.03
+        }
       ],
       "tags": [],
       "sources": [
@@ -31044,8 +31886,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4090,
@@ -31055,6 +31899,12 @@
       "equipSlot": "shield",
       "bonuses": [
         "護甲 +2"
+      ],
+      "effects": [
+        {
+          "stat": "armor",
+          "value": 2
+        }
       ],
       "tags": [],
       "sources": [
@@ -31086,8 +31936,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4091,
@@ -31097,6 +31949,12 @@
       "equipSlot": "weapon",
       "bonuses": [
         "爆擊率 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "critChance",
+          "value": 0.05
+        }
       ],
       "tags": [
         "crit"
@@ -31130,8 +31988,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4093,
@@ -31141,6 +32001,12 @@
       "equipSlot": "accessory",
       "bonuses": [
         "HP +25"
+      ],
+      "effects": [
+        {
+          "stat": "maxHp",
+          "value": 25
+        }
       ],
       "tags": [
         "hp"
@@ -31174,8 +32040,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4094,
@@ -31186,6 +32054,16 @@
       "bonuses": [
         "投射物速度 +8%",
         "傷害 +2%"
+      ],
+      "effects": [
+        {
+          "stat": "projSpeedMult",
+          "value": 0.08
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.02
+        }
       ],
       "tags": [
         "damage"
@@ -31225,8 +32103,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4095,
@@ -31236,6 +32116,12 @@
       "equipSlot": "garment",
       "bonuses": [
         "迴避 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "flee",
+          "value": 0.05
+        }
       ],
       "tags": [],
       "sources": [
@@ -31267,8 +32153,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4097,
@@ -31279,6 +32167,16 @@
       "bonuses": [
         "HP +40",
         "移動速度 +2%"
+      ],
+      "effects": [
+        {
+          "stat": "maxHp",
+          "value": 40
+        },
+        {
+          "stat": "speedMult",
+          "value": 0.02
+        }
       ],
       "tags": [
         "hp"
@@ -31312,8 +32210,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4098,
@@ -31324,6 +32224,16 @@
       "bonuses": [
         "迴避 +4%",
         "移動速度 +2%"
+      ],
+      "effects": [
+        {
+          "stat": "flee",
+          "value": 0.04
+        },
+        {
+          "stat": "speedMult",
+          "value": 0.02
+        }
       ],
       "tags": [],
       "sources": [
@@ -31355,8 +32265,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4100,
@@ -31367,6 +32279,16 @@
       "bonuses": [
         "冷卻縮減 +4%",
         "HP +15"
+      ],
+      "effects": [
+        {
+          "stat": "haste",
+          "value": 0.04
+        },
+        {
+          "stat": "maxHp",
+          "value": 15
+        }
       ],
       "tags": [
         "cooldown",
@@ -31401,8 +32323,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4102,
@@ -31413,6 +32337,16 @@
       "bonuses": [
         "迴避 +8%",
         "減傷 -4%"
+      ],
+      "effects": [
+        {
+          "stat": "flee",
+          "value": 0.08
+        },
+        {
+          "stat": "damageReduction",
+          "value": -0.04
+        }
       ],
       "tags": [],
       "sources": [
@@ -31456,8 +32390,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4103,
@@ -31467,6 +32403,12 @@
       "equipSlot": "accessory",
       "bonuses": [
         "攻擊範圍 +4%"
+      ],
+      "effects": [
+        {
+          "stat": "areaMult",
+          "value": 0.04
+        }
       ],
       "tags": [],
       "sources": [
@@ -31498,8 +32440,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4106,
@@ -31509,6 +32453,12 @@
       "equipSlot": "weapon",
       "bonuses": [
         "穿透率 +6%"
+      ],
+      "effects": [
+        {
+          "stat": "pierceChance",
+          "value": 0.06
+        }
       ],
       "tags": [],
       "sources": [
@@ -31540,8 +32490,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4107,
@@ -31551,6 +32503,12 @@
       "equipSlot": "shoes",
       "bonuses": [
         "HP +50"
+      ],
+      "effects": [
+        {
+          "stat": "maxHp",
+          "value": 50
+        }
       ],
       "tags": [
         "hp"
@@ -31584,8 +32542,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4109,
@@ -31596,6 +32556,16 @@
       "bonuses": [
         "減傷 +4%",
         "迴避 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.04
+        },
+        {
+          "stat": "flee",
+          "value": 0.03
+        }
       ],
       "tags": [],
       "sources": [
@@ -31627,8 +32597,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4110,
@@ -31639,6 +32611,16 @@
       "bonuses": [
         "HP +45",
         "護甲 +1"
+      ],
+      "effects": [
+        {
+          "stat": "maxHp",
+          "value": 45
+        },
+        {
+          "stat": "armor",
+          "value": 1
+        }
       ],
       "tags": [
         "hp"
@@ -31672,8 +32654,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4111,
@@ -31683,6 +32667,12 @@
       "equipSlot": "weapon",
       "bonuses": [
         "Boss／菁英傷害 +8%"
+      ],
+      "effects": [
+        {
+          "stat": "bossEliteMult",
+          "value": 0.08
+        }
       ],
       "tags": [
         "damage"
@@ -31716,8 +32706,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4113,
@@ -31728,6 +32720,16 @@
       "bonuses": [
         "迴避 +5%",
         "減傷 +2%"
+      ],
+      "effects": [
+        {
+          "stat": "flee",
+          "value": 0.05
+        },
+        {
+          "stat": "damageReduction",
+          "value": 0.02
+        }
       ],
       "tags": [],
       "sources": [
@@ -31759,8 +32761,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4114,
@@ -31771,6 +32775,16 @@
       "bonuses": [
         "護甲 +2",
         "減傷 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "armor",
+          "value": 2
+        },
+        {
+          "stat": "damageReduction",
+          "value": 0.03
+        }
       ],
       "tags": [],
       "sources": [
@@ -31802,8 +32816,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4115,
@@ -31814,6 +32830,16 @@
       "bonuses": [
         "傷害 +4%",
         "HP 回復 +0.5 HP/s"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.04
+        },
+        {
+          "stat": "regen",
+          "value": 0.5
+        }
       ],
       "tags": [
         "damage",
@@ -31848,8 +32874,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4116,
@@ -31860,6 +32888,16 @@
       "bonuses": [
         "減傷 +5%",
         "迴避 +2%"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.05
+        },
+        {
+          "stat": "flee",
+          "value": 0.02
+        }
       ],
       "tags": [],
       "sources": [
@@ -31891,8 +32929,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4117,
@@ -31902,6 +32942,12 @@
       "equipSlot": "weapon",
       "bonuses": [
         "雙重施法率 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "doubleChance",
+          "value": 0.05
+        }
       ],
       "tags": [],
       "sources": [
@@ -31933,8 +32979,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4119,
@@ -31945,6 +32993,16 @@
       "bonuses": [
         "減傷 +4%",
         "迴避 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.04
+        },
+        {
+          "stat": "flee",
+          "value": 0.03
+        }
       ],
       "tags": [],
       "sources": [
@@ -31976,8 +33034,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4122,
@@ -31988,6 +33048,16 @@
       "bonuses": [
         "護甲 +2",
         "傷害 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "armor",
+          "value": 2
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.03
+        }
       ],
       "tags": [
         "damage"
@@ -32021,8 +33091,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4123,
@@ -32033,6 +33105,16 @@
       "bonuses": [
         "移動速度 +12%",
         "護甲 +2"
+      ],
+      "effects": [
+        {
+          "stat": "speedMult",
+          "value": 0.12
+        },
+        {
+          "stat": "armor",
+          "value": 2
+        }
       ],
       "tags": [],
       "sources": [
@@ -32064,8 +33146,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mvp"
     },
     {
       "id": 4125,
@@ -32075,6 +33159,12 @@
       "equipSlot": "weapon",
       "bonuses": [
         "傷害 +6%"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.06
+        }
       ],
       "tags": [
         "damage"
@@ -32108,8 +33198,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4126,
@@ -32120,6 +33212,16 @@
       "bonuses": [
         "傷害 +6%",
         "Boss／菁英傷害 +4%"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.06
+        },
+        {
+          "stat": "bossEliteMult",
+          "value": 0.04
+        }
       ],
       "tags": [
         "damage"
@@ -32153,8 +33255,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4127,
@@ -32165,6 +33269,16 @@
       "bonuses": [
         "護甲 +2",
         "迴避 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "armor",
+          "value": 2
+        },
+        {
+          "stat": "flee",
+          "value": 0.03
+        }
       ],
       "tags": [],
       "sources": [
@@ -32196,8 +33310,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4128,
@@ -32207,6 +33323,12 @@
       "equipSlot": "shield",
       "bonuses": [
         "減傷 +15%"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.15
+        }
       ],
       "tags": [],
       "sources": [
@@ -32238,8 +33360,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mvp"
     },
     {
       "id": 4129,
@@ -32250,6 +33374,16 @@
       "bonuses": [
         "冷卻縮減 +3%",
         "爆擊率 +2%"
+      ],
+      "effects": [
+        {
+          "stat": "haste",
+          "value": 0.03
+        },
+        {
+          "stat": "critChance",
+          "value": 0.02
+        }
       ],
       "tags": [
         "cooldown",
@@ -32284,8 +33418,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4131,
@@ -32296,6 +33432,16 @@
       "bonuses": [
         "移動速度 +8%",
         "移動中 HP 回復 +0.6 HP/s"
+      ],
+      "effects": [
+        {
+          "stat": "speedMult",
+          "value": 0.08
+        },
+        {
+          "stat": "regenMoving",
+          "value": 0.6
+        }
       ],
       "tags": [
         "hp"
@@ -32329,8 +33475,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mvp"
     },
     {
       "id": 4133,
@@ -32341,6 +33489,16 @@
       "bonuses": [
         "減傷 +6%",
         "迴避 +1%"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.06
+        },
+        {
+          "stat": "flee",
+          "value": 0.01
+        }
       ],
       "tags": [],
       "sources": [
@@ -32372,8 +33530,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4134,
@@ -32384,6 +33544,16 @@
       "bonuses": [
         "HP 回復 +2 HP/s",
         "傷害 +6%"
+      ],
+      "effects": [
+        {
+          "stat": "regen",
+          "value": 2
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.06
+        }
       ],
       "tags": [
         "damage",
@@ -32418,8 +33588,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mvp"
     },
     {
       "id": 4136,
@@ -32430,6 +33602,16 @@
       "bonuses": [
         "減傷 +6%",
         "HP +10"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.06
+        },
+        {
+          "stat": "maxHp",
+          "value": 10
+        }
       ],
       "tags": [
         "hp"
@@ -32463,8 +33645,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4137,
@@ -32475,6 +33659,16 @@
       "bonuses": [
         "Boss／菁英傷害 +15%",
         "傷害 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "bossEliteMult",
+          "value": 0.15
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.05
+        }
       ],
       "tags": [
         "damage"
@@ -32508,8 +33702,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mvp"
     },
     {
       "id": 4139,
@@ -32520,6 +33716,16 @@
       "bonuses": [
         "Zeny 獲得 +12%",
         "移動速度 +2%"
+      ],
+      "effects": [
+        {
+          "stat": "zenyMult",
+          "value": 0.12
+        },
+        {
+          "stat": "speedMult",
+          "value": 0.02
+        }
       ],
       "tags": [],
       "sources": [
@@ -32551,8 +33757,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4140,
@@ -32563,6 +33771,16 @@
       "bonuses": [
         "Boss／菁英傷害 +15%",
         "傷害 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "bossEliteMult",
+          "value": 0.15
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.05
+        }
       ],
       "tags": [
         "damage"
@@ -32596,8 +33814,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4141,
@@ -32608,6 +33828,16 @@
       "bonuses": [
         "減傷 +4%",
         "HP 回復 +0.6 HP/s"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.04
+        },
+        {
+          "stat": "regen",
+          "value": 0.6
+        }
       ],
       "tags": [
         "hp"
@@ -32641,8 +33871,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4142,
@@ -32653,6 +33885,16 @@
       "bonuses": [
         "冷卻縮減 +5%",
         "傷害 +4%"
+      ],
+      "effects": [
+        {
+          "stat": "haste",
+          "value": 0.05
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.04
+        }
       ],
       "tags": [
         "cooldown",
@@ -32687,8 +33929,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4143,
@@ -32699,6 +33943,16 @@
       "bonuses": [
         "護甲 +3",
         "HP +40"
+      ],
+      "effects": [
+        {
+          "stat": "armor",
+          "value": 3
+        },
+        {
+          "stat": "maxHp",
+          "value": 40
+        }
       ],
       "tags": [
         "hp"
@@ -32732,8 +33986,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mvp"
     },
     {
       "id": 4144,
@@ -32743,6 +33999,12 @@
       "equipSlot": "accessory",
       "bonuses": [
         "每局復活次數 +1"
+      ],
+      "effects": [
+        {
+          "stat": "revives",
+          "value": 1
+        }
       ],
       "tags": [],
       "sources": [
@@ -32774,8 +34036,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mvp"
     },
     {
       "id": 4147,
@@ -32786,6 +34050,16 @@
       "bonuses": [
         "攻擊範圍 +20%",
         "傷害 +10%"
+      ],
+      "effects": [
+        {
+          "stat": "areaMult",
+          "value": 0.2
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.1
+        }
       ],
       "tags": [
         "damage"
@@ -32819,8 +34093,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mvp"
     },
     {
       "id": 4155,
@@ -32831,6 +34107,16 @@
       "bonuses": [
         "傷害 +8%",
         "Boss／菁英傷害 +6%"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.08
+        },
+        {
+          "stat": "bossEliteMult",
+          "value": 0.06
+        }
       ],
       "tags": [
         "damage"
@@ -32864,8 +34150,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4157,
@@ -32876,6 +34164,16 @@
       "bonuses": [
         "爆擊傷害 +12%",
         "Boss／不死系傷害 +4%"
+      ],
+      "effects": [
+        {
+          "stat": "critMult",
+          "value": 0.12
+        },
+        {
+          "stat": "bossUndeadMult",
+          "value": 0.04
+        }
       ],
       "tags": [
         "crit",
@@ -32910,8 +34208,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4159,
@@ -32922,6 +34222,16 @@
       "bonuses": [
         "AGI +2",
         "迴避 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "agi",
+          "value": 2
+        },
+        {
+          "stat": "flee",
+          "value": 0.05
+        }
       ],
       "tags": [],
       "sources": [
@@ -32959,8 +34269,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4168,
@@ -32971,6 +34283,16 @@
       "bonuses": [
         "減傷 +8%",
         "攻擊範圍 +12%"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.08
+        },
+        {
+          "stat": "areaMult",
+          "value": 0.12
+        }
       ],
       "tags": [],
       "sources": [
@@ -33002,8 +34324,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mvp"
     },
     {
       "id": 4169,
@@ -33015,6 +34339,20 @@
         "冷卻縮減 +6%",
         "詠唱速度 +12%",
         "最大 HP -2%"
+      ],
+      "effects": [
+        {
+          "stat": "haste",
+          "value": 0.06
+        },
+        {
+          "stat": "castHaste",
+          "value": 0.12
+        },
+        {
+          "stat": "maxHpPct",
+          "value": -0.02
+        }
       ],
       "tags": [
         "cooldown",
@@ -33049,8 +34387,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4170,
@@ -33061,6 +34401,16 @@
       "bonuses": [
         "命中暈眩率 +5%",
         "減傷 +4%"
+      ],
+      "effects": [
+        {
+          "stat": "stunChance",
+          "value": 0.05
+        },
+        {
+          "stat": "damageReduction",
+          "value": 0.04
+        }
       ],
       "tags": [],
       "sources": [
@@ -33092,8 +34442,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4172,
@@ -33104,6 +34456,16 @@
       "bonuses": [
         "爆擊傷害 +15%",
         "傷害 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "critMult",
+          "value": 0.15
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.05
+        }
       ],
       "tags": [
         "crit",
@@ -33138,8 +34500,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4174,
@@ -33149,6 +34513,12 @@
       "equipSlot": "garment",
       "bonuses": [
         "減傷 +12%"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.12
+        }
       ],
       "tags": [],
       "sources": [
@@ -33186,8 +34556,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4176,
@@ -33198,6 +34570,16 @@
       "bonuses": [
         "爆擊傷害 +15%",
         "Boss／菁英傷害 +15%"
+      ],
+      "effects": [
+        {
+          "stat": "critMult",
+          "value": 0.15
+        },
+        {
+          "stat": "bossEliteMult",
+          "value": 0.15
+        }
       ],
       "tags": [
         "crit",
@@ -33232,8 +34614,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4178,
@@ -33243,6 +34627,12 @@
       "equipSlot": "garment",
       "bonuses": [
         "移動速度 +4%"
+      ],
+      "effects": [
+        {
+          "stat": "speedMult",
+          "value": 0.04
+        }
       ],
       "tags": [],
       "sources": [
@@ -33274,8 +34664,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4179,
@@ -33286,6 +34678,16 @@
       "bonuses": [
         "AGI +1",
         "迴避 +2%"
+      ],
+      "effects": [
+        {
+          "stat": "agi",
+          "value": 1
+        },
+        {
+          "stat": "flee",
+          "value": 0.02
+        }
       ],
       "tags": [],
       "sources": [
@@ -33317,8 +34719,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4181,
@@ -33329,6 +34733,16 @@
       "bonuses": [
         "命中暈眩率 +5%",
         "減傷 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "stunChance",
+          "value": 0.05
+        },
+        {
+          "stat": "damageReduction",
+          "value": 0.05
+        }
       ],
       "tags": [],
       "sources": [
@@ -33360,8 +34774,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4183,
@@ -33372,6 +34788,16 @@
       "bonuses": [
         "STR +1",
         "傷害 +4%"
+      ],
+      "effects": [
+        {
+          "stat": "str",
+          "value": 1
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.04
+        }
       ],
       "tags": [
         "damage"
@@ -33405,8 +34831,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4185,
@@ -33417,6 +34845,16 @@
       "bonuses": [
         "冷卻縮減 +5%",
         "INT +1"
+      ],
+      "effects": [
+        {
+          "stat": "haste",
+          "value": 0.05
+        },
+        {
+          "stat": "int",
+          "value": 1
+        }
       ],
       "tags": [
         "cooldown"
@@ -33450,8 +34888,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4187,
@@ -33462,6 +34902,16 @@
       "bonuses": [
         "Zeny 獲得 +10%",
         "投射物速度 +8%"
+      ],
+      "effects": [
+        {
+          "stat": "zenyMult",
+          "value": 0.1
+        },
+        {
+          "stat": "projSpeedMult",
+          "value": 0.08
+        }
       ],
       "tags": [],
       "sources": [
@@ -33493,8 +34943,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4188,
@@ -33505,6 +34957,16 @@
       "bonuses": [
         "拾取範圍 +15%",
         "Zeny 獲得 +10%"
+      ],
+      "effects": [
+        {
+          "stat": "pickupRadius",
+          "value": 0.15
+        },
+        {
+          "stat": "zenyMult",
+          "value": 0.1
+        }
       ],
       "tags": [],
       "sources": [
@@ -33536,8 +34998,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4190,
@@ -33548,6 +35012,16 @@
       "bonuses": [
         "Zeny 獲得 +10%",
         "HP 回復 +0.5 HP/s"
+      ],
+      "effects": [
+        {
+          "stat": "zenyMult",
+          "value": 0.1
+        },
+        {
+          "stat": "regen",
+          "value": 0.5
+        }
       ],
       "tags": [
         "hp"
@@ -33581,8 +35055,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4191,
@@ -33593,6 +35069,16 @@
       "bonuses": [
         "HP 回復 +1.2 HP/s",
         "HP +40"
+      ],
+      "effects": [
+        {
+          "stat": "regen",
+          "value": 1.2
+        },
+        {
+          "stat": "maxHp",
+          "value": 40
+        }
       ],
       "tags": [
         "hp"
@@ -33626,8 +35112,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4193,
@@ -33638,6 +35126,16 @@
       "bonuses": [
         "HP 回復 +0.8 HP/s",
         "護甲 +2"
+      ],
+      "effects": [
+        {
+          "stat": "regen",
+          "value": 0.8
+        },
+        {
+          "stat": "armor",
+          "value": 2
+        }
       ],
       "tags": [
         "hp"
@@ -33671,8 +35169,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4195,
@@ -33683,6 +35183,16 @@
       "bonuses": [
         "減傷 +4%",
         "拾取範圍 +10%"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.04
+        },
+        {
+          "stat": "pickupRadius",
+          "value": 0.1
+        }
       ],
       "tags": [],
       "sources": [
@@ -33714,8 +35224,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4197,
@@ -33726,6 +35238,16 @@
       "bonuses": [
         "迴避 +6%",
         "爆擊率 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "flee",
+          "value": 0.06
+        },
+        {
+          "stat": "critChance",
+          "value": 0.03
+        }
       ],
       "tags": [
         "crit"
@@ -33759,8 +35281,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mvp"
     },
     {
       "id": 4199,
@@ -33770,6 +35294,12 @@
       "equipSlot": "accessory",
       "bonuses": [
         "HP 回復 +0.6 HP/s"
+      ],
+      "effects": [
+        {
+          "stat": "regen",
+          "value": 0.6
+        }
       ],
       "tags": [
         "hp"
@@ -33803,8 +35333,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4205,
@@ -33815,6 +35347,16 @@
       "bonuses": [
         "Zeny 獲得 +12%",
         "拾取範圍 +15%"
+      ],
+      "effects": [
+        {
+          "stat": "zenyMult",
+          "value": 0.12
+        },
+        {
+          "stat": "pickupRadius",
+          "value": 0.15
+        }
       ],
       "tags": [],
       "sources": [
@@ -33846,8 +35388,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4206,
@@ -33858,6 +35402,16 @@
       "bonuses": [
         "Zeny 獲得 +12%",
         "EXP 獲得 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "zenyMult",
+          "value": 0.12
+        },
+        {
+          "stat": "expMult",
+          "value": 0.03
+        }
       ],
       "tags": [],
       "sources": [
@@ -33889,8 +35443,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4207,
@@ -33901,6 +35457,16 @@
       "bonuses": [
         "減傷 +6%",
         "迴避 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.06
+        },
+        {
+          "stat": "flee",
+          "value": 0.03
+        }
       ],
       "tags": [],
       "sources": [
@@ -33932,8 +35498,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4210,
@@ -33944,6 +35512,16 @@
       "bonuses": [
         "迴避 +7%",
         "命中暈眩率 +4%"
+      ],
+      "effects": [
+        {
+          "stat": "flee",
+          "value": 0.07
+        },
+        {
+          "stat": "stunChance",
+          "value": 0.04
+        }
       ],
       "tags": [],
       "sources": [
@@ -33975,8 +35553,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4211,
@@ -33987,6 +35567,16 @@
       "bonuses": [
         "移動速度 +6%",
         "迴避 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "speedMult",
+          "value": 0.06
+        },
+        {
+          "stat": "flee",
+          "value": 0.03
+        }
       ],
       "tags": [],
       "sources": [
@@ -34018,8 +35608,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4212,
@@ -34029,6 +35621,12 @@
       "equipSlot": "accessory",
       "bonuses": [
         "VIT +2"
+      ],
+      "effects": [
+        {
+          "stat": "vit",
+          "value": 2
+        }
       ],
       "tags": [],
       "sources": [
@@ -34060,8 +35658,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4214,
@@ -34072,6 +35672,16 @@
       "bonuses": [
         "爆擊傷害 +15%",
         "傷害 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "critMult",
+          "value": 0.15
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.05
+        }
       ],
       "tags": [
         "crit",
@@ -34106,8 +35716,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4216,
@@ -34118,6 +35730,16 @@
       "bonuses": [
         "減傷 +6%",
         "HP +40"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.06
+        },
+        {
+          "stat": "maxHp",
+          "value": 40
+        }
       ],
       "tags": [
         "hp"
@@ -34151,8 +35773,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4217,
@@ -34163,6 +35787,16 @@
       "bonuses": [
         "HP 回復 +1 HP/s",
         "HP +20"
+      ],
+      "effects": [
+        {
+          "stat": "regen",
+          "value": 1
+        },
+        {
+          "stat": "maxHp",
+          "value": 20
+        }
       ],
       "tags": [
         "hp"
@@ -34196,8 +35830,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4221,
@@ -34208,6 +35844,16 @@
       "bonuses": [
         "移動速度 +6%",
         "Boss／不死系傷害 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "speedMult",
+          "value": 0.06
+        },
+        {
+          "stat": "bossUndeadMult",
+          "value": 0.05
+        }
       ],
       "tags": [
         "damage"
@@ -34247,8 +35893,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4222,
@@ -34259,6 +35907,16 @@
       "bonuses": [
         "命中暈眩率 +5%",
         "減傷 +4%"
+      ],
+      "effects": [
+        {
+          "stat": "stunChance",
+          "value": 0.05
+        },
+        {
+          "stat": "damageReduction",
+          "value": 0.04
+        }
       ],
       "tags": [],
       "sources": [
@@ -34290,8 +35948,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4225,
@@ -34302,6 +35962,16 @@
       "bonuses": [
         "傷害 +4%",
         "穿透率 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.04
+        },
+        {
+          "stat": "pierceChance",
+          "value": 0.05
+        }
       ],
       "tags": [
         "damage"
@@ -34335,8 +36005,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4227,
@@ -34347,6 +36019,16 @@
       "bonuses": [
         "藥水回復 +40%",
         "Zeny 獲得 +8%"
+      ],
+      "effects": [
+        {
+          "stat": "potionMult",
+          "value": 0.4
+        },
+        {
+          "stat": "zenyMult",
+          "value": 0.08
+        }
       ],
       "tags": [],
       "sources": [
@@ -34378,8 +36060,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4229,
@@ -34390,6 +36074,16 @@
       "bonuses": [
         "詠唱速度 +12%",
         "冷卻縮減 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "castHaste",
+          "value": 0.12
+        },
+        {
+          "stat": "haste",
+          "value": 0.05
+        }
       ],
       "tags": [
         "cooldown"
@@ -34423,8 +36117,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4235,
@@ -34435,6 +36131,16 @@
       "bonuses": [
         "EXP 獲得 +6%",
         "減傷 -1%"
+      ],
+      "effects": [
+        {
+          "stat": "expMult",
+          "value": 0.06
+        },
+        {
+          "stat": "damageReduction",
+          "value": -0.01
+        }
       ],
       "tags": [],
       "sources": [
@@ -34466,8 +36172,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4237,
@@ -34478,6 +36186,16 @@
       "bonuses": [
         "傷害 +6%",
         "雙重施法率 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.06
+        },
+        {
+          "stat": "doubleChance",
+          "value": 0.05
+        }
       ],
       "tags": [
         "damage"
@@ -34511,8 +36229,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4238,
@@ -34523,6 +36243,16 @@
       "bonuses": [
         "Boss／菁英傷害 +15%",
         "傷害 +8%"
+      ],
+      "effects": [
+        {
+          "stat": "bossEliteMult",
+          "value": 0.15
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.08
+        }
       ],
       "tags": [
         "damage"
@@ -34556,8 +36286,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mvp"
     },
     {
       "id": 4239,
@@ -34568,6 +36300,16 @@
       "bonuses": [
         "EXP 獲得 +6%",
         "移動速度 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "expMult",
+          "value": 0.06
+        },
+        {
+          "stat": "speedMult",
+          "value": 0.03
+        }
       ],
       "tags": [],
       "sources": [
@@ -34599,8 +36341,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4243,
@@ -34612,6 +36356,20 @@
         "減傷 +8%",
         "移動速度 +6%",
         "Zeny 獲得 +15%"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.08
+        },
+        {
+          "stat": "speedMult",
+          "value": 0.06
+        },
+        {
+          "stat": "zenyMult",
+          "value": 0.15
+        }
       ],
       "tags": [],
       "sources": [
@@ -34643,8 +36401,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mvp"
     },
     {
       "id": 4244,
@@ -34655,6 +36415,16 @@
       "bonuses": [
         "HP +50",
         "護甲 +1"
+      ],
+      "effects": [
+        {
+          "stat": "maxHp",
+          "value": 50
+        },
+        {
+          "stat": "armor",
+          "value": 1
+        }
       ],
       "tags": [
         "hp"
@@ -34688,8 +36458,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4248,
@@ -34700,6 +36472,16 @@
       "bonuses": [
         "HP 回復 +1.2 HP/s",
         "HP +30"
+      ],
+      "effects": [
+        {
+          "stat": "regen",
+          "value": 1.2
+        },
+        {
+          "stat": "maxHp",
+          "value": 30
+        }
       ],
       "tags": [
         "hp"
@@ -34733,8 +36515,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4250,
@@ -34745,6 +36529,16 @@
       "bonuses": [
         "減傷 +7%",
         "護甲 +1"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.07
+        },
+        {
+          "stat": "armor",
+          "value": 1
+        }
       ],
       "tags": [],
       "sources": [
@@ -34776,8 +36570,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4254,
@@ -34788,6 +36584,16 @@
       "bonuses": [
         "減傷 +5%",
         "護甲 +3"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.05
+        },
+        {
+          "stat": "armor",
+          "value": 3
+        }
       ],
       "tags": [],
       "sources": [
@@ -34819,8 +36625,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4255,
@@ -34831,6 +36639,16 @@
       "bonuses": [
         "傷害 +4%",
         "Boss／菁英傷害 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.04
+        },
+        {
+          "stat": "bossEliteMult",
+          "value": 0.05
+        }
       ],
       "tags": [
         "damage"
@@ -34864,8 +36682,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4256,
@@ -34875,6 +36695,12 @@
       "equipSlot": "accessory",
       "bonuses": [
         "Zeny 獲得 +10%"
+      ],
+      "effects": [
+        {
+          "stat": "zenyMult",
+          "value": 0.1
+        }
       ],
       "tags": [],
       "sources": [
@@ -34906,8 +36732,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4259,
@@ -34918,6 +36746,16 @@
       "bonuses": [
         "護甲 +3",
         "HP 回復 +1.1 HP/s"
+      ],
+      "effects": [
+        {
+          "stat": "armor",
+          "value": 3
+        },
+        {
+          "stat": "regen",
+          "value": 1.1
+        }
       ],
       "tags": [
         "hp"
@@ -34951,8 +36789,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4266,
@@ -34963,6 +36803,16 @@
       "bonuses": [
         "HP +50",
         "護甲 +1"
+      ],
+      "effects": [
+        {
+          "stat": "maxHp",
+          "value": 50
+        },
+        {
+          "stat": "armor",
+          "value": 1
+        }
       ],
       "tags": [
         "hp"
@@ -34996,8 +36846,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4275,
@@ -35008,6 +36860,16 @@
       "bonuses": [
         "EXP 獲得 +5%",
         "Zeny 獲得 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "expMult",
+          "value": 0.05
+        },
+        {
+          "stat": "zenyMult",
+          "value": 0.05
+        }
       ],
       "tags": [],
       "sources": [
@@ -35039,8 +36901,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4276,
@@ -35052,6 +36916,20 @@
         "命中暈眩率 +8%",
         "傷害 +8%",
         "持續傷害 +10%"
+      ],
+      "effects": [
+        {
+          "stat": "stunChance",
+          "value": 0.08
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.08
+        },
+        {
+          "stat": "dotDmg",
+          "value": 0.1
+        }
       ],
       "tags": [
         "damage"
@@ -35085,8 +36963,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mvp"
     },
     {
       "id": 4278,
@@ -35097,6 +36977,16 @@
       "bonuses": [
         "護甲 +2",
         "HP +40"
+      ],
+      "effects": [
+        {
+          "stat": "armor",
+          "value": 2
+        },
+        {
+          "stat": "maxHp",
+          "value": 40
+        }
       ],
       "tags": [
         "hp"
@@ -35130,8 +37020,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4283,
@@ -35142,6 +37034,16 @@
       "bonuses": [
         "HP +30",
         "護甲 +1"
+      ],
+      "effects": [
+        {
+          "stat": "maxHp",
+          "value": 30
+        },
+        {
+          "stat": "armor",
+          "value": 1
+        }
       ],
       "tags": [
         "hp"
@@ -35175,8 +37077,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4287,
@@ -35187,6 +37091,16 @@
       "bonuses": [
         "減傷 +5%",
         "迴避 +1%"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.05
+        },
+        {
+          "stat": "flee",
+          "value": 0.01
+        }
       ],
       "tags": [],
       "sources": [
@@ -35218,8 +37132,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4290,
@@ -35230,6 +37146,16 @@
       "bonuses": [
         "HP +50",
         "HP 回復 +0.5 HP/s"
+      ],
+      "effects": [
+        {
+          "stat": "maxHp",
+          "value": 50
+        },
+        {
+          "stat": "regen",
+          "value": 0.5
+        }
       ],
       "tags": [
         "hp"
@@ -35263,8 +37189,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4291,
@@ -35275,6 +37203,16 @@
       "bonuses": [
         "爆擊率 +5%",
         "傷害 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "critChance",
+          "value": 0.05
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.05
+        }
       ],
       "tags": [
         "crit",
@@ -35309,8 +37247,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4293,
@@ -35321,6 +37261,16 @@
       "bonuses": [
         "爆擊率 +4%",
         "傷害 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "critChance",
+          "value": 0.04
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.03
+        }
       ],
       "tags": [
         "crit",
@@ -35355,8 +37305,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4294,
@@ -35367,6 +37319,16 @@
       "bonuses": [
         "移動速度 +5%",
         "迴避 +4%"
+      ],
+      "effects": [
+        {
+          "stat": "speedMult",
+          "value": 0.05
+        },
+        {
+          "stat": "flee",
+          "value": 0.04
+        }
       ],
       "tags": [],
       "sources": [
@@ -35398,8 +37360,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4296,
@@ -35409,6 +37373,12 @@
       "equipSlot": "headgear",
       "bonuses": [
         "Zeny 獲得 +12%"
+      ],
+      "effects": [
+        {
+          "stat": "zenyMult",
+          "value": 0.12
+        }
       ],
       "tags": [],
       "sources": [
@@ -35440,8 +37410,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4297,
@@ -35452,6 +37424,16 @@
       "bonuses": [
         "爆擊傷害 +12%",
         "爆擊率 +4%"
+      ],
+      "effects": [
+        {
+          "stat": "critMult",
+          "value": 0.12
+        },
+        {
+          "stat": "critChance",
+          "value": 0.04
+        }
       ],
       "tags": [
         "crit",
@@ -35486,8 +37468,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4299,
@@ -35498,6 +37482,16 @@
       "bonuses": [
         "減傷 +5%",
         "護甲 +1"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.05
+        },
+        {
+          "stat": "armor",
+          "value": 1
+        }
       ],
       "tags": [],
       "sources": [
@@ -35529,8 +37523,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4300,
@@ -35541,6 +37537,16 @@
       "bonuses": [
         "命中暈眩率 +6%",
         "減傷 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "stunChance",
+          "value": 0.06
+        },
+        {
+          "stat": "damageReduction",
+          "value": 0.05
+        }
       ],
       "tags": [],
       "sources": [
@@ -35572,8 +37578,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4301,
@@ -35584,6 +37592,16 @@
       "bonuses": [
         "命中暈眩率 +3%",
         "減傷 +4%"
+      ],
+      "effects": [
+        {
+          "stat": "stunChance",
+          "value": 0.03
+        },
+        {
+          "stat": "damageReduction",
+          "value": 0.04
+        }
       ],
       "tags": [],
       "sources": [
@@ -35615,8 +37633,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4303,
@@ -35627,6 +37647,16 @@
       "bonuses": [
         "迴避 +6%",
         "傷害 +4%"
+      ],
+      "effects": [
+        {
+          "stat": "flee",
+          "value": 0.06
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.04
+        }
       ],
       "tags": [
         "damage"
@@ -35660,8 +37690,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4306,
@@ -35671,6 +37703,12 @@
       "equipSlot": "garment",
       "bonuses": [
         "迴避 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "flee",
+          "value": 0.05
+        }
       ],
       "tags": [],
       "sources": [
@@ -35702,8 +37740,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4313,
@@ -35714,6 +37754,16 @@
       "bonuses": [
         "移動速度 +4%",
         "減傷 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "speedMult",
+          "value": 0.04
+        },
+        {
+          "stat": "damageReduction",
+          "value": 0.03
+        }
       ],
       "tags": [],
       "sources": [
@@ -35745,8 +37795,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4314,
@@ -35756,6 +37808,12 @@
       "equipSlot": "shield",
       "bonuses": [
         "減傷 +6%"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.06
+        }
       ],
       "tags": [],
       "sources": [
@@ -35787,8 +37845,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4318,
@@ -35800,6 +37860,20 @@
         "攻擊範圍 +10%",
         "傷害 +6%",
         "命中暈眩率 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "areaMult",
+          "value": 0.1
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.06
+        },
+        {
+          "stat": "stunChance",
+          "value": 0.03
+        }
       ],
       "tags": [
         "damage"
@@ -35833,8 +37907,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4319,
@@ -35845,6 +37921,16 @@
       "bonuses": [
         "HP +60",
         "傷害 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "maxHp",
+          "value": 60
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.03
+        }
       ],
       "tags": [
         "damage",
@@ -35879,8 +37965,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4320,
@@ -35891,6 +37979,16 @@
       "bonuses": [
         "攻擊範圍 +10%",
         "傷害 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "areaMult",
+          "value": 0.1
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.05
+        }
       ],
       "tags": [
         "damage"
@@ -35924,8 +38022,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4321,
@@ -35936,6 +38036,16 @@
       "bonuses": [
         "命中暈眩率 +5%",
         "傷害 +4%"
+      ],
+      "effects": [
+        {
+          "stat": "stunChance",
+          "value": 0.05
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.04
+        }
       ],
       "tags": [
         "damage"
@@ -35969,8 +38079,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4322,
@@ -35981,6 +38093,16 @@
       "bonuses": [
         "減傷 +6%",
         "護甲 +2"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.06
+        },
+        {
+          "stat": "armor",
+          "value": 2
+        }
       ],
       "tags": [],
       "sources": [
@@ -36012,8 +38134,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mvp"
     },
     {
       "id": 4323,
@@ -36024,6 +38148,16 @@
       "bonuses": [
         "雙重施法率 +6%",
         "傷害 +4%"
+      ],
+      "effects": [
+        {
+          "stat": "doubleChance",
+          "value": 0.06
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.04
+        }
       ],
       "tags": [
         "damage"
@@ -36057,8 +38191,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4324,
@@ -36069,6 +38205,16 @@
       "bonuses": [
         "命中暈眩率 +6%",
         "減傷 +7%"
+      ],
+      "effects": [
+        {
+          "stat": "stunChance",
+          "value": 0.06
+        },
+        {
+          "stat": "damageReduction",
+          "value": 0.07
+        }
       ],
       "tags": [],
       "sources": [
@@ -36100,8 +38246,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4328,
@@ -36112,6 +38260,16 @@
       "bonuses": [
         "減傷 +6%",
         "迴避 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.06
+        },
+        {
+          "stat": "flee",
+          "value": 0.03
+        }
       ],
       "tags": [],
       "sources": [
@@ -36143,8 +38301,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4330,
@@ -36156,6 +38316,20 @@
         "詠唱速度 +12%",
         "減傷 +8%",
         "INT +3"
+      ],
+      "effects": [
+        {
+          "stat": "castHaste",
+          "value": 0.12
+        },
+        {
+          "stat": "damageReduction",
+          "value": 0.08
+        },
+        {
+          "stat": "int",
+          "value": 3
+        }
       ],
       "tags": [],
       "sources": [
@@ -36187,8 +38361,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4340,
@@ -36198,6 +38374,12 @@
       "equipSlot": "shield",
       "bonuses": [
         "減傷 +6%"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.06
+        }
       ],
       "tags": [],
       "sources": [
@@ -36229,8 +38411,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4372,
@@ -36242,6 +38426,20 @@
         "藥水回復 +50%",
         "HP 回復 +2 HP/s",
         "最大 HP +6%"
+      ],
+      "effects": [
+        {
+          "stat": "potionMult",
+          "value": 0.5
+        },
+        {
+          "stat": "regen",
+          "value": 2
+        },
+        {
+          "stat": "maxHpPct",
+          "value": 0.06
+        }
       ],
       "tags": [
         "hp"
@@ -36275,8 +38473,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mvp"
     },
     {
       "id": 4375,
@@ -36287,6 +38487,16 @@
       "bonuses": [
         "迴避 +5%",
         "減傷 +2%"
+      ],
+      "effects": [
+        {
+          "stat": "flee",
+          "value": 0.05
+        },
+        {
+          "stat": "damageReduction",
+          "value": 0.02
+        }
       ],
       "tags": [],
       "sources": [
@@ -36318,8 +38528,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4378,
@@ -36330,6 +38542,16 @@
       "bonuses": [
         "冷卻縮減 +5%",
         "最大 HP +6%"
+      ],
+      "effects": [
+        {
+          "stat": "haste",
+          "value": 0.05
+        },
+        {
+          "stat": "maxHpPct",
+          "value": 0.06
+        }
       ],
       "tags": [
         "cooldown",
@@ -36364,8 +38586,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4379,
@@ -36376,6 +38600,16 @@
       "bonuses": [
         "冷卻縮減 +5%",
         "迴避 +2%"
+      ],
+      "effects": [
+        {
+          "stat": "haste",
+          "value": 0.05
+        },
+        {
+          "stat": "flee",
+          "value": 0.02
+        }
       ],
       "tags": [
         "cooldown"
@@ -36409,8 +38643,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4380,
@@ -36421,6 +38657,16 @@
       "bonuses": [
         "傷害 +7%",
         "爆擊率 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.07
+        },
+        {
+          "stat": "critChance",
+          "value": 0.05
+        }
       ],
       "tags": [
         "crit",
@@ -36455,8 +38701,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4381,
@@ -36467,6 +38715,16 @@
       "bonuses": [
         "最大 HP +6%",
         "HP +15"
+      ],
+      "effects": [
+        {
+          "stat": "maxHpPct",
+          "value": 0.06
+        },
+        {
+          "stat": "maxHp",
+          "value": 15
+        }
       ],
       "tags": [
         "hp"
@@ -36500,8 +38758,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4382,
@@ -36512,6 +38772,16 @@
       "bonuses": [
         "HP +35",
         "HP 回復 +0.8 HP/s"
+      ],
+      "effects": [
+        {
+          "stat": "maxHp",
+          "value": 35
+        },
+        {
+          "stat": "regen",
+          "value": 0.8
+        }
       ],
       "tags": [
         "hp"
@@ -36545,8 +38815,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4383,
@@ -36557,6 +38829,16 @@
       "bonuses": [
         "命中暈眩率 +5%",
         "減傷 +4%"
+      ],
+      "effects": [
+        {
+          "stat": "stunChance",
+          "value": 0.05
+        },
+        {
+          "stat": "damageReduction",
+          "value": 0.04
+        }
       ],
       "tags": [],
       "sources": [
@@ -36588,8 +38870,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4384,
@@ -36600,6 +38884,16 @@
       "bonuses": [
         "雙重施法率 +6%",
         "傷害 +5%"
+      ],
+      "effects": [
+        {
+          "stat": "doubleChance",
+          "value": 0.06
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.05
+        }
       ],
       "tags": [
         "damage"
@@ -36633,8 +38927,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4385,
@@ -36644,6 +38940,12 @@
       "equipSlot": "accessory",
       "bonuses": [
         "Zeny 獲得 +12%"
+      ],
+      "effects": [
+        {
+          "stat": "zenyMult",
+          "value": 0.12
+        }
       ],
       "tags": [],
       "sources": [
@@ -36675,8 +38977,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4386,
@@ -36687,6 +38991,16 @@
       "bonuses": [
         "減傷 +10%",
         "命中暈眩率 +6%"
+      ],
+      "effects": [
+        {
+          "stat": "damageReduction",
+          "value": 0.1
+        },
+        {
+          "stat": "stunChance",
+          "value": 0.06
+        }
       ],
       "tags": [],
       "sources": [
@@ -36718,8 +39032,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mvp"
     },
     {
       "id": 4387,
@@ -36730,6 +39046,16 @@
       "bonuses": [
         "迴避 +5%",
         "AGI +2"
+      ],
+      "effects": [
+        {
+          "stat": "flee",
+          "value": 0.05
+        },
+        {
+          "stat": "agi",
+          "value": 2
+        }
       ],
       "tags": [],
       "sources": [
@@ -36761,8 +39087,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4415,
@@ -36773,6 +39101,16 @@
       "bonuses": [
         "Zeny 獲得 +12%",
         "藥水回復 +20%"
+      ],
+      "effects": [
+        {
+          "stat": "zenyMult",
+          "value": 0.12
+        },
+        {
+          "stat": "potionMult",
+          "value": 0.2
+        }
       ],
       "tags": [],
       "sources": [
@@ -36804,8 +39142,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4416,
@@ -36816,6 +39156,16 @@
       "bonuses": [
         "傷害 +4%",
         "詠唱速度 +8%"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.04
+        },
+        {
+          "stat": "castHaste",
+          "value": 0.08
+        }
       ],
       "tags": [
         "damage"
@@ -36849,8 +39199,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4417,
@@ -36861,6 +39213,16 @@
       "bonuses": [
         "護甲 +3",
         "HP +40"
+      ],
+      "effects": [
+        {
+          "stat": "armor",
+          "value": 3
+        },
+        {
+          "stat": "maxHp",
+          "value": 40
+        }
       ],
       "tags": [
         "hp"
@@ -36894,8 +39256,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4418,
@@ -36906,6 +39270,16 @@
       "bonuses": [
         "雙重施法率 +6%",
         "傷害 +4%"
+      ],
+      "effects": [
+        {
+          "stat": "doubleChance",
+          "value": 0.06
+        },
+        {
+          "stat": "damageMult",
+          "value": 0.04
+        }
       ],
       "tags": [
         "damage"
@@ -36939,8 +39313,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4419,
@@ -36952,6 +39328,20 @@
         "傷害 +8%",
         "減傷 +4%",
         "命中暈眩率 +6%"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.08
+        },
+        {
+          "stat": "damageReduction",
+          "value": 0.04
+        },
+        {
+          "stat": "stunChance",
+          "value": 0.06
+        }
       ],
       "tags": [
         "damage"
@@ -36985,8 +39375,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4441,
@@ -36998,6 +39390,20 @@
         "傷害 +11%",
         "Boss／菁英傷害 +19%",
         "冷卻縮減 -4%"
+      ],
+      "effects": [
+        {
+          "stat": "damageMult",
+          "value": 0.11
+        },
+        {
+          "stat": "bossEliteMult",
+          "value": 0.19
+        },
+        {
+          "stat": "haste",
+          "value": -0.04
+        }
       ],
       "tags": [
         "cooldown",
@@ -37032,8 +39438,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "normal"
     },
     {
       "id": 4524,
@@ -37043,6 +39451,12 @@
       "equipSlot": "headgear",
       "bonuses": [
         "STR +2"
+      ],
+      "effects": [
+        {
+          "stat": "str",
+          "value": 2
+        }
       ],
       "tags": [],
       "sources": [
@@ -37074,8 +39488,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mini"
     },
     {
       "id": 4525,
@@ -37086,6 +39502,16 @@
       "bonuses": [
         "迴避 +8%",
         "爆擊率 +3%"
+      ],
+      "effects": [
+        {
+          "stat": "flee",
+          "value": 0.08
+        },
+        {
+          "stat": "critChance",
+          "value": 0.03
+        }
       ],
       "tags": [
         "crit"
@@ -37119,8 +39545,10 @@
       },
       "fieldProvenance": {
         "registration": "official",
-        "name": "official"
-      }
+        "name": "official",
+        "effects": "official"
+      },
+      "bossRank": "mvp"
     }
   ],
   "monsters": [
@@ -40532,6 +42960,24 @@
         "rights": "not-cleared",
         "renderAllowed": false
       },
+      "chapter": 1,
+      "gsMin": 0,
+      "lapTiers": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "lapGS": [
+        0,
+        933,
+        1286,
+        1773,
+        2443,
+        3367
+      ],
       "open": true,
       "season": false,
       "story": false,
@@ -40579,6 +43025,24 @@
         "rights": "not-cleared",
         "renderAllowed": false
       },
+      "chapter": 1,
+      "gsMin": 20,
+      "lapTiers": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "lapGS": [
+        20,
+        967,
+        1333,
+        1837,
+        2532,
+        3490
+      ],
       "open": true,
       "season": false,
       "story": false,
@@ -40617,6 +43081,24 @@
         "rights": "not-cleared",
         "renderAllowed": false
       },
+      "chapter": 1,
+      "gsMin": 40,
+      "lapTiers": [
+        1,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "lapGS": [
+        40,
+        1002,
+        1381,
+        1904,
+        2624,
+        3616
+      ],
       "open": true,
       "season": false,
       "story": false,
@@ -40652,6 +43134,24 @@
         "rights": "not-cleared",
         "renderAllowed": false
       },
+      "chapter": 1,
+      "gsMin": 110,
+      "lapTiers": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "lapGS": [
+        110,
+        1038,
+        1431,
+        1973,
+        2719,
+        3748
+      ],
       "open": true,
       "season": false,
       "story": false,
@@ -40689,6 +43189,24 @@
         "rights": "not-cleared",
         "renderAllowed": false
       },
+      "chapter": 1,
+      "gsMin": 135,
+      "lapTiers": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "lapGS": [
+        135,
+        1076,
+        1483,
+        2044,
+        2818,
+        3884
+      ],
       "open": true,
       "season": false,
       "story": false,
@@ -40733,6 +43251,24 @@
         "rights": "not-cleared",
         "renderAllowed": false
       },
+      "chapter": 1,
+      "gsMin": 165,
+      "lapTiers": [
+        2,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "lapGS": [
+        165,
+        1115,
+        1537,
+        2118,
+        2920,
+        4025
+      ],
       "open": true,
       "season": false,
       "story": false,
@@ -40773,6 +43309,24 @@
         "rights": "not-cleared",
         "renderAllowed": false
       },
+      "chapter": 1,
+      "gsMin": 185,
+      "lapTiers": [
+        2,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "lapGS": [
+        185,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
       "open": false,
       "season": false,
       "story": true,
@@ -40802,6 +43356,24 @@
         "rights": "not-cleared",
         "renderAllowed": false
       },
+      "chapter": 1,
+      "gsMin": 400,
+      "lapTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "lapGS": [
+        400,
+        1156,
+        1593,
+        2195,
+        3026,
+        4171
+      ],
       "open": true,
       "season": false,
       "story": false,
@@ -40841,6 +43413,24 @@
         "rights": "not-cleared",
         "renderAllowed": false
       },
+      "chapter": 1,
+      "gsMin": 650,
+      "lapTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "lapGS": [
+        650,
+        1198,
+        1651,
+        2275,
+        3136,
+        4322
+      ],
       "open": true,
       "season": false,
       "story": false,
@@ -40881,6 +43471,24 @@
         "rights": "not-cleared",
         "renderAllowed": false
       },
+      "chapter": 1,
+      "gsMin": 900,
+      "lapTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "lapGS": [
+        900,
+        1241,
+        1710,
+        2358,
+        3249,
+        4479
+      ],
       "open": true,
       "season": false,
       "story": false,
@@ -40916,6 +43524,24 @@
         "rights": "not-cleared",
         "renderAllowed": false
       },
+      "chapter": 1,
+      "gsMin": 900,
+      "lapTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "lapGS": [
+        900,
+        1241,
+        1710,
+        2358,
+        3249,
+        4479
+      ],
       "open": false,
       "season": true,
       "story": false,
@@ -40958,6 +43584,24 @@
         "rights": "not-cleared",
         "renderAllowed": false
       },
+      "chapter": 1,
+      "gsMin": 900,
+      "lapTiers": [
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "lapGS": [
+        900,
+        1241,
+        1710,
+        2358,
+        3249,
+        4479
+      ],
       "open": false,
       "season": true,
       "story": false,
@@ -40999,6 +43643,24 @@
         "rights": "not-cleared",
         "renderAllowed": false
       },
+      "chapter": 2,
+      "gsMin": 2360,
+      "lapTiers": [
+        6,
+        7,
+        8,
+        8,
+        8,
+        8
+      ],
+      "lapGS": [
+        2360,
+        2650,
+        2950,
+        3400,
+        3950,
+        4600
+      ],
       "open": true,
       "season": false,
       "story": false,
@@ -41036,6 +43698,24 @@
         "rights": "not-cleared",
         "renderAllowed": false
       },
+      "chapter": 2,
+      "gsMin": 2410,
+      "lapTiers": [
+        6,
+        7,
+        8,
+        8,
+        8,
+        8
+      ],
+      "lapGS": [
+        2410,
+        2700,
+        3030,
+        3500,
+        4090,
+        4750
+      ],
       "open": true,
       "season": false,
       "story": false,
@@ -41075,6 +43755,24 @@
         "rights": "not-cleared",
         "renderAllowed": false
       },
+      "chapter": 2,
+      "gsMin": 2460,
+      "lapTiers": [
+        6,
+        7,
+        8,
+        8,
+        8,
+        8
+      ],
+      "lapGS": [
+        2460,
+        2750,
+        3100,
+        3600,
+        4230,
+        4900
+      ],
       "open": true,
       "season": false,
       "story": false,
@@ -41113,6 +43811,24 @@
         "rights": "not-cleared",
         "renderAllowed": false
       },
+      "chapter": 2,
+      "gsMin": 2500,
+      "lapTiers": [
+        6,
+        7,
+        8,
+        8,
+        8,
+        8
+      ],
+      "lapGS": [
+        2500,
+        2800,
+        3180,
+        3700,
+        4360,
+        5050
+      ],
       "open": true,
       "season": false,
       "story": false,
@@ -41151,6 +43867,24 @@
         "rights": "not-cleared",
         "renderAllowed": false
       },
+      "chapter": 2,
+      "gsMin": 2550,
+      "lapTiers": [
+        6,
+        7,
+        8,
+        8,
+        8,
+        8
+      ],
+      "lapGS": [
+        2550,
+        2850,
+        3250,
+        3800,
+        4500,
+        5200
+      ],
       "open": true,
       "season": false,
       "story": false,
