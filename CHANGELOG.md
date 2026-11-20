@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.3.0-dev.2 — 2026-11-20 (HANS third-job talent trees)
+## 0.3.0-dev.2 — 2026-11-20 (HANS third-job talent trees; published to Pages)
 
 - Added 16 game-registered third jobs, 48 third-job branches and 1,488 talent nodes by static AST inspection of a pinned HANS game bundle; 41 total jobs, 123 branches, 3,168 talents.
 - Third jobs use separate 70-point caps, 12-row tree layouts, 55-point ultimate unlock tiers, specialization and path-exclusive point validation.

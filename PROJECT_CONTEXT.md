@@ -19,8 +19,9 @@
 - 原咖啡版 WebP／FanKit、來源審核文件、舊驗證腳本已從 Dev 追蹤移除；新公開建置禁止輸出未獲授權圖片，和私人 HANS 來源研究快照分隔。
 - `tests/hans-catalog.test.mjs`：8 項新測試；TypeScript／Vite／公開 dist 安全檢查已通過（2026-11-19）。HANS 上游偶發 HTTP 503，後已恢復且三個來源 SHA 核對相同。
 
-## 2026-11-20 天賦模擬器（Dev，未發布）
-- 開發分支 `dev/talent-simulator-20261120`，在原本的組織 Pages 倉庫中開發；尚未合併 main。
+## 2026-11-20 天賦模擬器（正式站已上線）
+- 原開發分支 `dev/talent-simulator-20261120` 已通過 Linux CI，以 fast-forward 合併到 `main`，功能提交 `405b3c9`；GitHub Actions `44710397427` 的 verify/deploy 均成功。
+- 正式站 https://hans-ro-fanwiki.github.io/?page=talents&tj=warlock 已在隔離 Chrome 390px 實測：200、咒術士 93 個節點、70 點上限、0 前端錯誤。線上 `data/talents.json` HTTP 200，41 職、16 個三轉、3,168 節點，確認不是只有 Dev 有資料。
 - 2026-11-20 HANS 官方天賦頁 1b3ae686 對應資料 SHA 審核後，透過 AST 靜態抽取九個一轉職業、27 個分支、444 個節點，輸出 `public/data/talents.json`；原始腳本僅留 Gitignored evidence。
 - 新增 `src/TalentSimulator.tsx`、`src/talents.ts` 與暗色手機版樣式，使用 50 點上限、列門檻、前置依賴檢查，分享網址經來源版本與配置驗證。
 - 2026-11-20 第二輪改版：以 HANS 官方天賦頁實際 DOM 與安全快照核對，擴充為九個一轉、十六個官方開發中的二轉，共 25 職、75 分支、1,680 節點，加入效果說明與專精／路線互斥。介面重做為 HANS 天賦樹式三欄、手機分支切換、官方式節點連線與進度提示。
