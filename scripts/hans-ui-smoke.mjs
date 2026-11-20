@@ -59,9 +59,18 @@ try{
   assert.match(await page.locator('#stage-louyang').getByRole('button',{name:/墨蛇君卡片/}).innerText(),/闖入 Boss/);
  await page.goto(base+'?page=cards',{waitUntil:'networkidle'});
  assert.equal(Number((await page.locator('.heading-count').innerText()).trim()),188);
+ assert.match(await page.getByRole('button',{name:/波利卡片/}).first().innerText(),/卡片｜盔甲/,'Card socket location shown in list');
+ const slots=page.getByRole('group',{name:'卡片鑲嵌部位'});
+ await slots.getByRole('button',{name:'飾品'}).click();
+ assert.ok(Number((await page.locator('.heading-count').innerText()).trim())<188,'Socket filter narrows cards');
+ await slots.getByRole('button',{name:'全部'}).click();
  await page.getByRole('button',{name:/更多篩選/}).click();
- await page.getByRole('button',{name:'冷卻縮減',exact:true}).click();
+ assert.equal(await page.getByText('卡片效果').count(),0,'No duplicate card effect category');
+ assert.ok(await page.getByText('攻擊與戰鬥').isVisible());
+ await page.getByRole('button',{name:'冷卻',exact:true}).click();
  assert.equal(Number((await page.locator('.heading-count').innerText()).trim()),12);
+ await page.goto(base+'?page=cards&effect=cooldown',{waitUntil:'networkidle'});
+ assert.equal(Number((await page.locator('.heading-count').innerText()).trim()),12,'Old card effect URL still works');
  await page.getByRole('button',{name:'依關卡看'}).click();
  await page.getByRole('button',{name:'全部展開'}).click();
  assert.ok(await page.locator('.compact-item').count()>0);
@@ -69,12 +78,32 @@ try{
  await page.goto(base+'?page=cards&source=bossDrop',{waitUntil:'networkidle'});
  assert.equal(Number((await page.locator('.heading-count').innerText()).trim()),66);
  await page.goto(base+'?page=stages',{waitUntil:'networkidle'});
- assert.equal(Number((await page.locator('.heading-count').innerText()).trim()),14);
+ assert.equal(Number((await page.locator('.heading-count').innerText()).trim()),17,'By default all 17 stages including events and story appear');
+ assert.equal(await page.locator('.stage-heading img.stage-map-image').count(),17,'Every stage uses the official HANS minimap');
+ const stagePhoto=page.locator('.stage-heading img.stage-map-image').first();
+ await stagePhoto.scrollIntoViewIfNeeded();
+ assert.ok(await stagePhoto.evaluate(img=>img.complete&&img.naturalWidth>0),'Stage minimap image actually loads');
+ checks.push({art:'stage-minimap',loaded:true});
+ await page.getByRole('button',{name:'活動關卡',exact:true}).click();
+ assert.equal(await page.locator('.stage-heading').count(),2,'Both activity stages must be visible');
+ assert.ok(await page.locator('#stage-heading-xmas').isVisible());
+ assert.ok(await page.locator('#stage-heading-louyang').isVisible());
+ for(const id of ['xmas','louyang']){
+  const image=page.locator('#stage-heading-'+id+' img.stage-map-image');
+  await image.scrollIntoViewIfNeeded();
+  assert.ok(await image.evaluate(img=>img.complete&&img.naturalWidth>0),'Event minimap image loads: '+id);
+ }
+ await page.getByRole('button',{name:'劇情關卡',exact:true}).click();
+ assert.equal(await page.locator('.stage-heading').count(),1,'Story stage is discoverable');
+ assert.ok(await page.locator('#stage-heading-prt_castle').isVisible());
+ await page.getByRole('button',{name:'一般遠征',exact:true}).click();
+ assert.equal(await page.locator('.stage-heading').count(),14);
+ await page.getByRole('button',{name:'全部',exact:true}).click();
  await page.getByRole('button',{name:'全部展開'}).click();
- assert.equal(await page.locator('.stage-body').count(),14,'By default seasonal/story-only stages are hidden');
- await page.getByRole('checkbox',{name:'只看一般遠征'}).uncheck();
- await page.getByRole('button',{name:'全部展開'}).click();
- assert.equal(await page.locator('.stage-body').count(),await page.locator('.stage-heading').count());
+ assert.equal(await page.locator('.stage-body').count(),17);
+ await page.goto(base+'?page=stages&open=1',{waitUntil:'networkidle'});
+ assert.equal(await page.locator('.stage-heading').count(),14,'Legacy stage open filter is supported');
+ await page.goto(base+'?page=stages',{waitUntil:'networkidle'});
  for(const width of [320,375,390,430]){
   await page.setViewportSize({width,height:844});
   const dims=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth}));
@@ -84,6 +113,8 @@ try{
  await page.screenshot({path:path.join(folder,'hans-stages-390.png')});
  await page.setViewportSize({width:390,height:844});
  await page.goto(base+'?page=talents&tj=mage',{waitUntil:'networkidle'});
+ assert.equal(await page.getByRole('button',{name:'分享配點'}).count(),0,'Redundant share button removed');
+ assert.equal(await page.getByRole('button',{name:'複製連結'}).count(),1,'Copy link remains');
  await page.getByRole('button',{name:/職業選擇/}).click();
  assert.equal(await page.locator('.tg-jobs-grid .tg-job-group').count(),9,'Game-like nine class groups');
  await page.getByRole('button',{name:/職業選擇/}).click();
@@ -282,7 +313,8 @@ try{
   'No Coffee art path may be requested');
  const artRequests=requested.filter(url=>url.startsWith('https://ro.hans-webgametw.com/assets/'));
  assert.ok(artRequests.length>0,'Public site must actually request HANS image sources');
- assert.ok(artRequests.every(url=>/^https:\/\/ro\.hans-webgametw\.com\/assets\/(?:icons|items|cards)\/[A-Za-z0-9_-]+(?:_art)?\.png$/.test(url)),
+ assert.ok(artRequests.every(url=>/^https:\/\/ro\.hans-webgametw\.com\/assets\/(?:icons|items|cards)\/[A-Za-z0-9_-]+(?:_art)?\.png$/.test(url)||
+  /^https:\/\/ro\.hans-webgametw\.com\/assets\/maps\/[a-z0-9_]+\/minimap\.png$/.test(url)),
   'Game images only from allowlisted HANS icon/item/card paths');
  checks.push({artRequests:artRequests.length});
  checks.push({status:'PASS',errors:errors.length});

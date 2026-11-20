@@ -3,12 +3,12 @@ import type {Card,Equipment} from './types';
 export type SearchEntry=Card|Equipment;
 export const ATTRIBUTE_GROUPS=[
  {label:'角色屬性',options:[['str','STR'],['agi','AGI'],['vit','VIT'],['int','INT'],['dex','DEX'],['luk','LUK']]},
- {label:'戰鬥效果',options:[['cooldown','冷卻'],['damage','傷害'],['crit','爆擊'],['hit','命中'],['range','攻擊範圍']]},
- {label:'生存效果',options:[['hp','HP'],['armor','護甲'],['flee','迴避'],['reduction','減傷']]}
+ {label:'攻擊與戰鬥',options:[['attack','攻擊力'],['damage','傷害'],['crit','爆擊'],['hit','命中'],['cooldown','冷卻'],['range','攻擊範圍']]},
+ {label:'防禦與生存',options:[['hp','HP'],['armor','護甲'],['flee','迴避'],['reduction','減傷']]}
 ] as const;
 const attrPatterns:Record<string,RegExp>={
  str:/\bSTR\b|力量/i,agi:/\bAGI\b|敏捷/i,vit:/\bVIT\b|體質/i,int:/\bINT\b|智力/i,dex:/\bDEX\b|靈巧/i,luk:/\bLUK\b|幸運/i,
- cooldown:/冷卻|cooldown|\bCD\b/i,damage:/傷害|damage/i,crit:/爆擊|暴擊|critical/i,
+ attack:/\bATK\b|\bMATK\b|攻擊力|物理攻擊|魔法攻擊/i,cooldown:/冷卻|cooldown|\bCD\b/i,damage:/傷害|damage/i,crit:/爆擊|暴擊|critical/i,
  hit:/命中|\bHIT\b/i,range:/範圍|range/i,hp:/\bHP\b|生命/i,
  armor:/護甲|\bDEF\b|防禦/i,flee:/迴避|flee/i,
  reduction:/減傷|受到傷害|傷害減免/i,atk:/\bATK\b|物理攻擊/i,matk:/\bMATK\b|魔法攻擊/i
@@ -18,7 +18,7 @@ const aliases:Record<string,string>={
  減cd:'cooldown',cd:'cooldown',冷卻縮減:'cooldown',冷卻:'cooldown',
  暴擊:'crit',爆擊:'crit',迴避:'flee',命中:'hit',護甲:'armor',
  血量:'hp',生命:'hp',攻擊範圍:'range',範圍:'range',減傷:'reduction',
- 物攻:'atk',魔攻:'matk'
+ 攻擊力:'attack',物攻:'atk',魔攻:'matk'
 };
 export function effectLines(entry:SearchEntry):string[]{
  if(!('slot'in entry))return entry.bonuses;

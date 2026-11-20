@@ -64,6 +64,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {
 .art.card{background:#343845;color:#b8a6d2}
 .art.monster{background:#2c4248;color:#9dcbcf}
 .art.stage{background:#29423a;color:#a2d9bf}
+.stage-type-picker{background:#1e3035;border-color:var(--wiki-border)}
 .stage-heading{background:#29373d;color:var(--wiki-text)}
 .stage-heading small{color:var(--wiki-muted)}
 .stage-heading[aria-expanded=true]{background:#355046}

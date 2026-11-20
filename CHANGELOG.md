@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0-dev.9 — 2026-11-20 (map previews, cards and streamlined filters)
+
+- Remove the duplicate talent “分享配點” action; keep a single primary “複製連結” button for the existing compact three-rank share URL.
+- Read stage map IDs and thumbnails from the SHA-audited HANS stage rules and manifest; display 17 source-hosted minimaps with image-error fallback, without shipping artwork.
+- Show the HANS card socket slot in card lists and stage drops, with a dedicated card socket filter and consistent detail labels.
+- Consolidate card/combat stat filters into shared character, combat and survival groups; migrate legacy card effect links.
+- Make all 17 stages discoverable by default; add All, Normal, Event and Story filters while retaining compatibility with legacy open=1 links.
+- Extend unit and browser regressions for stage categories, official images, card sockets, old links and mobile widths.
+
+
 ## 0.3.0-dev.8 — 2026-11-20 (career-wide talent planning and short share links)
 
 - Reduce desktop talent hover dismissal from 320ms to 200ms without losing popup re-entry grace.

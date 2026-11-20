@@ -1,7 +1,7 @@
 import {useEffect,useLayoutEffect,useMemo,useRef,useState} from 'react';
 import {
  ArrowRight,BookOpen,Check,ChevronDown,ChevronUp,Copy,Crosshair,Droplets,ExternalLink,
- Flame,Footprints,Gem,Heart,Leaf,Link2,Minus,Mountain,Plus,RotateCcw,Share2,
+ Flame,Footprints,Gem,Heart,Leaf,Link2,Minus,Mountain,Plus,RotateCcw,
  Shield,Snowflake,Sparkles,Star,Sun,Swords,Target,Wind,Workflow,X,Zap,Skull,
  WandSparkles,Sword,Hand,ShieldCheck,CloudLightning
 } from 'lucide-react';
@@ -266,16 +266,7 @@ export function TalentSimulator({jobId,token,packed,onRoute}:Props){
   url.searchParams.set('t',encodeCareer(data!,career!));
   return url.href;
  };
- const share=async()=>{
-  if(!job||!data)return;
-  const url=shareUrl();
-  try{
-   if(navigator.share){await navigator.share({title:'HANS '+job.name+' 天賦配點',url});setFeedback('已開啟系統分享');}
-   else if(navigator.clipboard?.writeText){await navigator.clipboard.writeText(url);setFeedback('配點網址已複製');}
-   else{window.prompt('複製配點網址',url);}
-  }catch(e){if((e as Error).name!=='AbortError')setFeedback('分享失敗，請使用複製連結')}
- };
- const copy=async()=>{
+  const copy=async()=>{
   if(!job||!data)return;
   try{await navigator.clipboard.writeText(shareUrl());setFeedback('配點網址已複製');}
   catch{window.prompt('複製配點網址',shareUrl());}
@@ -328,8 +319,7 @@ export function TalentSimulator({jobId,token,packed,onRoute}:Props){
    <div className="tg-summary">
     <div><span>已分配點數</span><b>{spent}<small> / {total}</small></b></div>
     <div><span>剩餘點數</span><b>{remaining}</b></div>
-    <button type="button" className="tg-action tg-primary" onClick={share}><Share2 size={17}/>分享配點</button>
-    <button type="button" className="tg-action" onClick={copy}><Copy size={16}/>複製連結</button>
+    <button type="button" className="tg-action tg-primary" onClick={copy}><Copy size={16}/>複製連結</button>
     <button type="button" className="tg-action" disabled={!career||!Object.values(career.builds).some(b=>usedPoints(b)>0)} onClick={()=>{
      if(window.confirm('確定清空一轉、二轉、三轉所有天賦配點嗎？')){
       onRoute(job.job,'',encodeCareer(data,{...career!,builds:{}}),true);

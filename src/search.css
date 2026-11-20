@@ -12,6 +12,10 @@
 .filter-panel .filter-block:last-child{margin-bottom:0}
 .filter-panel .filter-block{margin-bottom:12px}
 .stage-accordion{display:grid;gap:10px}
+.stage-type-picker{display:grid;gap:7px;padding:10px 12px;border:1px solid #dce9e2;border-radius:12px;background:#f6f9f7}
+.stage-type-picker .filter-label{margin:0}
+.stage-type-picker .chip{min-height:38px;padding:7px 10px}
+.art.stage img.stage-map-image{display:block;width:100%;height:100%;object-fit:cover;object-position:center;image-rendering:auto}
 .stage-entry{border:1px solid #e1e9e3;border-radius:15px;overflow:hidden;background:#fff}
 .stage-heading{display:flex;width:100%;min-height:72px;padding:13px;text-align:left;border:0;background:#f8faf8;align-items:center;gap:11px;color:inherit}
 .stage-heading .result-main{flex:1;min-width:0}

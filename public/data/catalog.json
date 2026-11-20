@@ -40526,6 +40526,12 @@
       "name": "普隆德拉原野",
       "tier": 1,
       "levels": "1–8",
+      "image": {
+        "assetId": "prt_fild08",
+        "officialPath": "maps/prt_fild08/minimap.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
       "open": true,
       "season": false,
       "story": false,
@@ -40567,6 +40573,12 @@
       "name": "普隆德拉地下水道",
       "tier": 1,
       "levels": "9–12",
+      "image": {
+        "assetId": "prt_sewer",
+        "officialPath": "maps/prt_sewer/minimap.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
       "open": true,
       "season": false,
       "story": false,
@@ -40599,6 +40611,12 @@
       "name": "失事輪",
       "tier": 1,
       "levels": "13–15",
+      "image": {
+        "assetId": "sunken_deck",
+        "officialPath": "maps/sunken_deck/minimap.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
       "open": true,
       "season": false,
       "story": false,
@@ -40628,6 +40646,12 @@
       "name": "柏伊亞嵐島",
       "tier": 2,
       "levels": "16–20",
+      "image": {
+        "assetId": "byalan",
+        "officialPath": "maps/byalan/minimap.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
       "open": true,
       "season": false,
       "story": false,
@@ -40659,6 +40683,12 @@
       "name": "斐揚森林",
       "tier": 2,
       "levels": "21–25",
+      "image": {
+        "assetId": "pay_fild08",
+        "officialPath": "maps/pay_fild08/minimap.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
       "open": true,
       "season": false,
       "story": false,
@@ -40697,6 +40727,12 @@
       "name": "斐揚洞穴",
       "tier": 2,
       "levels": "26–30",
+      "image": {
+        "assetId": "payon_cave",
+        "officialPath": "maps/payon_cave/minimap.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
       "open": true,
       "season": false,
       "story": false,
@@ -40731,6 +40767,12 @@
       "name": "普隆德拉城",
       "tier": 2,
       "levels": "31–35",
+      "image": {
+        "assetId": "prt_throne",
+        "officialPath": "maps/prt_throne/minimap.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
       "open": false,
       "season": false,
       "story": true,
@@ -40754,6 +40796,12 @@
       "name": "獸人村",
       "tier": 3,
       "levels": "31–40",
+      "image": {
+        "assetId": "gef_fild10",
+        "officialPath": "maps/gef_fild10/minimap.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
       "open": true,
       "season": false,
       "story": false,
@@ -40787,6 +40835,12 @@
       "name": "夢羅克金字塔",
       "tier": 3,
       "levels": "41–50",
+      "image": {
+        "assetId": "moc_pryd04",
+        "officialPath": "maps/moc_pryd04/minimap.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
       "open": true,
       "season": false,
       "story": false,
@@ -40821,6 +40875,12 @@
       "name": "迷宮森林",
       "tier": 3,
       "levels": "51–60",
+      "image": {
+        "assetId": "prt_maze02",
+        "officialPath": "maps/prt_maze02/minimap.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
       "open": true,
       "season": false,
       "story": false,
@@ -40850,6 +40910,12 @@
       "name": "聖誕節",
       "tier": 3,
       "levels": "61–65",
+      "image": {
+        "assetId": "xmas",
+        "officialPath": "maps/xmas/minimap.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
       "open": false,
       "season": true,
       "story": false,
@@ -40886,6 +40952,12 @@
       "name": "元宵燈會",
       "tier": 3,
       "levels": "61–70",
+      "image": {
+        "assetId": "louyang",
+        "officialPath": "maps/louyang/minimap.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
       "open": false,
       "season": true,
       "story": false,
@@ -40921,6 +40993,12 @@
       "name": "吉芬地下迷宮",
       "tier": 8,
       "levels": "71–76",
+      "image": {
+        "assetId": "gef_dun01",
+        "officialPath": "maps/gef_dun01/minimap.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
       "open": true,
       "season": false,
       "story": false,
@@ -40952,6 +41030,12 @@
       "name": "時計塔地下",
       "tier": 8,
       "levels": "77–82",
+      "image": {
+        "assetId": "alde_dun03",
+        "officialPath": "maps/alde_dun03/minimap.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
       "open": true,
       "season": false,
       "story": false,
@@ -40985,6 +41069,12 @@
       "name": "深淵之湖",
       "tier": 8,
       "levels": "83–88",
+      "image": {
+        "assetId": "abyss_03",
+        "officialPath": "maps/abyss_03/minimap.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
       "open": true,
       "season": false,
       "story": false,
@@ -41017,6 +41107,12 @@
       "name": "克雷斯特漢姆修道院",
       "tier": 8,
       "levels": "89–94",
+      "image": {
+        "assetId": "gl_church",
+        "officialPath": "maps/gl_church/minimap.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
       "open": true,
       "season": false,
       "story": false,
@@ -41049,6 +41145,12 @@
       "name": "尼芙菲姆原野",
       "tier": 8,
       "levels": "95–99",
+      "image": {
+        "assetId": "nif_fild01",
+        "officialPath": "maps/nif_fild01/minimap.png",
+        "rights": "not-cleared",
+        "renderAllowed": false
+      },
       "open": true,
       "season": false,
       "story": false,

@@ -22,6 +22,7 @@
     "Equipment registrations, monster equipment-drop table, stage wave/boss pools, and card registrations are independently sourced from HANS.",
     "HANS main killEnemy uses the soul kW monster-to-card index for normal and boss pickups, except in story mode or before a linked boss group is defeated. Stage script intruder entries supply the four extra boss routes. The current November 20 main killEnemy and xe definitions and soul kW, yW and UA definitions match the audited snapshot. Per-card draw pools are server-provided and are not inferred.",
     "Item names and descriptions originate from the current HANS manifest; no old Coffee catalog content is merged.",
+    "Stage images are referenced only from each audited stage yW map ID and the audited manifest map.json directory. On November 20, all 17 HANS minimap.png URLs returned HTTP 200 and image/png; only source-hosted URLs/metadata are published, not the images.",
     "Original bundled game code and full-resolution art must not be committed or deployed."
   ]
 }

@@ -180,12 +180,18 @@ const stages = stageDefs.map(entry => {
   const config = stageRules[entry.id];
   if (!config || !Array.isArray(config.waves) || !Array.isArray(config.bosses))
     throw Error('HANS stage data not statically verifiable: ' + entry.id);
+  // The HANS map registry and stage config agree on this minimap location.
+  // Reference the original host only; game images are never shipped with the wiki.
+  const mapFile = manifest.maps?.[config.map];
+  if (!/^[a-z0-9_]+$/.test(config.map||'') || mapFile !== `maps/${config.map}/map.json`)
+    throw Error('HANS stage map is not in audited manifest: '+entry.id);
+  const image = artRecord(config.map, mapFile.replace(/map\.json$/, 'minimap.png'));
   const normalMonsterIds = [...new Set(config.waves.flatMap(wave => Array.isArray(wave.pool) ? wave.pool : []))];
   const intruderBossId = config.intruder?.id;
   const bossMonsterIds = [...new Set([intruderBossId,...config.bosses.map(boss=>boss.id)].filter(Boolean))];
   for (const monster of normalMonsterIds) link(monster, entry.id, false);
   for (const monster of bossMonsterIds) link(monster, entry.id, true);
-  const stage = {id:entry.id,name:zh(entry.name),tier:entry.tier,levels:entry.levels,
+  const stage = {id:entry.id,name:zh(entry.name),tier:entry.tier,levels:entry.levels,image,
     open:!entry.special&&!config.storyOnly,season:!!entry.special,story:!!config.storyOnly,planned:false,
     normalMonsterIds,bossMonsterIds,...(intruderBossId?{intruderBossId}:{}),candidatePoolCount:normalMonsterIds.length,
     candidateBossCount:bossMonsterIds.length,provenance:{stage:'official',monsterPool:'official'}};

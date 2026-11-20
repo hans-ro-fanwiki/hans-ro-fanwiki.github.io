@@ -76,3 +76,35 @@ test('deprecated Coffee image catalog is removed',()=>{
  assert.ok(!existsSync(new URL('../public/approved-thumbs',import.meta.url)));
  assert.ok(!existsSync(new URL('../docs/SOURCE_AUDIT.json',import.meta.url)));
 });
+test('all HANS stages use source-manifest minimaps without shipping game image files',()=>{
+ assert.equal(catalog.stages.filter(s=>s.image).length,17);
+ const unique=new Set();
+ for(const stage of catalog.stages){
+  assert.equal(stage.image.rights,'not-cleared');
+  assert.equal(stage.image.renderAllowed,false);
+  assert.match(stage.image.officialPath,/^maps\/[a-z0-9_]+\/minimap\.png$/);
+  assert.ok(!unique.has(stage.id));
+  unique.add(stage.id);
+ }
+});
+test('stage type filters show seasonal and story stages separately with legacy links',async()=>{
+ const {matchesStageType,parseStageType}=await import('../src/stage-type.ts');
+ assert.equal(parseStageType(null,'1'),'normal');
+ assert.equal(parseStageType(null,'0'),'all');
+ assert.equal(parseStageType('event','1'),'event');
+ assert.equal(parseStageType('story',null),'story');
+ assert.equal(catalog.stages.filter(s=>matchesStageType(s,'all')).length,17);
+ assert.equal(catalog.stages.filter(s=>matchesStageType(s,'normal')).length,14);
+ assert.deepEqual(catalog.stages.filter(s=>matchesStageType(s,'event')).map(s=>s.id),['xmas','louyang']);
+ assert.deepEqual(catalog.stages.filter(s=>matchesStageType(s,'story')).map(s=>s.id),['prt_castle']);
+});
+test('HANS card socket slots are known and combat/battle filters share one source of truth',async()=>{
+ const {ATTRIBUTE_GROUPS,attributeMatches}=await import('../src/search.ts');
+ const slots=new Set(['armor','accessory','garment','headgear','weapon','shield','shoes']);
+ assert.ok(catalog.cards.every(c=>slots.has(c.equipSlot)));
+ assert.equal(catalog.cards.find(c=>c.id===4001).equipSlot,'armor');
+ assert.deepEqual(ATTRIBUTE_GROUPS.map(g=>g.label),['角色屬性','攻擊與戰鬥','防禦與生存']);
+ assert.equal(new Set(ATTRIBUTE_GROUPS.flatMap(g=>g.options.map(([id])=>id))).size,ATTRIBUTE_GROUPS.flatMap(g=>g.options).length);
+ assert.equal(catalog.cards.filter(c=>attributeMatches(c,'cooldown')).length,12);
+ assert.ok(attributeMatches(catalog.cards.find(c=>c.id===4001),'crit'));
+});
