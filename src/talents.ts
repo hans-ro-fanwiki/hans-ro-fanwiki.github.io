@@ -4,14 +4,15 @@ export interface TalentNode {
  path?:string|null;summary?:string;maxEffect?:string;notes?:string[];
 }
 export interface TalentBranch {id:number;name:string;originalName:string;talents:TalentNode[];desc?:string;icon?:string|null;paths?:{name:string;desc:string}[];rows?:number;cols?:number;connections?:{from:string;to:string}[]}
-export interface TalentJob {job:string;name?:string;rank?:number;developing?:boolean;description?:string;rule?:string;base?:string;skills?:{id:string;icon:string|null}[];branches:TalentBranch[]}
+export interface TalentJob {job:string;sourceJobId?:string;originalName?:string;name?:string;rank?:number;developing?:boolean;description?:string;rule?:string;base?:string;skills?:{id:string;icon:string|null}[];branches:TalentBranch[]}
 export interface TalentCatalog {
  server:'hans';version:number;sourceCommit:string;sourceDate:string;sha256:string;officialTalentPage?:string;
- pointsPerJob:number;branchGate:number;jobs:TalentJob[];
+ pointsPerJob:number;pointsByRank?:Record<string,number>;gameThirdJobSourceSha256?:string;branchGate:number;jobs:TalentJob[];
 }
 export type TalentBuild=Record<string,number>;
 export const talentList=(job:TalentJob)=>job.branches.flatMap(b=>b.talents);
 export const usedPoints=(build:TalentBuild)=>Object.values(build).reduce((n,r)=>n+r,0);
+export const talentBudget=(data:TalentCatalog,job:TalentJob)=>data.pointsByRank?.[String(job.rank??1)]??data.pointsPerJob;
 
 export function gateFor(node:TalentNode,branch:TalentBranch,step:number):number{
  // Match HANS RO_TROW: mutually exclusive path variants count only the larger
@@ -40,7 +41,7 @@ export function checkBuild(job:TalentJob,build:TalentBuild,total:number,step:num
  if(usedPoints(build)>total)return '配點超過職業點數上限';
  if((job.rank??1)>=2){
   const usedBranches=job.branches.filter(branch=>branch.talents.some(node=>(build[node.id]||0)>0));
-  if(usedBranches.length>1)return '二轉只能在一條專精分支配點';
+  if(usedBranches.length>1)return '二轉／三轉只能在一條專精分支配點';
   for(const branch of usedBranches)for(const skill of ['s1','s2']){
    const pathA=branch.talents.some(node=>node.path===skill+'a'&&(build[node.id]||0)>0);
    const pathB=branch.talents.some(node=>node.path===skill+'b'&&(build[node.id]||0)>0);

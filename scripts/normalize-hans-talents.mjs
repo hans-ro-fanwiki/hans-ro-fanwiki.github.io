@@ -3,6 +3,7 @@
 import {readFileSync,writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import assert from 'node:assert/strict';
+import {extractThirdJobs} from './extract-hans-third-talents.mjs';
 const original=JSON.parse(readFileSync('evidence/hans-talents-20261120/first-job-talents.json','utf8'));
 const snapshotBytes=readFileSync('evidence/hans-talents-20261120/official-rendered.json');
 const snapshotSha=createHash('sha256').update(snapshotBytes).digest('hex');
@@ -12,8 +13,8 @@ assert.equal(snapshot.server,'hans');
 assert.equal(snapshot.jobs.length,25);
 assert.equal(original.jobs.filter(j=>(j.rank??1)===1).length,9);
 const firstOrder=new Map(original.jobs.filter(j=>(j.rank??1)===1).map(j=>[j.job,j]));
-const output={server:'hans',version:2,sourceCommit:original.sourceCommit,sourceDate:'2026-11-20',
- sha256:original.sha256,pointsPerJob:50,branchGate:5,officialTalentPage:'https://ro.hans-webgametw.com/talents.html',jobs:[]};
+const output={server:'hans',version:3,sourceCommit:original.sourceCommit,sourceDate:'2026-11-20',
+ sha256:original.sha256,pointsPerJob:50,pointsByRank:{1:50,2:50,3:70},branchGate:5,officialTalentPage:'https://ro.hans-webgametw.com/talents.html',jobs:[]};
 for(const job of snapshot.jobs){
  const old=firstOrder.get(job.job);
  if(job.rank===1)assert.ok(old,'missing original class '+job.job);
@@ -58,5 +59,10 @@ for(const job of snapshot.jobs){
 assert.equal(output.jobs.filter(j=>j.rank===1).length,9);
 assert.equal(output.jobs.filter(j=>j.rank===2).length,16);
 assert.equal(output.jobs.reduce((n,j)=>n+j.branches.reduce((m,b)=>m+b.talents.length,0),0),1680);
+const third=extractThirdJobs(new Set(output.jobs.map(j=>j.job)));
+output.gameThirdJobSourceSha256=third.sha256;
+output.jobs.push(...third.jobs);
+assert.equal(output.jobs.filter(j=>j.rank===3).length,16);
+assert.equal(output.jobs.reduce((n,j)=>n+j.branches.reduce((m,b)=>m+b.talents.length,0),0),3168);
 writeFileSync('public/data/talents.json',JSON.stringify(output,null,2)+'\n');
 console.log('output',output.jobs.length,'jobs',output.jobs.reduce((n,j)=>n+j.branches.reduce((m,b)=>m+b.talents.length,0),0),'nodes');

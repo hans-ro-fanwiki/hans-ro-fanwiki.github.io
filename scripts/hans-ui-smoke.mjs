@@ -93,6 +93,23 @@ try{
  await page.locator('[data-talent="wizard.0.s1"]').click();
  assert.match(await page.locator('[data-talent="wizard.0.s1"] .tg-rank').innerText(),/★/);
  checks.push({page:'talents',job:'wizard',nodes:await page.locator('.tg-node').count()});
+ await page.goto(base+'?page=talents&tj=warlock',{waitUntil:'networkidle'});
+ assert.match(await page.locator('.tg-job-title').innerText(),/咒術士/);
+ assert.match(await page.locator('.tg-job-title').innerText(),/三轉/);
+ assert.equal(await page.locator('.tg-trees .tg-tree-panel').count(),3);
+ assert.equal(await page.locator('.tg-node').count(),93);
+ assert.match(await page.locator('.tg-summary').innerText(),/70/,'Third tier has 70 talent points');
+ await page.locator('[data-talent="warlock.0.s1"]').click();
+ assert.match(await page.locator('[data-talent="warlock.0.s1"] .tg-rank').innerText(),/★/);
+ for(let i=0;i<4;i++)await page.locator('[data-talent="warlock.0.p0"]').click();
+ await page.locator('[data-talent="warlock.0.s1a1"]').click();
+ assert.ok(await page.locator('[data-talent="warlock.0.s1b1"]').evaluate(n=>n.classList.contains('tg-node-locked')),'Alternative third-job skill route must lock');
+ const thirdShare=page.url();
+ await page.getByRole('button',{name:'複製連結'}).click();
+ assert.equal(await page.evaluate(()=>navigator.clipboard.readText()),thirdShare);
+ await page.reload({waitUntil:'networkidle'});
+ assert.match(await page.locator('[data-talent="warlock.0.p0"] .tg-rank').innerText(),/4\/5/,'Third-job share restores');
+ await page.screenshot({path:path.join(folder,'hans-third-warlock-390.png'),fullPage:true});
  for(const width of [320,375,390,430]){
   await page.setViewportSize({width,height:844});
   const dims=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth}));

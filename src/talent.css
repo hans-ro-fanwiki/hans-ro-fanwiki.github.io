@@ -23,6 +23,11 @@ body:has(.tg-game) .section-heading{display:none}
 .tg-job .tg-icon svg{width:17px;height:17px}
 .tg-job-children{display:flex;flex-wrap:wrap;gap:4px;margin:2px 0 2px 17px;padding-left:10px;border-left:2px solid #cddbf3;min-height:31px}
 .tg-second{font-weight:650}
+.tg-job-path{display:flex;align-items:center;flex-wrap:wrap;gap:3px;min-width:0}
+.tg-third{color:#355078;background:#e9effb;border:1px solid #c7d6f3;font-size:12px;font-weight:650}
+.tg-third small{font-size:10px;color:#7790be}
+.tg-third.active{background:#4165b5;color:#fff}
+.tg-third.active small{color:#f5f8ff}
 .tg-job-title{display:flex;align-items:center;flex-wrap:wrap;gap:12px;margin:0 0 12px}
 .tg-job-title>.tg-icon{width:43px;height:43px}
 .tg-job-title>div{flex:1;min-width:170px}

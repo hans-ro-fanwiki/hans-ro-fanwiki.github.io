@@ -1,19 +1,21 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {changeRank,checkBuild,decodeBuild,encodeBuild,gateFor,talentList} from '../src/talents.ts';
+import {changeRank,checkBuild,decodeBuild,encodeBuild,gateFor,talentBudget,talentList,usedPoints} from '../src/talents.ts';
 
 const data=JSON.parse(readFileSync(new URL('../public/data/talents.json',import.meta.url),'utf8'));
 const mage=data.jobs.find(j=>j.job==='mage');
 
-test('HANS snapshot contains nine first jobs, 16 second jobs and 1,680 official talent nodes',()=>{
+test('HANS snapshot includes registered first, second and third jobs with unique source-backed talents',()=>{
  assert.equal(data.server,'hans');
- assert.equal(data.jobs.length,25);
+ assert.equal(data.jobs.length,41);
  assert.equal(data.jobs.filter(j=>j.rank===1).length,9);
  assert.equal(data.jobs.filter(j=>j.rank===2).length,16);
- assert.equal(data.jobs.flatMap(j=>j.branches).length,75);
+ assert.equal(data.jobs.filter(j=>j.rank===3).length,16);
+ assert.equal(data.jobs.flatMap(j=>j.branches).length,123);
+ assert.equal(data.gameThirdJobSourceSha256,'0201182d55c963b52c029016dd74651640e02c783d487f9077a7cd92ce5bf600');
  const nodes=data.jobs.flatMap(talentList);
- assert.equal(nodes.length,1680);
+ assert.equal(nodes.length,3168);
  assert.equal(new Set(nodes.map(n=>n.id)).size,nodes.length);
  for(const job of data.jobs) {
   const ids=new Set(talentList(job).map(n=>n.id));
@@ -21,7 +23,7 @@ test('HANS snapshot contains nine first jobs, 16 second jobs and 1,680 official 
    assert.ok(node.name.length>0);
    assert.ok(Number.isInteger(node.maxRank)&&node.maxRank>0&&node.maxRank<=10);
    assert.ok(Number.isInteger(node.row)&&node.row>=0);
-   assert.ok(Number.isInteger(node.col)&&node.col>=0&&node.col<(job.rank===2?5:4));
+   assert.ok(Number.isInteger(node.col)&&node.col>=0&&node.col<(job.rank===1?4:5));
    assert.ok(node.requires.every(id=>ids.has(id)),'unknown prerequisite '+node.id);
   }
  }
@@ -64,6 +66,44 @@ test('second-job specialization stays in one branch and skill paths are exclusiv
  assert.ok(a&&b);
  const conflict=checkBuild(wizard,{[a.id]:1,[b.id]:1},50,5);
  assert.match(conflict||'',/路線/);
+});
+test('HANS third-job topology, 70-point cap and duplicate-ID disambiguation',()=>{
+ const third=data.jobs.filter(j=>j.rank===3);
+ assert.equal(third.length,16);
+ assert.ok(third.every(j=>j.branches.length===3&&j.branches.every(b=>b.talents.length===31&&b.rows===12&&b.cols===5)));
+ assert.equal(third.flatMap(talentList).length,1488);
+ assert.equal(talentBudget(data,data.jobs.find(j=>j.job==='mage')),50);
+ assert.equal(talentBudget(data,data.jobs.find(j=>j.job==='wizard')),50);
+ assert.equal(talentBudget(data,data.jobs.find(j=>j.job==='warlock')),70);
+ const tree=data.jobs.find(j=>j.job==='warlock').branches[0];
+ assert.equal(gateFor(tree.talents.find(n=>n.row===11),tree,5),55);
+ assert.equal(data.jobs.find(j=>j.job==='kagerou_rank3').sourceJobId,'kagerou');
+ assert.equal(data.jobs.find(j=>j.job==='rebellion_rank3').sourceJobId,'rebellion');
+ const j=data.jobs.find(j=>j.job==='arch_bishop'),n=j.branches[0].talents[0];
+ const token=encodeBuild(j,{[n.id]:1},data.sourceCommit);
+ assert.deepEqual(decodeBuild(j,token,data.sourceCommit,talentBudget(data,j),5).build,{[n.id]:1});
+ assert.match(checkBuild(j,{[j.branches[0].talents[1].id]:1,[j.branches[1].talents[0].id]:1},70,5)||'',/專精/);
+});
+test('third-job ultimate talents are reachable with legitimate 70-point allocations across all 48 branches',()=>{
+ for(const job of data.jobs.filter(j=>j.rank===3)){
+  for(const branch of job.branches){
+   const candidates=branch.talents.filter(n=>!n.ultimate&&!n.path?.endsWith('b')).sort((a,b)=>a.row-b.row||a.col-b.col);
+   let build={};
+   for(const node of candidates){
+    for(let i=0;i<node.maxRank&&usedPoints(build)<55;i++){
+     const next=changeRank(job,build,node.id,1,70,5);
+     if(!next)break;
+     build=next;
+    }
+    if(usedPoints(build)>=55)break;
+   }
+   assert.ok(usedPoints(build)>=55,'not enough legal points for '+job.job+'/'+branch.name);
+   const final=branch.talents.find(n=>n.ultimate&&n.path==='s1a');
+   assert.ok(final,'missing first third-job ultimate '+job.job);
+   const allocated=changeRank(job,build,final.id,1,70,5);
+   assert.ok(allocated,'third-job ultimate cannot be unlocked: '+job.job+'/'+branch.name);
+  }
+ }
 });
 test('share code roundtrips, rejects invalid and changed source revisions',()=>{
  const initial=mage.branches[0].talents.find(n=>n.row===0);

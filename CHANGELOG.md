@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.0-dev.2 — 2026-11-20 (HANS third-job talent trees)
+
+- Added 16 game-registered third jobs, 48 third-job branches and 1,488 talent nodes by static AST inspection of a pinned HANS game bundle; 41 total jobs, 123 branches, 3,168 talents.
+- Third jobs use separate 70-point caps, 12-row tree layouts, 55-point ultimate unlock tiers, specialization and path-exclusive point validation.
+- Added source-checked job names, icons metadata, rank limits, basic effect summaries and readable Chinese job/branch labels. No game code or artwork shipped.
+- Preserved source job ID for the two HANS second/third ID collisions (`kagerou`, `rebellion`) while giving the simulator distinct share IDs.
+- Added tests for all 48 ultimate routes, share restore and third-job mobile layouts; the standalone HANS talent page still lists only first/second jobs, so third-job source and validation limits are explicit.
+
+
 ## 0.3.0-dev.1 — 2026-11-20 (HANS-style 25-job talent tree redesign)
 
 - Rebuilt the talent screen around HANS's actual three-tree layout, tier lines, dependency connectors, icon tiles, and contextual skill details; mobile now uses compact job selection and branch switching.

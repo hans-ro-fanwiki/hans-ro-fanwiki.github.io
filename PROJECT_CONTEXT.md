@@ -1,4 +1,4 @@
-# RO 倖存者｜HANS 粉絲維基（HANS）：專案狀態（2026-11-19）
+# RO 倖存者｜HANS 粉絲維基（HANS）：專案狀態（2026-11-20）
 
 ## 實際來源與分支
 - **目前 Repository**：`hans-ro-fanwiki/hans-ro-fanwiki.github.io`（2026-11-19 從 `lockgipo/ro-survivors-hans-wiki` 原庫移轉並改名；原 Repository ID `1460983693`、Git 歷史、Issues 與 PR 保留）。
@@ -24,7 +24,9 @@
 - 2026-11-20 HANS 官方天賦頁 1b3ae686 對應資料 SHA 審核後，透過 AST 靜態抽取九個一轉職業、27 個分支、444 個節點，輸出 `public/data/talents.json`；原始腳本僅留 Gitignored evidence。
 - 新增 `src/TalentSimulator.tsx`、`src/talents.ts` 與暗色手機版樣式，使用 50 點上限、列門檻、前置依賴檢查，分享網址經來源版本與配置驗證。
 - 2026-11-20 第二輪改版：以 HANS 官方天賦頁實際 DOM 與安全快照核對，擴充為九個一轉、十六個官方開發中的二轉，共 25 職、75 分支、1,680 節點，加入效果說明與專精／路線互斥。介面重做為 HANS 天賦樹式三欄、手機分支切換、官方式節點連線與進度提示。
-- 正式公開版仍不帶原遊戲圖示；私人 Dev 可臨時向 HANS 原站顯示圖示作介面比較。三轉尚未在 HANS 公開天賦頁出現，未冒用未驗證資料；本版不提供實際傷害計算。
+- 2026-11-20 三轉補齊：從 SHA 固定的當前 HANS 遊戲本體 `RO_J3`＋`K.tree3` AST 解析出 16 個三轉、48 分支、1,488 節點。總計 41 職、123 分支、3,168 節點。獨立天賦展示頁只有一二轉，但遊戲程式已登錄三轉，不能只根據展示頁缺席就排除。
+- 三轉獨立 70 點、12 列、前列 55 點可解鎖終極；已跑 48 分支合法配點可達性測試。`kagerou` 與 `rebellion` 在二轉及三轉的遊戲登錄重複 ID，為維基選職／分享另用 `kagerou_rank3`、`rebellion_rank3` 別名（保留 `sourceJobId`）。
+- 三轉天賦部分名稱尚為遊戲程式英文原名，公式僅能靜態確認的項目轉成中文效果摘要，來源無法確認的數值不可猜測。HANS 原圖僅私人 Dev 可讀；公開版仍使用中性圖示。詳細來源／限制見 `docs/HANS_TALENTS_SIMULATOR.md`。
 - 詳見 `docs/HANS_TALENTS_SIMULATOR.md`；所有新功能完成前避免使用舊 Coffee 數據。
 
 ## 關鍵不確定性
