@@ -53,7 +53,7 @@ try{
  assert.equal(new URL(page.url()).searchParams.get('lap'),'2');
  await page.reload({waitUntil:'networkidle'});
  assert.ok((await page.getByRole('dialog').innerText()).includes('迴避 +4.5%'),'Deep link preserves lap');
- await page.getByRole('dialog').getByRole('combobox',{name:'卡片 GS 計算職業'}).selectOption('mage');
+ await page.getByRole('dialog').getByRole('group',{name:'卡片 GS 計算類型'}).getByRole('button',{name:'魔法系'}).click();
  assert.equal(new URL(page.url()).searchParams.get('gsjob'),'mage');
  await page.getByRole('dialog').locator('img.card-image').first().waitFor({timeout:14000});
  assert.ok(await page.getByRole('dialog').locator('img.card-image').first().evaluate(img=>img instanceof HTMLImageElement&&img.complete&&img.naturalWidth>0),'Card art loaded from HANS source');
@@ -65,10 +65,35 @@ try{
   await page.goto(base+'?detail=card:4330&page=cards',{waitUntil:'networkidle'});
   assert.match(await page.getByRole('dialog').innerText(),/Boss 掉落/);
   await page.getByRole('dialog').getByRole('button',{name:'二周目'}).click();
+  const gsPicker=page.getByRole('group',{name:'卡片 GS 計算類型'});
+  assert.equal(await gsPicker.locator('button').count(),3,'Card GS uses only three HANS scoring profiles');
+  assert.equal(await gsPicker.getByRole('button',{name:'近戰系'}).getAttribute('aria-pressed'),'true');
   const gsSwordsman=await page.getByRole('dialog').locator('.card-gs-title strong').innerText();
-  await page.getByRole('dialog').getByRole('combobox',{name:'卡片 GS 計算職業'}).selectOption('mage');
+  await gsPicker.getByRole('button',{name:'魔法系'}).click();
   const gsMage=await page.getByRole('dialog').locator('.card-gs-title strong').innerText();
-  assert.notEqual(gsSwordsman,gsMage,'Card GS depends on selected job');
+  assert.notEqual(gsSwordsman,gsMage,'Card GS depends on selected scoring class');
+  assert.equal(new URL(page.url()).searchParams.get('gsjob'),'mage');
+  await gsPicker.getByRole('button',{name:'遠程系'}).click();
+  assert.equal(new URL(page.url()).searchParams.get('gsjob'),'archer');
+  assert.equal(await gsPicker.getByRole('button',{name:'遠程系'}).getAttribute('aria-pressed'),'true');
+  await page.reload({waitUntil:'networkidle'});
+  assert.equal(await page.getByRole('group',{name:'卡片 GS 計算類型'}).getByRole('button',{name:'遠程系'}).getAttribute('aria-pressed'),'true','Reload preserves class selection');
+  await page.goto(base+'?page=cards&detail=card:4330&lap=2&gsjob=wizard',{waitUntil:'networkidle'});
+  assert.equal(await page.getByRole('group',{name:'卡片 GS 計算類型'}).getByRole('button',{name:'魔法系'}).getAttribute('aria-pressed'),'true','Old second-job links display correct scaling class');
+  assert.equal(await page.getByRole('dialog').locator('.card-gs-title strong').innerText(),gsMage,'Old second-job links preserve original GS');
+  await page.goto(base+'?page=cards&detail=card:4330&lap=2&gsjob=warlock',{waitUntil:'networkidle'});
+  assert.equal(await page.getByRole('group',{name:'卡片 GS 計算類型'}).getByRole('button',{name:'魔法系'}).getAttribute('aria-pressed'),'true','Old third-job links display correct scaling class');
+  for(const width of [320,375,390,430]){
+   await page.setViewportSize({width,height:844});
+   const measurements=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth}));
+   assert.ok(measurements.scroll<=width+2,'Card GS mobile overflow '+width+': '+JSON.stringify(measurements));
+   const buttons=await page.locator('.gs-class-choice').evaluateAll(elements=>elements.map(el=>Math.round(el.getBoundingClientRect().height)));
+   assert.ok(buttons.every(height=>height>=44),'Card GS class buttons must support touch at '+width+': '+buttons);
+   checks.push({page:'card-gs',width,buttons});
+  }
+  await page.setViewportSize({width:390,height:844});
+  await page.getByRole('dialog').locator('.card-gs-section').scrollIntoViewIfNeeded();
+  await page.screenshot({path:path.join(folder,'hans-card-gs-three-types-390.png')});
   assert.ok((await page.getByRole('dialog').innerText()).includes('詠唱速度 +18%'));
   await page.getByRole('dialog').getByRole('button',{name:/元宵燈會.*闖入 Boss/}).click();
   assert.equal(new URL(page.url()).searchParams.get('stage'),'louyang');

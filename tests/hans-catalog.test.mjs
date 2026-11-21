@@ -150,6 +150,33 @@ test('audited HANS lap rules cover six laps, 41 professions, and all 188 card re
   for(let lap=1;lap<=6;lap++)
    assert.ok(cardScore(card,rules,lap,'swordsman')>=Math.round(rules.bossFloors[card.bossRank]*cardMultiplier(card,rules,lap)));
 });
+test('card GS has exactly three class weight profiles, while all 41 historic job IDs remain compatible',async()=>{
+ const {cardScore,gsScalingForJob,gsRepresentativeJob,GS_SCALING_LABELS}=await import('../src/laps.ts');
+ const rules=catalog.lapRules;
+ const expected={melee:20,magic:10,ranged:11};
+ assert.deepEqual(GS_SCALING_LABELS.map(x=>x.id),['melee','magic','ranged']);
+ assert.deepEqual(Object.keys(rules.scoring.classes).sort(),Object.keys(expected).sort());
+ for(const [scaling,count] of Object.entries(expected)){
+  const jobs=rules.jobs.filter(job=>job.scaling===scaling);
+  assert.equal(jobs.length,count,'Unexpected HANS class group '+scaling);
+  const representative=gsRepresentativeJob(rules,scaling);
+  assert.ok(jobs.some(job=>job.id===representative));
+  for(const job of jobs)assert.equal(gsScalingForJob(rules,job.id),scaling);
+  for(const card of catalog.cards)for(let lap=1;lap<=6;lap++){
+   const baseline=cardScore(card,rules,lap,representative);
+   for(const job of jobs)
+    assert.equal(cardScore(card,rules,lap,job.id),baseline,
+     'Different GS inside the same weight profile: '+scaling+'/'+card.id+'/'+lap+'/'+job.id);
+  }
+ }
+ assert.equal(gsRepresentativeJob(rules,'melee'),'swordsman');
+ assert.equal(gsRepresentativeJob(rules,'magic'),'mage');
+ assert.equal(gsRepresentativeJob(rules,'ranged'),'archer');
+ assert.equal(gsScalingForJob(rules,'wizard'),'magic','Old second-job link must still resolve');
+ assert.equal(gsScalingForJob(rules,'warlock'),'magic','Old third-job link must still resolve');
+ assert.equal(gsScalingForJob(rules,'invalid_job'),null,'Unknown old job must not claim a class');
+ assert.equal(gsRepresentativeJob(rules,'unsupported'),null);
+});
 test('stage tier and gearscore are specific to chapter and selected lap',async()=>{
  const {stageLapInfo,stageTierLabel}=await import('../src/laps.ts');
  for(const stage of catalog.stages){

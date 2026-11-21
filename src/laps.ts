@@ -37,6 +37,22 @@ export function cardEffects(card:Card,rules:LapRules,lap:number):string[]{
   return original.replace(/[-+]\d+(?:\.\d+)?(?=%| HP\/s|$)/, (signValue<0?'-':'+')+scaled);
  });
 }
+export const GS_SCALING_LABELS=[
+ {id:'melee',label:'近戰系'},
+ {id:'magic',label:'魔法系'},
+ {id:'ranged',label:'遠程系'}
+] as const;
+
+/** Current HANS scoring looks up weights solely by the registered scaling
+ * class. Preserve the original 41-job mapping for old gsjob links. */
+export function gsScalingForJob(rules:LapRules,jobId:string):string|null{
+ const job=rules.jobs.find(item=>item.id===jobId);
+ return job&&Object.hasOwn(rules.scoring.classes,job.scaling)?job.scaling:null;
+}
+export function gsRepresentativeJob(rules:LapRules,scaling:string):string|null{
+ const candidates=rules.jobs.filter(job=>job.scaling===scaling);
+ return (candidates.find(job=>job.rank===1)||candidates[0])?.id||null;
+}
 export function cardScore(card:Card,rules:LapRules,lap:number,jobId:string):number|null{
  const job=rules.jobs.find(j=>j.id===jobId);
  if(!job)return null;

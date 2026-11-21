@@ -69,12 +69,15 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {
 .art.monster{background:#2c4248;color:#9dcbcf}
 .art.stage{background:#29423a;color:#a2d9bf}
 .stage-type-picker,.lap-picker{background:#1e3035;border-color:var(--wiki-border)}
-.lap-meta,.card-gs-note,.gs-job-field{color:var(--wiki-muted)}
+.lap-meta,.card-gs-note,.gs-class-label{color:var(--wiki-muted)}
 .stage-lap-note{background:#223b35;border-color:#426c5e;color:#c7eadb}
 .card-gs-section{background:#1b2b30;border-color:var(--wiki-border)}
 .card-gs-title h3{color:var(--wiki-text)}
 .card-gs-title strong{color:#a5e8c7}
-.gs-job-field select{background:#172429;border-color:var(--wiki-border);color:var(--wiki-text)}
+.gs-class-choice{background:#24383b;color:var(--wiki-text);border-color:#45635c}
+.gs-class-choice.selected{background:#325d4e;border-color:#85c7a6;color:#ebfff3}
+.gs-class-choice:hover:not(:disabled){background:#35544a;border-color:#8ad1ac}
+.gs-unknown{color:#ebc58c}
 .stage-heading{background:#29373d;color:var(--wiki-text)}
 .stage-heading small{color:var(--wiki-muted)}
 .stage-heading[aria-expanded=true]{background:#355046}

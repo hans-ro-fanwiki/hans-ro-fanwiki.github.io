@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.0-dev.16 — 2026-11-21 (simplify card GS scoring selector)
+
+- Replace the 41-job native `計算職業` select in the card detail with three touch-friendly, dark-themed scoring group buttons: **近戰系／魔法系／遠程系**.
+- Ground each button in HANS `lapRules.jobs[].scaling` and `lapRules.scoring.classes` (melee 20, magic 10, ranged 11); retain 41-job source mapping and the original `cardScore()` calculation, lap rules, Osiris exception and mini/MVP floors.
+- Preserve `gsjob` deep links for earlier first/second/third professions: e.g. `gsjob=wizard` and `gsjob=warlock` still select Magic with exactly the prior GS. New selection uses a source-backed first-job representative and updates the URL.
+- Add 188-card × six-lap × 41-job invariant tests for every class having identical results within its shared weights; browser checks for three buttons, legacy URLs, reload, lap and mobile layouts at 320/375/390/430px.
+- Do not imply the HANS-derived estimated GS has been separately calibrated against every live in-game card; only the interface is simplified. Resolves GitHub Issue #12.
+
+
 ## 0.3.0-dev.15 — 2026-11-21 (career-path-first skill encyclopedia)
 
 - Replace the long first/second/third career dropdown with **nine starter-job buttons and their one or two genuine HANS career paths**. Selecting a base immediately opens its first path; switching paths displays only that first/second/third lineage. The grid folds into a compact header until “更換職業” is selected.

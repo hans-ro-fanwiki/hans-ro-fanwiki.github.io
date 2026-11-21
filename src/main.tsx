@@ -13,7 +13,7 @@ import {TalentSimulator} from './TalentSimulator';
 import {SkillsEncyclopedia} from './SkillsEncyclopedia';
 import {equipmentTier} from './tier';
 import {hasConfirmedAcquisition} from './acquisition';
-import {cardEffects,cardId,cardMultiplier,cardName,cardScore,clampLap,stageLapInfo,stageTierLabel} from './laps';
+import {cardEffects,cardId,cardMultiplier,cardName,cardScore,clampLap,gsRepresentativeJob,gsScalingForJob,GS_SCALING_LABELS,stageLapInfo,stageTierLabel} from './laps';
 import type {LapRules} from './types';
 
 type View={page:Page;slot:string;job:string;source:string;query:string;attr:string;mode:'list'|'stages';stageType:StageType;lap:number;gsJob:string;showUnknown:boolean;detail:string|null;stage:string|null;tj:string;tb:string;t:string;skillJob:string;skillRank:number;skillId:string|null};
@@ -443,6 +443,7 @@ function CardDetail({card,rules,lap,setLap,gsJob,setGsJob,stages,monsters,openDe
  stages:Map<string,Stage>;monsters:Map<string,Monster>;openDetail:(kind:Kind,id:string|number)=>void;
 }){
  const score=cardScore(card,rules,lap,gsJob);
+ const selectedScaling=gsScalingForJob(rules,gsJob);
  const mult=cardMultiplier(card,rules,lap);
  return <><DetailHero kind="card" entry={card} title={cardName(card,rules,lap)} sub={'鑲嵌部位：'+cardSlot(card)}/>
   <div className="lap-detail"><LapPicker rules={rules} lap={lap} setLap={setLap}/>
@@ -452,14 +453,19 @@ function CardDetail({card,rules,lap,setLap,gsJob,setGsJob,stages,monsters,openDe
   <div className="bonus-list">{cardEffects(card,rules,lap).map((value,index)=><span key={index}>{value}</span>)}</div>
   <div className="card-gs-section">
    <div className="card-gs-title"><h3>卡片 GS 貢獻</h3><strong>{score==null?'尚未確認':'+'+score+' GS'}</strong></div>
-   <label className="gs-job-field">計算職業
-    <select aria-label="卡片 GS 計算職業" value={gsJob} onChange={e=>setGsJob(e.target.value)}>
-     {[1,2,3].map(rank=><optgroup key={rank} label={rank+'轉職業'}>
-      {rules.jobs.filter(job=>job.rank===rank).map(job=><option key={job.id} value={job.id}>{job.name}</option>)}
-     </optgroup>)}
-    </select>
-   </label>
-   <p className="card-gs-note">依 HANS 遊戲效果權重、職業及小王／MVP 保底公式計算；本分數是卡片對裝備 GS 的貢獻，不是整套裝備的 GS。尚待逐職業與遊戲面板實測校準。</p>
+   <div className="gs-class-picker" role="group" aria-label="卡片 GS 計算類型">
+    <span className="gs-class-label">計算類型</span>
+    <div className="gs-class-options">
+     {GS_SCALING_LABELS.filter(item=>Object.hasOwn(rules.scoring.classes,item.id)).map(item=>{
+      const representative=gsRepresentativeJob(rules,item.id);
+      return <button type="button" key={item.id} className={'gs-class-choice'+(selectedScaling===item.id?' selected':'')}
+       disabled={!representative} aria-pressed={selectedScaling===item.id}
+       onClick={()=>{if(representative)setGsJob(representative)}}>{item.label}</button>;
+     })}
+    </div>
+    {!selectedScaling&&<p className="gs-unknown">原分享連結的職業已不在目前資料中，請選擇計算類型。</p>}
+   </div>
+   <p className="card-gs-note">目前 HANS 僅使用近戰、魔法、遠程三組卡片 GS 權重，同類型轉職計算結果相同；分數依效果權重及小王／MVP 保底公式推算，僅代表卡片對裝備 GS 的貢獻，非整套裝備 GS。尚待遊戲面板實測校準。</p>
   </div>
   <h3 className="sheet-section">取得方式</h3>
   <DropRoutes sources={card.sources} stages={stages} monsters={monsters} openDetail={openDetail}/>
