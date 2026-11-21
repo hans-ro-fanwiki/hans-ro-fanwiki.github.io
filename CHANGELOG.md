@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0-dev.18 — 2026-11-21 (make all HANS Chapter 2 stages discoverable)
+
+- Confirm the audited HANS catalog already includes five Chapter 2 maps (Lv 71–99), 34 normal-monster and 24 Boss stage appearances, 229 verified equipment/card stage-drop references, six-lap T6–8 tiers and source-derived GS limits. No source registration or drop chance is invented or replaced.
+- Split the stages page into chapter-filtered navigation: **全部章節（17）／第二章（5）／第一章（12）** and distinct grouped sections, with Chapter 2 first in the default combined view. Chapter selection is shareable via `?page=stages&ch=2`, including back/forward/reload compatibility.
+- Expanded stages now expose native HANS normal monster and Boss pools, including marked intruder bosses, with links to the existing monster detail and drop cross-references. Preserve the existing per-stage equipment/card filters, artwork, level bands, six-lap Tier/GS and source verification state.
+- Add regression tests for all five Chapter 2 stages, 229 stage-drop references, all six lap GS/tier tables, grouping and legacy type filters, and mobile browser coverage for Chapter 2 display, monster details and short-link reload.
+
 ## 0.3.0-dev.17 — 2026-11-21 (Chinese-first HANS talent descriptions)
 
 - Fix the third-job talent screen showing raw English: all 16 jobs and 48 branches now display Chinese job/branch descriptions, 192 Chinese path labels with Chinese mechanic summaries, and 1,488 distinguishable Chinese-first talent labels. Preserve the audited English original names under expanded information for comparison rather than falsely claiming official translations.

@@ -12,6 +12,14 @@
 .filter-panel .filter-block:last-child{margin-bottom:0}
 .filter-panel .filter-block{margin-bottom:12px}
 .stage-accordion{display:grid;gap:10px}
+.stage-chapter-picker,.stage-type-picker{display:grid;gap:7px;padding:10px 12px;border:1px solid #dce9e2;border-radius:12px;background:#f6f9f7}
+.stage-chapter-picker .filter-label{margin:0}
+.stage-chapter-picker .chip{min-height:44px;padding:9px 12px}
+.stage-chapter-section{min-width:0;display:grid;gap:10px}
+.stage-chapter-heading{display:flex;align-items:center;gap:9px;flex-wrap:wrap;padding:13px 14px 8px;border-bottom:1px solid #dce9e2}
+.stage-chapter-heading h2{margin:0;font-size:17px;font-weight:800;color:#285b46}
+.stage-chapter-heading span{font-size:12px;font-weight:700;color:#476c5b}
+.stage-chapter-heading small{flex-basis:100%;font-size:12px;color:#657a70}
 .stage-type-picker{display:grid;gap:7px;padding:10px 12px;border:1px solid #dce9e2;border-radius:12px;background:#f6f9f7}
 .stage-type-picker .filter-label{margin:0}
 .stage-type-picker .chip{min-height:38px;padding:7px 10px}
@@ -42,6 +50,13 @@
 .stage-heading small{display:block;color:#71877d;font-size:12px;margin-top:5px}
 .stage-heading[aria-expanded=true]{background:#eff7f0}
 .stage-body{padding:12px;border-top:1px solid #e3ece5}
+.stage-encounters{display:grid;gap:10px;margin:0 0 14px;padding:11px;border:1px solid #dce9e2;border-radius:11px;background:#f6f9f7}
+.stage-encounter-group{display:grid;gap:7px;min-width:0}
+.stage-encounter-group strong{font-size:12px;color:#426a56}
+.stage-monster-chips{display:flex;gap:6px;flex-wrap:wrap}
+.stage-monster-chips button{min-height:36px;text-align:left;padding:7px 10px;background:#fff;border:1px solid #dce9e2;border-radius:8px;color:#365f4d;font-size:12px;line-height:1.4}
+.stage-monster-chips button:hover{border-color:#63ab8d}
+.stage-monster-chips button:focus-visible{outline:2px solid #70bf9c;outline-offset:1px}
 .stage-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}
 .stage-controls label{display:grid;gap:4px;color:#71877d;font-size:12px}
 .stage-controls select{min-width:0;width:100%;border:1px solid #dde8df;background:white;color:#2c4940;border-radius:10px;padding:9px 6px;font-size:13px;min-height:42px}

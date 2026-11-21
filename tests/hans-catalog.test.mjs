@@ -21,6 +21,45 @@ test('HANS Chapter 2 stages and source rules are included',()=>{
  assert.equal(stages.length,5);
  for(const stage of stages){assert.equal(stage.tier,8);assert.ok(stage.normalMonsterIds.length>0);}
 });
+test('Chapter 2 uses five audited stages, complete monster/boss pools, lap tiers, GS and source drops',()=>{
+ const chapter2=catalog.stages.filter(stage=>stage.chapter===2);
+ assert.deepEqual(chapter2.map(stage=>stage.id),['c2_gef','c2_clock','c2_abyss','c2_glast','c2_nif']);
+ const names=new Map(catalog.monsters.map(m=>[m.id,m.name]));
+ let totalDrops=0;
+ for(const stage of chapter2){
+  assert.equal(stage.open,true,'HANS Chapter 2 stages are available');
+  assert.equal(stage.planned,false);
+  assert.deepEqual(stage.lapTiers,[6,7,8,8,8,8]);
+  assert.equal(stage.lapGS.length,6);
+  assert.ok(stage.lapGS.every((gs,i)=>Number.isFinite(gs)&&gs>0&&(i===0||gs>stage.lapGS[i-1])));
+  assert.match(stage.image.officialPath,/^maps\/[a-z0-9_]+\/minimap\.png$/);
+  for(const monsterId of [...stage.normalMonsterIds,...stage.bossMonsterIds]){
+   assert.ok(names.has(monsterId),'Missing monster '+monsterId+' in '+stage.name);
+  }
+  const refs=[...catalog.items,...catalog.cards].flatMap(item=>item.sources.flatMap(source=>
+   source.stageRefs.filter(ref=>ref.stageId===stage.id).map(ref=>({source,ref}))));
+  assert.ok(refs.length>=40,'Missing Stage 2 drops: '+stage.name);
+  assert.ok(refs.every(({source,ref})=>ref.verified&&source.verificationState==='official'));
+  totalDrops+=refs.length;
+ }
+ assert.equal(totalDrops,229);
+ assert.equal(catalog.stages.find(s=>s.id==='c2_abyss').intruderBossId,'ktullanux');
+ assert.equal(catalog.stages.find(s=>s.id==='c2_nif').intruderBossId,'fallen_bishop_hibram');
+});
+test('Chapter 2 tab, chapter grouping and legacy stage type filters preserve all registered stages',async()=>{
+ const {parseStageChapter,stageChapterGroups}=await import('../src/stage-chapter.ts');
+ const {matchesStageType,parseStageType}=await import('../src/stage-type.ts');
+ const groups=(chapter,type)=>stageChapterGroups(catalog.stages,chapter,stage=>matchesStageType(stage,type));
+ assert.equal(parseStageChapter(null),'all');
+ assert.equal(parseStageChapter('3'),'all');
+ assert.equal(parseStageChapter('2'),'2');
+ assert.deepEqual(groups('all','all').map(g=>[g.chapter,g.stages.length]),[[2,5],[1,12]]);
+ assert.deepEqual(groups('2','all').map(g=>[g.chapter,g.stages.length]),[[2,5]]);
+ assert.deepEqual(groups('1','all').map(g=>[g.chapter,g.stages.length]),[[1,12]]);
+ assert.deepEqual(groups('2','event'),[]);
+ assert.deepEqual(groups('2','normal').map(g=>g.stages.length),[5]);
+ assert.deepEqual(groups('all',parseStageType(null,'1')).map(g=>g.stages.length),[5,9]);
+});
 test('equipment drop refs derive only from HANS monster pools',()=>{
  const stages=new Map(catalog.stages.map(s=>[s.id,s]));
  const itemsById=new Map(catalog.items.map(i=>[i.id,i]));

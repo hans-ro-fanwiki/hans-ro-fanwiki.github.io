@@ -68,7 +68,15 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {
 .art.card{background:#343845;color:#b8a6d2}
 .art.monster{background:#2c4248;color:#9dcbcf}
 .art.stage{background:#29423a;color:#a2d9bf}
-.stage-type-picker,.lap-picker{background:#1e3035;border-color:var(--wiki-border)}
+.stage-chapter-picker,.stage-type-picker,.lap-picker{background:#1e3035;border-color:var(--wiki-border)}
+.stage-chapter-heading{border-color:var(--wiki-border)}
+.stage-chapter-heading h2{color:#c5f2dd}
+.stage-chapter-heading span{color:#a3d4bd}
+.stage-chapter-heading small{color:var(--wiki-muted)}
+.stage-encounters{background:#1c3135;border-color:var(--wiki-border)}
+.stage-encounter-group strong{color:#bfe6d0}
+.stage-monster-chips button{background:#2a483d;border-color:#476a5d;color:#d1f1dd}
+.stage-monster-chips button:hover{background:#365d4b;border-color:#8bc9a6}
 .lap-meta,.card-gs-note,.gs-class-label{color:var(--wiki-muted)}
 .stage-lap-note{background:#223b35;border-color:#426c5e;color:#c7eadb}
 .card-gs-section{background:#1b2b30;border-color:var(--wiki-border)}
