@@ -459,11 +459,42 @@ try{
   assert.match(await desktopFlame.locator('.tg-rank').innerText(),/0\/5/,'Desktop hover cannot allocate points');
   const inspector=desktop.locator('.tg-inspector-slot .tg-detail');
   await inspector.waitFor({state:'visible'});
-  assert.equal(await inspector.evaluate(el=>getComputedStyle(el).position),'relative','Desktop inspector stays in normal document flow');
+  assert.equal(await inspector.evaluate(el=>getComputedStyle(el).position),'relative','Desktop detail itself stays inside the sticky slot');
+  assert.equal(await desktop.locator('.tg-inspector-slot').evaluate(el=>getComputedStyle(el).position),'sticky','Selected desktop inspector is sticky');
   const inspectorBounds=await inspector.boundingBox(),treesBounds=await desktop.locator('.tg-trees').boundingBox();
   assert.ok(inspectorBounds&&treesBounds&&inspectorBounds.y+inspectorBounds.height<=treesBounds.y+2,
    'Fixed inspector row must be above the talent trees without covering any node');
   assert.match(await inspector.innerText(),/生命火焰/,'Hover updates the fixed skill inspector');
+  await desktop.evaluate(()=>window.scrollTo(0,document.querySelector('.tg-trees').getBoundingClientRect().top+scrollY+250));
+  const stickyMetrics=await desktop.evaluate(()=>{
+   const slot=document.querySelector('.tg-inspector-slot').getBoundingClientRect();
+   const header=document.querySelector('.topbar').getBoundingClientRect();
+   const tree=document.querySelector('.tg-trees').getBoundingClientRect();
+   return {slotTop:slot.top,slotBottom:slot.bottom,headerBottom:header.bottom,treeTop:tree.top,position:getComputedStyle(document.querySelector('.tg-inspector-slot')).position,containerOverflow:getComputedStyle(document.querySelector('.content-section')).overflowY};
+  });
+  assert.equal(stickyMetrics.containerOverflow,'visible','Desktop content ancestor must allow sticky');
+  assert.ok(stickyMetrics.slotTop>=stickyMetrics.headerBottom+2&&stickyMetrics.slotTop<=stickyMetrics.headerBottom+30,
+   'Desktop sticky details stay below top navigation while scrolling: '+JSON.stringify(stickyMetrics));
+  assert.ok(stickyMetrics.slotBottom<900*.45,'Sticky summary must leave room to interact with talent tree');
+  assert.ok(stickyMetrics.treeTop<stickyMetrics.slotTop,'Sticky inspector must follow tree scrolling');
+  checks.push({page:'talents-desktop-sticky',...stickyMetrics});
+  for(const width of [761,900,1280]){
+   await desktop.setViewportSize({width,height:900});
+   const offset=await desktop.evaluate(()=>{
+    const slot=document.querySelector('.tg-inspector-slot').getBoundingClientRect();
+    const topbar=document.querySelector('.topbar').getBoundingClientRect();
+    return {top:slot.top,headerBottom:topbar.bottom,right:slot.right,scroll:document.documentElement.scrollWidth};
+   });
+   assert.ok(offset.top>=offset.headerBottom+2&&offset.top<=offset.headerBottom+30,
+    'Sticky detail clears navigation at '+width+': '+JSON.stringify(offset));
+   assert.ok(offset.right<=width+2&&offset.scroll<=width+2,'Sticky detail does not cause overflow at '+width);
+   checks.push({page:'talents-desktop-sticky',width,...offset});
+  }
+  await inspector.getByRole('button',{name:'查看完整說明與前置條件'}).click();
+  assert.equal(await inspector.getByRole('button',{name:'收合詳細說明'}).getAttribute('aria-expanded'),'true');
+  assert.ok((await inspector.boundingBox()).height<900*.6,'Expanded sticky detail is height-limited');
+  await inspector.getByRole('button',{name:'收合詳細說明'}).click();
+  await desktop.evaluate(()=>scrollTo(0,0));
   assert.equal(await inspector.getByRole('button',{name:'加一點'}).count(),0,'Desktop adds directly on talent icon, not tooltip buttons');
   await desktop.mouse.move(4,4);
   await desktop.waitForTimeout(350);
@@ -490,7 +521,16 @@ try{
   await desktop.keyboard.press('Escape');
   assert.equal(await inspector.count(),0,'Escape clears selected skill');
   assert.ok(await desktop.locator('.tg-inspector-empty').isVisible(),'Desktop empty inspector keeps the same reserved height');
+  assert.equal(await desktop.locator('.tg-inspector-slot').evaluate(el=>getComputedStyle(el).position),'static',
+   'Empty inspector does not float over the tree');
   await desktop.screenshot({path:path.join(folder,'hans-desktop-talent-inspector-1280.png')});
+  // User-supplied Crusader 50/50 share remains valid; no point budget logic changed.
+  await desktop.goto(base+'?page=talents&t=Ihs65oYAEvA1AgLlBQMDEwIDFQIzAgICAQIS8PDwUQEFBQUFBQUCAgMDUwMC_wBmtQ',{waitUntil:'networkidle'});
+  assert.equal(await desktop.locator('.tg-error').count(),0,'Crusader share code still decodes');
+  assert.match(await desktop.locator('.tg-career-nav').innerText(),/劍士[\s\S]*50 \/ 50 點[\s\S]*十字軍[\s\S]*50 \/ 50 點/,
+   'Existing Crusader point totals remain exactly 50/50');
+  assert.match(await desktop.locator('.tg-summary').innerText(),/剩餘點數[\s\S]*0/);
+  checks.push({page:'talents-share-regression',job:'crusader',spent:50,remaining:0});
   assert.deepEqual(desktopErrors,[],'No desktop browser errors');
   checks.push({page:'desktop-navigation',buttons:5,clicks:5,status:'PASS'});
  }finally{await desktopContext.close();}

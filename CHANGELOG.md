@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0-dev.19 — 2026-11-21 (sticky desktop talent inspector)
+
+- Keep the **selected desktop skill description panel visible beneath the fixed site header** as users scroll down long talent trees. Only the active inspector becomes sticky; an empty placeholder remains in normal document flow.
+- Remove the desktop-only talent page overflow clipping that prevented CSS sticky, reserve 76px under the real header and limit expanded detail height/scroll to preserve tree interaction. Do not change the existing mobile bottom inspector.
+- Preserve all 50/50/70 point budgets, skill ranks, prerequisites, mouse left/right-click allocation, compact share URLs and source data. Regression check the user's 50/50 Crusader link and browser scrolling at desktop 761/900/1280px plus mobile 320–430px.
+
 ## 0.3.0-dev.18 — 2026-11-21 (make all HANS Chapter 2 stages discoverable)
 
 - Confirm the audited HANS catalog already includes five Chapter 2 maps (Lv 71–99), 34 normal-monster and 24 Boss stage appearances, 229 verified equipment/card stage-drop references, six-lap T6–8 tiers and source-derived GS limits. No source registration or drop chance is invented or replaced.

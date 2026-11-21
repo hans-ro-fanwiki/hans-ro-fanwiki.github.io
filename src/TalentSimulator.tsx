@@ -308,7 +308,7 @@ export function TalentSimulator({jobId,token,packed,onRoute}:Props){
    <div className="tg-skill-bar"><b>職業技能</b>{(job.skills||[]).map(s=>
     <span key={s.id} title={s.name||s.id}><TalentIcon node={{icon:s.icon,name:s.name||s.id}}/></span>
    )}</div>
-   {!isCompact&&<div className="tg-inspector-slot" aria-label="目前查看的技能">{inspector||<div className="tg-inspector-empty"><BookOpen size={20}/><span>滑鼠移到天賦圖示查看技能資訊，左鍵直接加點、右鍵直接退點。</span></div>}</div>}
+   {!isCompact&&<div className={'tg-inspector-slot'+(inspector?' tg-inspector-active':'')} aria-label="目前查看的技能">{inspector||<div className="tg-inspector-empty"><BookOpen size={20}/><span>滑鼠移到天賦圖示查看技能資訊，左鍵直接加點、右鍵直接退點。</span></div>}</div>}
    <div className="talent-branch-tabs tg-mobile-tabs" role="tablist" aria-label="天賦分支">
     {job.branches.map((b,i)=><button type="button" key={b.id} role="tab" aria-selected={branchIndex===i}
      className={branchIndex===i?'active':''} onClick={()=>{setBranchIndex(i);setSelectedId(null);setDetailExpanded(false)}}>

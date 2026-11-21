@@ -113,7 +113,17 @@ body:has(.tg-game) .section-heading{display:none}
 .tg-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .tg-tree-locked .tg-board{opacity:.58}
 .tg-branch-locked-label{position:absolute;z-index:3;right:10px;top:96px;border-radius:20px;background:#fff0d5;border:1px solid #e4c487;color:#835a25;padding:4px 9px;font-size:11px;font-weight:750}
-.tg-inspector-slot{min-height:104px;margin:10px 0 13px}
+.tg-inspector-slot{min-height:104px;margin:10px 0 13px;padding:7px 0;border-radius:12px;background:var(--tg-bg,#f9fbff)}
+/* Keep the active desktop skill inspector visible while traversing long trees.
+   The site header is independently sticky (64px), so reserve room below it. */
+@media(min-width:751px){
+ body:has(.tg-game) .content-section{overflow:visible}
+ .tg-game{border-radius:17px}
+ .tg-top{border-radius:16px 16px 0 0}
+ .tg-inspector-slot.tg-inspector-active{position:sticky;top:76px;z-index:9;box-shadow:0 8px 18px #091b2255}
+ .tg-inspector-slot .tg-desktop-detail.tg-expanded{max-height:min(55vh,440px);overflow-y:auto;overscroll-behavior:contain}
+ .tg-node{scroll-margin-top:200px}
+}
  .tg-inspector-empty{display:flex;align-items:center;justify-content:center;gap:10px;min-height:104px;border:1px dashed #afc4e5;border-radius:12px;background:#f1f6ff;color:#6076a3;font-size:13px;padding:15px;text-align:center}
 .tg-detail{position:relative;z-index:1;display:flex;flex-direction:column;gap:3px;width:100%;min-height:104px;overflow:hidden;border:1px solid #9eb8e7;border-radius:12px;background:#f3f7ff;padding:11px 14px}
 .tg-desktop-detail{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto auto;gap:2px 16px;align-items:center}
