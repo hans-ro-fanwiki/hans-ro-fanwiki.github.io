@@ -329,6 +329,14 @@ try{
  await page.getByRole('button',{name:'加一點'}).click();
  assert.match(await page.locator('[data-talent="wizard.0.s1"] .tg-rank').innerText(),/★/);
  checks.push({page:'talents',job:'wizard',nodes:await page.locator('.tg-node').count()});
+ await page.goto(base+'?page=talents&tj=royal_guard',{waitUntil:'networkidle'});
+ assert.match(await page.locator('.tg-tree-desc').first().innerText(),/核心技能：加農矛、激勵/);
+ assert.deepEqual(await page.locator('.tg-path-list').first().locator('span').allInnerTexts(),
+  ['長槍齊射','強化長槍','集結戰旗','英勇頌歌'],'Third-job branch paths render Chinese');
+ assert.doesNotMatch(await page.locator('.tg-tree-desc').first().innerText(),/Cannon Spear|Spear Volley|Overbrand/);
+ await page.locator('[data-talent="royal_guard.0.s1"]').click();
+ assert.match(await page.locator('.tg-detail').innerText(),/加農矛/,'Official HANS skill name appears in inspector');
+ checks.push({page:'talent-zh',job:'royal_guard',paths:4});
  await page.goto(base+'?page=talents&tj=warlock',{waitUntil:'networkidle'});
  assert.match(await page.locator('.tg-job-title').innerText(),/咒術士/);
  assert.match(await page.locator('.tg-job-title').innerText(),/三轉/);

@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0-dev.17 — 2026-11-21 (Chinese-first HANS talent descriptions)
+
+- Fix the third-job talent screen showing raw English: all 16 jobs and 48 branches now display Chinese job/branch descriptions, 192 Chinese path labels with Chinese mechanic summaries, and 1,488 distinguishable Chinese-first talent labels. Preserve the audited English original names under expanded information for comparison rather than falsely claiming official translations.
+- Reuse the verified HANS `skills.json` name registry for the 96 third-job learn-skill nodes and job-skill tooltip labels; include only source-backed Traditional Chinese skill descriptions when available. Non-skill talent and path labels are **editorial functional descriptions**, not official HANS translations.
+- Read the audited `talents.json` and `skills.json` together at runtime; leave raw game data, talents IDs, icons, point caps, prerequisites, sharing format and source hash unchanged. Normalize existing Flee/EXP/INT abbreviations in one-/two-job descriptions without inventing attributes.
+- Add four localization regressions checking all 41 jobs, 1,488 translated labels, 192 paths, 96 official skill names, source-mismatch behavior, branch name uniqueness and share identifier invariants.
+
 ## 0.3.0-dev.16 — 2026-11-21 (simplify card GS scoring selector)
 
 - Replace the 41-job native `計算職業` select in the card detail with three touch-friendly, dark-themed scoring group buttons: **近戰系／魔法系／遠程系**.

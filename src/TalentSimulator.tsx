@@ -7,6 +7,8 @@ import {
 } from 'lucide-react';
 import type {TalentBuild,TalentBranch,TalentCatalog,TalentJob} from './talents';
 import {changeRank,chooseCareerJob,createCareer,decodeBuild,decodeCareer,encodeCareer,gateFor,talentBudget,talentList,usedPoints} from './talents';
+import {localizeTalentCatalog} from './talent-zh';
+import type {HANSNames} from './talent-zh';
 import './talent.css';
 import './talent-theme.css';
 
@@ -146,9 +148,15 @@ export function TalentSimulator({jobId,token,packed,onRoute}:Props){
  const [feedback,setFeedback]=useState('');
  useEffect(()=>{
   const ac=new AbortController();
-  fetch(import.meta.env.BASE_URL+'data/talents.json',{signal:ac.signal}).then(r=>{if(!r.ok)throw Error(String(r.status));return r.json()})
-   .then((d:TalentCatalog)=>{if(d.server!=='hans'||!d.jobs?.length||d.jobs.length<41)throw Error('HANS 三轉天賦資料尚未完整載入');setData(d)})
-   .catch(e=>{if(e.name!=='AbortError')setError('天賦資料載入失敗，請稍後重新整理。')});
+  const load=(path:string)=>fetch(import.meta.env.BASE_URL+'data/'+path,{signal:ac.signal})
+   .then(r=>{if(!r.ok)throw Error(path+': '+r.status);return r.json()});
+  Promise.all([load('talents.json') as Promise<TalentCatalog>,load('skills.json') as Promise<HANSNames>])
+   .then(([talents,skills])=>{
+    if(talents.server!=='hans'||talents.jobs?.length!==41||skills.server!=='hans')
+     throw Error('HANS 天賦或官方技能翻譯資料不完整');
+    setData(localizeTalentCatalog(talents,skills));
+   })
+   .catch(e=>{if(e.name!=='AbortError')setError('天賦與技能名稱資料載入失敗，請稍後重新整理。')});
   return ()=>ac.abort();
  },[]);
 
@@ -298,7 +306,7 @@ export function TalentSimulator({jobId,token,packed,onRoute}:Props){
    {decoded.error&&<p className="tg-error" role="alert">{decoded.error}</p>}
    {feedback&&<p className="tg-feedback" role="status"><Check size={15}/>{feedback}</p>}
    <div className="tg-skill-bar"><b>職業技能</b>{(job.skills||[]).map(s=>
-    <span key={s.id} title={s.id}><TalentIcon node={{icon:s.icon,name:s.id}}/></span>
+    <span key={s.id} title={s.name||s.id}><TalentIcon node={{icon:s.icon,name:s.name||s.id}}/></span>
    )}</div>
    {!isCompact&&<div className="tg-inspector-slot" aria-label="目前查看的技能">{inspector||<div className="tg-inspector-empty"><BookOpen size={20}/><span>滑鼠移到天賦圖示查看技能資訊，左鍵直接加點、右鍵直接退點。</span></div>}</div>}
    <div className="talent-branch-tabs tg-mobile-tabs" role="tablist" aria-label="天賦分支">
@@ -313,7 +321,7 @@ export function TalentSimulator({jobId,token,packed,onRoute}:Props){
     </div>)}
    </div>
    {isCompact&&inspector}
-   <div className="tg-footer"><div><Star size={16}/>{job.rank===3?'三轉 70 點、12 列的資料來自 HANS 遊戲本體；部分節點名稱保留程式原文，實際效果以遊戲內為準。':'一、二轉天賦以 HANS 獨立天賦頁為準，二轉內容仍可能調整。'}</div>
+   <div className="tg-footer"><div><Star size={16}/>{job.rank===3?'三轉資料取自 HANS 遊戲程式。技能名稱採用 HANS 繁中；其餘天賦與路線為依來源效果整理的中文提示，並非官方譯名。':'一、二轉天賦以 HANS 獨立天賦頁為準，二轉內容仍可能調整。'}</div>
     {job.rank!==3&&<a href={'https://ro.hans-webgametw.com/talents.html#'+job.job} target="_blank" rel="noopener noreferrer">查看 HANS 官方天賦 <ExternalLink size={15}/></a>}
    </div>
   </div>

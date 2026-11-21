@@ -4,7 +4,7 @@ export interface TalentNode {
  path?:string|null;summary?:string;maxEffect?:string;notes?:string[];
 }
 export interface TalentBranch {id:number;name:string;originalName:string;talents:TalentNode[];desc?:string;icon?:string|null;paths?:{name:string;desc:string}[];rows?:number;cols?:number;connections?:{from:string;to:string}[]}
-export interface TalentJob {job:string;sourceJobId?:string;originalName?:string;name?:string;rank?:number;developing?:boolean;description?:string;rule?:string;base?:string;skills?:{id:string;icon:string|null}[];branches:TalentBranch[]}
+export interface TalentJob {job:string;sourceJobId?:string;originalName?:string;name?:string;rank?:number;developing?:boolean;description?:string;rule?:string;base?:string;skills?:{id:string;icon:string|null;name?:string}[];branches:TalentBranch[]}
 export interface TalentCatalog {
  server:'hans';version:number;sourceCommit:string;sourceDate:string;sha256:string;officialTalentPage?:string;
  pointsPerJob:number;pointsByRank?:Record<string,number>;gameThirdJobSourceSha256?:string;branchGate:number;jobs:TalentJob[];
