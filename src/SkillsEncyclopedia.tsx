@@ -1,4 +1,4 @@
-import {useEffect,useMemo,useState} from 'react';
+import {useEffect,useId,useMemo,useRef,useState} from 'react';
 import {BookOpen,ChevronDown,Clock3,Search,Sparkles,X} from 'lucide-react';
 import type {Skill,SkillCatalog} from './skills';
 import {jobsForSelection,RANK_LABELS,searchSkillName,SKILL_TAGS} from './skills';
@@ -16,6 +16,51 @@ function SkillArtwork({skill}:{skill:Skill}){
  return <span className="sk-art" aria-hidden="true">
   {src&&!failed?<img src={src} loading="lazy" decoding="async" alt="" referrerPolicy="no-referrer" onError={()=>setFailed(true)}/>:<Sparkles size={25}/>}
  </span>;
+}
+function SkillJobPicker({jobs,value,onPick}:{jobs:SkillCatalog['jobs'];value:string;onPick:(id:string)=>void}){
+ const [open,setOpen]=useState(false);
+ const [expandedRank,setExpandedRank]=useState<number|null>(null);
+ const containerRef=useRef<HTMLDivElement>(null);
+ const triggerRef=useRef<HTMLButtonElement>(null);
+ const menuId=useId();
+ const selected=jobs.find(j=>j.id===value);
+ useEffect(()=>{
+  if(!open)return;
+  const outside=(event:PointerEvent)=>{
+   if(event.target instanceof Node&&!containerRef.current?.contains(event.target))setOpen(false);
+  };
+  const escape=(event:KeyboardEvent)=>{
+   if(event.key==='Escape'){event.preventDefault();setOpen(false);triggerRef.current?.focus();}
+  };
+  document.addEventListener('pointerdown',outside);
+  document.addEventListener('keydown',escape);
+  return ()=>{document.removeEventListener('pointerdown',outside);document.removeEventListener('keydown',escape);};
+ },[open]);
+ const choose=(id:string)=>{onPick(id);setOpen(false);setExpandedRank(null);};
+ return <div className="sk-job-picker" ref={containerRef}>
+  <span className="sk-job-label">選擇職業／轉職路線</span>
+  <button type="button" ref={triggerRef} className="sk-job-trigger" aria-label="技能職業" aria-controls={menuId} aria-expanded={open} onClick={()=>{
+   if(!open)setExpandedRank(selected?.rank??null);
+   setOpen(!open);
+  }}>
+   <span>{selected?.name||'全部職業'}</span><ChevronDown size={18} aria-hidden="true"/>
+  </button>
+  {open&&<div className="sk-job-menu" id={menuId} role="region" aria-label="選擇技能職業">
+   <button type="button" className={'sk-job-choice sk-job-all'+(value==='all'?' active':'')} aria-pressed={value==='all'} onClick={()=>choose('all')}>全部職業</button>
+   {([1,2,3] as const).map(r=>{
+    const isOpen=expandedRank===r;
+    const group=jobs.filter(j=>j.rank===r);
+    return <div className="sk-job-stage-group" key={r}>
+     <button type="button" className="sk-job-stage-trigger" aria-expanded={isOpen} onClick={()=>setExpandedRank(isOpen?null:r)}>
+      <span>{RANK_LABELS[r]}</span><small>{group.length} 職</small><ChevronDown size={16} aria-hidden="true"/>
+     </button>
+     {isOpen&&<div className="sk-job-stage-options">
+      {group.map(job=><button type="button" key={job.id} className={'sk-job-choice'+(job.id===value?' active':'')} aria-pressed={job.id===value} onClick={()=>choose(job.id)}>{job.name}</button>)}
+     </div>}
+    </div>;
+   })}
+  </div>}
+ </div>;
 }
 function SkillDetail({skill}:{skill:Skill}){
  const labels=[...new Set(skill.tags.map(x=>SKILL_TAGS[x]).filter((x):x is string=>Boolean(x)))];
@@ -40,7 +85,7 @@ export function SkillsEncyclopedia({jobId,rank,query,selectedId,onChange}:Props)
  const [error,setError]=useState('');
  useEffect(()=>{
   const ac=new AbortController();
-  fetch(import.meta.env.BASE_URL+'data/skills.json?schema=1',{signal:ac.signal})
+  fetch(import.meta.env.BASE_URL+'data/skills.json?schema=1&names=zh-20261121',{signal:ac.signal})
    .then(r=>{if(!r.ok)throw Error('skills HTTP '+r.status);return r.json()})
    .then((result:SkillCatalog)=>{
     if(result.server!=='hans'||result.schemaVersion!==1||result.jobs.length!==41)
@@ -71,14 +116,7 @@ export function SkillsEncyclopedia({jobId,rank,query,selectedId,onChange}:Props)
    <div className="sk-filter-panel">
     <label className="sk-search"><Search size={18}/><input type="search" aria-label="搜尋職業技能" placeholder="搜尋技能名稱、英文名稱、效果…" value={query} onChange={e=>onChange({query:e.target.value,skillId:null})}/>{query&&<button type="button" aria-label="清除技能搜尋" onClick={()=>onChange({query:'',skillId:null})}><X size={18}/></button>}</label>
     <div className="sk-filter-row">
-     <label className="sk-job-field">選擇職業／轉職路線
-      <select aria-label="技能職業" value={data.jobs.some(j=>j.id===jobId)?jobId:'all'} onChange={e=>onChange({skillJob:e.target.value,skillId:null})}>
-       <option value="all">全部職業</option>
-       {[1,2,3].map(r=><optgroup key={r} label={RANK_LABELS[r]}>
-        {data.jobs.filter(j=>j.rank===r).map(job=><option key={job.id} value={job.id}>{job.name}{job.developing?'（開發中）':''}</option>)}
-       </optgroup>)}
-      </select>
-     </label>
+     <SkillJobPicker jobs={data.jobs} value={jobId} onPick={id=>onChange({skillJob:id,skillId:null})}/>
     </div>
     <div className="sk-rank-choices" role="group" aria-label="技能轉職階段">
      {([0,1,2,3] as const).map(r=><button key={r} type="button" className={rank===r?'active':''} aria-pressed={rank===r} onClick={()=>onChange({skillRank:r,skillId:null})}>{r===0?'全部階段':RANK_LABELS[r]}</button>)}
@@ -87,7 +125,7 @@ export function SkillsEncyclopedia({jobId,rank,query,selectedId,onChange}:Props)
    <p className="sk-result-count" aria-live="polite">符合 {total} 筆職業技能 · {list.length} 個職業{jobId!=='all'?'（包含相應的轉職路線）':''}</p>
    {list.length?<div className="sk-groups">
     {list.map(({job,skills})=><section className="sk-group" key={job.id} aria-label={job.name+'技能'}>
-     <header className="sk-group-title"><div><strong>{job.name}</strong><small>{RANK_LABELS[job.rank]}{job.developing?' · 遊戲標記開發中':''}</small></div><span>{skills.length} 技能</span></header>
+     <header className="sk-group-title"><div><strong>{job.name}</strong><small>{RANK_LABELS[job.rank]}</small></div><span>{skills.length} 技能</span></header>
      <div className="sk-list">
       {skills.map(skill=><div className="sk-list-entry" key={skill.id}>
        <button type="button" className={'sk-result'+(selectedId===skill.id?' active':'')} aria-expanded={selectedId===skill.id} onClick={()=>onChange({skillId:selectedId===skill.id?null:skill.id})}>

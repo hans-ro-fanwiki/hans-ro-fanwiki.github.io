@@ -23,20 +23,36 @@ const str=n=>(n&&(ts.isStringLiteral(n)||ts.isNoSubstitutionTemplateLiteral(n)))
 const number=n=>n&&ts.isNumericLiteral(n)?Number(n.text):null;
 const arr=n=>ts.isArrayLiteralExpression(n)?n.elements.map(str).filter(x=>typeof x==='string'):[];
 function translateMap(id){
-  for(const st of ast.statements){
-    if(!ts.isVariableStatement(st))continue;
-    for(const d of st.declarationList.declarations)
-      if(ts.isIdentifier(d.name)&&d.name.text===id&&d.initializer&&ts.isObjectLiteralExpression(d.initializer)){
-        const map=new Map();
-        for(const property of d.initializer.properties){
-          if(!ts.isPropertyAssignment(property))continue;
-          const key=keyOf(property.name),val=str(property.initializer);
-          if(key&&val)map.set(key,val);
-        }
-        return map;
-      }
+ const map=new Map();
+ let found=false;
+ function mergeLiteral(obj){
+  if(!obj||!ts.isObjectLiteralExpression(obj))throw Error('Nonliteral HANS translation block: '+id);
+  for(const property of obj.properties){
+   if(!ts.isPropertyAssignment(property))continue;
+   const key=keyOf(property.name),val=str(property.initializer);
+   if(key&&val)map.set(key,val);
   }
-  throw Error('Missing audited HANS translation table: '+id);
+ }
+ // HANS registers early translations in aA/KI declarations, then appends
+ // third-job translations with Object.assign(aA, {...}). Both must be read.
+ for(const st of ast.statements){
+  if(ts.isVariableStatement(st)){
+   for(const d of st.declarationList.declarations){
+    if(ts.isIdentifier(d.name)&&d.name.text===id){
+     mergeLiteral(d.initializer);found=true;
+    }
+   }
+  }else if(ts.isExpressionStatement(st)&&ts.isCallExpression(st.expression)){
+   const call=st.expression,callee=call.expression;
+   if(ts.isPropertyAccessExpression(callee)&&ts.isIdentifier(callee.expression)&&callee.expression.text==='Object'&&callee.name.text==='assign'
+     &&call.arguments.length>=2&&ts.isIdentifier(call.arguments[0])&&call.arguments[0].text===id){
+    for(const addition of call.arguments.slice(1))mergeLiteral(addition);
+    found=true;
+   }
+  }
+ }
+ if(!found)throw Error('Missing audited HANS translation table: '+id);
+ return map;
 }
 const names=translateMap('aA'),descs=translateMap('KI');
 const skillIds=new Set(talents.jobs.flatMap(job=>(job.skills||[]).map(s=>s.id)));

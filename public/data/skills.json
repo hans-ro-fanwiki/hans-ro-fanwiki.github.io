@@ -698,7 +698,7 @@
     },
     {
       "id": "acid_demonstration",
-      "name": "Acid Demonstration",
+      "name": "強酸火煙瓶",
       "originalName": "Acid Demonstration",
       "icon": "cr_aciddemonstration",
       "description": "朝視野內最強的敵人連丟 5 瓶強酸火煙瓶；被打到的受到傷害 +10%（3 秒）。",
@@ -739,7 +739,7 @@
     },
     {
       "id": "adoramus",
-      "name": "Adoramus",
+      "name": "讚頌",
       "originalName": "Adoramus",
       "icon": "ab_adoramus",
       "description": "朝最大的一群敵人降下四道聖光：每一道都打中大範圍圓圈裡的所有敵人，並致盲、緩速（不死系 ×2）。",
@@ -759,7 +759,7 @@
     },
     {
       "id": "aimed_bolt",
-      "name": "Aimed Bolt",
+      "name": "瞄準射擊",
       "originalName": "Aimed Bolt",
       "icon": "ra_aimedbolt",
       "description": "射出一支重箭，貫穿 3 個敵人；對暈眩或睡眠中的敵人傷害 ×2。",
@@ -809,7 +809,7 @@
     },
     {
       "id": "arms_cannon",
-      "name": "Arm Cannon",
+      "name": "臂砲",
       "originalName": "Arm Cannon",
       "icon": "nc_armscannon",
       "description": "魔導機甲朝最大的一群敵人發射臂砲：大範圍爆炸，圈內全部命中。",
@@ -875,7 +875,7 @@
     },
     {
       "id": "arrow_storm",
-      "name": "Arrow Barrage",
+      "name": "萬箭齊發",
       "originalName": "Arrow Barrage",
       "icon": "ra_arrowstorm",
       "description": "朝最大的一群敵人射出三波箭雨：每一波都會打中大範圍圓圈裡的所有敵人。",
@@ -975,7 +975,7 @@
     },
     {
       "id": "auto_shadow_spell",
-      "name": "Auto Shadow Spell",
+      "name": "自動魅影念咒",
       "originalName": "Auto Shadow Spell",
       "icon": "sc_autoshadowspell",
       "description": "10 秒內，你的技能每次打中敵人都有 20% 機率追加一發抄來的火箭術、冰箭術或雷擊術。",
@@ -1247,7 +1247,7 @@
     },
     {
       "id": "cannon_spear",
-      "name": "Cannon Spear",
+      "name": "加農矛",
       "originalName": "Cannon Spear",
       "icon": "lg_cannonspear",
       "description": "擲出一支巨大的光之槍，貫穿整排敵人。",
@@ -1268,7 +1268,7 @@
     },
     {
       "id": "cart_cannon",
-      "name": "Cart Cannon",
+      "name": "推車砲",
       "originalName": "Cart Cannon",
       "icon": "gn_cartcannon",
       "description": "推車朝最大的一群敵人發射砲彈：落點周圍全部被炸到。",
@@ -1319,7 +1319,7 @@
     },
     {
       "id": "cart_tornado",
-      "name": "Cart Tornado",
+      "name": "推車龍捲風",
       "originalName": "Cart Tornado",
       "icon": "gn_cart_tornado",
       "description": "推車繞著你轉 3 圈：每一圈都打中並推開周圍的敵人。",
@@ -1436,7 +1436,7 @@
     },
     {
       "id": "cluster_bomb",
-      "name": "Cluster Bomb",
+      "name": "集束炸彈",
       "originalName": "Cluster Bomb",
       "icon": "ra_clusterbomb",
       "description": "朝最大的一群敵人丟出炸彈：爆炸波及周圍所有敵人並把他們炸飛。",
@@ -1456,7 +1456,7 @@
     },
     {
       "id": "cold_slower",
-      "name": "Cold Slower",
+      "name": "冷凍彈",
       "originalName": "Cold Slower",
       "icon": "nc_coldslower",
       "description": "朝最大的一群敵人發射冷凍彈：範圍內全部緩速 3 秒、50% 機率凍結 1.5 秒（首領不會凍），並受到少量傷害。",
@@ -1512,7 +1512,7 @@
     },
     {
       "id": "comet",
-      "name": "Comet Fall",
+      "name": "彗星術",
       "originalName": "Comet Fall",
       "icon": "wl_comet",
       "description": "一顆巨大的彗星砸向最大的一群敵人：非常大的圓圈內所有敵人都會被打中並炸飛。",
@@ -1580,7 +1580,7 @@
     },
     {
       "id": "crimson_marker",
-      "name": "Crimson Marker",
+      "name": "緋紅標記",
       "originalName": "Crimson Marker",
       "icon": "rl_c_marker",
       "description": "朝視野內最強的敵人精準一槍並標記 10 秒：它受到的傷害 +15%，龍尾會引爆它。",
@@ -1600,7 +1600,7 @@
     },
     {
       "id": "crimson_rock",
-      "name": "Crimson Rock",
+      "name": "赤紅岩石",
       "originalName": "Crimson Rock",
       "icon": "wl_crimsonrock",
       "description": "燃燒的巨岩砸向最大的一群敵人：波及周圍所有敵人、把他們擊退，並有機率暈眩。",
@@ -1623,7 +1623,7 @@
     },
     {
       "id": "cross_impact",
-      "name": "Cross Impact",
+      "name": "十字衝擊",
       "originalName": "Cross Impact",
       "icon": "gc_crossimpact",
       "description": "對視野內最強的敵人瞬間砍出七道十字斬。",
@@ -1644,7 +1644,7 @@
     },
     {
       "id": "cross_ripper_slasher",
-      "name": "Cross Ripper Slasher",
+      "name": "十字撕裂斬",
       "originalName": "Cross Ripper Slasher",
       "icon": "gc_crossripperslasher",
       "description": "朝視野內 4 個敵人甩出 4 把刀刃，每把也會砍到旁邊的敵人。會用掉全部迴旋計數來加傷。",
@@ -1665,7 +1665,7 @@
     },
     {
       "id": "cross_slash",
-      "name": "Cross Slash",
+      "name": "十字斬",
       "originalName": "Cross Slash",
       "icon": "ko_jyumonjikiri",
       "description": "對視野內最強的敵人斬出十字兩刀；十字傷讓它 5 秒內受到的傷害 +15%。",
@@ -1685,7 +1685,7 @@
     },
     {
       "id": "curse_explosion",
-      "name": "Curse Explosion",
+      "name": "詛咒爆炸",
       "originalName": "Curse Explosion",
       "icon": "sp_curseexplosion",
       "description": "讓最大一群敵人身上的詛咒爆開：打中周圍所有敵人；被詛咒的敵人傷害 +60%。",
@@ -1705,7 +1705,7 @@
     },
     {
       "id": "dark_claw",
-      "name": "Dark Claw",
+      "name": "暗黑之爪",
       "originalName": "Dark Claw",
       "icon": "gc_darkcrow",
       "description": "對視野內最強的 2 個敵人撕出三道暗黑之爪：6 秒內受到的所有傷害 +20%。",
@@ -1835,7 +1835,7 @@
     },
     {
       "id": "diamond_dust",
-      "name": "Diamond Dust",
+      "name": "鑽石星塵",
       "originalName": "Diamond Dust",
       "icon": "so_diamonddust",
       "description": "在最大的一群敵人身上落下五次冰晶打擊：每一次都會打中附近所有敵人，並有機率冰凍。",
@@ -1912,7 +1912,7 @@
     },
     {
       "id": "dragon_breath",
-      "name": "Dragon Breath",
+      "name": "龍息",
       "originalName": "Dragon Breath",
       "icon": "rk_dragonbreath",
       "description": "你的龍朝最大的一群敵人噴出扇形火焰。你的 HP 越滿火越猛（滿血 +30% 傷害）。",
@@ -1933,7 +1933,7 @@
     },
     {
       "id": "dragon_howling",
-      "name": "Dragon Howling",
+      "name": "龍之咆哮",
       "originalName": "Dragon Howling",
       "icon": "rk_dragonhowling",
       "description": "你的龍發出咆哮：周圍的敵人嚇得僵住 1 秒、5 秒內造成的傷害 −20%，並被震開。",
@@ -1954,7 +1954,7 @@
     },
     {
       "id": "dragon_tail",
-      "name": "Dragontail",
+      "name": "龍尾",
       "originalName": "Dragontail",
       "icon": "rl_d_tail",
       "description": "引爆視野內被標記的敵人（最多 3 個）：每個都炸一大下，周圍吃 40%。沒有標記時打最強的敵人 60%。",
@@ -1991,7 +1991,7 @@
     },
     {
       "id": "earth_drive",
-      "name": "Earth Drive",
+      "name": "大地衝擊",
       "originalName": "Earth Drive",
       "icon": "lg_earthdrive",
       "description": "把盾牌砸進地面：以你為中心震地三次，打中並震退周圍所有敵人。",
@@ -2036,7 +2036,7 @@
     },
     {
       "id": "electric_shocker",
-      "name": "Electric Shocker",
+      "name": "電擊陷阱",
       "originalName": "Electric Shocker",
       "icon": "ra_electricshocker",
       "description": "把電擊陷阱丟到最大的一群敵人：範圍內全部暈眩 1.6 秒（首領減半），並受到少量傷害。",
@@ -2056,7 +2056,7 @@
     },
     {
       "id": "elemental_spirit",
-      "name": "Elemental Spirit",
+      "name": "元素精靈",
       "originalName": "Elemental Spirit",
       "icon": "so_summon_agni",
       "description": "召喚一隻元素精靈跟著你 12 秒，每秒攻擊最近的敵人（旁邊的敵人受到一半傷害）。每次施放換下一種元素：火、水（緩速）、風（機率暈眩）、地（擊退）。",
@@ -2137,7 +2137,7 @@
     },
     {
       "id": "epiclesis",
-      "name": "Epiclesis Tree",
+      "name": "聖樹降臨",
       "originalName": "Epiclesis Tree",
       "icon": "ab_epiclesis",
       "description": "在腳下種一棵光之樹 8 秒：每秒兩次灼燒周圍敵人（不死系 ×2），你站在裡面每秒回復 1.5% HP，範圍內的隊友也獲得再生。",
@@ -2182,7 +2182,7 @@
     },
     {
       "id": "espa",
-      "name": "Espa",
+      "name": "艾斯帕",
       "originalName": "Espa",
       "icon": "sp_spa",
       "description": "朝視野內最強的敵人射出一道靈魂之槍；對被詛咒的敵人傷害 +30%。",
@@ -2248,7 +2248,7 @@
     },
     {
       "id": "eswhoo",
-      "name": "Eswhoo",
+      "name": "艾斯乎",
       "originalName": "Eswhoo",
       "icon": "sp_swhoo",
       "description": "朝最大的一群敵人連打三波靈魂漩渦：每一波都打中周圍所有敵人。",
@@ -2303,7 +2303,7 @@
     },
     {
       "id": "fatal_menace",
-      "name": "Fatal Menace",
+      "name": "致命威脅",
       "originalName": "Fatal Menace",
       "icon": "sc_fatalmenace",
       "description": "砍中身邊所有敵人，然後消失、出現在離敵群遠一點的地方（0.4 秒無敵）。",
@@ -2324,7 +2324,7 @@
     },
     {
       "id": "fear_breeze",
-      "name": "Fear Breeze",
+      "name": "恐懼之風",
       "originalName": "Fear Breeze",
       "icon": "ra_fearbreeze",
       "description": "10 秒內：急速 +15（所有技能冷卻變快）、爆擊 +6%。",
@@ -2343,7 +2343,7 @@
     },
     {
       "id": "feint_bomb",
-      "name": "Feint Bomb",
+      "name": "假爆彈",
       "originalName": "Feint Bomb",
       "icon": "sc_feintbomb",
       "description": "在原地留下魅影分身、自己隱身 1.2 秒；之後分身爆炸，炸到周圍所有敵人。",
@@ -2400,7 +2400,7 @@
     },
     {
       "id": "fire_dance",
-      "name": "Firedance",
+      "name": "烈火之舞",
       "originalName": "Firedance",
       "icon": "rl_firedance",
       "description": "原地轉身，朝四周連開兩輪子彈。",
@@ -2443,7 +2443,7 @@
     },
     {
       "id": "fire_walk",
-      "name": "Fire Walk",
+      "name": "火焰步道",
       "originalName": "Fire Walk",
       "icon": "so_firewalk",
       "description": "4 秒內，你走過的地方會留下一路火焰：每團火焰會灼燒踩在上面的敵人 3 次。",
@@ -2494,7 +2494,7 @@
     },
     {
       "id": "flame_launcher",
-      "name": "Flame Launcher",
+      "name": "火焰噴射器",
       "originalName": "Flame Launcher",
       "icon": "nc_flamelauncher",
       "description": "朝最近的敵人噴出一道直線火焰：連噴 3 段，整條線上的敵人都會被燒到。",
@@ -2529,7 +2529,7 @@
     },
     {
       "id": "flash_kick",
-      "name": "Flash Kick",
+      "name": "閃光踢",
       "originalName": "Flash Kick",
       "icon": "sj_flashkick",
       "description": "閃到最強的敵人身邊踢一腳，在它和附近 2 個敵人身上留下星之印記：每 1.5 秒有一顆星落在印記上（3 次）。",
@@ -2549,7 +2549,7 @@
     },
     {
       "id": "frigg_song",
-      "name": "Frigg's Song",
+      "name": "芙麗嘉之歌",
       "originalName": "Frigg's Song",
       "icon": "wm_frigg_song",
       "description": "回復 8% 最大 HP，接下來 12 秒每秒回 3 HP、受到的傷害 -10%。附近隊友也會得到回復與每秒回血。",
@@ -2583,7 +2583,7 @@
     },
     {
       "id": "frost_misty",
-      "name": "Frost Misty",
+      "name": "冰霜之霧",
       "originalName": "Frost Misty",
       "icon": "wl_frostmisty",
       "description": "把冰霜之霧丟到最大的一群敵人：範圍內全部冰凍 1.8 秒（首領免疫）、削弱 25% 持續 5 秒，並受到少量傷害。",
@@ -2664,7 +2664,7 @@
     },
     {
       "id": "genesis_ray",
-      "name": "Genesis Ray",
+      "name": "創世之光",
       "originalName": "Genesis Ray",
       "icon": "lg_rayofgenesis",
       "description": "聖光朝最大的一群敵人落下五次（對不死 ×2）。你身邊每有一隻敵人傷害 +1.5%（最多 +15%）。",
@@ -2685,7 +2685,7 @@
     },
     {
       "id": "giant_growth",
-      "name": "Giant Growth",
+      "name": "巨人成長符文",
       "originalName": "Giant Growth",
       "icon": "rk_giantgrowth",
       "description": "捏碎一顆符文石：10 秒內傷害 +15%、受到傷害 −10%。",
@@ -2749,7 +2749,7 @@
     },
     {
       "id": "gravity_control",
-      "name": "Gravity Control",
+      "name": "重力控制",
       "originalName": "Gravity Control",
       "icon": "sj_bookofdimension",
       "description": "重力把最大的一群敵人吸到同一點（首領不受影響）；一瞬間後全部暈眩 1.2 秒（首領減半），並受到少量傷害。",
@@ -2770,7 +2770,7 @@
     },
     {
       "id": "great_echo",
-      "name": "Great Echo",
+      "name": "大回聲",
       "originalName": "Great Echo",
       "icon": "wm_great_echo",
       "description": "從你身上擴散出三道聲波：打中周圍所有敵人，並讓他們 4 秒內受到的傷害 +10%。",
@@ -2846,7 +2846,7 @@
     },
     {
       "id": "hallucination_walk",
-      "name": "Hallucination Walk",
+      "name": "幻覺步",
       "originalName": "Hallucination Walk",
       "icon": "gc_hallucinationwalk",
       "description": "8 秒內：迴避 +20%、移動速度 +15%、爆擊 +8%，身後留下殘影。",
@@ -2865,7 +2865,7 @@
     },
     {
       "id": "hammer_of_god",
-      "name": "God Hammer",
+      "name": "神之雷鎚",
       "originalName": "God Hammer",
       "icon": "rl_hammer_of_god",
       "description": "一道巨大的雷砸在視野內最強的敵人身上：重創、周圍吃 40%、暈眩 1 秒。對被標記的敵人傷害 ×1.5。",
@@ -2939,7 +2939,7 @@
     },
     {
       "id": "hells_plant",
-      "name": "Hell's Plant",
+      "name": "地獄之花",
       "originalName": "Hell's Plant",
       "icon": "gn_hells_plant",
       "description": "在身邊種一株食人花 12 秒：每 0.8 秒咬一個靠近的敵人，旁邊的敵人也會被波及。",
@@ -2976,7 +2976,7 @@
     },
     {
       "id": "highness_heal",
-      "name": "Highness Heal",
+      "name": "至高治癒",
       "originalName": "Highness Heal",
       "icon": "ab_highnessheal",
       "description": "最強的治癒：為你與附近所有隊友回復 30 HP（隨 MATK 成長），再 8 秒內每秒回復 3 HP（革新）；治癒之光同時傷害你身邊的敵人（不死系 ×2）。",
@@ -3064,7 +3064,7 @@
     },
     {
       "id": "howling_mine",
-      "name": "Howling Mine",
+      "name": "嚎叫地雷",
       "originalName": "Howling Mine",
       "icon": "rl_h_mine",
       "description": "把地雷射到 3 個隨機敵人身上，片刻後爆炸，炸傷周圍所有敵人。",
@@ -3084,7 +3084,7 @@
     },
     {
       "id": "howling_of_lion",
-      "name": "Howling of Lion",
+      "name": "獅子吼",
       "originalName": "Howling of Lion",
       "icon": "sr_howlingoflion",
       "description": "一聲獅子吼：你身邊所有敵人被嚇到動不了（暈眩 1.4 秒，首領減半），被震退並受到少量傷害。",
@@ -3120,7 +3120,7 @@
     },
     {
       "id": "hundred_spear",
-      "name": "Hundred Spear",
+      "name": "百槍刺",
       "originalName": "Hundred Spear",
       "icon": "rk_hundredspear",
       "description": "對視野內最強的敵人閃電般連刺 5 槍；每一槍也會波及旁邊的敵人（一半傷害）。",
@@ -3156,7 +3156,7 @@
     },
     {
       "id": "ignition_break",
-      "name": "Ignition Break",
+      "name": "點火爆破",
       "originalName": "Ignition Break",
       "icon": "rk_ignitionbreak",
       "description": "把符文砸進地面：以你為中心引發大範圍火焰爆炸，把敵人炸飛。",
@@ -3194,7 +3194,7 @@
     },
     {
       "id": "inspiration",
-      "name": "Inspiration",
+      "name": "激勵",
       "originalName": "Inspiration",
       "icon": "lg_inspiration",
       "description": "花掉目前 HP 的 5%：12 秒內傷害 +12%、急速 +15。",
@@ -3233,7 +3233,7 @@
     },
     {
       "id": "jack_frost",
-      "name": "Jack Frost",
+      "name": "傑克冰霜",
       "originalName": "Jack Frost",
       "icon": "wl_jackfrost",
       "description": "在最大的一群敵人身上落下三次冰霜打擊；對冰凍中的敵人傷害 ×2。",
@@ -3256,7 +3256,7 @@
     },
     {
       "id": "judex",
-      "name": "Judex Ray",
+      "name": "審判之光",
       "originalName": "Judex Ray",
       "icon": "ab_judex",
       "description": "對視野內最強的敵人連降三道審判之光；每一道也會波及周圍的敵人（50%，不死系 ×2）。",
@@ -3351,7 +3351,7 @@
     },
     {
       "id": "knuckle_arrow",
-      "name": "Knuckle Arrow",
+      "name": "拳之箭",
       "originalName": "Knuckle Arrow",
       "icon": "sr_knucklearrow",
       "description": "一記氣拳飛向最近的敵人，再貫穿 2 個，並把他們擊退很遠。",
@@ -3387,7 +3387,7 @@
     },
     {
       "id": "kunai_explosion",
-      "name": "Kunai Explosion",
+      "name": "爆裂苦無",
       "originalName": "Kunai Explosion",
       "icon": "ko_bakuretsu",
       "description": "把爆裂苦無插進最大的一群敵人中間：片刻後爆炸，把周圍的敵人全部炸飛。",
@@ -3407,7 +3407,7 @@
     },
     {
       "id": "kunai_splash",
-      "name": "Kunai Splash",
+      "name": "八方苦無",
       "originalName": "Kunai Splash",
       "icon": "ko_happokunai",
       "description": "向四面八方射出 16 把苦無，每把都會貫穿一個敵人。",
@@ -3428,7 +3428,7 @@
     },
     {
       "id": "lauda_ramus",
-      "name": "Lauda Ramus",
+      "name": "讚美詩",
       "originalName": "Lauda Ramus",
       "icon": "ab_laudaramus",
       "description": "10 秒內：急速 +15、爆擊 +8%。附近的隊友同時獲得急速 +15、傷害 +8%（天使之賜福）。",
@@ -3609,7 +3609,7 @@
     },
     {
       "id": "mandragora_howl",
-      "name": "Howling of Mandragora",
+      "name": "曼陀羅之嚎",
       "originalName": "Howling of Mandragora",
       "icon": "gn_mandragora",
       "description": "腳邊的曼陀羅放聲尖叫：周圍的敵人被嚇呆（暈眩 1.5 秒，首領不會），5 秒內傷害 -20%，並受到少量傷害。",
@@ -3630,7 +3630,7 @@
     },
     {
       "id": "masquerade",
-      "name": "Masquerade",
+      "name": "假面詛咒",
       "originalName": "Masquerade",
       "icon": "sc_unlucky",
       "description": "視野內最強的 4 個敵人各戴上一個隨機詛咒假面（6 秒）：受到傷害 +20%、造成傷害 −30%、緩速、致盲或暈眩。",
@@ -3649,7 +3649,7 @@
     },
     {
       "id": "metallic_sound",
-      "name": "Metallic Sound",
+      "name": "金屬之音",
       "originalName": "Metallic Sound",
       "icon": "wm_metalicsound",
       "description": "對視野內最強的敵人連打兩段金屬聲波；對暈眩或睡眠中的敵人傷害 +50%。",
@@ -3707,7 +3707,7 @@
     },
     {
       "id": "neutral_barrier",
-      "name": "Neutral Barrier",
+      "name": "中立屏障",
       "originalName": "Neutral Barrier",
       "icon": "nc_neutralbarrier",
       "description": "10 秒內：受到傷害 -15%、護甲 +1、急速 +10。",
@@ -3744,7 +3744,7 @@
     },
     {
       "id": "nova_explosion",
-      "name": "Nova Explosion",
+      "name": "新星爆炸",
       "originalName": "Nova Explosion",
       "icon": "sj_novaexplosing",
       "description": "燃燒目前 HP 的 6% 化成新星：身邊的敵人全部受到巨大爆炸傷害並被炸飛。",
@@ -3765,7 +3765,7 @@
     },
     {
       "id": "oratio",
-      "name": "Holy Oratio",
+      "name": "神聖祈禱",
       "originalName": "Holy Oratio",
       "icon": "ab_oratio",
       "description": "對最大的一群敵人祈禱：範圍內全部 6 秒內受到的傷害 +20%（任何人打都算）、緩速 2 秒，並受到少量聖屬性傷害。",
@@ -3862,7 +3862,7 @@
     },
     {
       "id": "poison_smoke",
-      "name": "Poison Smoke",
+      "name": "毒霧",
       "originalName": "Poison Smoke",
       "icon": "gc_poisonsmoke",
       "description": "一團毒雲跟著你 6 秒：雲裡的敵人會一直中毒。",
@@ -3901,7 +3901,7 @@
     },
     {
       "id": "prestige",
-      "name": "Prestige",
+      "name": "威望",
       "originalName": "Prestige",
       "icon": "lg_prestige",
       "description": "10 秒內：受到傷害 −20%、護甲 +1。",
@@ -3920,7 +3920,7 @@
     },
     {
       "id": "prominence_kick",
-      "name": "Prominence Kick",
+      "name": "日珥踢",
       "originalName": "Prominence Kick",
       "icon": "sj_prominencekick",
       "description": "纏著太陽火焰的一腳砸進最大的一群敵人：周圍所有敵人都受到全額傷害。",
@@ -3955,7 +3955,7 @@
     },
     {
       "id": "psychic_wave",
-      "name": "Psychic Wave",
+      "name": "念力波",
       "originalName": "Psychic Wave",
       "icon": "so_psychic_wave",
       "description": "念力波在最大的一群敵人身上擴散 4 秒：8 次脈衝，打中大範圍圓圈內的所有敵人。",
@@ -3999,7 +3999,7 @@
     },
     {
       "id": "raising_dragon",
-      "name": "Raising Dragon",
+      "name": "升龍",
       "originalName": "Raising Dragon",
       "icon": "sr_raisingdragon",
       "description": "12 秒內：急速 +15、傷害 +8%。如果身上有蓄氣，會馬上再放一次（補滿氣彈）。",
@@ -4018,7 +4018,7 @@
     },
     {
       "id": "rampage_blaster",
-      "name": "Rampage Blaster",
+      "name": "狂暴爆破",
       "originalName": "Rampage Blaster",
       "icon": "sr_rampageblaster",
       "description": "把所有氣彈丟向最大的一群敵人：爆炸並把周圍的敵人全部炸飛。",
@@ -4054,7 +4054,7 @@
     },
     {
       "id": "reproduce",
-      "name": "Reproduce",
+      "name": "複製",
       "originalName": "Reproduce",
       "icon": "sc_reproduce",
       "description": "隨機抄一招大魔法（隕石術、暴風雪或怒雷）：在最大的一群敵人身上落下 6 下，附帶那招的暈眩、冰凍或致盲。",
@@ -4090,7 +4090,7 @@
     },
     {
       "id": "reverberation",
-      "name": "Reverberation",
+      "name": "回響",
       "originalName": "Reverberation",
       "icon": "wm_reverberation",
       "description": "在最大一群敵人中間放下樂器：連爆兩次聲波，打中周圍所有敵人；第一爆有機率暈眩。",
@@ -4110,7 +4110,7 @@
     },
     {
       "id": "rolling_cutter",
-      "name": "Rolling Cutter",
+      "name": "迴旋斬",
       "originalName": "Rolling Cutter",
       "icon": "gc_rollingcutter",
       "description": null,
@@ -4131,7 +4131,7 @@
     },
     {
       "id": "round_trip",
-      "name": "Round Trip",
+      "name": "往返射擊",
       "originalName": "Round Trip",
       "icon": "rl_qd_shot",
       "description": "12 發子彈射向四面八方再飛回來，每發都會貫穿一個敵人並擊退。",
@@ -4276,7 +4276,7 @@
     },
     {
       "id": "severe_rainstorm",
-      "name": "Severe Rainstorm",
+      "name": "嚴酷暴雨",
       "originalName": "Severe Rainstorm",
       "icon": "wm_severe_rainstorm",
       "description": "朝最大的一群敵人降下箭的暴雨：10 波，每一波都會打中小圓圈裡的所有敵人。",
@@ -4296,7 +4296,7 @@
     },
     {
       "id": "shadow_warrior",
-      "name": "Shadow Warrior",
+      "name": "影武者",
       "originalName": "Shadow Warrior",
       "icon": "kg_kagemusya",
       "description": "你的影分身出現在最強的敵人身邊連斬 3 刀；之後 8 秒爆擊 +10%。",
@@ -4387,7 +4387,7 @@
     },
     {
       "id": "shield_press",
-      "name": "Shield Press",
+      "name": "盾壓",
       "originalName": "Shield Press",
       "icon": "lg_shieldpress",
       "description": "用盾牌猛砸視野內最強的敵人：一記重擊，並暈眩 1.2 秒。",
@@ -4469,7 +4469,7 @@
     },
     {
       "id": "silver_sniper",
-      "name": "FAW Silver Sniper",
+      "name": "自走砲台：銀色狙擊手",
       "originalName": "FAW Silver Sniper",
       "icon": "nc_silversniper",
       "description": "在身邊架設一座銀色自走砲台 10 秒：每 0.8 秒射擊最近的敵人。",
@@ -4489,7 +4489,7 @@
     },
     {
       "id": "skynet_blow",
-      "name": "Sky Net Blow",
+      "name": "天羅地網",
       "originalName": "Sky Net Blow",
       "icon": "sr_skynetblow",
       "description": "在身邊連打三波拳：每一波都打中你身邊的所有敵人。",
@@ -4551,7 +4551,7 @@
     },
     {
       "id": "soul_collect",
-      "name": "Soul Collect",
+      "name": "靈魂收集",
       "originalName": "Soul Collect",
       "icon": "sp_soulcollect",
       "description": "立刻得到 5 個靈魂。12 秒內：傷害 +10%，每次擊殺得到 2 個靈魂（最多 10 個）。",
@@ -4570,7 +4570,7 @@
     },
     {
       "id": "soul_curse",
-      "name": "Soul Curse",
+      "name": "靈魂詛咒",
       "originalName": "Soul Curse",
       "icon": "sp_soulcurse",
       "description": "詛咒最大的一群敵人 6 秒：他們受到的所有傷害 +15%（詛咒爆炸、艾斯帕 打他們更痛），並立刻受到少量傷害。",
@@ -4590,7 +4590,7 @@
     },
     {
       "id": "soul_explosion",
-      "name": "Soul Explosion",
+      "name": "靈魂爆炸",
       "originalName": "Soul Explosion",
       "icon": "sp_soulexplosion",
       "description": "擊殺會得到靈魂（最多 10 個）。把身上所有靈魂砸向最強的敵人：基礎 30 傷害，每個靈魂 +7，旁邊的敵人吃一半。",
@@ -4664,7 +4664,7 @@
     },
     {
       "id": "spirit_charm",
-      "name": "Spirit Charm",
+      "name": "符咒・炎天",
       "originalName": "Spirit Charm",
       "icon": "ko_kahu_enten",
       "description": "火符在你身邊炸開（半徑 110），之後 12 秒：傷害 +15%、急速 +10。",
@@ -4685,7 +4685,7 @@
     },
     {
       "id": "spore_explosion",
-      "name": "Spore Explosion",
+      "name": "孢子爆炸",
       "originalName": "Spore Explosion",
       "icon": "gn_spore_explosion",
       "description": "在視野內最強的敵人身上種下孢子：1 秒後爆開，炸到牠和周圍的敵人。",
@@ -4736,7 +4736,7 @@
     },
     {
       "id": "star_emperor_advent",
-      "name": "Star Emperor Advent",
+      "name": "星帝降臨",
       "originalName": "Star Emperor Advent",
       "icon": "sj_staremperor",
       "description": "六顆巨大的星星落在最大的一群敵人身上：每一顆爆開都會打中大範圍圓圈裡的所有敵人。",
@@ -4821,7 +4821,7 @@
     },
     {
       "id": "summon_spheres",
-      "name": "Elemental Spheres",
+      "name": "元素法球",
       "originalName": "Elemental Spheres",
       "icon": "wl_summonfb",
       "description": "三顆元素法球環繞你 8 秒，碰到敵人就爆裂（1.5 秒後重生）；時間到時，法球會射向最強的敵人，造成 150% 傷害。",
@@ -4840,7 +4840,7 @@
     },
     {
       "id": "swirling_petal",
-      "name": "Swirling Petal",
+      "name": "風魔花亂",
       "originalName": "Swirling Petal",
       "icon": "ko_huumaranka",
       "description": "巨大的風魔手裏劍在最大的一群敵人上方迴旋 5 圈，底下的敵人全部被割傷。",
@@ -4875,7 +4875,7 @@
     },
     {
       "id": "tetra_vortex",
-      "name": "Tetra Vortex",
+      "name": "四重漩渦",
       "originalName": "Tetra Vortex",
       "icon": "wl_tetravortex",
       "description": "火、水、風、地四種元素依序轟擊最強的敵人；每一段也會波及旁邊的敵人。",
@@ -4929,7 +4929,7 @@
     },
     {
       "id": "tiger_cannon",
-      "name": "Tiger Cannon",
+      "name": "虎砲",
       "originalName": "Tiger Cannon",
       "icon": "sr_tigercannon",
       "description": "燃燒目前 HP 的 4%，對身邊最強的敵人打出毀滅性的一擊；你損失的 HP 越多，傷害越高（最多 +50%）。",
@@ -4979,7 +4979,7 @@
     },
     {
       "id": "triangle_shot",
-      "name": "Triangle Shot",
+      "name": "三角射擊",
       "originalName": "Triangle Shot",
       "icon": "sc_triangleshot",
       "description": "朝最近的敵人一次射出 3 支箭（小扇形），每支貫穿 1 個敵人。",
@@ -5032,7 +5032,7 @@
     },
     {
       "id": "universe_stance",
-      "name": "Universe Stance",
+      "name": "宇宙架式",
       "originalName": "Universe Stance",
       "icon": "sj_universestance",
       "description": "12 秒內：護甲 +1，架式每 4 秒輪替：太陽（傷害 +15%）→ 月亮（受到傷害 -15%）→ 星星（急速 +20）。",
@@ -5051,7 +5051,7 @@
     },
     {
       "id": "vacuum_extreme",
-      "name": "Vacuum Extreme",
+      "name": "真空極限",
       "originalName": "Vacuum Extreme",
       "icon": "so_vacuum_extreme",
       "description": "在最大的一群敵人中心製造真空：大範圍內的敵人被吸向中心並緩速 2 秒（首領不會被吸），並受到少量傷害。",
@@ -5071,7 +5071,7 @@
     },
     {
       "id": "varetyr_spear",
-      "name": "Varetyr Spear",
+      "name": "瓦雷特之矛",
       "originalName": "Varetyr Spear",
       "icon": "so_varetyr_spear",
       "description": "三支雷矛落在最大的一群敵人附近：每一支都會打中附近所有敵人，並有機率暈眩。",
@@ -5175,7 +5175,7 @@
     },
     {
       "id": "vulcan_arm",
-      "name": "Vulcan Arm",
+      "name": "機關砲臂",
       "originalName": "Vulcan Arm",
       "icon": "nc_vulcanarm",
       "description": "朝最近的敵人連射 5 發高速子彈。",
@@ -5196,7 +5196,7 @@
     },
     {
       "id": "warg_strike",
-      "name": "Warg Strike",
+      "name": "座狼突襲",
       "originalName": "Warg Strike",
       "icon": "ra_wugstrike",
       "description": "座狼撲向視野內最強的敵人連咬兩口；旁邊的敵人也會被波及，有機率暈眩。",
@@ -5254,7 +5254,7 @@
     },
     {
       "id": "wind_cutter",
-      "name": "Wind Cutter",
+      "name": "風之刃",
       "originalName": "Wind Cutter",
       "icon": "rk_windcutter",
       "description": "揮舞纏繞著風的武器旋轉一圈，砍中身邊所有敵人。",
@@ -5275,7 +5275,7 @@
     },
     {
       "id": "windmill_rush",
-      "name": "Windmill Rush Song",
+      "name": "風車衝鋒之歌",
       "originalName": "Windmill Rush Song",
       "icon": "mi_rush_windmill",
       "description": "12 秒內：你和附近所有隊友傷害 +10%、急速 +10。",

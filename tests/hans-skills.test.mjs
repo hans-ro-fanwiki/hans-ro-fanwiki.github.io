@@ -37,6 +37,16 @@ test('HANS skills encyclopedia is source-pinned, complete, and remains HANS only
  assert.match(registry.get('firebolt').description,/火球/);
  assert.equal(registry.get('meteor_storm').cooldown,14);
  assert.match(registry.get('comet').description,/彗星/);
+ const thirdSkills=[...new Set(data.jobs.filter(j=>j.rank===3).flatMap(j=>j.skills))].map(id=>registry.get(id));
+ assert.equal(thirdSkills.length,96);
+ assert.ok(thirdSkills.every(s=>/[\u3400-\u9fff]/.test(s.name)),'All 96 third-job skill titles must use native HANS Chinese name mappings');
+ assert.equal(registry.get('comet').name,'彗星術');
+ assert.equal(registry.get('adoramus').name,'讚頌');
+ assert.equal(registry.get('rolling_cutter').name,'迴旋斬');
+ assert.equal(registry.get('cart_cannon').name,'推車砲');
+ assert.equal(registry.get('aimed_bolt').name,'瞄準射擊');
+ assert.equal(registry.get('dragon_breath').name,'龍息');
+ assert.equal(registry.get('comet').originalName,'Comet Fall');
  assert.ok(data.skills.every(s=>!('image' in s)&&!('url' in s)),'Do not distribute game icons');
 });
 test('Job skill selection shows a complete first-to-third-job progression',()=>{

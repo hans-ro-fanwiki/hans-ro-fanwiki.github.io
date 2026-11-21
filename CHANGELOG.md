@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.3.0-dev.14 — 2026-11-21 (collapsible job picker and verified third-job Chinese names)
+
+- Replace iOS native 41-item class select with a compact, height-bounded in-page accordion: all jobs / first / second / third. One stage expands at a time; choice, Escape or tapping outside closes the picker; keyboard and mobile touch remain supported.
+- Remove visible second-job “開發中” tags in both skill encyclopedia and talent simulator, without deleting upstream provenance or altering talent/job logic.
+- Fix source parser to read SHA-verified `Object.assign(aA,{...})` appended HANS translations as well as the initial translation dictionaries. Confirm all 96 third-job skill titles have native HANS Traditional Chinese names (e.g. 彗星術, 讚頌, 迴旋斬) while original English remains searchable.
+- Add source-backed unit and public build assertions for all 96 third-job translations, expanded accordion/browser tests and an updated data URL to avoid stale cached skills.json.
+- Preserve existing class routes, three-stage talent sharing and HANS-only safety policy.
+
+
 ## 0.3.0-dev.13 — 2026-11-21 (HANS class skill encyclopedia)
 
 - Add a separate fifth navigation page “技能” to search registered first-, second-, and third-job skills, separate from the talent-point simulator. Selecting a job shows its corresponding transfer path, while filters support all/first/second/third and Chinese or English skill search.

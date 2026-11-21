@@ -29,6 +29,11 @@ assert.equal(skills.source.sha256,audited.hans.soul.sha256,'HANS skill SHA misma
 assert.equal(skills.jobs.length,41,'Incomplete HANS first-to-third job catalog');
 assert.equal(skills.skills.length,244,'Incomplete HANS skill registry');
 assert.equal(skills.jobs.reduce((n,j)=>n+j.skills.length,0),256);
+const skillById=new Map(skills.skills.map(s=>[s.id,s]));
+const thirdSkillIds=new Set(skills.jobs.filter(j=>j.rank===3).flatMap(j=>j.skills));
+assert.equal(thirdSkillIds.size,96,'Incomplete HANS third-job skill list');
+assert.ok([...thirdSkillIds].every(id=>/[\u3400-\u9fff]/.test(skillById.get(id)?.name||'')),
+ 'Third-job skill titles must use HANS native Chinese translation table');
 assert.ok(skills.skills.every(s=>/^[a-z0-9_-]+$/i.test(s.icon)&&!s.image&&!s.url));
 const stages=new Map(deployed.stages.map(stage=>[stage.id,stage]));
 for(const entry of [...deployed.items,...deployed.cards]){

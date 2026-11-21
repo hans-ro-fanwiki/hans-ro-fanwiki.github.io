@@ -12,7 +12,21 @@
 .sk-search button{border:0;background:transparent;color:var(--wiki-muted);min-width:35px;min-height:38px;display:grid;place-items:center}
 .sk-filter-row{display:flex;gap:10px;flex-wrap:wrap}
 .sk-job-field{display:grid;gap:6px;flex:1;font-size:12px;font-weight:700;color:var(--wiki-muted)}
-.sk-job-field select{width:100%;min-height:46px;padding:8px 10px;font-size:14px;color:var(--wiki-text);border-radius:10px;border:1px solid var(--wiki-border);background:#172429}
+.sk-job-picker{display:grid;gap:6px;flex:1;min-width:0}
+.sk-job-label{font-size:12px;font-weight:700;color:var(--wiki-muted)}
+.sk-job-trigger{width:100%;display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:46px;padding:9px 12px;border:1px solid var(--wiki-border);border-radius:10px;background:#172429;color:var(--wiki-text);font-size:14px;text-align:left;font-weight:650}
+.sk-job-trigger[aria-expanded=true]{border-color:#8ed3b5;box-shadow:0 0 0 2px #8ed3b53a}
+.sk-job-menu{border:1px solid #446258;background:#182a2e;border-radius:12px;padding:7px;max-height:min(52svh,420px);overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+.sk-job-stage-group{border-top:1px solid #36514a;margin-top:5px;padding-top:5px}
+.sk-job-stage-trigger{width:100%;min-height:44px;display:flex;align-items:center;gap:9px;background:transparent;border:0;color:var(--wiki-text);padding:7px 10px;text-align:left;font-size:14px;font-weight:700}
+.sk-job-stage-trigger small{color:var(--wiki-muted);font-weight:500}
+.sk-job-stage-trigger svg{margin-left:auto;transition:transform .15s}
+.sk-job-stage-trigger[aria-expanded=true] svg{transform:rotate(180deg)}
+.sk-job-stage-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:5px;padding:5px 2px 8px}
+.sk-job-choice{min-height:44px;text-align:left;padding:8px 10px;background:#293b3c;color:var(--wiki-text);border:1px solid #3d5853;border-radius:8px;font-size:13px;line-height:1.35}
+.sk-job-choice.active{background:#31594d;border-color:#80c0a0;color:#e7faef}
+.sk-job-choice:hover,.sk-job-stage-trigger:hover{background:#39534a}
+.sk-job-all{width:100%;font-weight:650}
 .sk-rank-choices{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px}
 .sk-rank-choices button{min-width:0;min-height:41px;border:1px solid var(--wiki-border);border-radius:10px;background:var(--wiki-raised);color:var(--wiki-muted);font-size:13px;font-weight:700}
 .sk-rank-choices button.active{background:#31594d;border-color:#6baf8e;color:#e5f9ec}

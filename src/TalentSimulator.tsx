@@ -61,7 +61,7 @@ function JobSelector({data,job,onChoose,expanded,setExpanded}:{
       <TalentIcon node={{icon:f.branches[0]?.icon,name:f.name}} active={job.job===f.job}/><span>{f.name||f.job}</span>
      </button>
      {(children.length>0||directThird.length>0)&&<div className="tg-job-children">{children.map(child=><div className="tg-job-path" key={child.job}>
-      <button type="button" className={'tg-job tg-second'+(job.job===child.job?' active':'')} onClick={()=>onChoose(child.job)} title={child.developing?'HANS 標記為開發中':''}>
+      <button type="button" className={'tg-job tg-second'+(job.job===child.job?' active':'')} onClick={()=>onChoose(child.job)}>
        <TalentIcon node={{icon:child.branches[0]?.icon,name:child.name}} active={job.job===child.job}/><span>{child.name||child.job}</span>
       </button>
       {data.jobs.filter(j=>j.rank===3&&j.base===child.job).map(third=><button type="button" key={third.job} className={'tg-job tg-third'+(job.job===third.job?' active':'')} onClick={()=>onChoose(third.job)}>
@@ -277,7 +277,6 @@ export function TalentSimulator({jobId,token,packed,onRoute}:Props){
     <TalentIcon node={{icon:job.branches[0]?.icon,name:job.name}} active/>
     <div><h2>{job.name||job.job}</h2><p>{job.description}</p></div>
     <span className="tg-rank-tag">{(job.rank??1)===1?'一轉':job.rank===2?'二轉':'三轉'}</span>
-    {job.developing&&<span className="tg-dev-tag">官方開發中</span>}
     {job.rank===3&&<span className="tg-rank-tag">遊戲程式已登錄</span>}
    </div>
    {(job.rank??1)>=2&&<details className="tg-base-note"><summary><BookOpen size={16}/>由 {baseJob?.name||job.base} 轉職 · {job.rank===3?'三轉 70 點專精':'二轉 50 點專精'} <ChevronDown size={15}/></summary>
