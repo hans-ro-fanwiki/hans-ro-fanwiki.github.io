@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0-dev.15 — 2026-11-21 (career-path-first skill encyclopedia)
+
+- Replace the long first/second/third career dropdown with **nine starter-job buttons and their one or two genuine HANS career paths**. Selecting a base immediately opens its first path; switching paths displays only that first/second/third lineage. The grid folds into a compact header until “更換職業” is selected.
+- Handle unusual Ninja and Gunslinger progression from audited job base/rank relationships instead of guessing branches. Keep skill names, icons, 244-skill registration, and data provenance unchanged.
+- Show **no giant skill list on an initial visit** with no route; a direct skill name/description search instead searches globally (deduplicated), with optional job-name shortcuts and stage filters.
+- Remember the last selected path in local storage, while respecting explicit old `sj`/`sk` deep links and browser history. Class/path changes push history; typing changes replace URL to avoid cluttering history.
+- Extend unit/browser regressions for nine roots, sixteen routes, Ninja/Gunslinger, global search, empty start, legacy share links, last-used route recovery, keyboard focus, 320–430px mobile layouts and desktop navigation.
+- Keep unrelated existing GitHub Issue #11 (stage loot filters) and #12 (card GS occupation picker) deferred.
+
+
 ## 0.3.0-dev.14 — 2026-11-21 (collapsible job picker and verified third-job Chinese names)
 
 - Replace iOS native 41-item class select with a compact, height-bounded in-page accordion: all jobs / first / second / third. One stage expands at a time; choice, Escape or tapping outside closes the picker; keyboard and mobile touch remain supported.

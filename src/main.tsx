@@ -265,7 +265,7 @@ function App(){
     <div className="section-heading"><h1>{LABELS[state.page]}</h1>{state.page!=='talents'&&state.page!=='skills'&&<span className="heading-count">
       {state.page==='items'?equip.length:state.page==='cards'?cardList.length:catalog?.stages.filter(stage=>matchesStageType(stage,state.stageType)).length||0}
      </span>}</div>
-    {state.page==='talents'?<TalentSimulator jobId={state.tj} token={state.tb} packed={state.t} onRoute={(tj,tb,t,replace=false)=>navigate({tj,tb,t,page:'talents'},false,replace)}/>:state.page==='skills'?<SkillsEncyclopedia jobId={state.skillJob} rank={state.skillRank} query={state.query} selectedId={state.skillId} onChange={patch=>navigate(patch,false,true)}/>:<>
+    {state.page==='talents'?<TalentSimulator jobId={state.tj} token={state.tb} packed={state.t} onRoute={(tj,tb,t,replace=false)=>navigate({tj,tb,t,page:'talents'},false,replace)}/>:state.page==='skills'?<SkillsEncyclopedia jobId={state.skillJob} rank={state.skillRank} query={state.query} selectedId={state.skillId} onChange={(patch,replace=true)=>navigate(patch,false,replace)}/>:<>
     {error&&<div className="empty-state">{error}</div>}
     {!catalog&&!error&&<div className="empty-state">讀取中…</div>}
     {catalog&&<>

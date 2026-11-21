@@ -40,6 +40,39 @@ export function skillAncestors(id:string,jobs:SkillJob[]):Set<string>{
  }
  return ancestors;
 }
+/** Actual HANS career paths. Some third jobs register their base against
+ * the first job (Ninja, Gunslinger) rather than the second job. */
+export interface CareerRoute {
+ id:string; base:SkillJob; second:SkillJob|null; third:SkillJob|null; jobs:SkillJob[];
+}
+export function careerRoutes(jobs:SkillJob[]):CareerRoute[]{
+ const result:CareerRoute[]=[];
+ const first=jobs.filter(job=>job.rank===1);
+ for(const base of first){
+  const seconds=jobs.filter(job=>job.rank===2&&job.base===base.id);
+  for(const second of seconds){
+   const thirds=jobs.filter(job=>job.rank===3&&(job.base===second.id||(seconds.length===1&&job.base===base.id)));
+   if(!thirds.length){
+    result.push({id:second.id,base,second,third:null,jobs:[base,second]});
+   }else{
+    for(const third of thirds)result.push({id:third.id,base,second,third,jobs:[base,second,third]});
+   }
+  }
+ }
+ return result;
+}
+export function routeForJob(jobs:SkillJob[],jobId:string):CareerRoute|null{
+ const routes=careerRoutes(jobs);
+ const exact=routes.find(route=>route.id===jobId);
+ if(exact)return exact;
+ return routes.find(route=>route.second?.id===jobId||route.base.id===jobId)||null;
+}
+export function routeForSkill(jobs:SkillJob[],skillId:string):CareerRoute|null{
+ const routes=careerRoutes(jobs);
+ // Prefer the profession where the skill is registered, then its full route.
+ const matched=jobs.find(job=>job.skills.includes(skillId));
+ return matched?routeForJob(jobs,matched.id):routes.find(route=>route.jobs.some(job=>job.skills.includes(skillId)))||null;
+}
 export function jobsForSelection(jobs:SkillJob[],selected:string,rank=0):SkillJob[]{
  if(selected==='all')return jobs.filter(job=>rank===0||job.rank===rank);
  const ancestor=skillAncestors(selected,jobs);

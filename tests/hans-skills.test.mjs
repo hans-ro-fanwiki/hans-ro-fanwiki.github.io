@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {test} from 'node:test';
-import {jobsForSelection,searchSkillName} from '../src/skills.ts';
+import {careerRoutes,routeForJob,routeForSkill,jobsForSelection,searchSkillName} from '../src/skills.ts';
 
 const data=JSON.parse(readFileSync(new URL('../public/data/skills.json',import.meta.url),'utf8'));
 const talents=JSON.parse(readFileSync(new URL('../public/data/talents.json',import.meta.url),'utf8'));
@@ -48,6 +48,32 @@ test('HANS skills encyclopedia is source-pinned, complete, and remains HANS only
  assert.equal(registry.get('dragon_breath').name,'龍息');
  assert.equal(registry.get('comet').originalName,'Comet Fall');
  assert.ok(data.skills.every(s=>!('image' in s)&&!('url' in s)),'Do not distribute game icons');
+});
+test('Nine first jobs form sixteen exact HANS career paths, including unusual specialties',()=>{
+ const routes=careerRoutes(data.jobs);
+ assert.equal(data.jobs.filter(j=>j.rank===1).length,9);
+ assert.equal(routes.length,16);
+ const ids=new Set(routes.map(r=>r.id));
+ assert.equal(ids.size,16,'A terminal job may not be in multiple branches');
+ for(const route of routes){
+  assert.equal(route.jobs[0].rank,1);
+  assert.equal(route.jobs[1].rank,2);
+  assert.equal(route.jobs[2].rank,3);
+  assert.equal(route.jobs.length,3);
+ }
+ const mage=routes.filter(r=>r.base.id==='mage');
+ assert.deepEqual(mage.map(r=>r.id),['warlock','sorcerer']);
+ assert.deepEqual(mage[0].jobs.map(j=>j.id),['mage','wizard','warlock']);
+ assert.deepEqual(mage[1].jobs.map(j=>j.id),['mage','sage','sorcerer']);
+ assert.deepEqual(routeForJob(data.jobs,'wizard').jobs.map(j=>j.id),['mage','wizard','warlock']);
+ assert.deepEqual(routeForJob(data.jobs,'mage').jobs.map(j=>j.id),['mage','wizard','warlock']);
+ assert.deepEqual(routeForSkill(data.jobs,'comet').jobs.map(j=>j.id),['mage','wizard','warlock']);
+ assert.deepEqual(routeForJob(data.jobs,'kagerou_rank3').jobs.map(j=>j.id),['ninja','kagerou','kagerou_rank3']);
+ assert.deepEqual(routeForJob(data.jobs,'rebellion_rank3').jobs.map(j=>j.id),['gunslinger','rebellion','rebellion_rank3']);
+ for(const base of data.jobs.filter(j=>j.rank===1)){
+  const paths=routes.filter(r=>r.base.id===base.id);
+  assert.ok(paths.length>=1&&paths.length<=2,'Expected one or two career choices for '+base.id);
+ }
 });
 test('Job skill selection shows a complete first-to-third-job progression',()=>{
  const chain=jobsForSelection(data.jobs,'warlock').map(j=>j.id);
