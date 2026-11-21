@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.3.0-dev.13 — 2026-11-21 (HANS class skill encyclopedia)
+
+- Add a separate fifth navigation page “技能” to search registered first-, second-, and third-job skills, separate from the talent-point simulator. Selecting a job shows its corresponding transfer path, while filters support all/first/second/third and Chinese or English skill search.
+- Statically extract 41 professions, 256 job-skill references (244 unique registered skills), official HANS skill names/icons, 170 confirmed Traditional Chinese effect descriptions, 101 upgrade descriptions, and 180 source-backed base cooldown values. All imports are SHA-pinned to the audited HANS game snapshot; no game bundle or icon assets are distributed.
+- Make skill cards expandable with verified effect text, cooldown, tags, source notes, unavailable-description labels and shareable `?page=skills&sj=...&sk=...` links.
+- Improve five-item mobile/desktop navigation fit without changing existing four-page behavior; retain legacy card/stage/talent URLs.
+- Add new HANS skill catalog unit tests, published-asset safety checks, and Chrome responsive/real skill-icon/deep-link tests.
+- Track the deferred “依關卡看掉落搜尋與篩選” optimization in GitHub Issue #11 rather than changing that behavior with this feature.
+
+
 ## 0.3.0-dev.12 — 2026-11-20 (unified HANS dark theme and site UX review)
 
 - Restyle all talent simulator surfaces against the site’s existing dark slate / mint tokens, retaining official HANS images, card status, tree paths, direct allocation and responsive split/stack behavior. Larger touch targets and accessible focus states are preserved.

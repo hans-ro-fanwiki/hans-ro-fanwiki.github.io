@@ -1,6 +1,6 @@
 import {useCallback,useEffect,useMemo,useRef,useState} from 'react';
 import {createRoot} from 'react-dom/client';
-import {ArrowLeft,BookOpen,ChevronDown,ChevronRight,Gem,GitBranch,Map as MapIcon,Search,Shield,SlidersHorizontal,Swords,Target,X} from 'lucide-react';
+import {ArrowLeft,BookOpen,ChevronDown,ChevronRight,Gem,GitBranch,Map as MapIcon,Search,Shield,SlidersHorizontal,Swords,Target,WandSparkles,X} from 'lucide-react';
 import type {Card,Catalog,Equipment,ImageEvidence,Kind,Monster,Page,Source,Stage} from './types';
 import './styles.css';
 import './search.css';
@@ -10,12 +10,13 @@ import {matchesStageType,parseStageType} from './stage-type';
 import type {StageType} from './stage-type';
 import {SiteFooter} from './SiteFooter';
 import {TalentSimulator} from './TalentSimulator';
+import {SkillsEncyclopedia} from './SkillsEncyclopedia';
 import {equipmentTier} from './tier';
 import {hasConfirmedAcquisition} from './acquisition';
 import {cardEffects,cardId,cardMultiplier,cardName,cardScore,clampLap,stageLapInfo,stageTierLabel} from './laps';
 import type {LapRules} from './types';
 
-type View={page:Page;slot:string;job:string;source:string;query:string;attr:string;mode:'list'|'stages';stageType:StageType;lap:number;gsJob:string;showUnknown:boolean;detail:string|null;stage:string|null;tj:string;tb:string;t:string};
+type View={page:Page;slot:string;job:string;source:string;query:string;attr:string;mode:'list'|'stages';stageType:StageType;lap:number;gsJob:string;showUnknown:boolean;detail:string|null;stage:string|null;tj:string;tb:string;t:string;skillJob:string;skillRank:number;skillId:string|null};
 type GameEntry=Equipment|Card;
 const SLOTS:Record<string,string>={weapon:'武器',head_top:'頭飾（上）',head_mid:'頭飾（中）',head_low:'頭飾（下）',armor:'衣服',shield:'盾牌',garment:'披肩',shoes:'鞋子',acc:'飾品'};
 const CARD_SLOTS:Record<string,string>={weapon:'武器',armor:'盔甲',shield:'盾牌',garment:'披肩',shoes:'鞋子',accessory:'飾品',headgear:'頭飾'};
@@ -23,18 +24,18 @@ const cardSlot=(card:Card)=>CARD_SLOTS[card.equipSlot||'']||card.equipSlot||'部
 const STAGE_TYPES:[StageType,string][]=[['all','全部'],['normal','一般遠征'],['event','活動關卡'],['story','劇情關卡']];
 const JOBS:Record<string,string>={all:'全部',mage:'魔法師系',swordsman:'劍士系',archer:'弓箭手系',acolyte:'服事系',thief:'盜賊系',merchant:'商人系',taekwon:'跆拳道系',ninja:'忍者系',gunslinger:'神槍手系'};
 const SOURCES:Record<string,string>={monsterDrop:'怪物掉落',bossDrop:'Boss 掉落',story:'劇情',event:'活動',reward:'獎勵',starter:'初始裝備'};
-const LABELS:Record<Page,string>={items:'裝備',cards:'卡片',stages:'關卡',talents:'天賦'};
+const LABELS:Record<Page,string>={items:'裝備',cards:'卡片',stages:'關卡',skills:'技能',talents:'天賦'};
 // HANS-only. All artwork is loaded by reference from the HANS image host;
 // the public repository and Pages artifact never contain game image files.
 const PUBLIC_MODE=import.meta.env.VITE_PUBLIC_MODE==='1';
 const ASSET_ROOT='https://ro.hans-webgametw.com/assets/';
-const EMPTY:View={page:'items',slot:'all',job:'all',source:'all',query:'',attr:'all',mode:'list',stageType:'all',lap:1,gsJob:'swordsman',showUnknown:false,detail:null,stage:null,tj:'swordsman',tb:'',t:''};
+const EMPTY:View={page:'items',slot:'all',job:'all',source:'all',query:'',attr:'all',mode:'list',stageType:'all',lap:1,gsJob:'swordsman',showUnknown:false,detail:null,stage:null,tj:'swordsman',tb:'',t:'',skillJob:'all',skillRank:0,skillId:null};
 function readLocation():View{
  const q=new URLSearchParams(location.search);
  const page=q.get('page')||(q.has('t')?'talents':'items');
  const legacyEffect:Record<string,string>={cooldown:'cooldown',crit:'crit',damage:'damage',defense:'armor',hp:'hp'};
  return {page:(Object.prototype.hasOwnProperty.call(LABELS,page)?page:'items') as Page,slot:q.get('slot')||'all',job:q.get('job')||'all',
- source:q.get('source')||'all',query:q.get('q')||'',attr:q.get('attr')||legacyEffect[q.get('effect')||'']||'all',mode:q.get('mode')==='stages'?'stages':'list',stageType:parseStageType(q.get('sg'),q.get('open')),lap:clampLap(Number(q.get('lap')||1)),gsJob:q.get('gsjob')||'swordsman',showUnknown:q.get('unknown')==='1',detail:q.get('detail')||null,stage:q.get('stage')||null,tj:q.get('tj')||'swordsman',tb:q.get('tb')||'',t:q.get('t')||''};
+ source:q.get('source')||'all',query:q.get('q')||'',attr:q.get('attr')||legacyEffect[q.get('effect')||'']||'all',mode:q.get('mode')==='stages'?'stages':'list',stageType:parseStageType(q.get('sg'),q.get('open')),lap:clampLap(Number(q.get('lap')||1)),gsJob:q.get('gsjob')||'swordsman',showUnknown:q.get('unknown')==='1',detail:q.get('detail')||null,stage:q.get('stage')||null,tj:q.get('tj')||'swordsman',tb:q.get('tb')||'',t:q.get('t')||'',skillJob:q.get('sj')||'all',skillRank:[0,1,2,3].includes(Number(q.get('sr')))?Number(q.get('sr')):0,skillId:q.get('sk')||null};
 }
 function pathFor(v:View){
  const q=new URLSearchParams();
@@ -52,6 +53,7 @@ function pathFor(v:View){
  if(v.detail)q.set('detail',v.detail);
  if(v.stage)q.set('stage',v.stage);
  if(v.page==='talents'){if(v.t)q.set('t',v.t);else{if(v.tj!=='swordsman')q.set('tj',v.tj);if(v.tb)q.set('tb',v.tb);}}
+ if(v.page==='skills'){if(v.skillJob!=='all')q.set('sj',v.skillJob);if(v.skillRank!==0)q.set('sr',String(v.skillRank));if(v.skillId)q.set('sk',v.skillId);}
  return location.pathname+(q.size?'?'+q.toString():'');
 }
 function Chip({active,children,onClick}:{active:boolean;children:React.ReactNode;onClick:()=>void}){
@@ -253,17 +255,17 @@ function App(){
     <span className="brand-mark">H</span>
     <span className="brand-names"><strong>RO 倖存者｜HANS 粉絲維基</strong><small>非官方玩家製作 · HANS 專屬{PUBLIC_MODE?'':' · 開發預覽'}</small></span>
     <nav className="bottom-nav" aria-label="主要分類">
-     {([['items',Shield],['cards',BookOpen],['stages',MapIcon],['talents',GitBranch]] as const).map(([page,Icon])=>
+     {([['items',Shield],['cards',BookOpen],['stages',MapIcon],['skills',WandSparkles],['talents',GitBranch]] as const).map(([page,Icon])=>
       <button type="button" key={page} className={state.page===page?'active':''} onClick={()=>{if(page!==state.page)navigate({...EMPTY,page,lap:state.lap,gsJob:state.gsJob,showUnknown:state.showUnknown},true)}} aria-current={state.page===page?'page':undefined}><Icon size={21}/><span>{LABELS[page]}</span></button>)}
     </nav>
    </div>
   </header>
   <main className="container">
    <section className="content-section">
-    <div className="section-heading"><h1>{LABELS[state.page]}</h1>{state.page!=='talents'&&<span className="heading-count">
+    <div className="section-heading"><h1>{LABELS[state.page]}</h1>{state.page!=='talents'&&state.page!=='skills'&&<span className="heading-count">
       {state.page==='items'?equip.length:state.page==='cards'?cardList.length:catalog?.stages.filter(stage=>matchesStageType(stage,state.stageType)).length||0}
      </span>}</div>
-    {state.page==='talents'?<TalentSimulator jobId={state.tj} token={state.tb} packed={state.t} onRoute={(tj,tb,t,replace=false)=>navigate({tj,tb,t,page:'talents'},false,replace)}/>:<>
+    {state.page==='talents'?<TalentSimulator jobId={state.tj} token={state.tb} packed={state.t} onRoute={(tj,tb,t,replace=false)=>navigate({tj,tb,t,page:'talents'},false,replace)}/>:state.page==='skills'?<SkillsEncyclopedia jobId={state.skillJob} rank={state.skillRank} query={state.query} selectedId={state.skillId} onChange={patch=>navigate(patch,false,true)}/>:<>
     {error&&<div className="empty-state">{error}</div>}
     {!catalog&&!error&&<div className="empty-state">讀取中…</div>}
     {catalog&&<>

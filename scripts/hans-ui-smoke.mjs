@@ -27,7 +27,7 @@ try{
  assert.ok(await page.locator('.result-card img').first().evaluate(img=>img instanceof HTMLImageElement&&img.complete&&img.naturalWidth>0),'Equip artwork loaded from HANS source');
  checks.push({art:'equipment',loaded:true});
  assert.match(await page.locator('.topbar').innerText(),/HANS/);
- assert.equal(await page.locator('.bottom-nav button').count(),4);
+ assert.equal(await page.locator('.bottom-nav button').count(),5);
  assert.ok(await page.getByRole('navigation',{name:'主要分類'}).isVisible(),'Mobile category navigation stays visible');
  assert.equal(await page.locator('.bottom-nav').evaluate(node=>getComputedStyle(node).position),'fixed','Mobile navigation stays at bottom');
  const initial=Number((await page.locator('.heading-count').innerText()).trim());
@@ -151,6 +151,42 @@ try{
  }
  await page.screenshot({path:path.join(folder,'hans-stages-390.png')});
  await page.setViewportSize({width:390,height:844});
+ // First/second/third-job skills must be browseable outside the talent simulator.
+ await page.goto(base+'?page=skills&sj=warlock&sk=comet',{waitUntil:'networkidle'});
+ await page.locator('.sk-total').waitFor({state:'visible'});
+ assert.match(await page.locator('.sk-total').innerText(),/244/,'HANS skill registry loaded');
+ assert.equal(await page.locator('.sk-group').count(),3,'Warlock path includes Mage, Wizard and Warlock');
+ assert.equal(await page.locator('.sk-list-entry').count(),21,'Three-stage skill route has all 21 registrations');
+ assert.match(await page.locator('.sk-detail').innerText(),/彗星/,'Third-job HANS Chinese description is available');
+ assert.match(await page.locator('.sk-detail').innerText(),/30 秒/,'Source-derived base cooldown is visible');
+ assert.match(await page.locator('.sk-result.active').innerText(),/Comet Fall/);
+ await page.reload({waitUntil:'networkidle'});
+ assert.match(await page.locator('.sk-detail').innerText(),/彗星/,'Skill deep link survives reload');
+ await page.getByRole('group',{name:'技能轉職階段'}).getByRole('button',{name:'三轉'}).click();
+ assert.equal(await page.locator('.sk-group').count(),1,'Third-job filter narrows route');
+ assert.equal(await page.locator('.sk-list-entry').count(),6);
+ await page.getByRole('combobox',{name:'技能職業'}).selectOption('mage');
+ await page.getByRole('group',{name:'技能轉職階段'}).getByRole('button',{name:'全部階段'}).click();
+ assert.equal(await page.locator('.sk-group').count(),5,'Mage family includes both specializations and third jobs');
+ await page.getByRole('searchbox',{name:'搜尋職業技能'}).fill('火箭');
+ assert.ok(await page.locator('.sk-list-entry').count()>=1,'Search matches Chinese skill names');
+ await page.getByRole('button',{name:'清除技能搜尋'}).click();
+ assert.equal(new URL(page.url()).searchParams.get('sj'),'mage','Job selection persists in URL');
+ await page.getByRole('combobox',{name:'技能職業'}).selectOption('all');
+ await page.getByRole('group',{name:'技能轉職階段'}).getByRole('button',{name:'全部階段'}).click();
+ assert.equal(await page.locator('.sk-group').count(),41,'All 41 classes appear');
+ const skillIcon=page.locator('.sk-result .sk-art img').first();
+ await skillIcon.scrollIntoViewIfNeeded();
+ assert.ok(await skillIcon.evaluate(img=>img.complete&&img.naturalWidth>0),'HANS skill icon loads from official source');
+ checks.push({page:'skills',jobs:41,skills:244,sourceIcon:true});
+ for(const width of [320,375,390,430]){
+  await page.setViewportSize({width,height:844});
+  const size=await page.evaluate(()=>({width:innerWidth,scroll:document.documentElement.scrollWidth}));
+  assert.ok(size.scroll<=width+2,'Skills mobile horizontal overflow '+width+': '+JSON.stringify(size));
+  checks.push({page:'skills',width,...size});
+ }
+ await page.setViewportSize({width:390,height:844});
+ await page.screenshot({path:path.join(folder,'hans-skills-390.png')});
  await page.goto(base+'?page=talents&tj=mage',{waitUntil:'networkidle'});
  assert.equal(await page.getByRole('button',{name:'分享配點'}).count(),0,'Redundant share button removed');
  assert.equal(await page.getByRole('button',{name:'複製連結'}).count(),1,'Copy link remains');
@@ -282,7 +318,7 @@ try{
   await desktop.goto(base+'?page=talents&tj=warlock',{waitUntil:'networkidle'});
   const categoryNav=desktop.getByRole('navigation',{name:'主要分類'});
   assert.ok(await categoryNav.isVisible(),'Desktop category navigation is visible');
-  assert.equal(await categoryNav.locator('button').count(),4);
+  assert.equal(await categoryNav.locator('button').count(),5);
   assert.equal(await desktop.locator('.bottom-nav').evaluate(node=>getComputedStyle(node).position),'static','Desktop navigation belongs in header');
   assert.equal(await categoryNav.getByRole('button',{name:'天賦'}).getAttribute('aria-current'),'page');
   for(const width of [761,900,1280]){
@@ -296,7 +332,7 @@ try{
    checks.push({page:'desktop-navigation',...dims});
   }
   await desktop.setViewportSize({width:1280,height:900});
-  for(const [label,heading] of [['卡片','卡片'],['關卡','關卡'],['裝備','裝備']] ){
+  for(const [label,heading] of [['卡片','卡片'],['關卡','關卡'],['技能','技能'],['裝備','裝備']] ){
    await categoryNav.getByRole('button',{name:label,exact:true}).click();
    assert.equal(await desktop.locator('.section-heading h1').innerText(),heading,'Desktop navigation click to '+label);
    assert.equal(await categoryNav.getByRole('button',{name:label,exact:true}).getAttribute('aria-current'),'page');
@@ -351,7 +387,7 @@ try{
   assert.ok(await desktop.locator('.tg-inspector-empty').isVisible(),'Desktop empty inspector keeps the same reserved height');
   await desktop.screenshot({path:path.join(folder,'hans-desktop-talent-inspector-1280.png')});
   assert.deepEqual(desktopErrors,[],'No desktop browser errors');
-  checks.push({page:'desktop-navigation',buttons:4,clicks:4,status:'PASS'});
+  checks.push({page:'desktop-navigation',buttons:5,clicks:5,status:'PASS'});
  }finally{await desktopContext.close();}
  assert.deepEqual(errors,[],'No unhandled client errors');
  assert.ok(requested.every(url=>!/(?:fan-thumbs|approved-thumbs|game-assets)/.test(url)),

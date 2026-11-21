@@ -45,6 +45,8 @@
 
 - 2026-11-20 Dev 0.3.0-dev.12 全站 UX 與配色：經 OpenChatX `skills.design-taste-review`、`skills.apple-design` 檢視四頁，天賦樹自白底亮藍漸層改為與 `dark.css` 一致的深灰／薄荷綠；技能圖、節點鎖定與配點、三階網址不變，手機點擊面積改善。進階條件收合仍顯示選擇名稱，搜尋零結果提供一鍵清除；裝備／卡片詳情支援 Escape、Tab 邊界與焦點返回。完整已修與待排程改善清單：`docs/HANS_UX_REVIEW_20261120.md`。Chrome 320–430px／761–1280px、TypeScript／單元／公開版安全測試依最新 CI 結果；iPhone Safari 真機待驗收。
 
+- 2026-11-21 Dev 0.3.0-dev.13：新增獨立「技能」頁（非天賦配點），由經 SHA 固定的 HANS 2026-11-19 soul 遊戲註冊 `$e`／`Ce`、官方繁中翻譯 `aA`／`KI` 及三轉雙語 `L(en,zh)` 靜態解析，收錄一轉 9＋二轉 16＋三轉 16＝41 職、256 筆技能引用／244 種技能、170 種已確認繁中技能說明、101 種升級說明、180 種基礎冷卻。未能核實的說明不虛構，保留遊戲英文原名。提供按職業及一／二／三轉篩選、繁中英文搜尋、詳情展開、`?page=skills&sj=...&sk=...` 深連結，官方圖示僅遠端載入；既有天賦、裝備、卡片與關卡邏輯不變。新資料由 `scripts/import-hans-skills.cjs` SHA 驗證生成 `public/data/skills.json`。資料與限制：`docs/HANS_SKILLS_CATALOG.md`。原全站待修「依關卡看掉落搜尋與篩選」建立 GitHub [Issue #11](https://github.com/hans-ro-fanwiki/hans-ro-fanwiki.github.io/issues/11)，本版不改掉落演算法。
+
 ## 關鍵不確定性
 - 卡片掉落已核對 HANS 的 `killEnemy`、`kW` 與關卡怪物池。匯入器納入 4 個 `intruder` Boss 並排除劇情掉落。11/20 線上版本的關卡表及此擊殺邏輯與 11/19 審核快照相同。活動抽獎與卡片回收員的逐卡獎池尚未確認。
 - 角色裝備職業限制、二三轉、特殊掉落、季節活動開放與遊戲圖片尚未完整確認；第二章 Tier 依周目可能 T6–8，不能用關卡最高 Tier 當每件裝備實際等級。

@@ -124,6 +124,11 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {
  .bottom-nav button.active{background:#2d5145;border-color:#4f8f74}
  .bottom-nav button:hover{background:#344c44}
 }
+@media(min-width:761px) and (max-width:960px){
+ .top-inner{padding-left:12px;padding-right:12px}
+ .topbar .bottom-nav{gap:2px}
+ .topbar .bottom-nav button{padding:7px 6px;gap:4px;font-size:12px}
+}
 .art-credits,.art-inline-credit{color:var(--wiki-muted)}
 .art-credits a{color:var(--wiki-accent)}
 .site-footer.site-footer{background:#172429;border-top:1px solid var(--wiki-border);color:var(--wiki-muted)}
@@ -154,7 +159,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {
   .stage-view-toolbar{align-items:flex-start}
   .stage-expansion-actions .search-more{font-size:12px}
   .bottom-nav{padding:5px 8px max(7px,env(safe-area-inset-bottom))}
-  .bottom-nav button{min-height:51px}
+  .bottom-nav button{min-height:51px;min-width:0;padding-left:2px;padding-right:2px;font-size:10px}
 }
 @media(max-width:370px){
   .stage-view-toolbar{flex-wrap:wrap}

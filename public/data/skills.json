@@ -1,0 +1,5311 @@
+{
+  "server": "hans",
+  "schemaVersion": 1,
+  "reviewedAt": "2026-11-19",
+  "source": {
+    "sha256": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
+    "relativeFile": "soul_linker-DllBVIRO.hza78cd192.js"
+  },
+  "policy": "HANS audited skill registry only. Show confirmed official zh localization; do not invent unavailable descriptions, per-level formulas or cooldowns.",
+  "jobs": [
+    {
+      "id": "swordsman",
+      "sourceId": "swordsman",
+      "name": "劍士",
+      "rank": 1,
+      "base": null,
+      "developing": false,
+      "skills": [
+        "bash",
+        "magnum",
+        "sword_dance",
+        "shield_bash",
+        "provoke",
+        "demoralizing_shout",
+        "endure",
+        "hp_recovery"
+      ]
+    },
+    {
+      "id": "knight",
+      "sourceId": "knight",
+      "name": "騎士",
+      "rank": 2,
+      "base": "swordsman",
+      "developing": true,
+      "skills": [
+        "brandish_spear",
+        "charge_attack",
+        "pierce",
+        "spear_boomerang",
+        "auto_counter",
+        "bowling_bash"
+      ]
+    },
+    {
+      "id": "crusader",
+      "sourceId": "crusader",
+      "name": "十字軍",
+      "rank": 2,
+      "base": "swordsman",
+      "developing": true,
+      "skills": [
+        "spear_quicken",
+        "shield_charge",
+        "holy_cross",
+        "grand_cross",
+        "shield_boomerang",
+        "auto_guard"
+      ]
+    },
+    {
+      "id": "mage",
+      "sourceId": "mage",
+      "name": "魔法師",
+      "rank": 1,
+      "base": null,
+      "developing": false,
+      "skills": [
+        "firebolt",
+        "coldbolt",
+        "lightning",
+        "soul_strike",
+        "napalm",
+        "fire_wall",
+        "frost_diver",
+        "sight",
+        "thunderstorm"
+      ]
+    },
+    {
+      "id": "wizard",
+      "sourceId": "wizard",
+      "name": "巫師",
+      "rank": 2,
+      "base": "mage",
+      "developing": true,
+      "skills": [
+        "meteor_storm",
+        "fire_pillar",
+        "frost_nova",
+        "storm_gust",
+        "jupitel_thunder",
+        "lord_of_vermilion"
+      ]
+    },
+    {
+      "id": "sage",
+      "sourceId": "sage",
+      "name": "賢者",
+      "rank": 2,
+      "base": "mage",
+      "developing": true,
+      "skills": [
+        "volcano",
+        "deluge",
+        "earth_spike",
+        "heavens_drive",
+        "hindsight",
+        "abracadabra"
+      ]
+    },
+    {
+      "id": "archer",
+      "sourceId": "archer",
+      "name": "弓箭手",
+      "rank": 1,
+      "base": null,
+      "developing": false,
+      "skills": [
+        "double_strafe",
+        "arrow_shower",
+        "arrow_rain",
+        "arrow_repel",
+        "retreat",
+        "arcane_shot",
+        "fire_arrow",
+        "concentration"
+      ]
+    },
+    {
+      "id": "hunter",
+      "sourceId": "hunter",
+      "name": "獵人",
+      "rank": 2,
+      "base": "archer",
+      "developing": true,
+      "skills": [
+        "blitz_beat",
+        "detecting",
+        "claymore_trap",
+        "sandman",
+        "beast_strafing",
+        "phantasmic_arrow"
+      ]
+    },
+    {
+      "id": "bard",
+      "sourceId": "bard",
+      "name": "吟遊詩人 / 舞孃",
+      "rank": 2,
+      "base": "archer",
+      "developing": true,
+      "skills": [
+        "arrow_vulcan",
+        "dissonance",
+        "lullaby",
+        "lokis_veil",
+        "drum_battlefield",
+        "siegfried"
+      ]
+    },
+    {
+      "id": "acolyte",
+      "sourceId": "acolyte",
+      "name": "服事",
+      "rank": 1,
+      "base": null,
+      "developing": false,
+      "skills": [
+        "heal",
+        "holy_light",
+        "ruwach",
+        "decrease_agi",
+        "signum_crucis",
+        "aqua_benedicta",
+        "blessing",
+        "holy_smite"
+      ]
+    },
+    {
+      "id": "priest",
+      "sourceId": "priest",
+      "name": "祭司",
+      "rank": 2,
+      "base": "acolyte",
+      "developing": true,
+      "skills": [
+        "sanctuary",
+        "safety_wall",
+        "benedictio",
+        "magnus_exorcismus",
+        "impositio",
+        "magnificat"
+      ]
+    },
+    {
+      "id": "monk",
+      "sourceId": "monk",
+      "name": "武道家",
+      "rank": 2,
+      "base": "acolyte",
+      "developing": true,
+      "skills": [
+        "call_spirits",
+        "finger_offensive",
+        "chain_combo",
+        "combo_finish",
+        "fury",
+        "asura_strike"
+      ]
+    },
+    {
+      "id": "thief",
+      "sourceId": "thief",
+      "name": "盜賊",
+      "rank": 1,
+      "base": null,
+      "developing": false,
+      "skills": [
+        "envenom",
+        "sand_attack",
+        "hiding",
+        "throw_stone",
+        "poison_bomb",
+        "shadowstep",
+        "fan_of_knives",
+        "caltrops"
+      ]
+    },
+    {
+      "id": "assassin",
+      "sourceId": "assassin",
+      "name": "刺客",
+      "rank": 2,
+      "base": "thief",
+      "developing": true,
+      "skills": [
+        "sonic_blow",
+        "grimtooth",
+        "enchant_poison",
+        "venom_dust",
+        "cloaking",
+        "venom_knife"
+      ]
+    },
+    {
+      "id": "rogue",
+      "sourceId": "rogue",
+      "name": "流氓",
+      "rank": 2,
+      "base": "thief",
+      "developing": true,
+      "skills": [
+        "back_stab",
+        "raid",
+        "divest_weapon",
+        "intimidate",
+        "steal_coin",
+        "graffiti"
+      ]
+    },
+    {
+      "id": "merchant",
+      "sourceId": "merchant",
+      "name": "商人",
+      "rank": 1,
+      "base": null,
+      "developing": false,
+      "skills": [
+        "mammonite",
+        "cart_revolution",
+        "zeny_rain",
+        "cart_rush",
+        "vending",
+        "crazy_uproar",
+        "enlarge_weight"
+      ]
+    },
+    {
+      "id": "blacksmith",
+      "sourceId": "blacksmith",
+      "name": "鐵匠",
+      "rank": 2,
+      "base": "merchant",
+      "developing": true,
+      "skills": [
+        "axe_tornado",
+        "axe_boomerang",
+        "weapon_perfection",
+        "rush_quake",
+        "greed",
+        "ore_discovery"
+      ]
+    },
+    {
+      "id": "alchemist",
+      "sourceId": "alchemist",
+      "name": "鍊金術師",
+      "rank": 2,
+      "base": "merchant",
+      "developing": true,
+      "skills": [
+        "acid_terror",
+        "demonstration",
+        "call_homunculus",
+        "summon_flora",
+        "potion_pitcher",
+        "chemical_protection"
+      ]
+    },
+    {
+      "id": "taekwon",
+      "sourceId": "taekwon",
+      "name": "跆拳少年",
+      "rank": 1,
+      "base": null,
+      "developing": false,
+      "skills": [
+        "tornado_kick",
+        "heel_drop",
+        "roundhouse",
+        "counter_kick",
+        "sprint"
+      ]
+    },
+    {
+      "id": "star_gladiator",
+      "sourceId": "star_gladiator",
+      "name": "拳聖",
+      "rank": 2,
+      "base": "taekwon",
+      "developing": true,
+      "skills": [
+        "warmth_sun",
+        "solar_burst",
+        "full_moon_kick",
+        "new_moon_kick",
+        "falling_star",
+        "union"
+      ]
+    },
+    {
+      "id": "soul_linker",
+      "sourceId": "soul_linker",
+      "name": "悟靈士",
+      "rank": 2,
+      "base": "taekwon",
+      "developing": true,
+      "skills": [
+        "esma",
+        "estin",
+        "estun",
+        "kaizel",
+        "kaahi",
+        "kaupe"
+      ]
+    },
+    {
+      "id": "ninja",
+      "sourceId": "ninja",
+      "name": "忍者",
+      "rank": 1,
+      "base": null,
+      "developing": false,
+      "skills": [
+        "shuriken",
+        "kunai",
+        "huuma",
+        "flaming_petals",
+        "lightning_strike"
+      ]
+    },
+    {
+      "id": "kagerou",
+      "sourceId": "kagerou",
+      "name": "影狼 / 朧",
+      "rank": 2,
+      "base": "ninja",
+      "developing": true,
+      "skills": [
+        "swirling_petal",
+        "spirit_charm",
+        "kunai_explosion",
+        "kunai_splash",
+        "cross_slash",
+        "shadow_warrior"
+      ]
+    },
+    {
+      "id": "gunslinger",
+      "sourceId": "gunslinger",
+      "name": "神槍手",
+      "rank": 1,
+      "base": null,
+      "developing": false,
+      "skills": [
+        "triple_action",
+        "rapid_shower",
+        "spread_attack",
+        "desperado",
+        "ground_drift",
+        "tracking"
+      ]
+    },
+    {
+      "id": "rebellion",
+      "sourceId": "rebellion",
+      "name": "叛亂者",
+      "rank": 2,
+      "base": "gunslinger",
+      "developing": true,
+      "skills": [
+        "fire_dance",
+        "round_trip",
+        "crimson_marker",
+        "dragon_tail",
+        "hammer_of_god",
+        "howling_mine"
+      ]
+    },
+    {
+      "id": "arch_bishop",
+      "sourceId": "arch_bishop",
+      "name": "大主教",
+      "rank": 3,
+      "base": "priest",
+      "developing": false,
+      "skills": [
+        "adoramus",
+        "lauda_ramus",
+        "judex",
+        "oratio",
+        "epiclesis",
+        "highness_heal"
+      ]
+    },
+    {
+      "id": "genetic",
+      "sourceId": "genetic",
+      "name": "基因學者",
+      "rank": 3,
+      "base": "alchemist",
+      "developing": false,
+      "skills": [
+        "cart_cannon",
+        "cart_tornado",
+        "hells_plant",
+        "mandragora_howl",
+        "spore_explosion",
+        "acid_demonstration"
+      ]
+    },
+    {
+      "id": "guillotine_cross",
+      "sourceId": "guillotine_cross",
+      "name": "十字斬首者",
+      "rank": 3,
+      "base": "assassin",
+      "developing": false,
+      "skills": [
+        "rolling_cutter",
+        "cross_ripper_slasher",
+        "cross_impact",
+        "dark_claw",
+        "poison_smoke",
+        "hallucination_walk"
+      ]
+    },
+    {
+      "id": "kagerou_rank3",
+      "sourceId": "kagerou",
+      "name": "影狼／朧（三轉）",
+      "rank": 3,
+      "base": "ninja",
+      "developing": false,
+      "skills": [
+        "swirling_petal",
+        "spirit_charm",
+        "kunai_explosion",
+        "kunai_splash",
+        "cross_slash",
+        "shadow_warrior"
+      ]
+    },
+    {
+      "id": "mechanic",
+      "sourceId": "mechanic",
+      "name": "機械工匠",
+      "rank": 3,
+      "base": "blacksmith",
+      "developing": false,
+      "skills": [
+        "arms_cannon",
+        "cold_slower",
+        "flame_launcher",
+        "neutral_barrier",
+        "silver_sniper",
+        "vulcan_arm"
+      ]
+    },
+    {
+      "id": "minstrel",
+      "sourceId": "minstrel",
+      "name": "宮廷樂師／浪姬舞者",
+      "rank": 3,
+      "base": "bard",
+      "developing": false,
+      "skills": [
+        "severe_rainstorm",
+        "windmill_rush",
+        "great_echo",
+        "frigg_song",
+        "reverberation",
+        "metallic_sound"
+      ]
+    },
+    {
+      "id": "ranger",
+      "sourceId": "ranger",
+      "name": "遊俠",
+      "rank": 3,
+      "base": "hunter",
+      "developing": false,
+      "skills": [
+        "arrow_storm",
+        "fear_breeze",
+        "cluster_bomb",
+        "electric_shocker",
+        "warg_strike",
+        "aimed_bolt"
+      ]
+    },
+    {
+      "id": "rebellion_rank3",
+      "sourceId": "rebellion",
+      "name": "反叛者（三轉）",
+      "rank": 3,
+      "base": "gunslinger",
+      "developing": false,
+      "skills": [
+        "fire_dance",
+        "round_trip",
+        "crimson_marker",
+        "dragon_tail",
+        "hammer_of_god",
+        "howling_mine"
+      ]
+    },
+    {
+      "id": "royal_guard",
+      "sourceId": "royal_guard",
+      "name": "皇家禁衛隊",
+      "rank": 3,
+      "base": "crusader",
+      "developing": false,
+      "skills": [
+        "cannon_spear",
+        "inspiration",
+        "shield_press",
+        "prestige",
+        "earth_drive",
+        "genesis_ray"
+      ]
+    },
+    {
+      "id": "rune_knight",
+      "sourceId": "rune_knight",
+      "name": "盧恩騎士",
+      "rank": 3,
+      "base": "knight",
+      "developing": false,
+      "skills": [
+        "ignition_break",
+        "giant_growth",
+        "dragon_breath",
+        "dragon_howling",
+        "hundred_spear",
+        "wind_cutter"
+      ]
+    },
+    {
+      "id": "shadow_chaser",
+      "sourceId": "shadow_chaser",
+      "name": "魅影追蹤者",
+      "rank": 3,
+      "base": "rogue",
+      "developing": false,
+      "skills": [
+        "triangle_shot",
+        "masquerade",
+        "fatal_menace",
+        "feint_bomb",
+        "reproduce",
+        "auto_shadow_spell"
+      ]
+    },
+    {
+      "id": "sorcerer",
+      "sourceId": "sorcerer",
+      "name": "妖術師",
+      "rank": 3,
+      "base": "sage",
+      "developing": false,
+      "skills": [
+        "elemental_spirit",
+        "varetyr_spear",
+        "psychic_wave",
+        "vacuum_extreme",
+        "fire_walk",
+        "diamond_dust"
+      ]
+    },
+    {
+      "id": "soul_reaper",
+      "sourceId": "soul_reaper",
+      "name": "獵靈士",
+      "rank": 3,
+      "base": "soul_linker",
+      "developing": false,
+      "skills": [
+        "espa",
+        "eswhoo",
+        "soul_curse",
+        "curse_explosion",
+        "soul_collect",
+        "soul_explosion"
+      ]
+    },
+    {
+      "id": "star_emperor",
+      "sourceId": "star_emperor",
+      "name": "星帝",
+      "rank": 3,
+      "base": "star_gladiator",
+      "developing": false,
+      "skills": [
+        "prominence_kick",
+        "universe_stance",
+        "star_emperor_advent",
+        "gravity_control",
+        "flash_kick",
+        "nova_explosion"
+      ]
+    },
+    {
+      "id": "sura",
+      "sourceId": "sura",
+      "name": "修羅",
+      "rank": 3,
+      "base": "monk",
+      "developing": false,
+      "skills": [
+        "skynet_blow",
+        "raising_dragon",
+        "rampage_blaster",
+        "howling_of_lion",
+        "tiger_cannon",
+        "knuckle_arrow"
+      ]
+    },
+    {
+      "id": "warlock",
+      "sourceId": "warlock",
+      "name": "咒術士",
+      "rank": 3,
+      "base": "wizard",
+      "developing": false,
+      "skills": [
+        "comet",
+        "crimson_rock",
+        "summon_spheres",
+        "tetra_vortex",
+        "jack_frost",
+        "frost_misty"
+      ]
+    }
+  ],
+  "skills": [
+    {
+      "id": "abracadabra",
+      "name": "隨機技能",
+      "originalName": "Abracadabra",
+      "icon": "sa_abracadabra",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 14,
+      "type": "aoe",
+      "tags": [
+        "aura",
+        "area",
+        "magic",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "acid_demonstration",
+      "name": "Acid Demonstration",
+      "originalName": "Acid Demonstration",
+      "icon": "cr_aciddemonstration",
+      "description": "朝視野內最強的敵人連丟 5 瓶強酸火煙瓶；被打到的受到傷害 +10%（3 秒）。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 8,
+      "type": "single",
+      "tags": [
+        "single",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "acid_terror",
+      "name": "強酸攻擊",
+      "originalName": "Acid Terror",
+      "icon": "am_acidterror",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 6,
+      "type": "projectile",
+      "tags": [
+        "melee",
+        "projectile",
+        "single",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "adoramus",
+      "name": "Adoramus",
+      "originalName": "Adoramus",
+      "icon": "ab_adoramus",
+      "description": "朝最大的一群敵人降下四道聖光：每一道都打中大範圍圓圈裡的所有敵人，並致盲、緩速（不死系 ×2）。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "magic",
+        "holy"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "aimed_bolt",
+      "name": "Aimed Bolt",
+      "originalName": "Aimed Bolt",
+      "icon": "ra_aimedbolt",
+      "description": "射出一支重箭，貫穿 3 個敵人；對暈眩或睡眠中的敵人傷害 ×2。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 6,
+      "type": "projectile",
+      "tags": [
+        "projectile",
+        "pierce",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "aqua_benedicta",
+      "name": "天使之淚",
+      "originalName": "Aqua Benedicta",
+      "icon": "al_holywater",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "arcane_shot",
+      "name": "祕法射擊",
+      "originalName": "Arcane Shot",
+      "icon": "ac_arcaneshot",
+      "description": "朝射程內最大敵群的中心射出奧術射擊：命中時釋放脈衝，將周圍怪物（頭目除外）瞬間吸過去。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "arms_cannon",
+      "name": "Arm Cannon",
+      "originalName": "Arm Cannon",
+      "icon": "nc_armscannon",
+      "description": "魔導機甲朝最大的一群敵人發射臂砲：大範圍爆炸，圈內全部命中。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 7,
+      "type": "aoe",
+      "tags": [
+        "ranged_strike",
+        "area",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "arrow_rain",
+      "name": "驟雨箭",
+      "originalName": "Arrow Rain",
+      "icon": "ac_arrowrain",
+      "description": "朝天空射出一輪箭矢，片刻後落在被標記的敵群上。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "arrow_repel",
+      "name": "衝鋒箭",
+      "originalName": "Arrow Repel",
+      "icon": "ac_chargearrow",
+      "description": "巨大的箭矢，貫穿所有敵人並將其遠遠推開。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "arrow_shower",
+      "name": "箭雨",
+      "originalName": "Arrow Shower",
+      "icon": "ac_shower",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "arrow_storm",
+      "name": "Arrow Barrage",
+      "originalName": "Arrow Barrage",
+      "icon": "ra_arrowstorm",
+      "description": "朝最大的一群敵人射出三波箭雨：每一波都會打中大範圍圓圈裡的所有敵人。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 8,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "arrow_vulcan",
+      "name": "奧義箭亂舞",
+      "originalName": "Arrow Vulcan",
+      "icon": "cg_arrowvulcan",
+      "description": "朝最近的敵人極速射出五支箭。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 6,
+      "type": "projectile",
+      "tags": [
+        "projectile",
+        "single",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "asura_strike",
+      "name": "阿修羅霸凰拳",
+      "originalName": "Asura Strike",
+      "icon": "mo_extremityfist",
+      "description": "將全身的氣集中在一拳，猛擊射程內最強的敵人。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 22,
+      "type": "single",
+      "tags": [
+        "melee",
+        "single",
+        "physical",
+        "neutral"
+      ],
+      "cast": [
+        "single",
+        "neutral"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "auto_counter",
+      "name": "反擊",
+      "originalName": "Counter Attack",
+      "icon": "kn_autocounter",
+      "description": "敵人擊中你時，你會給予猛烈反擊（並對其周圍敵人造成較弱的傷害）。",
+      "upgradeDescription": "+20% 傷害、+10% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 5,
+      "type": "aoe",
+      "tags": [
+        "melee",
+        "area",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "auto_guard",
+      "name": "自動防禦",
+      "originalName": "Auto Guard",
+      "icon": "cr_autoguard",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 26,
+      "type": "buff",
+      "tags": [
+        "buff"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "auto_shadow_spell",
+      "name": "Auto Shadow Spell",
+      "originalName": "Auto Shadow Spell",
+      "icon": "sc_autoshadowspell",
+      "description": "10 秒內，你的技能每次打中敵人都有 20% 機率追加一發抄來的火箭術、冰箭術或雷擊術。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 22,
+      "type": "buff",
+      "tags": [
+        "buff",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "axe_boomerang",
+      "name": "迴旋斧",
+      "originalName": "Axe Boomerang",
+      "icon": "nc_axeboomerang",
+      "description": "擲出旋轉的斧頭，貫穿所有敵人後飛回來。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 7,
+      "type": "projectile",
+      "tags": [
+        "melee",
+        "projectile",
+        "pierce",
+        "return",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "axe_tornado",
+      "name": "戰斧颶風",
+      "originalName": "Axe Tornado",
+      "icon": "nc_axetornado",
+      "description": "揮舞武器旋轉三圈：每一圈都會傷害並擊退周圍的敵人。",
+      "upgradeDescription": "+20% 傷害、+8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 8,
+      "type": "aoe",
+      "tags": [
+        "aura",
+        "area",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "back_stab",
+      "name": "背刺",
+      "originalName": "Back Stab",
+      "icon": "rg_backstap",
+      "description": "瞬間出現在最近的敵人背後，狠狠刺下一刀。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 6,
+      "type": "single",
+      "tags": [
+        "melee",
+        "single",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "bash",
+      "name": "狂擊",
+      "originalName": "Bash",
+      "icon": "sm_bash",
+      "description": "對最近的敵人施以重擊。可習得暈眩效果。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "beast_strafing",
+      "name": "動物猛擊",
+      "originalName": "Beast Strafing",
+      "icon": "ht_beastbane",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 5,
+      "type": "projectile",
+      "tags": [
+        "projectile",
+        "single",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "benedictio",
+      "name": "聖之祈福",
+      "originalName": "Benedictio",
+      "icon": "pr_benedictio",
+      "description": null,
+      "upgradeDescription": "+20% 傷害、+8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 8,
+      "type": "aoe",
+      "tags": [
+        "aura",
+        "area",
+        "magic",
+        "holy"
+      ],
+      "cast": [
+        "single",
+        "holy"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "blessing",
+      "name": "天使之賜福",
+      "originalName": "Blessing",
+      "icon": "al_blessing",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "blitz_beat",
+      "name": "閃電衝擊",
+      "originalName": "Blitz Beat",
+      "icon": "ht_blitzbeat",
+      "description": "你的獵鷹對一名隨機敵人俯衝三次，同時傷及其周圍的敵人。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 6,
+      "type": "multi",
+      "tags": [
+        "ranged_strike",
+        "multi",
+        "burst",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "bowling_bash",
+      "name": "怪物互擊",
+      "originalName": "Bowling Bash",
+      "icon": "kn_bowlingbash",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 6,
+      "type": "single",
+      "tags": [
+        "melee",
+        "single",
+        "burst",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "brandish_spear",
+      "name": "騎乘攻擊",
+      "originalName": "Brandish Spear",
+      "icon": "pr_brandishspear",
+      "description": "騎在大嘴鳥上揮舞武器橫掃前方：對扇形範圍內的敵人造成傷害並擊退。",
+      "upgradeDescription": "+20% 傷害、+8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 8,
+      "type": "aoe",
+      "tags": [
+        "melee",
+        "area",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "call_homunculus",
+      "name": "生命體召喚",
+      "originalName": "Call Homunculus",
+      "icon": "am_callhomun",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 26,
+      "type": "orbit",
+      "tags": [
+        "orbit",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "call_spirits",
+      "name": "蓄氣",
+      "originalName": "Call Spirits",
+      "icon": "mo_callspirits",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 14,
+      "type": "orbit",
+      "tags": [
+        "orbit",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "caltrops",
+      "name": "鐵蒺藜",
+      "originalName": "Caltrops",
+      "icon": "tf_caltrops",
+      "description": "在你和敵人之間撒下一排鐵蒺藜：踩到的敵人會受到傷害並減速。",
+      "upgradeDescription": "+1 個鐵蒺藜、+15% 傷害，持續時間更長。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "cannon_spear",
+      "name": "Cannon Spear",
+      "originalName": "Cannon Spear",
+      "icon": "lg_cannonspear",
+      "description": "擲出一支巨大的光之槍，貫穿整排敵人。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 6,
+      "type": "projectile",
+      "tags": [
+        "melee",
+        "projectile",
+        "pierce",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "cart_cannon",
+      "name": "Cart Cannon",
+      "originalName": "Cart Cannon",
+      "icon": "gn_cartcannon",
+      "description": "推車朝最大的一群敵人發射砲彈：落點周圍全部被炸到。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 8,
+      "type": "aoe",
+      "tags": [
+        "ranged_strike",
+        "area",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "cart_revolution",
+      "name": "手推車攻擊",
+      "originalName": "Cart Revolution",
+      "icon": "mc_cartrevolution",
+      "description": "推著手推車撞向敵人：周圍的敵人全被擊中並撞飛。",
+      "upgradeDescription": "+20% 傷害、+8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "cart_rush",
+      "name": "手推車突進",
+      "originalName": "Cart Rush",
+      "icon": "mc_cartrush",
+      "description": "推著手推車朝前進方向衝鋒：輾過撞到的敵人，並把他們推向兩側開出一條路。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "cart_tornado",
+      "name": "Cart Tornado",
+      "originalName": "Cart Tornado",
+      "icon": "gn_cart_tornado",
+      "description": "推車繞著你轉 3 圈：每一圈都打中並推開周圍的敵人。",
+      "upgradeDescription": "+20% 傷害與 +8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 7,
+      "type": "aoe",
+      "tags": [
+        "aura",
+        "area",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "chain_combo",
+      "name": "連環全身掌",
+      "originalName": "Chain Combo",
+      "icon": "mo_chaincombo",
+      "description": "朝最近的敵人迅速連打四下。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 5,
+      "type": "single",
+      "tags": [
+        "melee",
+        "single",
+        "burst",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "charge_attack",
+      "name": "衝鋒攻擊",
+      "originalName": "Charge Attack",
+      "icon": "kn_chargeatk",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 9,
+      "type": "single",
+      "tags": [
+        "melee",
+        "single",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "chemical_protection",
+      "name": "化學保護",
+      "originalName": "Chemical Protection",
+      "icon": "am_cp_armor",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 26,
+      "type": "buff",
+      "tags": [
+        "buff"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "claymore_trap",
+      "name": "爆散陷阱",
+      "originalName": "Claymore Trap",
+      "icon": "ht_claymoretrap",
+      "description": null,
+      "upgradeDescription": "+20% 傷害、+8% 範圍。",
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 10,
+      "type": "zone",
+      "tags": [
+        "ground",
+        "area",
+        "persistent",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "cloaking",
+      "name": "偽裝",
+      "originalName": "Cloaking",
+      "icon": "as_cloaking",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 18,
+      "type": "buff",
+      "tags": [
+        "buff"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "cluster_bomb",
+      "name": "Cluster Bomb",
+      "originalName": "Cluster Bomb",
+      "icon": "ra_clusterbomb",
+      "description": "朝最大的一群敵人丟出炸彈：爆炸波及周圍所有敵人並把他們炸飛。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 10,
+      "type": "aoe",
+      "tags": [
+        "ranged_strike",
+        "area",
+        "physical",
+        "fire"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "cold_slower",
+      "name": "Cold Slower",
+      "originalName": "Cold Slower",
+      "icon": "nc_coldslower",
+      "description": "朝最大的一群敵人發射冷凍彈：範圍內全部緩速 3 秒、50% 機率凍結 1.5 秒（首領不會凍），並受到少量傷害。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 13,
+      "type": "control",
+      "tags": [
+        "ground",
+        "area",
+        "melee",
+        "physical",
+        "water"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "coldbolt",
+      "name": "冰箭術",
+      "originalName": "Cold Bolt",
+      "icon": "mg_coldbolt",
+      "description": "冰箭從天而降並造成緩速（可習得冰凍效果）。每升一級多一發。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "combo_finish",
+      "name": "猛龍誇強",
+      "originalName": "Combo Finish",
+      "icon": "mo_combofinish",
+      "description": "對最近的敵人打出毀滅性的終結一擊：爆裂並傷害周圍所有敵人。",
+      "upgradeDescription": "+20% 傷害、+8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "aoe",
+      "tags": [
+        "melee",
+        "area",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "comet",
+      "name": "Comet Fall",
+      "originalName": "Comet Fall",
+      "icon": "wl_comet",
+      "description": "一顆巨大的彗星砸向最大的一群敵人：非常大的圓圈內所有敵人都會被打中並炸飛。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 30,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "magic",
+        "neutral"
+      ],
+      "cast": [
+        "area",
+        "fire"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "concentration",
+      "name": "心神凝聚",
+      "originalName": "Improve Concentration",
+      "icon": "ac_concentration",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "counter_kick",
+      "name": "還擊踢",
+      "originalName": "Counter Kick",
+      "icon": "tk_counter",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "crazy_uproar",
+      "name": "大聲吶喊",
+      "originalName": "Crazy Uproar",
+      "icon": "mc_loud",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "crimson_marker",
+      "name": "Crimson Marker",
+      "originalName": "Crimson Marker",
+      "icon": "rl_c_marker",
+      "description": "朝視野內最強的敵人精準一槍並標記 10 秒：它受到的傷害 +15%，龍尾會引爆它。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 5,
+      "type": "single",
+      "tags": [
+        "ranged_strike",
+        "single",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "crimson_rock",
+      "name": "Crimson Rock",
+      "originalName": "Crimson Rock",
+      "icon": "wl_crimsonrock",
+      "description": "燃燒的巨岩砸向最大的一群敵人：波及周圍所有敵人、把他們擊退，並有機率暈眩。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "aoe",
+      "tags": [
+        "ranged_strike",
+        "area",
+        "magic",
+        "fire"
+      ],
+      "cast": [
+        "single",
+        "fire"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "cross_impact",
+      "name": "Cross Impact",
+      "originalName": "Cross Impact",
+      "icon": "gc_crossimpact",
+      "description": "對視野內最強的敵人瞬間砍出七道十字斬。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "single",
+      "tags": [
+        "melee",
+        "single",
+        "burst",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "cross_ripper_slasher",
+      "name": "Cross Ripper Slasher",
+      "originalName": "Cross Ripper Slasher",
+      "icon": "gc_crossripperslasher",
+      "description": "朝視野內 4 個敵人甩出 4 把刀刃，每把也會砍到旁邊的敵人。會用掉全部迴旋計數來加傷。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 7,
+      "type": "aoe",
+      "tags": [
+        "melee",
+        "ranged_strike",
+        "area",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "cross_slash",
+      "name": "Cross Slash",
+      "originalName": "Cross Slash",
+      "icon": "ko_jyumonjikiri",
+      "description": "對視野內最強的敵人斬出十字兩刀；十字傷讓它 5 秒內受到的傷害 +15%。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 6,
+      "type": "single",
+      "tags": [
+        "single",
+        "burst",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "curse_explosion",
+      "name": "Curse Explosion",
+      "originalName": "Curse Explosion",
+      "icon": "sp_curseexplosion",
+      "description": "讓最大一群敵人身上的詛咒爆開：打中周圍所有敵人；被詛咒的敵人傷害 +60%。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 10,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "magic",
+        "ghost"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "dark_claw",
+      "name": "Dark Claw",
+      "originalName": "Dark Claw",
+      "icon": "gc_darkcrow",
+      "description": "對視野內最強的 2 個敵人撕出三道暗黑之爪：6 秒內受到的所有傷害 +20%。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 12,
+      "type": "control",
+      "tags": [
+        "melee",
+        "single",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "decrease_agi",
+      "name": "緩速術",
+      "originalName": "Decrease AGI",
+      "icon": "al_decagi",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "deluge",
+      "name": "水元素領域",
+      "originalName": "Deluge",
+      "icon": "sa_deluge",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 20,
+      "type": "zone",
+      "tags": [
+        "ground",
+        "area",
+        "persistent",
+        "magic",
+        "water"
+      ],
+      "cast": [
+        "area",
+        "water"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "demonstration",
+      "name": "火煙瓶投擲",
+      "originalName": "Demonstration",
+      "icon": "am_demonstration",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 12,
+      "type": "zone",
+      "tags": [
+        "ground",
+        "area",
+        "persistent",
+        "physical",
+        "fire"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "demoralizing_shout",
+      "name": "恐嚇吶喊",
+      "originalName": "Demoralizing Shout",
+      "icon": "dc_scream",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "desperado",
+      "name": "亡命之徒",
+      "originalName": "Desperado",
+      "icon": "gs_desperado",
+      "description": "朝身邊各個方向開槍。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "detecting",
+      "name": "獵鷹尋敵",
+      "originalName": "Detecting",
+      "icon": "ht_detecting",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 15,
+      "type": "control",
+      "tags": [
+        "aura",
+        "area",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "diamond_dust",
+      "name": "Diamond Dust",
+      "originalName": "Diamond Dust",
+      "icon": "so_diamonddust",
+      "description": "在最大的一群敵人身上落下五次冰晶打擊：每一次都會打中附近所有敵人，並有機率冰凍。",
+      "upgradeDescription": "+1 次打擊與 +15% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 10,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "magic",
+        "water"
+      ],
+      "cast": [
+        "area",
+        "water"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "dissonance",
+      "name": "不諧和音",
+      "originalName": "Dissonance",
+      "icon": "ba_dissonance",
+      "description": "你演奏（或跳）出很糟糕的東西：四波不協和音符傷害附近敵人。",
+      "upgradeDescription": "+20% 傷害、+8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "aoe",
+      "tags": [
+        "aura",
+        "area",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "divest_weapon",
+      "name": "卸除武器",
+      "originalName": "Divest Weapon",
+      "icon": "rg_stripweapon",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 13,
+      "type": "control",
+      "tags": [
+        "aura",
+        "single",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "double_strafe",
+      "name": "二連矢",
+      "originalName": "Double Strafe",
+      "icon": "ac_double",
+      "description": "極快的連續箭矢，左右交替以弧線飛向最近的敵人。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "dragon_breath",
+      "name": "Dragon Breath",
+      "originalName": "Dragon Breath",
+      "icon": "rk_dragonbreath",
+      "description": "你的龍朝最大的一群敵人噴出扇形火焰。你的 HP 越滿火越猛（滿血 +30% 傷害）。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "melee",
+        "physical",
+        "fire"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "dragon_howling",
+      "name": "Dragon Howling",
+      "originalName": "Dragon Howling",
+      "icon": "rk_dragonhowling",
+      "description": "你的龍發出咆哮：周圍的敵人嚇得僵住 1 秒、5 秒內造成的傷害 −20%，並被震開。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 16,
+      "type": "control",
+      "tags": [
+        "aura",
+        "area",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "dragon_tail",
+      "name": "Dragontail",
+      "originalName": "Dragontail",
+      "icon": "rl_d_tail",
+      "description": "引爆視野內被標記的敵人（最多 3 個）：每個都炸一大下，周圍吃 40%。沒有標記時打最強的敵人 60%。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 10,
+      "type": "single",
+      "tags": [
+        "single",
+        "area",
+        "physical",
+        "fire"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "drum_battlefield",
+      "name": "戰鼓震天",
+      "originalName": "A Drum on the Battlefield",
+      "icon": "bd_drumbattlefield",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 24,
+      "type": "buff",
+      "tags": [
+        "buff"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "earth_drive",
+      "name": "Earth Drive",
+      "originalName": "Earth Drive",
+      "icon": "lg_earthdrive",
+      "description": "把盾牌砸進地面：以你為中心震地三次，打中並震退周圍所有敵人。",
+      "upgradeDescription": "+20% 傷害與 +8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 10,
+      "type": "aoe",
+      "tags": [
+        "aura",
+        "area",
+        "melee",
+        "physical",
+        "earth"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "earth_spike",
+      "name": "地震術",
+      "originalName": "Earth Spike",
+      "icon": "wz_earthspike",
+      "description": "岩刺從最近的敵人腳下竄出，將其拋向空中。每級多一根岩刺。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 6,
+      "type": "multi",
+      "tags": [
+        "ranged_strike",
+        "multi",
+        "burst",
+        "magic",
+        "earth"
+      ],
+      "cast": [
+        "single",
+        "earth"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "electric_shocker",
+      "name": "Electric Shocker",
+      "originalName": "Electric Shocker",
+      "icon": "ra_electricshocker",
+      "description": "把電擊陷阱丟到最大的一群敵人：範圍內全部暈眩 1.6 秒（首領減半），並受到少量傷害。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 14,
+      "type": "control",
+      "tags": [
+        "ground",
+        "area",
+        "physical",
+        "wind"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "elemental_spirit",
+      "name": "Elemental Spirit",
+      "originalName": "Elemental Spirit",
+      "icon": "so_summon_agni",
+      "description": "召喚一隻元素精靈跟著你 12 秒，每秒攻擊最近的敵人（旁邊的敵人受到一半傷害）。每次施放換下一種元素：火、水（緩速）、風（機率暈眩）、地（擊退）。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 20,
+      "type": "single",
+      "tags": [
+        "single",
+        "magic",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "enchant_poison",
+      "name": "塗毒",
+      "originalName": "Enchant Poison",
+      "icon": "as_enchantpoison",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 20,
+      "type": "buff",
+      "tags": [
+        "buff"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "endure",
+      "name": "霸體",
+      "originalName": "Endure",
+      "icon": "sm_endure",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "enlarge_weight",
+      "name": "負重量上升",
+      "originalName": "Enlarge Weight Limit",
+      "icon": "mc_inccarry",
+      "description": "HP 不到 20% 時會架好手推車：把周圍敵人全部推開，4 秒內承受傷害 -80%，但移動速度慢 80%。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "envenom",
+      "name": "施毒",
+      "originalName": "Envenom",
+      "icon": "tf_poison",
+      "description": "快速刺擊並使敵人中毒（持續傷害）。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "epiclesis",
+      "name": "Epiclesis Tree",
+      "originalName": "Epiclesis Tree",
+      "icon": "ab_epiclesis",
+      "description": "在腳下種一棵光之樹 8 秒：每秒兩次灼燒周圍敵人（不死系 ×2），你站在裡面每秒回復 1.5% HP，範圍內的隊友也獲得再生。",
+      "upgradeDescription": "+15% 傷害與 +8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 20,
+      "type": "zone",
+      "tags": [
+        "ground",
+        "area",
+        "persistent",
+        "magic",
+        "holy"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "esma",
+      "name": "艾斯麻",
+      "originalName": "Esma",
+      "icon": "sl_sma",
+      "description": "對最近的敵人射出靈魂之光。每級多一道。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 5,
+      "type": "multi",
+      "tags": [
+        "ranged_strike",
+        "multi",
+        "burst",
+        "magic",
+        "ghost"
+      ],
+      "cast": [
+        "single",
+        "ghost"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "espa",
+      "name": "Espa",
+      "originalName": "Espa",
+      "icon": "sp_spa",
+      "description": "朝視野內最強的敵人射出一道靈魂之槍；對被詛咒的敵人傷害 +30%。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 6,
+      "type": "single",
+      "tags": [
+        "ranged_strike",
+        "single",
+        "magic",
+        "ghost"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "estin",
+      "name": "艾斯提",
+      "originalName": "Estin",
+      "icon": "sl_stin",
+      "description": "對最近的敵人颳起一陣靈魂之風：傷害並擊退其周圍的敵人。",
+      "upgradeDescription": "+20% 傷害、+8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 6,
+      "type": "aoe",
+      "tags": [
+        "ranged_strike",
+        "area",
+        "magic",
+        "wind"
+      ],
+      "cast": [
+        "single",
+        "wind"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "estun",
+      "name": "艾斯敦",
+      "originalName": "Estun",
+      "icon": "sl_stun",
+      "description": "對視野內最強的敵人打出靈魂一擊：使其暈眩。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 6,
+      "type": "single",
+      "tags": [
+        "ranged_strike",
+        "single",
+        "magic",
+        "neutral"
+      ],
+      "cast": [
+        "single",
+        "neutral"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "eswhoo",
+      "name": "Eswhoo",
+      "originalName": "Eswhoo",
+      "icon": "sp_swhoo",
+      "description": "朝最大的一群敵人連打三波靈魂漩渦：每一波都打中周圍所有敵人。",
+      "upgradeDescription": "+20% 傷害與 +8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "aoe",
+      "tags": [
+        "ranged_strike",
+        "area",
+        "magic",
+        "ghost"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "falling_star",
+      "name": "流星殞落",
+      "originalName": "Falling Star",
+      "icon": "sj_fallingstar",
+      "description": "四顆星星落在隨機敵人身上並在周圍爆炸。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 8,
+      "type": "multi",
+      "tags": [
+        "melee",
+        "multi",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "fan_of_knives",
+      "name": "刀扇",
+      "originalName": "Fan of Knives",
+      "icon": "tf_fanofknives",
+      "description": "在身邊連續擲出兩輪刀扇，命中附近所有敵人。",
+      "upgradeDescription": "+20% 傷害、+10% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "fatal_menace",
+      "name": "Fatal Menace",
+      "originalName": "Fatal Menace",
+      "icon": "sc_fatalmenace",
+      "description": "砍中身邊所有敵人，然後消失、出現在離敵群遠一點的地方（0.4 秒無敵）。",
+      "upgradeDescription": "+20% 傷害與 +8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "aoe",
+      "tags": [
+        "melee",
+        "aura",
+        "area",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "fear_breeze",
+      "name": "Fear Breeze",
+      "originalName": "Fear Breeze",
+      "icon": "ra_fearbreeze",
+      "description": "10 秒內：急速 +15（所有技能冷卻變快）、爆擊 +6%。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 22,
+      "type": "buff",
+      "tags": [
+        "buff",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "feint_bomb",
+      "name": "Feint Bomb",
+      "originalName": "Feint Bomb",
+      "icon": "sc_feintbomb",
+      "description": "在原地留下魅影分身、自己隱身 1.2 秒；之後分身爆炸，炸到周圍所有敵人。",
+      "upgradeDescription": "+20% 傷害與 +8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 12,
+      "type": "aoe",
+      "tags": [
+        "melee",
+        "ground",
+        "area",
+        "physical",
+        "fire"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "finger_offensive",
+      "name": "彈指神通",
+      "originalName": "Finger Offensive",
+      "icon": "mo_fingeroffensive",
+      "description": "對最近的敵人連續射出三顆氣彈。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 6,
+      "type": "projectile",
+      "tags": [
+        "melee",
+        "projectile",
+        "single",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "fire_arrow",
+      "name": "Flecha ígnea",
+      "originalName": "Flecha ígnea",
+      "icon": "ac_firearrow",
+      "description": "以拋物線朝最近的敵人射出火焰箭：如火球般炸開，傷害並燃燒命中區域內的敵人，並向外濺出火焰燃燒周圍敵人。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "fire_dance",
+      "name": "Firedance",
+      "originalName": "Firedance",
+      "icon": "rl_firedance",
+      "description": "原地轉身，朝四周連開兩輪子彈。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 8,
+      "type": "aoe",
+      "tags": [
+        "aura",
+        "area",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "fire_pillar",
+      "name": "火柱攻擊",
+      "originalName": "Fire Pillar",
+      "icon": "wz_firepillar",
+      "description": "一道火柱從敵群腳下竄出，連續灼燒四次。",
+      "upgradeDescription": "+20% 傷害、+8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "magic",
+        "fire"
+      ],
+      "cast": [
+        "area",
+        "fire"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "fire_walk",
+      "name": "Fire Walk",
+      "originalName": "Fire Walk",
+      "icon": "so_firewalk",
+      "description": "4 秒內，你走過的地方會留下一路火焰：每團火焰會灼燒踩在上面的敵人 3 次。",
+      "upgradeDescription": "+15% 傷害與 +8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 10,
+      "type": "zone",
+      "tags": [
+        "ground",
+        "area",
+        "persistent",
+        "magic",
+        "fire"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "fire_wall",
+      "name": "火焰之壁",
+      "originalName": "Fire Wall",
+      "icon": "mg_firewall",
+      "description": "在你與敵人之間升起一道火牆。",
+      "upgradeDescription": "+1 道火焰、+15% 傷害，持續時間更長、詠唱更短。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "firebolt",
+      "name": "火箭術",
+      "originalName": "Fire Bolt",
+      "icon": "mg_firebolt",
+      "description": "火球從天而降，砸向最近的敵人。每升一級多一發。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "flame_launcher",
+      "name": "Flame Launcher",
+      "originalName": "Flame Launcher",
+      "icon": "nc_flamelauncher",
+      "description": "朝最近的敵人噴出一道直線火焰：連噴 3 段，整條線上的敵人都會被燒到。",
+      "upgradeDescription": "+20% 傷害與 +8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 8,
+      "type": "aoe",
+      "tags": [
+        "area",
+        "melee",
+        "physical",
+        "fire"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "flaming_petals",
+      "name": "火炎花",
+      "originalName": "Flaming Petals",
+      "icon": "nj_kouenka",
+      "description": "火焰花瓣落在一群敵人身上。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "flash_kick",
+      "name": "Flash Kick",
+      "originalName": "Flash Kick",
+      "icon": "sj_flashkick",
+      "description": "閃到最強的敵人身邊踢一腳，在它和附近 2 個敵人身上留下星之印記：每 1.5 秒有一顆星落在印記上（3 次）。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 8,
+      "type": "single",
+      "tags": [
+        "melee",
+        "single",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "frigg_song",
+      "name": "Frigg's Song",
+      "originalName": "Frigg's Song",
+      "icon": "wm_frigg_song",
+      "description": "回復 8% 最大 HP，接下來 12 秒每秒回 3 HP、受到的傷害 -10%。附近隊友也會得到回復與每秒回血。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 26,
+      "type": "buff",
+      "tags": [
+        "buff",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "frost_diver",
+      "name": "冰凍術",
+      "originalName": "Frost Diver",
+      "icon": "mg_frostdiver",
+      "description": "沿地面延伸的冰痕，可冰凍敵人。不造成傷害：純控場。",
+      "upgradeDescription": "冰凍時間 +0.3 秒。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "frost_misty",
+      "name": "Frost Misty",
+      "originalName": "Frost Misty",
+      "icon": "wl_frostmisty",
+      "description": "把冰霜之霧丟到最大的一群敵人：範圍內全部冰凍 1.8 秒（首領免疫）、削弱 25% 持續 5 秒，並受到少量傷害。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 14,
+      "type": "control",
+      "tags": [
+        "ground",
+        "area",
+        "magic",
+        "water"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "frost_nova",
+      "name": "霜凍之術",
+      "originalName": "Frost Nova",
+      "icon": "wz_frostnova",
+      "description": null,
+      "upgradeDescription": "+20% 傷害、+8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 12,
+      "type": "aoe",
+      "tags": [
+        "aura",
+        "area",
+        "magic",
+        "water"
+      ],
+      "cast": [
+        "single",
+        "water"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "full_moon_kick",
+      "name": "滿月腳",
+      "originalName": "Full Moon Kick",
+      "icon": "sj_fullmoonkick",
+      "description": "如滿月般的迴旋踢：傷害並擊退周圍所有敵人。",
+      "upgradeDescription": "+20% 傷害、+8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "aoe",
+      "tags": [
+        "aura",
+        "area",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "fury",
+      "name": "爆氣",
+      "originalName": "Fury",
+      "icon": "mo_explosionspirits",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 24,
+      "type": "buff",
+      "tags": [
+        "buff"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "genesis_ray",
+      "name": "Genesis Ray",
+      "originalName": "Genesis Ray",
+      "icon": "lg_rayofgenesis",
+      "description": "聖光朝最大的一群敵人落下五次（對不死 ×2）。你身邊每有一隻敵人傷害 +1.5%（最多 +15%）。",
+      "upgradeDescription": "+1 道光與 +15% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 12,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "melee",
+        "physical",
+        "holy"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "giant_growth",
+      "name": "Giant Growth",
+      "originalName": "Giant Growth",
+      "icon": "rk_giantgrowth",
+      "description": "捏碎一顆符文石：10 秒內傷害 +15%、受到傷害 −10%。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 24,
+      "type": "buff",
+      "tags": [
+        "buff",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "graffiti",
+      "name": "塗鴉",
+      "originalName": "Graffiti",
+      "icon": "rg_graffiti",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 14,
+      "type": "zone",
+      "tags": [
+        "ground",
+        "area",
+        "persistent",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "grand_cross",
+      "name": "聖十字審判",
+      "originalName": "Grand Cross",
+      "icon": "cr_grandcross",
+      "description": null,
+      "upgradeDescription": "+20% 傷害、+8% 範圍。",
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 12,
+      "type": "aoe",
+      "tags": [
+        "aura",
+        "area",
+        "melee",
+        "physical",
+        "holy"
+      ],
+      "cast": [
+        "area",
+        "holy"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "gravity_control",
+      "name": "Gravity Control",
+      "originalName": "Gravity Control",
+      "icon": "sj_bookofdimension",
+      "description": "重力把最大的一群敵人吸到同一點（首領不受影響）；一瞬間後全部暈眩 1.2 秒（首領減半），並受到少量傷害。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 16,
+      "type": "control",
+      "tags": [
+        "ground",
+        "area",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "great_echo",
+      "name": "Great Echo",
+      "originalName": "Great Echo",
+      "icon": "wm_great_echo",
+      "description": "從你身上擴散出三道聲波：打中周圍所有敵人，並讓他們 4 秒內受到的傷害 +10%。",
+      "upgradeDescription": "+20% 傷害與 +8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 10,
+      "type": "aoe",
+      "tags": [
+        "aura",
+        "area",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "greed",
+      "name": "貪婪",
+      "originalName": "Greed",
+      "icon": "bs_greed",
+      "description": "一口氣撿起周圍所有戰利品，你的貪婪還會打中附近敵人（會掉些 Zeny 給你）。",
+      "upgradeDescription": "+20% 傷害、+8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 16,
+      "type": "aoe",
+      "tags": [
+        "aura",
+        "area",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "grimtooth",
+      "name": "無影之牙",
+      "originalName": "Grimtooth",
+      "icon": "as_grimtooth",
+      "description": "暗影之刃從你前方的地面直線竄出：傷害整排敵人。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 6,
+      "type": "aoe",
+      "tags": [
+        "melee",
+        "area",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "ground_drift",
+      "name": "四面埋伏",
+      "originalName": "Ground Drift",
+      "icon": "gs_grounddrift",
+      "description": "在敵群中炸開的榴彈。",
+      "upgradeDescription": "+20% 傷害、+10% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "hallucination_walk",
+      "name": "Hallucination Walk",
+      "originalName": "Hallucination Walk",
+      "icon": "gc_hallucinationwalk",
+      "description": "8 秒內：迴避 +20%、移動速度 +15%、爆擊 +8%，身後留下殘影。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 20,
+      "type": "buff",
+      "tags": [
+        "buff",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "hammer_of_god",
+      "name": "God Hammer",
+      "originalName": "God Hammer",
+      "icon": "rl_hammer_of_god",
+      "description": "一道巨大的雷砸在視野內最強的敵人身上：重創、周圍吃 40%、暈眩 1 秒。對被標記的敵人傷害 ×1.5。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 15,
+      "type": "single",
+      "tags": [
+        "ranged_strike",
+        "single",
+        "area",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "heal",
+      "name": "治癒術",
+      "originalName": "Heal",
+      "icon": "al_heal",
+      "description": null,
+      "upgradeDescription": "+治療量、+傷害、+範圍。",
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "heavens_drive",
+      "name": "崩裂術",
+      "originalName": "Heaven's Drive",
+      "icon": "wz_heavendrive",
+      "description": "大地在敵群腳下爆出岩刺：五次衝擊並將敵人擊退。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 11,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "magic",
+        "earth"
+      ],
+      "cast": [
+        "area",
+        "earth"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "heel_drop",
+      "name": "砸踢",
+      "originalName": "Heel Drop",
+      "icon": "tk_downkick",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "hells_plant",
+      "name": "Hell's Plant",
+      "originalName": "Hell's Plant",
+      "icon": "gn_hells_plant",
+      "description": "在身邊種一株食人花 12 秒：每 0.8 秒咬一個靠近的敵人，旁邊的敵人也會被波及。",
+      "upgradeDescription": "+15% 傷害與 +8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 18,
+      "type": "zone",
+      "tags": [
+        "ground",
+        "area",
+        "persistent",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "hiding",
+      "name": "隱匿",
+      "originalName": "Hiding",
+      "icon": "tf_hiding",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "highness_heal",
+      "name": "Highness Heal",
+      "originalName": "Highness Heal",
+      "icon": "ab_highnessheal",
+      "description": "最強的治癒：為你與附近所有隊友回復 30 HP（隨 MATK 成長），再 8 秒內每秒回復 3 HP（革新）；治癒之光同時傷害你身邊的敵人（不死系 ×2）。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 14,
+      "type": "aoe",
+      "tags": [
+        "aura",
+        "area",
+        "magic",
+        "holy"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "hindsight",
+      "name": "自動念咒",
+      "originalName": "Hindsight",
+      "icon": "sa_autospell",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 22,
+      "type": "buff",
+      "tags": [
+        "buff"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "holy_cross",
+      "name": "聖十字攻擊",
+      "originalName": "Holy Cross",
+      "icon": "cr_holycross",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 5,
+      "type": "single",
+      "tags": [
+        "melee",
+        "single",
+        "burst",
+        "physical",
+        "holy"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "holy_light",
+      "name": "神聖之光",
+      "originalName": "Holy Light",
+      "icon": "al_holylight",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "holy_smite",
+      "name": "Golpe sagrado",
+      "originalName": "Golpe sagrado",
+      "icon": "pr_macemastery",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "howling_mine",
+      "name": "Howling Mine",
+      "originalName": "Howling Mine",
+      "icon": "rl_h_mine",
+      "description": "把地雷射到 3 個隨機敵人身上，片刻後爆炸，炸傷周圍所有敵人。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "aoe",
+      "tags": [
+        "ranged_strike",
+        "area",
+        "physical",
+        "fire"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "howling_of_lion",
+      "name": "Howling of Lion",
+      "originalName": "Howling of Lion",
+      "icon": "sr_howlingoflion",
+      "description": "一聲獅子吼：你身邊所有敵人被嚇到動不了（暈眩 1.4 秒，首領減半），被震退並受到少量傷害。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 15,
+      "type": "control",
+      "tags": [
+        "aura",
+        "area",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "hp_recovery",
+      "name": "快速恢復",
+      "originalName": "Increase HP Recovery",
+      "icon": "sm_recovery",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "hundred_spear",
+      "name": "Hundred Spear",
+      "originalName": "Hundred Spear",
+      "icon": "rk_hundredspear",
+      "description": "對視野內最強的敵人閃電般連刺 5 槍；每一槍也會波及旁邊的敵人（一半傷害）。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 7,
+      "type": "single",
+      "tags": [
+        "melee",
+        "single",
+        "burst",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "huuma",
+      "name": "投擲風魔飛鏢",
+      "originalName": "Throw Huuma Shuriken",
+      "icon": "nj_huuma",
+      "description": "巨大手裡劍，飛出再飛回，貫穿一切。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "ignition_break",
+      "name": "Ignition Break",
+      "originalName": "Ignition Break",
+      "icon": "rk_ignitionbreak",
+      "description": "把符文砸進地面：以你為中心引發大範圍火焰爆炸，把敵人炸飛。",
+      "upgradeDescription": "+20% 傷害與 +8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 10,
+      "type": "aoe",
+      "tags": [
+        "aura",
+        "area",
+        "melee",
+        "physical",
+        "fire"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "impositio",
+      "name": "神威祈福",
+      "originalName": "Impositio Manus",
+      "icon": "pr_impositio",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 24,
+      "type": "buff",
+      "tags": [
+        "buff"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "inspiration",
+      "name": "Inspiration",
+      "originalName": "Inspiration",
+      "icon": "lg_inspiration",
+      "description": "花掉目前 HP 的 5%：12 秒內傷害 +12%、急速 +15。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 30,
+      "type": "buff",
+      "tags": [
+        "buff",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "intimidate",
+      "name": "恐嚇",
+      "originalName": "Intimidate",
+      "icon": "rg_intimidate",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 8,
+      "type": "single",
+      "tags": [
+        "melee",
+        "single",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "jack_frost",
+      "name": "Jack Frost",
+      "originalName": "Jack Frost",
+      "icon": "wl_jackfrost",
+      "description": "在最大的一群敵人身上落下三次冰霜打擊；對冰凍中的敵人傷害 ×2。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "magic",
+        "water"
+      ],
+      "cast": [
+        "single",
+        "water"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "judex",
+      "name": "Judex Ray",
+      "originalName": "Judex Ray",
+      "icon": "ab_judex",
+      "description": "對視野內最強的敵人連降三道審判之光；每一道也會波及周圍的敵人（50%，不死系 ×2）。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 6,
+      "type": "single",
+      "tags": [
+        "ranged_strike",
+        "single",
+        "burst",
+        "magic",
+        "holy"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "jupitel_thunder",
+      "name": "雷鳴術",
+      "originalName": "Jupitel Thunder",
+      "icon": "wz_jupitel",
+      "description": "朝最近的敵人射出雷球：造成大量傷害並將其擊飛。可穿透一名敵人。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 6,
+      "type": "projectile",
+      "tags": [
+        "projectile",
+        "single",
+        "magic",
+        "wind"
+      ],
+      "cast": [
+        "single",
+        "wind"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "kaahi",
+      "name": "凱阿希",
+      "originalName": "Kaahi",
+      "icon": "sl_kaahi",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 24,
+      "type": "buff",
+      "tags": [
+        "buff"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "kaizel",
+      "name": "凱易哲",
+      "originalName": "Kaizel",
+      "icon": "sl_kaizel",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 60,
+      "type": "buff",
+      "tags": [
+        "buff"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "kaupe",
+      "name": "凱誣僕",
+      "originalName": "Kaupe",
+      "icon": "sl_kaupe",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 20,
+      "type": "buff",
+      "tags": [
+        "buff"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "knuckle_arrow",
+      "name": "Knuckle Arrow",
+      "originalName": "Knuckle Arrow",
+      "icon": "sr_knucklearrow",
+      "description": "一記氣拳飛向最近的敵人，再貫穿 2 個，並把他們擊退很遠。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 5,
+      "type": "projectile",
+      "tags": [
+        "melee",
+        "projectile",
+        "pierce",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "kunai",
+      "name": "投擲飛刀",
+      "originalName": "Throw Kunai",
+      "icon": "nj_kunai",
+      "description": "扇形射出極快的苦無。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "kunai_explosion",
+      "name": "Kunai Explosion",
+      "originalName": "Kunai Explosion",
+      "icon": "ko_bakuretsu",
+      "description": "把爆裂苦無插進最大的一群敵人中間：片刻後爆炸，把周圍的敵人全部炸飛。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 8,
+      "type": "aoe",
+      "tags": [
+        "ranged_strike",
+        "area",
+        "physical",
+        "fire"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "kunai_splash",
+      "name": "Kunai Splash",
+      "originalName": "Kunai Splash",
+      "icon": "ko_happokunai",
+      "description": "向四面八方射出 16 把苦無，每把都會貫穿一個敵人。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 6,
+      "type": "projectile",
+      "tags": [
+        "projectile",
+        "area",
+        "pierce",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "lauda_ramus",
+      "name": "Lauda Ramus",
+      "originalName": "Lauda Ramus",
+      "icon": "ab_laudaramus",
+      "description": "10 秒內：急速 +15、爆擊 +8%。附近的隊友同時獲得急速 +15、傷害 +8%（天使之賜福）。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 24,
+      "type": "buff",
+      "tags": [
+        "buff",
+        "magic",
+        "holy"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "lightning",
+      "name": "雷擊術",
+      "originalName": "Lightning Bolt",
+      "icon": "mg_lightningbolt",
+      "description": "雷電隨機落在敵人身上。每升一級多一發。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "lightning_strike",
+      "name": "雷擊斬",
+      "originalName": "Lightning Strike",
+      "icon": "nj_raigekisai",
+      "description": "在身邊釋放電擊。",
+      "upgradeDescription": "+20% 傷害、+10% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "lokis_veil",
+      "name": "洛奇的悲鳴",
+      "originalName": "Loki's Veil",
+      "icon": "bd_rokisweil",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 22,
+      "type": "control",
+      "tags": [
+        "ground",
+        "area",
+        "persistent",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "lord_of_vermilion",
+      "name": "怒雷強擊",
+      "originalName": "Lord of Vermilion",
+      "icon": "wz_vermilion",
+      "description": "在廣大區域降下連綿不絕的雷電：多段攻擊，並可能使敵人陷入黑暗。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 18,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "magic",
+        "wind"
+      ],
+      "cast": [
+        "area",
+        "wind"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "lullaby",
+      "name": "搖籃曲",
+      "originalName": "Lullaby",
+      "icon": "bd_lullaby",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 16,
+      "type": "control",
+      "tags": [
+        "aura",
+        "area",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "magnificat",
+      "name": "聖母之頌歌",
+      "originalName": "Magnificat",
+      "icon": "pr_magnificat",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 28,
+      "type": "buff",
+      "tags": [
+        "buff"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "magnum",
+      "name": "怒爆",
+      "originalName": "Magnum Break",
+      "icon": "sm_magnum",
+      "description": "在你周圍引發火焰爆炸，擊退敵人。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "magnus_exorcismus",
+      "name": "十字驅魔攻擊",
+      "originalName": "Magnus Exorcismus",
+      "icon": "pr_magnus",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 16,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "magic",
+        "holy"
+      ],
+      "cast": [
+        "area",
+        "holy"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "mammonite",
+      "name": "金錢攻擊",
+      "originalName": "Mammonite",
+      "icon": "mc_mammonite",
+      "description": "對附近敵人造成極強力的金幣攻擊。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "mandragora_howl",
+      "name": "Howling of Mandragora",
+      "originalName": "Howling of Mandragora",
+      "icon": "gn_mandragora",
+      "description": "腳邊的曼陀羅放聲尖叫：周圍的敵人被嚇呆（暈眩 1.5 秒，首領不會），5 秒內傷害 -20%，並受到少量傷害。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 16,
+      "type": "control",
+      "tags": [
+        "aura",
+        "area",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "masquerade",
+      "name": "Masquerade",
+      "originalName": "Masquerade",
+      "icon": "sc_unlucky",
+      "description": "視野內最強的 4 個敵人各戴上一個隨機詛咒假面（6 秒）：受到傷害 +20%、造成傷害 −30%、緩速、致盲或暈眩。",
+      "upgradeDescription": "+1 個目標。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 11,
+      "type": "control",
+      "tags": [
+        "single",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "metallic_sound",
+      "name": "Metallic Sound",
+      "originalName": "Metallic Sound",
+      "icon": "wm_metalicsound",
+      "description": "對視野內最強的敵人連打兩段金屬聲波；對暈眩或睡眠中的敵人傷害 +50%。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 6,
+      "type": "single",
+      "tags": [
+        "ranged_strike",
+        "single",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "meteor_storm",
+      "name": "隕石術",
+      "originalName": "Meteor Storm",
+      "icon": "wz_meteor",
+      "description": "隕石隨機落在一群敵人身上：每顆都會造成範圍爆炸，並可能使敵人暈眩。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 14,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "magic",
+        "fire"
+      ],
+      "cast": [
+        "area",
+        "fire"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "napalm",
+      "name": "心靈爆破",
+      "originalName": "Napalm Beat",
+      "icon": "mg_napalmbeat",
+      "description": "對最近的敵人與其周圍造成念屬性打擊。",
+      "upgradeDescription": "+20% 傷害、+10% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "neutral_barrier",
+      "name": "Neutral Barrier",
+      "originalName": "Neutral Barrier",
+      "icon": "nc_neutralbarrier",
+      "description": "10 秒內：受到傷害 -15%、護甲 +1、急速 +10。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 24,
+      "type": "buff",
+      "tags": [
+        "buff"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "new_moon_kick",
+      "name": "朔月腳",
+      "originalName": "New Moon Kick",
+      "icon": "sj_newmoonkick",
+      "description": "躍向射程內最強的敵人並以一記重踢落地；落地後短暫免疫傷害。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 8,
+      "type": "single",
+      "tags": [
+        "melee",
+        "single",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "nova_explosion",
+      "name": "Nova Explosion",
+      "originalName": "Nova Explosion",
+      "icon": "sj_novaexplosing",
+      "description": "燃燒目前 HP 的 6% 化成新星：身邊的敵人全部受到巨大爆炸傷害並被炸飛。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 12,
+      "type": "aoe",
+      "tags": [
+        "aura",
+        "area",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "oratio",
+      "name": "Holy Oratio",
+      "originalName": "Holy Oratio",
+      "icon": "ab_oratio",
+      "description": "對最大的一群敵人祈禱：範圍內全部 6 秒內受到的傷害 +20%（任何人打都算）、緩速 2 秒，並受到少量聖屬性傷害。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 12,
+      "type": "control",
+      "tags": [
+        "ground",
+        "area",
+        "magic",
+        "holy"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "ore_discovery",
+      "name": "尋找礦石",
+      "originalName": "Ore Discovery",
+      "icon": "bs_findingore",
+      "description": "礦石雨落在一群敵人身上：六顆石頭擊中並擊退敵人。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 11,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "melee",
+        "physical",
+        "earth"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "phantasmic_arrow",
+      "name": "幻影箭",
+      "originalName": "Phantasmic Arrow",
+      "icon": "ht_phantasmic",
+      "description": "巨大的幻影之箭：貫穿所有敵人並將其擊飛到遠處。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "projectile",
+      "tags": [
+        "projectile",
+        "pierce",
+        "physical",
+        "ghost"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "pierce",
+      "name": "連刺攻擊",
+      "originalName": "Pierce",
+      "icon": "kn_pierce",
+      "description": "朝最近的敵人連續突刺三次。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 4.5,
+      "type": "single",
+      "tags": [
+        "melee",
+        "single",
+        "burst",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "poison_bomb",
+      "name": "毒彈",
+      "originalName": "Poison Bomb",
+      "icon": "tf_poisonbomb",
+      "description": null,
+      "upgradeDescription": "+20% 傷害、+8% 範圍。",
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "poison_smoke",
+      "name": "Poison Smoke",
+      "originalName": "Poison Smoke",
+      "icon": "gc_poisonsmoke",
+      "description": "一團毒雲跟著你 6 秒：雲裡的敵人會一直中毒。",
+      "upgradeDescription": "+15% 傷害與 +8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 13,
+      "type": "zone",
+      "tags": [
+        "melee",
+        "ground",
+        "area",
+        "persistent",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "potion_pitcher",
+      "name": "藥水投擲",
+      "originalName": "Potion Pitcher",
+      "icon": "am_potionpitcher",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 14,
+      "type": "buff",
+      "tags": [
+        "buff"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "prestige",
+      "name": "Prestige",
+      "originalName": "Prestige",
+      "icon": "lg_prestige",
+      "description": "10 秒內：受到傷害 −20%、護甲 +1。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 22,
+      "type": "buff",
+      "tags": [
+        "buff",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "prominence_kick",
+      "name": "Prominence Kick",
+      "originalName": "Prominence Kick",
+      "icon": "sj_prominencekick",
+      "description": "纏著太陽火焰的一腳砸進最大的一群敵人：周圍所有敵人都受到全額傷害。",
+      "upgradeDescription": "+20% 傷害與 +8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 8,
+      "type": "aoe",
+      "tags": [
+        "melee",
+        "area",
+        "physical",
+        "fire"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "provoke",
+      "name": "挑釁",
+      "originalName": "Provoke",
+      "icon": "sm_provoke",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "psychic_wave",
+      "name": "Psychic Wave",
+      "originalName": "Psychic Wave",
+      "icon": "so_psychic_wave",
+      "description": "念力波在最大的一群敵人身上擴散 4 秒：8 次脈衝，打中大範圍圓圈內的所有敵人。",
+      "upgradeDescription": "+1 次脈衝與 +15% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 12,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "persistent",
+        "magic",
+        "ghost"
+      ],
+      "cast": [
+        "area",
+        "ghost"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "raid",
+      "name": "潛擊",
+      "originalName": "Raid",
+      "icon": "rg_raid",
+      "description": null,
+      "upgradeDescription": "+20% 傷害、+8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 9,
+      "type": "aoe",
+      "tags": [
+        "aura",
+        "area",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "raising_dragon",
+      "name": "Raising Dragon",
+      "originalName": "Raising Dragon",
+      "icon": "sr_raisingdragon",
+      "description": "12 秒內：急速 +15、傷害 +8%。如果身上有蓄氣，會馬上再放一次（補滿氣彈）。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 26,
+      "type": "buff",
+      "tags": [
+        "buff",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "rampage_blaster",
+      "name": "Rampage Blaster",
+      "originalName": "Rampage Blaster",
+      "icon": "sr_rampageblaster",
+      "description": "把所有氣彈丟向最大的一群敵人：爆炸並把周圍的敵人全部炸飛。",
+      "upgradeDescription": "+20% 傷害與 +8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 10,
+      "type": "aoe",
+      "tags": [
+        "ranged_strike",
+        "area",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "rapid_shower",
+      "name": "五連擊",
+      "originalName": "Rapid Shower",
+      "icon": "gs_rapidshower",
+      "description": "對最近的敵人連續射擊。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "reproduce",
+      "name": "Reproduce",
+      "originalName": "Reproduce",
+      "icon": "sc_reproduce",
+      "description": "隨機抄一招大魔法（隕石術、暴風雪或怒雷）：在最大的一群敵人身上落下 6 下，附帶那招的暈眩、冰凍或致盲。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 12,
+      "type": "aoe",
+      "tags": [
+        "melee",
+        "ground",
+        "area",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "retreat",
+      "name": "Retirada",
+      "originalName": "Retirada",
+      "icon": "ac_retreat",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "reverberation",
+      "name": "Reverberation",
+      "originalName": "Reverberation",
+      "icon": "wm_reverberation",
+      "description": "在最大一群敵人中間放下樂器：連爆兩次聲波，打中周圍所有敵人；第一爆有機率暈眩。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 10,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "rolling_cutter",
+      "name": "Rolling Cutter",
+      "originalName": "Rolling Cutter",
+      "icon": "gc_rollingcutter",
+      "description": null,
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 4,
+      "type": "aoe",
+      "tags": [
+        "melee",
+        "aura",
+        "area",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "round_trip",
+      "name": "Round Trip",
+      "originalName": "Round Trip",
+      "icon": "rl_qd_shot",
+      "description": "12 發子彈射向四面八方再飛回來，每發都會貫穿一個敵人並擊退。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 7,
+      "type": "projectile",
+      "tags": [
+        "projectile",
+        "area",
+        "pierce",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "roundhouse",
+      "name": "轉身踢",
+      "originalName": "Roundhouse",
+      "icon": "tk_turnkick",
+      "description": "迴旋踢擊，攻擊並踢飛周圍敵人。",
+      "upgradeDescription": "+20% 傷害、+10% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "rush_quake",
+      "name": "衝擊撼動",
+      "originalName": "Rush Quake",
+      "icon": "mt_rush_quake",
+      "description": "使盡全力重擊地面：衝擊波傷害周圍所有敵人，並可能使其暈眩。",
+      "upgradeDescription": "+20% 傷害、+8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 12,
+      "type": "aoe",
+      "tags": [
+        "aura",
+        "area",
+        "melee",
+        "physical",
+        "earth"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "ruwach",
+      "name": "光獵",
+      "originalName": "Ruwach",
+      "icon": "al_ruwach",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "safety_wall",
+      "name": "暗之障壁",
+      "originalName": "Safety Wall",
+      "icon": "pr_safetywall",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 18,
+      "type": "buff",
+      "tags": [
+        "buff"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "sanctuary",
+      "name": "光耀之堂",
+      "originalName": "Sanctuary",
+      "icon": "pr_sanctuary",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 20,
+      "type": "zone",
+      "tags": [
+        "ground",
+        "area",
+        "persistent",
+        "magic",
+        "holy"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "sand_attack",
+      "name": "噴砂",
+      "originalName": "Sand Attack",
+      "icon": "tf_sprinklesand",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "sandman",
+      "name": "睡魔陷阱",
+      "originalName": "Sandman",
+      "icon": "ht_sandman",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 14,
+      "type": "control",
+      "tags": [
+        "ground",
+        "area",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "severe_rainstorm",
+      "name": "Severe Rainstorm",
+      "originalName": "Severe Rainstorm",
+      "icon": "wm_severe_rainstorm",
+      "description": "朝最大的一群敵人降下箭的暴雨：10 波，每一波都會打中小圓圈裡的所有敵人。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "shadow_warrior",
+      "name": "Shadow Warrior",
+      "originalName": "Shadow Warrior",
+      "icon": "kg_kagemusya",
+      "description": "你的影分身出現在最強的敵人身邊連斬 3 刀；之後 8 秒爆擊 +10%。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "single",
+      "tags": [
+        "single",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "shadowstep",
+      "name": "影步",
+      "originalName": "Shadowstep",
+      "icon": "tf_shadowstep",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "shield_bash",
+      "name": "盾擊",
+      "originalName": "Shield Bash",
+      "icon": "sm_shieldbash",
+      "description": "朝最近的敵人擲出光之盾：路徑上的目標全部會被擊中。必須裝備盾牌。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "shield_boomerang",
+      "name": "迴旋盾擊",
+      "originalName": "Shield Boomerang",
+      "icon": "cr_shieldboomerang",
+      "description": "擲出盾牌：擊中路徑上的一切後回到你手臂上。需要盾牌。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 6,
+      "type": "projectile",
+      "tags": [
+        "melee",
+        "projectile",
+        "pierce",
+        "return",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "shield_charge",
+      "name": "盾擊",
+      "originalName": "Shield Charge",
+      "icon": "cr_shieldcharge",
+      "description": "持盾衝向最近的敵人：大嘴鳥向前衝鋒，擊中、擊退並可能暈眩路線上的所有敵人。需要盾牌。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "aoe",
+      "tags": [
+        "melee",
+        "area",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "shield_press",
+      "name": "Shield Press",
+      "originalName": "Shield Press",
+      "icon": "lg_shieldpress",
+      "description": "用盾牌猛砸視野內最強的敵人：一記重擊，並暈眩 1.2 秒。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 7,
+      "type": "single",
+      "tags": [
+        "melee",
+        "single",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "shuriken",
+      "name": "投擲飛鏢",
+      "originalName": "Throw Shuriken",
+      "icon": "nj_syuriken",
+      "description": "可穿透的手裡劍。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "siegfried",
+      "name": "不死神齊格弗里德",
+      "originalName": "Invulnerable Siegfried",
+      "icon": "bd_siegfried",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 26,
+      "type": "buff",
+      "tags": [
+        "buff"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "sight",
+      "name": "火狩",
+      "originalName": "Sight",
+      "icon": "mg_sight",
+      "description": "兩團火焰環繞在你身邊。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "signum_crucis",
+      "name": "天使之光",
+      "originalName": "Signum Crucis",
+      "icon": "al_crucis",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "silver_sniper",
+      "name": "FAW Silver Sniper",
+      "originalName": "FAW Silver Sniper",
+      "icon": "nc_silversniper",
+      "description": "在身邊架設一座銀色自走砲台 10 秒：每 0.8 秒射擊最近的敵人。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 16,
+      "type": "single",
+      "tags": [
+        "single",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "skynet_blow",
+      "name": "Sky Net Blow",
+      "originalName": "Sky Net Blow",
+      "icon": "sr_skynetblow",
+      "description": "在身邊連打三波拳：每一波都打中你身邊的所有敵人。",
+      "upgradeDescription": "+20% 傷害與 +8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "aoe",
+      "tags": [
+        "aura",
+        "area",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "solar_burst",
+      "name": "太陽爆炸",
+      "originalName": "Solar Burst",
+      "icon": "sj_solarburst",
+      "description": "在前方噴出扇形的太陽烈焰：對所有命中的敵人造成大量火屬性傷害。",
+      "upgradeDescription": "+20% 傷害、+8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "aoe",
+      "tags": [
+        "melee",
+        "area",
+        "physical",
+        "fire"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "sonic_blow",
+      "name": "音速投擲",
+      "originalName": "Sonic Blow",
+      "icon": "as_sonicblow",
+      "description": "瞬間對最近的敵人砍出八刀。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 7,
+      "type": "single",
+      "tags": [
+        "melee",
+        "single",
+        "burst",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "soul_collect",
+      "name": "Soul Collect",
+      "originalName": "Soul Collect",
+      "icon": "sp_soulcollect",
+      "description": "立刻得到 5 個靈魂。12 秒內：傷害 +10%，每次擊殺得到 2 個靈魂（最多 10 個）。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 22,
+      "type": "buff",
+      "tags": [
+        "buff",
+        "magic",
+        "ghost"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "soul_curse",
+      "name": "Soul Curse",
+      "originalName": "Soul Curse",
+      "icon": "sp_soulcurse",
+      "description": "詛咒最大的一群敵人 6 秒：他們受到的所有傷害 +15%（詛咒爆炸、艾斯帕 打他們更痛），並立刻受到少量傷害。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 14,
+      "type": "control",
+      "tags": [
+        "ground",
+        "area",
+        "magic",
+        "ghost"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "soul_explosion",
+      "name": "Soul Explosion",
+      "originalName": "Soul Explosion",
+      "icon": "sp_soulexplosion",
+      "description": "擊殺會得到靈魂（最多 10 個）。把身上所有靈魂砸向最強的敵人：基礎 30 傷害，每個靈魂 +7，旁邊的敵人吃一半。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 8,
+      "type": "single",
+      "tags": [
+        "ranged_strike",
+        "single",
+        "magic",
+        "ghost"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "soul_strike",
+      "name": "聖靈召喚",
+      "originalName": "Soul Strike",
+      "icon": "mg_soulstrike",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "spear_boomerang",
+      "name": "投擲長矛攻擊",
+      "originalName": "Spear Boomerang",
+      "icon": "kn_spearboomerang",
+      "description": "擲出長矛：貫穿所有敵人後回到你手中。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 7,
+      "type": "projectile",
+      "tags": [
+        "melee",
+        "projectile",
+        "pierce",
+        "return",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "spear_quicken",
+      "name": "長矛加速術",
+      "originalName": "Spear Quicken",
+      "icon": "cr_spearquicken",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 24,
+      "type": "buff",
+      "tags": [
+        "buff"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "spirit_charm",
+      "name": "Spirit Charm",
+      "originalName": "Spirit Charm",
+      "icon": "ko_kahu_enten",
+      "description": "火符在你身邊炸開（半徑 110），之後 12 秒：傷害 +15%、急速 +10。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 20,
+      "type": "buff",
+      "tags": [
+        "buff",
+        "area",
+        "physical",
+        "hybrid",
+        "fire"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "spore_explosion",
+      "name": "Spore Explosion",
+      "originalName": "Spore Explosion",
+      "icon": "gn_spore_explosion",
+      "description": "在視野內最強的敵人身上種下孢子：1 秒後爆開，炸到牠和周圍的敵人。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "aoe",
+      "tags": [
+        "ranged_strike",
+        "area",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "spread_attack",
+      "name": "火力全開",
+      "originalName": "Spread Attack",
+      "icon": "gs_spreadattack",
+      "description": "以霰彈轟擊身邊所有敵人。",
+      "upgradeDescription": "+20% 傷害、+8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "sprint",
+      "name": "跑步",
+      "originalName": "Sprint",
+      "icon": "tk_run",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "star_emperor_advent",
+      "name": "Star Emperor Advent",
+      "originalName": "Star Emperor Advent",
+      "icon": "sj_staremperor",
+      "description": "六顆巨大的星星落在最大的一群敵人身上：每一顆爆開都會打中大範圍圓圈裡的所有敵人。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 12,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "steal_coin",
+      "name": "偷錢",
+      "originalName": "Steal Coin",
+      "icon": "rg_stealcoin",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 5,
+      "type": "single",
+      "tags": [
+        "melee",
+        "single",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "storm_gust",
+      "name": "暴風雪",
+      "originalName": "Storm Gust",
+      "icon": "wz_stormgust",
+      "description": "在敵群上方掀起巨大暴風雪：多段冰屬性攻擊，會擊退並可能冰凍敵人。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 16,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "magic",
+        "water"
+      ],
+      "cast": [
+        "area",
+        "water"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "summon_flora",
+      "name": "生物調撥",
+      "originalName": "Summon Flora",
+      "icon": "am_cannibalize",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 16,
+      "type": "zone",
+      "tags": [
+        "ground",
+        "area",
+        "persistent",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "summon_spheres",
+      "name": "Elemental Spheres",
+      "originalName": "Elemental Spheres",
+      "icon": "wl_summonfb",
+      "description": "三顆元素法球環繞你 8 秒，碰到敵人就爆裂（1.5 秒後重生）；時間到時，法球會射向最強的敵人，造成 150% 傷害。",
+      "upgradeDescription": "+1 顆法球與 +15% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 10,
+      "type": "orbit",
+      "tags": [
+        "orbit",
+        "magic",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "swirling_petal",
+      "name": "Swirling Petal",
+      "originalName": "Swirling Petal",
+      "icon": "ko_huumaranka",
+      "description": "巨大的風魔手裏劍在最大的一群敵人上方迴旋 5 圈，底下的敵人全部被割傷。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "sword_dance",
+      "name": "劍刃之舞",
+      "originalName": "Sword Dance",
+      "icon": "kn_brandishspear",
+      "description": "劍舞：從你身上向外擴展，分三波斬擊脈衝，一波比一波遠。離你近的敵人會吃滿全部。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "tetra_vortex",
+      "name": "Tetra Vortex",
+      "originalName": "Tetra Vortex",
+      "icon": "wl_tetravortex",
+      "description": "火、水、風、地四種元素依序轟擊最強的敵人；每一段也會波及旁邊的敵人。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 10,
+      "type": "single",
+      "tags": [
+        "ranged_strike",
+        "single",
+        "burst",
+        "magic",
+        "neutral"
+      ],
+      "cast": [
+        "single",
+        "neutral"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "throw_stone",
+      "name": "投擲石頭",
+      "originalName": "Throw Stone",
+      "icon": "tf_throwstone",
+      "description": "對最近的敵人扔石頭：結實的一擊，還會讓對方暈眩。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "thunderstorm",
+      "name": "雷爆術",
+      "originalName": "Thunderstorm",
+      "icon": "mg_thunderstorm",
+      "description": "在敵群上空召來雷暴。",
+      "upgradeDescription": "+20% 傷害、+10% 範圍，詠唱時間變長。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "tiger_cannon",
+      "name": "Tiger Cannon",
+      "originalName": "Tiger Cannon",
+      "icon": "sr_tigercannon",
+      "description": "燃燒目前 HP 的 4%，對身邊最強的敵人打出毀滅性的一擊；你損失的 HP 越多，傷害越高（最多 +50%）。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 10,
+      "type": "single",
+      "tags": [
+        "melee",
+        "single",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "tornado_kick",
+      "name": "迴旋踢",
+      "originalName": "Tornado Kick",
+      "icon": "tk_stormkick",
+      "description": "旋轉踢擊，攻擊並擊退周圍敵人。",
+      "upgradeDescription": "+20% 傷害、+10% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "tracking",
+      "name": "百步穿楊",
+      "originalName": "Tracking",
+      "icon": "gs_tracking",
+      "description": "瞄準視線內最強的敵人精準射擊。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "triangle_shot",
+      "name": "Triangle Shot",
+      "originalName": "Triangle Shot",
+      "icon": "sc_triangleshot",
+      "description": "朝最近的敵人一次射出 3 支箭（小扇形），每支貫穿 1 個敵人。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 5,
+      "type": "projectile",
+      "tags": [
+        "melee",
+        "projectile",
+        "pierce",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "triple_action",
+      "name": "三連攻擊",
+      "originalName": "Triple Action",
+      "icon": "gs_tripleaction",
+      "description": "呈扇形射出三發。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "union",
+      "name": "太陽和月亮和星星的融合",
+      "originalName": "Union of the Sun, Moon and Stars",
+      "icon": "sg_fusion",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 40,
+      "type": "buff",
+      "tags": [
+        "buff"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "universe_stance",
+      "name": "Universe Stance",
+      "originalName": "Universe Stance",
+      "icon": "sj_universestance",
+      "description": "12 秒內：護甲 +1，架式每 4 秒輪替：太陽（傷害 +15%）→ 月亮（受到傷害 -15%）→ 星星（急速 +20）。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 24,
+      "type": "buff",
+      "tags": [
+        "buff",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "vacuum_extreme",
+      "name": "Vacuum Extreme",
+      "originalName": "Vacuum Extreme",
+      "icon": "so_vacuum_extreme",
+      "description": "在最大的一群敵人中心製造真空：大範圍內的敵人被吸向中心並緩速 2 秒（首領不會被吸），並受到少量傷害。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 13,
+      "type": "control",
+      "tags": [
+        "ground",
+        "area",
+        "magic",
+        "wind"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "varetyr_spear",
+      "name": "Varetyr Spear",
+      "originalName": "Varetyr Spear",
+      "icon": "so_varetyr_spear",
+      "description": "三支雷矛落在最大的一群敵人附近：每一支都會打中附近所有敵人，並有機率暈眩。",
+      "upgradeDescription": "+1 支雷矛與 +15% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 8,
+      "type": "aoe",
+      "tags": [
+        "ground",
+        "area",
+        "magic",
+        "wind"
+      ],
+      "cast": [
+        "single",
+        "wind"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "vending",
+      "name": "露天商店",
+      "originalName": "Vending",
+      "icon": "mc_vending",
+      "description": null,
+      "upgradeDescription": "+20% 傷害、+8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    },
+    {
+      "id": "venom_dust",
+      "name": "病毒散撥",
+      "originalName": "Venom Dust",
+      "icon": "as_venomdust",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 12,
+      "type": "zone",
+      "tags": [
+        "ground",
+        "area",
+        "persistent",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "venom_knife",
+      "name": "毒刃",
+      "originalName": "Venom Knife",
+      "icon": "as_venomknife",
+      "description": "對最近的敵人擲出毒刃：可穿透一名敵人並使其嚴重中毒。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 5,
+      "type": "projectile",
+      "tags": [
+        "melee",
+        "projectile",
+        "single",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "volcano",
+      "name": "火元素領域",
+      "originalName": "Volcano",
+      "icon": "sa_volcano",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 18,
+      "type": "zone",
+      "tags": [
+        "ground",
+        "area",
+        "persistent",
+        "magic",
+        "fire"
+      ],
+      "cast": [
+        "area",
+        "fire"
+      ],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "vulcan_arm",
+      "name": "Vulcan Arm",
+      "originalName": "Vulcan Arm",
+      "icon": "nc_vulcanarm",
+      "description": "朝最近的敵人連射 5 發高速子彈。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 6,
+      "type": "projectile",
+      "tags": [
+        "projectile",
+        "single",
+        "melee",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "warg_strike",
+      "name": "Warg Strike",
+      "originalName": "Warg Strike",
+      "icon": "ra_wugstrike",
+      "description": "座狼撲向視野內最強的敵人連咬兩口；旁邊的敵人也會被波及，有機率暈眩。",
+      "upgradeDescription": "+20% 傷害。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 9,
+      "type": "single",
+      "tags": [
+        "single",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "warmth_sun",
+      "name": "太陽的溫暖",
+      "originalName": "Warmth of the Sun",
+      "icon": "sg_sun_warm",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "untranslated",
+      "cooldown": 16,
+      "type": "zone",
+      "tags": [
+        "aura",
+        "area",
+        "persistent",
+        "melee",
+        "physical",
+        "fire"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "weapon_perfection",
+      "name": "無視體型攻擊",
+      "originalName": "Weapon Perfection",
+      "icon": "bs_weaponperfect",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": 24,
+      "type": "buff",
+      "tags": [
+        "buff"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "wind_cutter",
+      "name": "Wind Cutter",
+      "originalName": "Wind Cutter",
+      "icon": "rk_windcutter",
+      "description": "揮舞纏繞著風的武器旋轉一圈，砍中身邊所有敵人。",
+      "upgradeDescription": "+20% 傷害與 +8% 範圍。",
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 4,
+      "type": "aoe",
+      "tags": [
+        "aura",
+        "area",
+        "melee",
+        "physical",
+        "wind"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "windmill_rush",
+      "name": "Windmill Rush Song",
+      "originalName": "Windmill Rush Song",
+      "icon": "mi_rush_windmill",
+      "description": "12 秒內：你和附近所有隊友傷害 +10%、急速 +10。",
+      "upgradeDescription": null,
+      "descriptionSource": "hans-registered",
+      "translationState": "official-zh",
+      "cooldown": 24,
+      "type": "buff",
+      "tags": [
+        "buff",
+        "physical",
+        "neutral"
+      ],
+      "cast": [],
+      "sourceType": "advanced"
+    },
+    {
+      "id": "zeny_rain",
+      "name": "撒錢術",
+      "originalName": "Zeny Rain",
+      "icon": "mc_zenyrain",
+      "description": null,
+      "upgradeDescription": null,
+      "descriptionSource": "not-static",
+      "translationState": "dynamic",
+      "cooldown": null,
+      "type": null,
+      "tags": [],
+      "cast": [],
+      "sourceType": "basic"
+    }
+  ]
+}
