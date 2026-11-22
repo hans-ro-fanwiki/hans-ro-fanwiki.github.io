@@ -1,6 +1,6 @@
 import {useCallback,useEffect,useMemo,useRef,useState} from 'react';
 import {createRoot} from 'react-dom/client';
-import {ArrowLeft,BookOpen,ChevronDown,ChevronRight,Gem,GitBranch,History,Map as MapIcon,Search,Shield,SlidersHorizontal,Swords,Target,WandSparkles,X} from 'lucide-react';
+import {ArrowLeft,BookOpen,ChevronDown,ChevronRight,Gem,GitBranch,History,Map as MapIcon,MessageSquarePlus,Search,Shield,SlidersHorizontal,Swords,Target,WandSparkles,X} from 'lucide-react';
 import type {Card,Catalog,Equipment,ImageEvidence,Kind,Monster,Page,Source,Stage} from './types';
 import './styles.css';
 import './search.css';
@@ -11,6 +11,8 @@ import type {StageType} from './stage-type';
 import {parseStageChapter,stageChapterGroups} from './stage-chapter';
 import type {StageChapter} from './stage-chapter';
 import {SiteFooter} from './SiteFooter';
+import {FeedbackDialog} from './FeedbackDialog';
+import type {FeedbackContext,FeedbackKind} from './feedback';
 import {TalentSimulator} from './TalentSimulator';
 import {SkillsEncyclopedia} from './SkillsEncyclopedia';
 import {BalanceHistory} from './BalanceHistory';
@@ -149,6 +151,8 @@ function App(){
  const [state,setState]=useState<View>(readLocation);
  const [visibleCount,setVisibleCount]=useState(40);
  const [showFilters,setShowFilters]=useState(false);
+ const [feedback,setFeedback]=useState<{context:FeedbackContext;kind:FeedbackKind}|null>(null);
+ const closeFeedback=useCallback(()=>setFeedback(null),[]);
  const detailTriggerRef=useRef<HTMLElement|null>(null);
  const detailCloseRef=useRef<HTMLButtonElement|null>(null);
  const focusedStage=state.stage;
@@ -162,7 +166,7 @@ function App(){
   const pop=()=>{setState(readLocation());requestAnimationFrame(()=>scrollTo(0,history.state?.scroll||0));};
   window.addEventListener('popstate',pop);return ()=>window.removeEventListener('popstate',pop);
  },[]);
- useEffect(()=>{document.body.style.overflow=state.detail?'hidden':'';return ()=>{document.body.style.overflow='';};},[state.detail]);
+ useEffect(()=>{document.body.style.overflow=state.detail||feedback?'hidden':'';return ()=>{document.body.style.overflow='';};},[state.detail,feedback]);
  useEffect(()=>setVisibleCount(40),[state.page,state.slot,state.job,state.source,state.query,state.attr,state.mode,state.stageType,state.stageChapter,state.showUnknown,state.lap,state.gsJob]);
  const navigate=useCallback((patch:Partial<View>,top=false,replace=false)=>{
   const next={...state,...patch};
@@ -186,10 +190,13 @@ function App(){
   }
   navigate({detail:kind+':'+id});
  };
+ const openFeedback=(kind:FeedbackKind,subject?:string)=>{
+  setFeedback({kind,context:{subject:subject||LABELS[state.page],pageUrl:window.location.href}});
+ };
  const closeDetail=()=>navigate({detail:null},false,true);
  const backFromDetail=()=>{if(history.state?.detailParent)history.back();else closeDetail();};
  useEffect(()=>{
-  if(!state.detail||!catalog)return;
+  if(!state.detail||!catalog||feedback)return;
   const sheet=document.querySelector<HTMLElement>('.sheet');
   if(!sheet)return;
   detailCloseRef.current?.focus({preventScroll:true});
@@ -213,7 +220,7 @@ function App(){
    if(!document.querySelector('.sheet')&&detailTriggerRef.current?.isConnected)
     detailTriggerRef.current.focus({preventScroll:true});
   };
- },[state.detail,catalog]);
+ },[state.detail,catalog,feedback]);
  useEffect(()=>{
   const oldStage=state.detail?.match(/^stage:(.+)$/);
   if(oldStage&&catalog){
@@ -289,7 +296,7 @@ function App(){
    <section className="content-section">
     <div className="section-heading"><h1>{LABELS[state.page]}</h1>{state.page!=='talents'&&state.page!=='skills'&&state.page!=='balance'&&<span className="heading-count">
       {state.page==='items'?equip.length:state.page==='cards'?(state.mode==='gs'?rankedCards.length:cardList.length):catalog?.stages.filter(stage=>matchesStageType(stage,state.stageType)&&(state.stageChapter==='all'||String(stage.chapter)===state.stageChapter)).length||0}
-     </span>}</div>
+     </span>}<button type="button" className="feedback-launch" onClick={()=>openFeedback('problem')} title="問題回報與功能許願"><MessageSquarePlus size={16} aria-hidden="true"/><span>回報／許願</span></button></div>
     {state.page==='balance'?<BalanceHistory/>:state.page==='talents'?<TalentSimulator jobId={state.tj} token={state.tb} packed={state.t} onRoute={(tj,tb,t,replace=false)=>navigate({tj,tb,t,page:'talents'},false,replace)}/>:state.page==='skills'?<SkillsEncyclopedia jobId={state.skillJob} rank={state.skillRank} query={state.query} selectedId={state.skillId} onChange={(patch,replace=true)=>navigate(patch,false,replace)}/>:<>
     {error&&<div className="empty-state">{error}</div>}
     {!catalog&&!error&&<div className="empty-state">讀取中…</div>}
@@ -367,10 +374,17 @@ function App(){
     </>}
    </section>
   </main>
-  <SiteFooter publicMode={PUBLIC_MODE}/>
+  <SiteFooter publicMode={PUBLIC_MODE} onFeedback={()=>openFeedback('problem')} onWish={()=>openFeedback('wish')}/>
   {state.detail&&catalog&&<div className="sheet-backdrop" onMouseDown={e=>{if(e.target===e.currentTarget)closeDetail()}}>
    <section className="sheet" role="dialog" aria-modal="true" aria-label="詳細資訊"><div className="sheet-grab"/>
-    <div className="sheet-head"><button className="back-button" onClick={backFromDetail}><ArrowLeft size={19}/>返回</button><button ref={detailCloseRef} className="icon-button" aria-label="關閉" onClick={closeDetail}><X size={19}/></button></div>
+    <div className="sheet-head"><button className="back-button" onClick={backFromDetail}><ArrowLeft size={19}/>返回</button><button type="button" className="sheet-feedback" onClick={()=>{
+      const subject=selectedCard
+       ?'卡片：'+cardName(selectedCard,catalog.lapRules,state.lap)+'（原始 ID '+selectedCard.id+'，週目卡 ID '+cardId(selectedCard,catalog.lapRules,state.lap)+'，GS 類型 '+(gsScalingForJob(catalog.lapRules,state.gsJob)||'未選擇')+'）'
+       :selectedItem?'裝備：'+selectedItem.name+'（ID '+selectedItem.id+'）'
+       :selectedMonster?'怪物：'+selectedMonster.name+'（ID '+selectedMonster.id+'）'
+       :LABELS[state.page];
+      openFeedback('problem',subject);
+    }}><MessageSquarePlus size={15} aria-hidden="true"/>回報資料</button><button ref={detailCloseRef} className="icon-button" aria-label="關閉" onClick={closeDetail}><X size={19}/></button></div>
     <div className="sheet-body">
      {selectedItem&&<EquipmentDetail item={selectedItem} rules={catalog.lapRules} lap={state.lap} stages={stages} monsters={monsters} openDetail={openDetail}/>}
      {selectedCard&&<CardDetail card={selectedCard} rules={catalog.lapRules} lap={state.lap} setLap={lap=>navigate({lap},false,true)} gsJob={state.gsJob} setGsJob={gsJob=>navigate({gsJob},false,true)} stages={stages} monsters={monsters} openDetail={openDetail}/>}
@@ -379,6 +393,7 @@ function App(){
     </div>
    </section>
   </div>}
+  {feedback&&<FeedbackDialog context={feedback.context} initialKind={feedback.kind} onClose={closeFeedback}/>}
  </>;
 }
 function StageBrowser({data,query,attr,stageType,onStageTypeChange,stageChapter,onChapterChange,focusedStage,openDetail,lap,setLap,slot='all',job='all',source='all',showUnknown=false,initialKind='all'}:{

@@ -148,7 +148,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {
 .site-footer .site-footer-disclosure summary{color:var(--wiki-accent)}
 .site-footer .site-footer-disclosure-body{border-color:var(--wiki-border)}
 .site-footer .site-footer-note,.site-footer .site-footer-credits{color:var(--wiki-muted)}
-.site-footer .site-footer-links a,.site-footer .site-footer-credits a{color:var(--wiki-accent)}
+.site-footer .site-footer-links a,.site-footer .site-footer-links button,.site-footer .site-footer-credits a{color:var(--wiki-accent)}
 .site-footer .site-footer-credits{border-color:var(--wiki-border)}
 @media(max-width:760px) {
   .top-inner{min-height:60px}

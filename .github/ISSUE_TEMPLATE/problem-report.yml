@@ -1,0 +1,45 @@
+name: "維基問題回報／資料勘誤"
+description: "發現卡片 GS、掉落、技能、中文或網站操作有疑問？不需要先確認是不是 Bug。"
+title: "[問題回報] "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感謝幫忙核對 HANS 維基。所有回報都會先查證，不代表已確認是錯誤。
+        **此 Issue 公開可見，請勿貼上個人資料、帳號密碼、Bot Token 或私人資訊。**
+  - type: input
+    id: item_context
+    attributes:
+      label: 相關卡片、裝備或頁面
+      placeholder: "例如：俄塞里斯・改⁵卡片（ID 5004144、六週目）"
+    validations:
+      required: false
+  - type: input
+    id: page_url
+    attributes:
+      label: 網站頁面網址
+      description: "從維基『回報』入口進來會自動帶入，可保留原值。"
+      placeholder: "https://hans-ro-fanwiki.github.io/?page=cards&detail=card%3A4144"
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: 發現的情況
+      description: "目前顯示什麼？你在遊戲內看到什麼？也可以附上截圖。"
+      placeholder: "例如：網站寫 +210 GS，但我在六週目實際裝備看到 +180 GS。"
+    validations:
+      required: true
+  - type: dropdown
+    id: category
+    attributes:
+      label: 問題類別（選填）
+      options:
+        - "卡片 GS／效果"
+        - "掉落／關卡／怪物"
+        - "技能／天賦／中文"
+        - "網站顯示／操作"
+        - "其他"
+    validations:
+      required: false

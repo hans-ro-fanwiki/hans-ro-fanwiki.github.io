@@ -1,0 +1,32 @@
+.feedback-launch{margin-left:auto;display:inline-flex;align-items:center;gap:6px;padding:8px 10px;min-height:44px;flex:none;border:1px solid #acd7c1;background:#e7f3eb;color:#24694f;border-radius:10px;font-size:13px;font-weight:700;white-space:nowrap}
+.feedback-launch:hover,.sheet-feedback:hover{filter:brightness(1.04)}
+.feedback-overlay{position:fixed;inset:0;z-index:85;background:#060d0cbd;display:flex;align-items:center;justify-content:center;padding:12px}
+.feedback-dialog{width:min(100%,520px);max-height:min(92dvh,900px);display:flex;flex-direction:column;overflow:hidden;border:1px solid #46645a;border-radius:15px;background:#203035;color:#edf7f1;box-shadow:0 15px 60px #0007}
+.feedback-dialog-head{padding:16px 16px 13px;border-bottom:1px solid #405a55;display:flex;gap:10px;align-items:start;justify-content:space-between}
+.feedback-dialog-head h2{font-size:18px;line-height:1.4;margin:0;color:#f0fcf3}
+.feedback-dialog-head p{font-size:12px;line-height:1.45;margin:4px 0 0;color:#bed0c9}
+.feedback-close{display:grid;place-items:center;flex:none;width:40px;height:40px;border:0;background:transparent;color:#c8e1d5}
+.feedback-dialog-body{padding:14px 16px 24px;overflow-y:auto;overscroll-behavior:contain;display:grid;gap:12px}
+.feedback-kind{display:flex;gap:5px;border-radius:10px;padding:5px;background:#17272d}
+.feedback-kind button{min-height:43px;flex:1;border:0;border-radius:8px;background:transparent;color:#c3d4cc;font-size:14px;font-weight:700}
+.feedback-kind button.active{color:#e3fff1;background:#3b6655}
+.feedback-context{display:flex;flex-direction:column;gap:3px;padding:10px;border:1px solid #3c5b53;border-radius:10px;background:#1b2b2f}
+.feedback-context strong{font-size:12px;color:#b4e4cf}
+.feedback-context span{font-size:13px;color:#edf9f2;overflow-wrap:anywhere}
+.feedback-context small{color:#b0c6bc;overflow-wrap:anywhere;font-size:11px;line-height:1.5}
+.feedback-field{display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:650;color:#e2f2e9}
+.feedback-field input,.feedback-field textarea{width:100%;border:1px solid #58786a;border-radius:9px;background:#15262a;color:#f7fff9;font-size:16px;line-height:1.5;padding:10px 12px;resize:vertical}
+.feedback-field input::placeholder,.feedback-field textarea::placeholder{color:#a1b8ac;opacity:1}
+.feedback-field :is(input,textarea):focus-visible,.feedback-close:focus-visible,.feedback-kind button:focus-visible,.feedback-launch:focus-visible,.sheet-feedback:focus-visible{outline:3px solid #9adabe;outline-offset:2px}
+.feedback-hint,.feedback-public-notice{margin:0;font-size:12px;line-height:1.55;color:#c2d7cd}
+.feedback-public-notice{padding:10px;border:1px solid #6c684a;background:#39382c;border-radius:9px;color:#f7eac7}
+.feedback-actions{display:flex;flex-wrap:wrap;gap:8px}
+.feedback-submit,.feedback-copy{display:inline-flex;justify-content:center;align-items:center;gap:6px;min-height:44px;padding:9px 12px;border:1px solid #65af8b;border-radius:9px;font-size:13px;font-weight:700;text-decoration:none}
+.feedback-submit{background:#3d8365;color:#f2fff8;flex:1}
+.feedback-submit.disabled{background:#3b5047;color:#b6c8bd;pointer-events:none;opacity:.75}
+.feedback-copy{background:#283e39;color:#d8f4e5}
+.feedback-validation{color:#d5d2c0;font-size:11px}
+.feedback-all-link{display:inline-flex;gap:5px;align-items:center;font-size:12px;color:#a2e7cc;min-height:36px;text-decoration:underline}
+.sheet-feedback{display:inline-flex;align-items:center;justify-content:center;gap:5px;margin-left:auto;min-height:39px;border-radius:9px;padding:6px 9px;border:1px solid #58987b;color:#c9f0da;background:#2a4940;font-size:12px;font-weight:700}
+@media(max-width:480px){.feedback-overlay{align-items:flex-end;padding:0}.feedback-dialog{max-height:calc(94dvh - env(safe-area-inset-bottom,0px));width:100%;border-radius:18px 18px 0 0}.feedback-dialog-body{padding-bottom:calc(18px + env(safe-area-inset-bottom,0px))}.feedback-launch{padding:7px 8px;font-size:12px}.feedback-dialog-head{padding-top:12px}}
+@media(prefers-reduced-motion:reduce){.feedback-dialog,.feedback-launch{transition:none}}

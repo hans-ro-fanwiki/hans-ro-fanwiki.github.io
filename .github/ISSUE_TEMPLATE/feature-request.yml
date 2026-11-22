@@ -1,0 +1,32 @@
+name: "功能許願／改善建議"
+description: "想讓卡片查詢、排行、天賦模擬或整體操作更順手？提出你的想法。"
+title: "[功能許願] "
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感謝你的建議。這是玩家製作的非官方維基，功能會依實用性、來源可行性和維護成本評估。
+        **此 Issue 公開可見，請勿提供私人資訊。**
+  - type: input
+    id: item_context
+    attributes:
+      label: 希望改善的功能或資料（選填）
+      placeholder: "例如：GS 排行、卡片詳情、天賦模擬器"
+    validations:
+      required: false
+  - type: input
+    id: page_url
+    attributes:
+      label: 相關頁面網址（選填）
+      placeholder: "https://hans-ro-fanwiki.github.io/?page=cards"
+    validations:
+      required: false
+  - type: textarea
+    id: description
+    attributes:
+      label: 你希望新增什麼？
+      description: "描述想解決的問題、理想的操作方式或使用情境即可。"
+      placeholder: "例如：希望能一次選 3 張卡比較不同職業的 GS。"
+    validations:
+      required: true
