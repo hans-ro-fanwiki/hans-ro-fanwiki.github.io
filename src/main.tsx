@@ -18,7 +18,7 @@ import {equipmentTier} from './tier';
 import {hasConfirmedAcquisition} from './acquisition';
 import {cardEffects,cardId,cardMultiplier,cardName,cardScore,clampLap,gsRepresentativeJob,gsScalingForJob,isRaidOnlyCard,GS_SCALING_LABELS,stageLapInfo,stageTierLabel} from './laps';
 import type {LapRules} from './types';
-import {rankCardsByGs} from './card-ranking';
+import {cardGsContribution,rankCardsByGs} from './card-ranking';
 import {FestivalNotes,GameNotes} from './game-notes';
 
 type View={page:Page;slot:string;job:string;source:string;query:string;attr:string;mode:'list'|'stages'|'gs';stageType:StageType;stageChapter:StageChapter;lap:number;gsJob:string;showUnknown:boolean;detail:string|null;stage:string|null;tj:string;tb:string;t:string;skillJob:string;skillRank:number;skillId:string|null};
@@ -68,6 +68,11 @@ function pathFor(v:View){
 }
 function Chip({active,children,onClick}:{active:boolean;children:React.ReactNode;onClick:()=>void}){
  return <button type="button" className={'chip '+(active?'selected':'')} aria-pressed={active} onClick={onClick}>{children}</button>;
+}
+function CardGsBadge({score}:{score:number|null}){
+ return <span className="ranking-score" aria-label={score===null?'此卡片尚無可計算的 GS':'卡片 GS 貢獻 +'+score+' GS'}>
+  {score===null?'—':'+'+score}<small>GS</small>
+ </span>;
 }
 function LapPicker({rules,lap,setLap}:{rules:LapRules;lap:number;setLap:(lap:number)=>void}){
  return <div className="lap-picker" role="group" aria-label="選擇週目">
@@ -230,7 +235,11 @@ function App(){
  const rankedCards=useMemo(()=>catalog&&state.page==='cards'&&state.mode==='gs'
   ?rankCardsByGs(cardList,catalog.lapRules,state.lap,state.gsJob):[],
   [catalog,cardList,state.page,state.mode,state.lap,state.gsJob]);
- const rankedScores=useMemo(()=>new Map(rankedCards.map(({card,score})=>[card.id,score])),[rankedCards]);
+ const previewGsScores=useMemo(()=>{
+  if(!catalog||state.page!=='cards')return new Map<number,number|null>();
+  if(state.mode==='gs')return new Map<number,number|null>(rankedCards.map(({card,score})=>[card.id,score]));
+  return new Map<number,number|null>(cardList.map(card=>[card.id,cardGsContribution(card,catalog.lapRules,state.lap,state.gsJob)]));
+ },[catalog,cardList,rankedCards,state.page,state.mode,state.lap,state.gsJob]);
  const list:GameEntry[]=state.page==='cards'?(state.mode==='gs'?rankedCards.map(({card})=>card):cardList):equip;
  const searchActive=Boolean(state.query.trim()||state.attr!=='all');
  const advancedCount=Number(state.attr!=='all')+Number(state.source!=='all');
@@ -309,12 +318,12 @@ function App(){
        <div className={'segment'+(state.page==='cards'?' card-view-tabs':'')} role="group" aria-label="瀏覽方式">
          <button type="button" aria-pressed={state.mode==='list'} className={state.mode==='list'?'on':''} onClick={()=>navigate({mode:'list'})}>依{state.page==='items'?'裝備':'卡片'}看</button>
          <button type="button" aria-pressed={state.mode==='stages'} className={state.mode==='stages'?'on':''} onClick={()=>navigate({mode:'stages'})}>依關卡看</button>
-         {state.page==='cards'&&<button type="button" aria-pressed={state.mode==='gs'} className={state.mode==='gs'?'on':''} onClick={()=>navigate({mode:'gs'})}>GS 排行</button>}
+         {state.page==='cards'&&<button type="button" aria-pressed={state.mode==='gs'} className={state.mode==='gs'?'on':''} onClick={()=>navigate({mode:'gs'})}>GS 高→低</button>}
         </div>
 
        </div>
-       {state.page==='cards'&&state.mode==='gs'&&<div className="gs-ranking-panel">
-         <div className="gs-ranking-heading"><strong>卡片 GS 貢獻排行</strong><span>依卡片對裝備 GS 的貢獻由高至低排列</span></div>
+       {state.page==='cards'&&state.mode!=='stages'&&<div className="gs-ranking-panel">
+         <div className="gs-ranking-heading"><strong>{state.mode==='gs'?'GS 分數由高到低':'卡片 GS 計算類型'}</strong><span>{state.mode==='gs'?'依卡片對裝備 GS 的貢獻排序':'下列卡片預覽的 GS 分數依目前類型計算'}</span></div>
          <div className="gs-class-options" role="group" aria-label="GS 排行計算類型">
           {[GS_SCALING_LABELS[0],GS_SCALING_LABELS[2],GS_SCALING_LABELS[1]].filter(item=>Object.hasOwn(catalog.lapRules.scoring.classes,item.id)).map(item=>{
            const representative=gsRepresentativeJob(catalog.lapRules,item.id);
@@ -328,13 +337,13 @@ function App(){
         </div>}
         {state.page==='items'&&<div className="source-visibility"><label className="toggle"><input type="checkbox" checked={state.showUnknown} onChange={e=>navigate({showUnknown:e.target.checked})}/>顯示取得方式未確認的裝備</label><small>{state.showUnknown?'已包含未確認資料':hiddenEquipCount>0?'已隱藏 '+hiddenEquipCount+' 件未核實裝備':'目前沒有被隱藏的裝備'}</small></div>}
       {state.mode!=='stages'?<div className="cards-list">
-       {list.slice(0,visibleCount).map(entry=><button className={'result-card'+(state.mode==='gs'?' ranked-card':'')} key={entry.id} onClick={()=>openDetail(state.page==='items'?'item':'card',entry.id)}>
+       {list.slice(0,visibleCount).map(entry=><button className={'result-card'+(state.page==='cards'?' card-with-gs':'')} key={entry.id} onClick={()=>openDetail(state.page==='items'?'item':'card',entry.id)}>
         <Artwork kind={state.page==='items'?'item':'card'} entity={entry}/>
         <span className="result-main"><strong>{'slot'in entry?entry.name:cardName(entry,catalog.lapRules,state.lap)}</strong><span className="result-sub">
          <span>{'slot'in entry?(SLOTS[entry.slot]||entry.slot):'卡片｜'+cardSlot(entry)}</span>
          {'slot'in entry&&<TierTag item={entry} stages={stages}/>}
          <span>{'slot'in entry?matchedEffect(entry,state.query,state.attr)||shortStats(entry,3):cardEffects(entry,catalog.lapRules,state.lap).slice(0,3).join(' · ')}</span>
-        </span><small className="result-place">{sourceLine(entry)}</small></span>{state.mode==='gs'&&state.page==='cards'?<span className="ranking-score" aria-label={'卡片 GS 貢獻 +'+rankedScores.get(entry.id)+' GS'}>+{rankedScores.get(entry.id)}<small>GS</small></span>:<ChevronRight className="list-arrow" size={18}/>}
+        </span><small className="result-place">{sourceLine(entry)}</small></span>{state.page==='cards'?<CardGsBadge score={previewGsScores.get(entry.id)??null}/>:<ChevronRight className="list-arrow" size={18}/>}
        </button>)}
        {list.length>visibleCount&&<button type="button" className="load-more" onClick={()=>setVisibleCount(v=>v+40)}>顯示更多（還有 {list.length-visibleCount} 件）</button>}
        {!list.length&&<div className="search-empty-recovery"><EmptyState>{state.mode==='gs'&&state.page==='cards'

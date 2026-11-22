@@ -19,6 +19,25 @@ test('all 188 scoreable cards sort before paging and match detail GS across thre
  }
 });
 
+test('normal card previews and GS descending mode share score, class and lap rules',async()=>{
+ const {rankCardsByGs,cardGsContribution}=await import('../src/card-ranking.ts');
+ const {cardScore,gsRepresentativeJob,isRaidOnlyCard}=await import('../src/laps.ts');
+ const cards=catalog.cards;
+ for(const scaling of ['melee','ranged','magic'])for(let lap=1;lap<=6;lap++){
+  const job=gsRepresentativeJob(catalog.lapRules,scaling);
+  const previewMap=new Map(cards.map(card=>[card.id,cardGsContribution(card,catalog.lapRules,lap,job)]));
+  const sorted=rankCardsByGs(cards,catalog.lapRules,lap,job);
+  for(const card of cards){
+   const preview=previewMap.get(card.id);
+   assert.equal(preview,isRaidOnlyCard(card)?null:cardScore(card,catalog.lapRules,lap,job));
+  }
+  for(const row of sorted)assert.equal(row.score,previewMap.get(row.card.id));
+ }
+ const pureRaid=cards.find(isRaidOnlyCard);
+ assert.equal(cardGsContribution(pureRaid,catalog.lapRules,1,'mage'),null);
+ assert.equal(cardGsContribution(cards[0],catalog.lapRules,1,'invalid_job'),null);
+});
+
 test('ranking respects prefiltered part and attributes, includes mixed-source cards',async()=>{
  const {rankCardsByGs}=await import('../src/card-ranking.ts');
  const {cardScore,isRaidOnlyCard}=await import('../src/laps.ts');

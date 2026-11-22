@@ -94,7 +94,7 @@
 .gs-ranking-heading strong{font-size:14px;color:#27654f}
 .gs-ranking-heading span{font-size:12px;color:#71877d;line-height:1.45}
 .gs-ranking-panel .gs-class-options{max-width:430px}
-.ranked-card .result-main strong{overflow-wrap:anywhere}
+.card-with-gs .result-main strong{overflow-wrap:anywhere}
 .ranking-score{display:flex;flex:none;min-width:63px;align-items:flex-end;flex-direction:column;gap:1px;color:#27654f;font-size:17px;font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}
 .ranking-score small{font-size:11px;font-weight:700}
-@media(max-width:380px){.card-view-tabs{max-width:100%}.card-view-tabs button{font-size:11px;padding:9px 4px}.ranking-score{min-width:56px;font-size:15px}.ranked-card .art.card{width:50px;flex-basis:50px;height:62px}.ranked-card{gap:8px}}
+@media(max-width:380px){.card-view-tabs{max-width:100%}.card-view-tabs button{font-size:11px;padding:9px 4px}.ranking-score{min-width:56px;font-size:15px}.card-with-gs .art.card{width:50px;flex-basis:50px;height:62px}.card-with-gs{gap:8px}}
