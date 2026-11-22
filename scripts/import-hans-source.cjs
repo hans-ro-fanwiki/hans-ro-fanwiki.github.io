@@ -8,7 +8,7 @@ const ts = require('typescript');
 
 const root = path.resolve(__dirname, '..');
 const audit = JSON.parse(fs.readFileSync(path.join(root, 'docs/HANS_SOURCE_AUDIT.json'), 'utf8'));
-const directory = path.resolve(process.argv[2] || path.join(root, 'evidence/hans-20261119'));
+const directory = path.resolve(process.argv[2] || path.join(root, audit.snapshotDirectory));
 const sha = data => crypto.createHash('sha256').update(data).digest('hex');
 function readAudited(entry) {
   const data = fs.readFileSync(path.join(directory, entry.file));
@@ -79,7 +79,7 @@ function inspect(code, file) {
     const output = [];
     function visit(node) {
       if (ts.isCallExpression(node) && ts.isIdentifier(node.expression)
-          && names.includes(node.expression.text) && ts.isNumericLiteral(node.arguments[0]))
+          && names.includes(node.expression.text) && node.arguments[0] && ts.isNumericLiteral(node.arguments[0]))
         output.push({op: node.expression.text, args: node.arguments.map(value => literal(value)),
           effectCalls: node.arguments[3] && ts.isArrayLiteralExpression(node.arguments[3]) ? node.arguments[3].elements.map(e =>
             ts.isCallExpression(e) && ts.isIdentifier(e.expression) && e.arguments.length===1
@@ -100,12 +100,13 @@ const officialTranslations = soul.findLiteral('aA');
 const generalTranslations = soul.findLiteral('KI');
 if (!officialTranslations || !generalTranslations || !manifest.items || !manifest.cards) throw Error('Missing HANS item names');
 const zh = raw => officialTranslations[raw] || generalTranslations[raw] || raw;
+const equipmentNames = {13169: "雷霆手槍"};
 const name = (id, dictionary) => {
   const original = dictionary[id]?.name;
   if (typeof original !== 'string' || !original.length) return null;
-  return {original, translated: zh(original)};
+  return {original, translated: dictionary===manifest.items&&equipmentNames[id] || zh(original)};
 };
-const evidence = (file, key) => ({file, hash: audit.hans.soul.sha256, kind:'hans-static-registration', key});
+const evidence = (file, key) => ({file, hash: (file===audit.hans.main.file?audit.hans.main:audit.hans.soul).sha256, kind:'hans-static-registration', key});
 const artRecord = (id, source) => source ? ({assetId:String(id),officialPath:source,rights:'not-cleared',renderAllowed:false}) : null;
 // HANS custom modifiers are the gameplay truth; manifest descriptions are classic RO flavor text.
 const modifiers={
@@ -184,6 +185,10 @@ const stageRules = soul.findLiteral('yW');
 const dropTables = soul.findLiteral('UA');
 const startingItems = soul.findLiteral('EW');
 const lapConfig=main.findLiteral('RO_LAPC');
+const raid=lapConfig?.raid;
+if (!Number.isFinite(raid?.mult)||typeof raid.suffix!=='string'||!Array.isArray(raid.cards)||raid.cards.some(id=>!cards.has(id)))
+ throw Error('Missing HANS raid-card registry');
+const raidCards=new Set(raid.cards);
 const chapter2Tiers=main.findLiteral('RO_C2T');
 const baseWeights=main.findLiteral('Bk');
 const classWeights=main.findLiteral('CC');
@@ -296,11 +301,18 @@ for (const card of cards.values()) {
   card.bossRank=bossMvp.has(card.monsterId)?'mvp':bossMini.has(card.monsterId)?'mini':'normal';
   const refs = cardIdByMonster.get(card.monsterId)===card.id
     ? dropStageRefs(card.monsterId) : [];
-  card.sources = [{
+  card.sources = !refs.length&&raidCards.has(card.id)?[]:[{
     sourceType:'monsterDrop',monsterId:card.monsterId,stageRefs:refs,
     verificationState:refs.length?'official':'candidate',
     evidence:refs.length?evidence(audit.hans.main.file,'killEnemy:kW:'+card.id):evidence(audit.hans.soul.file,'Me:'+card.id)
   }];
+  if(raidCards.has(card.id)){
+    card.raid={mult:raid.mult,suffix:raid.suffix};
+    card.nameAliases=[card.name+raid.suffix];
+    card.sources.push({sourceType:'raid',monsterId:refs.length?null:card.monsterId,stageRefs:[],
+      detail:'用戶端已登錄副本版本，實際開放、掉落與兌換以遊戲內為準。',
+      verificationState:'candidate',evidence:evidence(audit.hans.main.file,'RO_LAPC.raid:'+card.id)});
+  }
   const description = card.bonuses.join(' ').toLowerCase();
   if (/cooldown|recharge|冷卻/.test(description)) card.tags.push('cooldown');
   if (/critical|crit|爆擊/.test(description)) card.tags.push('crit');
@@ -310,13 +322,14 @@ for (const card of cards.values()) {
 }
 const monsterIds = new Set([...memberStage.keys(), ...Object.keys(dropTables), ...[...cards.values()].map(card => card.monsterId)]);
 const cardNameByMonster = new Map([...cards.values()].map(card => [card.monsterId,card.originalName.replace(/ Card$/,'')]));
+const monsterNames={dumpling_child:'元宵童子',tarou_bite:'白鼠（撕咬）',tarou_burrow:'白鼠（鑽地）',tarou_plague:'白鼠（瘟疫）'};
 const monsters = [...monsterIds].filter(Boolean).map(id => {
   const original = cardNameByMonster.get(id) || id.replace(/_/g,' ').replace(/\b\w/g,letter=>letter.toUpperCase());
   const translatedCard = zh(original+' Card');
   const translated = translatedCard !== original+' Card'
     ? translatedCard.replace(/(?:卡片|之卡)$/,'') : zh(original);
   const knownStages = [...(memberStage.get(id)?.entries() || [])];
-  return {id,name:translated, boss:knownStages.some(([,isBoss])=>isBoss),
+  return {id,name:monsterNames[id]||translated, boss:knownStages.some(([,isBoss])=>isBoss),
     stages:knownStages.map(([stageId,boss])=>({id:stageId,boss,verified:true})),
     sprite:null,fieldProvenance:{name:'official',stage:'official'}};
 }).sort((a,b)=>a.name.localeCompare(b.name,'zh'));

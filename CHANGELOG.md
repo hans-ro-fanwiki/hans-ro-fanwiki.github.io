@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0-dev.20 — 2026-11-22
+
+- 裝備詳情與關卡篩選共用 HANS 職業中文名稱，補齊技能名稱、技能標籤及少數裝備與怪物漏譯。
+- 增補第二章解鎖、節慶機制、無限之塔進度和世界王公告。
+- 核對 11/22 晚間用戶端，收錄 8 個團隊副本、15 張副本版卡片及其效果倍率。實際開放、個別獎池與掉落仍以遊戲內為準。
+
 ## 0.3.0-dev.19 — 2026-11-21 (sticky desktop talent inspector)
 
 - Keep the **selected desktop skill description panel visible beneath the fixed site header** as users scroll down long talent trees. Only the active inspector becomes sticky; an empty placeholder remains in normal document flow.

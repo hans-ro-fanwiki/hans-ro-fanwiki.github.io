@@ -15,8 +15,9 @@ import {TalentSimulator} from './TalentSimulator';
 import {SkillsEncyclopedia} from './SkillsEncyclopedia';
 import {equipmentTier} from './tier';
 import {hasConfirmedAcquisition} from './acquisition';
-import {cardEffects,cardId,cardMultiplier,cardName,cardScore,clampLap,gsRepresentativeJob,gsScalingForJob,GS_SCALING_LABELS,stageLapInfo,stageTierLabel} from './laps';
+import {cardEffects,cardId,cardMultiplier,cardName,cardScore,clampLap,gsRepresentativeJob,gsScalingForJob,isRaidOnlyCard,GS_SCALING_LABELS,stageLapInfo,stageTierLabel} from './laps';
 import type {LapRules} from './types';
+import {FestivalNotes,GameNotes} from './game-notes';
 
 type View={page:Page;slot:string;job:string;source:string;query:string;attr:string;mode:'list'|'stages';stageType:StageType;stageChapter:StageChapter;lap:number;gsJob:string;showUnknown:boolean;detail:string|null;stage:string|null;tj:string;tb:string;t:string;skillJob:string;skillRank:number;skillId:string|null};
 type GameEntry=Equipment|Card;
@@ -24,8 +25,11 @@ const SLOTS:Record<string,string>={weapon:'武器',head_top:'頭飾（上）',he
 const CARD_SLOTS:Record<string,string>={weapon:'武器',armor:'盔甲',shield:'盾牌',garment:'披肩',shoes:'鞋子',accessory:'飾品',headgear:'頭飾'};
 const cardSlot=(card:Card)=>CARD_SLOTS[card.equipSlot||'']||card.equipSlot||'部位未確認';
 const STAGE_TYPES:[StageType,string][]=[['all','全部'],['normal','一般遠征'],['event','活動關卡'],['story','劇情關卡']];
-const JOBS:Record<string,string>={all:'全部',mage:'魔法師系',swordsman:'劍士系',archer:'弓箭手系',acolyte:'服事系',thief:'盜賊系',merchant:'商人系',taekwon:'跆拳道系',ninja:'忍者系',gunslinger:'神槍手系'};
-const SOURCES:Record<string,string>={monsterDrop:'怪物掉落',bossDrop:'Boss 掉落',story:'劇情',event:'活動',reward:'獎勵',starter:'初始裝備'};
+function equipmentJobs(data:Catalog):[string,string][]{
+ const ids=new Set(data.items.flatMap(item=>item.jobs));
+ return [['all','全部'],...data.lapRules.jobs.filter(job=>ids.has(job.id)).map(job=>[job.id,job.name] as [string,string])];
+}
+const SOURCES:Record<string,string>={monsterDrop:'怪物掉落',bossDrop:'Boss 掉落',story:'劇情',event:'活動',reward:'獎勵',starter:'初始裝備',raid:'團隊遠征副本'};
 const LABELS:Record<Page,string>={items:'裝備',cards:'卡片',stages:'關卡',skills:'技能',talents:'天賦'};
 // HANS-only. All artwork is loaded by reference from the HANS image host;
 // the public repository and Pages artifact never contain game image files.
@@ -217,7 +221,7 @@ function App(){
  const equip=useMemo(()=>matchingEquip.filter(i=>state.showUnknown||hasConfirmedAcquisition(i)),[matchingEquip,state.showUnknown]);
  const hiddenEquipCount=matchingEquip.length-equip.length;
  const cardList=useMemo(()=>catalog?.cards.filter(c=>(state.slot==='all'||c.equipSlot===state.slot)&&
-  (c.sources.some(s=>matchesSource(s,state.source,stages))||state.source==='all')&&
+  (state.source==='raid'?!!c.raid:c.sources.some(s=>matchesSource(s,state.source,stages))||state.source==='all')&&
   entryMatches(c,state.query,state.attr))||[],[catalog,state.slot,state.source,state.query,state.attr,stages]);
  const list:GameEntry[]=state.page==='cards'?cardList:equip;
  const searchActive=Boolean(state.query.trim()||state.attr!=='all');
@@ -246,6 +250,7 @@ function App(){
    const boss='slot'in entry?'':ref.boss?'（Boss）':'';
    return (stage?.name||ref.stageId)+boss;
   }))];
+  if('raid' in entry&&entry.raid&&!names.length)return '團隊遠征副本';
   if(names.length)return names.slice(0,2).join('、')+(names.length>2?' 等':'');
   const official=entry.sources.find(s=>s.verificationState==='official'&&s.detail);
   if(official)return official.detail!;
@@ -278,7 +283,7 @@ function App(){
       {state.page==='cards'&&<div className="primary-filters"><div className="filter-block" role="group" aria-label="卡片鑲嵌部位"><div className="filter-label">鑲嵌部位</div><div className="chips"><Chip active={state.slot==='all'} onClick={()=>navigate({slot:'all'})}>全部</Chip>{Object.entries(CARD_SLOTS).map(([slot,label])=><Chip key={slot} active={state.slot===slot} onClick={()=>navigate({slot})}>{label}</Chip>)}</div></div></div>}
       {state.page==='items'&&<div className="primary-filters">
        <div className="filter-block" role="group" aria-label="裝備部位"><div className="filter-label">裝備部位</div><div className="chips"><Chip active={state.slot==='all'} onClick={()=>navigate({slot:'all'})}>全部</Chip>{slots.map(slot=><Chip key={slot} active={state.slot===slot} onClick={()=>navigate({slot})}>{SLOTS[slot]||slot}</Chip>)}</div></div>
-       <div className="filter-block" role="group" aria-label="職業"><div className="filter-label">職業</div><div className="chips">{Object.entries(JOBS).map(([job,name])=><Chip key={job} active={state.job===job} onClick={()=>navigate({job})}>{name}</Chip>)}</div></div>
+       <div className="filter-block" role="group" aria-label="職業"><div className="filter-label">職業</div><div className="chips">{equipmentJobs(catalog).map(([job,name])=><Chip key={job} active={state.job===job} onClick={()=>navigate({job})}>{name}</Chip>)}</div></div>
       </div>}
       <div className="search-filter-row">
        <button className="search-more" type="button" aria-expanded={showFilters} aria-controls="advanced-filters" onClick={()=>setShowFilters(v=>!v)}><SlidersHorizontal size={16}/>更多篩選{advancedCount>0?'（'+advancedCount+'）':''}<ChevronDown size={15}/></button>
@@ -287,7 +292,7 @@ function App(){
       </div>
       {showFilters&&<div className="filter-panel" id="advanced-filters">
        {ATTRIBUTE_GROUPS.map(group=><div key={group.label} className="filter-block"><div className="filter-label">{group.label}</div><div className="chips">{group.options.map(([key,label])=><Chip key={key} active={state.attr===key} onClick={()=>navigate({attr:state.attr===key?'all':key})}>{label}</Chip>)}</div></div>)}
-       <div className="filter-block"><div className="filter-label">取得方式</div><div className="chips"><Chip active={state.source==='all'} onClick={()=>navigate({source:'all'})}>全部</Chip>{Object.entries(SOURCES).filter(([v])=>state.page==='items'||['monsterDrop','bossDrop','event'].includes(v)).map(([v,name])=><Chip key={v} active={state.source===v} onClick={()=>navigate({source:v})}>{name}</Chip>)}</div></div>
+       <div className="filter-block"><div className="filter-label">取得方式</div><div className="chips"><Chip active={state.source==='all'} onClick={()=>navigate({source:'all'})}>全部</Chip>{Object.entries(SOURCES).filter(([v])=>state.page==='items'||['monsterDrop','bossDrop','event','raid'].includes(v)).map(([v,name])=><Chip key={v} active={state.source===v} onClick={()=>navigate({source:v})}>{name}</Chip>)}</div></div>
        <button className="search-more" type="button" onClick={()=>{navigate({query:'',attr:'all',slot:'all',job:'all',source:'all'});setShowFilters(false)}}>清除所有篩選</button>
       </div>}
      </section>
@@ -319,6 +324,7 @@ function App(){
        </button>)}{(state.page==='items'?cardList:equip).length>40&&<button className="load-more" type="button" onClick={()=>navigate({page:state.page==='items'?'cards':'items',mode:'list'},true)}>查看更多{state.page==='items'?'卡片':'裝備'}</button>}</div>
       </section>}
      </>}
+     {state.page==='stages'&&<GameNotes cards={catalog.cards} openCard={id=>openDetail('card',id)}/>}
      {state.page==='stages'&&<StageBrowser data={catalog} query={state.query} attr={state.attr} stageType={state.stageType} stageChapter={state.stageChapter} onChapterChange={stageChapter=>navigate({stageChapter,stage:null})} onStageTypeChange={stageType=>navigate({stageType,stage:null})} focusedStage={focusedStage} openDetail={openDetail} source={state.source} lap={state.lap} setLap={lap=>navigate({lap})}/>}
     </>}
     </>}
@@ -329,7 +335,7 @@ function App(){
    <section className="sheet" role="dialog" aria-modal="true" aria-label="詳細資訊"><div className="sheet-grab"/>
     <div className="sheet-head"><button className="back-button" onClick={backFromDetail}><ArrowLeft size={19}/>返回</button><button ref={detailCloseRef} className="icon-button" aria-label="關閉" onClick={closeDetail}><X size={19}/></button></div>
     <div className="sheet-body">
-     {selectedItem&&<EquipmentDetail item={selectedItem} lap={state.lap} stages={stages} monsters={monsters} openDetail={openDetail}/>}
+     {selectedItem&&<EquipmentDetail item={selectedItem} rules={catalog.lapRules} lap={state.lap} stages={stages} monsters={monsters} openDetail={openDetail}/>}
      {selectedCard&&<CardDetail card={selectedCard} rules={catalog.lapRules} lap={state.lap} setLap={lap=>navigate({lap},false,true)} gsJob={state.gsJob} setGsJob={gsJob=>navigate({gsJob},false,true)} stages={stages} monsters={monsters} openDetail={openDetail}/>}
      {selectedMonster&&<MonsterDetail monster={selectedMonster} data={catalog} stages={stages} openDetail={openDetail}/>}
       {!selectedItem&&!selectedCard&&!selectedMonster&&<EmptyState>找不到這筆資料</EmptyState>}
@@ -383,6 +389,7 @@ function StageBrowser({data,query,attr,stageType,onStageTypeChange,stageChapter,
   <div className="stage-view-toolbar"><span className="search-hint">目前顯示 {visible.length} 個關卡</span><div className="stage-expansion-actions"><button type="button" className="search-more" onClick={()=>setExpanded(new Set(visible.map(s=>s.id)))}>全部展開</button><button type="button" className="search-more" onClick={()=>setExpanded(new Set())}>全部收合</button></div></div>
   {chapterGroups.map(group=><section className="stage-chapter-section" aria-label={(group.chapter===2?'第二章':'第一章')+'關卡'} key={group.chapter}>
    <div className="stage-chapter-heading"><h2>{group.chapter===2?'第二章':'第一章'}</h2><span>{group.stages.length} 個關卡</span><small>{group.chapter===2?'Lv 71–99 · 裝備 Tier 依週目 T6–T8':'依 HANS 實際關卡與週目資料'}</small></div>
+   {group.chapter===2&&<p className="stage-lap-note">帳號任一角色擊敗第一章三週目「迷宮森林・改²」的 MVP 後解鎖。第二章有獨立週目，組隊時所有隊員的帳號都須解鎖欲挑戰的週目。</p>}
    {group.stages.map(stage=>{
    const rows=stageRows(data,stage.id).filter(row=>eligible(row,stage.id));
    const opened=expanded.has(stage.id);
@@ -394,6 +401,7 @@ function StageBrowser({data,query,attr,stageType,onStageTypeChange,stageChapter,
     </button>
     {opened&&<div id={'stage-'+stage.id} className="stage-body">
      <p className="stage-lap-note">{stageLapInfo(stage,lap)?'第'+lap+'週目：'+stageTierLabel(stage,lap)+(stage.chapter===1?data.lapRules.suffix[lap-1]:'')+' 裝備、'+data.lapRules.suffix[lap-1]+'卡片。GS '+stageLapInfo(stage,lap)!.gs+' 為入場門檻；實際裝備品質、詞綴與精煉仍為隨機。':'此關卡沒有該週目的遠征設定，不能將下列掉落當作該週目可取得。'}</p>
+     <FestivalNotes id={stage.id}/>
      <div className="stage-encounters">
       {([['一般怪物',stage.normalMonsterIds],['Boss',stage.bossMonsterIds]] as const).map(([label,ids])=><div className="stage-encounter-group" key={label}>
        <strong>{label}（{ids.length}）</strong>
@@ -408,7 +416,7 @@ function StageBrowser({data,query,attr,stageType,onStageTypeChange,stageChapter,
      <div className="stage-controls">
        {kind==='card'?<label>鑲嵌部位<select aria-label="關卡卡片部位" value={localSlot} onChange={e=>setLocalSlot(e.target.value)}><option value="all">全部部位</option>{Object.entries(CARD_SLOTS).map(([v,label])=><option key={v} value={v}>{label}</option>)}</select></label>:
         <><label>部位<select aria-label="關卡部位" value={localSlot} onChange={e=>setLocalSlot(e.target.value)}><option value="all">全部部位</option>{Object.entries(SLOTS).map(([v,label])=><option key={v} value={v}>{label}</option>)}</select></label>
-        <label>職業<select aria-label="關卡職業" value={localJob} onChange={e=>setLocalJob(e.target.value)}>{Object.entries(JOBS).map(([v,label])=><option key={v} value={v}>{label}</option>)}</select></label></>}
+        <label>職業<select aria-label="關卡職業" value={localJob} onChange={e=>setLocalJob(e.target.value)}>{equipmentJobs(data).map(([v,label])=><option key={v} value={v}>{label}</option>)}</select></label></>}
       <label>屬性<select aria-label="關卡屬性" value={localAttr} onChange={e=>setLocalAttr(e.target.value)}><option value="all">全部屬性</option>{ATTRIBUTE_GROUPS.map(group=><optgroup key={group.label} label={group.label}>{group.options.map(([key,label])=><option key={key} value={key}>{label}</option>)}</optgroup>)}</select></label>
      </div>
      {rows.length?<div className="compact-results">{rows.map((row,i)=><button type="button" className="compact-item" key={row.kind+'-'+row.item.id+'-'+row.source.monsterId+'-'+i} onClick={()=>openDetail(row.kind,row.item.id)}>
@@ -449,12 +457,12 @@ function StatSection({entry}:{entry:GameEntry}){
   {(entry.starBonusesMax||[]).map((t,i)=><span key={'maxstar'+i}>滿星：{t}</span>)}
  </>:entry.bonuses.map((t,i)=><span key={i}>{t}</span>)}</div></>;
 }
-function EquipmentDetail({item,lap,stages,monsters,openDetail}:{item:Equipment;lap:number;stages:Map<string,Stage>;monsters:Map<string,Monster>;openDetail:(kind:Kind,id:string|number)=>void}){
+function EquipmentDetail({item,rules,lap,stages,monsters,openDetail}:{item:Equipment;rules:LapRules;lap:number;stages:Map<string,Stage>;monsters:Map<string,Monster>;openDetail:(kind:Kind,id:string|number)=>void}){
  const tier=equipmentTier(item,stages);
  return <><DetailHero kind="item" entry={item} title={item.name} sub={(SLOTS[item.slot]||item.slot)+' · '+tier.text}/>
   <p className="tier-note">HANS 裝備等級：目前選擇第 {lap} 週目。Tier 依取得關卡與週目決定；下方固定效果不代表隨機品質、詞綴、精煉或升星後的最終數值，也不顯示不可靠的固定 GS。</p>
   <StatSection entry={item}/>
-  {item.jobs.length>0&&<><h3 className="sheet-section">可用職業</h3><div className="bonus-list">{item.jobs.map(j=><span key={j}>{JOBS[j]||j}</span>)}</div></>}
+  {item.jobs.length>0&&<><h3 className="sheet-section">可用職業</h3><div className="bonus-list">{item.jobs.map(j=><span key={j}>{rules.jobs.find(job=>job.id===j)?.name||'職業名稱待確認'}</span>)}</div></>}
   <h3 className="sheet-section">取得方式</h3><DropRoutes sources={item.sources} stages={stages} monsters={monsters} openDetail={openDetail}/>
  </>;
 }
@@ -462,10 +470,12 @@ function CardDetail({card,rules,lap,setLap,gsJob,setGsJob,stages,monsters,openDe
  card:Card;rules:LapRules;lap:number;setLap:(lap:number)=>void;gsJob:string;setGsJob:(job:string)=>void;
  stages:Map<string,Stage>;monsters:Map<string,Monster>;openDetail:(kind:Kind,id:string|number)=>void;
 }){
- const score=cardScore(card,rules,lap,gsJob);
+ const raidOnly=isRaidOnlyCard(card);
+ const score=raidOnly?null:cardScore(card,rules,lap,gsJob);
  const selectedScaling=gsScalingForJob(rules,gsJob);
  const mult=cardMultiplier(card,rules,lap);
  return <><DetailHero kind="card" entry={card} title={cardName(card,rules,lap)} sub={'鑲嵌部位：'+cardSlot(card)}/>
+  {!raidOnly&&<>
   <div className="lap-detail"><LapPicker rules={rules} lap={lap} setLap={setLap}/>
    <div className="lap-meta">卡片 ID：{cardId(card,rules,lap)} · 效果倍率 ×{mult}{rules.noScaleCardIds.includes(card.id)?'（特殊卡片不放大）':''}</div>
   </div>
@@ -487,6 +497,11 @@ function CardDetail({card,rules,lap,setLap,gsJob,setGsJob,stages,monsters,openDe
    </div>
    <p className="card-gs-note">目前 HANS 僅使用近戰、魔法、遠程三組卡片 GS 權重，同類型轉職計算結果相同；分數依效果權重及小王／MVP 保底公式推算，僅代表卡片對裝備 GS 的貢獻，非整套裝備 GS。尚待遊戲面板實測校準。</p>
   </div>
+  </>}
+  {card.raid&&<><h3 className="sheet-section">副本卡片效果（×{card.raid.mult}）</h3>
+   <div className="bonus-list">{cardEffects(card,rules,lap,card.raid.mult).map((value,index)=><span key={index}>{value}</span>)}</div>
+   <p className="card-gs-note">可於首通對應副本後用遠征勳章兌換。個別副本的掉落與兌換需求以遊戲內為準。</p>
+  </>}
   <h3 className="sheet-section">取得方式</h3>
   <DropRoutes sources={card.sources} stages={stages} monsters={monsters} openDetail={openDetail}/>
  </>;
@@ -497,7 +512,7 @@ function MonsterDetail({monster,data,stages,openDetail}:{monster:Monster;data:Ca
   return entry.sources.filter(s=>s.monsterId===monster.id).map(s=>({entry,kind,source:s}));
  });
  return <><DetailHero kind="monster" entry={monster} title={monster.name} sub={monster.boss?'Boss':'怪物'}/>
-  <h3 className="sheet-section">出現關卡</h3><div className="sub-list">{monster.stages.map(s=><button key={s.id} onClick={()=>openDetail('stage',s.id)}><MapIcon size={18}/><span>{stages.get(s.id)?.name||s.id}{s.boss?' · Boss':''}</span><ChevronRight size={16}/></button>)}</div>
+  <h3 className="sheet-section">出現關卡</h3><div className="sub-list">{monster.stages.length===0&&<p className="source-detail">一般遠征的出現關卡尚未登錄。</p>}{monster.stages.map(s=><button key={s.id} onClick={()=>openDetail('stage',s.id)}><MapIcon size={18}/><span>{stages.get(s.id)?.name||s.id}{s.boss?' · Boss':''}</span><ChevronRight size={16}/></button>)}</div>
   <h3 className="sheet-section">裝備掉落與卡片關聯</h3><div className="stage-loot-list">{results.map((r,i)=><button key={r.entry.id+'-'+i} className="loot-row" onClick={()=>openDetail(r.kind,r.entry.id)}><Artwork kind={r.kind} entity={r.entry}/><span className="loot-copy"><b>{r.entry.name}</b><small>{r.source.verificationState==='official'?'':'取得待確認 · '}{r.kind==='item'?equipmentTier(r.entry as Equipment,stages).text+' · ':''}{shortStats(r.entry,3)}</small></span><ChevronRight size={16}/></button>)}</div>
   {!results.length&&<EmptyState>目前沒有已收錄掉落物品</EmptyState>}
  </>;

@@ -1,12 +1,19 @@
 # RO 倖存者｜HANS 粉絲維基（HANS）：專案狀態（2026-11-20）
 
+## 2026-11-22 晚間資料盤點
+
+- 裝備職業直接以 HANS 職業登錄名稱顯示，篩選列納入資料中有實際裝備限制的職業。雷霆手槍、白鼠三種變體及三個技能短名採維基繁中譯名，保留裝備與技能原名可搜尋。元宵童子採遊戲公告用詞。
+- 正式目錄 523 件裝備、202 張基礎卡登錄、209 筆怪物、17 個一般／活動／劇情關卡。8 個團隊副本和 15 張副本版卡片另外顯示，其中獸人英雄卡也有一般掉落版本。副本卡使用 ×4.2 倍率。
+- 世界王依 11/22 公告為維修，團隊遠征副本已在客戶端登錄，正式開放訊號與逐項獎池待確認。墨蛇君、冰暴騎士卡的伺服器強度分級待實測。
+- 目錄來源 SHA 與技能來源 SHA 分開記錄。本次技能補譯沿用 11/19 審核的公式快照，11/21 技能及天賦平衡仍需另做數值審核。
+
 ## 實際來源與分支
 - **目前 Repository**：`hans-ro-fanwiki/hans-ro-fanwiki.github.io`（2026-11-19 從 `lockgipo/ro-survivors-hans-wiki` 原庫移轉並改名；原 Repository ID `1460983693`、Git 歷史、Issues 與 PR 保留）。
 - **正式網站已上線**：https://hans-ro-fanwiki.github.io/（GitHub Pages Workflow；2026-11-19 Actions #44548771895 deploy 成功；首頁、JavaScript、catalog 均 HTTP 200）。原 Pages https://lockgipo.github.io/ro-survivors-hans-wiki/ 實測 HTTP 404，不自動轉址。詳見 `docs/ORG_FANWIKI_MOVE.md`。
 - 正式分支：`main`，GitHub Actions 通過驗證後部署 Pages。HANS 原始改版分支 `dev/hans-only-wiki-20261119` 源自舊 `main` commit `20585eb`；上線後以 `main` 為準。
 - 開發主機根目錄：`C:\AI-Workspace\ro-survivors-wiki`。
 - HANS 唯一上游遊戲網址：https://ro.hans-webgametw.com/。
-- 所有新版靜態資料以 `docs/HANS_SOURCE_AUDIT.json` 記錄的 2026-11-19 HANS bundle SHA-256／manifest 為準；不混用咖啡版 `ro-survivors.com` 的數據、素材或 twRO 數值。
+- 裝備、卡片與關卡靜態資料以 `docs/HANS_SOURCE_AUDIT.json` 記錄的 HANS bundle SHA-256／manifest 為準；不混用咖啡版 `ro-survivors.com` 的數據、素材或 twRO 數值。
 
 ## 目前已實作
 - 獨立重新擷取 `public/data/catalog.json`（`server: hans`）：

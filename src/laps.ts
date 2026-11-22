@@ -6,7 +6,11 @@ export function clampLap(value:number,max=6):number{
 export function lapSuffix(rules:LapRules,lap:number):string{
  return rules.suffix[clampLap(lap,rules.max)-1]||'';
 }
+export function isRaidOnlyCard(card:Card):boolean{
+ return !!card.raid&&card.sources.every(source=>source.sourceType==='raid');
+}
 export function cardName(card:Card,rules:LapRules,lap:number):string{
+ if(isRaidOnlyCard(card))return card.name+card.raid!.suffix;
  const suffix=lapSuffix(rules,lap);
  return suffix&&card.name.endsWith('卡片')
   ?card.name.slice(0,-2)+suffix+'卡片':card.name+suffix;
@@ -27,8 +31,7 @@ function displayValue(value:number):string{
  const v=Math.round((value+Number.EPSILON)*100)/100;
  return String(Object.is(v,-0)?0:v);
 }
-export function cardEffects(card:Card,rules:LapRules,lap:number):string[]{
- const mult=cardMultiplier(card,rules,lap);
+export function cardEffects(card:Card,rules:LapRules,lap:number,mult=isRaidOnlyCard(card)?card.raid!.mult:cardMultiplier(card,rules,lap)):string[]{
  return card.bonuses.map((original,index)=>{
   const effect=card.effects[index];
   if(!effect||mult===1)return original;

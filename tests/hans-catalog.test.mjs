@@ -12,9 +12,9 @@ test('wiki cannot silently serve Coffee or any non-HANS catalog',()=>{
 });
 test('HANS registered equipment, cards, stages are complete at snapshot baseline',()=>{
  assert.equal(catalog.items.length,523);
- assert.equal(catalog.cards.length,188);
+ assert.equal(catalog.cards.length,202);
  assert.equal(catalog.stages.length,17);
- assert.equal(catalog.monsters.length,195);
+ assert.equal(catalog.monsters.length,209);
 });
 test('HANS Chapter 2 stages and source rules are included',()=>{
  const stages=catalog.stages.filter(s=>s.id.startsWith('c2_'));
@@ -87,6 +87,11 @@ test('HANS cards link to real monster and boss drops on non-story stages',()=>{
  assert.ok(poring.sources[0].stageRefs.some(ref=>ref.stageId==='prontera'&&!ref.boss));
  for(const card of catalog.cards){
   const [source]=card.sources;
+  if(source.sourceType==='raid'){
+   assert.equal(source.verificationState,'candidate');
+   assert.deepEqual(source.stageRefs,[]);
+   continue;
+  }
   assert.equal(source.monsterId,card.monsterId);
   assert.equal(source.verificationState,'official');
   assert.ok(source.stageRefs.length);
@@ -144,7 +149,7 @@ test('HANS card socket slots are known and combat/battle filters share one sourc
  assert.equal(catalog.cards.find(c=>c.id===4001).equipSlot,'armor');
  assert.deepEqual(ATTRIBUTE_GROUPS.map(g=>g.label),['角色屬性','攻擊與戰鬥','防禦與生存']);
  assert.equal(new Set(ATTRIBUTE_GROUPS.flatMap(g=>g.options.map(([id])=>id))).size,ATTRIBUTE_GROUPS.flatMap(g=>g.options).length);
- assert.equal(catalog.cards.filter(c=>attributeMatches(c,'cooldown')).length,12);
+ assert.equal(catalog.cards.filter(c=>attributeMatches(c,'cooldown')).length,13);
  assert.ok(attributeMatches(catalog.cards.find(c=>c.id===4001),'crit'));
 });
 test('audited HANS lap rules cover six laps, 41 professions, and all 188 card registrations',async()=>{
@@ -158,6 +163,7 @@ test('audited HANS lap rules cover six laps, 41 professions, and all 188 card re
  assert.deepEqual([...new Set(rules.jobs.map(j=>j.id))].length,41);
  const allIds=new Set();
  for(const card of catalog.cards){
+  if(card.sources.every(source=>source.sourceType==='raid'))continue;
   assert.equal(card.bonuses.length,card.effects.length,card.name);
   for(let lap=1;lap<=6;lap++){
    const id=cardId(card,rules,lap);
@@ -233,4 +239,20 @@ test('stage tier and gearscore are specific to chapter and selected lap',async()
  assert.deepEqual(stageLapInfo(map.get('c2_gef'),3),{tier:8,gs:2950});
  assert.equal(stageTierLabel(map.get('c2_gef'),2),'二章 T7');
  assert.equal(stageLapInfo(map.get('prt_castle'),2),null);
+});
+
+test('HANS raid cards use their own multiplier and never appear as ordinary stage drops',async()=>{
+ const {cardName,cardEffects,isRaidOnlyCard}=await import('../src/laps.ts');
+ const raid=catalog.cards.filter(card=>card.raid);
+ assert.equal(raid.length,15);
+ assert.equal(raid.filter(isRaidOnlyCard).length,14);
+ const card=raid.find(card=>card.id===4145);
+ assert.equal(cardName(card,catalog.lapRules,6),'別西卜卡片・副本');
+ assert.ok(cardEffects(card,catalog.lapRules,6).includes('冷卻縮減 +16.8%'));
+ assert.deepEqual(card.sources[0].stageRefs,[]);
+});
+test('all equipment restriction IDs have a Chinese job label',()=>{
+ for(const id of new Set(catalog.items.flatMap(item=>item.jobs))){
+  assert.match(catalog.lapRules.jobs.find(job=>job.id===id)?.name||'',/\p{Script=Han}/u,id);
+ }
 });

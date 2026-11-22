@@ -10,7 +10,7 @@ const audit=JSON.parse(readFileSync(new URL('../docs/HANS_SOURCE_AUDIT.json',imp
 test('HANS skills encyclopedia is source-pinned, complete, and remains HANS only',()=>{
  assert.equal(data.server,'hans');
  assert.equal(data.schemaVersion,1);
- assert.equal(data.source.sha256,audit.hans.soul.sha256);
+ assert.equal(data.source.sha256,audit.skillsSoul.sha256);
  assert.equal(data.jobs.length,41);
  assert.equal(data.skills.length,244);
  assert.equal(new Set(data.skills.map(s=>s.id)).size,244);

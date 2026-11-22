@@ -1,20 +1,20 @@
 {
-  "reviewedAt": "2026-11-19",
+  "reviewedAt": "2026-11-22",
   "server": "hans",
   "hans": {
     "baseUrl": "https://ro.hans-webgametw.com",
     "main": {
-      "file": "main-BNOcv2PN.hzf64b3f03.js",
-      "sha256": "8d09b2d48b6224644e1f80bb3a970b16636a454fbd1b2f8bea404e786f1c84d2"
+      "file": "main-BNOcv2PN.hz1e2f7b93.js",
+      "sha256": "1bf206610e447a862b42995f97112348566c6d9da0a86b210de3db648c952af6"
     },
     "soul": {
-      "file": "soul_linker-DllBVIRO.hza78cd192.js",
-      "sha256": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a"
+      "file": "soul_linker-DllBVIRO.hz0a1e5bb6.js",
+      "sha256": "5fc13f413d9ac83cbccc8292617ecb3a08576056a21967d38021cd115114c1eb"
     },
     "manifest": {
       "file": "manifest.json",
       "path": "assets/manifest.json",
-      "sha256": "4e7959bee99d4cdeab39876329d9c28a4270a7dbcac11d9f6e3c39e91f0c4f6a"
+      "sha256": "a229afd72d25dee9b8b79420e362958f808477dcf0695ef619c2856ed00b62fb"
     }
   },
   "reviewNotes": [
@@ -26,6 +26,12 @@
     "Original bundled game code and full-resolution art must not be committed or deployed.",
     "November 20 lap and card GS expansion reads the audited main RO_LAPC, RO_C2T, Bk, CC, TC, and soul Mp/vu/RO_J3 and Me registrations. The importer stores base card effects, variant rules, per-job scoring profiles, and derived stage tier/GS requirements. The main card floor rules (mini 20, MVP 30) and Osiris exception are matched against this SHA-pinned bundle, not inferred from classic RO card descriptions. Job-specific card GS still requires live in-game validation.",
     "November 21 skill encyclopedia reads the same SHA-verified soul game bundle for $e and Ce skill registration metadata, official aA/KI translation dictionaries, and L(en, zh) third-job descriptions. It joins against SHA-audited public talents job/skill references; source bundles and icons are never copied into Pages. Unavailable skill description formulas and non-translated titles must not be fabricated.",
-    "November 21 third-job translation audit confirmed that all 96 registered third-job names have HANS native Traditional Chinese mapping via an appended top-level Object.assign(aA, {...}) after the initial aA declaration, not within the initial dictionary. The skills importer now statically merges these SHA-pinned translation blocks. All 96 Chinese titles are checked in tests and the public-build verifier while preserving original English search names."
-  ]
+    "November 21 third-job translation audit confirmed that all 96 registered third-job names have HANS native Traditional Chinese mapping via an appended top-level Object.assign(aA, {...}) after the initial aA declaration, not within the initial dictionary. The skills importer now statically merges these SHA-pinned translation blocks. All 96 Chinese titles are checked in tests and the public-build verifier while preserving original English search names.",
+    "2026-11-22 evening: re-audited the catalog sources. 17 expedition stages, 523 equipment entries and existing card/stage associations matched. RO_LAPC.raid registers 15 raid variants; 14 are new card registrations with no ordinary stage associations. Raid launch and server-side rewards remain separate from catalog registration. Skills and talents retain independent source baselines."
+  ],
+  "skillsSoul": {
+    "file": "soul_linker-DllBVIRO.hza78cd192.js",
+    "sha256": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a"
+  },
+  "snapshotDirectory": "evidence/hans-20261122"
 }

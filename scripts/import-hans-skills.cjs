@@ -9,10 +9,10 @@ const ts=require('typescript');
 const root=path.resolve(__dirname,'..');
 const audit=JSON.parse(fs.readFileSync(path.join(root,'docs/HANS_SOURCE_AUDIT.json'),'utf8'));
 const base=path.join(root,'evidence/hans-20261119');
-const sourceFile=path.join(base,audit.hans.soul.file);
+const sourceFile=path.join(base,audit.skillsSoul.file);
 const sourceBytes=fs.readFileSync(sourceFile);
 const sha=createHash('sha256').update(sourceBytes).digest('hex');
-if(sha!==audit.hans.soul.sha256)throw Error('HANS skill source SHA differs from audited snapshot');
+if(sha!==audit.skillsSoul.sha256)throw Error('HANS skill source SHA differs from audited snapshot');
 const ast=ts.createSourceFile('hans-soul.js',sourceBytes.toString('utf8'),ts.ScriptTarget.Latest,true);
 if(ast.parseDiagnostics.length)throw Error('Unable to parse audited HANS skill source');
 const talents=JSON.parse(fs.readFileSync(path.join(root,'public/data/talents.json'),'utf8'));
@@ -130,7 +130,7 @@ const jobs=talents.jobs.map(job=>({
 }));
 const data={
  server:'hans',schemaVersion:1,reviewedAt:audit.reviewedAt,
- source:{sha256:sha,relativeFile:audit.hans.soul.file},
+ source:{sha256:sha,relativeFile:audit.skillsSoul.file},
  policy:'HANS audited skill registry only. Show confirmed official zh localization; do not invent unavailable descriptions, per-level formulas or cooldowns.',
  jobs,skills:skillRows
 };

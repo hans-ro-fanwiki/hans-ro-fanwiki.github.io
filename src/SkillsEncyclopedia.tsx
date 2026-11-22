@@ -1,3 +1,4 @@
+import {localizedSkillName} from './skills';
 import {useEffect,useMemo,useRef,useState} from 'react';
 import {BookOpen,ChevronDown,ChevronRight,Clock3,Search,Sparkles,X} from 'lucide-react';
 import type {CareerRoute,Skill,SkillCatalog,SkillJob} from './skills';
@@ -94,7 +95,7 @@ export function SkillsEncyclopedia({jobId,rank,query,selectedId,onChange}:Props)
    .then((result:SkillCatalog)=>{
     if(result.server!=='hans'||result.schemaVersion!==1||result.jobs.length!==41)
      throw Error('技能圖鑑資料版本不相容');
-    setData(result);
+    setData({...result,skills:result.skills.map(skill=>({...skill,name:localizedSkillName(skill)}))});
    })
    .catch(e=>{if(e.name!=='AbortError')setError('HANS 技能資料載入失敗，請重新整理頁面。')});
   return ()=>ac.abort();

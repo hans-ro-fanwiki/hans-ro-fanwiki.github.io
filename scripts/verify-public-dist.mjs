@@ -25,7 +25,7 @@ assert.ok(deployed.stages.every(s=>s.lapTiers?.length===6&&s.lapGS?.length===6),
 const skills=JSON.parse(readFileSync(path.join(root,'data/skills.json'),'utf8'));
 assert.equal(skills.server,'hans','Refuse publishing non-HANS job skill sources');
 assert.equal(skills.schemaVersion,1,'HANS job skill schema mismatch');
-assert.equal(skills.source.sha256,audited.hans.soul.sha256,'HANS skill SHA mismatch');
+assert.equal(skills.source.sha256,audited.skillsSoul.sha256,'HANS skill SHA mismatch');
 assert.equal(skills.jobs.length,41,'Incomplete HANS first-to-third job catalog');
 assert.equal(skills.skills.length,244,'Incomplete HANS skill registry');
 assert.equal(skills.jobs.reduce((n,j)=>n+j.skills.length,0),256);
@@ -43,7 +43,8 @@ for(const entry of [...deployed.items,...deployed.cards]){
   assert.equal(entry[key].renderAllowed,false,'Unreviewed HANS art marked public');
  }
  for(const source of entry.sources||[]){
-  assert.equal(source.evidence?.hash,audited.hans.soul.sha256,'Legacy source evidence present');
+  const registered=[audited.hans.main,audited.hans.soul].find(file=>file.file===source.evidence?.file);
+  assert.ok(registered&&registered.sha256===source.evidence?.hash,'Unreviewed source evidence present');
   for(const ref of source.stageRefs||[])assert.ok(stages.has(ref.stageId),'Non-HANS stage referenced: '+ref.stageId);
  }
 }

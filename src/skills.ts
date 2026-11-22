@@ -28,6 +28,7 @@ export const SKILL_TAGS:Record<string,string>={
  area:'範圍',ground:'地面',aoe:'範圍',buff:'增益',passive:'被動',
  fire:'火',water:'水',ice:'冰',wind:'風',earth:'地',lightning:'雷',
  holy:'聖',dark:'暗',poison:'毒',neutral:'無',heal:'治癒',
+ aura:'光環',burst:'爆發',ghost:'念',hybrid:'混合',multi:'多段',orbit:'環繞',persistent:'持續',pierce:'穿透',ranged_strike:'遠程打擊',return:'返回',
  projectile:'投射物',summon:'召喚',control:'控制',attack:'攻擊'
 };
 export function skillAncestors(id:string,jobs:SkillJob[]):Set<string>{
@@ -82,4 +83,9 @@ export function jobsForSelection(jobs:SkillJob[],selected:string,rank=0):SkillJo
 export function searchSkillName(skill:Skill,query:string):boolean{
  const text=(skill.name+' '+skill.originalName+' '+skill.id+' '+skill.description+' '+skill.upgradeDescription).toLocaleLowerCase();
  return text.includes(query.trim().toLocaleLowerCase());
+}
+
+const localSkillNames:Record<string,string>={fire_arrow:'火焰箭',holy_smite:'聖擊',retreat:'撤退'};
+export function localizedSkillName(skill:Skill):string{
+ return /\p{Script=Han}/u.test(skill.name)?skill.name:localSkillNames[skill.id]||skill.name;
 }
