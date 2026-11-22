@@ -179,3 +179,8 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {
 @media(prefers-reduced-motion:reduce){
   .stage-heading,.chip,.search-more{transition:none!important}
 }
+
+/* GS ranking uses the existing dark theme. */
+.gs-ranking-panel{background:#1b2b30;border-color:var(--wiki-border)}
+.gs-ranking-heading strong,.ranking-score{color:#a5e8c7}
+.gs-ranking-heading span{color:var(--wiki-muted)}

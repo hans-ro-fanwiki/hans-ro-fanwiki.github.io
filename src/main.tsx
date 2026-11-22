@@ -18,9 +18,10 @@ import {equipmentTier} from './tier';
 import {hasConfirmedAcquisition} from './acquisition';
 import {cardEffects,cardId,cardMultiplier,cardName,cardScore,clampLap,gsRepresentativeJob,gsScalingForJob,isRaidOnlyCard,GS_SCALING_LABELS,stageLapInfo,stageTierLabel} from './laps';
 import type {LapRules} from './types';
+import {rankCardsByGs} from './card-ranking';
 import {FestivalNotes,GameNotes} from './game-notes';
 
-type View={page:Page;slot:string;job:string;source:string;query:string;attr:string;mode:'list'|'stages';stageType:StageType;stageChapter:StageChapter;lap:number;gsJob:string;showUnknown:boolean;detail:string|null;stage:string|null;tj:string;tb:string;t:string;skillJob:string;skillRank:number;skillId:string|null};
+type View={page:Page;slot:string;job:string;source:string;query:string;attr:string;mode:'list'|'stages'|'gs';stageType:StageType;stageChapter:StageChapter;lap:number;gsJob:string;showUnknown:boolean;detail:string|null;stage:string|null;tj:string;tb:string;t:string;skillJob:string;skillRank:number;skillId:string|null};
 type GameEntry=Equipment|Card;
 const SLOTS:Record<string,string>={weapon:'武器',head_top:'頭飾（上）',head_mid:'頭飾（中）',head_low:'頭飾（下）',armor:'衣服',shield:'盾牌',garment:'披肩',shoes:'鞋子',acc:'飾品'};
 const CARD_SLOTS:Record<string,string>={weapon:'武器',armor:'盔甲',shield:'盾牌',garment:'披肩',shoes:'鞋子',accessory:'飾品',headgear:'頭飾'};
@@ -42,7 +43,7 @@ function readLocation():View{
  const page=q.get('page')||(q.has('t')?'talents':'items');
  const legacyEffect:Record<string,string>={cooldown:'cooldown',crit:'crit',damage:'damage',defense:'armor',hp:'hp'};
  return {page:(Object.prototype.hasOwnProperty.call(LABELS,page)?page:'items') as Page,slot:q.get('slot')||'all',job:q.get('job')||'all',
- source:q.get('source')||'all',query:q.get('q')||'',attr:q.get('attr')||legacyEffect[q.get('effect')||'']||'all',mode:q.get('mode')==='stages'?'stages':'list',stageType:parseStageType(q.get('sg'),q.get('open')),stageChapter:parseStageChapter(q.get('ch')),lap:clampLap(Number(q.get('lap')||1)),gsJob:q.get('gsjob')||'swordsman',showUnknown:q.get('unknown')==='1',detail:q.get('detail')||null,stage:q.get('stage')||null,tj:q.get('tj')||'swordsman',tb:q.get('tb')||'',t:q.get('t')||'',skillJob:q.get('sj')||'all',skillRank:[0,1,2,3].includes(Number(q.get('sr')))?Number(q.get('sr')):0,skillId:q.get('sk')||null};
+ source:q.get('source')||'all',query:q.get('q')||'',attr:q.get('attr')||legacyEffect[q.get('effect')||'']||'all',mode:q.get('mode')==='stages'?'stages':page==='cards'&&q.get('mode')==='gs'?'gs':'list',stageType:parseStageType(q.get('sg'),q.get('open')),stageChapter:parseStageChapter(q.get('ch')),lap:clampLap(Number(q.get('lap')||1)),gsJob:q.get('gsjob')||'swordsman',showUnknown:q.get('unknown')==='1',detail:q.get('detail')||null,stage:q.get('stage')||null,tj:q.get('tj')||'swordsman',tb:q.get('tb')||'',t:q.get('t')||'',skillJob:q.get('sj')||'all',skillRank:[0,1,2,3].includes(Number(q.get('sr')))?Number(q.get('sr')):0,skillId:q.get('sk')||null};
 }
 function pathFor(v:View){
  const q=new URLSearchParams();
@@ -53,6 +54,7 @@ function pathFor(v:View){
  if(v.query.trim())q.set('q',v.query.trim());
  if(v.attr!=='all')q.set('attr',v.attr);
  if(v.mode==='stages')q.set('mode','stages');
+ if(v.page==='cards'&&v.mode==='gs')q.set('mode','gs');
  if(v.stageType!=='all')q.set('sg',v.stageType);
  if(v.stageChapter!=='all')q.set('ch',v.stageChapter);
  if(v.lap!==1)q.set('lap',String(v.lap));
@@ -156,7 +158,7 @@ function App(){
   window.addEventListener('popstate',pop);return ()=>window.removeEventListener('popstate',pop);
  },[]);
  useEffect(()=>{document.body.style.overflow=state.detail?'hidden':'';return ()=>{document.body.style.overflow='';};},[state.detail]);
- useEffect(()=>setVisibleCount(40),[state.page,state.slot,state.job,state.source,state.query,state.attr,state.mode,state.stageType,state.stageChapter,state.showUnknown]);
+ useEffect(()=>setVisibleCount(40),[state.page,state.slot,state.job,state.source,state.query,state.attr,state.mode,state.stageType,state.stageChapter,state.showUnknown,state.lap,state.gsJob]);
  const navigate=useCallback((patch:Partial<View>,top=false,replace=false)=>{
   const next={...state,...patch};
   history.replaceState({...history.state,scroll:scrollY},'',location.href);
@@ -224,7 +226,12 @@ function App(){
  const cardList=useMemo(()=>catalog?.cards.filter(c=>(state.slot==='all'||c.equipSlot===state.slot)&&
   (state.source==='raid'?!!c.raid:c.sources.some(s=>matchesSource(s,state.source,stages))||state.source==='all')&&
   entryMatches(c,state.query,state.attr))||[],[catalog,state.slot,state.source,state.query,state.attr,stages]);
- const list:GameEntry[]=state.page==='cards'?cardList:equip;
+ // Score and fully sort the filtered cards before slicing into 40-card pages.
+ const rankedCards=useMemo(()=>catalog&&state.page==='cards'&&state.mode==='gs'
+  ?rankCardsByGs(cardList,catalog.lapRules,state.lap,state.gsJob):[],
+  [catalog,cardList,state.page,state.mode,state.lap,state.gsJob]);
+ const rankedScores=useMemo(()=>new Map(rankedCards.map(({card,score})=>[card.id,score])),[rankedCards]);
+ const list:GameEntry[]=state.page==='cards'?(state.mode==='gs'?rankedCards.map(({card})=>card):cardList):equip;
  const searchActive=Boolean(state.query.trim()||state.attr!=='all');
  const advancedCount=Number(state.attr!=='all')+Number(state.source!=='all');
  const attributeName=ATTRIBUTE_GROUPS.reduce<string|undefined>((found,group)=>{
@@ -272,7 +279,7 @@ function App(){
   <main className="container">
    <section className="content-section">
     <div className="section-heading"><h1>{LABELS[state.page]}</h1>{state.page!=='talents'&&state.page!=='skills'&&state.page!=='balance'&&<span className="heading-count">
-      {state.page==='items'?equip.length:state.page==='cards'?cardList.length:catalog?.stages.filter(stage=>matchesStageType(stage,state.stageType)&&(state.stageChapter==='all'||String(stage.chapter)===state.stageChapter)).length||0}
+      {state.page==='items'?equip.length:state.page==='cards'?(state.mode==='gs'?rankedCards.length:cardList.length):catalog?.stages.filter(stage=>matchesStageType(stage,state.stageType)&&(state.stageChapter==='all'||String(stage.chapter)===state.stageChapter)).length||0}
      </span>}</div>
     {state.page==='balance'?<BalanceHistory/>:state.page==='talents'?<TalentSimulator jobId={state.tj} token={state.tb} packed={state.t} onRoute={(tj,tb,t,replace=false)=>navigate({tj,tb,t,page:'talents'},false,replace)}/>:state.page==='skills'?<SkillsEncyclopedia jobId={state.skillJob} rank={state.skillRank} query={state.query} selectedId={state.skillId} onChange={(patch,replace=true)=>navigate(patch,false,replace)}/>:<>
     {error&&<div className="empty-state">{error}</div>}
@@ -299,22 +306,42 @@ function App(){
      </section>
      {(state.page==='items'||state.page==='cards')&&<>
       <div className="results-toolbar">
-       <div className="segment"><button className={state.mode==='list'?'on':''} onClick={()=>navigate({mode:'list'})}>依{state.page==='items'?'裝備':'卡片'}看</button><button className={state.mode==='stages'?'on':''} onClick={()=>navigate({mode:'stages'})}>依關卡看</button></div>
+       <div className={'segment'+(state.page==='cards'?' card-view-tabs':'')} role="group" aria-label="瀏覽方式">
+         <button type="button" aria-pressed={state.mode==='list'} className={state.mode==='list'?'on':''} onClick={()=>navigate({mode:'list'})}>依{state.page==='items'?'裝備':'卡片'}看</button>
+         <button type="button" aria-pressed={state.mode==='stages'} className={state.mode==='stages'?'on':''} onClick={()=>navigate({mode:'stages'})}>依關卡看</button>
+         {state.page==='cards'&&<button type="button" aria-pressed={state.mode==='gs'} className={state.mode==='gs'?'on':''} onClick={()=>navigate({mode:'gs'})}>GS 排行</button>}
+        </div>
 
        </div>
-       {state.page==='items'&&<div className="source-visibility"><label className="toggle"><input type="checkbox" checked={state.showUnknown} onChange={e=>navigate({showUnknown:e.target.checked})}/>顯示取得方式未確認的裝備</label><small>{state.showUnknown?'已包含未確認資料':hiddenEquipCount>0?'已隱藏 '+hiddenEquipCount+' 件未核實裝備':'目前沒有被隱藏的裝備'}</small></div>}
-      {state.mode==='list'?<div className="cards-list">
-       {list.slice(0,visibleCount).map(entry=><button className="result-card" key={entry.id} onClick={()=>openDetail(state.page==='items'?'item':'card',entry.id)}>
+       {state.page==='cards'&&state.mode==='gs'&&<div className="gs-ranking-panel">
+         <div className="gs-ranking-heading"><strong>卡片 GS 貢獻排行</strong><span>依卡片對裝備 GS 的貢獻由高至低排列</span></div>
+         <div className="gs-class-options" role="group" aria-label="GS 排行計算類型">
+          {[GS_SCALING_LABELS[0],GS_SCALING_LABELS[2],GS_SCALING_LABELS[1]].filter(item=>Object.hasOwn(catalog.lapRules.scoring.classes,item.id)).map(item=>{
+           const representative=gsRepresentativeJob(catalog.lapRules,item.id);
+           return <button type="button" key={item.id} className={'gs-class-choice'+(gsScalingForJob(catalog.lapRules,state.gsJob)===item.id?' selected':'')}
+            disabled={!representative} aria-pressed={gsScalingForJob(catalog.lapRules,state.gsJob)===item.id}
+            onClick={()=>{if(representative)navigate({gsJob:representative})}}>{item.label}</button>;
+          })}
+         </div>
+         {!gsScalingForJob(catalog.lapRules,state.gsJob)&&<p className="gs-unknown">原分享連結的職業不再有效，請選擇計算類型。</p>}
+         <p className="card-gs-note">分數沿用 HANS 既有權重推算，並非整套裝備 GS；仍待遊戲面板校準。</p>
+        </div>}
+        {state.page==='items'&&<div className="source-visibility"><label className="toggle"><input type="checkbox" checked={state.showUnknown} onChange={e=>navigate({showUnknown:e.target.checked})}/>顯示取得方式未確認的裝備</label><small>{state.showUnknown?'已包含未確認資料':hiddenEquipCount>0?'已隱藏 '+hiddenEquipCount+' 件未核實裝備':'目前沒有被隱藏的裝備'}</small></div>}
+      {state.mode!=='stages'?<div className="cards-list">
+       {list.slice(0,visibleCount).map(entry=><button className={'result-card'+(state.mode==='gs'?' ranked-card':'')} key={entry.id} onClick={()=>openDetail(state.page==='items'?'item':'card',entry.id)}>
         <Artwork kind={state.page==='items'?'item':'card'} entity={entry}/>
         <span className="result-main"><strong>{'slot'in entry?entry.name:cardName(entry,catalog.lapRules,state.lap)}</strong><span className="result-sub">
          <span>{'slot'in entry?(SLOTS[entry.slot]||entry.slot):'卡片｜'+cardSlot(entry)}</span>
          {'slot'in entry&&<TierTag item={entry} stages={stages}/>}
          <span>{'slot'in entry?matchedEffect(entry,state.query,state.attr)||shortStats(entry,3):cardEffects(entry,catalog.lapRules,state.lap).slice(0,3).join(' · ')}</span>
-        </span><small className="result-place">{sourceLine(entry)}</small></span><ChevronRight className="list-arrow" size={18}/>
+        </span><small className="result-place">{sourceLine(entry)}</small></span>{state.mode==='gs'&&state.page==='cards'?<span className="ranking-score" aria-label={'卡片 GS 貢獻 +'+rankedScores.get(entry.id)+' GS'}>+{rankedScores.get(entry.id)}<small>GS</small></span>:<ChevronRight className="list-arrow" size={18}/>}
        </button>)}
        {list.length>visibleCount&&<button type="button" className="load-more" onClick={()=>setVisibleCount(v=>v+40)}>顯示更多（還有 {list.length-visibleCount} 件）</button>}
-       {!list.length&&<div className="search-empty-recovery"><EmptyState>{hiddenEquipCount>0&&state.page==='items'?'找到的裝備目前沒有核實取得方式，可勾選上方選項查看。':'沒有符合條件的裝備或卡片'}</EmptyState>
+       {!list.length&&<div className="search-empty-recovery"><EmptyState>{state.mode==='gs'&&state.page==='cards'
+         ?(cardList.length?(state.source==='raid'&&cardList.some(isRaidOnlyCard)?'純副本版卡片目前不計入 GS 排行。':'目前篩選沒有可計分的卡片。'):'目前沒有符合篩選條件的卡片。')
+         :hiddenEquipCount>0&&state.page==='items'?'找到的裝備目前沒有核實取得方式，可勾選上方選項查看。':'沒有符合條件的裝備或卡片'}</EmptyState>
         <button type="button" className="search-more" onClick={clearSearchFilters}>清除搜尋與篩選</button>
+         {state.mode==='gs'&&<button type="button" className="search-more" onClick={()=>navigate({mode:'list'})}>回依卡片看</button>}
        </div>}
       </div>:<StageBrowser key={state.page} data={catalog} initialKind={state.page==='cards'?'card':'item'} query={state.query} attr={state.attr} stageType={state.stageType} stageChapter={state.stageChapter} onChapterChange={stageChapter=>navigate({stageChapter,stage:null})} onStageTypeChange={stageType=>navigate({stageType,stage:null})} focusedStage={focusedStage} openDetail={openDetail} slot={state.slot} job={state.page==='items'?state.job:'all'} source={state.source} showUnknown={state.showUnknown} lap={state.lap} setLap={lap=>navigate({lap})}/>}
       {state.mode==='list'&&searchActive&&<section className="search-extra">
