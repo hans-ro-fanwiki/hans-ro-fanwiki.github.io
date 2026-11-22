@@ -34,13 +34,23 @@ function compare(release) {
     return Object.keys(values).length ? [{id,name:skill.name,values}] : [];
   });
 }
+function groupByJob(changes) {
+  const changed = new Set(changes.map(skill => skill.id));
+  return current.jobs.flatMap(({id,name,rank,skills}) => {
+    const skillIds = skills.filter(skillId => changed.has(skillId));
+    return skillIds.length ? [{id,name,rank,skillIds}] : [];
+  });
+}
 assert.equal(current.source.sha256,audit.skillsSoul.sha256);
 const output = {
   checkedAt:current.reviewedAt,
-  releases:releases.map(({before,after,...release}) => ({
-    ...release,
-    ...(before && after ? {snapshots:[audit.skillHistory[before-1].date,audit.skillHistory[after-1].date]} : {}),
-    changes:compare({...release,before,after})
-  }))
+  releases:releases.map(({before,after,...release}) => {
+    const changes = compare({...release,before,after});
+    return {
+      ...release,
+      ...(before && after ? {snapshots:[audit.skillHistory[before-1].date,audit.skillHistory[after-1].date]} : {}),
+      changes, jobGroups:groupByJob(changes)
+    };
+  })
 };
 fs.writeFileSync(path.join(root,'public/data/balance.json'),JSON.stringify(output,null,2)+'\n');

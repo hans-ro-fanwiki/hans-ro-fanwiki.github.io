@@ -108,5 +108,15 @@ test('HANS balance releases distinguish announcements from verified snapshot del
  assert.deepEqual(changes(newest,'asura_strike').cooldown,[10,4.9]);
  assert.deepEqual(changes(newest,'call_spirits').baseDamage,[16,54]);
  assert.equal(newest.changes.length,92);
+ for(const release of history.releases){
+  const changeIds=new Set(release.changes.map(change=>change.id));
+  assert.deepEqual(release.jobGroups.map(({id,name,rank,skillIds})=>({id,name,rank,skillIds})),
+   data.jobs.flatMap(({id,name,rank,skills})=>{
+    const skillIds=skills.filter(skillId=>changeIds.has(skillId));
+    return skillIds.length?[{id,name,rank,skillIds}]:[];
+   }));
+  assert.deepEqual(new Set(release.jobGroups.flatMap(job=>job.skillIds)),changeIds);
+ }
+ assert.ok(newest.jobGroups.find(job=>job.id==='monk').skillIds.includes('call_spirits'));
  assert.ok(history.releases.some(entry=>entry.version==='0.8.0'&&!entry.snapshots&&entry.changes.length===0));
 });
