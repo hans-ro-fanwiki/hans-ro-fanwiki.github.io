@@ -16,9 +16,9 @@ import {SkillsEncyclopedia} from './SkillsEncyclopedia';
 import {BalanceHistory} from './BalanceHistory';
 import {equipmentTier} from './tier';
 import {hasConfirmedAcquisition} from './acquisition';
-import {cardEffects,cardId,cardMultiplier,cardName,cardScore,clampLap,gsRepresentativeJob,gsScalingForJob,isRaidOnlyCard,GS_SCALING_LABELS,stageLapInfo,stageTierLabel} from './laps';
+import {cardEffects,cardId,cardMultiplier,cardName,clampLap,gsRepresentativeJob,gsScalingForJob,isRaidOnlyCard,GS_SCALING_LABELS,stageLapInfo,stageTierLabel} from './laps';
 import type {LapRules} from './types';
-import {cardGsContribution,rankCardsByGs} from './card-ranking';
+import {cardGsContribution,isProvisionalGsCard,rankCardsByGs} from './card-ranking';
 import {FestivalNotes,GameNotes} from './game-notes';
 
 type View={page:Page;slot:string;job:string;source:string;query:string;attr:string;mode:'list'|'stages'|'gs';stageType:StageType;stageChapter:StageChapter;lap:number;gsJob:string;showUnknown:boolean;detail:string|null;stage:string|null;tj:string;tb:string;t:string;skillJob:string;skillRank:number;skillId:string|null};
@@ -69,8 +69,8 @@ function pathFor(v:View){
 function Chip({active,children,onClick}:{active:boolean;children:React.ReactNode;onClick:()=>void}){
  return <button type="button" className={'chip '+(active?'selected':'')} aria-pressed={active} onClick={onClick}>{children}</button>;
 }
-function CardGsBadge({score}:{score:number|null}){
- return <span className="ranking-score" aria-label={score===null?'此卡片尚無可計算的 GS':'卡片 GS 貢獻 +'+score+' GS'}>
+function CardGsBadge({score,provisional=false}:{score:number|null;provisional?:boolean}){
+ return <span className="ranking-score" aria-label={score===null?'此卡片尚無可計算的 GS':(provisional?'GS 待確認，試算 +':'卡片 GS 貢獻 +')+score+' GS'}>
   {score===null?'—':'+'+score}<small>GS</small>
  </span>;
 }
@@ -333,17 +333,17 @@ function App(){
           })}
          </div>
          {!gsScalingForJob(catalog.lapRules,state.gsJob)&&<p className="gs-unknown">原分享連結的職業不再有效，請選擇計算類型。</p>}
-         <p className="card-gs-note">分數沿用 HANS 既有權重推算，並非整套裝備 GS；仍待遊戲面板校準。</p>
+         <p className="card-gs-note">分數依 HANS 既有權重推算；歐西里斯卡片另依玩家回報暫套用週目 GS 倍率並標「待確認」，此項與已審核的用戶端公式不同。非整套裝備 GS。</p>
         </div>}
         {state.page==='items'&&<div className="source-visibility"><label className="toggle"><input type="checkbox" checked={state.showUnknown} onChange={e=>navigate({showUnknown:e.target.checked})}/>顯示取得方式未確認的裝備</label><small>{state.showUnknown?'已包含未確認資料':hiddenEquipCount>0?'已隱藏 '+hiddenEquipCount+' 件未核實裝備':'目前沒有被隱藏的裝備'}</small></div>}
       {state.mode!=='stages'?<div className="cards-list">
        {list.slice(0,visibleCount).map(entry=><button className={'result-card'+(state.page==='cards'?' card-with-gs':'')} key={entry.id} onClick={()=>openDetail(state.page==='items'?'item':'card',entry.id)}>
         <Artwork kind={state.page==='items'?'item':'card'} entity={entry}/>
-        <span className="result-main"><strong>{'slot'in entry?entry.name:cardName(entry,catalog.lapRules,state.lap)}</strong><span className="result-sub">
+        <span className="result-main"><strong>{'slot'in entry?entry.name:cardName(entry,catalog.lapRules,state.lap)}{!('slot'in entry)&&isProvisionalGsCard(entry,catalog.lapRules)&&<span className="card-gs-review-label">（GS 待確認）</span>}</strong><span className="result-sub">
          <span>{'slot'in entry?(SLOTS[entry.slot]||entry.slot):'卡片｜'+cardSlot(entry)}</span>
          {'slot'in entry&&<TierTag item={entry} stages={stages}/>}
          <span>{'slot'in entry?matchedEffect(entry,state.query,state.attr)||shortStats(entry,3):cardEffects(entry,catalog.lapRules,state.lap).slice(0,3).join(' · ')}</span>
-        </span><small className="result-place">{sourceLine(entry)}</small></span>{state.page==='cards'?<CardGsBadge score={previewGsScores.get(entry.id)??null}/>:<ChevronRight className="list-arrow" size={18}/>}
+        </span><small className="result-place">{sourceLine(entry)}</small></span>{state.page==='cards'?<CardGsBadge score={previewGsScores.get(entry.id)??null} provisional={!('slot'in entry)&&isProvisionalGsCard(entry,catalog.lapRules)}/>:<ChevronRight className="list-arrow" size={18}/>}
        </button>)}
        {list.length>visibleCount&&<button type="button" className="load-more" onClick={()=>setVisibleCount(v=>v+40)}>顯示更多（還有 {list.length-visibleCount} 件）</button>}
        {!list.length&&<div className="search-empty-recovery"><EmptyState>{state.mode==='gs'&&state.page==='cards'
@@ -508,18 +508,20 @@ function CardDetail({card,rules,lap,setLap,gsJob,setGsJob,stages,monsters,openDe
  stages:Map<string,Stage>;monsters:Map<string,Monster>;openDetail:(kind:Kind,id:string|number)=>void;
 }){
  const raidOnly=isRaidOnlyCard(card);
- const score=raidOnly?null:cardScore(card,rules,lap,gsJob);
+ const score=cardGsContribution(card,rules,lap,gsJob);
+ const provisional=isProvisionalGsCard(card,rules);
  const selectedScaling=gsScalingForJob(rules,gsJob);
  const mult=cardMultiplier(card,rules,lap);
- return <><DetailHero kind="card" entry={card} title={cardName(card,rules,lap)} sub={'鑲嵌部位：'+cardSlot(card)}/>
+ return <><DetailHero kind="card" entry={card} title={cardName(card,rules,lap)+(provisional?'（GS 待確認）':'')} sub={'鑲嵌部位：'+cardSlot(card)}/>
   {!raidOnly&&<>
   <div className="lap-detail"><LapPicker rules={rules} lap={lap} setLap={setLap}/>
-   <div className="lap-meta">卡片 ID：{cardId(card,rules,lap)} · 效果倍率 ×{mult}{rules.noScaleCardIds.includes(card.id)?'（特殊卡片不放大）':''}</div>
+   <div className="lap-meta">卡片 ID：{cardId(card,rules,lap)} · 效果倍率 ×{mult}{provisional?'（官方效果特例：效果不隨週目放大；網站 GS 為待確認試算）':''}</div>
   </div>
   <h3 className="sheet-section">此週目卡片效果</h3>
   <div className="bonus-list">{cardEffects(card,rules,lap).map((value,index)=><span key={index}>{value}</span>)}</div>
   <div className="card-gs-section">
-   <div className="card-gs-title"><h3>卡片 GS 貢獻</h3><strong>{score==null?'尚未確認':'+'+score+' GS'}</strong></div>
+   <div className="card-gs-title"><h3>卡片 GS 貢獻{provisional?'（待確認試算）':''}</h3><strong>{score==null?'尚未確認':'+'+score+' GS'}</strong></div>
+   {provisional&&<p className="card-gs-note">依玩家回報暫將一週目 GS ×{rules.multipliers[clampLap(lap,rules.max)-1]} 顯示為 +{score} GS。此試算與已核對的 HANS 用戶端不放大規則不同；實際分數待遊戲內面板確認。卡片效果仍依 HANS 登錄維持 ×1。</p>}
    <div className="gs-class-picker" role="group" aria-label="卡片 GS 計算類型">
     <span className="gs-class-label">計算類型</span>
     <div className="gs-class-options">

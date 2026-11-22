@@ -184,3 +184,4 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {
 .gs-ranking-panel{background:#1b2b30;border-color:var(--wiki-border)}
 .gs-ranking-heading strong,.ranking-score{color:#a5e8c7}
 .gs-ranking-heading span{color:var(--wiki-muted)}
+.card-gs-review-label{color:#f0c78a}
