@@ -3,8 +3,9 @@
   "schemaVersion": 1,
   "reviewedAt": "2026-11-22",
   "source": {
-    "sha256": "5fc13f413d9ac83cbccc8292617ecb3a08576056a21967d38021cd115114c1eb",
-    "relativeFile": "soul_linker-DllBVIRO.hz0a1e5bb6.js"
+    "sha256": "4d781fd506ee8b7bc8abbd3eca504005344aa160ce6e7b1a67695b99daecb81b",
+    "relativeFile": "soul_linker-DllBVIRO.hz3fff5554.js",
+    "version": "0.14.5"
   },
   "policy": "HANS audited skill registry and reviewed Traditional Chinese summaries. Base values exclude character and talent modifiers.",
   "jobs": [
@@ -1635,8 +1636,8 @@
       "upgradeDescription": "+20% 傷害。",
       "descriptionSource": "hans-registered",
       "translationState": "official-zh",
-      "cooldown": 5,
-      "baseDamage": 78,
+      "cooldown": 4,
+      "baseDamage": 311,
       "type": "single",
       "tags": [
         "ranged_strike",
@@ -2029,8 +2030,8 @@
       "upgradeDescription": "+20% 傷害。",
       "descriptionSource": "hans-registered",
       "translationState": "official-zh",
-      "cooldown": 10,
-      "baseDamage": null,
+      "cooldown": 8,
+      "baseDamage": 493,
       "type": "single",
       "tags": [
         "single",
@@ -2988,8 +2989,8 @@
       "upgradeDescription": "+20% 傷害。",
       "descriptionSource": "hans-registered",
       "translationState": "official-zh",
-      "cooldown": 15,
-      "baseDamage": 300,
+      "cooldown": 10,
+      "baseDamage": 1200,
       "type": "single",
       "tags": [
         "ranged_strike",
@@ -3199,7 +3200,7 @@
       "descriptionSource": "hans-registered",
       "translationState": "official-zh",
       "cooldown": 9,
-      "baseDamage": 55,
+      "baseDamage": 83,
       "type": "aoe",
       "tags": [
         "ranged_strike",
@@ -5202,7 +5203,7 @@
       "descriptionSource": "hans-registered",
       "translationState": "official-zh",
       "cooldown": 3.5,
-      "baseDamage": 70,
+      "baseDamage": 105,
       "type": null,
       "tags": [],
       "cast": [],
@@ -5240,7 +5241,7 @@
       "descriptionSource": "hans-registered",
       "translationState": "official-zh",
       "cooldown": 1,
-      "baseDamage": null,
+      "baseDamage": 20,
       "type": null,
       "tags": [],
       "cast": [],

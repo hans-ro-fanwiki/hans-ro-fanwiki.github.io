@@ -20,7 +20,7 @@ export interface SkillJob {
 }
 export interface SkillCatalog{
  server:'hans';schemaVersion:1;reviewedAt:string;
- source:{sha256:string;relativeFile:string};policy:string;
+ source:{sha256:string;relativeFile:string;version?:string};policy:string;
  jobs:SkillJob[];skills:Skill[];
 }
 export const RANK_LABELS:Record<number,string>={1:'一轉',2:'二轉',3:'三轉'};

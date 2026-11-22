@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {test} from 'node:test';
-import {careerRoutes,routeForJob,routeForSkill,jobsForSelection,searchSkillName} from '../src/skills.ts';
+import {skillAncestors,careerRoutes,routeForJob,routeForSkill,jobsForSelection,searchSkillName} from '../src/skills.ts';
 
 const data=JSON.parse(readFileSync(new URL('../public/data/skills.json',import.meta.url),'utf8'));
 const talents=JSON.parse(readFileSync(new URL('../public/data/talents.json',import.meta.url),'utf8'));
@@ -107,16 +107,31 @@ test('HANS balance releases distinguish announcements from verified snapshot del
  assert.deepEqual(changes(earlier,'asura_strike').cooldown,[22,10]);
  assert.deepEqual(changes(newest,'asura_strike').cooldown,[10,4.9]);
  assert.deepEqual(changes(newest,'call_spirits').baseDamage,[16,54]);
- assert.equal(newest.changes.length,92);
+ assert.equal(newest.changes.length,93);
+ const current=history.releases[0];
+ assert.equal(current.version,'0.14.5');
+ assert.deepEqual(current.snapshots,['V0.14.4','V0.14.5']);
+ assert.equal(current.changes.length,6);
+ assert.equal(current.families.length,9);
+ assert.equal(current.families.flatMap(family=>family.jobs).filter(job=>job.damage).length,29);
+ assert.deepEqual(changes(current,'triple_action').baseDamage,[16,20]);
+ assert.deepEqual(changes(current,'dragon_tail'),{cooldown:[10,8],baseDamage:[280,493]});
+ assert.deepEqual(changes(current,'hammer_of_god'),{cooldown:[15,10],baseDamage:[300,1200]});
+ assert.ok(newest.families.find(family=>family.id==='acolyte').jobs.find(job=>job.id==='monk').skillIds.includes('call_spirits'));
+ const roots=new Set(data.jobs.filter(job=>job.rank===1).map(job=>job.id));
  for(const release of history.releases){
   const changeIds=new Set(release.changes.map(change=>change.id));
-  assert.deepEqual(release.jobGroups.map(({id,name,rank,skillIds})=>({id,name,rank,skillIds})),
-   data.jobs.flatMap(({id,name,rank,skills})=>{
-    const skillIds=skills.filter(skillId=>changeIds.has(skillId));
-    return skillIds.length?[{id,name,rank,skillIds}]:[];
-   }));
-  assert.deepEqual(new Set(release.jobGroups.flatMap(job=>job.skillIds)),changeIds);
+  const referenced=new Set();
+  for(const family of release.families){
+   assert.ok(roots.has(family.id));
+   for(const job of family.jobs){
+    const registry=data.jobs.find(entry=>entry.id===job.id);
+    assert.ok(skillAncestors(job.id,data.jobs).has(family.id));
+    assert.deepEqual(job.skillIds,registry.skills.filter(skillId=>changeIds.has(skillId)));
+    for(const skillId of job.skillIds)referenced.add(skillId);
+   }
+  }
+  assert.deepEqual(referenced,changeIds);
  }
- assert.ok(newest.jobGroups.find(job=>job.id==='monk').skillIds.includes('call_spirits'));
  assert.ok(history.releases.some(entry=>entry.version==='0.8.0'&&!entry.snapshots&&entry.changes.length===0));
 });

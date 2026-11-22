@@ -2,6 +2,464 @@
   "checkedAt": "2026-11-22",
   "releases": [
     {
+      "version": "0.14.5",
+      "date": "2026-11-22",
+      "title": "職業傷害與槍手系補強",
+      "notes": [
+        "HANS 調整各職業的整體傷害。倍率涵蓋普攻、技能和持續傷害，也適用於 PvP 與公會戰。",
+        "槍械普攻改為和弓一樣套用完整攻擊力。神槍手及叛亂者另有技能傷害或冷卻調整。"
+      ],
+      "snapshots": [
+        "V0.14.4",
+        "V0.14.5"
+      ],
+      "changes": [
+        {
+          "id": "crimson_marker",
+          "name": "緋紅標記",
+          "values": {
+            "cooldown": [
+              5,
+              4
+            ],
+            "baseDamage": [
+              78,
+              311
+            ]
+          }
+        },
+        {
+          "id": "dragon_tail",
+          "name": "龍尾",
+          "values": {
+            "cooldown": [
+              10,
+              8
+            ],
+            "baseDamage": [
+              280,
+              493
+            ]
+          }
+        },
+        {
+          "id": "hammer_of_god",
+          "name": "神之雷鎚",
+          "values": {
+            "cooldown": [
+              15,
+              10
+            ],
+            "baseDamage": [
+              300,
+              1200
+            ]
+          }
+        },
+        {
+          "id": "howling_mine",
+          "name": "嚎叫地雷",
+          "values": {
+            "baseDamage": [
+              55,
+              83
+            ]
+          }
+        },
+        {
+          "id": "tracking",
+          "name": "百步穿楊",
+          "values": {
+            "baseDamage": [
+              70,
+              105
+            ]
+          }
+        },
+        {
+          "id": "triple_action",
+          "name": "三連攻擊",
+          "values": {
+            "baseDamage": [
+              16,
+              20
+            ]
+          }
+        }
+      ],
+      "families": [
+        {
+          "id": "swordsman",
+          "name": "劍士系",
+          "jobs": [
+            {
+              "id": "swordsman",
+              "name": "劍士",
+              "rank": 1,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.35
+              ]
+            },
+            {
+              "id": "knight",
+              "name": "騎士",
+              "rank": 2,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.02
+              ]
+            },
+            {
+              "id": "crusader",
+              "name": "十字軍",
+              "rank": 2,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.29
+              ]
+            },
+            {
+              "id": "royal_guard",
+              "name": "皇家禁衛隊",
+              "rank": 3,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.5
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mage",
+          "name": "魔法師系",
+          "jobs": [
+            {
+              "id": "wizard",
+              "name": "巫師",
+              "rank": 2,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.23
+              ]
+            },
+            {
+              "id": "sorcerer",
+              "name": "妖術師",
+              "rank": 3,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.06
+              ]
+            },
+            {
+              "id": "warlock",
+              "name": "咒術士",
+              "rank": 3,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.26
+              ]
+            }
+          ]
+        },
+        {
+          "id": "archer",
+          "name": "弓箭手系",
+          "jobs": [
+            {
+              "id": "archer",
+              "name": "弓箭手",
+              "rank": 1,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.43
+              ]
+            },
+            {
+              "id": "hunter",
+              "name": "獵人",
+              "rank": 2,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.15
+              ]
+            },
+            {
+              "id": "bard",
+              "name": "吟遊詩人 / 舞孃",
+              "rank": 2,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.58
+              ]
+            },
+            {
+              "id": "minstrel",
+              "name": "宮廷樂師／浪姬舞者",
+              "rank": 3,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.23
+              ]
+            }
+          ]
+        },
+        {
+          "id": "acolyte",
+          "name": "服事系",
+          "jobs": [
+            {
+              "id": "acolyte",
+              "name": "服事",
+              "rank": 1,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.21
+              ]
+            },
+            {
+              "id": "priest",
+              "name": "祭司",
+              "rank": 2,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.48
+              ]
+            },
+            {
+              "id": "monk",
+              "name": "武道家",
+              "rank": 2,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.42
+              ]
+            },
+            {
+              "id": "arch_bishop",
+              "name": "大主教",
+              "rank": 3,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.1
+              ]
+            },
+            {
+              "id": "sura",
+              "name": "修羅",
+              "rank": 3,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.12
+              ]
+            }
+          ]
+        },
+        {
+          "id": "thief",
+          "name": "盜賊系",
+          "jobs": [
+            {
+              "id": "thief",
+              "name": "盜賊",
+              "rank": 1,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.52
+              ]
+            },
+            {
+              "id": "assassin",
+              "name": "刺客",
+              "rank": 2,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.47
+              ]
+            },
+            {
+              "id": "rogue",
+              "name": "流氓",
+              "rank": 2,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.23
+              ]
+            },
+            {
+              "id": "guillotine_cross",
+              "name": "十字斬首者",
+              "rank": 3,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.34
+              ]
+            }
+          ]
+        },
+        {
+          "id": "merchant",
+          "name": "商人系",
+          "jobs": [
+            {
+              "id": "merchant",
+              "name": "商人",
+              "rank": 1,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.43
+              ]
+            },
+            {
+              "id": "blacksmith",
+              "name": "鐵匠",
+              "rank": 2,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.2
+              ]
+            },
+            {
+              "id": "alchemist",
+              "name": "鍊金術師",
+              "rank": 2,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.14
+              ]
+            }
+          ]
+        },
+        {
+          "id": "taekwon",
+          "name": "跆拳少年系",
+          "jobs": [
+            {
+              "id": "taekwon",
+              "name": "跆拳少年",
+              "rank": 1,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.5
+              ]
+            },
+            {
+              "id": "star_gladiator",
+              "name": "拳聖",
+              "rank": 2,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.54
+              ]
+            },
+            {
+              "id": "soul_reaper",
+              "name": "獵靈士",
+              "rank": 3,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.14
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ninja",
+          "name": "忍者系",
+          "jobs": [
+            {
+              "id": "ninja",
+              "name": "忍者",
+              "rank": 1,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.27
+              ]
+            },
+            {
+              "id": "kagerou_rank3",
+              "name": "影狼／朧（三轉）",
+              "rank": 3,
+              "skillIds": [],
+              "damage": [
+                1,
+                1.41
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gunslinger",
+          "name": "神槍手系",
+          "jobs": [
+            {
+              "id": "gunslinger",
+              "name": "神槍手",
+              "rank": 1,
+              "skillIds": [
+                "triple_action",
+                "tracking"
+              ],
+              "damage": [
+                1,
+                1.11
+              ]
+            },
+            {
+              "id": "rebellion",
+              "name": "叛亂者",
+              "rank": 2,
+              "skillIds": [
+                "crimson_marker",
+                "dragon_tail",
+                "hammer_of_god",
+                "howling_mine"
+              ]
+            },
+            {
+              "id": "rebellion_rank3",
+              "name": "反叛者（三轉）",
+              "rank": 3,
+              "skillIds": [
+                "crimson_marker",
+                "dragon_tail",
+                "hammer_of_god",
+                "howling_mine"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "version": "0.14.3",
       "date": "2026-11-21",
       "title": "二轉、三轉技能與天賦平衡",
@@ -933,6 +1391,16 @@
           }
         },
         {
+          "id": "triple_action",
+          "name": "三連攻擊",
+          "values": {
+            "baseDamage": [
+              12,
+              16
+            ]
+          }
+        },
+        {
           "id": "varetyr_spear",
           "name": "瓦雷特之矛",
           "values": {
@@ -981,354 +1449,409 @@
           }
         }
       ],
-      "jobGroups": [
+      "families": [
         {
-          "id": "knight",
-          "name": "騎士",
-          "rank": 2,
-          "skillIds": [
-            "brandish_spear",
-            "pierce",
-            "spear_boomerang",
-            "auto_counter"
+          "id": "swordsman",
+          "name": "劍士系",
+          "jobs": [
+            {
+              "id": "knight",
+              "name": "騎士",
+              "rank": 2,
+              "skillIds": [
+                "brandish_spear",
+                "pierce",
+                "spear_boomerang",
+                "auto_counter"
+              ]
+            },
+            {
+              "id": "crusader",
+              "name": "十字軍",
+              "rank": 2,
+              "skillIds": [
+                "holy_cross",
+                "grand_cross",
+                "shield_boomerang"
+              ]
+            },
+            {
+              "id": "royal_guard",
+              "name": "皇家禁衛隊",
+              "rank": 3,
+              "skillIds": [
+                "cannon_spear",
+                "shield_press",
+                "earth_drive",
+                "genesis_ray"
+              ]
+            },
+            {
+              "id": "rune_knight",
+              "name": "盧恩騎士",
+              "rank": 3,
+              "skillIds": [
+                "ignition_break",
+                "hundred_spear",
+                "wind_cutter"
+              ]
+            }
           ]
         },
         {
-          "id": "crusader",
-          "name": "十字軍",
-          "rank": 2,
-          "skillIds": [
-            "holy_cross",
-            "grand_cross",
-            "shield_boomerang"
+          "id": "mage",
+          "name": "魔法師系",
+          "jobs": [
+            {
+              "id": "wizard",
+              "name": "巫師",
+              "rank": 2,
+              "skillIds": [
+                "meteor_storm",
+                "fire_pillar",
+                "frost_nova",
+                "storm_gust",
+                "jupitel_thunder",
+                "lord_of_vermilion"
+              ]
+            },
+            {
+              "id": "sorcerer",
+              "name": "妖術師",
+              "rank": 3,
+              "skillIds": [
+                "varetyr_spear",
+                "psychic_wave",
+                "diamond_dust"
+              ]
+            },
+            {
+              "id": "warlock",
+              "name": "咒術士",
+              "rank": 3,
+              "skillIds": [
+                "comet",
+                "crimson_rock",
+                "summon_spheres",
+                "tetra_vortex",
+                "jack_frost"
+              ]
+            }
           ]
         },
         {
-          "id": "wizard",
-          "name": "巫師",
-          "rank": 2,
-          "skillIds": [
-            "meteor_storm",
-            "fire_pillar",
-            "frost_nova",
-            "storm_gust",
-            "jupitel_thunder",
-            "lord_of_vermilion"
+          "id": "archer",
+          "name": "弓箭手系",
+          "jobs": [
+            {
+              "id": "hunter",
+              "name": "獵人",
+              "rank": 2,
+              "skillIds": [
+                "blitz_beat",
+                "beast_strafing",
+                "phantasmic_arrow"
+              ]
+            },
+            {
+              "id": "bard",
+              "name": "吟遊詩人 / 舞孃",
+              "rank": 2,
+              "skillIds": [
+                "arrow_vulcan",
+                "dissonance"
+              ]
+            },
+            {
+              "id": "minstrel",
+              "name": "宮廷樂師／浪姬舞者",
+              "rank": 3,
+              "skillIds": [
+                "severe_rainstorm",
+                "metallic_sound"
+              ]
+            },
+            {
+              "id": "ranger",
+              "name": "遊俠",
+              "rank": 3,
+              "skillIds": [
+                "cluster_bomb",
+                "aimed_bolt"
+              ]
+            }
           ]
         },
         {
-          "id": "hunter",
-          "name": "獵人",
-          "rank": 2,
-          "skillIds": [
-            "blitz_beat",
-            "beast_strafing",
-            "phantasmic_arrow"
-          ]
-        },
-        {
-          "id": "bard",
-          "name": "吟遊詩人 / 舞孃",
-          "rank": 2,
-          "skillIds": [
-            "arrow_vulcan",
-            "dissonance"
-          ]
-        },
-        {
-          "id": "priest",
-          "name": "祭司",
-          "rank": 2,
-          "skillIds": [
-            "benedictio",
-            "magnus_exorcismus"
-          ]
-        },
-        {
-          "id": "monk",
-          "name": "武道家",
-          "rank": 2,
-          "skillIds": [
-            "call_spirits",
-            "finger_offensive",
-            "chain_combo",
-            "combo_finish",
-            "asura_strike"
+          "id": "acolyte",
+          "name": "服事系",
+          "jobs": [
+            {
+              "id": "priest",
+              "name": "祭司",
+              "rank": 2,
+              "skillIds": [
+                "benedictio",
+                "magnus_exorcismus"
+              ]
+            },
+            {
+              "id": "monk",
+              "name": "武道家",
+              "rank": 2,
+              "skillIds": [
+                "call_spirits",
+                "finger_offensive",
+                "chain_combo",
+                "combo_finish",
+                "asura_strike"
+              ]
+            },
+            {
+              "id": "arch_bishop",
+              "name": "大主教",
+              "rank": 3,
+              "skillIds": [
+                "adoramus",
+                "judex"
+              ]
+            },
+            {
+              "id": "sura",
+              "name": "修羅",
+              "rank": 3,
+              "skillIds": [
+                "skynet_blow",
+                "rampage_blaster",
+                "tiger_cannon",
+                "knuckle_arrow"
+              ]
+            }
           ]
         },
         {
           "id": "thief",
-          "name": "盜賊",
-          "rank": 1,
-          "skillIds": [
-            "envenom",
-            "fan_of_knives"
-          ]
-        },
-        {
-          "id": "assassin",
-          "name": "刺客",
-          "rank": 2,
-          "skillIds": [
-            "sonic_blow",
-            "grimtooth",
-            "venom_knife"
-          ]
-        },
-        {
-          "id": "rogue",
-          "name": "流氓",
-          "rank": 2,
-          "skillIds": [
-            "raid",
-            "intimidate",
-            "steal_coin"
+          "name": "盜賊系",
+          "jobs": [
+            {
+              "id": "thief",
+              "name": "盜賊",
+              "rank": 1,
+              "skillIds": [
+                "envenom",
+                "fan_of_knives"
+              ]
+            },
+            {
+              "id": "assassin",
+              "name": "刺客",
+              "rank": 2,
+              "skillIds": [
+                "sonic_blow",
+                "grimtooth",
+                "venom_knife"
+              ]
+            },
+            {
+              "id": "rogue",
+              "name": "流氓",
+              "rank": 2,
+              "skillIds": [
+                "raid",
+                "intimidate",
+                "steal_coin"
+              ]
+            },
+            {
+              "id": "guillotine_cross",
+              "name": "十字斬首者",
+              "rank": 3,
+              "skillIds": [
+                "rolling_cutter",
+                "cross_ripper_slasher",
+                "cross_impact",
+                "dark_claw"
+              ]
+            },
+            {
+              "id": "shadow_chaser",
+              "name": "魅影追蹤者",
+              "rank": 3,
+              "skillIds": [
+                "triangle_shot"
+              ]
+            }
           ]
         },
         {
           "id": "merchant",
-          "name": "商人",
-          "rank": 1,
-          "skillIds": [
-            "mammonite",
-            "cart_revolution"
-          ]
-        },
-        {
-          "id": "blacksmith",
-          "name": "鐵匠",
-          "rank": 2,
-          "skillIds": [
-            "axe_boomerang",
-            "greed",
-            "ore_discovery"
-          ]
-        },
-        {
-          "id": "alchemist",
-          "name": "鍊金術師",
-          "rank": 2,
-          "skillIds": [
-            "acid_terror"
+          "name": "商人系",
+          "jobs": [
+            {
+              "id": "merchant",
+              "name": "商人",
+              "rank": 1,
+              "skillIds": [
+                "mammonite",
+                "cart_revolution"
+              ]
+            },
+            {
+              "id": "blacksmith",
+              "name": "鐵匠",
+              "rank": 2,
+              "skillIds": [
+                "axe_boomerang",
+                "greed",
+                "ore_discovery"
+              ]
+            },
+            {
+              "id": "alchemist",
+              "name": "鍊金術師",
+              "rank": 2,
+              "skillIds": [
+                "acid_terror"
+              ]
+            },
+            {
+              "id": "genetic",
+              "name": "基因學者",
+              "rank": 3,
+              "skillIds": [
+                "cart_cannon",
+                "cart_tornado",
+                "spore_explosion",
+                "acid_demonstration"
+              ]
+            },
+            {
+              "id": "mechanic",
+              "name": "機械工匠",
+              "rank": 3,
+              "skillIds": [
+                "arms_cannon",
+                "vulcan_arm"
+              ]
+            }
           ]
         },
         {
           "id": "taekwon",
-          "name": "跆拳少年",
-          "rank": 1,
-          "skillIds": [
-            "tornado_kick",
-            "heel_drop",
-            "roundhouse",
-            "counter_kick"
-          ]
-        },
-        {
-          "id": "star_gladiator",
-          "name": "拳聖",
-          "rank": 2,
-          "skillIds": [
-            "solar_burst",
-            "falling_star"
-          ]
-        },
-        {
-          "id": "soul_linker",
-          "name": "悟靈士",
-          "rank": 2,
-          "skillIds": [
-            "estin",
-            "estun"
+          "name": "跆拳少年系",
+          "jobs": [
+            {
+              "id": "taekwon",
+              "name": "跆拳少年",
+              "rank": 1,
+              "skillIds": [
+                "tornado_kick",
+                "heel_drop",
+                "roundhouse",
+                "counter_kick"
+              ]
+            },
+            {
+              "id": "star_gladiator",
+              "name": "拳聖",
+              "rank": 2,
+              "skillIds": [
+                "solar_burst",
+                "falling_star"
+              ]
+            },
+            {
+              "id": "soul_linker",
+              "name": "悟靈士",
+              "rank": 2,
+              "skillIds": [
+                "estin",
+                "estun"
+              ]
+            },
+            {
+              "id": "soul_reaper",
+              "name": "獵靈士",
+              "rank": 3,
+              "skillIds": [
+                "espa"
+              ]
+            },
+            {
+              "id": "star_emperor",
+              "name": "星帝",
+              "rank": 3,
+              "skillIds": [
+                "prominence_kick"
+              ]
+            }
           ]
         },
         {
           "id": "ninja",
-          "name": "忍者",
-          "rank": 1,
-          "skillIds": [
-            "huuma"
-          ]
-        },
-        {
-          "id": "kagerou",
-          "name": "影狼 / 朧",
-          "rank": 2,
-          "skillIds": [
-            "swirling_petal",
-            "kunai_splash"
+          "name": "忍者系",
+          "jobs": [
+            {
+              "id": "ninja",
+              "name": "忍者",
+              "rank": 1,
+              "skillIds": [
+                "huuma"
+              ]
+            },
+            {
+              "id": "kagerou",
+              "name": "影狼 / 朧",
+              "rank": 2,
+              "skillIds": [
+                "swirling_petal",
+                "kunai_splash"
+              ]
+            },
+            {
+              "id": "kagerou_rank3",
+              "name": "影狼／朧（三轉）",
+              "rank": 3,
+              "skillIds": [
+                "swirling_petal",
+                "kunai_splash"
+              ]
+            }
           ]
         },
         {
           "id": "gunslinger",
-          "name": "神槍手",
-          "rank": 1,
-          "skillIds": [
-            "desperado"
-          ]
-        },
-        {
-          "id": "rebellion",
-          "name": "叛亂者",
-          "rank": 2,
-          "skillIds": [
-            "fire_dance",
-            "round_trip",
-            "crimson_marker"
-          ]
-        },
-        {
-          "id": "arch_bishop",
-          "name": "大主教",
-          "rank": 3,
-          "skillIds": [
-            "adoramus",
-            "judex"
-          ]
-        },
-        {
-          "id": "genetic",
-          "name": "基因學者",
-          "rank": 3,
-          "skillIds": [
-            "cart_cannon",
-            "cart_tornado",
-            "spore_explosion",
-            "acid_demonstration"
-          ]
-        },
-        {
-          "id": "guillotine_cross",
-          "name": "十字斬首者",
-          "rank": 3,
-          "skillIds": [
-            "rolling_cutter",
-            "cross_ripper_slasher",
-            "cross_impact",
-            "dark_claw"
-          ]
-        },
-        {
-          "id": "kagerou_rank3",
-          "name": "影狼／朧（三轉）",
-          "rank": 3,
-          "skillIds": [
-            "swirling_petal",
-            "kunai_splash"
-          ]
-        },
-        {
-          "id": "mechanic",
-          "name": "機械工匠",
-          "rank": 3,
-          "skillIds": [
-            "arms_cannon",
-            "vulcan_arm"
-          ]
-        },
-        {
-          "id": "minstrel",
-          "name": "宮廷樂師／浪姬舞者",
-          "rank": 3,
-          "skillIds": [
-            "severe_rainstorm",
-            "metallic_sound"
-          ]
-        },
-        {
-          "id": "ranger",
-          "name": "遊俠",
-          "rank": 3,
-          "skillIds": [
-            "cluster_bomb",
-            "aimed_bolt"
-          ]
-        },
-        {
-          "id": "rebellion_rank3",
-          "name": "反叛者（三轉）",
-          "rank": 3,
-          "skillIds": [
-            "fire_dance",
-            "round_trip",
-            "crimson_marker"
-          ]
-        },
-        {
-          "id": "royal_guard",
-          "name": "皇家禁衛隊",
-          "rank": 3,
-          "skillIds": [
-            "cannon_spear",
-            "shield_press",
-            "earth_drive",
-            "genesis_ray"
-          ]
-        },
-        {
-          "id": "rune_knight",
-          "name": "盧恩騎士",
-          "rank": 3,
-          "skillIds": [
-            "ignition_break",
-            "hundred_spear",
-            "wind_cutter"
-          ]
-        },
-        {
-          "id": "shadow_chaser",
-          "name": "魅影追蹤者",
-          "rank": 3,
-          "skillIds": [
-            "triangle_shot"
-          ]
-        },
-        {
-          "id": "sorcerer",
-          "name": "妖術師",
-          "rank": 3,
-          "skillIds": [
-            "varetyr_spear",
-            "psychic_wave",
-            "diamond_dust"
-          ]
-        },
-        {
-          "id": "soul_reaper",
-          "name": "獵靈士",
-          "rank": 3,
-          "skillIds": [
-            "espa"
-          ]
-        },
-        {
-          "id": "star_emperor",
-          "name": "星帝",
-          "rank": 3,
-          "skillIds": [
-            "prominence_kick"
-          ]
-        },
-        {
-          "id": "sura",
-          "name": "修羅",
-          "rank": 3,
-          "skillIds": [
-            "skynet_blow",
-            "rampage_blaster",
-            "tiger_cannon",
-            "knuckle_arrow"
-          ]
-        },
-        {
-          "id": "warlock",
-          "name": "咒術士",
-          "rank": 3,
-          "skillIds": [
-            "comet",
-            "crimson_rock",
-            "summon_spheres",
-            "tetra_vortex",
-            "jack_frost"
+          "name": "神槍手系",
+          "jobs": [
+            {
+              "id": "gunslinger",
+              "name": "神槍手",
+              "rank": 1,
+              "skillIds": [
+                "triple_action",
+                "desperado"
+              ]
+            },
+            {
+              "id": "rebellion",
+              "name": "叛亂者",
+              "rank": 2,
+              "skillIds": [
+                "fire_dance",
+                "round_trip",
+                "crimson_marker"
+              ]
+            },
+            {
+              "id": "rebellion_rank3",
+              "name": "反叛者（三轉）",
+              "rank": 3,
+              "skillIds": [
+                "fire_dance",
+                "round_trip",
+                "crimson_marker"
+              ]
+            }
           ]
         }
       ]
@@ -1479,74 +2002,110 @@
           }
         }
       ],
-      "jobGroups": [
+      "families": [
         {
-          "id": "knight",
-          "name": "騎士",
-          "rank": 2,
-          "skillIds": [
-            "brandish_spear"
+          "id": "swordsman",
+          "name": "劍士系",
+          "jobs": [
+            {
+              "id": "knight",
+              "name": "騎士",
+              "rank": 2,
+              "skillIds": [
+                "brandish_spear"
+              ]
+            },
+            {
+              "id": "crusader",
+              "name": "十字軍",
+              "rank": 2,
+              "skillIds": [
+                "holy_cross",
+                "grand_cross"
+              ]
+            }
           ]
         },
         {
-          "id": "crusader",
-          "name": "十字軍",
-          "rank": 2,
-          "skillIds": [
-            "holy_cross",
-            "grand_cross"
+          "id": "mage",
+          "name": "魔法師系",
+          "jobs": [
+            {
+              "id": "sage",
+              "name": "賢者",
+              "rank": 2,
+              "skillIds": [
+                "heavens_drive"
+              ]
+            }
           ]
         },
         {
-          "id": "sage",
-          "name": "賢者",
-          "rank": 2,
-          "skillIds": [
-            "heavens_drive"
+          "id": "acolyte",
+          "name": "服事系",
+          "jobs": [
+            {
+              "id": "monk",
+              "name": "武道家",
+              "rank": 2,
+              "skillIds": [
+                "call_spirits",
+                "finger_offensive",
+                "asura_strike"
+              ]
+            }
           ]
         },
         {
-          "id": "monk",
-          "name": "武道家",
-          "rank": 2,
-          "skillIds": [
-            "call_spirits",
-            "finger_offensive",
-            "asura_strike"
+          "id": "thief",
+          "name": "盜賊系",
+          "jobs": [
+            {
+              "id": "rogue",
+              "name": "流氓",
+              "rank": 2,
+              "skillIds": [
+                "raid",
+                "intimidate",
+                "steal_coin"
+              ]
+            }
           ]
         },
         {
-          "id": "rogue",
-          "name": "流氓",
-          "rank": 2,
-          "skillIds": [
-            "raid",
-            "intimidate",
-            "steal_coin"
+          "id": "merchant",
+          "name": "商人系",
+          "jobs": [
+            {
+              "id": "blacksmith",
+              "name": "鐵匠",
+              "rank": 2,
+              "skillIds": [
+                "rush_quake"
+              ]
+            },
+            {
+              "id": "alchemist",
+              "name": "鍊金術師",
+              "rank": 2,
+              "skillIds": [
+                "potion_pitcher"
+              ]
+            }
           ]
         },
         {
-          "id": "blacksmith",
-          "name": "鐵匠",
-          "rank": 2,
-          "skillIds": [
-            "rush_quake"
-          ]
-        },
-        {
-          "id": "alchemist",
-          "name": "鍊金術師",
-          "rank": 2,
-          "skillIds": [
-            "potion_pitcher"
-          ]
-        },
-        {
-          "id": "star_gladiator",
-          "name": "拳聖",
-          "rank": 2,
-          "skillIds": [
-            "full_moon_kick"
+          "id": "taekwon",
+          "name": "跆拳少年系",
+          "jobs": [
+            {
+              "id": "star_gladiator",
+              "name": "拳聖",
+              "rank": 2,
+              "skillIds": [
+                "full_moon_kick"
+              ]
+            }
           ]
         }
       ]
@@ -1560,7 +2119,7 @@
         "雙手武器與弓的裝備分數倍率 ×1.3 → ×1.75。小王和 MVP 卡片分數保底為 20 和 30，改版卡依週目倍率提高。"
       ],
       "changes": [],
-      "jobGroups": []
+      "families": []
     },
     {
       "version": "0.13.3",
@@ -1572,7 +2131,7 @@
         "跆拳專用武器攻擊力約 ×1.46。雙手武器與弓的裝備分數乘 ×1.3，插卡一併計入。"
       ],
       "changes": [],
-      "jobGroups": []
+      "families": []
     },
     {
       "version": "0.12.3",
@@ -1582,7 +2141,7 @@
         "組隊時，多項原本大多只作用於自己的輔助技能開始惠及附近隊友，包括神威祈福、聖母之頌歌、化學保護和天使之賜福。藥水投擲也可以治療附近隊友。"
       ],
       "changes": [],
-      "jobGroups": []
+      "families": []
     },
     {
       "version": "0.10.0",
@@ -1592,7 +2151,7 @@
         "二、三轉開放使用拳刃、書、拳套、樂器與鞭子等二轉武器。刺客與十字斬首者的雙刀效果修正，悟靈士與獵靈士可以裝備杖。"
       ],
       "changes": [],
-      "jobGroups": []
+      "families": []
     },
     {
       "version": "0.9.3",
@@ -1602,7 +2161,7 @@
         "騎士騎兵及十字軍第一棵天賦樹的第 2 排門檻由 5 降到 2 點，第 5 排由 20 降到 19 點。"
       ],
       "changes": [],
-      "jobGroups": []
+      "families": []
     },
     {
       "version": "0.8.0",
@@ -1612,7 +2171,7 @@
         "開放 16 個三轉職業，同時調整三轉技能強度與忍者一轉的 HP、五項技能傷害。公告沒有逐技能列出倍率。"
       ],
       "changes": [],
-      "jobGroups": []
+      "families": []
     }
   ]
 }

@@ -180,7 +180,7 @@ export function SkillsEncyclopedia({jobId,rank,query,selectedId,onChange}:Props)
         <span className="sk-result-copy"><strong>{skill.name}</strong><small>{skill.description||skill.originalName}{skill.cooldown!==null?' · 冷卻 '+skill.cooldown+'s':''}</small></span>
         <ChevronDown size={18} className={selectedId===skill.id?'sk-rotated':''}/>
        </button>
-       {selectedId===skill.id&&<SkillDetail skill={skill} reviewedAt={data.reviewedAt}/>}
+       {selectedId===skill.id&&<SkillDetail skill={skill} reviewedAt={data.source.version ? data.reviewedAt+" · V"+data.source.version : data.reviewedAt}/>}
       </div>)}
      </div>
     </section>)}

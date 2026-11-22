@@ -1,5 +1,47 @@
 [
   {
+    "version": "0.14.5",
+    "date": "2026-11-22",
+    "title": "職業傷害與槍手系補強",
+    "notes": [
+      "HANS 調整各職業的整體傷害。倍率涵蓋普攻、技能和持續傷害，也適用於 PvP 與公會戰。",
+      "槍械普攻改為和弓一樣套用完整攻擊力。神槍手及叛亂者另有技能傷害或冷卻調整。"
+    ],
+    "before": 4,
+    "after": 5,
+    "jobDamage": {
+      "swordsman": 1.35,
+      "archer": 1.43,
+      "acolyte": 1.21,
+      "thief": 1.52,
+      "merchant": 1.43,
+      "taekwon": 1.5,
+      "ninja": 1.27,
+      "gunslinger": 1.11,
+      "knight": 1.02,
+      "crusader": 1.29,
+      "wizard": 1.23,
+      "hunter": 1.15,
+      "bard": 1.58,
+      "priest": 1.48,
+      "monk": 1.42,
+      "assassin": 1.47,
+      "rogue": 1.23,
+      "blacksmith": 1.2,
+      "alchemist": 1.14,
+      "star_gladiator": 1.54,
+      "royal_guard": 1.5,
+      "warlock": 1.26,
+      "sorcerer": 1.06,
+      "minstrel": 1.23,
+      "arch_bishop": 1.1,
+      "sura": 1.12,
+      "guillotine_cross": 1.34,
+      "soul_reaper": 1.14,
+      "kagerou_rank3": 1.41
+    }
+  },
+  {
     "version": "0.14.3",
     "date": "2026-11-21",
     "title": "二轉、三轉技能與天賦平衡",

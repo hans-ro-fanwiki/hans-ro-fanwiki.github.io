@@ -10,10 +10,11 @@ const root = path.resolve(__dirname,'..');
 const evidenceFlag = process.argv.indexOf('--evidence');
 const evidence = evidenceFlag < 0 ? path.join(root,'evidence') : process.argv[evidenceFlag+1];
 
+const versions = [...audit.skillHistory,audit.skillsSoul];
 const snapshots = new Map();
 function readSnapshot(index) {
   if (snapshots.has(index)) return snapshots.get(index);
-  const meta = audit.skillHistory[index-1];
+  const meta = versions[index-1];
   assert.ok(meta,'Unknown audited snapshot ' + index);
   const {skills} = readSkillSnapshot(meta,index,path.join(evidence,meta.directory,meta.file));
   const result = new Map(skills.map(skill => [skill.id,skill]));
@@ -34,22 +35,41 @@ function compare(release) {
     return Object.keys(values).length ? [{id,name:skill.name,values}] : [];
   });
 }
-function groupByJob(changes) {
-  const changed = new Set(changes.map(skill => skill.id));
-  return current.jobs.flatMap(({id,name,rank,skills}) => {
-    const skillIds = skills.filter(skillId => changed.has(skillId));
-    return skillIds.length ? [{id,name,rank,skillIds}] : [];
+const jobs=new Map(current.jobs.map(job=>[job.id,job]));
+const roots=current.jobs.filter(job=>job.rank===1);
+function rootJob(job) {
+  const visited=new Set();
+  while(job.base){
+    assert.ok(jobs.has(job.base)&&!visited.has(job.id),'Invalid HANS career path: '+job.id);
+    visited.add(job.id);
+    job=jobs.get(job.base);
+  }
+  assert.equal(job.rank,1);
+  return job.id;
+}
+const familyJobs=new Map(roots.map(root=>[root.id,current.jobs.filter(job=>rootJob(job)===root.id)]));
+function groupByFamily(changes,jobDamage={}) {
+  const changed=new Set(changes.map(skill=>skill.id));
+  for(const [id,multiplier] of Object.entries(jobDamage))
+    assert.ok(jobs.has(id)&&Number.isFinite(multiplier)&&multiplier>1,'Invalid HANS job damage: '+id);
+  return roots.flatMap(root=>{
+    const jobs=familyJobs.get(root.id).flatMap(({id,name,rank,skills})=>{
+      const skillIds=skills.filter(skillId=>changed.has(skillId));
+      const damage=jobDamage[id];
+      return skillIds.length||damage ? [{id,name,rank,skillIds,...damage&&{damage:[1,damage]}}] : [];
+    });
+    return jobs.length ? [{id:root.id,name:root.name+'系',jobs}] : [];
   });
 }
 assert.equal(current.source.sha256,audit.skillsSoul.sha256);
 const output = {
   checkedAt:current.reviewedAt,
-  releases:releases.map(({before,after,...release}) => {
+  releases:releases.map(({before,after,jobDamage,...release}) => {
     const changes = compare({...release,before,after});
     return {
       ...release,
-      ...(before && after ? {snapshots:[audit.skillHistory[before-1].date,audit.skillHistory[after-1].date]} : {}),
-      changes, jobGroups:groupByJob(changes)
+      ...(before && after ? {snapshots:[before,after].map(i=>versions[i-1].version ? 'V'+versions[i-1].version : versions[i-1].date)} : {}),
+      changes, families:groupByFamily(changes,jobDamage)
     };
   })
 };

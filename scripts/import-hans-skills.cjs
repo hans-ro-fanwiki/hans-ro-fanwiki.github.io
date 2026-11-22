@@ -74,7 +74,7 @@ function readSkillSnapshot(source,index,file,inspectMissing=false) {
     return [description(expr),null];
   }
 
-  function readFactory(factory) {
+  function readFactory(factory,id) {
     const cooldowns = new Set(), damage = new Set();
     function walk(node) {
       if (ts.isNewExpression(node)) {
@@ -85,8 +85,17 @@ function readSkillSnapshot(source,index,file,inspectMissing=false) {
           const dmg = prop(arg,'dmg');
           if (dmg && ts.isCallExpression(dmg) && dmg.expression.getText(ast) === 'ae' && dmg.arguments.length === 2)
             damage.add(number(dmg.arguments[0]));
+          // Three-action damage is base * (1 + .25 * floor(level / 2)).
+          if (id === "triple_action" && dmg && ts.isArrowFunction(dmg) && ts.isBinaryExpression(dmg.body)) {
+            const level = dmg.parameters[0]?.name.getText(ast);
+            if (level && dmg.body.operatorToken.kind === ts.SyntaxKind.AsteriskToken &&
+                dmg.body.right.getText(ast).replace(/\s/g,"") === "(1+.25*Math.floor("+level+"/2))")
+              damage.add(number(dmg.body.left));
+          }
         }
       }
+      if (id === "dragon_tail" && ts.isCallExpression(node) && node.expression.getText(ast) === "K.ko" && node.arguments.length === 3)
+        damage.add(number(node.arguments[2]));
       ts.forEachChild(node,walk);
     }
     if (factory) walk(factory);
@@ -111,7 +120,7 @@ function readSkillSnapshot(source,index,file,inspectMissing=false) {
         const [base,upgrade] = raw.map(translate);
         const reviewed = review.skills[id];
         const manual = index === 0 ? reviewed : {name:reviewed?.name};
-        const factory = readFactory(node.arguments[advanced ? 5 : 4]);
+        const factory = readFactory(node.arguments[advanced ? 5 : 4],id);
         registry.set(id,{
           id,name:manual?.name ?? (names.get(originalName) || originalName),originalName,icon,
           description:manual?.description ?? base,upgradeDescription:manual?.upgradeDescription ?? upgrade,
@@ -140,7 +149,7 @@ function readSkillSnapshot(source,index,file,inspectMissing=false) {
   }));
   const skills = [...registry.values()].sort((a,b) => a.id.localeCompare(b.id));
   const data = {
-    server:'hans',schemaVersion:1,reviewedAt:source.date,source:{sha256,relativeFile:source.file},
+    server:'hans',schemaVersion:1,reviewedAt:source.date,source:{sha256,relativeFile:source.file,...source.version && {version:source.version}},
     policy:'HANS audited skill registry and reviewed Traditional Chinese summaries. Base values exclude character and talent modifiers.',
     jobs,skills
   };

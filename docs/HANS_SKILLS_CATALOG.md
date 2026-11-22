@@ -1,6 +1,6 @@
 # HANS 技能與平衡紀錄
 
-技能圖鑑使用 HANS 2026-11-22 V0.14.4 客戶端。遊戲資料的 SHA-256、檔名與歷史快照列在 `HANS_SOURCE_AUDIT.json`。資料只經靜態解析，原始客戶端保存在本機證據目錄。
+技能圖鑑使用 HANS 2026-11-22 V0.14.5 客戶端。遊戲資料的 SHA-256、檔名與歷史快照列在 `HANS_SOURCE_AUDIT.json`。資料只經靜態解析，原始客戶端保存在本機證據目錄。
 
 ## 技能圖鑑
 
@@ -13,7 +13,7 @@
 
 1. 核對 HANS 原站「最新消息」及新版客戶端。將審核用版本檔放在 Git 忽略的 `evidence/<版本目錄>`，更新技能來源 SHA 和日期。保留舊快照，將需要比對的舊版加入 `skillHistory`。
 2. 檢查 `HANS_SKILL_DESCRIPTIONS.json` 的人工整理文字和數值，更新 SHA。用 `node scripts/import-hans-skills.cjs --write` 重建技能圖鑑。
-3. 在 `HANS_BALANCE_RELEASES.json` 新增原站公告摘要。能取得兩份已審核快照時，設定 `before` 和 `after`，對應 `skillHistory` 從 1 起算的位置。只取得公告的版本可省略這兩欄。
+3. 在 `HANS_BALANCE_RELEASES.json` 新增原站公告摘要。能取得兩份已審核快照時，設定 `before` 和 `after`，對應 `skillHistory` 及目前技能快照（合併後從 1 起算）的位置。只取得公告的版本可省略這兩欄。
 4. 執行 `node scripts/build-hans-balance.cjs` 更新網站，再執行 TypeScript、單元測試及正式版建置檢查。既有來源監控會在 HANS 快照變動時通知人工審核。
 
 V0.14.3 的比較使用 11/20 至 11/21 兩份快照，V0.14.1 使用 11/19 至 11/20。早期版本使用 HANS 公告當作歷史來源。冷卻或傷害欄位的空值表示該欄沒有列出可確認的變動。

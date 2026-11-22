@@ -27,13 +27,15 @@
     "November 20 lap and card GS expansion reads the audited main RO_LAPC, RO_C2T, Bk, CC, TC, and soul Mp/vu/RO_J3 and Me registrations. The importer stores base card effects, variant rules, per-job scoring profiles, and derived stage tier/GS requirements. The main card floor rules (mini 20, MVP 30) and Osiris exception are matched against this SHA-pinned bundle, not inferred from classic RO card descriptions. Job-specific card GS still requires live in-game validation.",
     "November 21 skill encyclopedia reads the same SHA-verified soul game bundle for $e and Ce skill registration metadata, official aA/KI translation dictionaries, and L(en, zh) third-job descriptions. It joins against SHA-audited public talents job/skill references; source bundles and icons are never copied into Pages. Unavailable skill description formulas and non-translated titles must not be fabricated.",
     "November 21 third-job translation audit confirmed that all 96 registered third-job names have HANS native Traditional Chinese mapping via an appended top-level Object.assign(aA, {...}) after the initial aA declaration, not within the initial dictionary. The skills importer now statically merges these SHA-pinned translation blocks. All 96 Chinese titles are checked in tests and the public-build verifier while preserving original English search names.",
-    "2026-11-22 evening: re-audited the catalog sources. 17 expedition stages, 523 equipment entries and existing card/stage associations matched. RO_LAPC.raid registers 15 raid variants; 14 are new card registrations with no ordinary stage associations. Raid launch and server-side rewards remain separate from catalog registration. Skills and talents retain independent source baselines."
+    "2026-11-22 evening: re-audited the catalog sources. 17 expedition stages, 523 equipment entries and existing card/stage associations matched. RO_LAPC.raid registers 15 raid variants; 14 are new card registrations with no ordinary stage associations. Raid launch and server-side rewards remain separate from catalog registration. Skills and talents retain independent source baselines.",
+    "November 22 V0.14.5 skill audit: compared all skill registrations against the V0.14.4 snapshot. Six Gunslinger-line factories changed. Rechecked the prior description overrides against unchanged source descriptions. The V0.14.5 main bundle main-BNOcv2PN.hz8adf5291.js (SHA-256 23796d5306708fcb4b015c2f5cd99fe14a4f451199f7036baba4ad47363d4d3f) has 29 RO_JOBMULT.M entries verified against the official news tab. The kagerou runtime entry is listed under the third-job label in the official announcement."
   ],
   "skillsSoul": {
-    "file": "soul_linker-DllBVIRO.hz0a1e5bb6.js",
-    "sha256": "5fc13f413d9ac83cbccc8292617ecb3a08576056a21967d38021cd115114c1eb",
+    "file": "soul_linker-DllBVIRO.hz3fff5554.js",
+    "sha256": "4d781fd506ee8b7bc8abbd3eca504005344aa160ce6e7b1a67695b99daecb81b",
     "date": "2026-11-22",
-    "directory": "hans-20261122"
+    "version": "0.14.5",
+    "directory": "hans-v0.14.5"
   },
   "snapshotDirectory": "evidence/hans-20261122",
   "skillHistory": [
@@ -54,6 +56,13 @@
       "sha256": "b1470a198a656699d3dfaa4fa87a950c879be33afe9be37bf8b84bb50789b04d",
       "date": "2026-11-21",
       "directory": "hans-20261121-stage-audit"
+    },
+    {
+      "file": "soul_linker-DllBVIRO.hz0a1e5bb6.js",
+      "sha256": "5fc13f413d9ac83cbccc8292617ecb3a08576056a21967d38021cd115114c1eb",
+      "date": "2026-11-22",
+      "directory": "hans-20261122",
+      "version": "0.14.4"
     }
   ]
 }
