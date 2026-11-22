@@ -1,6 +1,6 @@
 import {useCallback,useEffect,useMemo,useRef,useState} from 'react';
 import {createRoot} from 'react-dom/client';
-import {ArrowLeft,BookOpen,ChevronDown,ChevronRight,Gem,GitBranch,Map as MapIcon,Search,Shield,SlidersHorizontal,Swords,Target,WandSparkles,X} from 'lucide-react';
+import {ArrowLeft,BookOpen,ChevronDown,ChevronRight,Gem,GitBranch,History,Map as MapIcon,Search,Shield,SlidersHorizontal,Swords,Target,WandSparkles,X} from 'lucide-react';
 import type {Card,Catalog,Equipment,ImageEvidence,Kind,Monster,Page,Source,Stage} from './types';
 import './styles.css';
 import './search.css';
@@ -13,6 +13,7 @@ import type {StageChapter} from './stage-chapter';
 import {SiteFooter} from './SiteFooter';
 import {TalentSimulator} from './TalentSimulator';
 import {SkillsEncyclopedia} from './SkillsEncyclopedia';
+import {BalanceHistory} from './BalanceHistory';
 import {equipmentTier} from './tier';
 import {hasConfirmedAcquisition} from './acquisition';
 import {cardEffects,cardId,cardMultiplier,cardName,cardScore,clampLap,gsRepresentativeJob,gsScalingForJob,isRaidOnlyCard,GS_SCALING_LABELS,stageLapInfo,stageTierLabel} from './laps';
@@ -30,7 +31,7 @@ function equipmentJobs(data:Catalog):[string,string][]{
  return [['all','全部'],...data.lapRules.jobs.filter(job=>ids.has(job.id)).map(job=>[job.id,job.name] as [string,string])];
 }
 const SOURCES:Record<string,string>={monsterDrop:'怪物掉落',bossDrop:'Boss 掉落',story:'劇情',event:'活動',reward:'獎勵',starter:'初始裝備',raid:'團隊遠征副本'};
-const LABELS:Record<Page,string>={items:'裝備',cards:'卡片',stages:'關卡',skills:'技能',talents:'天賦'};
+const LABELS:Record<Page,string>={items:'裝備',cards:'卡片',stages:'關卡',skills:'技能',talents:'天賦',balance:'平衡紀錄'};
 // HANS-only. All artwork is loaded by reference from the HANS image host;
 // the public repository and Pages artifact never contain game image files.
 const PUBLIC_MODE=import.meta.env.VITE_PUBLIC_MODE==='1';
@@ -263,17 +264,17 @@ function App(){
     <span className="brand-mark">H</span>
     <span className="brand-names"><strong>RO 倖存者｜HANS 粉絲維基</strong><small>非官方玩家製作 · HANS 專屬{PUBLIC_MODE?'':' · 開發預覽'}</small></span>
     <nav className="bottom-nav" aria-label="主要分類">
-     {([['items',Shield],['cards',BookOpen],['stages',MapIcon],['skills',WandSparkles],['talents',GitBranch]] as const).map(([page,Icon])=>
+     {([['items',Shield],['cards',BookOpen],['stages',MapIcon],['skills',WandSparkles],['talents',GitBranch],['balance',History]] as const).map(([page,Icon])=>
       <button type="button" key={page} className={state.page===page?'active':''} onClick={()=>{if(page!==state.page)navigate({...EMPTY,page,lap:state.lap,gsJob:state.gsJob,showUnknown:state.showUnknown},true)}} aria-current={state.page===page?'page':undefined}><Icon size={21}/><span>{LABELS[page]}</span></button>)}
     </nav>
    </div>
   </header>
   <main className="container">
    <section className="content-section">
-    <div className="section-heading"><h1>{LABELS[state.page]}</h1>{state.page!=='talents'&&state.page!=='skills'&&<span className="heading-count">
+    <div className="section-heading"><h1>{LABELS[state.page]}</h1>{state.page!=='talents'&&state.page!=='skills'&&state.page!=='balance'&&<span className="heading-count">
       {state.page==='items'?equip.length:state.page==='cards'?cardList.length:catalog?.stages.filter(stage=>matchesStageType(stage,state.stageType)&&(state.stageChapter==='all'||String(stage.chapter)===state.stageChapter)).length||0}
      </span>}</div>
-    {state.page==='talents'?<TalentSimulator jobId={state.tj} token={state.tb} packed={state.t} onRoute={(tj,tb,t,replace=false)=>navigate({tj,tb,t,page:'talents'},false,replace)}/>:state.page==='skills'?<SkillsEncyclopedia jobId={state.skillJob} rank={state.skillRank} query={state.query} selectedId={state.skillId} onChange={(patch,replace=true)=>navigate(patch,false,replace)}/>:<>
+    {state.page==='balance'?<BalanceHistory/>:state.page==='talents'?<TalentSimulator jobId={state.tj} token={state.tb} packed={state.t} onRoute={(tj,tb,t,replace=false)=>navigate({tj,tb,t,page:'talents'},false,replace)}/>:state.page==='skills'?<SkillsEncyclopedia jobId={state.skillJob} rank={state.skillRank} query={state.query} selectedId={state.skillId} onChange={(patch,replace=true)=>navigate(patch,false,replace)}/>:<>
     {error&&<div className="empty-state">{error}</div>}
     {!catalog&&!error&&<div className="empty-state">讀取中…</div>}
     {catalog&&<>

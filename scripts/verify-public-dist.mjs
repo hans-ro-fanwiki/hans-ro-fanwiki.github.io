@@ -29,6 +29,9 @@ assert.equal(skills.source.sha256,audited.skillsSoul.sha256,'HANS skill SHA mism
 assert.equal(skills.jobs.length,41,'Incomplete HANS first-to-third job catalog');
 assert.equal(skills.skills.length,244,'Incomplete HANS skill registry');
 assert.equal(skills.jobs.reduce((n,j)=>n+j.skills.length,0),256);
+const balance=JSON.parse(readFileSync(path.join(root,'data/balance.json'),'utf8'));
+assert.equal(balance.checkedAt,skills.reviewedAt,'Balance and skill verification dates differ');
+assert.ok(skills.skills.every(s=>s.description),'Missing HANS Chinese skill descriptions');
 const skillById=new Map(skills.skills.map(s=>[s.id,s]));
 const thirdSkillIds=new Set(skills.jobs.filter(j=>j.rank===3).flatMap(j=>j.skills));
 assert.equal(thirdSkillIds.size,96,'Incomplete HANS third-job skill list');

@@ -1,0 +1,1190 @@
+{
+  "checkedAt": "2026-11-22",
+  "releases": [
+    {
+      "version": "0.14.3",
+      "date": "2026-11-21",
+      "title": "二轉、三轉技能與天賦平衡",
+      "notes": [
+        "HANS 調高二、三轉技能倍率，並把開場技能改為目前專精樹的第一招。翻牌保留高階技能位置，並排除武器不能使用的技能。",
+        "天賦終點和被動重新平衡。深層詛咒延長效果可吃加成，三轉落下型範圍技吃完整範圍加成，部分無範圍技能的終點改加傷害。",
+        "獅子吼對首領的暈眩時間減半。流氓、跆拳及補師路線獲得強化。",
+        "HANS 修正 5 招的攻擊力分類。客戶端登錄現將火煙瓶投擲、塗鴉、潛擊、生物調撥、病毒散撥標為近戰。"
+      ],
+      "snapshots": [
+        "2026-11-20",
+        "2026-11-21"
+      ],
+      "changes": [
+        {
+          "id": "acid_demonstration",
+          "name": "強酸火煙瓶",
+          "values": {
+            "baseDamage": [
+              26,
+              61
+            ]
+          }
+        },
+        {
+          "id": "acid_terror",
+          "name": "強酸攻擊",
+          "values": {
+            "cooldown": [
+              6,
+              2.55
+            ],
+            "baseDamage": [
+              36,
+              85
+            ]
+          }
+        },
+        {
+          "id": "adoramus",
+          "name": "讚頌",
+          "values": {
+            "baseDamage": [
+              19,
+              74
+            ]
+          }
+        },
+        {
+          "id": "aimed_bolt",
+          "name": "瞄準射擊",
+          "values": {
+            "baseDamage": [
+              54,
+              184
+            ]
+          }
+        },
+        {
+          "id": "arms_cannon",
+          "name": "臂砲",
+          "values": {
+            "baseDamage": [
+              45,
+              81
+            ]
+          }
+        },
+        {
+          "id": "arrow_vulcan",
+          "name": "奧義箭亂舞",
+          "values": {
+            "cooldown": [
+              6,
+              2.42
+            ],
+            "baseDamage": [
+              11,
+              27
+            ]
+          }
+        },
+        {
+          "id": "asura_strike",
+          "name": "阿修羅霸凰拳",
+          "values": {
+            "cooldown": [
+              10,
+              4.9
+            ],
+            "baseDamage": [
+              170,
+              347
+            ]
+          }
+        },
+        {
+          "id": "auto_counter",
+          "name": "反擊",
+          "values": {
+            "baseDamage": [
+              48,
+              63
+            ]
+          }
+        },
+        {
+          "id": "axe_boomerang",
+          "name": "迴旋斧",
+          "values": {
+            "baseDamage": [
+              32,
+              51
+            ]
+          }
+        },
+        {
+          "id": "beast_strafing",
+          "name": "動物猛擊",
+          "values": {
+            "baseDamage": [
+              30,
+              75
+            ]
+          }
+        },
+        {
+          "id": "benedictio",
+          "name": "聖之祈福",
+          "values": {
+            "baseDamage": [
+              28,
+              161
+            ]
+          }
+        },
+        {
+          "id": "blitz_beat",
+          "name": "閃電衝擊",
+          "values": {
+            "cooldown": [
+              6,
+              2.69
+            ]
+          }
+        },
+        {
+          "id": "brandish_spear",
+          "name": "騎乘攻擊",
+          "values": {
+            "baseDamage": [
+              84,
+              87
+            ]
+          }
+        },
+        {
+          "id": "call_spirits",
+          "name": "蓄氣",
+          "values": {
+            "baseDamage": [
+              16,
+              54
+            ]
+          }
+        },
+        {
+          "id": "cannon_spear",
+          "name": "加農矛",
+          "values": {
+            "baseDamage": [
+              48,
+              66
+            ]
+          }
+        },
+        {
+          "id": "cart_cannon",
+          "name": "推車砲",
+          "values": {
+            "baseDamage": [
+              52,
+              79
+            ]
+          }
+        },
+        {
+          "id": "cart_revolution",
+          "name": "手推車攻擊",
+          "values": {
+            "baseDamage": [
+              42,
+              81
+            ]
+          }
+        },
+        {
+          "id": "cart_tornado",
+          "name": "推車龍捲風",
+          "values": {
+            "baseDamage": [
+              11,
+              17
+            ]
+          }
+        },
+        {
+          "id": "chain_combo",
+          "name": "連環全身掌",
+          "values": {
+            "cooldown": [
+              5,
+              1.81
+            ],
+            "baseDamage": [
+              12,
+              33
+            ]
+          }
+        },
+        {
+          "id": "cluster_bomb",
+          "name": "集束炸彈",
+          "values": {
+            "baseDamage": [
+              70,
+              92
+            ]
+          }
+        },
+        {
+          "id": "combo_finish",
+          "name": "猛龍誇強",
+          "values": {
+            "baseDamage": [
+              46,
+              146
+            ]
+          }
+        },
+        {
+          "id": "comet",
+          "name": "彗星術",
+          "values": {
+            "baseDamage": [
+              154,
+              391
+            ]
+          }
+        },
+        {
+          "id": "counter_kick",
+          "name": "還擊踢",
+          "values": {
+            "baseDamage": [
+              35,
+              63
+            ]
+          }
+        },
+        {
+          "id": "crimson_marker",
+          "name": "緋紅標記",
+          "values": {
+            "baseDamage": [
+              70,
+              78
+            ]
+          }
+        },
+        {
+          "id": "crimson_rock",
+          "name": "赤紅岩石",
+          "values": {
+            "baseDamage": [
+              55,
+              205
+            ]
+          }
+        },
+        {
+          "id": "cross_impact",
+          "name": "十字衝擊",
+          "values": {
+            "baseDamage": [
+              33,
+              54
+            ]
+          }
+        },
+        {
+          "id": "cross_ripper_slasher",
+          "name": "十字撕裂斬",
+          "values": {
+            "baseDamage": [
+              34,
+              71
+            ]
+          }
+        },
+        {
+          "id": "dark_claw",
+          "name": "暗黑之爪",
+          "values": {
+            "cooldown": [
+              12,
+              5.23
+            ],
+            "baseDamage": [
+              14,
+              32
+            ]
+          }
+        },
+        {
+          "id": "desperado",
+          "name": "亡命之徒",
+          "values": {
+            "baseDamage": [
+              9,
+              18.4
+            ]
+          }
+        },
+        {
+          "id": "diamond_dust",
+          "name": "鑽石星塵",
+          "values": {
+            "baseDamage": [
+              14.5,
+              32
+            ]
+          }
+        },
+        {
+          "id": "dissonance",
+          "name": "不諧和音",
+          "values": {
+            "baseDamage": [
+              13,
+              36
+            ]
+          }
+        },
+        {
+          "id": "earth_drive",
+          "name": "大地衝擊",
+          "values": {
+            "baseDamage": [
+              18.4,
+              26
+            ]
+          }
+        },
+        {
+          "id": "envenom",
+          "name": "施毒",
+          "values": {
+            "baseDamage": [
+              53.333333333333336,
+              71.33333333333333
+            ]
+          }
+        },
+        {
+          "id": "espa",
+          "name": "艾斯帕",
+          "values": {
+            "baseDamage": [
+              125,
+              200
+            ]
+          }
+        },
+        {
+          "id": "estin",
+          "name": "艾斯提",
+          "values": {
+            "baseDamage": [
+              26,
+              90
+            ]
+          }
+        },
+        {
+          "id": "estun",
+          "name": "艾斯敦",
+          "values": {
+            "baseDamage": [
+              28,
+              79
+            ]
+          }
+        },
+        {
+          "id": "falling_star",
+          "name": "流星殞落",
+          "values": {
+            "baseDamage": [
+              24,
+              77
+            ]
+          }
+        },
+        {
+          "id": "fan_of_knives",
+          "name": "刀扇",
+          "values": {
+            "baseDamage": [
+              20,
+              32
+            ]
+          }
+        },
+        {
+          "id": "finger_offensive",
+          "name": "彈指神通",
+          "values": {
+            "cooldown": [
+              6,
+              2.82
+            ],
+            "baseDamage": [
+              30,
+              64
+            ]
+          }
+        },
+        {
+          "id": "fire_dance",
+          "name": "烈火之舞",
+          "values": {
+            "baseDamage": [
+              25,
+              54
+            ]
+          }
+        },
+        {
+          "id": "fire_pillar",
+          "name": "火柱攻擊",
+          "values": {
+            "baseDamage": [
+              17,
+              78
+            ]
+          }
+        },
+        {
+          "id": "frost_nova",
+          "name": "霜凍之術",
+          "values": {
+            "baseDamage": [
+              20,
+              64
+            ]
+          }
+        },
+        {
+          "id": "genesis_ray",
+          "name": "創世之光",
+          "values": {
+            "baseDamage": [
+              12,
+              21
+            ]
+          }
+        },
+        {
+          "id": "grand_cross",
+          "name": "聖十字審判",
+          "values": {
+            "baseDamage": [
+              78,
+              98
+            ]
+          }
+        },
+        {
+          "id": "greed",
+          "name": "貪婪",
+          "values": {
+            "baseDamage": [
+              24,
+              76
+            ]
+          }
+        },
+        {
+          "id": "grimtooth",
+          "name": "無影之牙",
+          "values": {
+            "cooldown": [
+              6,
+              2.41
+            ],
+            "baseDamage": [
+              32,
+              80
+            ]
+          }
+        },
+        {
+          "id": "heel_drop",
+          "name": "砸踢",
+          "values": {
+            "baseDamage": [
+              30,
+              180
+            ]
+          }
+        },
+        {
+          "id": "holy_cross",
+          "name": "聖十字攻擊",
+          "values": {
+            "cooldown": [
+              5,
+              2.2
+            ],
+            "baseDamage": [
+              29,
+              66
+            ]
+          }
+        },
+        {
+          "id": "hundred_spear",
+          "name": "百槍刺",
+          "values": {
+            "baseDamage": [
+              36,
+              76
+            ]
+          }
+        },
+        {
+          "id": "huuma",
+          "name": "投擲風魔飛鏢",
+          "values": {
+            "baseDamage": [
+              32,
+              37
+            ]
+          }
+        },
+        {
+          "id": "ignition_break",
+          "name": "點火爆破",
+          "values": {
+            "baseDamage": [
+              62,
+              78
+            ]
+          }
+        },
+        {
+          "id": "intimidate",
+          "name": "恐嚇",
+          "values": {
+            "baseDamage": [
+              68,
+              253
+            ]
+          }
+        },
+        {
+          "id": "jack_frost",
+          "name": "傑克冰霜",
+          "values": {
+            "baseDamage": [
+              28,
+              43
+            ]
+          }
+        },
+        {
+          "id": "judex",
+          "name": "審判之光",
+          "values": {
+            "baseDamage": [
+              34,
+              75
+            ]
+          }
+        },
+        {
+          "id": "jupitel_thunder",
+          "name": "雷鳴術",
+          "values": {
+            "baseDamage": [
+              52,
+              125
+            ]
+          }
+        },
+        {
+          "id": "knuckle_arrow",
+          "name": "拳之箭",
+          "values": {
+            "baseDamage": [
+              55,
+              204
+            ]
+          }
+        },
+        {
+          "id": "kunai_splash",
+          "name": "八方苦無",
+          "values": {
+            "baseDamage": [
+              34,
+              88
+            ]
+          }
+        },
+        {
+          "id": "lord_of_vermilion",
+          "name": "怒雷強擊",
+          "values": {
+            "baseDamage": [
+              18,
+              44
+            ]
+          }
+        },
+        {
+          "id": "magnus_exorcismus",
+          "name": "十字驅魔攻擊",
+          "values": {
+            "baseDamage": [
+              20,
+              70
+            ]
+          }
+        },
+        {
+          "id": "mammonite",
+          "name": "金錢攻擊",
+          "values": {
+            "baseDamage": [
+              150,
+              186
+            ]
+          }
+        },
+        {
+          "id": "metallic_sound",
+          "name": "金屬之音",
+          "values": {
+            "baseDamage": [
+              50,
+              170
+            ]
+          }
+        },
+        {
+          "id": "meteor_storm",
+          "name": "隕石術",
+          "values": {
+            "baseDamage": [
+              34,
+              186
+            ]
+          }
+        },
+        {
+          "id": "ore_discovery",
+          "name": "尋找礦石",
+          "values": {
+            "baseDamage": [
+              22,
+              55
+            ]
+          }
+        },
+        {
+          "id": "phantasmic_arrow",
+          "name": "幻影箭",
+          "values": {
+            "baseDamage": [
+              46,
+              102
+            ]
+          }
+        },
+        {
+          "id": "pierce",
+          "name": "連刺攻擊",
+          "values": {
+            "baseDamage": [
+              17,
+              68
+            ]
+          }
+        },
+        {
+          "id": "prominence_kick",
+          "name": "日珥踢",
+          "values": {
+            "baseDamage": [
+              45,
+              108
+            ]
+          }
+        },
+        {
+          "id": "psychic_wave",
+          "name": "念力波",
+          "values": {
+            "baseDamage": [
+              12.3,
+              14
+            ]
+          }
+        },
+        {
+          "id": "raid",
+          "name": "潛擊",
+          "values": {
+            "baseDamage": [
+              60,
+              228
+            ]
+          }
+        },
+        {
+          "id": "rampage_blaster",
+          "name": "狂暴爆破",
+          "values": {
+            "baseDamage": [
+              60,
+              103
+            ]
+          }
+        },
+        {
+          "id": "rolling_cutter",
+          "name": "迴旋斬",
+          "values": {
+            "baseDamage": [
+              20,
+              31
+            ]
+          }
+        },
+        {
+          "id": "round_trip",
+          "name": "往返射擊",
+          "values": {
+            "cooldown": [
+              7,
+              2.69
+            ],
+            "baseDamage": [
+              22,
+              57
+            ]
+          }
+        },
+        {
+          "id": "roundhouse",
+          "name": "轉身踢",
+          "values": {
+            "baseDamage": [
+              22,
+              29
+            ]
+          }
+        },
+        {
+          "id": "severe_rainstorm",
+          "name": "嚴酷暴雨",
+          "values": {
+            "baseDamage": [
+              26,
+              49
+            ]
+          }
+        },
+        {
+          "id": "shield_boomerang",
+          "name": "迴旋盾擊",
+          "values": {
+            "baseDamage": [
+              28,
+              66
+            ]
+          }
+        },
+        {
+          "id": "shield_press",
+          "name": "盾壓",
+          "values": {
+            "baseDamage": [
+              150,
+              483
+            ]
+          }
+        },
+        {
+          "id": "skynet_blow",
+          "name": "天羅地網",
+          "values": {
+            "baseDamage": [
+              21,
+              27
+            ]
+          }
+        },
+        {
+          "id": "solar_burst",
+          "name": "太陽爆炸",
+          "values": {
+            "baseDamage": [
+              50,
+              72
+            ]
+          }
+        },
+        {
+          "id": "sonic_blow",
+          "name": "音速投擲",
+          "values": {
+            "baseDamage": [
+              9,
+              37
+            ]
+          }
+        },
+        {
+          "id": "spear_boomerang",
+          "name": "投擲長矛攻擊",
+          "values": {
+            "baseDamage": [
+              30,
+              69
+            ]
+          }
+        },
+        {
+          "id": "spore_explosion",
+          "name": "孢子爆炸",
+          "values": {
+            "baseDamage": [
+              85,
+              121
+            ]
+          }
+        },
+        {
+          "id": "steal_coin",
+          "name": "偷錢",
+          "values": {
+            "baseDamage": [
+              54,
+              160
+            ]
+          }
+        },
+        {
+          "id": "storm_gust",
+          "name": "暴風雪",
+          "values": {
+            "baseDamage": [
+              12,
+              30
+            ]
+          }
+        },
+        {
+          "id": "summon_spheres",
+          "name": "元素法球",
+          "values": {
+            "baseDamage": [
+              23,
+              46
+            ]
+          }
+        },
+        {
+          "id": "swirling_petal",
+          "name": "風魔花亂",
+          "values": {
+            "baseDamage": [
+              25,
+              50
+            ]
+          }
+        },
+        {
+          "id": "tetra_vortex",
+          "name": "四重漩渦",
+          "values": {
+            "baseDamage": [
+              42,
+              51
+            ]
+          }
+        },
+        {
+          "id": "tiger_cannon",
+          "name": "虎砲",
+          "values": {
+            "baseDamage": [
+              200,
+              740
+            ]
+          }
+        },
+        {
+          "id": "tornado_kick",
+          "name": "迴旋踢",
+          "values": {
+            "baseDamage": [
+              24,
+              31
+            ]
+          }
+        },
+        {
+          "id": "triangle_shot",
+          "name": "三角射擊",
+          "values": {
+            "baseDamage": [
+              27,
+              146
+            ]
+          }
+        },
+        {
+          "id": "varetyr_spear",
+          "name": "瓦雷特之矛",
+          "values": {
+            "baseDamage": [
+              42,
+              86
+            ]
+          }
+        },
+        {
+          "id": "venom_knife",
+          "name": "毒刃",
+          "values": {
+            "cooldown": [
+              5,
+              1.94
+            ],
+            "baseDamage": [
+              24,
+              62
+            ]
+          }
+        },
+        {
+          "id": "vulcan_arm",
+          "name": "機關砲臂",
+          "values": {
+            "cooldown": [
+              6,
+              2.51
+            ],
+            "baseDamage": [
+              8,
+              19
+            ]
+          }
+        },
+        {
+          "id": "wind_cutter",
+          "name": "風之刃",
+          "values": {
+            "baseDamage": [
+              23,
+              32
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "version": "0.14.1",
+      "date": "2026-11-19",
+      "title": "二轉天賦與組隊輔助調整",
+      "notes": [
+        "不同技能提供的同類增益可相加，同一招重放會刷新時間。傷害、減傷、爆擊加成上限依序為 +150%、60%、+60%。",
+        "隊伍治療及增益距離從半個畫面擴到整個畫面。治癒術額外恢復 5% 最大 HP，光耀之堂及聖母之頌歌的回血可惠及隊友。",
+        "同一敵人的出血可疊 40 層，每層持續 3 秒。不同來源的中毒可同時生效。",
+        "自動念咒觸發率從 30% 升至 45%。艾斯麻命中後提供 2.5 秒、15% 減傷。融合取消 HP 消耗。"
+      ],
+      "snapshots": [
+        "2026-11-19",
+        "2026-11-20"
+      ],
+      "changes": [
+        {
+          "id": "asura_strike",
+          "name": "阿修羅霸凰拳",
+          "values": {
+            "cooldown": [
+              22,
+              10
+            ]
+          }
+        },
+        {
+          "id": "brandish_spear",
+          "name": "騎乘攻擊",
+          "values": {
+            "baseDamage": [
+              46,
+              84
+            ]
+          }
+        },
+        {
+          "id": "call_spirits",
+          "name": "蓄氣",
+          "values": {
+            "baseDamage": [
+              12,
+              16
+            ]
+          }
+        },
+        {
+          "id": "finger_offensive",
+          "name": "彈指神通",
+          "values": {
+            "baseDamage": [
+              22,
+              30
+            ]
+          }
+        },
+        {
+          "id": "full_moon_kick",
+          "name": "滿月腳",
+          "values": {
+            "baseDamage": [
+              42,
+              80
+            ]
+          }
+        },
+        {
+          "id": "grand_cross",
+          "name": "聖十字審判",
+          "values": {
+            "baseDamage": [
+              70,
+              78
+            ]
+          }
+        },
+        {
+          "id": "heavens_drive",
+          "name": "崩裂術",
+          "values": {
+            "baseDamage": [
+              24,
+              74
+            ]
+          }
+        },
+        {
+          "id": "holy_cross",
+          "name": "聖十字攻擊",
+          "values": {
+            "baseDamage": [
+              26,
+              29
+            ]
+          }
+        },
+        {
+          "id": "intimidate",
+          "name": "恐嚇",
+          "values": {
+            "baseDamage": [
+              38,
+              68
+            ]
+          }
+        },
+        {
+          "id": "potion_pitcher",
+          "name": "藥水投擲",
+          "values": {
+            "cooldown": [
+              14,
+              10
+            ]
+          }
+        },
+        {
+          "id": "raid",
+          "name": "潛擊",
+          "values": {
+            "baseDamage": [
+              34,
+              60
+            ]
+          }
+        },
+        {
+          "id": "rush_quake",
+          "name": "衝擊撼動",
+          "values": {
+            "baseDamage": [
+              40,
+              120
+            ]
+          }
+        },
+        {
+          "id": "steal_coin",
+          "name": "偷錢",
+          "values": {
+            "baseDamage": [
+              30,
+              54
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "version": "0.14.0",
+      "date": "2026-11-19",
+      "title": "高週目經驗與裝備分數",
+      "notes": [
+        "三週目起放寬等級差懲罰，每高一級扣 8% 經驗，最低保留 15%。",
+        "雙手武器與弓的裝備分數倍率 ×1.3 → ×1.75。小王和 MVP 卡片分數保底為 20 和 30，改版卡依週目倍率提高。"
+      ],
+      "changes": []
+    },
+    {
+      "version": "0.13.3",
+      "date": "2026-11-17",
+      "title": "跆拳、忍者與武器調整",
+      "notes": [
+        "旋風踢、迴旋踢、反擊踢從遠程 ATK 改吃近戰 ATK。悟靈士與獵靈士的四項踢技會取近戰 ATK、遠程 ATK、魔法 ATK 三者最高值。",
+        "忍者、影狼的火焰花瓣、雷擊和符咒術改吃遠程 ATK 與魔法 ATK 的總和。",
+        "跆拳專用武器攻擊力約 ×1.46。雙手武器與弓的裝備分數乘 ×1.3，插卡一併計入。"
+      ],
+      "changes": []
+    },
+    {
+      "version": "0.12.3",
+      "date": "2026-11-15",
+      "title": "隊伍輔助技能生效範圍",
+      "notes": [
+        "組隊時，多項原本大多只作用於自己的輔助技能開始惠及附近隊友，包括神威祈福、聖母之頌歌、化學保護和天使之賜福。藥水投擲也可以治療附近隊友。"
+      ],
+      "changes": []
+    },
+    {
+      "version": "0.10.0",
+      "date": "2026-11-14",
+      "title": "職業武器與雙刀",
+      "notes": [
+        "二、三轉開放使用拳刃、書、拳套、樂器與鞭子等二轉武器。刺客與十字斬首者的雙刀效果修正，悟靈士與獵靈士可以裝備杖。"
+      ],
+      "changes": []
+    },
+    {
+      "version": "0.9.3",
+      "date": "2026-11-14",
+      "title": "騎士與十字軍天賦門檻",
+      "notes": [
+        "騎士騎兵及十字軍第一棵天賦樹的第 2 排門檻由 5 降到 2 點，第 5 排由 20 降到 19 點。"
+      ],
+      "changes": []
+    },
+    {
+      "version": "0.8.0",
+      "date": "2026-11-13",
+      "title": "三轉開放與首波數值調整",
+      "notes": [
+        "開放 16 個三轉職業，同時調整三轉技能強度與忍者一轉的 HP、五項技能傷害。公告沒有逐技能列出倍率。"
+      ],
+      "changes": []
+    }
+  ]
+}

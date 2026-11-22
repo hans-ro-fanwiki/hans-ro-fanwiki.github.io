@@ -1,0 +1,97 @@
+{
+  "sha256": "5fc13f413d9ac83cbccc8292617ecb3a08576056a21967d38021cd115114c1eb",
+  "skills": {
+    "retreat": {
+      "description": "後跳遠離最近的敵人，落地時射出一支貫穿直線上敵人的強力箭矢。後跳期間有 1.5 秒免傷。",
+      "name": "撤退"
+    },
+    "provoke": {
+      "description": "挑釁周圍敵人，使其受到的傷害提高 20%，持續 5 秒。",
+      "upgradeDescription": "每升一級，受到的傷害加成提高 5 個百分點。"
+    },
+    "demoralizing_shout": {
+      "description": "吶喊對周圍敵人造成少量傷害，使其造成的傷害降低 20%，持續 6 秒。",
+      "upgradeDescription": "每升一級，敵人的傷害再降低 2 個百分點。"
+    },
+    "endure": {
+      "description": "8 秒內受到的傷害降低 24%。",
+      "upgradeDescription": "每升一級，傷害減免提高 4 個百分點。"
+    },
+    "hp_recovery": {
+      "description": "10 秒內每秒回復 1 HP，共回復 10 HP。",
+      "upgradeDescription": "每升一級，每秒恢復量增加 0.3 HP。"
+    },
+    "signum_crucis": {
+      "description": "在身邊形成持續 6 秒的聖圈，每秒傷害圈內敵人並施加標記。被標記的敵人受到你的聖屬性技能傷害提高，對不死系的效果為 3 倍。"
+    },
+    "aqua_benedicta": {
+      "description": "在最近的一群敵人腳下灑出聖水，水窪持續 6 秒，每秒傷害踩入的敵人。自己站在水窪內會回血。"
+    },
+    "sand_attack": {
+      "description": "向前扇形撒砂，傷害範圍內的敵人並使其致盲 2.3 秒。致盲的敵人會遊蕩，停止攻擊。",
+      "upgradeDescription": "每升一級，致盲延長 0.3 秒。"
+    },
+    "hiding": {
+      "description": "隱身 1.8 秒，期間提高移動速度並免於敵人接觸。現身後 4 秒內傷害提高 10%。"
+    },
+    "shadowstep": {
+      "description": "瞬移到附近最強的敵人背後並使其暈眩。接下來 2 秒迴避率提高 15%、移動速度提高 50%，每次瞬移後免傷 0.5 秒。"
+    },
+    "crazy_uproar": {
+      "description": "使接下來 3 次技能各多命中 1 名敵人。天賦等加成可增加受影響的施放次數。"
+    },
+    "zeny_rain": {
+      "description": "在指定範圍落下 3 波金幣，使命中的一般敵人暈眩 1.2 秒，且在 10 秒內受到的金錢攻擊傷害提高 50%。首領在這 10 秒內受到的所有傷害提高 30%，免疫這招的暈眩。"
+    },
+    "heel_drop": {
+      "description": "用腳跟踢擊附近敵人並使其暈眩。1 級技能的暈眩約為 1.2 秒。",
+      "upgradeDescription": "每升一級，暈眩延長 0.15 秒。"
+    },
+    "counter_kick": {
+      "description": "被打中時反擊，對周圍敵人造成傷害。1 級觸發間隔 3.6 秒，隨等級縮短，最短 1 秒。",
+      "upgradeDescription": "每升一級，觸發間隔縮短 0.4 秒，最低 1 秒。"
+    },
+    "sprint": {
+      "description": "跑步 5 秒，移動速度提高 35%。",
+      "upgradeDescription": "每升一級，移動速度加成提高 5 個百分點。"
+    },
+    "charge_attack": {
+      "description": "騎乘時衝向約 6 公尺內最強的敵人，命中後使其暈眩。衝鋒距離越長，傷害越高，最高為 2 倍。"
+    },
+    "bowling_bash": {
+      "description": "用巨劍連擊最近敵人兩次並擊飛。後方敵人也會被擊退，並受到該次打擊 60% 的傷害。"
+    },
+    "spear_quicken": {
+      "description": "10 秒內急速 +25，爆擊率 +4%。",
+      "upgradeDescription": "每升一級，額外提供 4 點急速。"
+    },
+    "sandman": {
+      "description": "朝一群敵人撒出魔法砂，使敵人睡眠 2.5 秒。對首領持續時間減半。"
+    },
+    "lullaby": {
+      "description": "催眠身旁的敵人 2.5 秒。對首領持續時間減半。"
+    },
+    "sanctuary": {
+      "description": "在自身腳下建立持續 8 秒的聖域。區域內的自己和隊友每秒回復 1.5% 最大 HP，敵人持續受傷，對不死系造成 2 倍傷害。"
+    },
+    "magnificat": {
+      "description": "獲得 30 點急速，持續 12 秒。天賦提供的回血效果也能分享給隊友。",
+      "upgradeDescription": "每升一級，額外提供 4 點急速。"
+    },
+    "raid": {
+      "description": "斬擊周圍的敵人，使其致盲 1.5 秒，並在 4 秒內受到的傷害提高 10%。"
+    },
+    "heal": {
+      "description": "釋放光波傷害周圍敵人，對不死系造成 2 倍傷害。同時治癒自己與畫面內隊友，並各自額外回復最大 HP 的 5%。溢出的治療可存為恩典，讓下一次治癒術造成額外傷害，基礎上限為 +100%。"
+    },
+    "potion_pitcher": {
+      "description": "自身 HP 降到 80% 或以下時投擲藥水。基礎治療量為施法者最大 HP 的 18%，也會治療範圍內的隊友。"
+    },
+    "fire_arrow": {
+      "name": "火焰箭"
+    },
+    "holy_smite": {
+      "name": "聖擊"
+    }
+  }
+}

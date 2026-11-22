@@ -30,8 +30,30 @@
     "2026-11-22 evening: re-audited the catalog sources. 17 expedition stages, 523 equipment entries and existing card/stage associations matched. RO_LAPC.raid registers 15 raid variants; 14 are new card registrations with no ordinary stage associations. Raid launch and server-side rewards remain separate from catalog registration. Skills and talents retain independent source baselines."
   ],
   "skillsSoul": {
-    "file": "soul_linker-DllBVIRO.hza78cd192.js",
-    "sha256": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a"
+    "file": "soul_linker-DllBVIRO.hz0a1e5bb6.js",
+    "sha256": "5fc13f413d9ac83cbccc8292617ecb3a08576056a21967d38021cd115114c1eb",
+    "date": "2026-11-22",
+    "directory": "hans-20261122"
   },
-  "snapshotDirectory": "evidence/hans-20261122"
+  "snapshotDirectory": "evidence/hans-20261122",
+  "skillHistory": [
+    {
+      "file": "soul_linker-DllBVIRO.hza78cd192.js",
+      "sha256": "ee90428caab0b35f32fc96a53db072edb914caf293c44c1dc4b58299eb91984a",
+      "date": "2026-11-19",
+      "directory": "hans-20261119"
+    },
+    {
+      "file": "soul.js",
+      "sha256": "0201182d55c963b52c029016dd74651640e02c783d487f9077a7cd92ce5bf600",
+      "date": "2026-11-20",
+      "directory": "hans-talents-20261120"
+    },
+    {
+      "file": "soul_linker-DllBVIRO.hz67ef3a9e.js",
+      "sha256": "b1470a198a656699d3dfaa4fa87a950c879be33afe9be37bf8b84bb50789b04d",
+      "date": "2026-11-21",
+      "directory": "hans-20261121-stage-audit"
+    }
+  ]
 }

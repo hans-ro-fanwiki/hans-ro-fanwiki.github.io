@@ -30,9 +30,16 @@ test('HANS skills encyclopedia is source-pinned, complete, and remains HANS only
    assert.ok(skill.cooldown===null||(Number.isFinite(skill.cooldown)&&skill.cooldown>=0));
   }
  }
- assert.ok(data.skills.filter(s=>s.description).length>=170);
+ assert.ok(data.skills.every(s=>/\p{Script=Han}/u.test(s.name)&&/\p{Script=Han}/u.test(s.description)&&! /\{\d+\}/.test(s.description)));
  assert.ok(data.skills.filter(s=>s.upgradeDescription).length>=100);
  assert.ok(data.skills.filter(s=>s.cooldown!==null).length>=180);
+ assert.equal(registry.get('asura_strike').cooldown,4.9);
+ assert.equal(registry.get('asura_strike').baseDamage,347);
+ assert.equal(registry.get('call_spirits').baseDamage,54);
+ assert.match(registry.get('call_spirits').description,/8 秒/);
+ assert.match(registry.get('rolling_cutter').description,/5 層.*12%/);
+ assert.equal(registry.get('potion_pitcher').cooldown,10);
+ assert.match(registry.get('heal').description,/5%/);
  assert.equal(registry.get('bash').name,'狂擊');
  assert.match(registry.get('firebolt').description,/火球/);
  assert.equal(registry.get('meteor_storm').cooldown,14);
@@ -89,4 +96,17 @@ test('Job skill selection shows a complete first-to-third-job progression',()=>{
  assert.ok(searchSkillName(byId.get('firebolt'),'fire bolt'));
  assert.ok(searchSkillName(byId.get('comet'),'彗星'));
  assert.ok(!searchSkillName(byId.get('comet'),'不存在的技能'));
+});
+
+const history=JSON.parse(readFileSync(new URL('../public/data/balance.json',import.meta.url),'utf8'));
+test('HANS balance releases distinguish announcements from verified snapshot deltas',()=>{
+ const newest=history.releases.find(r=>r.version==='0.14.3');
+ const earlier=history.releases.find(r=>r.version==='0.14.1');
+ const changes=(entry,id)=>entry.changes.find(change=>change.id===id).values;
+ assert.equal(history.checkedAt,data.reviewedAt);
+ assert.deepEqual(changes(earlier,'asura_strike').cooldown,[22,10]);
+ assert.deepEqual(changes(newest,'asura_strike').cooldown,[10,4.9]);
+ assert.deepEqual(changes(newest,'call_spirits').baseDamage,[16,54]);
+ assert.equal(newest.changes.length,92);
+ assert.ok(history.releases.some(entry=>entry.version==='0.8.0'&&!entry.snapshots&&entry.changes.length===0));
 });

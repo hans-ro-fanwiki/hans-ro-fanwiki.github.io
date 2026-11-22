@@ -64,7 +64,7 @@ function CareerPicker({jobs,route,onPick}:{jobs:SkillJob[];route:CareerRoute|nul
  </section>;
 }
 
-function SkillDetail({skill}:{skill:Skill}){
+function SkillDetail({skill,reviewedAt}:{skill:Skill;reviewedAt:string}){
  const labels=[...new Set(skill.tags.map(x=>SKILL_TAGS[x]).filter((x):x is string=>Boolean(x)))];
  return <div className="sk-detail">
   <div className="sk-detail-head">
@@ -73,13 +73,14 @@ function SkillDetail({skill}:{skill:Skill}){
   </div>
   <div className="sk-facts">
    {skill.cooldown!==null&&<span><Clock3 size={14}/>基礎冷卻 {skill.cooldown} 秒</span>}
+   {skill.baseDamage!=null&&<span>基礎傷害 {skill.baseDamage}</span>}
    {labels.map(label=><span key={label}>{label}</span>)}
   </div>
   {skill.description?<div className="sk-description"><b>技能介紹</b><p>{skill.description}</p></div>:
    <div className="sk-description sk-limited"><b>技能介紹尚待補齊</b><p>目前審核的 HANS 資料沒有可直接核實的繁體中文效果說明；僅列出已登錄的名稱、圖示與可確認的技能資訊。</p></div>}
   {skill.upgradeDescription&&<div className="sk-description"><b>升級效果</b><p>{skill.upgradeDescription}</p></div>}
-  {skill.cooldown!==null&&<p className="sk-source-note">此處為遊戲註冊的基礎冷卻，實戰仍可能受到天賦、技能等級或其他效果影響。</p>}
-  <p className="sk-source-note">HANS 遊戲註冊資料 · 基準快照 2026-11-19；未顯示無法核實的精確技能公式。</p>
+  {(skill.cooldown!==null||skill.baseDamage!=null)&&<p className="sk-source-note">基礎值會受技能等級、角色屬性與天賦等效果影響。</p>}
+  <p className="sk-source-note">{skill.translationState==='wiki-zh'?'依 HANS 效果整理':'HANS 遊戲資料'} · {reviewedAt}</p>
  </div>;
 }
 
@@ -90,7 +91,7 @@ export function SkillsEncyclopedia({jobId,rank,query,selectedId,onChange}:Props)
  const restored=useRef(false);
  useEffect(()=>{
   const ac=new AbortController();
-  fetch(import.meta.env.BASE_URL+'data/skills.json?schema=1&names=zh-20261121',{signal:ac.signal})
+  fetch(import.meta.env.BASE_URL+'data/skills.json?schema=1',{signal:ac.signal,cache:'no-cache'})
    .then(r=>{if(!r.ok)throw Error('skills HTTP '+r.status);return r.json()})
    .then((result:SkillCatalog)=>{
     if(result.server!=='hans'||result.schemaVersion!==1||result.jobs.length!==41)
@@ -179,7 +180,7 @@ export function SkillsEncyclopedia({jobId,rank,query,selectedId,onChange}:Props)
         <span className="sk-result-copy"><strong>{skill.name}</strong><small>{skill.description||skill.originalName}{skill.cooldown!==null?' · 冷卻 '+skill.cooldown+'s':''}</small></span>
         <ChevronDown size={18} className={selectedId===skill.id?'sk-rotated':''}/>
        </button>
-       {selectedId===skill.id&&<SkillDetail skill={skill}/>}
+       {selectedId===skill.id&&<SkillDetail skill={skill} reviewedAt={data.reviewedAt}/>}
       </div>)}
      </div>
     </section>)}

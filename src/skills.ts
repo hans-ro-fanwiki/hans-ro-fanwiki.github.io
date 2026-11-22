@@ -5,9 +5,10 @@ export interface Skill {
  icon:string;
  description:string|null;
  upgradeDescription:string|null;
- descriptionSource:'hans-registered'|'not-static';
- translationState:'official-zh'|'untranslated'|'dynamic';
+ descriptionSource:'hans-registered'|'not-static'|'wiki-review';
+ translationState:'official-zh'|'untranslated'|'dynamic'|'wiki-zh';
  cooldown:number|null;
+ baseDamage?:number|null;
  type:string|null;
  tags:string[];
  cast:string[];
