@@ -1,0 +1,53 @@
+:root{font-family:system-ui,-apple-system,"Noto Sans TC",sans-serif;color:#e1ece7;background:#151d21;color-scheme:dark;line-height:1.45}
+*{box-sizing:border-box}
+body{margin:0}
+a{color:#96d9b8;text-underline-offset:.18em}
+a:focus-visible,button:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid #96d9b8;outline-offset:3px}
+button,select{font:inherit}
+h1,h2,h3,h4,p{margin:0}
+.rank-shell{width:min(1160px,100%);margin:auto;padding:28px clamp(14px,3vw,32px) 56px}
+.rank-header{border-bottom:1px solid #38504b;padding-bottom:18px;margin-bottom:17px}
+.rank-header h1{font-size:clamp(1.65rem,4vw,2.25rem);margin-top:10px}
+.rank-header p,.rank-muted{color:#a6b9b2;font-size:.875rem}
+.rank-home{font-size:.875rem}
+.rank-select{display:flex;align-items:center;gap:12px;margin-bottom:14px;font-weight:650}
+.rank-select select{background:#22322f;color:inherit;border:1px solid #44645a;border-radius:8px;padding:9px 12px;min-width:min(13rem,75%)}
+.rank-layout{display:grid;align-items:start;grid-template-columns:minmax(210px,275px) minmax(0,1fr);gap:16px}
+.rank-board,.rank-profile{padding:clamp(12px,2vw,20px);border:1px solid #36514a;border-radius:15px;background:#1e2a2d;min-width:0}
+.rank-board h2,.rank-profile h2{font-size:1.25rem;overflow-wrap:anywhere}
+.rank-board ol,.rank-talents ul{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:6px}
+.rank-board button{cursor:pointer;color:inherit;background:#263735;border:1px solid #3b5650;border-radius:8px;padding:7px 9px;width:100%;min-height:44px;display:grid;grid-template-columns:19px minmax(0,1fr) auto;gap:8px;text-align:left;align-items:center}
+.rank-board button[aria-pressed=true]{background:#304c41;border-color:#8acd9f}
+.rank-number,.rank-score{font-variant-numeric:tabular-nums}
+.rank-person{overflow-wrap:anywhere}
+.rank-person small{display:block;color:#a6b9b2}
+.rank-score{color:#a0e5ba;white-space:nowrap}
+.rank-score small{font-size:.7em}
+.rank-profile-head,.rank-section-head{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.rank-profile-head p{color:#c2d4cc}
+.rank-profile-head>.rank-score{font-size:1.35rem}
+.rank-stats{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0 18px}
+.rank-stats div{display:flex;gap:6px;background:#243532;border-radius:6px;padding:5px 8px}
+.rank-stats dt{color:#b4c9c0}
+.rank-stats dd{margin:0;font-weight:700}
+.rank-profile h3{font-size:1.05rem}
+.rank-action{font-size:.875rem;font-weight:650;padding:6px 9px;border:1px solid #527b69;border-radius:7px}
+.rank-talents{display:grid;gap:6px;margin:8px 0 17px}
+.rank-talents details,.rank-record{border:1px solid #3b5650;border-radius:8px;padding:7px 10px;background:#243532;overflow-wrap:anywhere}
+.rank-talents summary,.rank-record summary{cursor:pointer;font-weight:650;padding:4px 0}
+.rank-talents h4{margin-top:10px;color:#a0e5ba}
+.rank-talents ul{margin-top:5px}
+.rank-talents li{display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid #3b5650;padding-bottom:3px}
+.rank-gear{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:8px;margin-top:8px}
+.rank-item{min-width:0;padding:10px;border:1px solid #3b5650;border-radius:9px;background:#243532;overflow-wrap:anywhere}
+.rank-item-head{display:grid;align-items:center;grid-template-columns:42px minmax(0,1fr);gap:8px}
+.rank-icon{width:42px;height:42px;object-fit:contain;border-radius:6px;background:#192624}
+.rank-item-cards{display:grid;gap:2px;margin-top:6px;font-size:.85rem}
+.rank-item-affixes{margin-top:6px;font-size:.83rem;color:#bcd0c8}
+.rank-record{margin-top:12px}
+@media(max-width:700px){.rank-layout{grid-template-columns:1fr}.rank-shell{padding-top:16px}}
+.rank-filters{display:flex;flex-wrap:wrap;gap:0 20px}
+.rank-select input,.rank-matches button{font:inherit;background:#22322f;color:inherit;border:1px solid #44645a;border-radius:8px;padding:9px 12px}
+.rank-select input{width:min(15rem,64vw)}
+.rank-matches{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.rank-matches button{cursor:pointer}
