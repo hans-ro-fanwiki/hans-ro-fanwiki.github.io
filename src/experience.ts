@@ -9,7 +9,7 @@ export type ExperienceOptions = {
   count:number;events:number;killsPerMinute?:number;extraSeconds:number;serverExp:number;
 };
 export const defaultExperienceOptions:ExperienceOptions = {
-  baseLevel:50,jobLevel:1,advancement:'first',maxLap:1,season:false,count:1,events:1,extraSeconds:45,serverExp:1,
+  baseLevel:50,jobLevel:1,advancement:'first',maxLap:1,season:true,count:1,events:1,extraSeconds:45,serverExp:1,
 };
 
 const monsters:Record<string,Monster> = data.monsters;

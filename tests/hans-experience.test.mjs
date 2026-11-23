@@ -6,6 +6,14 @@ const maze=experienceData.stages.find(stage=>stage.id==='maze');
 const nif=experienceData.stages.find(stage=>stage.id==='c2_nif');
 const level70={...defaultExperienceOptions,baseLevel:70};
 
+test('seasonal stages are enabled by default and can still be excluded',()=>{
+  assert.equal(defaultExperienceOptions.season,true);
+  const enabled=rankExperience({...level70,maxLap:1,gs:1000},'base');
+  assert.ok(enabled.some(row=>row.stage.season));
+  const disabled=rankExperience({...level70,maxLap:1,gs:1000,season:false},'base');
+  assert.ok(disabled.every(row=>!row.stage.season));
+});
+
 test('HANS level gap and Base 70 threshold match both audited penalty curves',()=>{
   assert.equal(experienceFactors(60,58,1,false).base,.25);
   assert.equal(experienceFactors(90,58,1,false).base,.01);
@@ -34,7 +42,7 @@ test('monster count scales supply, events accelerate elites and hordes, and kill
 });
 
 test('recommendations filter GS and lap gates and rank by the selected per-minute metric',()=>{
-  const options={...level70,maxLap:3,gs:1800};
+  const options={...level70,maxLap:3,gs:1800,season:false};
   const ranked=rankExperience(options,'base');
   assert.equal(ranked[0].stage.id,'maze');
   assert.equal(ranked[0].lap,3);
