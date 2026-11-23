@@ -25,6 +25,7 @@ test('monster count scales supply, events accelerate elites and hordes, and kill
   const capped=estimateExperience(maze,3,{...level70,killsPerMinute:180});
   const cappedDouble=estimateExperience(maze,3,{...level70,count:2,killsPerMinute:180});
   assert.deepEqual(eventIntervals(2),{elite:22.5,horde:60});
+  assert.deepEqual(eventIntervals(1.5),{elite:30,horde:80});
   assert.ok(doubleCount.ordinary>baseline.ordinary*2);
   assert.equal(doubleCount.elite,baseline.elite);
   assert.ok(doubleEvents.elite>baseline.elite && doubleEvents.horde>baseline.horde);

@@ -14,22 +14,30 @@ function optionalNumber(value:string,min:number,max:number){
   return Number.isFinite(parsed)?Math.min(max,Math.max(min,parsed)):undefined;
 }
 
+function sliderMultiplier(value:string,max:number){
+  return Math.round((optionalNumber(value,100,max*100)??100)/5)/20;
+}
+
 export function ExperienceCalculator({onClose}:{onClose:()=>void}){
   const [level,setLevel]=useState('');
   const [target,setTarget]=useState<Metric>('base');
   const [options,setOptions]=useState(defaultExperienceOptions);
   const [gs,setGs]=useState('');
   const [killRate,setKillRate]=useState('');
+  const [monsterPercent,setMonsterPercent]=useState('100');
+  const [eventPercent,setEventPercent]=useState('100');
   const [all,setAll]=useState(false);
   const baseLevel=optionalNumber(level,1,experienceData.base.max);
   const jobLimit=jobLimits[options.advancement];
-  const model=useMemo(()=>({...options,baseLevel:Math.floor(baseLevel??1),jobLevel:Math.min(jobLimit,options.jobLevel),
-    gs:optionalNumber(gs,0,99999),killsPerMinute:optionalNumber(killRate,1,60000)}),[options,baseLevel,jobLimit,gs,killRate]);
+  const count=sliderMultiplier(monsterPercent,experienceData.spawn.maxCount);
+  const events=sliderMultiplier(eventPercent,experienceData.spawn.maxEvents);
+  const model=useMemo(()=>({...options,count,events,baseLevel:Math.floor(baseLevel??1),jobLevel:Math.min(jobLimit,options.jobLevel),
+    gs:optionalNumber(gs,0,99999),killsPerMinute:optionalNumber(killRate,1,60000)}),[options,count,events,baseLevel,jobLimit,gs,killRate]);
   const rankings=useMemo(()=>baseLevel===undefined?[]:rankExperience(model,target),[baseLevel,model,target]);
   const best=rankings[0];
   const perMinute=target==='base'?'basePerMinute':'jobPerMinute';
   const label=target==='base'?'Base':'Job';
-  const intervals=eventIntervals(options.events);
+  const intervals=eventIntervals(events);
   const comparisons=useMemo(()=>{
     if(!best)return [];
     const trials=[
@@ -66,12 +74,10 @@ export function ExperienceCalculator({onClose}:{onClose:()=>void}){
       </>}
     </div>
     <div className="xp-fields xp-difficulty">
-      <label>怪物數量<select value={options.count} onChange={event=>update('count',Number(event.target.value))}>
-        {Array.from({length:experienceData.spawn.maxCount},(_,i)=><option key={i} value={i+1}>{i+1}×</option>)}
-      </select></label>
-      <label>事件數量<select value={options.events} onChange={event=>update('events',Number(event.target.value))}>
-        {Array.from({length:experienceData.spawn.maxEvents},(_,i)=><option key={i} value={i+1}>{i+1}×</option>)}
-      </select></label>
+      <label>怪物數量（%）<input type="number" min={100} max={experienceData.spawn.maxCount*100} step={5}
+        value={monsterPercent} onChange={event=>setMonsterPercent(event.target.value)} onBlur={()=>setMonsterPercent(String(Math.round(count*100)))}/></label>
+      <label>事件數量（%）<input type="number" min={100} max={experienceData.spawn.maxEvents*100} step={5}
+        value={eventPercent} onChange={event=>setEventPercent(event.target.value)} onBlur={()=>setEventPercent(String(Math.round(events*100)))}/></label>
     </div>
     <p className="xp-hint">目前每 {decimal.format(intervals.elite)} 秒可出一隻菁英，每 {decimal.format(intervals.horde)} 秒可觸發一波怪物潮。菁英結算經驗為同種普通怪的 5 倍。</p>
     <details className="xp-advanced">
