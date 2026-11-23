@@ -150,6 +150,24 @@ export function estimateExperience(stage:ExperienceStage,lap:number,options:Expe
 }
 export type ExperienceEstimate=ReturnType<typeof estimateExperience>;
 
+// Only collapse numerically identical results for the selected XP metric. Higher laps
+// remain inspectable; we never infer kill speed from GS or silently discount rewards.
+export function groupEquivalentLaps(rows:ExperienceEstimate[],target:'base'|'job'){
+  const metric=target==='base'?'basePerMinute':'jobPerMinute';
+  const groups:{preferred:ExperienceEstimate;variants:ExperienceEstimate[]}[]=[];
+  for(const row of rows){
+    const score=row[metric];
+    const group=groups.find(entry=>entry.preferred.stage.id===row.stage.id &&
+      Math.abs(entry.preferred[metric]-score)<=Math.max(1e-7,Math.abs(score)*1e-12));
+    if(group){
+      group.variants.push(row);
+      if(row.lap<group.preferred.lap)group.preferred=row;
+    }else groups.push({preferred:row,variants:[row]});
+  }
+  for(const group of groups)group.variants.sort((a,b)=>a.lap-b.lap);
+  return groups;
+}
+
 export function rankExperience(options:ExperienceOptions,target:'base'|'job'){
   return data.stages.filter(stage=>!stage.season||options.season).flatMap(stage=>
     stage.gs.slice(0,options.maxLap).flatMap((gs,index)=>gs===null||(options.gs!==undefined&&gs>options.gs)

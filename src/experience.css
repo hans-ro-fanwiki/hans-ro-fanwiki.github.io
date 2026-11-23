@@ -20,7 +20,10 @@
 .xp-results-heading h2 {font-size:1.13rem;margin:0}
 .xp-results-heading span {font-size:.85rem;color:var(--wiki-muted,#a9beb6)}
 .xp-list {display:grid;gap:.45rem;padding:0;margin:0;list-style:none}
-.xp-list li {display:flex;align-items:center;justify-content:space-between;gap:.45rem 1rem;background:#1b2e31;border:1px solid var(--wiki-border,#3a5355);border-radius:.75rem;padding:.75rem .85rem}
+.xp-list > li {background:#1b2e31;border:1px solid var(--wiki-border,#3a5355);border-radius:.75rem;padding:.75rem .85rem}
+.xp-rank-line {display:flex;align-items:center;justify-content:space-between;gap:.45rem 1rem}
+.xp-rank-info {min-width:0}
+.xp-equivalent {display:inline-block;margin-top:.4rem;font-size:.74rem;color:var(--wiki-accent,#a5eccd)}
 .xp-list small {display:block;color:var(--wiki-muted,#a9beb6);margin-top:.25rem}
 .xp-score {text-align:right;font-variant-numeric:tabular-nums;flex-shrink:0}
 .xp-score strong {font-size:1.05rem;color:#a5eccd}
@@ -28,10 +31,42 @@
 .xp-comparison {overflow:auto}
 .xp-comparison table {width:100%;border-collapse:collapse;font-size:.9rem;font-variant-numeric:tabular-nums}
 .xp-comparison :is(th,td) {text-align:left;padding:.5rem;border-bottom:1px solid var(--wiki-border,#3a5355)}
+.xp-note {margin:0;padding:.65rem .8rem;border-left:3px solid var(--wiki-accent,#a5eccd);background:#1a302e;border-radius:.25rem .6rem .6rem .25rem;color:var(--wiki-text,#e7f0ec);font-size:.88rem;line-height:1.6}
+.xp-note strong {color:var(--wiki-accent,#a5eccd)}
+.xp-lap-details {margin-top:.65rem;padding-top:.55rem;border-top:1px solid var(--wiki-border,#3a5355);font-size:.84rem}
+.xp-lap-details summary {cursor:pointer;color:var(--wiki-accent,#a5eccd);min-height:32px;line-height:1.65}
+.xp-lap-details ul {list-style:none;padding:0;margin:.2rem 0 0}
+.xp-lap-details li {display:grid;grid-template-columns:1fr 1fr auto;align-items:center;gap:.5rem;padding:.45rem 0;border-top:1px solid #304649;color:var(--wiki-muted,#a9beb6);font-variant-numeric:tabular-nums}
+.xp-lap-details li strong {color:var(--wiki-text,#e7f0ec);font-size:.83rem;white-space:nowrap}
+.xp-formula {background:#17272a}
+.xp-formula > summary {display:flex;align-items:center;justify-content:space-between;gap:.5rem;min-height:44px}
+.xp-formula > summary small {font-size:.76rem;color:var(--wiki-muted,#a9beb6);font-weight:450}
+.xp-formula-body {display:grid;gap:.85rem;line-height:1.65}
+.xp-formula-body p {margin:.3rem 0;font-size:.88rem}
+.xp-formula-focus {margin:0!important;border-radius:.6rem;padding:.7rem .8rem;background:#213631;border:1px solid #345448;color:var(--wiki-text,#e7f0ec)}
+.xp-formula-section {display:grid;gap:.4rem;border-top:1px solid var(--wiki-border,#3a5355);padding-top:.9rem}
+.xp-formula-section h3 {display:flex;gap:.65rem;align-items:baseline;margin:0;font-size:.86rem;font-weight:700;letter-spacing:.02em;color:var(--wiki-accent,#a5eccd)}
+.xp-formula-section h3 span {color:var(--wiki-text,#e7f0ec);font-size:.98rem;letter-spacing:0}
+.xp-formula-section h4 {margin:.5rem 0 .1rem;font-size:.88rem;color:var(--wiki-text,#e7f0ec)}
+.xp-equation {display:grid;gap:.25rem;padding:.62rem .7rem;border:1px solid #345053;border-radius:.6rem;background:#112123}
+.xp-equation > span {font-size:.76rem;color:var(--wiki-muted,#a9beb6)}
+.xp-equation code {font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:.79rem;line-height:1.7;color:#c3e7d6;white-space:normal;overflow-wrap:anywhere}
+.xp-equation-main {border-color:#3b5f56}
+.xp-formula-table {overflow-x:auto}
+.xp-formula-table table {width:100%;border-collapse:collapse;text-align:left;font-size:.84rem;font-variant-numeric:tabular-nums}
+.xp-formula-table :is(th,td) {padding:.44rem .6rem;border-bottom:1px solid #385054}
+.xp-formula-table thead {color:var(--wiki-muted,#a9beb6)}
+.xp-formula-table tbody tr:last-child :is(th,td) {border-bottom:0}
+.xp-formula-disclaimer {margin:0!important;font-size:.82rem!important;color:var(--wiki-muted,#a9beb6)}
+.xp-formula-link {font-size:.85rem;color:var(--wiki-accent,#a5eccd);text-underline-offset:3px;justify-self:start}
 @media (max-width:420px) {
  .xp-fields {grid-template-columns:repeat(2,minmax(0,1fr))}
- .xp-list li {padding:.55rem;gap:.4rem;font-size:.88rem}
+ .xp-list > li {padding:.6rem;font-size:.88rem}
+ .xp-rank-line {gap:.45rem}
  .xp-score strong {font-size:1rem}
  .xp-list small {font-size:.72rem}
  .xp-score {white-space:nowrap}
+ .xp-formula > summary small {font-size:.71rem}
+ .xp-lap-details li {font-size:.76rem;gap:.3rem}
+ .xp-lap-details li strong {font-size:.76rem}
 }

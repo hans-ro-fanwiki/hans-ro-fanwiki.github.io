@@ -1,9 +1,10 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {defaultExperienceOptions,estimateExperience,eventIntervals,experienceData,experienceFactors,lapExperience,rankExperience} from '../src/experience.ts';
+import {defaultExperienceOptions,estimateExperience,eventIntervals,experienceData,experienceFactors,groupEquivalentLaps,lapExperience,rankExperience} from '../src/experience.ts';
 
 const maze=experienceData.stages.find(stage=>stage.id==='maze');
 const nif=experienceData.stages.find(stage=>stage.id==='c2_nif');
+const gef=experienceData.stages.find(stage=>stage.id==='c2_gef');
 const level70={...defaultExperienceOptions,baseLevel:70};
 
 test('seasonal stages are enabled by default and can still be excluded',()=>{
@@ -12,6 +13,24 @@ test('seasonal stages are enabled by default and can still be excluded',()=>{
   assert.ok(enabled.some(row=>row.stage.season));
   const disabled=rankExperience({...level70,maxLap:1,gs:1000,season:false},'base');
   assert.ok(disabled.every(row=>!row.stage.season));
+});
+
+test('chapter-two same XP laps collapse, while the lowest accessible lap stays visible',()=>{
+  const under70={...defaultExperienceOptions,baseLevel:65,maxLap:6,gs:9999,season:false};
+  const baseRows=rankExperience(under70,'base').filter(row=>row.stage.id==='c2_gef');
+  assert.equal(baseRows.length,6);
+  assert.ok(baseRows.every(row=>row.rule.levelOffset===0&&row.base===baseRows[0].base));
+  const merged=groupEquivalentLaps(baseRows,'base');
+  assert.equal(merged.length,1);
+  assert.equal(merged[0].preferred.lap,1);
+  assert.deepEqual(merged[0].variants.map(row=>row.lap),[1,2,3,4,5,6]);
+  const byGS=rankExperience({...under70,gs:2830},'base').filter(row=>row.stage.id==='c2_gef');
+  assert.deepEqual(groupEquivalentLaps(byGS,'base')[0].variants.map(row=>row.lap),[1,2]);
+  const above70=Array.from({length:6},(_,index)=>estimateExperience(gef,index+1,{...under70,baseLevel:70}));
+  assert.ok(above70[0].base<above70[1].base&&above70[1].base<above70[2].base);
+  assert.ok(above70.slice(3).every(row=>row.base===above70[2].base));
+  assert.deepEqual(groupEquivalentLaps(above70,'base').map(group=>group.variants.length),[1,1,4]);
+  assert.equal(groupEquivalentLaps(above70,'job').length,1);
 });
 
 test('HANS level gap and Base 70 threshold match both audited penalty curves',()=>{
