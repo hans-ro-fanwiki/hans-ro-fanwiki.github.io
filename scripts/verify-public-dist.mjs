@@ -59,6 +59,16 @@ const shipped=files(root).map(f=>path.relative(root,f).replaceAll('\\','/'));
 const images=shipped.filter(f=>/\.(?:png|webp|jpe?g|gif|svg|avif)$/i.test(f));
 assert.deepEqual(images,[],'No unreviewed HANS or legacy image may ship');
 const html=readFileSync(path.join(root,'index.html'),'utf8');
+const rankHtml=readFileSync(path.join(root,'520520520/index.html'),'utf8');
+for (const page of [html,rankHtml]) {
+ const policy=page.match(/<meta http-equiv="Content-Security-Policy" content="([^"]+)">/);
+ assert.ok(policy&&policy.index<page.indexOf('<script'),'CSP must precede scripts');
+ for (const directive of ["default-src 'none'","script-src 'self'","style-src 'self'","connect-src 'self'","base-uri 'none'","form-action 'none'"])
+  assert.ok(policy[1].split('; ').includes(directive),'Missing CSP directive: '+directive);
+ assert.match(page,/<meta name="referrer" content="no-referrer">/);
+}
+assert.match(rankHtml,/<meta name="robots" content="noindex, nofollow">/);
+assert.deepEqual(readFileSync(path.join(root,'520520520/snapshot.json')),readFileSync('public/520520520/snapshot.json'));
 assert.match(html,/HANS 漢斯服/);
 assert.doesNotMatch(html,/ro-survivors\.com|fan-thumbs|approved-thumbs/);
 console.log(JSON.stringify({status:'PASS',server:'hans',equipment:deployed.items.length,

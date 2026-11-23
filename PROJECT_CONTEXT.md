@@ -2,7 +2,9 @@
 
 ## 角色戰力快照試用
 
-隱藏入口 `/520520520/` 顯示 HANS 九個一轉職業系戰力前五名的單次快照。網頁讀取同站 JSON，不即時查 HANS。擷取工具為 `scripts/capture-hans-rankings.py`，手動執行才更新。公開輸出只保留榜單暱稱、職業和原站角色檢視中用到的欄位。可完整轉換的配點使用既有維基天賦樹分享連結，其餘保留節點明細。
+隱藏入口 `/520520520/` 顯示 HANS 九個一轉職業系戰力前五名的快照。每日上午 05:37（台灣時間）由 GitHub Actions 執行 `scripts/capture-hans-rankings.py`。有儲存庫寫入權限的人可在 [Actions](https://github.com/hans-ro-fanwiki/hans-ro-fanwiki.github.io/actions/workflows/ci.yml) 選 Run workflow、分支 main，勾選 refresh_rankings。擷取和驗證均通過才提交快照並部署。擷取失敗時沿用現有公開快照。頁面以同站 JSON 搜尋當期上榜暱稱。公開輸出只保留榜單暱稱、職業和原站角色檢視中用到的欄位。可完整轉換的配點使用既有維基天賦樹分享連結，其餘保留節點明細。
+
+正式建置在首頁與快照頁套用 CSP 與 no-referrer。快照與路徑屬公開 Pages 內容，已設 noindex，但可由知道網址的人存取。
 
 ## 2026-11-23 副本卡搜尋與 GS
 
