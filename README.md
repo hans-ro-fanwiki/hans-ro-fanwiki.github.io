@@ -1,5 +1,10 @@
 # RO 倖存者｜HANS 粉絲維基（非官方）
 
+## 團隊副本與玩家回報（2026-11-23）
+
+- [團隊副本](https://hans-ro-fanwiki.github.io/?page=stages&raid=all) 收錄 8 關的入場 GS、首領與流程、289 筆擲骰裝備關聯、15 張副本卡及通關／首通材料。裝備和卡片可反查副本。完整來源與限制見 [副本來源紀錄](docs/HANS_RAIDS_20261123.md)。
+- 玩家可從維基標題、頁尾及資料詳情開啟 Tally 的「問題回報／功能許願」。免 GitHub 登入，送件集中於維護者的 Google Sheets。
+
 本專案自 2026-11-19 起**僅支援 HANS 漢斯服**。舊咖啡版資料、照片、來源審核與匯入腳本已從 HANS 維基移除，不應再混入新資料。
 
 - HANS 遊戲入口：https://ro.hans-webgametw.com/

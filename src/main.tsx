@@ -1,6 +1,6 @@
 import {useCallback,useEffect,useMemo,useRef,useState} from 'react';
 import {createRoot} from 'react-dom/client';
-import {ArrowLeft,BookOpen,ChevronDown,ChevronRight,Gem,GitBranch,History,Map as MapIcon,Search,Shield,SlidersHorizontal,Swords,Target,WandSparkles,X} from 'lucide-react';
+import {ArrowLeft,BookOpen,ChevronDown,ChevronRight,Gem,GitBranch,History,Map as MapIcon,MessageSquarePlus,Search,Shield,SlidersHorizontal,Swords,Target,WandSparkles,X} from 'lucide-react';
 import type {Card,Catalog,Equipment,ImageEvidence,Kind,Monster,Page,Source,Stage} from './types';
 import './styles.css';
 import './search.css';
@@ -19,9 +19,12 @@ import {hasConfirmedAcquisition} from './acquisition';
 import {cardEffects,cardId,cardMultiplier,cardName,clampLap,gsRepresentativeJob,gsScalingForJob,isRaidOnlyCard,GS_SCALING_LABELS,stageLapInfo,stageTierLabel} from './laps';
 import type {LapRules} from './types';
 import {cardGsContribution,isProvisionalGsCard,rankCardsByGs} from './card-ranking';
-import {FestivalNotes,GameNotes} from './game-notes';
+import {FestivalNotes,GameNotes,gameSite} from './game-notes';
+import {addRaidSources,parseRaid,raids,raidUrl} from './raids';
+import {feedbackUrl} from './feedback';
+import './raids.css';
 
-type View={page:Page;slot:string;job:string;source:string;query:string;attr:string;mode:'list'|'stages'|'gs';stageType:StageType;stageChapter:StageChapter;lap:number;gsJob:string;showUnknown:boolean;detail:string|null;stage:string|null;tj:string;tb:string;t:string;skillJob:string;skillRank:number;skillId:string|null};
+type View={page:Page;slot:string;job:string;source:string;query:string;attr:string;mode:'list'|'stages'|'gs';stageType:StageType;stageChapter:StageChapter;lap:number;gsJob:string;showUnknown:boolean;detail:string|null;stage:string|null;raid:string|null;tj:string;tb:string;t:string;skillJob:string;skillRank:number;skillId:string|null};
 type GameEntry=Equipment|Card;
 const SLOTS:Record<string,string>={weapon:'武器',head_top:'頭飾（上）',head_mid:'頭飾（中）',head_low:'頭飾（下）',armor:'衣服',shield:'盾牌',garment:'披肩',shoes:'鞋子',acc:'飾品'};
 const CARD_SLOTS:Record<string,string>={weapon:'武器',armor:'盔甲',shield:'盾牌',garment:'披肩',shoes:'鞋子',accessory:'飾品',headgear:'頭飾'};
@@ -37,13 +40,13 @@ const LABELS:Record<Page,string>={items:'裝備',cards:'卡片',stages:'關卡',
 // the public repository and Pages artifact never contain game image files.
 const PUBLIC_MODE=import.meta.env.VITE_PUBLIC_MODE==='1';
 const ASSET_ROOT='https://ro.hans-webgametw.com/assets/';
-const EMPTY:View={page:'items',slot:'all',job:'all',source:'all',query:'',attr:'all',mode:'list',stageType:'all',stageChapter:'all',lap:1,gsJob:'swordsman',showUnknown:false,detail:null,stage:null,tj:'swordsman',tb:'',t:'',skillJob:'all',skillRank:0,skillId:null};
+const EMPTY:View={page:'items',slot:'all',job:'all',source:'all',query:'',attr:'all',mode:'list',stageType:'all',stageChapter:'all',lap:1,gsJob:'swordsman',showUnknown:false,detail:null,stage:null,raid:null,tj:'swordsman',tb:'',t:'',skillJob:'all',skillRank:0,skillId:null};
 function readLocation():View{
  const q=new URLSearchParams(location.search);
  const page=q.get('page')||(q.has('t')?'talents':'items');
  const legacyEffect:Record<string,string>={cooldown:'cooldown',crit:'crit',damage:'damage',defense:'armor',hp:'hp'};
  return {page:(Object.prototype.hasOwnProperty.call(LABELS,page)?page:'items') as Page,slot:q.get('slot')||'all',job:q.get('job')||'all',
- source:q.get('source')||'all',query:q.get('q')||'',attr:q.get('attr')||legacyEffect[q.get('effect')||'']||'all',mode:q.get('mode')==='stages'?'stages':page==='cards'&&q.get('mode')==='gs'?'gs':'list',stageType:parseStageType(q.get('sg'),q.get('open')),stageChapter:parseStageChapter(q.get('ch')),lap:clampLap(Number(q.get('lap')||1)),gsJob:q.get('gsjob')||'swordsman',showUnknown:q.get('unknown')==='1',detail:q.get('detail')||null,stage:q.get('stage')||null,tj:q.get('tj')||'swordsman',tb:q.get('tb')||'',t:q.get('t')||'',skillJob:q.get('sj')||'all',skillRank:[0,1,2,3].includes(Number(q.get('sr')))?Number(q.get('sr')):0,skillId:q.get('sk')||null};
+ source:q.get('source')||'all',query:q.get('q')||'',attr:q.get('attr')||legacyEffect[q.get('effect')||'']||'all',mode:q.get('mode')==='stages'?'stages':page==='cards'&&q.get('mode')==='gs'?'gs':'list',stageType:parseStageType(q.get('sg'),q.get('open')),stageChapter:parseStageChapter(q.get('ch')),lap:clampLap(Number(q.get('lap')||1)),gsJob:q.get('gsjob')||'swordsman',showUnknown:q.get('unknown')==='1',detail:q.get('detail')||null,stage:q.get('stage')||null,raid:page==='stages'?parseRaid(q.get('raid')):null,tj:q.get('tj')||'swordsman',tb:q.get('tb')||'',t:q.get('t')||'',skillJob:q.get('sj')||'all',skillRank:[0,1,2,3].includes(Number(q.get('sr')))?Number(q.get('sr')):0,skillId:q.get('sk')||null};
 }
 function pathFor(v:View){
  const q=new URLSearchParams();
@@ -62,6 +65,7 @@ function pathFor(v:View){
  if(v.showUnknown)q.set('unknown','1');
  if(v.detail)q.set('detail',v.detail);
  if(v.stage)q.set('stage',v.stage);
+ if(v.page==='stages'&&v.raid)q.set('raid',v.raid);
  if(v.page==='talents'){if(v.t)q.set('t',v.t);else{if(v.tj!=='swordsman')q.set('tj',v.tj);if(v.tb)q.set('tb',v.tb);}}
  if(v.page==='skills'){if(v.skillJob!=='all')q.set('sj',v.skillJob);if(v.skillRank!==0)q.set('sr',String(v.skillRank));if(v.skillId)q.set('sk',v.skillId);}
  return location.pathname+(q.size?'?'+q.toString():'');
@@ -84,13 +88,12 @@ function safeImageUrl(x:ImageEvidence|null|undefined):string|null{
  if(!x || !/^(items|cards)\/[a-zA-Z0-9_-]+(?:_art)?\.png$/.test(x.officialPath))return null;
  return ASSET_ROOT+x.officialPath;
 }
-function StageArtwork({stage}:{stage:Stage}){
- const src=stage.image?.officialPath;
+function StageArtwork({name,path:src}:{name:string;path?:string}){
  const url=src&&/^maps\/[a-z0-9_]+\/minimap\.png$/.test(src)?ASSET_ROOT+src:null;
  const [failed,setFailed]=useState(false);
  useEffect(()=>setFailed(false),[url]);
  return <span className="art stage">{url&&!failed?
-  <img className="stage-map-image" src={url} alt={stage.name+'地圖縮圖'} loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={()=>setFailed(true)}/>:
+  <img className="stage-map-image" src={url} alt={name+'地圖縮圖'} loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={()=>setFailed(true)}/>:
   <MapIcon size={26} strokeWidth={1.7}/>}</span>;
 }
 function Artwork({kind,entity,large=false}:{kind:Kind;entity?:Equipment|Card|Monster|null;large?:boolean}){
@@ -154,7 +157,7 @@ function App(){
  const focusedStage=state.stage;
  useEffect(()=>{
   const ac=new AbortController();
-  fetch(import.meta.env.BASE_URL+'data/catalog.json?schema=2',{signal:ac.signal,cache:'no-store'}).then(r=>{if(!r.ok)throw Error(String(r.status));return r.json()}).then(d=>{if(d.server!=='hans'||d.schemaVersion!==2||d.lapRules?.max!==6)throw Error('HANS 資料版本不相容');setCatalog(d as Catalog)}).catch(e=>{if(e.name!=='AbortError')setError('資料載入失敗，請重新整理。')});
+  fetch(import.meta.env.BASE_URL+'data/catalog.json?schema=2',{signal:ac.signal,cache:'no-store'}).then(r=>{if(!r.ok)throw Error(String(r.status));return r.json()}).then(d=>{if(d.server!=='hans'||d.schemaVersion!==2||d.lapRules?.max!==6)throw Error('HANS 資料版本不相容');setCatalog(addRaidSources(d as Catalog))}).catch(e=>{if(e.name!=='AbortError')setError('資料載入失敗，請重新整理。')});
   return ()=>ac.abort();
  },[]);
  useEffect(()=>{
@@ -240,6 +243,8 @@ function App(){
   if(state.mode==='gs')return new Map<number,number|null>(rankedCards.map(({card,score})=>[card.id,score]));
   return new Map<number,number|null>(cardList.map(card=>[card.id,cardGsContribution(card,catalog.lapRules,state.lap,state.gsJob)]));
  },[catalog,cardList,rankedCards,state.page,state.mode,state.lap,state.gsJob]);
+ const showRaids=state.page==='stages'&&!!state.raid;
+ const reportHref=feedbackUrl(location.href);
  const list:GameEntry[]=state.page==='cards'?(state.mode==='gs'?rankedCards.map(({card})=>card):cardList):equip;
  const searchActive=Boolean(state.query.trim()||state.attr!=='all');
  const advancedCount=Number(state.attr!=='all')+Number(state.source!=='all');
@@ -267,7 +272,8 @@ function App(){
    const boss='slot'in entry?'':ref.boss?'（Boss）':'';
    return (stage?.name||ref.stageId)+boss;
   }))];
-  if('raid' in entry&&entry.raid&&!names.length)return '團隊遠征副本';
+  const raidNames=entry.sources.flatMap(source=>raids.filter(raid=>raid.id===source.raidId).map(raid=>raid.name));
+  if(state.source==='raid'||!names.length)names.unshift(...raidNames);
   if(names.length)return names.slice(0,2).join('、')+(names.length>2?' 等':'');
   const official=entry.sources.find(s=>s.verificationState==='official'&&s.detail);
   if(official)return official.detail!;
@@ -288,12 +294,18 @@ function App(){
   <main className="container">
    <section className="content-section">
     <div className="section-heading"><h1>{LABELS[state.page]}</h1>{state.page!=='talents'&&state.page!=='skills'&&state.page!=='balance'&&<span className="heading-count">
-      {state.page==='items'?equip.length:state.page==='cards'?(state.mode==='gs'?rankedCards.length:cardList.length):catalog?.stages.filter(stage=>matchesStageType(stage,state.stageType)&&(state.stageChapter==='all'||String(stage.chapter)===state.stageChapter)).length||0}
-     </span>}</div>
+      {state.page==='items'?equip.length:state.page==='cards'?(state.mode==='gs'?rankedCards.length:cardList.length):showRaids?raids.length:catalog?.stages.filter(stage=>matchesStageType(stage,state.stageType)&&(state.stageChapter==='all'||String(stage.chapter)===state.stageChapter)).length||0}
+     </span>}<FeedbackLink href={reportHref}>回報／許願</FeedbackLink></div>
     {state.page==='balance'?<BalanceHistory/>:state.page==='talents'?<TalentSimulator jobId={state.tj} token={state.tb} packed={state.t} onRoute={(tj,tb,t,replace=false)=>navigate({tj,tb,t,page:'talents'},false,replace)}/>:state.page==='skills'?<SkillsEncyclopedia jobId={state.skillJob} rank={state.skillRank} query={state.query} selectedId={state.skillId} onChange={(patch,replace=true)=>navigate(patch,false,replace)}/>:<>
     {error&&<div className="empty-state">{error}</div>}
     {!catalog&&!error&&<div className="empty-state">讀取中…</div>}
     {catalog&&<>
+     {state.page==='stages'&&<div className="segment raid-view-switch" role="group" aria-label="關卡瀏覽方式">
+      <button type="button" className={!showRaids?'on':''} aria-pressed={!showRaids} onClick={()=>navigate({raid:null,query:'',detail:null})}>關卡</button>
+      <button type="button" className={showRaids?'on':''} aria-pressed={showRaids} onClick={()=>navigate({raid:'all',stage:null,query:'',detail:null})}>團隊副本</button>
+     </div>}
+     {showRaids?<RaidBrowser selected={state.raid} items={items} cards={cards} openDetail={openDetail}
+      onSelect={raid=>navigate({raid})}/>:<>
      <section className="search-panel">
       <label className="search-field"><Search size={20}/><input aria-label="搜尋裝備、卡片或屬性" placeholder="搜尋裝備、卡片、INT、冷卻…" value={state.query} onChange={e=>navigate({query:e.target.value},false,true)}/>{state.query&&<button type="button" className="search-clear" aria-label="清除搜尋" onClick={()=>navigate({query:''})}><X size={18}/></button>}</label>
       {state.page==='cards'&&catalog&&<LapPicker rules={catalog.lapRules} lap={state.lap} setLap={lap=>navigate({lap})}/>}
@@ -361,16 +373,17 @@ function App(){
        </button>)}{(state.page==='items'?cardList:equip).length>40&&<button className="load-more" type="button" onClick={()=>navigate({page:state.page==='items'?'cards':'items',mode:'list'},true)}>查看更多{state.page==='items'?'卡片':'裝備'}</button>}</div>
       </section>}
      </>}
-     {state.page==='stages'&&<GameNotes cards={catalog.cards} openCard={id=>openDetail('card',id)}/>}
+     {state.page==='stages'&&<GameNotes/>}
      {state.page==='stages'&&<StageBrowser data={catalog} query={state.query} attr={state.attr} stageType={state.stageType} stageChapter={state.stageChapter} onChapterChange={stageChapter=>navigate({stageChapter,stage:null})} onStageTypeChange={stageType=>navigate({stageType,stage:null})} focusedStage={focusedStage} openDetail={openDetail} source={state.source} lap={state.lap} setLap={lap=>navigate({lap})}/>}
+    </>}
     </>}
     </>}
    </section>
   </main>
-  <SiteFooter publicMode={PUBLIC_MODE}/>
+  <SiteFooter publicMode={PUBLIC_MODE} feedbackHref={reportHref}/>
   {state.detail&&catalog&&<div className="sheet-backdrop" onMouseDown={e=>{if(e.target===e.currentTarget)closeDetail()}}>
    <section className="sheet" role="dialog" aria-modal="true" aria-label="詳細資訊"><div className="sheet-grab"/>
-    <div className="sheet-head"><button className="back-button" onClick={backFromDetail}><ArrowLeft size={19}/>返回</button><button ref={detailCloseRef} className="icon-button" aria-label="關閉" onClick={closeDetail}><X size={19}/></button></div>
+    <div className="sheet-head"><button className="back-button" onClick={backFromDetail}><ArrowLeft size={19}/>返回</button><FeedbackLink href={feedbackUrl(location.href,selectedCard?.id)}>回報資料</FeedbackLink><button ref={detailCloseRef} className="icon-button" aria-label="關閉" onClick={closeDetail}><X size={19}/></button></div>
     <div className="sheet-body">
      {selectedItem&&<EquipmentDetail item={selectedItem} rules={catalog.lapRules} lap={state.lap} stages={stages} monsters={monsters} openDetail={openDetail}/>}
      {selectedCard&&<CardDetail card={selectedCard} rules={catalog.lapRules} lap={state.lap} setLap={lap=>navigate({lap},false,true)} gsJob={state.gsJob} setGsJob={gsJob=>navigate({gsJob},false,true)} stages={stages} monsters={monsters} openDetail={openDetail}/>}
@@ -380,6 +393,68 @@ function App(){
    </section>
   </div>}
  </>;
+}
+function FeedbackLink({href,children}:{href:string;children:React.ReactNode}){
+ return <a className="feedback-link" href={href} target="_blank" rel="noopener noreferrer">
+  <MessageSquarePlus size={16} aria-hidden="true"/>{children}
+ </a>;
+}
+function RaidBrowser({selected,items,cards,onSelect,openDetail}:{
+ selected:string|null;items:Map<number,Equipment>;cards:Map<number,Card>;
+ onSelect:(id:string)=>void;openDetail:(kind:Kind,id:number)=>void;
+}){
+ const raid=raids.find(entry=>entry.id===selected)||raids[0];
+ return <section className="raid-browser" aria-label="團隊遠征副本">
+  <div className="stage-lap-note">
+   <strong>V0.15.0 · 11/23 正式開放</strong>
+   <p>到廣場找「遠征副本管理員」。每團 6～30 人，須 Base Lv 50 且達到該關個人 GS。每個副本每天可挑戰 1 次，失敗也計次。</p>
+   <details><summary>擲骰、勳章兌換與刻印規則</summary>
+    <ul>
+     <li>首領和精英的戰利品以「需要／貪婪／放棄」擲骰分配。通關另得遠征勳章。</li>
+     <li>遠征勳章可兌換材料、刻印、副本品級裝備箱及卡片。卡片須首通對應副本。裝備箱須首通任一副本，依最高首通副本決定 Tier，可自選部位。</li>
+     <li>第 4 關起通關可獲遠征刻印，首通另有加發。傳說裝備可二選一追加職業適用詞條，之後可重洗，刻印後裝備綁定帳號。</li>
+     <li>遊戲介面說明首通勳章為 3 倍，加發部分不計入每週上限。實際兌換價格、每週限額與伺服器調整以遊戲內為準。</li>
+    </ul>
+    <a href={gameSite}>漢斯服最新消息</a>
+   </details>
+  </div>
+  <div className="raid-chooser" role="group" aria-label="選擇副本">
+   {raids.map(entry=><button type="button" key={entry.id} className="raid-choice" aria-pressed={entry.id===raid.id} onClick={()=>onSelect(entry.id)}>
+    <StageArtwork name={entry.name} path={'maps/'+entry.map+'/minimap.png'}/>
+    <span className="raid-choice-copy"><strong>{entry.name}</strong><small>T{entry.tier} · GS {entry.gs.toLocaleString('zh-TW')}</small></span>
+   </button>)}
+  </div>
+  <article className="raid-details" key={raid.id}>
+   <h2>{raid.name}</h2>
+   <p className="raid-detail-meta">首領 {raid.boss} · T{raid.tier} · 個人 GS {raid.gs.toLocaleString('zh-TW')} · {raid.minutes} 分鐘</p>
+   <p>{raid.traits.join('；')}</p>
+   <details className="stage-lap-note"><summary>關卡流程</summary>
+    <ol>{raid.zones.map(zone=><li key={zone}>{zone}</li>)}</ol>
+   </details>
+   <h3>副本卡片（{raid.cards.length} 張）</h3>
+   <div className="raid-pool">{raid.cards.map(id=>{
+    const card=cards.get(id)!;
+    return <button type="button" className="loot-row" key={id} onClick={()=>openDetail('card',id)}>
+     <Artwork kind="card" entity={card}/><span className="loot-copy"><b>{card.name}{card.raid?.suffix}</b><small>{cardSlot(card)} · 效果 ×{card.raid?.mult}</small></span><ChevronRight size={16}/>
+    </button>;
+   })}</div>
+   <details className="stage-lap-note"><summary>擲骰裝備（{raid.gear.length} 件）</summary>
+    <p>遊戲內預覽為 T{raid.tier} 裝備池。首領池每 {raid.gearPerBoss} 人 1 件，精英另計。單品機率未公開。</p>
+    <div className="raid-pool">{raid.gear.map(id=>{
+     const item=items.get(id)!;
+     return <button type="button" className="loot-row" key={id} onClick={()=>openDetail('item',id)}>
+      <Artwork kind="item" entity={item}/><span className="loot-copy"><b>{item.name}</b><small>{SLOTS[item.slot]||item.slot}</small></span><ChevronRight size={16}/>
+     </button>;
+    })}</div>
+   </details>
+   <h3>通關與首通獎勵</h3>
+   <p>通關另有遠征勳章{raids.indexOf(raid)>=3?'及遠征刻印':''}。材料預覽如下：</p>
+   <ul>{raid.materials.map(material=><li key={material}>{material}</li>)}</ul>
+   <p className="raid-detail-meta">小數沿用遊戲預覽的顯示方式。單場實際數量以結算為準。</p>
+   <p><strong>首通</strong>　{raid.firstClear}</p>
+   <FeedbackLink href={feedbackUrl(location.origin+location.pathname+raidUrl(raid.id))}>回報此副本資料</FeedbackLink>
+  </article>
+ </section>;
 }
 function StageBrowser({data,query,attr,stageType,onStageTypeChange,stageChapter,onChapterChange,focusedStage,openDetail,lap,setLap,slot='all',job='all',source='all',showUnknown=false,initialKind='all'}:{
  data:Catalog;query:string;attr:string;stageType:StageType;onStageTypeChange:(value:StageType)=>void;stageChapter:StageChapter;onChapterChange:(value:StageChapter)=>void;lap:number;setLap:(lap:number)=>void;focusedStage:string|null;
@@ -432,7 +507,7 @@ function StageBrowser({data,query,attr,stageType,onStageTypeChange,stageChapter,
    const opened=expanded.has(stage.id);
    return <section className="stage-entry" key={stage.id}>
     <button type="button" className="stage-heading" id={'stage-heading-'+stage.id} aria-expanded={opened} aria-controls={'stage-'+stage.id} onClick={()=>setExpanded(previous=>{const next=new Set(previous);if(next.has(stage.id))next.delete(stage.id);else next.add(stage.id);return next})}>
-     <StageArtwork stage={stage}/>
+     <StageArtwork name={stage.name} path={stage.image?.officialPath}/>
      <span className="result-main"><strong>{stage.name}</strong><small>{stageLapInfo(stage,lap)?stageTierLabel(stage,lap)+' · GS '+stageLapInfo(stage,lap)!.gs+' · ':stageTierLabel(stage,lap)+' · '}Lv {stage.levels}{stage.season?' · 活動':stage.story?' · 劇情':''} · {rows.filter(r=>r.source.verificationState==='official').length} 筆掉落{rows.some(r=>r.source.verificationState!=='official')?' · '+rows.filter(r=>r.source.verificationState!=='official').length+' 筆待核關聯':''}</small></span>
      <ChevronDown size={20} style={{transform:opened?'rotate(180deg)':undefined}}/>
     </button>
@@ -473,6 +548,7 @@ function DropRoutes({sources,stages,monsters,openDetail}:{sources:Source[];stage
  return <div className="route-list">{sources.map((s,i)=><div className="route" key={i}>
    <div className="route-top"><strong>{s.sourceType==='monsterDrop'?(s.verificationState!=='official'?'取得方式待確認':s.stageRefs.every(ref=>ref.boss)?'Boss 掉落':'怪物掉落'):SOURCES[s.sourceType]||s.sourceType}</strong></div>
   {s.detail&&<p className="source-detail">{s.detail}{Number.isInteger(s.sourceTier)?' · Tier '+s.sourceTier:''}</p>}
+  {s.raidId&&<a className="raid-route" href={raidUrl(s.raidId)}>{raids.find(raid=>raid.id===s.raidId)?.name}<ChevronRight size={14}/></a>}
   {s.monsterId&&<button onClick={()=>openDetail('monster',s.monsterId!)}><Target size={16}/><span>{sourceMonsterName(s,monsters)}</span><ChevronRight size={16}/></button>}
    {s.stageRefs.map(r=>{
     const stage=stages.get(r.stageId);
@@ -539,7 +615,7 @@ function CardDetail({card,rules,lap,setLap,gsJob,setGsJob,stages,monsters,openDe
   </>}
   {card.raid&&<><h3 className="sheet-section">副本卡片效果（×{card.raid.mult}）</h3>
    <div className="bonus-list">{cardEffects(card,rules,lap,card.raid.mult).map((value,index)=><span key={index}>{value}</span>)}</div>
-   <p className="card-gs-note">可於首通對應副本後用遠征勳章兌換。個別副本的掉落與兌換需求以遊戲內為準。</p>
+   <p className="card-gs-note">各副本的卡片池與取得方式見下方。兌換價格以遊戲內的遠征副本管理員為準。</p>
   </>}
   <h3 className="sheet-section">取得方式</h3>
   <DropRoutes sources={card.sources} stages={stages} monsters={monsters} openDetail={openDetail}/>

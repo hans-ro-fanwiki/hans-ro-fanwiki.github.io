@@ -1,10 +1,10 @@
-import {ChevronDown,ExternalLink} from 'lucide-react';
+import {ChevronDown,ExternalLink,MessageSquarePlus} from 'lucide-react';
 import './site-footer.css';
 
 const REPORT_URL='https://github.com/hans-ro-fanwiki/hans-ro-fanwiki.github.io/issues/new?template=content-removal.yml';
 const HANS_URL='https://ro.hans-webgametw.com/';
 
-export function SiteFooter({publicMode}:{publicMode:boolean}){
+export function SiteFooter({publicMode,feedbackHref}:{publicMode:boolean;feedbackHref:string}){
  return <footer className="site-footer" aria-label="網站聲明">
   <div className="site-footer-inner">
    <p className="site-footer-lead">HANS 粉絲維基 · 免費 · 非官方</p>
@@ -18,6 +18,7 @@ export function SiteFooter({publicMode}:{publicMode:boolean}){
     </div>
    </details>
    <nav className="site-footer-links" aria-label="相關資訊">
+    <a href={feedbackHref} target="_blank" rel="noopener noreferrer"><MessageSquarePlus size={15} aria-hidden="true"/>問題回報／功能許願</a>
     <a href={HANS_URL} target="_blank" rel="noopener noreferrer">HANS 漢斯服 <ExternalLink size={13} aria-hidden="true"/></a>
     <a href={REPORT_URL} target="_blank" rel="noopener noreferrer">內容疑慮／下架聯絡 <ExternalLink size={13} aria-hidden="true"/></a>
     <a href="https://github.com/hans-ro-fanwiki/hans-ro-fanwiki.github.io" target="_blank" rel="noopener noreferrer">資料站原始碼 <ExternalLink size={13} aria-hidden="true"/></a>

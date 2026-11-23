@@ -1,0 +1,17 @@
+{
+  "date": "2026-11-23",
+  "version": "0.15.0",
+  "directory": "evidence/hans-20261123",
+  "main": {
+    "file": "main-BNOcv2PN.hz395beeb5.js",
+    "sha256": "12a573c66b5f97a459d1a4b944c0834c4952b4d9a4702cf11907b87c9fa8e24d"
+  },
+  "soul": {
+    "file": "soul_linker-DllBVIRO.hz383176e8.js",
+    "sha256": "f1e5a3e52427e2a110ed8746dd116b95cd94f651cd56384c0fb83d8e21dfd50b"
+  },
+  "manifest": {
+    "file": "manifest.json",
+    "sha256": "a229afd72d25dee9b8b79420e362958f808477dcf0695ef619c2856ed00b62fb"
+  }
+}

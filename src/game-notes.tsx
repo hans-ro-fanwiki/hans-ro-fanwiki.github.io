@@ -1,5 +1,3 @@
-import type {Card} from './types';
-
 export const gameSite='https://ro.hans-webgametw.com/';
 
 const festivalStages:Record<string,{duo:string;intruder:string;mvp:string;length:number;points:number}>={
@@ -21,23 +19,11 @@ export function FestivalNotes({id}:{id:string}){
  </div>;
 }
 
-const raidStages=[
- ['獸人的記憶','獸人英雄'],['章魚洞穴','邪惡章魚'],['恐怖玩具工廠','賽琳‧基米'],
- ['尼德霍格之巢','尼德霍格之影'],['驚駭森靈之巢','驚駭森靈皇后'],['舊格拉斯特海姆','闇答萊屍'],
- ['死者之國','死神 安庫'],['封印神殿','別西卜'],
-];
-
-export function GameNotes({cards,openCard}:{cards:Card[];openCard:(id:number)=>void}){
- const raidCards=cards.filter(card=>card.raid);
+export function GameNotes(){
  return <details className="stage-lap-note">
-  <summary>團隊副本、世界王與其他活動</summary>
-  <h3>團隊遠征副本</h3>
-  <p>遊戲用戶端已登錄下列副本。11/22 公告預告與世界王一同推出，實際開放以遊戲內為準。</p>
-  <ul>{raidStages.map(([name,boss])=><li key={name}>{name} · 首領 {boss}</li>)}</ul>
-  <p>介面列出每個副本每天 1 次、6～30 人。副本卡可在首通對應副本後用遠征勳章兌換，具體門檻與掉落以開放後為準。</p>
-  <div className="stage-monster-chips">{raidCards.map(card=><button type="button" key={card.id} onClick={()=>openCard(card.id)}>{card.name}・副本</button>)}</div>
+  <summary>世界王與其他活動</summary>
   <h3>世界王</h3>
-  <p>11/22 公告為暫停維修。11/21 規則為每場 10 個戰場、每個戰場 400 人，全服共 4,000 席，設參加獎與傷害排名獎。</p>
+  <p>11/22 公告為暫停維修，當前狀態以遊戲內為準。11/21 規則為每場 10 個戰場、每個戰場 400 人，全服共 4,000 席，設參加獎與傷害排名獎。</p>
   <h3>無限之塔</h3>
   <p>樓層隨第二章延伸。開放樓層依各角色進度；節慶關卡不列入塔的進度。</p>
   <h3>節慶司儀與卡片回收</h3>

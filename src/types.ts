@@ -3,7 +3,7 @@ export type Kind = 'item'|'card'|'monster'|'stage';
 export type Page = 'items'|'cards'|'stages'|'skills'|'talents'|'balance';
 export type SourceType='monsterDrop'|'bossDrop'|'story'|'event'|'reward'|'starter'|string;
 export interface StageRef {stageId:string;boss:boolean;verified:boolean;verificationState:Verified}
-export interface Source {sourceType:SourceType;detail?:string;sourceTier?:number;monsterId:string|null;stageRefs:StageRef[];rawRate?:number|null;verificationState:Verified;evidence:{file:string;hash:string;kind:string;key:string}|null}
+export interface Source {sourceType:SourceType;detail?:string;raidId?:string;sourceTier?:number;monsterId:string|null;stageRefs:StageRef[];rawRate?:number|null;verificationState:Verified;evidence:{file:string;hash:string;kind:string;key:string}|null}
 export interface ImageEvidence {assetId:string;officialPath:string;rights:'not-cleared';renderAllowed:false}
 export interface Equipment {id:number;name:string;nameAliases?:string[];originalName:string;slot:string;jobs:string[];gender:string|null;bonuses:string[];baseStats?:{atk?:number;matk?:number;def?:number;wlv?:number;elv?:number}|null;starBonuses?:string[];starBonusesMax?:string[];sources:Source[];image:ImageEvidence|null;icon:ImageEvidence|null;fieldProvenance:Record<string,Verified>}
 export interface CardEffect {stat:string;value:number}

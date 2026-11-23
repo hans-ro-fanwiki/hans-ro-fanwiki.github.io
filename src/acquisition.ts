@@ -6,6 +6,6 @@ export function hasConfirmedAcquisition(item:Equipment):boolean {
     if(source.verificationState!=='official'||!source.evidence)return false;
     if(source.sourceType==='monsterDrop')
       return source.stageRefs.some(ref=>ref.verified&&ref.verificationState==='official');
-    return ['event','starter','story','reward'].includes(source.sourceType) && !!source.detail;
+    return ['event','starter','story','reward','raid'].includes(source.sourceType) && !!source.detail;
   });
 }
