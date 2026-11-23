@@ -10,6 +10,10 @@
 .xp-advanced {border:1px solid var(--wiki-border,#3a5355);border-radius:.75rem;padding:.75rem .85rem}
 .xp-advanced summary {cursor:pointer;font-weight:650}
 .xp-advanced[open] summary {margin-bottom:.85rem}
+.xp-guide ol {margin:0;padding-inline-start:1.5rem;line-height:1.65}
+.xp-guide li+li {margin-top:.65rem}
+.xp-guide li::marker {color:var(--wiki-accent,#a5eccd)}
+.xp-field {display:grid;gap:.3rem;align-content:start}
 .xp-checkbox {display:flex;align-items:center;gap:.4rem;margin-top:.85rem;font-size:.9rem}
 .xp-results {display:grid;gap:.7rem}
 .xp-results-heading {display:flex;align-items:baseline;justify-content:space-between;gap:.4rem 1rem;flex-wrap:wrap}

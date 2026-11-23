@@ -56,6 +56,14 @@ export function ExperienceCalculator({onClose}:{onClose:()=>void}){
   const practical=target==='base'?baseLevel!==experienceData.base.max:model.jobLevel<jobLimit;
   return <section className="xp-panel" aria-label="經驗計算機">
     <button type="button" className="xp-return" onClick={onClose}>關卡圖鑑</button>
+    <details className="xp-advanced xp-guide">
+      <summary>使用教學</summary>
+      <ol>
+        <li><strong>先選要練的經驗。</strong>輸入目前 Base Lv，並選擇已開放的最高周目。填寫 GS 可篩掉戰力門檻高於你的關卡。若在練 Job，再填職業階段和目前 Job Lv。</li>
+        <li><strong>從結算畫面估算清怪速度。</strong>打完後，到「本局」查看「怪物」和「時間」。例如 8,821 隻 ÷（14 ＋ 15 ÷ 60）分鐘 ≈ 619 隻／分。把 619 填進「進階試算」的「每分鐘擊殺上限」。這是該場的平均值，換關卡或倍率時可用相近難度的場次重新估算。</li>
+        <li><strong>比較每分鐘經驗。</strong>怪物和事件數量填遊戲裡顯示的百分比，例如 200。先看關卡排名，再展開「比較怪物與事件倍率」。用實戰核對時，把每場結算的 Base 或 Job 經驗加總，除以總耗時（含結算、重開與失敗場）。</li>
+      </ol>
+    </details>
     <div className="segment xp-target" role="group" aria-label="練等目標">
       <button type="button" className={target==='base'?'on':''} aria-pressed={target==='base'} onClick={()=>setTarget('base')}>Base 經驗</button>
       <button type="button" className={target==='job'?'on':''} aria-pressed={target==='job'} onClick={()=>setTarget('job')}>Job 經驗</button>
@@ -83,7 +91,7 @@ export function ExperienceCalculator({onClose}:{onClose:()=>void}){
     <details className="xp-advanced">
       <summary>進階試算</summary>
       <div className="xp-fields">
-        <label>每分鐘擊殺上限<input type="number" min={1} placeholder="選填，例如 180" value={killRate} onChange={event=>setKillRate(event.target.value)}/></label>
+        <div className="xp-field"><label>每分鐘擊殺上限<input type="number" min={1} placeholder="選填，例如 619" aria-describedby="xp-kill-help" value={killRate} onChange={event=>setKillRate(event.target.value)}/></label><small className="xp-hint" id="xp-kill-help">結算的「怪物」÷「時間（分鐘）」。留空時，依能清完刷出的怪物試算。</small></div>
         <label>打王、整備與重開（秒）<input type="number" min={0} max={1800} value={options.extraSeconds} onChange={event=>update('extraSeconds',optionalNumber(event.target.value,0,1800)??0)}/></label>
         <label>全服經驗加成<select value={options.serverExp} onChange={event=>update('serverExp',Number(event.target.value))}>
           {[1,1.25,1.5,1.75,2,2.5,3,4,5].map(multiplier=><option key={multiplier} value={multiplier}>{multiplier}×</option>)}
