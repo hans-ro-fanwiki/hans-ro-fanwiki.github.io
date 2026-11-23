@@ -2,7 +2,9 @@
 
 ## 角色戰力快照試用
 
-隱藏入口 `/520520520/` 顯示 HANS 九個一轉職業系戰力前五名的快照。由能正常讀取 HANS 公開榜單的電腦執行 `python scripts/capture-hans-rankings.py`。執行成功後，將 `public/520520520/snapshot.json` 提交至測試分支，通過 CI 後發布到 `main`。擷取失敗時保留已發布的快照。GitHub 託管執行器呼叫 HANS 公開榜單回傳 HTTP 403，目前擷取由本機手動觸發。頁面以同站 JSON 搜尋當期上榜暱稱。公開輸出只保留榜單暱稱、職業和原站角色檢視中用到的欄位。可完整轉換的配點使用既有維基天賦樹分享連結，其餘保留節點明細。
+隱藏入口 `/520520520/` 顯示 HANS 九個一轉職業系戰力前五名的快照。由能正常讀取 HANS 公開榜單的電腦執行 `python scripts/capture-hans-rankings.py`。執行成功後，將 `public/520520520/snapshot.json` 提交至測試分支，通過 CI 後發布到 `main`。擷取失敗時保留已發布的快照。GitHub 託管執行器呼叫 HANS 公開榜單回傳 HTTP 403，因此使用 Windows 工作排程器擷取。頁面以同站 JSON 搜尋當期上榜暱稱。公開輸出只保留榜單暱稱、職業和原站角色檢視中用到的欄位。可完整轉換的配點使用既有維基天賦樹分享連結，其餘保留節點明細。
+
+Windows 工作排程器內的 `HANS Wiki Ranking Refresh` 每天 05:37（台灣時間）執行。使用者登入 Windows 且電腦可連網時執行，錯過可用時段後補跑。可在工作排程器按「執行」立即更新。排程執行 `scripts/refresh-hans-rankings.ps1` 安裝到 `%LOCALAPPDATA%\HANS Wiki Ranking Refresh` 的副本，沿用該 Windows 帳號的 GitHub CLI 授權。暫存工作樹及每次執行記錄也在該目錄。它只將榜單 JSON 提交到測試分支，等待 CI 成功後才以一般 Git 推送發布。若擷取腳本變更，需先審查並更新安裝版的 Git blob 雜湊。
 
 正式建置在首頁與快照頁套用 CSP 與 no-referrer。快照與路徑屬公開 Pages 內容，已設 noindex，但可由知道網址的人存取。
 
