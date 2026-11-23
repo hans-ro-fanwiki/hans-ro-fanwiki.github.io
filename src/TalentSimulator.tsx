@@ -2,7 +2,7 @@ import {useEffect,useMemo,useState} from 'react';
 import {
  ArrowRight,BookOpen,Check,ChevronDown,ChevronUp,Copy,Crosshair,Droplets,ExternalLink,
  Flame,Footprints,Gem,Heart,Leaf,Link2,Minus,Mountain,Plus,RotateCcw,
- Shield,Snowflake,Sparkles,Star,Sun,Swords,Target,Wind,Workflow,X,Zap,Skull,
+ Shield,Snowflake,Sparkles,Star,Sun,Swords,Target,Wind,X,Zap,Skull,
  WandSparkles,Sword,Hand,ShieldCheck,CloudLightning
 } from 'lucide-react';
 import type {TalentBuild,TalentBranch,TalentCatalog,TalentJob} from './talents';
@@ -251,9 +251,8 @@ export function TalentSimulator({jobId,token,packed,onRoute}:Props){
   </div>}
  </aside>:null;
  return <div className="talent-simulator tg-game">
-  <div className="tg-top"><span><Workflow size={20}/>HANS 職業天賦樹</span><small>粉絲製作 · 模擬配點</small></div>
   <div className="tg-body">
-   <p className="tg-lead"><span className="tg-help-desktop">左鍵直接加點、右鍵退點；滑鼠移入更新天賦樹上方固定資訊列，不會有遮住其他技能的彈窗。選擇「查看完整說明」才展開詳細內容。</span><span className="tg-help-mobile">點技能查看說明，使用面板 ＋／－ 配點；一／二／三轉可以分別配置、合併分享。</span></p>
+   <p className="tg-lead"><span className="tg-help-desktop">左鍵加點、右鍵退點。將滑鼠移到技能上，可在上方查看說明。</span><span className="tg-help-mobile">點選技能後，用面板上的 ＋／－ 配點。一、二、三轉可分別配置。</span></p>
    <JobSelector data={data} job={job} expanded={showJobs} setExpanded={setShowJobs} onChoose={chooseJob}/>
    <nav className="tg-career-nav" aria-label="三階轉職配點">
     <div className={'tg-career-stage'+(job.rank===1?' active':'')}>

@@ -67,6 +67,11 @@ for (const page of [html,rankHtml]) {
   assert.ok(policy[1].split('; ').includes(directive),'Missing CSP directive: '+directive);
  assert.match(page,/<meta name="referrer" content="no-referrer">/);
 }
+const publicEntry=html.match(/<script[^>]+src="([^"]+\.js)"/)?.[1];
+assert.ok(publicEntry,'Public wiki entry script missing');
+assert.doesNotMatch(html+readFileSync(path.join(root,publicEntry),'utf8'),/520520520/,'Ranking must stay outside the public wiki entry');
+for (const sitemap of shipped.filter(file=>/^sitemap.*\.xml$/i.test(file)))
+ assert.doesNotMatch(readFileSync(path.join(root,sitemap),'utf8'),/520520520/,'Ranking must stay outside sitemap');
 assert.match(rankHtml,/<meta name="robots" content="noindex, nofollow">/);
 assert.deepEqual(readFileSync(path.join(root,'520520520/snapshot.json')),readFileSync('public/520520520/snapshot.json'));
 assert.match(html,/HANS 漢斯服/);

@@ -1,20 +1,5 @@
 /* RO Survivors dark slate theme. Imported after the existing layout rules.
    No extra UI dependencies; retain the app's typography and icon system. */
-:root {
-  color-scheme: dark;
-  --wiki-bg: #151d21;
-  --wiki-surface: #202b30;
-  --wiki-raised: #29373d;
-  --wiki-border: #385055;
-  --wiki-text: #eaf1ee;
-  --wiki-muted: #bacbc4;
-  --wiki-subtle: #9aafa8;
-  --wiki-accent: #85d3b4;
-  --wiki-accent-soft: #263d37;
-  --wiki-focus: #9fdec7;
-  background:var(--wiki-bg);
-  color:var(--wiki-text);
-}
 body{background:var(--wiki-bg);color:var(--wiki-text)}
 button,select,input{color:inherit}
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible {

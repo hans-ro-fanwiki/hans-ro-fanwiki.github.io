@@ -9,6 +9,7 @@ import {catalogCardVariants} from './card-ranking';
 import {addRaidSources} from './raids';
 import {profileTalents} from './rank-preview-data';
 import type {GearAffix,RankedGear,RankRow,RankSnapshot} from './rank-preview-data';
+import './wiki-theme.css';
 import './rank-preview.css';
 
 const assetOrigin='https://ro.hans-webgametw.com/assets/';

@@ -1,0 +1,19 @@
+:root {
+  color-scheme:dark;
+  --wiki-bg:#121b1e;
+  --wiki-surface:#1a272b;
+  --wiki-raised:#213237;
+  --wiki-field:#142326;
+  --wiki-border:#395156;
+  --wiki-text:#edf5f1;
+  --wiki-muted:#b8cac3;
+  --wiki-subtle:#a1b8b0;
+  --wiki-accent:#9ce3c4;
+  --wiki-accent-soft:#254239;
+  --wiki-focus:#a9f2d3;
+  --wiki-radius-control:10px;
+  --wiki-radius-panel:16px;
+  --wiki-width:1120px;
+  background:var(--wiki-bg);
+  color:var(--wiki-text);
+}

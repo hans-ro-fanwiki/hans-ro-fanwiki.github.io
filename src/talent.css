@@ -1,14 +1,8 @@
 /* HANS-inspired talent window. Original game icons are intentionally NOT copied.
    All pictograms use the project's existing Lucide icon library. */
-body:has(.tg-game) .container{max-width:1280px}
-body:has(.tg-game) .content-section{padding:0;overflow:hidden;background:#eef3fc;border:1px solid #7895c6;color:#223865}
-body:has(.tg-game) .section-heading{display:none}
 .tg-game{font-family:"Noto Sans TC","PingFang TC",system-ui,sans-serif;color:#243867;background:#f9fbff}
 .tg-game button{touch-action:manipulation}
 .tg-game button:focus-visible,.tg-game select:focus-visible{outline:3px solid #286cc5;outline-offset:3px}
-.tg-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 20px;color:#fff;font-size:18px;font-weight:900;background:linear-gradient(180deg,#93aee2 0%,#6689d2 48%,#3b5ba5 100%);border-bottom:1px solid #425e96}
-.tg-top>span{display:flex;align-items:center;gap:8px}
-.tg-top small{font-size:12px;color:#eff5ff;font-weight:600}
 .tg-body{padding:17px 20px 25px}
 .tg-lead{color:#536b9a;font-size:13px;margin:0 0 15px}
 .tg-help-mobile{display:none}
@@ -119,7 +113,6 @@ body:has(.tg-game) .section-heading{display:none}
 @media(min-width:751px){
  body:has(.tg-game) .content-section{overflow:visible}
  .tg-game{border-radius:17px}
- .tg-top{border-radius:16px 16px 0 0}
  .tg-inspector-slot.tg-inspector-active{position:sticky;top:76px;z-index:9;box-shadow:0 8px 18px #091b2255}
  .tg-inspector-slot .tg-desktop-detail.tg-expanded{max-height:min(55vh,440px);overflow-y:auto;overscroll-behavior:contain}
  .tg-node{scroll-margin-top:200px}
@@ -163,8 +156,6 @@ body:has(.tg-game) .section-heading{display:none}
 }
 @media(max-width:750px){
  .tg-body{padding:11px 12px 17px}
- .tg-top{padding:10px 13px}
- .tg-top small{display:none}
  .tg-lead{display:block;font-size:11px;margin-bottom:8px;line-height:1.5}
  .tg-help-desktop{display:none}
  .tg-help-mobile{display:inline}

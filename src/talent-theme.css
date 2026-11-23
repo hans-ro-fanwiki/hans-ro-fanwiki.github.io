@@ -29,12 +29,7 @@ body:has(.tg-game) .content-section {
   outline:2px solid var(--tg-focus);
   outline-offset:3px;
 }
-.tg-top {
-  background:linear-gradient(180deg,#2d4648,#25383c);
-  color:var(--tg-text);
-  border-color:var(--tg-border);
-}
-.tg-top small,.tg-lead,.tg-job-title p,.tg-summary>div span,.tg-skill-bar>b,
+.tg-lead,.tg-job-title p,.tg-summary>div span,.tg-skill-bar>b,
 .tg-tree-desc,.tg-footer,.tg-rank-tag,.tg-career-stage>button span {
   color:var(--tg-muted);
 }

@@ -146,7 +146,7 @@ export function SkillsEncyclopedia({jobId,rank,query,selectedId,onChange}:Props)
  const clearSearch=()=>onChange({query:'',skillId:null},true);
  return <div className="skills-encyclopedia">
   <div className="sk-intro">
-   <div><p>查詢 HANS 一轉、二轉、三轉技能、官方圖示、已知效果及基礎冷卻。技能圖鑑僅供查閱，不影響天賦配點。</p></div>
+   <div><p>查閱一至三轉技能的效果、升級說明與基礎冷卻。</p></div>
    {data&&<span className="sk-total">{data.skills.length} 種技能</span>}
   </div>
   {error&&<div className="sk-empty" role="alert">{error}</div>}
