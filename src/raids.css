@@ -22,3 +22,8 @@
  .raid-chooser{grid-template-columns:1fr}
  .raid-details{padding:11px}
 }
+.raid-details{scroll-margin-top:100px}
+.raid-controls{margin:0}
+.raid-controls select{max-width:100%;min-height:42px}
+.raid-return{justify-self:start}
+.raid-pool .loot-copy small{white-space:normal}
