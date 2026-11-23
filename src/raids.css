@@ -27,3 +27,7 @@
 .raid-controls select{max-width:100%;min-height:42px}
 .raid-return{justify-self:start}
 .raid-pool .loot-copy small{white-space:normal}
+.raid-pool,.compact-results{grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+.loot-result{width:100%;min-width:0}
+.loot-result .result-main{overflow-wrap:anywhere}
+.search-extra>summary{cursor:pointer;padding-block:10px}

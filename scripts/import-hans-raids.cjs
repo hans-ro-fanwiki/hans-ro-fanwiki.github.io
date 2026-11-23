@@ -48,7 +48,7 @@ const raids = Object.entries(JSON.parse(preview[1]).raids).map(([id, raid]) => {
   }
   for (const cardId of raid.cards) {
     const baseId = cardId % rules.cardStep;
-    if (!raidCards.delete(baseId) || !cards.has(baseId))
+    if (cardId !== baseId+(rules.raid.k-1)*rules.cardStep || rules.raid.k-1 !== rules.max || !raidCards.delete(baseId) || !cards.has(baseId))
       throw Error('Unknown or duplicate raid card: ' + cardId);
   }
   return {

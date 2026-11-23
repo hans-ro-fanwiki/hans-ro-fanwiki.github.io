@@ -61,7 +61,7 @@ export function cardScore(card:Card,rules:LapRules,lap:number,jobId:string):numb
  if(!job)return null;
  const base=rules.scoring.base,extra=rules.scoring.classes[job.scaling];
  if(!extra)return null;
- const multiplier=cardMultiplier(card,rules,lap);
+ const multiplier=card.raidVariant?card.raid!.mult:cardMultiplier(card,rules,lap);
  let raw=0;
  for(const effect of card.effects){
   const value=appliedValue(effect.stat,effect.value,multiplier);
@@ -72,7 +72,7 @@ export function cardScore(card:Card,rules:LapRules,lap:number,jobId:string):numb
  const scored=Math.max(0,Math.round(raw));
  if(card.bossRank==='mvp'||card.bossRank==='mini'){
   const floor=rules.bossFloors[card.bossRank];
-  return Math.max(scored,Math.round(floor*multiplier));
+  return Math.max(scored,Math.round(floor*(card.raidVariant?1:multiplier)));
  }
  return scored;
 }

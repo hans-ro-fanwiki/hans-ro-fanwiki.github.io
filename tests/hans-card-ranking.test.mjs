@@ -162,3 +162,23 @@ test('all 15 audited raid variants keep their separate 4.2x effects and are not 
   if(isRaidOnlyCard(card))assert.equal(cardGsContribution(card,rules,1,'mage'),null);
  }
 });
+
+test('raid card variants are searchable and rank by the same score shown in details', async()=>{
+ const {catalogCardVariants,cardGsContribution,rankCardsByGs}=await import('../src/card-ranking.ts');
+ const {entryMatches}=await import('../src/search.ts');
+ const {cardEffects,cardName}=await import('../src/laps.ts');
+ const rules=catalog.lapRules;
+ const cards=catalogCardVariants(catalog.cards,rules);
+ const matches=cards.filter(card=>entryMatches(card,'獸人英雄','all'));
+ assert.deepEqual(matches.map(card=>card.id),[4143,6004143]);
+ assert.deepEqual(cards.filter(card=>entryMatches(card,'獸人英雄副本','all')).map(card=>card.id),[6004143]);
+ assert.equal(cards.filter(card=>card.raidVariant).length,15);
+ const [ordinary,raid]=matches;
+ assert.equal(cardName(raid,rules,6),'獸人英雄卡片・副本');
+ assert.deepEqual(cardEffects(raid,rules,6),['護甲 +12.6','HP +168']);
+ assert.equal(cardGsContribution(ordinary,rules,1,'swordsman'),30);
+ for(let lap=1;lap<=rules.max;lap++)assert.equal(cardGsContribution(raid,rules,lap,'swordsman'),92);
+ assert.deepEqual(rankCardsByGs(matches,rules,1,'swordsman').map(({score})=>score),[92,30]);
+ assert(raid.sources.every(source=>source.sourceType==='raid'));
+ assert(ordinary.sources.every(source=>source.sourceType!=='raid'));
+});
