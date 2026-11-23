@@ -30,3 +30,11 @@ test('all V0.15.0 raid-preview rewards resolve to the wiki equipment and raid-ca
  }
  assert.equal(variantCards.size,0);
 });
+
+test('hard healer thresholds and suggested raid roles remain distinct',()=>{
+ assert.deepEqual(raids.filter(raid=>raid.baseHealers).map(raid=>[raid.id,raid.baseHealers,raid.healerRequirements]),
+  [['r4',1,[[10,2]]],['r8',1,[[10,2],[20,3]]]]);
+ const glast=raids.find(raid=>raid.id==='r6');
+ assert.equal(glast.baseHealers,0);
+ assert(glast.recommendedRoles.some(role=>role.label==='補師'&&role.min===1));
+});

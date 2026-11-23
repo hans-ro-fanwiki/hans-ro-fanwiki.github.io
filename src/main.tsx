@@ -468,6 +468,8 @@ function RaidBrowser({selected,items,cards,page,view,data,onChange,onSelect,open
   {result&&<article ref={resultsRef} className="raid-details" key={raid.id}>
    <h2>{raid.name}</h2>
    <p className="raid-detail-meta">首領 {raid.boss} · T{raid.tier} · 個人 GS {raid.gs.toLocaleString('zh-TW')} · {raid.minutes} 分鐘</p>
+   {raid.baseHealers>0&&<p><strong>硬性補師門檻</strong>　6 人起至少 {raid.baseHealers} 位{raid.healerRequirements.map(([players,healers])=>'；'+players+' 人起至少 '+healers+' 位').join('')}</p>}
+   {raid.recommendedRoles.length>0&&<p><strong>建議隊伍組成</strong>　{raid.recommendedRoles.map(({label,percent,min})=>label+(percent?' ≥'+percent+'%':'')+(min?' ≥'+min+' 位':'')).join('、')}</p>}
    <p>{raid.traits.join('；')}</p>
    <details className="stage-lap-note"><summary>關卡流程</summary>
     <ol>{raid.zones.map(zone=><li key={zone}>{zone}</li>)}</ol>

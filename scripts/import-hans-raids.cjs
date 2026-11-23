@@ -54,6 +54,9 @@ const raids = Object.entries(JSON.parse(preview[1]).raids).map(([id, raid]) => {
   return {
     id, name:raid.name, boss:raid.boss.name, map:raid.key, tier:raid.tier,
     gs:raid.pmin, minutes:raid.mins, gearPerBoss:raid.div, traits:raid.traits,
+    healerRequirements:(raid.heal || []).filter(([players])=>players>=6).sort(([a],[b])=>a-b),
+    baseHealers:raid.heal?.find(([players])=>players===1)?.[1] || 0,
+    recommendedRoles:raid.mixRoles.map(({label,pct,min})=>({label,percent:Math.round(pct*100),min})),
     zones:raid.zones, gear:raid.pool, cards:raid.cards.map(id => id % rules.cardStep),
     materials:raid.ores, firstClear:raid.first,
   };
