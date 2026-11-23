@@ -31,6 +31,8 @@ def get(endpoint, **params):
             raise RuntimeError(f"HANS {endpoint} returned an unexpected response")
         if status == "404":
             return None
+        if status in ("401", "403"):
+            break
         if attempt < 2:
             time.sleep(60 if status == "429" else 3 * (attempt + 1))
     raise RuntimeError(f"HANS {endpoint} unavailable (HTTP {status or 'unknown'})")

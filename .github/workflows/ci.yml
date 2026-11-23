@@ -2,15 +2,7 @@ name: Dev checks and safe Pages deploy
 on:
   push:
     branches: [main, "dev/**"]
-  schedule:
-    # 05:37 Asia/Taipei daily, off the top of the hour.
-    - cron: "37 21 * * *"
   workflow_dispatch:
-    inputs:
-      refresh_rankings:
-        description: "Refresh the HANS ranking snapshot before building"
-        type: boolean
-        default: false
 permissions:
   contents: read
 concurrency:
@@ -29,9 +21,6 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci --ignore-scripts
-      - name: Capture HANS rankings
-        if: github.event_name == 'schedule' || inputs.refresh_rankings
-        run: python3 scripts/capture-hans-rankings.py
       - run: npm run typecheck
       - run: npm test
       - name: Build clean public-safe static site
@@ -45,41 +34,9 @@ jobs:
         uses: actions/upload-pages-artifact@7b1f4a764d45c48632c6b24a0339c27f5614fb0b
         with:
           path: dist
-      - name: Upload verified ranking snapshot
-        if: github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || inputs.refresh_rankings)
-        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
-        with:
-          name: ranking-snapshot
-          path: public/520520520/snapshot.json
-          if-no-files-found: error
-          retention-days: 1
-  save-ranking-snapshot:
-    if: github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || inputs.refresh_rankings)
-    needs: verify
-    runs-on: ubuntu-latest
-    timeout-minutes: 5
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
-      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
-        with:
-          name: ranking-snapshot
-          path: ${{ runner.temp }}/ranking-snapshot
-      - name: Keep the snapshot for future deployments
-        run: |
-          cp "$RUNNER_TEMP/ranking-snapshot/snapshot.json" public/520520520/snapshot.json
-          git add -- public/520520520/snapshot.json
-          if git diff --cached --quiet; then
-            exit 0
-          fi
-          git -c user.name='github-actions[bot]' -c user.email='41898282+github-actions[bot]@users.noreply.github.com' commit -m 'Refresh HANS ranking snapshot'
-          git push origin HEAD:refs/heads/main
   deploy:
-    if: >-
-      !cancelled() && github.ref == 'refs/heads/main' && needs.verify.result == 'success'
-      && (needs.save-ranking-snapshot.result == 'success' || needs.save-ranking-snapshot.result == 'skipped')
-    needs: [verify, save-ranking-snapshot]
+    if: github.ref == 'refs/heads/main'
+    needs: verify
     runs-on: ubuntu-latest
     permissions:
       contents: read
