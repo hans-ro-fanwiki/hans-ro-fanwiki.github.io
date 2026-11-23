@@ -1,0 +1,33 @@
+.xp-panel {display:grid;gap:1rem;color:var(--wiki-text,#e7f0ec)}
+.xp-return {justify-self:start;padding:.55rem .85rem;border:1px solid var(--wiki-border,#3a5355);border-radius:.65rem;background:var(--wiki-panel,#243538);color:inherit;font:inherit;cursor:pointer}
+.xp-target {justify-self:start}
+.xp-fields {display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:.85rem}
+.xp-fields label {display:grid;gap:.35rem;font-size:.9rem;font-weight:650}
+.xp-fields :is(input,select) {min-width:0;width:100%;box-sizing:border-box;border:1px solid var(--wiki-border,#3a5355);border-radius:.65rem;padding:.65rem .75rem;background:#16272a;color:inherit;font:inherit;font-size:1rem;color-scheme:dark}
+.xp-fields :is(input,select):focus-visible,.xp-return:focus-visible,.xp-advanced summary:focus-visible {outline:2px solid #a5eccd;outline-offset:2px}
+.xp-difficulty {grid-template-columns:repeat(2,minmax(0,1fr))}
+.xp-hint {margin:0;color:var(--wiki-muted,#a9beb6);font-size:.9rem;line-height:1.6}
+.xp-advanced {border:1px solid var(--wiki-border,#3a5355);border-radius:.75rem;padding:.75rem .85rem}
+.xp-advanced summary {cursor:pointer;font-weight:650}
+.xp-advanced[open] summary {margin-bottom:.85rem}
+.xp-checkbox {display:flex;align-items:center;gap:.4rem;margin-top:.85rem;font-size:.9rem}
+.xp-results {display:grid;gap:.7rem}
+.xp-results-heading {display:flex;align-items:baseline;justify-content:space-between;gap:.4rem 1rem;flex-wrap:wrap}
+.xp-results-heading h2 {font-size:1.13rem;margin:0}
+.xp-results-heading span {font-size:.85rem;color:var(--wiki-muted,#a9beb6)}
+.xp-list {display:grid;gap:.45rem;padding:0;margin:0;list-style:none}
+.xp-list li {display:flex;align-items:center;justify-content:space-between;gap:.45rem 1rem;background:#1b2e31;border:1px solid var(--wiki-border,#3a5355);border-radius:.75rem;padding:.75rem .85rem}
+.xp-list small {display:block;color:var(--wiki-muted,#a9beb6);margin-top:.25rem}
+.xp-score {text-align:right;font-variant-numeric:tabular-nums;flex-shrink:0}
+.xp-score strong {font-size:1.05rem;color:#a5eccd}
+.xp-score strong small {display:inline;font-size:.75rem}
+.xp-comparison {overflow:auto}
+.xp-comparison table {width:100%;border-collapse:collapse;font-size:.9rem;font-variant-numeric:tabular-nums}
+.xp-comparison :is(th,td) {text-align:left;padding:.5rem;border-bottom:1px solid var(--wiki-border,#3a5355)}
+@media (max-width:420px) {
+ .xp-fields {grid-template-columns:repeat(2,minmax(0,1fr))}
+ .xp-list li {padding:.55rem;gap:.4rem;font-size:.88rem}
+ .xp-score strong {font-size:1rem}
+ .xp-list small {font-size:.72rem}
+ .xp-score {white-space:nowrap}
+}
