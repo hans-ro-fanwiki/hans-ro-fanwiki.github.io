@@ -16,6 +16,7 @@ const compatibilityBySkill: Partial<Record<string, CompatibilityRow[]>> = compat
 const sourcesByStat: Partial<Record<string, Record<string, string[]>>> = compatibility.namedSources;
 type SourceDetail = (typeof compatibility.sourceDetails)[keyof typeof compatibility.sourceDetails];
 const sourceDetails: Partial<Record<string, SourceDetail>> = compatibility.sourceDetails;
+const deityBySkill: Partial<Record<string, {bonuses:string[];triggers:string[]}>> = compatibility.deities;
 
 function ItemSources({groups, unaffected}: {groups: [string, string[]][]; unaffected: boolean}) {
   const panelId = useId();
@@ -87,6 +88,7 @@ export function SkillCompatibility({skillId, skillName}: {skillId: string; skill
   const global = rows?.filter(row => row.source === 'global') ?? [];
   const local = rows?.filter(row => row.source === 'local') ?? [];
   const deity = rows?.filter(row => row.source === 'deity') ?? [];
+  const deityInfo = Object.hasOwn(deityBySkill,skillId) ? deityBySkill[skillId] : undefined;
   const onlyTiming = !!rows?.length && rows.every(row => row.stat === '急速' || row.stat === '冷卻加成');
   const section = onlyTiming || skillId === 'ruwach' ? 'timing' : 'geometry';
 
@@ -101,12 +103,24 @@ export function SkillCompatibility({skillId, skillName}: {skillId: string; skill
       <summary>這招自己的加成</summary>
       <CompatibilityRows rows={local}/>
     </details>}
-    {deity.length > 0 && <details className="combat-effect-group">
-      <summary>{skillName}的神格效果<span className="combat-note">（{deity.length} 項）</span></summary>
-      <CompatibilityRows rows={deity}/>
+    {deityInfo && <details className="combat-effect-group">
+      <summary>{skillName}的神格效果</summary>
+      {deityInfo.bonuses.length > 0 && <>
+        <p className="combat-note">第 1 階加成</p>
+        <ul className="combat-deity-list">{deityInfo.bonuses.map(bonus=><li key={bonus}>{bonus}</li>)}</ul>
+      </>}
+      {deityInfo.triggers.length > 0 && <>
+        <p className="combat-note">拿到神格後追加的效果</p>
+        <ul className="combat-deity-list">{deityInfo.triggers.map(effect=><li key={effect}>{effect}</li>)}</ul>
+      </>}
+      {deity.length > 0 && <details className="combat-effect-group">
+        <summary>看加成用在這招的哪裡</summary>
+        <CompatibilityRows rows={deity}/>
+      </details>}
+      <p className="combat-note">上面是神格給的加成。實際增加的傷害、範圍或冷卻還會依這招的規則計算。</p>
       <p className="combat-note">這招的神格和禁錮之神等全域神格用同一個欄位，換上新的會取代原本的。</p>
     </details>}
-    <p className="combat-note">{onlyTiming ? '目前已核對：冷卻。' : '本區整理已核對的效果。'} · {VERSION}</p>
+    <p className="combat-note">{onlyTiming ? '目前查到的詞條效果：冷卻。' : '詞條清單只列已查證的項目。'} · {VERSION}</p>
     <a href={`?page=combat#${section}`}>查看戰鬥機制</a>
   </section>;
 }

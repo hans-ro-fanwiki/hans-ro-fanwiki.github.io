@@ -38,6 +38,9 @@
 @media (pointer:coarse) {.combat-source-chip {min-height:44px}}
 .combat-effect-group {border-top:1px solid var(--wiki-border)}
 .combat-effect-group summary {cursor:pointer;font-weight:700;padding:.65rem 0}
+.combat-deity-list {margin:.3rem 0 .8rem;padding-inline-start:1.25em;line-height:1.6}
+.combat-deity-list li+li {margin-top:.25rem}
+.combat-deity-list li::marker {color:var(--wiki-accent)}
 @media (max-width: 480px) {
   .combat-defenses {grid-template-columns:1fr}
   .combat-guide {gap:1.15rem}
