@@ -25,6 +25,6 @@ export default defineConfig({
   }],
   build: {
     outDir: 'dist',
-    rollupOptions: {input: {wiki: 'index.html', rankPreview: '520520520/index.html'}},
+    rollupOptions: {input: {wiki: 'index.html'}},
   },
 });

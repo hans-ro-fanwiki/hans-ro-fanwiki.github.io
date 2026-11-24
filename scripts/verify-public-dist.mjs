@@ -59,8 +59,8 @@ const shipped=files(root).map(f=>path.relative(root,f).replaceAll('\\','/'));
 const images=shipped.filter(f=>/\.(?:png|webp|jpe?g|gif|svg|avif)$/i.test(f));
 assert.deepEqual(images,[],'No unreviewed HANS or legacy image may ship');
 const html=readFileSync(path.join(root,'index.html'),'utf8');
-const rankHtml=readFileSync(path.join(root,'520520520/index.html'),'utf8');
-for (const page of [html,rankHtml]) {
+assert.ok(!existsSync(path.join(root,'520520520')),'Private ranking must not ship with public wiki');
+for (const page of [html]) {
  const policy=page.match(/<meta http-equiv="Content-Security-Policy" content="([^"]+)">/);
  assert.ok(policy&&policy.index<page.indexOf('<script'),'CSP must precede scripts');
  for (const directive of ["default-src 'none'","script-src 'self'","style-src 'self'","connect-src 'self'","base-uri 'none'","form-action 'none'"])
@@ -72,8 +72,7 @@ assert.ok(publicEntry,'Public wiki entry script missing');
 assert.doesNotMatch(html+readFileSync(path.join(root,publicEntry),'utf8'),/520520520/,'Ranking must stay outside the public wiki entry');
 for (const sitemap of shipped.filter(file=>/^sitemap.*\.xml$/i.test(file)))
  assert.doesNotMatch(readFileSync(path.join(root,sitemap),'utf8'),/520520520/,'Ranking must stay outside sitemap');
-assert.match(rankHtml,/<meta name="robots" content="noindex, nofollow">/);
-assert.deepEqual(readFileSync(path.join(root,'520520520/snapshot.json')),readFileSync('public/520520520/snapshot.json'));
+assert.ok(shipped.every(file=>!/(?:^|\/)(?:snapshot\.json|rank-preview[^/]*)$/.test(file)),'Private rank snapshot or UI shipped');
 assert.match(html,/HANS 漢斯服/);
 assert.doesNotMatch(html,/ro-survivors\.com|fan-thumbs|approved-thumbs/);
 console.log(JSON.stringify({status:'PASS',server:'hans',equipment:deployed.items.length,
