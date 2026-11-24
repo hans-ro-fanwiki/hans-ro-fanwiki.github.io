@@ -126,25 +126,42 @@ export function SkillCompatibility({skillId, skillName}: {skillId: string; skill
   </section>;
 }
 
+const combatSections = [
+  ['timing', '急速與冷卻'],
+  ['cast', '施法急速'],
+  ['geometry', '範圍與距離'],
+  ['defense', '承傷與減傷'],
+] as const;
+type CombatSection = typeof combatSections[number][0];
+function readCombatSection(): CombatSection {
+  return combatSections.find(([id]) => '#'+id === location.hash)?.[0] ?? 'timing';
+}
+
 export function CombatGuide() {
+  const [active, setActive] = useState<CombatSection>(readCombatSection);
   useEffect(() => {
-    const section = location.hash.slice(1);
-    if (['defense', 'geometry', 'timing', 'cast'].includes(section)) {
-      document.getElementById(section)?.scrollIntoView();
-    }
+    const sync = () => setActive(readCombatSection());
+    window.addEventListener('popstate', sync);
+    window.addEventListener('hashchange', sync);
+    return () => {
+      window.removeEventListener('popstate', sync);
+      window.removeEventListener('hashchange', sync);
+    };
   }, []);
+  function selectSection(section: CombatSection) {
+    setActive(section);
+    // Keep a shareable deep link without triggering the app's history scroll restoration.
+    history.replaceState(history.state, '', '#'+section);
+  }
   return <div className="combat-guide">
     <div className="combat-tool-intro"><p className="combat-note">{VERSION} · 客戶端公式試算</p><h2>配裝與技能試算</h2><p>先選想改善的屬性，輸入目前數值，再比較換裝收益。公式與例外可按需展開。</p></div>
     <nav aria-label="戰鬥機制目錄" className="combat-jump combat-tool-nav">
-      <a href="#timing">急速與冷卻</a>
-      <a href="#cast">施法急速</a>
-      <a href="#geometry">範圍與距離</a>
-      <a href="#defense">承傷與減傷</a>
+      {combatSections.map(([id, label]) => <button key={id} type="button" aria-pressed={active === id} aria-controls={id} onClick={() => selectSection(id)}>{label}</button>)}
     </nav>
-    <section id="timing" aria-label="急速與冷卻"><CooldownTool renderCompatibility={skill=><SkillCompatibility skillId={skill.id} skillName={skill.name}/>}/></section>
-    <section id="cast" aria-label="施法急速"><CastTool/></section>
+    <section id="timing" hidden={active !== 'timing'} aria-label="急速與冷卻"><CooldownTool renderCompatibility={skill=><SkillCompatibility skillId={skill.id} skillName={skill.name}/>}/></section>
+    <section id="cast" hidden={active !== 'cast'} aria-label="施法急速"><CastTool/></section>
 
-    <section id="defense" aria-labelledby="combat-defense-title">
+    <section id="defense" hidden={active !== 'defense'} aria-labelledby="combat-defense-title">
       <h2 id="combat-defense-title">承傷與減傷</h2>
       <DefenseTool/>
       <p className="combat-intro">一般受到攻擊時，先扣護甲，再算百分比減傷，最後算 DEF。</p>
@@ -165,7 +182,7 @@ export function CombatGuide() {
       </details>
     </section>
 
-    <section id="geometry" aria-labelledby="combat-geometry-title">
+    <section id="geometry" hidden={active !== 'geometry'} aria-labelledby="combat-geometry-title">
       <h2 id="combat-geometry-title">範圍與近戰距離</h2>
       <RangeTool/>
       <p><strong>廣域藥水</strong>加的是範圍效果，例如天羅地網打得到的區域。<strong>範圍藥水</strong>加的是近戰物理距離。兩種加成各自計算，堆得越高，同樣一次加成帶來的距離越少。</p>
