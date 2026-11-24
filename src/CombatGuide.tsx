@@ -102,11 +102,11 @@ export function SkillCompatibility({skillId, skillName}: {skillId: string; skill
       <CompatibilityRows rows={local}/>
     </details>}
     {deity.length > 0 && <details className="combat-effect-group">
-      <summary>{skillName}的神格效果</summary>
+      <summary>{skillName}的神格效果<span className="combat-note">（{deity.length} 項）</span></summary>
       <CompatibilityRows rows={deity}/>
       <p className="combat-note">這招的神格和禁錮之神等全域神格用同一個欄位，換上新的會取代原本的。</p>
     </details>}
-    <p className="combat-note">{onlyTiming ? '這招目前只查到冷卻，其他效果還在查。' : '沒列到的詞條，還沒確認。'} · {VERSION}</p>
+    <p className="combat-note">{onlyTiming ? '目前已核對：冷卻。' : '本區整理已核對的效果。'} · {VERSION}</p>
     <a href={`?page=combat#${section}`}>查看戰鬥機制</a>
   </section>;
 }
