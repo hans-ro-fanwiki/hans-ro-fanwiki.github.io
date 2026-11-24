@@ -110,7 +110,7 @@ function specInfo(expr,group,learnSkill){
    if(v!==null)summary='攻擊／投射物數量每級 +'+v;
   }else if(['ut.sd','ut.sc','ut.sa'].includes(kind)){
    maxRank=numeric(args[3]);const v=numeric(args[2]);
-   const field={'ut.sd':'傷害','ut.sc':'冷卻縮減','ut.sa':'技能範圍／射程'}[kind];
+   const field={'ut.sd':'傷害','ut.sc':'技能急速','ut.sa':'技能範圍／射程'}[kind];
    if(v!==null)summary=field+'每級 +'+percent(v);
   }else if(kind.startsWith('S.')){
    maxRank=numeric(args.at(-1));

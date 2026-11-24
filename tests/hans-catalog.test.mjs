@@ -248,7 +248,7 @@ test('HANS raid cards use their own multiplier and never appear as ordinary stag
  assert.equal(raid.filter(isRaidOnlyCard).length,14);
  const card=raid.find(card=>card.id===4145);
  assert.equal(cardName(card,catalog.lapRules,6),'別西卜卡片・副本');
- assert.ok(cardEffects(card,catalog.lapRules,6).includes('冷卻縮減 +16.8%'));
+ assert.ok(cardEffects(card,catalog.lapRules,6).includes('急速 +16.8%'));
  assert.deepEqual(card.sources[0].stageRefs,[]);
 });
 test('all equipment restriction IDs have a Chinese job label',()=>{

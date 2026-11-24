@@ -1127,7 +1127,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +10%",
-        "冷卻縮減 +5%"
+        "急速 +5%"
       ],
       "sources": [],
       "image": {
@@ -3291,7 +3291,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +10%",
-        "冷卻縮減 +4%"
+        "急速 +4%"
       ],
       "sources": [],
       "image": {
@@ -7385,7 +7385,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +6%",
-        "冷卻縮減 +4%"
+        "急速 +4%"
       ],
       "sources": [],
       "image": {
@@ -7475,7 +7475,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +8%",
-        "詠唱速度 +5%"
+        "施法急速 +5%"
       ],
       "sources": [],
       "image": {
@@ -7676,7 +7676,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +14%",
-        "冷卻縮減 +5%"
+        "急速 +5%"
       ],
       "sources": [
         {
@@ -10307,7 +10307,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +7%",
-        "冷卻縮減 +3%"
+        "急速 +3%"
       ],
       "sources": [],
       "image": {
@@ -11512,7 +11512,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +6%",
-        "冷卻縮減 +4%"
+        "急速 +4%"
       ],
       "sources": [],
       "image": {
@@ -11630,7 +11630,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +10%",
-        "冷卻縮減 +5%"
+        "急速 +5%"
       ],
       "sources": [
         {
@@ -12468,7 +12468,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +14%",
-        "冷卻縮減 +5%"
+        "急速 +5%"
       ],
       "sources": [
         {
@@ -14804,7 +14804,7 @@
       "jobs": [],
       "gender": null,
       "bonuses": [
-        "冷卻縮減 +4%",
+        "急速 +4%",
         "爆擊率 +2%"
       ],
       "sources": [],
@@ -15297,7 +15297,7 @@
       "jobs": [],
       "gender": null,
       "bonuses": [
-        "冷卻縮減 +5%",
+        "急速 +5%",
         "攻擊範圍 +5%"
       ],
       "sources": [],
@@ -17891,7 +17891,7 @@
       "jobs": [],
       "gender": null,
       "bonuses": [
-        "冷卻縮減 +5%",
+        "急速 +5%",
         "HP +20"
       ],
       "sources": [
@@ -22214,7 +22214,7 @@
       "jobs": [],
       "gender": null,
       "bonuses": [
-        "冷卻縮減 +4%",
+        "急速 +4%",
         "藥水回復 +15%"
       ],
       "sources": [
@@ -22919,7 +22919,7 @@
       "gender": null,
       "bonuses": [
         "HP +50",
-        "冷卻縮減 +4%"
+        "急速 +4%"
       ],
       "sources": [],
       "image": {
@@ -29586,7 +29586,7 @@
       "monsterId": "willow",
       "equipSlot": "headgear",
       "bonuses": [
-        "冷卻縮減 +5%"
+        "急速 +5%"
       ],
       "effects": [
         {
@@ -30107,7 +30107,7 @@
       "monsterId": "baby_desert_wolf",
       "equipSlot": "weapon",
       "bonuses": [
-        "冷卻縮減 +3%"
+        "急速 +3%"
       ],
       "effects": [
         {
@@ -31631,7 +31631,7 @@
       "monsterId": "phen",
       "equipSlot": "accessory",
       "bonuses": [
-        "冷卻縮減 +4%"
+        "急速 +4%"
       ],
       "effects": [
         {
@@ -32277,7 +32277,7 @@
       "monsterId": "sohee",
       "equipSlot": "shoes",
       "bonuses": [
-        "冷卻縮減 +4%",
+        "急速 +4%",
         "HP +15"
       ],
       "effects": [
@@ -33372,7 +33372,7 @@
       "monsterId": "baphomet_jr",
       "equipSlot": "garment",
       "bonuses": [
-        "冷卻縮減 +3%",
+        "急速 +3%",
         "爆擊率 +2%"
       ],
       "effects": [
@@ -33883,7 +33883,7 @@
       "monsterId": "doppelganger",
       "equipSlot": "weapon",
       "bonuses": [
-        "冷卻縮減 +5%",
+        "急速 +5%",
         "傷害 +4%"
       ],
       "effects": [
@@ -34068,8 +34068,8 @@
       "monsterId": "beelzebub",
       "equipSlot": "accessory",
       "bonuses": [
-        "詠唱速度 +6%",
-        "冷卻縮減 +4%"
+        "施法急速 +6%",
+        "急速 +4%"
       ],
       "effects": [
         {
@@ -34414,8 +34414,8 @@
       "monsterId": "dark_illusion",
       "equipSlot": "headgear",
       "bonuses": [
-        "冷卻縮減 +6%",
-        "詠唱速度 +12%",
+        "急速 +6%",
+        "施法急速 +12%",
         "最大 HP -2%"
       ],
       "effects": [
@@ -34921,7 +34921,7 @@
       "monsterId": "rideword",
       "equipSlot": "headgear",
       "bonuses": [
-        "冷卻縮減 +5%",
+        "急速 +5%",
         "INT +1"
       ],
       "effects": [
@@ -36150,8 +36150,8 @@
       "monsterId": "clock_tower_manager",
       "equipSlot": "headgear",
       "bonuses": [
-        "詠唱速度 +12%",
-        "冷卻縮減 +5%"
+        "施法急速 +12%",
+        "急速 +5%"
       ],
       "effects": [
         {
@@ -38391,7 +38391,7 @@
       "monsterId": "evil_snake_lord",
       "equipSlot": "headgear",
       "bonuses": [
-        "詠唱速度 +12%",
+        "施法急速 +12%",
         "減傷 +8%",
         "INT +3"
       ],
@@ -38618,7 +38618,7 @@
       "monsterId": "acidus",
       "equipSlot": "shoes",
       "bonuses": [
-        "冷卻縮減 +5%",
+        "急速 +5%",
         "最大 HP +6%"
       ],
       "effects": [
@@ -38676,7 +38676,7 @@
       "monsterId": "acidus_acidus",
       "equipSlot": "headgear",
       "bonuses": [
-        "冷卻縮減 +5%",
+        "急速 +5%",
         "迴避 +2%"
       ],
       "effects": [
@@ -39233,7 +39233,7 @@
       "equipSlot": "accessory",
       "bonuses": [
         "傷害 +4%",
-        "詠唱速度 +8%"
+        "施法急速 +8%"
       ],
       "effects": [
         {
@@ -39467,7 +39467,7 @@
       "bonuses": [
         "傷害 +11%",
         "Boss／菁英傷害 +19%",
-        "冷卻縮減 -4%"
+        "急速 -4%"
       ],
       "effects": [
         {

@@ -331,7 +331,7 @@ function App(){
      <section className="search-panel" aria-label="搜尋與篩選">
       <div className="search-field">
        <Search size={20} aria-hidden="true"/>
-       <input aria-label={state.page==='stages'?'搜尋關卡或掉落':'搜尋裝備、卡片或屬性'} placeholder={state.page==='stages'?'搜尋關卡、怪物或掉落物':'搜尋裝備、卡片、INT、冷卻…'} value={state.query} onChange={event=>navigate({query:event.target.value,stage:null},false,true)}/>
+       <input aria-label={state.page==='stages'?'搜尋關卡或掉落':'搜尋裝備、卡片或屬性'} placeholder={state.page==='stages'?'搜尋關卡、怪物或掉落物':'搜尋裝備、卡片、INT、急速…'} value={state.query} onChange={event=>navigate({query:event.target.value,stage:null},false,true)}/>
        {state.query&&<button type="button" className="search-clear" aria-label="清除搜尋" onClick={()=>navigate({query:'',stage:null},false,true)}><X size={18}/></button>}
       </div>
       {state.page!=='stages'&&<div className="primary-filters catalog-filters">

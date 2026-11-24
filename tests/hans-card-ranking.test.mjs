@@ -45,7 +45,7 @@ test('normal card previews and GS descending mode share score, class and lap rul
 test('ranking respects prefiltered part and attributes, includes mixed-source cards',async()=>{
  const {rankCardsByGs}=await import('../src/card-ranking.ts');
  const {cardScore,isRaidOnlyCard}=await import('../src/laps.ts');
- const subset=catalog.cards.filter(c=>c.equipSlot==='accessory'&&c.bonuses.some(s=>s.includes('冷卻')));
+ const subset=catalog.cards.filter(c=>c.equipSlot==='accessory'&&c.effects.some(e=>e.stat==='haste'));
  const rows=rankCardsByGs(subset,catalog.lapRules,6,'mage');
  assert.ok(rows.length>0);
  assert.ok(rows.every(r=>subset.includes(r.card)&&r.card.equipSlot==='accessory'&&!isRaidOnlyCard(r.card)));

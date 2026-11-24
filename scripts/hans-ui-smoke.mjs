@@ -94,7 +94,7 @@ try{
   await page.setViewportSize({width:390,height:844});
   await page.getByRole('dialog').locator('.card-gs-section').scrollIntoViewIfNeeded();
   await page.screenshot({path:path.join(folder,'hans-card-gs-three-types-390.png')});
-  assert.ok((await page.getByRole('dialog').innerText()).includes('詠唱速度 +18%'));
+  assert.ok((await page.getByRole('dialog').innerText()).includes('施法急速 +18%'));
   await page.getByRole('dialog').getByRole('button',{name:/元宵燈會.*闖入 Boss/}).click();
   assert.equal(new URL(page.url()).searchParams.get('stage'),'louyang');
   assert.equal(await page.locator('#stage-heading-louyang').getAttribute('aria-expanded'),'true');

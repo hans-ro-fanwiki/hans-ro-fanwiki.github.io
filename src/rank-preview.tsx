@@ -18,8 +18,8 @@ const slots:Record<string,string>={weapon:'武器',shield:'副手',armor:'衣服
 const quality=['普通','優良','稀有','史詩','傳說'];
 const stats:Record<string,string>={str:'STR',agi:'AGI',vit:'VIT',int:'INT',dex:'DEX',luk:'LUK',atk:'ATK',matk:'MATK',
  hp:'HP',armor:'護甲',regen:'生命回復'};
-const percentStats:Record<string,string>={skill:'技能傷害',crit:'爆擊率',critDmg:'爆擊傷害',flee:'迴避',cd:'冷卻縮減',
- spd:'移動速度',area:'範圍',cast:'詠唱速度',dr:'減傷',stun:'暈眩',boss:'首領傷害',dot:'持續傷害',
+const percentStats:Record<string,string>={skill:'技能傷害',crit:'爆擊率',critDmg:'爆擊傷害',flee:'迴避',cd:'急速',
+ spd:'移動速度',area:'範圍',cast:'施法急速',dr:'減傷',stun:'暈眩',boss:'首領傷害',dot:'持續傷害',
  reach:'近戰距離',proj:'投射物速度',zeny:'金幣獲取',pickup:'拾取範圍',potion:'藥水效果',lowHp:'低血量傷害'};
 const records:Record<string,string>={bestLevel:'單場最高等級',runs:'總場次',wins:'勝場',totalKills:'累計擊殺',mvps:'擊倒 MVP'};
 const fmt=new Intl.NumberFormat('zh-TW',{maximumFractionDigits:3});

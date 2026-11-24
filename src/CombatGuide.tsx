@@ -1,6 +1,7 @@
 import {useEffect, useId, useRef, useState} from 'react';
 import compatibility from './combat-compatibility.json';
 import './combat.css';
+import {CooldownTool, CastTool, RangeTool, DefenseTool} from './CombatTools';
 
 const VERSION = `HANS V${compatibility.version}`;
 
@@ -77,7 +78,7 @@ function CompatibilityRows({rows}: {rows: CompatibilityRow[]}) {
     const items = source === 'global' ? Object.entries(sourcesByStat[statId] ?? {}) : [];
     const unaffected = status === 'ineffective';
     return <li key={JSON.stringify([statId, stat, effect, status, condition, note])}>
-      <strong>{stat}</strong><span>{note ?? effect}{condition && `（${condition}）`}</span>
+      <strong>{statId === 'cd' ? '技能急速' : stat}</strong><span>{note ?? effect}{condition && `（${condition}）`}</span>
       {items.length > 0 && <ItemSources groups={items} unaffected={unaffected}/>}
     </li>;
   })}</ul>;
@@ -89,7 +90,7 @@ export function SkillCompatibility({skillId, skillName}: {skillId: string; skill
   const local = rows?.filter(row => row.source === 'local') ?? [];
   const deity = rows?.filter(row => row.source === 'deity') ?? [];
   const deityInfo = Object.hasOwn(deityBySkill,skillId) ? deityBySkill[skillId] : undefined;
-  const onlyTiming = !!rows?.length && rows.every(row => row.stat === '急速' || row.stat === '冷卻加成');
+  const onlyTiming = !!rows?.length && rows.every(row => row.statId === 'haste' || row.statId === 'cd');
   const section = onlyTiming || skillId === 'ruwach' ? 'timing' : 'geometry';
 
   return <section className="combat-compat">
@@ -128,20 +129,24 @@ export function SkillCompatibility({skillId, skillName}: {skillId: string; skill
 export function CombatGuide() {
   useEffect(() => {
     const section = location.hash.slice(1);
-    if (['defense', 'geometry', 'timing'].includes(section)) {
+    if (['defense', 'geometry', 'timing', 'cast'].includes(section)) {
       document.getElementById(section)?.scrollIntoView();
     }
   }, []);
   return <div className="combat-guide">
-    <p className="combat-note">{VERSION} · 依遊戲客戶端核對</p>
-    <nav aria-label="戰鬥機制目錄" className="combat-jump">
+    <div className="combat-tool-intro"><p className="combat-note">{VERSION} · 客戶端公式試算</p><h2>配裝與技能試算</h2><p>先選想改善的屬性，輸入目前數值，再比較換裝收益。公式與例外可按需展開。</p></div>
+    <nav aria-label="戰鬥機制目錄" className="combat-jump combat-tool-nav">
+      <a href="#timing">急速與冷卻</a>
+      <a href="#cast">施法急速</a>
+      <a href="#geometry">範圍與距離</a>
       <a href="#defense">承傷與減傷</a>
-      <a href="#geometry">範圍與近戰距離</a>
-      <a href="#timing">急速與計時</a>
     </nav>
+    <section id="timing" aria-label="急速與冷卻"><CooldownTool renderCompatibility={skill=><SkillCompatibility skillId={skill.id} skillName={skill.name}/>}/></section>
+    <section id="cast" aria-label="施法急速"><CastTool/></section>
 
     <section id="defense" aria-labelledby="combat-defense-title">
       <h2 id="combat-defense-title">承傷與減傷</h2>
+      <DefenseTool/>
       <p className="combat-intro">一般受到攻擊時，先扣護甲，再算百分比減傷，最後算 DEF。</p>
       <dl className="combat-defenses">{defenses.map(([name, value, description]) => <div key={name}>
         <dt>{name}<strong>{value}</strong></dt>
@@ -162,6 +167,7 @@ export function CombatGuide() {
 
     <section id="geometry" aria-labelledby="combat-geometry-title">
       <h2 id="combat-geometry-title">範圍與近戰距離</h2>
+      <RangeTool/>
       <p><strong>廣域藥水</strong>加的是範圍效果，例如天羅地網打得到的區域。<strong>範圍藥水</strong>加的是近戰物理距離。兩種加成各自計算，堆得越高，同樣一次加成帶來的距離越少。</p>
       <div className="combat-jump">
         <a href="?page=skills&sj=sura">修羅技能</a>
@@ -171,10 +177,6 @@ export function CombatGuide() {
       </div>
     </section>
 
-    <section id="timing" aria-labelledby="combat-timing-title">
-      <h2 id="combat-timing-title">急速與計時</h2>
-      <p><strong>急速</strong>讓一般技能的冷卻更快結束。<strong>施法急速</strong>和 DEX 會縮短讀條時間。召喚、持續傷害和追加效果可能各有自己的計時方式。</p>
-      <a href="?page=skills&sk=ruwach">查看光獵的兩種計時器</a>
-    </section>
+    <p className="combat-note">試算依已核對的 HANS 客戶端公式，不代表伺服器實測。召喚、持續傷害、追加效果及特殊玩法可能使用獨立計時。<a href="?page=skills&sk=ruwach">查看光獵的兩種計時器</a>。</p>
   </div>;
 }

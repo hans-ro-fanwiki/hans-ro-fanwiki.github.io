@@ -37689,7 +37689,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Rain of Praise（More bursts of light, more often, until every Adoramus falls twice.）"
@@ -37824,7 +37824,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Radiant Praise（Fewer but brighter bursts: much more damage over a wider area.）"
@@ -37883,7 +37883,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Long Hymn（Lauda Ramus lasts longer and recharges sooner, until it barely ends.）"
@@ -37999,7 +37999,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "War Hymn（Singing Lauda Ramus also gives damage, critical and speed.）"
@@ -38375,7 +38375,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Mass Judgement（Judex Ray judges more sinners at once and stuns them.）"
@@ -38510,7 +38510,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Final Verdict（One sentence, much heavier: crits, marks and much more damage.）"
@@ -38569,7 +38569,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Ceaseless Prayer（A wider prayer that weakens, slows and recharges sooner.）"
@@ -39061,7 +39061,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Everlasting Tree（A wider tree that stays longer and grows back sooner.）"
@@ -39196,7 +39196,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Wrathful Tree（The tree burns the enemy much harder.）"
@@ -39236,7 +39236,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Renewal（Highness Heal recharges sooner and its Renovatio lasts longer.）"
@@ -39786,7 +39786,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Cannon Battery（More shells, more often, until every shot fires twice.）"
@@ -39921,7 +39921,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Siege Cart（One heavy shell: much more damage over a wider blast.）"
@@ -39980,7 +39980,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Spinning Cart（Wider and faster spins, until the cart spins with your attacks.）"
@@ -40115,7 +40115,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Iron Cart（The spin hits harder, tears and stuns, and heals you.）"
@@ -40607,7 +40607,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Man-Eater（One plant that bites much harder, crits and marks.）"
@@ -40666,7 +40666,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Shrieking Root（A wider scream that recharges sooner.）"
@@ -41158,7 +41158,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Spore Cloud（More spores, more often, and the ground stays infected.）"
@@ -41293,7 +41293,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Volatile Spores（Bigger spores that crit and hit much harder.）"
@@ -41352,7 +41352,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Acid Rain（More bottles, more often, splashing between enemies.）"
@@ -41487,7 +41487,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Acid Corrosion（Stronger acid that crits, marks and finishes off the weak.）"
@@ -41883,7 +41883,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Endless Spin（More spins, more often and wider, until every spin comes twice.）"
@@ -42018,7 +42018,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Razor Spin（Every spin cuts deeper and crits, for much more damage over a wider area.）"
@@ -42077,7 +42077,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Ripper Storm（More blades, more often; they stagger and bounce to another enemy.）"
@@ -42212,7 +42212,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Ripper Edge（Heavier blades that crit and mark, for much more damage.）"
@@ -42569,7 +42569,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Cross Flurry（Cross Impact reaches one more prey, bleeds and stuns, and a kill resets it.）"
@@ -42704,7 +42704,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Lethal Cross（Seven strokes that crit and mark, until a single cross beheads.）"
@@ -42763,7 +42763,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Crow Swarm（Dark Claw tears more enemies, weakens and slows them, and recharges much sooner.）"
@@ -43293,7 +43293,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Spreading Smoke（A wider, longer and slowing cloud that barely ever fades.）"
@@ -43390,7 +43390,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Deadly Smoke（The poison gets stronger, weakens and marks, for much more damage over a wider area.）"
@@ -43449,7 +43449,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Phantom Steps（Hallucination Walk lasts longer, recharges sooner and gives speed and damage.）"
@@ -43565,7 +43565,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Murderous Intent（Casting Hallucination Walk gives damage, critical and speed, and you cast it far more often.）"
@@ -43980,7 +43980,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Petal Storm（More spins, more often, until every storm comes twice.）"
@@ -44115,7 +44115,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Razor Huuma（Fewer spins that cut much deeper over a wider area.）"
@@ -44174,7 +44174,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Lasting Charm（The charm lasts longer and recharges sooner, until it barely ends.）"
@@ -44309,7 +44309,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Blazing Charm（The charm burns hotter and casting it gives damage and critical.）"
@@ -44666,7 +44666,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Chain Blast（More kunai, more often, and they leave the ground burning.）"
@@ -44801,7 +44801,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Heavy Charge（One kunai that stuns and blows up much harder.）"
@@ -44860,7 +44860,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Kunai Hail（More kunai that slow and bounce to another enemy.）"
@@ -44995,7 +44995,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Honed Kunai（Sharper kunai: they crit, bleed and hit much harder.）"
@@ -45352,7 +45352,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Cross Wound（The cuts bleed and stun, and finish off the weak.）"
@@ -45487,7 +45487,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Jyumonji（One perfect cross: crits on marked prey and hits much harder.）"
@@ -45546,7 +45546,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Many Shadows（More shadows, more often, and a kill sends them out again.）"
@@ -45681,7 +45681,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Shadow Blade（One shadow, but its blade crits and cuts much deeper.）"
@@ -46077,7 +46077,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Barrage Gear（More shells, more often, until every shot fires twice.）"
@@ -46212,7 +46212,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Heavy Caliber（One shell, much heavier: more damage over a wider blast.）"
@@ -46271,7 +46271,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Absolute Freeze（A wider freeze that weakens and recharges sooner.）"
@@ -46763,7 +46763,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Twin Nozzle（More flames, more often, and they leave the ground burning.）"
@@ -46898,7 +46898,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Overheated Core（Hotter flames that mark, crit and burn much harder.）"
@@ -46957,7 +46957,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Barrier Engine（The barrier lasts longer and recharges sooner, until it barely ends.）"
@@ -47073,7 +47073,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Battle Barrier（Raising the barrier also gives damage, critical and speed.）"
@@ -47449,7 +47449,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Turret Line（More turrets that slow and stun, and a kill deploys them again.）"
@@ -47584,7 +47584,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Silver Bullet（One turret with heavier shots that crit and mark.）"
@@ -47643,7 +47643,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Bullet Storm（More bullets, more often, bouncing between enemies.）"
@@ -47778,7 +47778,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Armor Piercer（Heavier bullets that crit, and finish off the weak.）"
@@ -48174,7 +48174,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Endless Downpour（More arrows, more often, until every rainstorm falls twice.）"
@@ -48309,7 +48309,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Crushing Rain（Fewer but heavier arrows: much more damage over a wider area.）"
@@ -48368,7 +48368,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Long Encore（The war song lasts longer and comes back sooner.）"
@@ -48484,7 +48484,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Battle Anthem（Singing also gives you damage, critical and speed.）"
@@ -48860,7 +48860,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Rolling Echo（More pulses that slow and recharge sooner.）"
@@ -48995,7 +48995,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Sonic Boom（One huge echo: much more damage over a wider area.）"
@@ -49054,7 +49054,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Lasting Grace（Frigg's blessing lasts much longer.）"
@@ -49132,7 +49132,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Healing Hymn（The song comes back much sooner and empowers you.）"
@@ -49189,7 +49189,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Healing Hymn（The song comes back much sooner and empowers you.）"
@@ -49546,7 +49546,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Drum Line（More instruments, sooner, and the ground keeps trembling.）"
@@ -49681,7 +49681,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Grand Coda（A single instrument that stuns longer and hits much harder.）"
@@ -49740,7 +49740,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Ringing Strings（The sound bounces to another enemy and stuns.）"
@@ -49875,7 +49875,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Piercing Note（Stronger crits on marked enemies, and it finishes off the weak.）"
@@ -50271,7 +50271,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Endless Barrage（More volleys, more often, until every barrage falls twice.）"
@@ -50406,7 +50406,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Focused Barrage（Fewer but deadlier arrows: much more damage over a wider area.）"
@@ -50465,7 +50465,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Long Breeze（Fear Breeze lasts longer and recharges sooner, until it barely ends.）"
@@ -50581,7 +50581,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Hunting Wind（Casting Fear Breeze also gives damage, critical and speed.）"
@@ -50957,7 +50957,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Carpet Bombing（More bombs, more often, and they leave the ground burning.）"
@@ -51092,7 +51092,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Heavy Payload（A single bomb that stuns and hits much harder.）"
@@ -51151,7 +51151,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Overcharged Coil（A wider shock that weakens and recharges sooner.）"
@@ -51643,7 +51643,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Pack Hunt（More wargs, more bites, and a kill sends them out again.）"
@@ -51778,7 +51778,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Alpha Bite（One warg, but its bites crit and tear the prey apart.）"
@@ -51837,7 +51837,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Pinning Shot（The bolt stuns, slows and bounces to another enemy.）"
@@ -51972,7 +51972,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Deadeye（Stronger crits on marked prey, and it finishes off the weak.）"
@@ -52349,7 +52349,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Endless Dance（Faster, wider dances that slow, until every dance comes twice.）"
@@ -52503,7 +52503,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Hot Barrel（Fewer but hotter bullets: much more damage over a wider area.）"
@@ -52562,7 +52562,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Return Fire（More bullets that slow and bounce to another enemy.）"
@@ -52697,7 +52697,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Heavy Rounds（Heavier bullets that crit, weaken and hit much harder.）"
@@ -53054,7 +53054,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Spotter（Mark more prey, more often, and a kill reloads the marker.）"
@@ -53189,7 +53189,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Deadly Mark（The marking shot crits and finishes off the weak.）"
@@ -53248,7 +53248,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Tail Chain（Wider blasts that stun, recharge sooner and empower you.）"
@@ -53383,7 +53383,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Dragon Fang（Each detonation crits and hits much harder.）"
@@ -53740,7 +53740,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Thunder Hammer（A wider hammer that stuns longer, until it falls twice.）"
@@ -53875,7 +53875,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "God's Weight（One hammer, but it crits on marked prey and hits much harder.）"
@@ -53934,7 +53934,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Mine Carpet（More mines, more often, and they leave the ground burning.）"
@@ -54069,7 +54069,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Big Mine（Mines that stun and blow up much harder.）"
@@ -54465,7 +54465,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Spear Volley（More spears, more often, until every cast fires twice.）"
@@ -54600,7 +54600,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Overbrand（One overcharged spear: much more damage over a wider line.）"
@@ -54659,7 +54659,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Rallying Banner（Inspiration lasts longer and recharges sooner, until it barely ends.）"
@@ -54775,7 +54775,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Valor Anthem（Casting Inspiration also gives damage, critical and speed.）"
@@ -55151,7 +55151,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Shield Chain（More presses, more often, and every blow bounces to another enemy.）"
@@ -55286,7 +55286,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Crushing Press（A single crushing blow that crits and hits much harder.）"
@@ -55345,7 +55345,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Royal Bearing（Prestige lasts longer and recharges sooner, until it barely ends.）"
@@ -55461,7 +55461,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Kings Grace（Casting Prestige also gives damage, critical and speed.）"
@@ -55837,7 +55837,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Rolling Quake（More quakes, more often, and the ground keeps shaking.）"
@@ -55972,7 +55972,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Earth Shatter（One shattering quake: much more damage over a wider area.）"
@@ -56031,7 +56031,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Radiant Rain（More rays, more often, until every cast falls twice.）"
@@ -56166,7 +56166,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Heavenly Verdict（Fewer but holier rays: much more damage over a wider area.）"
@@ -56562,7 +56562,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Chain Ignition（More blasts, more often, and the ground keeps burning.）"
@@ -56697,7 +56697,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Rune Overload（One overloaded blast: much more damage over a wider area.）"
@@ -56756,7 +56756,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Titan Form（Giant Growth lasts longer and recharges sooner, until it barely ends.）"
@@ -56872,7 +56872,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Fighting Spirit（Carving Giant Growth also gives damage, critical and speed.）"
@@ -57248,7 +57248,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Wildfire Breath（A wider breath that burns and leaves the ground on fire.）"
@@ -57383,7 +57383,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Wyrm Fury（A focused breath that crits and hits much harder.）"
@@ -57442,7 +57442,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Terror Roar（A wider roar that weakens the foe and recharges sooner.）"
@@ -57934,7 +57934,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Spear Chain（More thrusts on more targets, and every hit jumps to another enemy.）"
@@ -58069,7 +58069,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Piercing Lance（Every thrust crits harder: much more damage on a single target.）"
@@ -58128,7 +58128,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Whirling Gale（More spins, more often, and every spin heals you.）"
@@ -58263,7 +58263,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Gale Edge（A sharper blade: much more damage over a wider area.）"
@@ -58659,7 +58659,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Triangle Volley（More arrows, more often; they pin and stun, until every shot comes twice.）"
@@ -58794,7 +58794,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Deadly Triangle（Arrows that crit and mark, for much more damage.）"
@@ -58853,7 +58853,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Masked Ball（Masquerade curses more enemies, lasts longer and recharges sooner.）"
@@ -59345,7 +59345,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Menace Dance（A wider, faster Fatal Menace that blinds, weakens and heals you.）"
@@ -59480,7 +59480,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Fatal Edge（Fatal Menace cuts deeper and crits, for much more damage over a wider area.）"
@@ -59539,7 +59539,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Decoy Factory（More decoys, more often; the blast slows and leaves the ground burning.）"
@@ -59674,7 +59674,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Live Bomb（The decoy is a real bomb: it stuns, marks and hits much harder.）"
@@ -60031,7 +60031,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Copycat（More copied strikes, more often and wider, until every copy is cast twice.）"
@@ -60166,7 +60166,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Perfect Copy（The copies crit and mark, for much more damage over a wider area.）"
@@ -60225,7 +60225,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Shadow Grimoire（Auto Shadow Spell lasts longer, recharges sooner and gives speed and damage.）"
@@ -60341,7 +60341,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Spell Thief（Casting Auto Shadow Spell gives damage, critical and speed, and you cast it far more often.）"
@@ -60756,7 +60756,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Spirit Choir（More spirits that stay longer.）"
@@ -60891,7 +60891,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Spirit Bond（One spirit, but its bites crit and hit much harder.）"
@@ -60950,7 +60950,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Spear Rain（More spears that stun, until it rains thunder.）"
@@ -61085,7 +61085,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Thunder Lance（Fewer but deadlier spears over a wider area.）"
@@ -61442,7 +61442,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Echoing Wave（More pulses that slow, until every wave comes twice.）"
@@ -61577,7 +61577,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Mind Crush（A heavier wave: much more damage over a wider area.）"
@@ -61636,7 +61636,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Event Horizon（A wider pull that weakens, marks and recharges sooner.）"
@@ -62128,7 +62128,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Blazing Trail（A longer trail that burns and recharges sooner.）"
@@ -62263,7 +62263,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Scorched Earth（Hotter flames: much more damage over a wider trail.）"
@@ -62322,7 +62322,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Crystal Storm（More ice strikes, until everything they hit freezes.）"
@@ -62457,7 +62457,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Diamond Core（Fewer but deadlier crystals over a wider area.）"
@@ -62853,7 +62853,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Spirit Volley（More Espa, more often, and it bounces to another enemy.）"
@@ -62988,7 +62988,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Piercing Espa（Stronger crits on marked enemies, and it finishes off the weak.）"
@@ -63047,7 +63047,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Spirit Whirl（More waves, more often, until every Eswhoo comes twice.）"
@@ -63182,7 +63182,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Great Eswhoo（Fewer but stronger waves: much more damage over a wider area.）"
@@ -63539,7 +63539,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Spreading Hex（A wider curse that weakens and recharges sooner.）"
@@ -63733,7 +63733,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Chain Detonation（More explosions, more often, and the ground keeps burning with curses.）"
@@ -63868,7 +63868,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Dark Detonation（One explosion that stuns and hits much harder.）"
@@ -64225,7 +64225,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Soul Hoard（Collect souls longer and sooner.）"
@@ -64341,7 +64341,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Soul Feast（Collecting souls also gives damage, critical and speed.）"
@@ -64419,7 +64419,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Soul Storm（The explosion heals you and comes back after a kill.）"
@@ -64554,7 +64554,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Soul Nova（One huge soul explosion: much more damage over a wider area.）"
@@ -64950,7 +64950,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Solar Flare（More kicks, more often, and the ground keeps burning.）"
@@ -65085,7 +65085,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Sunspot（One kick that burns hotter: much more damage over a wider area.）"
@@ -65144,7 +65144,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Eternal Stance（The stance lasts longer and comes back sooner.）"
@@ -65260,7 +65260,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Cosmic Rhythm（Taking the stance also gives damage, critical and speed.）"
@@ -65636,7 +65636,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Star Shower（More stars, more often, until every advent falls twice.）"
@@ -65771,7 +65771,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Imperial Star（Fewer but brighter stars: much more damage over a wider area.）"
@@ -65830,7 +65830,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Event Horizon（A wider pull that weakens and recharges sooner.）"
@@ -66322,7 +66322,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Star Chart（More stars, more marks, and a kill sends the kick out again.）"
@@ -66457,7 +66457,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Falling Comet（One kick, but it crits and tears the prey apart.）"
@@ -66516,7 +66516,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Red Giant（A wider nova that comes back sooner and heals you.）"
@@ -66651,7 +66651,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Collapsing Star（The nova hits much harder and finishes off the weak.）"
@@ -67047,7 +67047,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Thousand Palms（More pulses, more often, until every net is thrown twice.）"
@@ -67182,7 +67182,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Heaven Net（Fewer but heavier blows: much more damage over a wider area.）"
@@ -67241,7 +67241,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Rising Dragon（Raising Dragon lasts longer and recharges sooner, until it barely ends.）"
@@ -67357,7 +67357,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Dragon Fury（Raising Dragon also gives damage, critical and speed.）"
@@ -67733,7 +67733,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Spirit Barrage（More blasts, more often, and they leave the ground shaking.）"
@@ -67868,7 +67868,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Overcharged Ki（One blast that stuns and hits much harder.）"
@@ -67927,7 +67927,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Lion Pride（A wider roar that weakens and recharges sooner.）"
@@ -68419,7 +68419,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Twin Tigers（Tiger Cannon hits a second enemy, stuns, and reloads on a kill.）"
@@ -68554,7 +68554,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Fallen Empire Path（One cannon, much heavier: crits, marks and much more damage.）"
@@ -68613,7 +68613,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Dragon Combo Path（More knuckle arrows that stun, slow and bounce to another enemy.）"
@@ -68748,7 +68748,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Crescent Path（Crushing crits on marked foes, and the elbow finishes off the weak.）"
@@ -69144,7 +69144,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Comet Swarm（More comets, sooner, until every Comet Fall comes twice.）"
@@ -69279,7 +69279,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Comet Core（One comet, but a heavier one: much more damage over a wider crater.）"
@@ -69338,7 +69338,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Rockfall（More rocks, more stuns, and the ground keeps burning.）"
@@ -69473,7 +69473,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Molten Core（A burning rock that hits much harder.）"
@@ -69830,7 +69830,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Sphere Ring（More spheres that orbit for longer.）"
@@ -69965,7 +69965,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Sphere Release（Fewer but deadlier spheres: much more damage when they burst.）"
@@ -70024,7 +70024,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Elemental Cascade（The vortex stuns, slows and jumps to the next enemy.）"
@@ -70159,7 +70159,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Vortex Core（All four elements on one target, much harder.）"
@@ -70516,7 +70516,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Glacial Cascade（More frost strikes, until everything they touch freezes.）"
@@ -70651,7 +70651,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s1b",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Shatter Point（Fewer but deadlier strikes: much more damage over a wider area.）"
@@ -70710,7 +70710,7 @@
               "ultimate": false,
               "weapon": false,
               "path": "s2a",
-              "summary": "冷卻縮減每級 +6%",
+              "summary": "技能急速每級 +6%",
               "maxEffect": "",
               "notes": [
                 "Freezing Fog（A wider mist that weakens, marks and recharges sooner.）"

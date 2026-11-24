@@ -110,11 +110,11 @@ const evidence = (file, key) => ({file, hash: (file===audit.hans.main.file?audit
 const artRecord = (id, source) => source ? ({assetId:String(id),officialPath:source,rights:'not-cleared',renderAllowed:false}) : null;
 // HANS custom modifiers are the gameplay truth; manifest descriptions are classic RO flavor text.
 const modifiers={
- Y:['傷害','%'],aa:['冷卻縮減','%'],ga:['移動速度','%'],Ue:['HP','flat'],la:['護甲','flat'],
+ Y:['傷害','%'],aa:['急速','%'],ga:['移動速度','%'],Ue:['HP','flat'],la:['護甲','flat'],
  ca:['減傷','%'],Ee:['爆擊率','%'],ua:['迴避','%'],ja:['攻擊範圍','%'],ro:['投射物速度','%'],
  mt:['HP 回復','hpsec'],Lt:['Boss／不死系傷害','%'],Js:['命中暈眩率','%'],mn:['Zeny 獲得','%'],
  zt:['雙重施法率','%'],ls:['Boss／菁英傷害','%'],Fn:['EXP 獲得','%'],Dd:['藥水回復','%'],
- rl:['拾取範圍','%'],Ls:['最大 HP','%'],Ks:['詠唱速度','%'],za:['爆擊傷害','%'],
+ rl:['拾取範圍','%'],Ls:['最大 HP','%'],Ks:['施法急速','%'],za:['爆擊傷害','%'],
  _u:['AGI','flat'],qd:['STR','flat'],Oy:['VIT','flat'],Sp:['INT','flat'],Uy:['DEX','flat'],
  jA:['額外投射物','flat'],ON:['穿透率','%'],HA:['每局復活次數','flat'],bu:['移動中 HP 回復','hpsec'],
  Zr:['低 HP 時傷害','%'],IA:['持續傷害','%']
