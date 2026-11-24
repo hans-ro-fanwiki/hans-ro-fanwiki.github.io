@@ -44,10 +44,10 @@ export function ExperienceCalculator({onClose}:{onClose:()=>void}){
   const comparisons=useMemo(()=>{
     if(!best)return [];
     const trials=[
-      {name:'預設 1×／1×',count:1,events:1},
-      {name:'只提高怪物數量',count:model.count===1?2:model.count,events:1},
-      {name:'只提高事件數量',count:1,events:model.events===1?2:model.events},
-      {name:'你的設定',count:model.count,events:model.events},
+      {name:'基準（怪物、事件皆 100%）',count:1,events:1},
+      {name:'只提高怪物數量'+(model.count===1?'（示例 200%）':''),count:model.count===1?2:model.count,events:1},
+      {name:'只提高事件數量'+(model.events===1?'（示例 200%）':''),count:1,events:model.events===1?2:model.events},
+      {name:'目前試算設定',count:model.count,events:model.events},
     ];
     const rows=trials.map(trial=>({...trial,row:estimateExperience(best.stage,best.lap,{...model,...trial})}));
     const baseline=rows[0].row[perMinute];
@@ -73,8 +73,8 @@ export function ExperienceCalculator({onClose}:{onClose:()=>void}){
     </div>
     <div className="xp-fields">
       <label>目前 Base Lv<input type="number" min={1} max={99} placeholder="輸入 1–99" value={level} onChange={event=>setLevel(event.target.value)} /></label>
-      <label>戰力 GS<input type="number" min={0} placeholder="選填，篩選門檻" value={gs} onChange={event=>setGs(event.target.value)} /></label>
-      <label>已開放最高周目<select value={options.maxLap} onChange={event=>update('maxLap',Number(event.target.value))}>
+      <label>目前戰力 GS（選填）<input type="number" min={0} placeholder="選填，篩選門檻" value={gs} onChange={event=>setGs(event.target.value)} /></label>
+      <label>已解鎖的最高週目<select value={options.maxLap} onChange={event=>update('maxLap',Number(event.target.value))}>
         {laps.map((lap,index)=><option key={lap} value={index+1}>{lap}周目</option>)}
       </select></label>
       {target==='job'&&<>
@@ -85,23 +85,26 @@ export function ExperienceCalculator({onClose}:{onClose:()=>void}){
       </>}
     </div>
     <div className="xp-fields xp-difficulty">
-      <label>怪物數量（%）<input type="number" min={100} max={experienceData.spawn.maxCount*100} step={5}
+      <label>怪物數量（遊戲設定 %）<input type="number" min={100} max={experienceData.spawn.maxCount*100} step={5}
         value={monsterPercent} onChange={event=>setMonsterPercent(event.target.value)} onBlur={()=>setMonsterPercent(String(Math.round(count*100)))}/></label>
-      <label>事件數量（%）<input type="number" min={100} max={experienceData.spawn.maxEvents*100} step={5}
+      <label>事件數量（遊戲設定 %）<input type="number" min={100} max={experienceData.spawn.maxEvents*100} step={5}
         value={eventPercent} onChange={event=>setEventPercent(event.target.value)} onBlur={()=>setEventPercent(String(Math.round(events*100)))}/></label>
     </div>
+    <p className="xp-hint">請填遊戲內的總倍率：100% 為原始數量，200% 為兩倍，不是額外增加 200%。GS 留空不限制戰力門檻。</p>
     <p className="xp-hint">目前每 {decimal.format(intervals.elite)} 秒可出一隻菁英，每 {decimal.format(intervals.horde)} 秒可觸發一波怪物潮。菁英結算經驗為同種普通怪的 5 倍。</p>
     <details className="xp-advanced">
       <summary>進階試算</summary>
+      <p className="xp-hint">未填每分鐘擊殺上限時，假設能清完刷出的怪；其他預設可依實戰調整。</p>
       <div className="xp-fields">
         <div className="xp-field"><label>每分鐘擊殺上限<input type="number" min={1} placeholder="選填，例如 619" aria-describedby="xp-kill-help" value={killRate} onChange={event=>setKillRate(event.target.value)}/></label><small className="xp-hint" id="xp-kill-help">結算的「怪物」÷「時間（分鐘）」。僅作候選關卡共用的擊殺上限；不同週目怪物血量不同，應重新實測，不會用 GS 猜測擊殺能力。</small></div>
-        <label>打王、整備與重開（秒）<input type="number" min={0} max={1800} value={options.extraSeconds} onChange={event=>update('extraSeconds',optionalNumber(event.target.value,0,1800)??0)}/></label>
-        <label>全服經驗加成<select value={options.serverExp} onChange={event=>update('serverExp',Number(event.target.value))}>
+        <label>每場額外耗時（秒）<input type="number" min={0} max={1800} value={options.extraSeconds} onChange={event=>update('extraSeconds',optionalNumber(event.target.value,0,1800)??0)}/></label>
+        <label>全服經驗倍率<select value={options.serverExp} onChange={event=>update('serverExp',Number(event.target.value))}>
           {[1,1.25,1.5,1.75,2,2.5,3,4,5].map(multiplier=><option key={multiplier} value={multiplier}>{multiplier}×</option>)}
         </select></label>
       </div>
       <label className="xp-checkbox"><input type="checkbox" checked={options.season} onChange={event=>update('season',event.target.checked)}/>納入活動關卡（依遊戲開放狀態）</label>
     </details>
+    <p className="xp-hint">目前試算：每場額外耗時 {options.extraSeconds} 秒（打王、整備與重開），全服經驗 {options.serverExp} 倍；{options.season?'包含活動關卡':'不含活動關卡'}。可在進階試算調整。</p>
 
     {best?<div className="xp-results">
       <div className="xp-results-heading"><h2>{label} 經驗／分鐘</h2><span>{model.killsPerMinute?'已輸入擊殺上限 · 仍須依難度實測':'理論試算 · 假設清完刷出的怪'}</span></div>
@@ -126,8 +129,9 @@ export function ExperienceCalculator({onClose}:{onClose:()=>void}){
       {grouped.length>5&&<button className="xp-return" type="button" onClick={()=>setAll(current=>!current)}>{all?'只顯示前五名':`顯示全部 ${grouped.length} 個不同收益選項`}</button>}
       <details className="xp-advanced">
         <summary>比較怪物與事件倍率 · {best.stage.name} {laps[best.lap-1]}週目</summary>
+        <p className="xp-hint">比較基準固定為 100%／100%；若目前某項仍為 100%，另外示範 200% 的效果，不會更改你的試算設定。</p>
         <div className="xp-comparison">
-          <table><thead><tr><th>設定</th><th>怪物／事件</th><th>{label}／分</th><th>對照預設</th></tr></thead><tbody>
+          <table><thead><tr><th>設定</th><th>怪物／事件</th><th>{label}／分</th><th>相較基準</th></tr></thead><tbody>
             {comparisons.map(({name,count,events,row,delta})=><tr key={name}><th scope="row">{name}</th>
               <td>{count}×／{events}×</td>
               <td>{number.format(row[perMinute])}</td><td>{delta>0?'+':''}{decimal.format(delta)}%</td>

@@ -154,7 +154,7 @@ export function CombatGuide() {
     history.replaceState(history.state, '', '#'+section);
   }
   return <div className="combat-guide">
-    <div className="combat-tool-intro"><p className="combat-note">{VERSION} · 客戶端公式試算</p><h2>配裝與技能試算</h2><p>先選想改善的屬性，輸入目前數值，再比較換裝收益。公式與例外可按需展開。</p></div>
+    <div className="combat-tool-intro"><p className="combat-note">{VERSION} · 客戶端公式試算</p><h2>配裝與技能試算</h2><p>選擇想試算的項目，輸入你目前的數值。有額外加成時再比較效果，公式與例外可按需展開。</p></div>
     <nav aria-label="戰鬥機制目錄" className="combat-jump combat-tool-nav">
       {combatSections.map(([id, label]) => <button key={id} type="button" aria-pressed={active === id} aria-controls={id} onClick={() => selectSection(id)}>{label}</button>)}
     </nav>
