@@ -1,0 +1,44 @@
+.combat-guide {display:grid;gap:1.4rem;max-width:55rem;margin-inline:auto}
+.combat-guide h2,.combat-compat h3 {margin:0 0 .55rem}
+.combat-guide section {scroll-margin-top:6rem;min-width:0}
+.combat-guide p,.combat-compat dd {line-height:1.6}
+.combat-guide p {margin:.5rem 0}
+.combat-intro {color:var(--wiki-muted)}
+.combat-jump {display:flex;flex-wrap:wrap;gap:.5rem 1rem}
+.combat-jump a,.combat-guide-section-link {display:inline-flex;align-items:center;min-height:2.75rem}
+.combat-guide a,.combat-compat a {color:var(--wiki-accent);text-decoration:underline;text-underline-offset:.18em}
+.combat-defenses {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem;margin:.7rem 0}
+.combat-defenses > div,.combat-details,.combat-compat {border:1px solid var(--wiki-border);border-radius:var(--wiki-radius-control);padding:.75rem .9rem;background:var(--wiki-surface)}
+.combat-defenses dt,.combat-compat dt {font-weight:700}
+.combat-defenses dt strong {display:block;font-size:1.25rem;margin:.2rem 0;color:var(--wiki-accent)}
+.combat-defenses dd,.combat-compat dd {margin:0}
+.combat-details {margin:.65rem 0}
+.combat-details summary {cursor:pointer;font-weight:700;min-height:1.5rem}
+.combat-formula {padding:.5rem .7rem;background:var(--wiki-accent-soft);overflow-wrap:anywhere}
+.combat-note {font-size:.82rem;color:var(--wiki-muted,inherit)}
+.combat-compat p {margin:.55rem 0}
+.combat-effects {list-style:none;padding:0;margin:.35rem 0}
+.combat-effects li {display:grid;gap:.2rem;padding:.5rem 0;line-height:1.5}
+.combat-effects li+li {border-top:1px solid var(--wiki-border)}
+.combat-item-sources {position:relative;margin:.25rem 0 0;font-size:.85rem;line-height:1.5}
+.combat-item-sources dl {display:grid;gap:.35rem;margin:0}
+.combat-source-group {display:grid;grid-template-columns:5.8em minmax(0,1fr);align-items:baseline;gap:.35rem}
+.combat-source-group dt {color:var(--wiki-muted);font-size:.81em}
+.combat-source-group dd {display:flex;flex-wrap:wrap;gap:.35rem;margin:0;min-width:0}
+.combat-source-chip {min-height:32px;padding:.2rem .55rem;border:1px solid var(--wiki-border);border-radius:9px;background:var(--wiki-accent-soft);color:var(--wiki-accent);font:inherit;text-align:left;cursor:pointer}
+.combat-source-chip[data-group="神格"] {color:#e0ccff;background:#332c43;border-color:#59466d}
+.combat-source-chip[aria-expanded="true"],.combat-source-chip:focus-visible {outline:2px solid currentColor;outline-offset:1px}
+.combat-source-panel {position:absolute;z-index:2;top:100%;left:0;right:0;pointer-events:none;margin:.4rem 0 0;padding:.65rem .75rem;border:1px solid var(--wiki-border);border-radius:10px;background:var(--wiki-surface);box-shadow:0 8px 22px #0005}
+.combat-source-panel.is-pinned {position:static;pointer-events:auto;box-shadow:none}
+.combat-source-title {display:flex;flex-wrap:wrap;align-items:baseline;gap:.25rem .55rem}
+.combat-source-title span,.combat-source-caption,.combat-source-exclusion {font-size:.78rem;color:var(--wiki-muted)}
+.combat-compat .combat-source-caption,.combat-compat .combat-source-exclusion {margin:.2rem 0}
+.combat-source-panel ul {display:grid;gap:.15rem;margin:.25rem 0;padding:0;list-style:none}
+.combat-source-panel li,.combat-source-panel li+li {display:block;padding:0;border:0}
+@media (pointer:coarse) {.combat-source-chip {min-height:44px}}
+.combat-effect-group {border-top:1px solid var(--wiki-border)}
+.combat-effect-group summary {cursor:pointer;font-weight:700;padding:.65rem 0}
+@media (max-width: 480px) {
+  .combat-defenses {grid-template-columns:1fr}
+  .combat-guide {gap:1.15rem}
+}

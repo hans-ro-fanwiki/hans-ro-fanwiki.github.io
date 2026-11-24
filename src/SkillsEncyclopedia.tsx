@@ -4,6 +4,7 @@ import {BookOpen,ChevronDown,ChevronRight,Clock3,Search,Sparkles,X} from 'lucide
 import type {CareerRoute,Skill,SkillCatalog,SkillJob} from './skills';
 import {careerRoutes,routeForJob,routeForSkill,RANK_LABELS,searchSkillName,SKILL_TAGS} from './skills';
 import './skills.css';
+import {SkillCompatibility} from './CombatGuide';
 
 type SkillChange={skillJob?:string;skillRank?:number;query?:string;skillId?:string|null};
 type Props={
@@ -79,6 +80,7 @@ function SkillDetail({skill,reviewedAt}:{skill:Skill;reviewedAt:string}){
   {skill.description?<div className="sk-description"><b>技能介紹</b><p>{skill.description}</p></div>:
    <div className="sk-description sk-limited"><b>技能介紹尚待補齊</b><p>目前審核的 HANS 資料沒有可直接核實的繁體中文效果說明；僅列出已登錄的名稱、圖示與可確認的技能資訊。</p></div>}
   {skill.upgradeDescription&&<div className="sk-description"><b>升級效果</b><p>{skill.upgradeDescription}</p></div>}
+  <SkillCompatibility skillId={skill.id} skillName={skill.name}/>
   {(skill.cooldown!==null||skill.baseDamage!=null)&&<p className="sk-source-note">基礎值會受技能等級、角色屬性與天賦等效果影響。</p>}
   <p className="sk-source-note">{skill.translationState==='wiki-zh'?'依 HANS 效果整理':'HANS 遊戲資料'} · {reviewedAt}</p>
  </div>;
