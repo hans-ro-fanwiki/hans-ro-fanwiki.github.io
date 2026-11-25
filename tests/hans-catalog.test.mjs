@@ -186,12 +186,12 @@ test('audited HANS lap rules cover six laps, 41 professions, and all 188 card re
  assert.equal(cardScore(poring,rules,1,'swordsman'),10);
  assert.equal(cardScore(poring,rules,2,'swordsman'),15);
  const osiris=catalog.cards.find(c=>c.id===4144);
- assert.equal(cardMultiplier(osiris,rules,6),1);
- assert.deepEqual(cardEffects(osiris,rules,6),cardEffects(osiris,rules,1));
- assert.equal(cardScore(osiris,rules,6,'swordsman'),cardScore(osiris,rules,1,'swordsman'));
+ assert.equal(cardMultiplier(osiris,rules,6),6);
+ assert.deepEqual(cardEffects(osiris,rules,6),['每局復活次數 +6']);
+ assert.equal(cardScore(osiris,rules,6,'swordsman'),150);
  const snake=catalog.cards.find(c=>c.id===4330);
  assert.ok(cardScore(snake,rules,2,'mage')>cardScore(snake,rules,2,'swordsman'),'GS differs by job');
- for(const card of catalog.cards.filter(c=>c.bossRank==='mvp'||c.bossRank==='mini'))
+ for(const card of catalog.cards.filter(c=>c.id!==4144&&(c.bossRank==='mvp'||c.bossRank==='mini')))
   for(let lap=1;lap<=6;lap++)
    assert.ok(cardScore(card,rules,lap,'swordsman')>=Math.round(rules.bossFloors[card.bossRank]*cardMultiplier(card,rules,lap)));
 });

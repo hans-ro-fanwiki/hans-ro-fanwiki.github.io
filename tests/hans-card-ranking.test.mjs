@@ -31,8 +31,7 @@ test('normal card previews and GS descending mode share score, class and lap rul
   for(const card of cards){
    const preview=previewMap.get(card.id);
    const sourceScore=cardScore(card,catalog.lapRules,lap,job);
-   const expected=isRaidOnlyCard(card)?null:card.id===4144
-    ?Math.round(sourceScore*catalog.lapRules.multipliers[lap-1]):sourceScore;
+   const expected=isRaidOnlyCard(card)?null:sourceScore;
    assert.equal(preview,expected);
   }
   for(const row of sorted)assert.equal(row.score,previewMap.get(row.card.id));
@@ -95,7 +94,7 @@ test('the audited V0.14.5 registry keeps all 202 card modifiers and socket ident
 });
 
 test('every ordinary card matches the independently reconstructed HANS GS formula for three profiles and six laps',async()=>{
- const {cardScore,cardEffects,cardMultiplier,isRaidOnlyCard}=await import('../src/laps.ts');
+ const {cardScore,cardEffects,isRaidOnlyCard}=await import('../src/laps.ts');
  const {cardGsContribution}=await import('../src/card-ranking.ts');
  const rules=catalog.lapRules,roundStats=new Set(['str','agi','vit','int','dex','luk','extraProjectiles','revives']);
  const sourceRules={multipliers:rules.multipliers,noScaleCardIds:rules.noScaleCardIds,bossFloors:rules.bossFloors,scoring:rules.scoring};
@@ -117,10 +116,11 @@ test('every ordinary card matches the independently reconstructed HANS GS formul
     raw+=weight*delta;
    }
    const floor=card.bossRank==='mvp'?rules.bossFloors.mvp:card.bossRank==='mini'?rules.bossFloors.mini:0;
-   const expected=Math.max(0,Math.round(raw),Math.round(floor*factor));
+   const expected=card.id===4144&&lap>1
+    ?Math.round(Math.max(0,Math.round(raw))*(1+.3*(lap-1)))
+    :Math.max(0,Math.round(raw),Math.round(floor*factor));
    assert.equal(cardScore(card,rules,lap,job),expected,'Card/lap/profile mismatch: '+card.id+'/'+lap+'/'+scaling);
-   assert.equal(cardGsContribution(card,rules,lap,job),
-    card.id===4144?Math.round(expected*rules.multipliers[lap-1]):expected);
+   assert.equal(cardGsContribution(card,rules,lap,job),expected);
    assert.equal(cardEffects(card,rules,lap).length,card.effects.length);
    checked++;
   }
@@ -128,28 +128,27 @@ test('every ordinary card matches the independently reconstructed HANS GS formul
  assert.equal(checked,188*6*3);
 });
 
-test('4144 keeps official HANS effect/score unchanged but provisional displayed GS scales',async()=>{
+test('4144 uses lap revival effects and the separate 30% base GS increment',async()=>{
  const {cardScore,cardMultiplier,cardEffects,cardId,gsRepresentativeJob}=await import('../src/laps.ts');
- const {cardGsContribution,isProvisionalGsCard}=await import('../src/card-ranking.ts');
+ const {cardGsContribution}=await import('../src/card-ranking.ts');
  const osiris=catalog.cards.find(card=>card.id===4144),rules=catalog.lapRules;
  assert.ok(osiris);
  assert.deepEqual(rules.noScaleCardIds,[4144]);
- assert.ok(isProvisionalGsCard(osiris,rules));
  for(const scaling of ['melee','ranged','magic']){
   const job=gsRepresentativeJob(rules,scaling);
   for(let lap=1;lap<=6;lap++){
-   assert.equal(cardMultiplier(osiris,rules,lap),1);
-   assert.deepEqual(cardEffects(osiris,rules,lap),cardEffects(osiris,rules,1));
-   assert.equal(cardScore(osiris,rules,lap,job),60,'HANS official source formula remains unchanged');
-   assert.equal(cardGsContribution(osiris,rules,lap,job),Math.round(60*rules.multipliers[lap-1]),'Unverified displayed GS uses direct lap multiplier');
+   assert.equal(cardMultiplier(osiris,rules,lap),lap);
+   assert.deepEqual(cardEffects(osiris,rules,lap),['每局復活次數 +'+lap]);
+   assert.equal(cardScore(osiris,rules,lap,job),[60,78,96,114,132,150][lap-1]);
+   assert.equal(cardGsContribution(osiris,rules,lap,job),[60,78,96,114,132,150][lap-1]);
    assert.equal(cardId(osiris,rules,lap),4144+(lap-1)*1000000);
   }
  }
 });
 
-test('all 15 audited raid variants keep their separate 4.2x effects and are not silently given GS',async()=>{
+test('raw raid-only catalog entries require an explicit raid variant for display',async()=>{
  const {cardEffects,isRaidOnlyCard}=await import('../src/laps.ts');
- const {cardGsContribution,isProvisionalGsCard}=await import('../src/card-ranking.ts');
+ const {cardGsContribution}=await import('../src/card-ranking.ts');
  const cards=catalog.cards.filter(c=>c.raid),rules=catalog.lapRules;
  const expectedIds=[4143,4534,4533,4980,4981,4456,4982,4983,4984,4601,4603,4985,4986,4145,4987];
  assert.deepEqual(cards.map(c=>c.id).sort((a,b)=>a-b),expectedIds.sort((a,b)=>a-b));
@@ -158,9 +157,40 @@ test('all 15 audited raid variants keep their separate 4.2x effects and are not 
  for(const card of cards){
   assert.equal(card.raid.mult,4.2);
   assert.equal(cardEffects(card,rules,1,card.raid.mult).length,card.effects.length);
-  assert.equal(isProvisionalGsCard(card,rules),false,'Raid cards must not use the Osiris estimate');
   if(isRaidOnlyCard(card))assert.equal(cardGsContribution(card,rules,1,'mage'),null);
  }
+});
+
+test('all 15 raid variants match 11/25 source floors and rank consistently for all 41 jobs',async()=>{
+ const {catalogCardVariants,cardGsContribution,rankCardsByGs}=await import('../src/card-ranking.ts');
+ const {cardScore,cardId,cardEffects}=await import('../src/laps.ts');
+ const rules=catalog.lapRules,cards=catalogCardVariants(catalog.cards,rules);
+ const expected={4143:252,4145:176,4456:151,4533:84,4534:151,4601:126,4603:84,
+  4980:126,4981:84,4982:84,4983:126,4984:84,4985:202,4986:84,4987:84};
+ const variants=cards.filter(c=>c.raidVariant);
+ assert.equal(cards.length,203);
+ assert.equal(variants.length,Object.keys(expected).length);
+ for(const card of variants){
+  const base=card.id-rules.max*rules.cardStep;
+  assert.ok(Object.hasOwn(expected,base));
+  for(let lap=1;lap<=6;lap++)for(const job of rules.jobs){
+   assert.equal(cardScore(card,rules,lap,job.id),expected[base],card.name);
+   assert.equal(cardGsContribution(card,rules,lap,job.id),expected[base],card.name);
+   assert.equal(cardId(card,rules,lap),card.id);
+   assert.deepEqual(cardEffects(card,rules,lap),cardEffects(card,rules,1));
+  }
+ }
+ for(const job of rules.jobs)for(let lap=1;lap<=6;lap++){
+  const ranking=rankCardsByGs(cards,rules,lap,job.id);
+  assert.equal(ranking.length,203);
+  for(const row of ranking)assert.equal(row.score,cardGsContribution(row.card,rules,lap,job.id));
+  for(let i=1;i<ranking.length;i++)assert.ok(ranking[i-1].score>=ranking[i].score);
+ }
+ // A score above the floor wins, even on a raid variant.
+ const boosted={...variants[0],effects:[{stat:'maxHp',value:10000}]};
+ assert.equal(cardScore(boosted,rules,1,'swordsman'),10500);
+ const unknown={...variants[0],id:6999999};
+ assert.equal(cardScore(unknown,rules,1,'swordsman'),null);
 });
 
 test('raid card variants are searchable and rank by the same score shown in details', async()=>{
@@ -177,8 +207,8 @@ test('raid card variants are searchable and rank by the same score shown in deta
  assert.equal(cardName(raid,rules,6),'獸人英雄卡片・副本');
  assert.deepEqual(cardEffects(raid,rules,6),['護甲 +12.6','HP +168']);
  assert.equal(cardGsContribution(ordinary,rules,1,'swordsman'),30);
- for(let lap=1;lap<=rules.max;lap++)assert.equal(cardGsContribution(raid,rules,lap,'swordsman'),92);
- assert.deepEqual(rankCardsByGs(matches,rules,1,'swordsman').map(({score})=>score),[92,30]);
+ for(let lap=1;lap<=rules.max;lap++)assert.equal(cardGsContribution(raid,rules,lap,'swordsman'),252);
+ assert.deepEqual(rankCardsByGs(matches,rules,1,'swordsman').map(({score})=>score),[252,30]);
  assert(raid.sources.every(source=>source.sourceType==='raid'));
  assert(ordinary.sources.every(source=>source.sourceType!=='raid'));
 });

@@ -1,4 +1,5 @@
 import type {Card,LapRules,Stage} from './types';
+import {RAID_GS_RULES,RAID_GS_MIN_COEFFICIENT,RAID_GS_EXTRA_MULTIPLIER,CARD_PER_LAP_IDS,PER_LAP_GS_INCREMENT} from './card-gs-rules.ts';
 
 export function clampLap(value:number,max=6):number{
  return Number.isInteger(value)&&value>=1&&value<=max?value:1;
@@ -16,9 +17,11 @@ export function cardName(card:Card,rules:LapRules,lap:number):string{
   ?card.name.slice(0,-2)+suffix+'卡片':card.name+suffix;
 }
 export function cardId(card:Card,rules:LapRules,lap:number):number{
- return card.id+(clampLap(lap,rules.max)-1)*rules.cardStep;
+ return card.raidVariant?card.id:card.id+(clampLap(lap,rules.max)-1)*rules.cardStep;
 }
 export function cardMultiplier(card:Card,rules:LapRules,lap:number):number{
+ if(card.raidVariant)return card.raid!.mult;
+ if(CARD_PER_LAP_IDS.has(card.id))return clampLap(lap,rules.max);
  if(rules.noScaleCardIds.includes(card.id))return 1;
  return rules.multipliers[clampLap(lap,rules.max)-1]||1;
 }
@@ -61,7 +64,10 @@ export function cardScore(card:Card,rules:LapRules,lap:number,jobId:string):numb
  if(!job)return null;
  const base=rules.scoring.base,extra=rules.scoring.classes[job.scaling];
  if(!extra)return null;
- const multiplier=card.raidVariant?card.raid!.mult:cardMultiplier(card,rules,lap);
+ const level=clampLap(lap,rules.max);
+ const perLap=!card.raidVariant&&CARD_PER_LAP_IDS.has(card.id)&&level>1;
+ // The special GS path uses base raw score, not the scaled revival effect.
+ const multiplier=perLap?1:cardMultiplier(card,rules,lap);
  let raw=0;
  for(const effect of card.effects){
   const value=appliedValue(effect.stat,effect.value,multiplier);
@@ -70,9 +76,16 @@ export function cardScore(card:Card,rules:LapRules,lap:number,jobId:string):numb
   raw+=weight*value;
  }
  const scored=Math.max(0,Math.round(raw));
+ if(perLap)return Math.round(scored*(1+PER_LAP_GS_INCREMENT*(level-1)));
+ if(card.raidVariant){
+  const baseId=card.id-rules.max*rules.cardStep;
+  const raid=RAID_GS_RULES[baseId];
+  if(!raid)return null; // Unknown future raid card: require a source audit.
+  const floor=rules.bossFloors[raid.rank]*Math.max(raid.coefficient,RAID_GS_MIN_COEFFICIENT)*RAID_GS_EXTRA_MULTIPLIER;
+  return Math.max(scored,Math.round(floor));
+ }
  if(card.bossRank==='mvp'||card.bossRank==='mini'){
-  const floor=rules.bossFloors[card.bossRank];
-  return Math.max(scored,Math.round(floor*(card.raidVariant?1:multiplier)));
+  return Math.max(scored,Math.round(rules.bossFloors[card.bossRank]*multiplier));
  }
  return scored;
 }

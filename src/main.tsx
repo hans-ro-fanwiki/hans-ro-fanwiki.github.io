@@ -20,7 +20,7 @@ import {equipmentTier} from './tier';
 import {hasConfirmedAcquisition} from './acquisition';
 import {cardEffects,cardId,cardMultiplier,cardName,clampLap,gsRepresentativeJob,gsScalingForJob,GS_SCALING_LABELS,stageLapInfo,stageTierLabel} from './laps';
 import type {LapRules} from './types';
-import {cardGsContribution,catalogCardVariants,isProvisionalGsCard,raidCardId,rankCardsByGs} from './card-ranking';
+import {cardGsContribution,catalogCardVariants,raidCardId,rankCardsByGs} from './card-ranking';
 import {FestivalNotes,GameNotes,gameSite} from './game-notes';
 import {addRaidSources,parseRaid,raids,raidUrl} from './raids';
 import {feedbackUrl} from './feedback';
@@ -86,8 +86,8 @@ function CatalogSelect({label,value,options,onChange}:{
 function Chip({active,children,onClick}:{active:boolean;children:React.ReactNode;onClick:()=>void}){
  return <button type="button" className={'chip '+(active?'selected':'')} aria-pressed={active} onClick={onClick}>{children}</button>;
 }
-function CardGsBadge({score,provisional=false}:{score:number|null;provisional?:boolean}){
- return <span className="ranking-score" aria-label={score===null?'此卡片尚無可計算的 GS':(provisional?'GS 待確認，試算 +':'卡片 GS 貢獻 +')+score+' GS'}>
+function CardGsBadge({score}:{score:number|null}){
+ return <span className="ranking-score" aria-label={score===null?'此卡片尚無可計算的 GS':'卡片 GS 貢獻 +'+score+' GS'}>
   {score===null?'—':'+'+score}<small>GS</small>
  </span>;
 }
@@ -429,15 +429,14 @@ function LootResult({entry,rules,lap,source,tier,effect,score,onOpen}:{
 }){
  const item='slot'in entry?entry:null;
  const card='slot'in entry?null:entry;
- const provisional=card?isProvisionalGsCard(card,rules):false;
  return <button type="button" className={'result-card loot-result'+(card?' card-with-gs':'')} onClick={()=>onOpen(item?'item':'card',entry.id)}>
   <Artwork kind={item?'item':'card'} entity={entry}/>
-  <span className="result-main"><strong>{card?cardName(card,rules,lap):entry.name}{provisional&&<span className="card-gs-review-label">（GS 待確認）</span>}</strong>
+  <span className="result-main"><strong>{card?cardName(card,rules,lap):entry.name}</strong>
    <span className="result-sub"><span>{item?SLOTS[item.slot]||item.slot:cardSlot(card!)}{tier?' · '+tier:''}</span>
     <span>{effect||(card?cardEffects(card,rules,lap).join(' · '):shortStats(entry,3))}</span></span>
    {source&&<small className="result-place">{source}</small>}
   </span>
-  {card?<CardGsBadge score={score??null} provisional={provisional}/>:<ChevronRight className="list-arrow" size={18}/>}
+  {card?<CardGsBadge score={score??null}/>:<ChevronRight className="list-arrow" size={18}/>}
  </button>;
 }
 function FeedbackLink({href,children}:{href:string;children:React.ReactNode}){
@@ -687,19 +686,19 @@ function CardDetail({card,counterpart,rules,lap,setLap,gsJob,setGsJob,stages,mon
 }){
  const raidOnly=!!card.raidVariant;
  const score=cardGsContribution(card,rules,lap,gsJob);
- const provisional=isProvisionalGsCard(card,rules);
  const mult=cardMultiplier(card,rules,lap);
- return <><DetailHero kind="card" entry={card} title={(raidOnly&&card.raid?card.name+card.raid.suffix:cardName(card,rules,lap))+(!raidOnly&&provisional?'（GS 待確認）':'')} sub={'鑲嵌部位：'+cardSlot(card)}/>
+ return <><DetailHero kind="card" entry={card} title={(raidOnly&&card.raid?card.name+card.raid.suffix:cardName(card,rules,lap))} sub={'鑲嵌部位：'+cardSlot(card)}/>
   {!raidOnly&&<>
   <div className="lap-detail"><LapPicker rules={rules} lap={lap} setLap={setLap}/>
-   <div className="lap-meta">卡片 ID：{cardId(card,rules,lap)} · 效果倍率 ×{mult}{provisional?'（官方效果特例：效果不隨週目放大；網站 GS 為待確認試算）':''}</div>
+   <div className="lap-meta">卡片 ID：{cardId(card,rules,lap)} · 效果倍率 ×{mult}</div>
   </div>
   </>}
   <h3 className="sheet-section">{raidOnly?'副本卡片效果（×'+card.raid!.mult+'）':'此週目卡片效果'}</h3>
   <div className="bonus-list">{cardEffects(card,rules,lap).map((value,index)=><span key={index}>{value}</span>)}</div>
   <div className="card-gs-section">
-   <div className="card-gs-title"><h3>卡片 GS 貢獻{provisional?'（待確認試算）':''}</h3><strong>{score==null?'尚未確認':'+'+score+' GS'}</strong></div>
-   {provisional&&<p className="card-gs-note">依玩家回報暫將一週目 GS ×{rules.multipliers[clampLap(lap,rules.max)-1]} 顯示為 +{score} GS。此試算與已核對的 HANS 用戶端不放大規則不同；實際分數待遊戲內面板確認。卡片效果仍依 HANS 登錄維持 ×1。</p>}
+   <div className="card-gs-title"><h3>卡片 GS 貢獻</h3><strong>{score==null?'尚未確認':'+'+score+' GS'}</strong></div>
+   {card.id===4144&&<p className="card-gs-note">此卡的復活次數隨週目增加；GS 依官方特殊公式，每提升一週目增加基礎 GS 的 30%。</p>}
+   {raidOnly&&<p className="card-gs-note">副本卡片的 GS 為效果換算分數與該卡專屬保底兩者較高值，不受一般週目選擇影響。</p>}
    <GsClassPicker rules={rules} gsJob={gsJob} onChange={setGsJob}/>
   </div>
   {counterpart&&<button type="button" className="search-more" onClick={()=>openDetail('card',counterpart.id)}>查看{raidOnly?'一般版':'副本版'}</button>}
