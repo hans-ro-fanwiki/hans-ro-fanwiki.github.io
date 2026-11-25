@@ -19,6 +19,7 @@ import {BalanceHistory} from './BalanceHistory';
 import {equipmentTier,equipmentTierOptions,equipmentMatchesTier,parseTierFilter,TIER_FILTER_OPTIONS} from './tier';
 import {equipmentBaseStats,fixedEquipmentEffects,equipmentAffixPools,equipmentSearchEffects,gearRecord,EQUIPMENT_QUALITIES} from './equipment-stats';
 import {hasConfirmedAcquisition} from './acquisition';
+import {equipmentMatchesSlot,equipmentUsableBy,normalizeEquipmentSlot,weaponOptions,weaponLabel,isWeaponSubtype,jobFamily} from './weapon-filters';
 import {cardEffects,cardId,cardMultiplier,cardName,clampLap,gsRepresentativeJob,gsScalingForJob,GS_SCALING_LABELS,stageLapInfo,stageTierLabel} from './laps';
 import type {LapRules} from './types';
 import {cardGsContribution,catalogCardVariants,raidCardId,rankCardsByGs} from './card-ranking';
@@ -37,9 +38,15 @@ const SLOTS:Record<string,string>={weapon:'武器',head_top:'頭飾（上）',he
 const CARD_SLOTS:Record<string,string>={weapon:'武器',armor:'盔甲',shield:'盾牌',garment:'披肩',shoes:'鞋子',accessory:'飾品',headgear:'頭飾'};
 const cardSlot=(card:Card)=>CARD_SLOTS[card.equipSlot||'']||card.equipSlot||'部位未確認';
 const STAGE_TYPES:[StageType,string][]=[['all','全部'],['normal','一般遠征'],['event','活動關卡'],['story','劇情關卡']];
-function equipmentJobs(data:Catalog):[string,string][]{
- const ids=new Set(data.items.flatMap(item=>item.jobs));
- return [['all','全部'],...data.lapRules.jobs.filter(job=>ids.has(job.id)).map(job=>[job.id,job.name] as [string,string])];
+function EquipmentJobSelect({label,data,value,onChange}:{label:string;data:Catalog;value:string;onChange:(job:string)=>void}){
+ const groups=useMemo(()=>{
+  const jobs=data.lapRules.jobs;
+  return jobs.filter(job=>jobFamily(job.id)===job.id).map(root=>({root,jobs:jobs.filter(job=>jobFamily(job.id)===root.id).sort((a,b)=>a.rank-b.rank)}));
+ },[data]);
+ return <label className="catalog-select"><span>{label}</span><select aria-label={label} value={value} onChange={e=>onChange(e.target.value)}>
+  <option value="all">全部職業</option>
+  {groups.map(({root,jobs})=><optgroup key={root.id} label={root.name+'系'}>{jobs.map(job=><option key={job.id} value={job.id}>{job.name}</option>)}</optgroup>)}
+ </select><ChevronDown aria-hidden="true" size={16}/></label>;
 }
 const SOURCES:Record<string,string>={monsterDrop:'怪物掉落',bossDrop:'Boss 掉落',story:'劇情',event:'活動',reward:'獎勵',starter:'初始裝備',raid:'團隊遠征副本'};
 const LABELS:Record<Page,string>={items:'裝備',cards:'卡片',stages:'關卡',skills:'技能',talents:'天賦',balance:'平衡紀錄',experience:'經驗計算機',combat:'戰鬥機制'};
@@ -83,6 +90,15 @@ function CatalogSelect({label,value,options,onChange}:{
 }){
  return <label className="catalog-select"><span>{label}</span><select aria-label={label} value={value} onChange={event=>onChange(event.target.value)}>
   {options.map(([id,name])=><option key={id} value={id}>{name}</option>)}
+ </select><ChevronDown aria-hidden="true" size={16}/></label>;
+}
+function EquipmentSlotSelect({label,items,job,value,onChange}:{label:string;items:readonly Equipment[];job:string;value:string;onChange:(slot:string)=>void}){
+ const options=useMemo(()=>weaponOptions(items,job),[items,job]);
+ const selected=isWeaponSubtype(value)&&!options.some(([key])=>key===value)?'weapon':value;
+ return <label className="catalog-select"><span>{label}</span><select aria-label={label} value={selected} onChange={e=>onChange(e.target.value)}>
+  <option value="all">全部部位</option>
+  <optgroup label="武器"><option value="weapon">全部武器</option>{options.map(([key,name])=><option key={key} value={key}>{name}</option>)}</optgroup>
+  <optgroup label="其他裝備">{Object.entries(SLOTS).filter(([key])=>key!=='weapon').map(([key,name])=><option key={key} value={key}>{name}</option>)}</optgroup>
  </select><ChevronDown aria-hidden="true" size={16}/></label>;
 }
 function Chip({active,children,onClick}:{active:boolean;children:React.ReactNode;onClick:()=>void}){
@@ -235,13 +251,15 @@ function App(){
    navigate({...EMPTY,page:'stages',stage:oldStage[1],lap:state.lap,gsJob:state.gsJob},true,true);
   }
  },[state.detail,catalog,stages,navigate]);
+ const selectedEquipmentSlot=useMemo(()=>catalog?normalizeEquipmentSlot(state.slot,state.job,catalog.items):state.slot,[catalog,state.slot,state.job]);
+ useEffect(()=>{if(catalog&&state.page==='items'&&state.slot!==selectedEquipmentSlot)navigate({slot:selectedEquipmentSlot},false,true)},[catalog,state.page,state.slot,selectedEquipmentSlot,navigate]);
  const matchingEquip=useMemo(()=>catalog?.items.filter(i=>
-  (state.slot==='all'||i.slot===state.slot)&&
-  (state.job==='all'||!i.jobs.length||i.jobs.includes(state.job))&&
+  equipmentMatchesSlot(i,selectedEquipmentSlot)&&
+  equipmentUsableBy(i,state.job)&&
   (i.sources.some(s=>matchesSource(s,state.source,stages))||state.source==='all')&&
   equipmentMatchesTier(i,stages,state.tier,s=>matchesSource(s,state.source,stages))&&
   entryMatches(i,state.query,state.attr)
-  )||[],[catalog,state.slot,state.job,state.tier,state.source,state.query,state.attr,stages]);
+  )||[],[catalog,selectedEquipmentSlot,state.job,state.tier,state.source,state.query,state.attr,stages]);
  const equip=useMemo(()=>matchingEquip.filter(i=>state.showUnknown||hasConfirmedAcquisition(i)),[matchingEquip,state.showUnknown]);
  const hiddenEquipCount=matchingEquip.length-equip.length;
  const cardList=useMemo(()=>cardVariants.filter(c=>(state.slot==='all'||c.equipSlot===state.slot)&&
@@ -273,8 +291,7 @@ function App(){
   state.page==='items'&&state.showUnknown?'含取得方式未確認的裝備':null
  ].filter(Boolean).join(' · ');
  const clearSearchFilters=()=>navigate({query:'',slot:'all',job:'all',tier:'all',source:'all',attr:'all',showUnknown:false});
- const slotOrder=['acc','weapon','shield','armor','shoes','garment','head_top','head_mid','head_low'];
- const slots=[...new Set(catalog?.items.map(i=>i.slot)||[])].sort((a,b)=>slotOrder.indexOf(a)-slotOrder.indexOf(b));
+
  const [detailKind,...detailParts]=state.detail?.split(':')||[];
  const detailId=detailParts.join(':');
  const selectedItem=detailKind==='item'?items.get(Number(detailId)):undefined;
@@ -338,8 +355,8 @@ function App(){
       </div>
       {state.page!=='stages'&&<div className="primary-filters catalog-filters">
        {state.page==='items'?<>
-        <CatalogSelect label="裝備部位" value={state.slot} options={[['all','全部部位'],...slots.map(slot=>[slot,SLOTS[slot]||slot] as const)]} onChange={slot=>navigate({slot})}/>
-        <CatalogSelect label="職業" value={state.job} options={equipmentJobs(catalog)} onChange={job=>navigate({job})}/>
+        <EquipmentSlotSelect label="裝備部位" items={catalog.items} job={state.job} value={state.slot} onChange={slot=>navigate({slot})}/>
+        <EquipmentJobSelect label="職業" data={catalog} value={state.job} onChange={job=>navigate({job,slot:normalizeEquipmentSlot(state.slot,job,catalog.items)})}/>
         <CatalogSelect label="裝備等級" value={state.tier} options={TIER_FILTER_OPTIONS} onChange={tier=>navigate({tier})}/>
        </>:<>
         <CatalogSelect label="鑲嵌部位" value={state.slot} options={[['all','全部部位'],...Object.entries(CARD_SLOTS)]} onChange={slot=>navigate({slot})}/>
@@ -382,7 +399,7 @@ function App(){
         <button type="button" className="search-more" onClick={clearSearchFilters}>清除搜尋與篩選</button>
          {state.mode==='gs'&&<button type="button" className="search-more" onClick={()=>navigate({mode:'list'})}>回依卡片看</button>}
        </div>}
-      </div>:<StageBrowser key={state.page} data={catalog} initialKind={state.page==='cards'?'card':'item'} query={state.query} attr={state.attr} stageType={state.stageType} stageChapter={state.stageChapter} onChapterChange={stageChapter=>navigate({stageChapter,stage:null})} onStageTypeChange={stageType=>navigate({stageType,stage:null})} focusedStage={focusedStage} openDetail={openDetail} slot={state.slot} job={state.page==='items'?state.job:'all'} tierFilter={state.page==='items'?state.tier:'all'} source={state.source} showUnknown={state.showUnknown} gsJob={state.gsJob} lap={state.lap} setLap={lap=>navigate({lap})}/>}
+      </div>:<StageBrowser key={state.page} data={catalog} initialKind={state.page==='cards'?'card':'item'} query={state.query} attr={state.attr} stageType={state.stageType} stageChapter={state.stageChapter} onChapterChange={stageChapter=>navigate({stageChapter,stage:null})} onStageTypeChange={stageType=>navigate({stageType,stage:null})} focusedStage={focusedStage} openDetail={openDetail} slot={state.slot} job={state.page==='items'?state.job:'all'} onGearChange={state.page==='items'?(slot,job)=>navigate({slot,job}):undefined} tierFilter={state.page==='items'?state.tier:'all'} source={state.source} showUnknown={state.showUnknown} gsJob={state.gsJob} lap={state.lap} setLap={lap=>navigate({lap})}/>}
       {state.mode==='list'&&searchActive&&otherResults.length>0&&<details className="search-extra">
        <summary className="search-subtitle">其他{state.page==='items'?'卡片':'裝備'}結果（{otherResults.length}）</summary>
        <div className="cards-list">{otherResults.slice(0,40).map(entry=><LootResult key={entry.id} entry={entry} rules={catalog.lapRules}
@@ -435,7 +452,7 @@ function LootResult({entry,rules,lap,source,tier,effect,score,onOpen}:{
  return <button type="button" className={'result-card loot-result'+(card?' card-with-gs':'')} onClick={()=>onOpen(item?'item':'card',entry.id)}>
   <Artwork kind={item?'item':'card'} entity={entry}/>
   <span className="result-main"><strong>{card?cardName(card,rules,lap):entry.name}</strong>
-   <span className="result-sub"><span>{item?SLOTS[item.slot]||item.slot:cardSlot(card!)}{tier?' · '+tier:''}</span>
+   <span className="result-sub"><span>{item?weaponLabel(item)||SLOTS[item.slot]||item.slot:cardSlot(card!)}{tier?' · '+tier:''}</span>
     <span>{effect||(card?cardEffects(card,rules,lap).join(' · '):shortStats(entry,3))}</span></span>
    {source&&<small className="result-place">{source}</small>}
   </span>
@@ -454,13 +471,13 @@ function RaidBrowser({selected,items,cards,page,view,data,onChange,onSelect,open
  const [kind,setKind]=useState<'all'|'item'|'card'>(page==='cards'?'card':page==='items'?'item':'all');
  const resultsRef=useRef<HTMLElement>(null);
  const jobNames=new Map(data.lapRules.jobs.map(job=>[job.id,job.name]));
- const slotLabels=kind==='card'?CARD_SLOTS:SLOTS;
+ const selectedSlot=kind==='item'?normalizeEquipmentSlot(view.slot,view.job,data.items):view.slot;
  const changeKind=(value:typeof kind)=>{setKind(value);onChange({slot:'all',job:'all'})};
  const terms=view.query.trim().toLocaleLowerCase();
  const results=raids.map(raid=>{
   const matchesTitle=[raid.name,raid.boss,'T'+raid.tier].some(value=>value.toLocaleLowerCase().includes(terms));
   const gear=kind==='card'?[]:raid.gear.map(id=>items.get(id)!).filter(item=>
-   (view.slot==='all'||item.slot===view.slot)&&(view.job==='all'||!item.jobs.length||item.jobs.includes(view.job))&&
+   equipmentMatchesSlot(item,selectedSlot)&&equipmentUsableBy(item,view.job)&&
    (view.tier==='all'||view.tier===String(raid.tier))&&entryMatches(item,matchesTitle?'':view.query,view.attr));
   const lootCards=kind==='item'?[]:raid.cards.map(id=>cards.get(raidCardId(id,data.lapRules))!).filter(card=>
    (view.slot==='all'||card.equipSlot===view.slot)&&entryMatches(card,matchesTitle?'':view.query,view.attr));
@@ -469,9 +486,7 @@ function RaidBrowser({selected,items,cards,page,view,data,onChange,onSelect,open
  const result=results.find(entry=>entry.raid.id===selected)||results[0];
  const {raid,gear,lootCards}=result??{raid:raids[0],gear:[],lootCards:[]};
  const filtered=!!terms||view.slot!=='all'||view.job!=='all'||view.tier!=='all'||view.attr!=='all';
- const filterOptions=kind==='all'?null:<label>部位<select value={view.slot} onChange={event=>onChange({slot:event.target.value})}>
-  <option value="all">全部部位</option>{Object.entries(slotLabels).map(([id,name])=><option key={id} value={id}>{name}</option>)}
- </select></label>;
+ const filterOptions=kind==='all'?null:kind==='item'?<EquipmentSlotSelect label="副本裝備部位" items={data.items} job={view.job} value={selectedSlot} onChange={slot=>onChange({slot})}/>:<CatalogSelect label="副本卡片部位" value={view.slot} options={[['all','全部部位'],...Object.entries(CARD_SLOTS)]} onChange={slot=>onChange({slot})}/>;
  return <section className="raid-browser" aria-label="團隊遠征副本">
   {page!=='stages'&&<button type="button" className="search-more raid-return" onClick={()=>onChange({mode:'list',raid:null})}>返回依{page==='cards'?'卡片':'裝備'}看</button>}
   <div className="search-field"><Search size={20} aria-hidden="true"/><input aria-label="搜尋副本掉落" placeholder="搜尋副本、首領、掉落名稱或屬性" value={view.query} onChange={event=>onChange({query:event.target.value},true)}/>{view.query&&<button type="button" className="search-clear" aria-label="清除副本搜尋" onClick={()=>onChange({query:''},true)}><X size={18}/></button>}</div>
@@ -480,9 +495,7 @@ function RaidBrowser({selected,items,cards,page,view,data,onChange,onSelect,open
   </div>}
   <div className="stage-controls raid-controls">
    {filterOptions}
-   {kind==='item'&&<label>職業<select value={view.job} onChange={event=>onChange({job:event.target.value})}>
-    {equipmentJobs(data).map(([id,name])=><option key={id} value={id}>{name}</option>)}
-   </select></label>}
+   {kind==='item'&&<EquipmentJobSelect label="副本職業" data={data} value={view.job} onChange={job=>onChange({job,slot:normalizeEquipmentSlot(selectedSlot,job,data.items)})}/>}
    {kind!=='card'&&<label>裝備等級<select aria-label="副本裝備等級" value={view.tier} onChange={e=>onChange({tier:e.target.value})}>{TIER_FILTER_OPTIONS.map(([id,name])=><option key={id} value={id}>{name}</option>)}</select></label>}
    <label>屬性<select value={view.attr} onChange={event=>onChange({attr:event.target.value})}>
     <option value="all">全部屬性</option>{ATTRIBUTE_GROUPS.map(group=><optgroup key={group.label} label={group.label}>{group.options.map(([id,label])=><option key={id} value={id}>{label}</option>)}</optgroup>)}
@@ -542,15 +555,18 @@ function RaidBrowser({selected,items,cards,page,view,data,onChange,onSelect,open
   </article>}
  </section>;
 }
-function StageBrowser({data,query,attr,stageType,onStageTypeChange,stageChapter,onChapterChange,focusedStage,openDetail,gsJob,lap,setLap,slot='all',job='all',tierFilter='all',source='all',showUnknown=false,initialKind='all'}:{
+function StageBrowser({data,query,attr,stageType,onStageTypeChange,stageChapter,onChapterChange,focusedStage,openDetail,gsJob,lap,setLap,slot='all',job='all',tierFilter='all',source='all',showUnknown=false,initialKind='all',onGearChange}:{
  data:Catalog;query:string;attr:string;stageType:StageType;onStageTypeChange:(value:StageType)=>void;stageChapter:StageChapter;onChapterChange:(value:StageChapter)=>void;gsJob:string;lap:number;setLap:(lap:number)=>void;focusedStage:string|null;
- openDetail:(kind:Kind,id:string|number)=>void;slot?:string;job?:string;tierFilter?:string;source?:string;showUnknown?:boolean;initialKind?:'all'|'item'|'card';
+ openDetail:(kind:Kind,id:string|number)=>void;slot?:string;job?:string;tierFilter?:string;source?:string;showUnknown?:boolean;initialKind?:'all'|'item'|'card';onGearChange?:(slot:string,job:string)=>void;
 }){
  const [expanded,setExpanded]=useState<Set<string>>(()=>new Set());
  const [kind,setKind]=useState(initialKind);
- const [localSlot,setLocalSlot]=useState(slot);
+ const [localSlot,setLocalSlot]=useState(initialKind==='card'?'all':slot);
+ const [localCardSlot,setLocalCardSlot]=useState(initialKind==='card'?slot:'all');
  const [localJob,setLocalJob]=useState(job);
  const [localAttr,setLocalAttr]=useState('all');
+ const effectiveSlot=useMemo(()=>normalizeEquipmentSlot(localSlot,localJob,data.items),[localSlot,localJob,data]);
+ const changeGear=(nextSlot:string,nextJob:string)=>{setLocalSlot(nextSlot);setLocalJob(nextJob);onGearChange?.(nextSlot,nextJob)};
  const monsterMap=useMemo(()=>new Map(data.monsters.map(m=>[m.id,m])),[data]);
  const stageMap=useMemo(()=>new Map(data.stages.map(stage=>[stage.id,stage])),[data]);
  useEffect(()=>{
@@ -559,7 +575,7 @@ function StageBrowser({data,query,attr,stageType,onStageTypeChange,stageChapter,
   const frame=requestAnimationFrame(()=>document.getElementById('stage-heading-'+focusedStage)?.scrollIntoView({block:'start'}));
   return ()=>cancelAnimationFrame(frame);
  },[focusedStage]);
- useEffect(()=>{setLocalSlot(slot);setLocalJob(job)},[slot,job]);
+ useEffect(()=>{if(initialKind==='card')setLocalCardSlot(slot);else{setLocalSlot(slot);setLocalJob(job)}},[slot,job,initialKind]);
  const eligible=(row:ReturnType<typeof stageRows>[number],stageId:string,dropQuery:string)=>{
    if(kind!=='all'&&row.kind!==kind)return false;
    if(row.source.verificationState!=='official'&&!showUnknown)return false;
@@ -569,9 +585,10 @@ function StageBrowser({data,query,attr,stageType,onStageTypeChange,stageChapter,
    const item=row.item as Equipment;
    const stageTier=stageMap.get(stageId)?.lapTiers[lap-1];
    const tierOk=tierFilter==='all'||(tierFilter!=='unknown'&&stageTier===Number(tierFilter));
-   return tierOk&&(showUnknown||hasConfirmedAcquisition(item))&&(localSlot==='all'||item.slot===localSlot)&&(localJob==='all'||!item.jobs.length||item.jobs.includes(localJob));
+   return tierOk&&(showUnknown||hasConfirmedAcquisition(item))&&equipmentMatchesSlot(item,effectiveSlot)&&equipmentUsableBy(item,localJob);
   }
-  return (localSlot==='all'||(row.item as Card).equipSlot===localSlot)&&localJob==='all';
+  if(kind==='card')return localCardSlot==='all'||(row.item as Card).equipSlot===localCardSlot;
+  return (effectiveSlot==='all'||(row.item as Card).equipSlot===effectiveSlot)&&localJob==='all';
  };
  const terms=query.trim().toLocaleLowerCase().split(/\s+/).filter(Boolean);
  const rowsByStage=new Map<string,ReturnType<typeof stageRows>>();
@@ -627,12 +644,12 @@ function StageBrowser({data,query,attr,stageType,onStageTypeChange,stageChapter,
       </div>)}
      </div>
      <div className="search-filter-row">
-      {([['all','全部'],['item','裝備'],['card','卡片']] as const).map(([value,label])=><Chip key={value} active={kind===value} onClick={()=>{setKind(value);if(value==='card'){setLocalSlot('all');setLocalJob('all')}}}>{label}</Chip>)}
+      {([['all','全部'],['item','裝備'],['card','卡片']] as const).map(([value,label])=><Chip key={value} active={kind===value} onClick={()=>setKind(value)}>{label}</Chip>)}
      </div>
      <div className="stage-controls">
-       {kind==='card'?<label>鑲嵌部位<select aria-label="關卡卡片部位" value={localSlot} onChange={e=>setLocalSlot(e.target.value)}><option value="all">全部部位</option>{Object.entries(CARD_SLOTS).map(([v,label])=><option key={v} value={v}>{label}</option>)}</select></label>:
-        <><label>部位<select aria-label="關卡部位" value={localSlot} onChange={e=>setLocalSlot(e.target.value)}><option value="all">全部部位</option>{Object.entries(SLOTS).map(([v,label])=><option key={v} value={v}>{label}</option>)}</select></label>
-        <label>職業<select aria-label="關卡職業" value={localJob} onChange={e=>setLocalJob(e.target.value)}>{equipmentJobs(data).map(([v,label])=><option key={v} value={v}>{label}</option>)}</select></label></>}
+       {kind==='card'?<label>鑲嵌部位<select aria-label="關卡卡片部位" value={localCardSlot} onChange={e=>setLocalCardSlot(e.target.value)}><option value="all">全部部位</option>{Object.entries(CARD_SLOTS).map(([v,label])=><option key={v} value={v}>{label}</option>)}</select></label>:
+        <><EquipmentSlotSelect label="關卡部位" items={data.items} job={localJob} value={effectiveSlot} onChange={slot=>changeGear(slot,localJob)}/>
+        <EquipmentJobSelect label="關卡職業" data={data} value={localJob} onChange={job=>changeGear(normalizeEquipmentSlot(effectiveSlot,job,data.items),job)}/></>}
       <label>屬性<select aria-label="關卡屬性" value={localAttr} onChange={e=>setLocalAttr(e.target.value)}><option value="all">全部屬性</option>{ATTRIBUTE_GROUPS.map(group=><optgroup key={group.label} label={group.label}>{group.options.map(([key,label])=><option key={key} value={key}>{label}</option>)}</optgroup>)}</select></label>
      </div>
      {rows.length?<div className="compact-results">{rows.map((row,i)=><LootResult key={row.kind+'-'+row.item.id+'-'+i}
@@ -679,7 +696,7 @@ function EquipmentDetail({item,rules,lap,tierFilter,stages,monsters,openDetail}:
  const fixed=fixedEquipmentEffects(item,option);
  const base=option?equipmentBaseStats(item,option,quality):[];
  const affixes=equipmentAffixPools(item,option);
- return <><DetailHero kind="item" entry={item} title={item.name} sub={(SLOTS[item.slot]||item.slot)+' · '+tier.text}/>
+ return <><DetailHero kind="item" entry={item} title={item.name} sub={(weaponLabel(item)||SLOTS[item.slot]||item.slot)+' · '+tier.text}/>
   <section className="equipment-preview">
    <h3 className="sheet-section">裝備能力預覽</h3>
    {options.length>0&&!record?.starter&&<div className="stage-controls equipment-preview-controls">
@@ -703,7 +720,7 @@ function EquipmentDetail({item,rules,lap,tierFilter,stages,monsters,openDetail}:
     </details>
    </>}
   </section>
-  {item.jobs.length>0&&<><h3 className="sheet-section">可用職業</h3><div className="bonus-list">{item.jobs.map(j=><span key={j}>{rules.jobs.find(job=>job.id===j)?.name||'職業名稱待確認'}</span>)}</div></>}
+  {item.jobs.length>0&&<><h3 className="sheet-section">可用職業</h3><div className="bonus-list">{rules.jobs.filter(job=>equipmentUsableBy(item,job.id)).map(job=><span key={job.id}>{job.name}</span>)}</div>{item.gender&&<p className="tier-note">此裝備另有性別限制（{item.gender==='m'?'男性':item.gender==='f'?'女性':item.gender}）。</p>}</>}
   <h3 className="sheet-section">取得方式</h3><DropRoutes sources={item.sources} stages={stages} monsters={monsters} openDetail={openDetail}/>
  </>;
 }
