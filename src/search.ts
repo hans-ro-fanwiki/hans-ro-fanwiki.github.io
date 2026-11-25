@@ -1,4 +1,5 @@
 import type {Card,Equipment} from './types';
+import {equipmentSearchEffects} from './equipment-stats.ts';
 
 export type SearchEntry=Card|Equipment;
 export const ATTRIBUTE_GROUPS=[
@@ -8,7 +9,7 @@ export const ATTRIBUTE_GROUPS=[
 ] as const;
 const attrPatterns:Record<string,RegExp>={
  str:/\bSTR\b|力量/i,agi:/\bAGI\b|敏捷/i,vit:/\bVIT\b|體質/i,int:/\bINT\b|智力/i,dex:/\bDEX\b|靈巧/i,luk:/\bLUK\b|幸運/i,
- attack:/\bATK\b|\bMATK\b|攻擊力|物理攻擊|魔法攻擊/i,cooldown:/冷卻|^急速\b|^急速\s|cooldown|^haste\b|\bCD\b/i,haste:/^急速\s|^haste\b/i,casthaste:/施法急速|詠唱速度|cast\s*haste/i,damage:/傷害|damage/i,crit:/爆擊|暴擊|critical/i,
+ attack:/\bATK\b|\bMATK\b|攻擊力|物理攻擊|魔法攻擊/i,cooldown:/冷卻|^急速\b|^急速(?:\s|$)|cooldown|^haste\b|\bCD\b/i,haste:/^急速(?:\s|$)|^haste\b/i,casthaste:/施法急速|詠唱速度|cast\s*haste/i,damage:/傷害|damage/i,crit:/爆擊|暴擊|critical/i,
  hit:/命中|\bHIT\b/i,range:/範圍|range/i,hp:/\bHP\b|生命/i,
  armor:/護甲|\bDEF\b|防禦/i,flee:/迴避|flee/i,
  reduction:/減傷|受到傷害|傷害減免/i,atk:/\bATK\b|物理攻擊/i,matk:/\bMATK\b|魔法攻擊/i
@@ -22,9 +23,7 @@ const aliases:Record<string,string>={
 };
 export function effectLines(entry:SearchEntry):string[]{
  if(!('slot'in entry))return entry.bonuses;
- const base=entry.baseStats;
- const basic=base?(['atk','matk','def'] as const).filter(k=>typeof base[k]==='number'&&base[k]!==0).map(k=>k.toUpperCase()+' +'+base[k]):[];
- return [...basic,...entry.bonuses,...(entry.starBonuses||[]),...(entry.starBonusesMax||[])];
+ return equipmentSearchEffects(entry);
 }
 export function attributeMatches(entry:SearchEntry,attr:string):boolean{
  if(!attr||attr==='all')return true;
