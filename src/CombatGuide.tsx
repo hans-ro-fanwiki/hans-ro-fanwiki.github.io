@@ -6,8 +6,8 @@ import {CooldownTool, CastTool, RangeTool, DefenseTool} from './CombatTools';
 const VERSION = `HANS V${compatibility.version}`;
 
 const defenses = [
-  ['角色減傷上限', '60%', '裝備、卡片等給的角色減傷，合計最多算到 60%。'],
-  ['加上暫時減傷後', '通常 75%', '一般受傷時，角色減傷和適用的暫時減傷加起來，通常最多算到 75%。'],
+  ['自身減傷', '遞減至 85%', '原始減傷 R 以百分點加總，實際自身減傷為 85% × R ÷ (R + 40)，例如 R=40 時為 42.5%。'],
+  ['加上暫時減傷後', 'PvE 85%／PvP 70%', '一般暫時減傷最多 80%；與自身減傷以剩餘傷害相乘，合計再套用玩法上限。'],
   ['護甲', '先扣固定值', '護甲 10，就先從這次傷害扣 10，再算百分比減傷。'],
   ['DEF', '剩下的再減', 'DEF 80 時，前面算完的傷害再減半。DEF 越高，每多一點帶來的差異越小。'],
 ] as const;
@@ -154,7 +154,7 @@ export function CombatGuide() {
     history.replaceState(history.state, '', '#'+section);
   }
   return <div className="combat-guide">
-    <div className="combat-tool-intro"><p className="combat-note">{VERSION} · 客戶端公式試算</p><h2>配裝與技能試算</h2><p>選擇想試算的項目，輸入你目前的數值。有額外加成時再比較效果，公式與例外可按需展開。</p></div>
+    <div className="combat-tool-intro"><p className="combat-note">{VERSION} · 11/25 減傷熱修公式</p><h2>配裝與技能試算</h2><p>選擇想試算的項目，輸入你目前的數值。有額外加成時再比較效果，公式與例外可按需展開。</p></div>
     <nav aria-label="戰鬥機制目錄" className="combat-jump combat-tool-nav">
       {combatSections.map(([id, label]) => <button key={id} type="button" aria-pressed={active === id} aria-controls={id} onClick={() => selectSection(id)}>{label}</button>)}
     </nav>
@@ -173,11 +173,11 @@ export function CombatGuide() {
         <summary>承傷公式與算例</summary>
         <p>正 DEF 的減傷比例為 DEF ÷ (DEF + 80)。傷害最後四捨五入，這一步最低為 1。輸入傷害已包含攻擊者與玩法的前置修正。</p>
         <p className="combat-formula">傷害 = max(1, round((輸入傷害 − 護甲) × (1 − 有效減傷) × (1 − DEF 減傷比例)))</p>
-        <p>輸入傷害 100、護甲 10、有效減傷 75%、DEF 80 時，<strong>90 × 0.25 × 0.5 = 11.25，最後為 11 傷害</strong>。</p>
+        <p>自身減傷 = 85% × R ÷ (R + 40)。有效減傷 = 1 − (1 − 自身減傷) × (1 − 暫時減傷)，再套用玩法上限。</p><p>輸入傷害 100、護甲 10、原始減傷 60%、暫時減傷 30%、DEF 80：自身減傷為 51%，合計 65.7%，<strong>90 × 0.343 × 0.5 ≈ 15.44，最後為 15 傷害</strong>。</p>
       </details>
       <details className="combat-details">
         <summary>防禦特例與玩法差異</summary>
-        <p>負重增加的暫時防護本身超過 75% 時，這一層的上限會跟著提高。免疫、閃避與護盾另有規則。</p>
+        <p>特殊格擋可提高 PvE 的合計減傷上限，但 PvP／公會戰維持 70%。免疫、閃避與護盾另有規則。</p>
         <p>團隊副本與世界王部分招式直接按最大 HP 比例扣血，適用該招式的獨立規則。</p>
       </details>
     </section>
@@ -194,6 +194,7 @@ export function CombatGuide() {
       </div>
     </section>
 
+    <details className="combat-details" open><summary>11/25 平衡更新：能力點、閃避與爆擊</summary><ul><li>單項能力分配上限 150；自行分配的 STR／INT／DEX 超過 99 的點數對 ATK／MATK 的貢獻減半，不是全部面板屬性或施法 DEX 減半。</li><li>自身閃避上限 50%，含增益後 PvE 75%、PvP／公會戰 50%。</li><li>爆擊率超過 100% 時，每超過 1 個百分點，爆擊傷害增加 5 個百分點；PvP／公會戰增加 2.5 個百分點。例如 120% 爆擊率額外增加 100% 爆擊傷害（PvP 50%）。</li></ul><p><a href="?page=skills">查看技能平衡紀錄</a></p></details>
     <p className="combat-note">試算依已核對的 HANS 客戶端公式，不代表伺服器實測。召喚、持續傷害、追加效果及特殊玩法可能使用獨立計時。<a href="?page=skills&sk=ruwach">查看光獵的兩種計時器</a>。</p>
   </div>;
 }

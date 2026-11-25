@@ -30,12 +30,22 @@
     "2026-11-22 evening: re-audited the catalog sources. 17 expedition stages, 523 equipment entries and existing card/stage associations matched. RO_LAPC.raid registers 15 raid variants; 14 are new card registrations with no ordinary stage associations. Raid launch and server-side rewards remain separate from catalog registration. Skills and talents retain independent source baselines.",
     "November 22 V0.14.5 skill audit: compared all skill registrations against the V0.14.4 snapshot. Six Gunslinger-line factories changed. Rechecked the prior description overrides against unchanged source descriptions. The V0.14.5 main bundle main-BNOcv2PN.hz8adf5291.js (SHA-256 23796d5306708fcb4b015c2f5cd99fe14a4f451199f7036baba4ad47363d4d3f) has 29 RO_JOBMULT.M entries verified against the official news tab. The kagerou runtime entry is listed under the third-job label in the official announcement."
   ],
+  "combatLatest": {
+    "date": "2026-11-25",
+    "version": "0.15.1",
+    "directory": "hans-20261125",
+    "main": {
+      "file": "main-BNOcv2PN.hza77c7ae5.js",
+      "sha256": "fc2283e1288163f908dccaff5032710e70c177c597b3e285b1e7dfc14b6eb325"
+    },
+    "scope": "RO_SCAP mitigation, flee, critical overflow and allocation announcement; catalog and skill compatibility retain independent baselines."
+  },
   "skillsSoul": {
-    "file": "soul_linker-DllBVIRO.hz3fff5554.js",
-    "sha256": "4d781fd506ee8b7bc8abbd3eca504005344aa160ce6e7b1a67695b99daecb81b",
-    "date": "2026-11-22",
-    "version": "0.14.5",
-    "directory": "hans-v0.14.5"
+    "file": "soul_linker-DllBVIRO.hzffce8ada.js",
+    "sha256": "f5dab8dc8f4c3a207ea6cbddb7e719ecb837fb29f93d8f008cd52a172e37bcad",
+    "date": "2026-11-25",
+    "version": "0.15.1",
+    "directory": "hans-20261125"
   },
   "snapshotDirectory": "evidence/hans-20261122",
   "skillHistory": [
@@ -63,6 +73,13 @@
       "date": "2026-11-22",
       "directory": "hans-20261122",
       "version": "0.14.4"
+    },
+    {
+      "file": "soul_linker-DllBVIRO.hz3fff5554.js",
+      "sha256": "4d781fd506ee8b7bc8abbd3eca504005344aa160ce6e7b1a67695b99daecb81b",
+      "date": "2026-11-22",
+      "version": "0.14.5",
+      "directory": "hans-v0.14.5"
     }
   ]
 }

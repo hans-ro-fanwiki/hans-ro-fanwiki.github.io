@@ -73,13 +73,13 @@ export function CooldownTool({renderCompatibility}:{renderCompatibility:(skill:S
  </div>;
 }
 export function DefenseTool(){
- const [input,setInput]=useState(100),[armor,setArmor]=useState(0),[reduction,setReduction]=useState(0),[buff,setBuff]=useState(0),[def,setDef]=useState(0);
- const r=normalDamage(input,armor,reduction,buff,def);
+ const [input,setInput]=useState(100),[armor,setArmor]=useState(0),[reduction,setReduction]=useState(0),[buff,setBuff]=useState(0),[def,setDef]=useState(0),[pvp,setPvp]=useState(false);
+ const r=normalDamage(input,armor,reduction,buff,def,pvp);
  return <div className="combat-tool">
   <div className="combat-tool-heading"><h3>承傷試算</h3><p>輸入減傷前的傷害，以及你目前的防禦屬性，看看一次普通攻擊會扣多少血。</p></div>
-  <div className="combat-tool-fields"><Field label="減傷前的傷害" value={input} onChange={setInput} max={1000000000}/><Field label="目前護甲（含 Buff）" value={armor} onChange={setArmor}/><Field label="目前角色減傷（%）" value={reduction} onChange={setReduction} max={100}/><Field label="目前暫時減傷（%）" value={buff} onChange={setBuff} max={60}/><Field label="目前 DEF" value={def} onChange={setDef}/></div>
-  <p className="combat-note">傷害預設 100 僅為範例；防禦屬性從 0 開始。角色減傷填常駐數值，暫時減傷只填尚未計入的 Buff。</p>
-  <div className="combat-tool-results" aria-live="polite"><Result label="實際受到傷害" value={fmt(r.damage)}/><Result label="百分比減傷（不含 DEF）" value={pct(r.effectiveReduction*100)} detail="角色減傷最多 60%，一般合計最多 75%"/><Result label="DEF 額外減傷" value={pct(r.defReduction*100)}/></div>
+  <div className="combat-tool-fields"><Field label="減傷前的傷害" value={input} onChange={setInput} max={1000000000}/><Field label="目前護甲（含 Buff）" value={armor} onChange={setArmor}/><Field label="原始減傷加總（%）" value={reduction} onChange={setReduction}/><Field label="目前暫時減傷（%）" value={buff} onChange={setBuff} max={80}/><Field label="目前 DEF" value={def} onChange={setDef}/><label className="combat-field"><span>玩法</span><select value={pvp?'pvp':'pve'} onChange={e=>setPvp(e.target.value==='pvp')}><option value="pve">PvE</option><option value="pvp">PvP／公會戰</option></select></label></div>
+  <p className="combat-note">傷害預設 100 僅為範例。原始減傷請加總裝備、卡片等常駐詞條，不要輸入已經遞減的面板值。暫時減傷只填額外 Buff。</p>
+  <div className="combat-tool-results" aria-live="polite"><Result label="實際受到傷害" value={fmt(r.damage)}/><Result label="百分比減傷（不含 DEF）" value={pct(r.effectiveReduction*100)} detail={'自身 '+pct(r.ownReduction*100)+'；合計上限 '+(pvp?'70%':'85%')}/><Result label="DEF 額外減傷" value={pct(r.defReduction*100)}/></div>
   <Bars unit="傷害" values={[{label:'原始傷害',value:input},{label:'最終承傷',value:r.damage}]}/><p className="combat-note">只計一般受傷流程；免疫、閃避、護盾、負重防護特例及百分比扣血不適用。</p>
  </div>;
 }

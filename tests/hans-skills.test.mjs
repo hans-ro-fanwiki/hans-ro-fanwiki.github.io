@@ -108,8 +108,12 @@ test('HANS balance releases distinguish announcements from verified snapshot del
  assert.deepEqual(changes(newest,'asura_strike').cooldown,[10,4.9]);
  assert.deepEqual(changes(newest,'call_spirits').baseDamage,[16,54]);
  assert.equal(newest.changes.length,93);
- const current=history.releases[0];
- assert.equal(current.version,'0.14.5');
+ const hotfix=history.releases[0];
+ assert.equal(hotfix.version,'0.15.1');
+ assert.equal(hotfix.date,'2026-11-25');
+ assert.deepEqual(hotfix.snapshots,['V0.14.5','V0.15.1']);
+ assert.equal(hotfix.changes.length,0);
+ const current=history.releases.find(r=>r.version==='0.14.5');
  assert.deepEqual(current.snapshots,['V0.14.4','V0.14.5']);
  assert.equal(current.changes.length,6);
  assert.equal(current.families.length,9);

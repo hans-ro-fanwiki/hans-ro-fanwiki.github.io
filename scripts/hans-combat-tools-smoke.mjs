@@ -59,13 +59,13 @@ try{
   await cast.getByRole('combobox').selectOption('area');assert.match(await cast.locator('.combat-tool-result').first().innerText(),/1\.6 秒/);
   await choose('defense');
   const defense=page.locator('#defense');
-  for(const label of ['目前護甲（含 Buff）','目前角色減傷（%）','目前暫時減傷（%）','目前 DEF'])assert.equal(await defense.getByLabel(label,{exact:true}).inputValue(),'0');
+  for(const label of ['目前護甲（含 Buff）','原始減傷加總（%）','目前暫時減傷（%）','目前 DEF'])assert.equal(await defense.getByLabel(label,{exact:true}).inputValue(),'0');
   assert.match(await defense.locator('.combat-tool-result').first().innerText(),/100/);
   await defense.getByLabel('目前護甲（含 Buff）').fill('10');
-  await defense.getByLabel('目前角色減傷（%）').fill('60');
+  await defense.getByLabel('原始減傷加總（%）').fill('60');
   await defense.getByLabel('目前 DEF').fill('80');
-  assert.match(await defense.locator('.combat-tool-result').first().innerText(),/18/);
-  await defense.getByLabel('目前暫時減傷（%）').fill('30');assert.match(await defense.locator('.combat-tool-result').first().innerText(),/11/);
+  assert.match(await defense.locator('.combat-tool-result').first().innerText(),/22/);
+  await defense.getByLabel('目前暫時減傷（%）').fill('30');assert.match(await defense.locator('.combat-tool-result').first().innerText(),/15/);
   await choose('geometry');
   const range=page.locator('#geometry');
   assert.equal(await range.getByLabel('目前加成總和（%）').inputValue(),'0');
