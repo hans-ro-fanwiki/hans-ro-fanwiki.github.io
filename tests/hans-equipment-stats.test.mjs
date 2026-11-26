@@ -19,7 +19,7 @@ test('Shadow Walk gets true DEF and its separate innate DR at T6/T7/T8',()=>{
  assert.equal(shoe.bonuses.length,0);
  for(const tier of [6,7,8]){
   assert.deepEqual(equipmentBaseStats(shoe,normal(tier),4),['DEF +'+tier*2]);
-  assert.deepEqual(fixedEquipmentEffects(shoe,normal(tier)),['減傷 +'+tier+'%']);
+  assert.deepEqual(fixedEquipmentEffects(shoe,normal(tier)),['傷害減免 +'+tier+'%']);
  }
  assert.equal(attributeMatches(shoe,'reduction'),true);
  assert.equal(attributeMatches(shoe,'int'),false,'Random possible affixes must not become innate search matches');
@@ -38,7 +38,7 @@ test('tiers follow source, not item id; preserve separate raid grade',()=>{
  assert.equal(equipmentMatchesTier(x,stages,'9',s=>s.sourceType==='monsterDrop'),false);
  assert.equal(equipmentMatchesTier(x,stages,'8',s=>s.sourceType==='raid'),false);
  assert.deepEqual(equipmentBaseStats(x,{tier:9,raid:true},4),['DEF +20']);
- assert.deepEqual(fixedEquipmentEffects(x,{tier:9,raid:true}),['減傷 +10%']);
+ assert.deepEqual(fixedEquipmentEffects(x,{tier:9,raid:true}),['傷害減免 +10%']);
  assert.equal(parseTierFilter('11'),'all');
  assert.equal(parseTierFilter('8'),'8');
 });
@@ -56,8 +56,8 @@ test('ordinary random affixes reflect tier and eligible equipment category only'
  const pool=equipmentAffixPools(shoe,normal(8));
  assert.equal(pool.attributes.length,6);
  assert.ok(pool.attributes.includes('INT +8'));
- assert.deepEqual(pool.offensive,['爆擊率 +8%','急速 +8%','攻擊範圍 +8%']);
- assert.deepEqual(pool.defensive,['HP +40','護甲 +3.2','移動速度 +8%','迴避 +8%']);
+ assert.deepEqual(pool.offensive,['爆擊率 +8%','急速 +8%','範圍 +8%']);
+ assert.deepEqual(pool.defensive,['HP +40','護甲 +3.2','移動速度 +8%','Flee（迴避） +8%']);
  assert.ok(equipmentAffixPools(catalog.items.find(x=>x.slot==='armor'&&!gearRecord(x).starter),normal(8)).offensive.includes('穿透率 +8%'));
- assert.deepEqual(equipmentAffixPools(shoe,{tier:8,raid:true}).offensive,['爆擊率','急速','攻擊範圍']);
+ assert.deepEqual(equipmentAffixPools(shoe,{tier:8,raid:true}).offensive,['爆擊率','急速','範圍']);
 });

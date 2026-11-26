@@ -104,7 +104,7 @@ const effectLabel = (node:TalentNode):string => {
  const source=(node.summary||'').replace(/（終極天賦）/g,'').trim();
  if(node.ultimate)return '終極・'+(source||'天賦強化');
  const perLevel=source.match(/^(.+?)每級\s*\+/);
- if(perLevel)return perLevel[1].trim()+'提升';
+ if(perLevel)return perLevel[1].trim().replace(/Flee（迴避）/g,'迴避')+'提升';
  // The game's helper defines the category but not always a numeric benefit.
  return source && !/[A-Za-z]{3}/.test(source)?source:'天賦效果強化';
 };

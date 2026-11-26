@@ -37583,7 +37583,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -37600,7 +37600,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -37617,7 +37617,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -37634,7 +37634,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -37651,7 +37651,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -38269,7 +38269,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -38286,7 +38286,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -38320,7 +38320,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -38337,7 +38337,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -38938,7 +38938,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -38955,7 +38955,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -38972,7 +38972,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -38989,7 +38989,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "防禦每級 +0.2",
+              "summary": "護甲每級 +0.2",
               "maxEffect": "",
               "notes": []
             },
@@ -39023,7 +39023,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -39612,7 +39612,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -39663,7 +39663,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -39748,7 +39748,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "防禦每級 +0.2",
+              "summary": "護甲每級 +0.2",
               "maxEffect": "",
               "notes": []
             },
@@ -40298,7 +40298,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "防禦每級 +0.2",
+              "summary": "護甲每級 +0.2",
               "maxEffect": "",
               "notes": []
             },
@@ -40315,7 +40315,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -40366,7 +40366,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -40400,7 +40400,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -40417,7 +40417,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -41001,7 +41001,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -41018,7 +41018,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -41052,7 +41052,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -41103,7 +41103,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +2%",
+              "summary": "對頭目與菁英怪傷害每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -41120,7 +41120,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -41709,7 +41709,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -41743,7 +41743,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -41777,7 +41777,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -41794,7 +41794,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -41845,7 +41845,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -42395,7 +42395,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -42463,7 +42463,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +2%",
+              "summary": "對頭目與菁英怪傷害每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -42480,7 +42480,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -42497,7 +42497,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -43149,7 +43149,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -43166,7 +43166,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -43200,7 +43200,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -43217,7 +43217,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -43823,7 +43823,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "投射物速度每級 +4%",
+              "summary": "投射物飛行速度每級 +4%",
               "maxEffect": "",
               "notes": []
             },
@@ -43874,7 +43874,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -43891,7 +43891,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -43908,7 +43908,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -43925,7 +43925,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -43942,7 +43942,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -44526,7 +44526,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -44543,7 +44543,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -44577,7 +44577,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -44611,7 +44611,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -44628,7 +44628,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "防禦每級 +0.2",
+              "summary": "護甲每級 +0.2",
               "maxEffect": "",
               "notes": []
             },
@@ -45178,7 +45178,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -45195,7 +45195,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +2%",
+              "summary": "對頭目與菁英怪傷害每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -45229,7 +45229,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "投射物速度每級 +4%",
+              "summary": "投射物飛行速度每級 +4%",
               "maxEffect": "",
               "notes": []
             },
@@ -45280,7 +45280,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "穿透機率每級 +1%",
+              "summary": "穿透率每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -45297,7 +45297,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -45314,7 +45314,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -45903,7 +45903,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -45971,7 +45971,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -46005,7 +46005,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -46022,7 +46022,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -46039,7 +46039,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "防禦每級 +0.2",
+              "summary": "護甲每級 +0.2",
               "maxEffect": "",
               "notes": []
             },
@@ -46606,7 +46606,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -46657,7 +46657,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -46691,7 +46691,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -46708,7 +46708,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "防禦每級 +0.2",
+              "summary": "護甲每級 +0.2",
               "maxEffect": "",
               "notes": []
             },
@@ -47275,7 +47275,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -47343,7 +47343,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "投射物速度每級 +4%",
+              "summary": "投射物飛行速度每級 +4%",
               "maxEffect": "",
               "notes": []
             },
@@ -47360,7 +47360,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -47377,7 +47377,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -47411,7 +47411,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -48017,7 +48017,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "投射物速度每級 +4%",
+              "summary": "投射物飛行速度每級 +4%",
               "maxEffect": "",
               "notes": []
             },
@@ -48068,7 +48068,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -48085,7 +48085,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -48102,7 +48102,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -48119,7 +48119,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -48136,7 +48136,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -48720,7 +48720,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -48737,7 +48737,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -48771,7 +48771,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -48805,7 +48805,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -48822,7 +48822,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "防禦每級 +0.2",
+              "summary": "護甲每級 +0.2",
               "maxEffect": "",
               "notes": []
             },
@@ -49372,7 +49372,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -49423,7 +49423,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "投射物速度每級 +4%",
+              "summary": "投射物飛行速度每級 +4%",
               "maxEffect": "",
               "notes": []
             },
@@ -49457,7 +49457,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -49474,7 +49474,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -49491,7 +49491,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +2%",
+              "summary": "對頭目與菁英怪傷害每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -49508,7 +49508,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -50114,7 +50114,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "投射物速度每級 +4%",
+              "summary": "投射物飛行速度每級 +4%",
               "maxEffect": "",
               "notes": []
             },
@@ -50165,7 +50165,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -50182,7 +50182,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -50199,7 +50199,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -50216,7 +50216,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -50233,7 +50233,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -50817,7 +50817,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -50834,7 +50834,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -50868,7 +50868,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -50902,7 +50902,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -50919,7 +50919,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "防禦每級 +0.2",
+              "summary": "護甲每級 +0.2",
               "maxEffect": "",
               "notes": []
             },
@@ -51469,7 +51469,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -51486,7 +51486,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +2%",
+              "summary": "對頭目與菁英怪傷害每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -51520,7 +51520,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "投射物速度每級 +4%",
+              "summary": "投射物飛行速度每級 +4%",
               "maxEffect": "",
               "notes": []
             },
@@ -51571,7 +51571,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "穿透機率每級 +1%",
+              "summary": "穿透率每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -51588,7 +51588,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -51605,7 +51605,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -52211,7 +52211,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "投射物速度每級 +4%",
+              "summary": "投射物飛行速度每級 +4%",
               "maxEffect": "",
               "notes": []
             },
@@ -52262,7 +52262,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -52279,7 +52279,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -52296,7 +52296,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -52313,7 +52313,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -52330,7 +52330,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -52880,7 +52880,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -52897,7 +52897,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +2%",
+              "summary": "對頭目與菁英怪傷害每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -52931,7 +52931,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "投射物速度每級 +4%",
+              "summary": "投射物飛行速度每級 +4%",
               "maxEffect": "",
               "notes": []
             },
@@ -52982,7 +52982,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "穿透機率每級 +1%",
+              "summary": "穿透率每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -52999,7 +52999,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -53016,7 +53016,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -53600,7 +53600,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -53617,7 +53617,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -53651,7 +53651,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -53685,7 +53685,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -53702,7 +53702,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "防禦每級 +0.2",
+              "summary": "護甲每級 +0.2",
               "maxEffect": "",
               "notes": []
             },
@@ -54291,7 +54291,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -54325,7 +54325,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -54359,7 +54359,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "穿透機率每級 +1%",
+              "summary": "穿透率每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -54393,7 +54393,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -54994,7 +54994,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "防禦每級 +0.2",
+              "summary": "護甲每級 +0.2",
               "maxEffect": "",
               "notes": []
             },
@@ -55011,7 +55011,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -55045,7 +55045,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -55062,7 +55062,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -55079,7 +55079,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -55714,7 +55714,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "防禦每級 +0.2",
+              "summary": "護甲每級 +0.2",
               "maxEffect": "",
               "notes": []
             },
@@ -55748,7 +55748,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -55765,7 +55765,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -55782,7 +55782,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -55799,7 +55799,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -56422,7 +56422,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -56473,7 +56473,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "防禦每級 +0.2",
+              "summary": "護甲每級 +0.2",
               "maxEffect": "",
               "notes": []
             },
@@ -56507,7 +56507,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -56524,7 +56524,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -57074,7 +57074,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "防禦每級 +0.2",
+              "summary": "護甲每級 +0.2",
               "maxEffect": "",
               "notes": []
             },
@@ -57091,7 +57091,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -57159,7 +57159,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -57176,7 +57176,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -57193,7 +57193,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -57794,7 +57794,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -57828,7 +57828,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -57862,7 +57862,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -57879,7 +57879,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -57896,7 +57896,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -58519,7 +58519,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -58553,7 +58553,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "投射物速度每級 +4%",
+              "summary": "投射物飛行速度每級 +4%",
               "maxEffect": "",
               "notes": []
             },
@@ -58570,7 +58570,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -58604,7 +58604,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -58621,7 +58621,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -59205,7 +59205,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -59222,7 +59222,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -59290,7 +59290,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -59307,7 +59307,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "防禦每級 +0.2",
+              "summary": "護甲每級 +0.2",
               "maxEffect": "",
               "notes": []
             },
@@ -59908,7 +59908,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -59925,7 +59925,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -59942,7 +59942,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "防禦每級 +0.2",
+              "summary": "護甲每級 +0.2",
               "maxEffect": "",
               "notes": []
             },
@@ -59959,7 +59959,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -59993,7 +59993,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -60650,7 +60650,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -60667,7 +60667,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -60701,7 +60701,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -60718,7 +60718,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -61336,7 +61336,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -61353,7 +61353,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -61387,7 +61387,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -61404,7 +61404,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -62022,7 +62022,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -62039,7 +62039,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -62090,7 +62090,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -62696,7 +62696,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "投射物速度每級 +4%",
+              "summary": "投射物飛行速度每級 +4%",
               "maxEffect": "",
               "notes": []
             },
@@ -62747,7 +62747,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -62764,7 +62764,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -62781,7 +62781,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -62798,7 +62798,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -62815,7 +62815,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -63399,7 +63399,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -63416,7 +63416,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -63450,7 +63450,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -63484,7 +63484,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -63501,7 +63501,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "防禦每級 +0.2",
+              "summary": "護甲每級 +0.2",
               "maxEffect": "",
               "notes": []
             },
@@ -64051,7 +64051,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -64102,7 +64102,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -64136,7 +64136,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -64153,7 +64153,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +2%",
+              "summary": "對頭目與菁英怪傷害每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -64170,7 +64170,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -64776,7 +64776,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -64844,7 +64844,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -64861,7 +64861,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -64878,7 +64878,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -64895,7 +64895,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -65479,7 +65479,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "防禦每級 +0.2",
+              "summary": "護甲每級 +0.2",
               "maxEffect": "",
               "notes": []
             },
@@ -65496,7 +65496,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -65513,7 +65513,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -65547,7 +65547,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -65581,7 +65581,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -66148,7 +66148,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -66199,7 +66199,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -66233,7 +66233,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -66250,7 +66250,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +2%",
+              "summary": "對頭目與菁英怪傷害每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -66267,7 +66267,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -66941,7 +66941,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -66958,7 +66958,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -66975,7 +66975,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -66992,7 +66992,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -67009,7 +67009,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -67593,7 +67593,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -67610,7 +67610,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -67627,7 +67627,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -67644,7 +67644,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "防禦每級 +0.2",
+              "summary": "護甲每級 +0.2",
               "maxEffect": "",
               "notes": []
             },
@@ -67695,7 +67695,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -68245,7 +68245,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -68262,7 +68262,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +2%",
+              "summary": "對頭目與菁英怪傷害每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -68296,7 +68296,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "投射物速度每級 +4%",
+              "summary": "投射物飛行速度每級 +4%",
               "maxEffect": "",
               "notes": []
             },
@@ -68347,7 +68347,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "穿透機率每級 +1%",
+              "summary": "穿透率每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -68364,7 +68364,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -68381,7 +68381,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -69038,7 +69038,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -69055,7 +69055,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -69089,7 +69089,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -69106,7 +69106,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -69724,7 +69724,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "頭目／菁英傷害每級 +3%",
+              "summary": "對頭目與菁英怪傷害每級 +3%",
               "maxEffect": "",
               "notes": []
             },
@@ -69741,7 +69741,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "雙重攻擊機率每級 +1.5%",
+              "summary": "雙倍投擲每級 +1.5%",
               "maxEffect": "",
               "notes": []
             },
@@ -69775,7 +69775,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -69792,7 +69792,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -70359,7 +70359,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "防禦每級 +0.2",
+              "summary": "護甲每級 +0.2",
               "maxEffect": "",
               "notes": []
             },
@@ -70444,7 +70444,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "技能範圍每級 +2%",
+              "summary": "範圍每級 +2%",
               "maxEffect": "",
               "notes": []
             },
@@ -70461,7 +70461,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "迴避率每級 +1%",
+              "summary": "Flee（迴避）每級 +1%",
               "maxEffect": "",
               "notes": []
             },
@@ -70478,7 +70478,7 @@
               "ultimate": false,
               "weapon": false,
               "path": null,
-              "summary": "最大生命每級 +2%",
+              "summary": "最大 HP每級 +2%",
               "maxEffect": "",
               "notes": []
             },

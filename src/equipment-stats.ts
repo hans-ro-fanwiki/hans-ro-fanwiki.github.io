@@ -1,6 +1,7 @@
 import type {Equipment} from './types.ts';
 import data from './data/hans-equipment-rules.json' with {type:'json'};
 import type {GearTierOption} from './tier.ts';
+import statLabels from './data/hans-stat-labels.json' with {type:'json'};
 
 type GearRecord={slot:string;weaponType?:string;starter?:boolean;secret?:boolean;magicBase?:boolean;fixed:string[]};
 const records:Record<string,GearRecord>=data.records;
@@ -19,7 +20,9 @@ const labels:Record<string,[string,string?]>={
 export const gearRecord=(item:Equipment)=>records[String(item.id)];
 function number(n:number){return String(Number(n.toFixed(2)));}
 function effect(key:string,value?:number):string{
- const [label,unit]=labels[key]??[key];
+ const [fallback,unit]=labels[key]??[key];
+ const statId=({crit:'critChance',flee:'flee',cd:'haste',spd:'speedMult',area:'areaMult',cast:'castHaste',hp:'maxHp',armor:'armor',dr:'damageReduction',regen:'regen',critDmg:'critMult',stun:'stunChance',boss:'bossUndeadMult',dot:'dotDmg',reach:'reachMult',proj:'projSpeedMult',zeny:'zenyMult',pickup:'pickupRadius',potion:'potionMult',lowHp:'lowHpDamage',pierce:'pierceChance'} as Record<string,string>)[key]??key;
+ const label=(statLabels as Record<string,{label:string}>)[statId]?.label??fallback;
  if(value===undefined)return label;
  return label+' +'+number(unit==='%'?value*100:value)+(unit??'');
 }

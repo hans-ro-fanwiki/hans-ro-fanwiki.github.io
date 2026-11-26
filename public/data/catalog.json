@@ -1272,7 +1272,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +15%",
-        "Boss／不死系傷害 +10%"
+        "對頭目與不死系傷害 +10%"
       ],
       "sources": [],
       "image": {
@@ -1564,7 +1564,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +12%",
-        "攻擊範圍 +6%"
+        "範圍 +6%"
       ],
       "sources": [
         {
@@ -2794,7 +2794,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +10%",
-        "Boss／不死系傷害 +8%"
+        "對頭目與不死系傷害 +8%"
       ],
       "sources": [],
       "image": {
@@ -3239,7 +3239,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +10%",
-        "雙重施法率 +3%"
+        "雙倍投擲 +3%"
       ],
       "sources": [
         {
@@ -3490,7 +3490,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +12%",
-        "雙重施法率 +5%"
+        "雙倍投擲 +5%"
       ],
       "sources": [
         {
@@ -4894,7 +4894,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +10%",
-        "攻擊範圍 +8%"
+        "範圍 +8%"
       ],
       "sources": [
         {
@@ -5885,7 +5885,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +16%",
-        "攻擊範圍 +10%"
+        "範圍 +10%"
       ],
       "sources": [
         {
@@ -6527,7 +6527,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +6%",
-        "命中暈眩率 +2%"
+        "暈眩機率 +2%"
       ],
       "sources": [],
       "image": {
@@ -6769,7 +6769,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +7%",
-        "命中暈眩率 +3%"
+        "暈眩機率 +3%"
       ],
       "sources": [
         {
@@ -7125,7 +7125,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +10%",
-        "Boss／不死系傷害 +12%"
+        "對頭目與不死系傷害 +12%"
       ],
       "sources": [],
       "image": {
@@ -7565,7 +7565,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +8%",
-        "攻擊範圍 +6%"
+        "範圍 +6%"
       ],
       "sources": [
         {
@@ -9515,7 +9515,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +10%",
-        "投射物速度 +6%"
+        "投射物飛行速度 +6%"
       ],
       "sources": [
         {
@@ -10481,7 +10481,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +10%",
-        "雙重施法率 +3%"
+        "雙倍投擲 +3%"
       ],
       "sources": [
         {
@@ -10589,7 +10589,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +13%",
-        "Boss／不死系傷害 +8%"
+        "對頭目與不死系傷害 +8%"
       ],
       "sources": [],
       "image": {
@@ -11543,7 +11543,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +8%",
-        "攻擊範圍 +5%"
+        "範圍 +5%"
       ],
       "sources": [],
       "image": {
@@ -12304,7 +12304,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +10%",
-        "攻擊範圍 +5%"
+        "範圍 +5%"
       ],
       "sources": [
         {
@@ -13473,7 +13473,7 @@
       "jobs": [],
       "gender": null,
       "bonuses": [
-        "Boss／不死系傷害 +8%",
+        "對頭目與不死系傷害 +8%",
         "護甲 +1"
       ],
       "sources": [
@@ -13626,7 +13626,7 @@
       "gender": null,
       "bonuses": [
         "護甲 +2",
-        "減傷 +4%"
+        "傷害減免 +4%"
       ],
       "sources": [],
       "image": {
@@ -15269,7 +15269,7 @@
       "gender": null,
       "bonuses": [
         "HP 回復 +0.5 HP/s",
-        "藥水回復 +20%"
+        "肉類回復量 +20%"
       ],
       "sources": [],
       "image": {
@@ -15298,7 +15298,7 @@
       "gender": null,
       "bonuses": [
         "急速 +5%",
-        "攻擊範圍 +5%"
+        "範圍 +5%"
       ],
       "sources": [],
       "image": {
@@ -15477,7 +15477,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +10%",
-        "Boss／不死系傷害 +8%"
+        "對頭目與不死系傷害 +8%"
       ],
       "sources": [
         {
@@ -15650,7 +15650,7 @@
       "jobs": [],
       "gender": null,
       "bonuses": [
-        "投射物速度 +8%"
+        "投射物飛行速度 +8%"
       ],
       "sources": [],
       "image": {
@@ -16261,7 +16261,7 @@
       "gender": null,
       "bonuses": [
         "護甲 +1",
-        "迴避 +3%"
+        "Flee（迴避） +3%"
       ],
       "sources": [],
       "image": {
@@ -16394,7 +16394,7 @@
       "gender": null,
       "bonuses": [
         "爆擊率 +4%",
-        "投射物速度 +8%"
+        "投射物飛行速度 +8%"
       ],
       "sources": [
         {
@@ -16449,7 +16449,7 @@
       "jobs": [],
       "gender": null,
       "bonuses": [
-        "迴避 +3%",
+        "Flee（迴避） +3%",
         "移動速度 +2%"
       ],
       "sources": [
@@ -16555,7 +16555,7 @@
       "jobs": [],
       "gender": null,
       "bonuses": [
-        "命中暈眩率 +3%"
+        "暈眩機率 +3%"
       ],
       "sources": [
         {
@@ -16684,7 +16684,7 @@
       "jobs": [],
       "gender": null,
       "bonuses": [
-        "減傷 +4%"
+        "傷害減免 +4%"
       ],
       "sources": [
         {
@@ -16825,7 +16825,7 @@
       "jobs": [],
       "gender": null,
       "bonuses": [
-        "攻擊範圍 +6%"
+        "範圍 +6%"
       ],
       "sources": [],
       "image": {
@@ -17505,7 +17505,7 @@
       "gender": null,
       "bonuses": [
         "HP +60",
-        "減傷 +4%"
+        "傷害減免 +4%"
       ],
       "sources": [],
       "image": {
@@ -18082,7 +18082,7 @@
       "gender": null,
       "bonuses": [
         "爆擊率 +3%",
-        "投射物速度 +5%"
+        "投射物飛行速度 +5%"
       ],
       "sources": [
         {
@@ -18301,7 +18301,7 @@
       "jobs": [],
       "gender": null,
       "bonuses": [
-        "迴避 +4%",
+        "Flee（迴避） +4%",
         "移動速度 +3%"
       ],
       "sources": [],
@@ -20495,8 +20495,8 @@
       "jobs": [],
       "gender": null,
       "bonuses": [
-        "迴避 +5%",
-        "Boss／不死系傷害 +4%"
+        "Flee（迴避） +5%",
+        "對頭目與不死系傷害 +4%"
       ],
       "sources": [
         {
@@ -20658,7 +20658,7 @@
       "gender": null,
       "bonuses": [
         "移動速度 +5%",
-        "迴避 +3%"
+        "Flee（迴避） +3%"
       ],
       "sources": [],
       "image": {
@@ -22116,7 +22116,7 @@
       "jobs": [],
       "gender": null,
       "bonuses": [
-        "減傷 +5%"
+        "傷害減免 +5%"
       ],
       "sources": [
         {
@@ -22215,7 +22215,7 @@
       "gender": null,
       "bonuses": [
         "急速 +4%",
-        "藥水回復 +15%"
+        "肉類回復量 +15%"
       ],
       "sources": [
         {
@@ -22316,7 +22316,7 @@
       "jobs": [],
       "gender": null,
       "bonuses": [
-        "投射物速度 +10%",
+        "投射物飛行速度 +10%",
         "爆擊率 +2%"
       ],
       "sources": [
@@ -22367,7 +22367,7 @@
       "gender": null,
       "bonuses": [
         "Zeny 獲得 +15%",
-        "迴避 +2%"
+        "Flee（迴避） +2%"
       ],
       "sources": [
         {
@@ -22890,7 +22890,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +8%",
-        "攻擊範圍 +5%"
+        "範圍 +5%"
       ],
       "sources": [],
       "image": {
@@ -23514,7 +23514,7 @@
       "jobs": [],
       "gender": null,
       "bonuses": [
-        "攻擊範圍 +10%",
+        "範圍 +10%",
         "傷害 +6%"
       ],
       "sources": [],
@@ -23544,7 +23544,7 @@
       "gender": null,
       "bonuses": [
         "護甲 +2",
-        "Boss／不死系傷害 +6%"
+        "對頭目與不死系傷害 +6%"
       ],
       "sources": [],
       "image": {
@@ -26310,7 +26310,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +10%",
-        "Boss／不死系傷害 +8%"
+        "對頭目與不死系傷害 +8%"
       ],
       "sources": [],
       "image": {
@@ -27772,7 +27772,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +12%",
-        "攻擊範圍 +8%"
+        "範圍 +8%"
       ],
       "sources": [
         {
@@ -28415,7 +28415,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +8%",
-        "攻擊範圍 +6%"
+        "範圍 +6%"
       ],
       "sources": [
         {
@@ -28523,7 +28523,7 @@
       "gender": null,
       "bonuses": [
         "傷害 +13%",
-        "投射物速度 +8%"
+        "投射物飛行速度 +8%"
       ],
       "sources": [
         {
@@ -29123,7 +29123,7 @@
       "bonuses": [
         "最大 HP +8%",
         "護甲 +3",
-        "減傷 +5%",
+        "傷害減免 +5%",
         "傷害 +5%"
       ],
       "sources": [],
@@ -29153,7 +29153,7 @@
       "monsterId": "poring",
       "equipSlot": "armor",
       "bonuses": [
-        "迴避 +3%",
+        "Flee（迴避） +3%",
         "爆擊率 +2%"
       ],
       "effects": [
@@ -29314,7 +29314,7 @@
       "monsterId": "drops",
       "equipSlot": "accessory",
       "bonuses": [
-        "投射物速度 +6%",
+        "投射物飛行速度 +6%",
         "傷害 +3%"
       ],
       "effects": [
@@ -29372,7 +29372,7 @@
       "equipSlot": "garment",
       "bonuses": [
         "爆擊率 +3%",
-        "迴避 +2%"
+        "Flee（迴避） +2%"
       ],
       "effects": [
         {
@@ -29428,7 +29428,7 @@
       "monsterId": "peco_egg",
       "equipSlot": "armor",
       "bonuses": [
-        "減傷 +3%"
+        "傷害減免 +3%"
       ],
       "effects": [
         {
@@ -29747,7 +29747,7 @@
       "monsterId": "condor",
       "equipSlot": "accessory",
       "bonuses": [
-        "迴避 +5%"
+        "Flee（迴避） +5%"
       ],
       "effects": [
         {
@@ -29797,7 +29797,7 @@
       "monsterId": "thief_bug",
       "equipSlot": "armor",
       "bonuses": [
-        "迴避 +3%"
+        "Flee（迴避） +3%"
       ],
       "effects": [
         {
@@ -29847,7 +29847,7 @@
       "monsterId": "savage_babe",
       "equipSlot": "weapon",
       "bonuses": [
-        "命中暈眩率 +5%"
+        "暈眩機率 +5%"
       ],
       "effects": [
         {
@@ -29955,7 +29955,7 @@
       "monsterId": "familiar",
       "equipSlot": "weapon",
       "bonuses": [
-        "命中暈眩率 +3%"
+        "暈眩機率 +3%"
       ],
       "effects": [
         {
@@ -30159,7 +30159,7 @@
       "monsterId": "plankton",
       "equipSlot": "weapon",
       "bonuses": [
-        "命中暈眩率 +4%"
+        "暈眩機率 +4%"
       ],
       "effects": [
         {
@@ -30210,7 +30210,7 @@
       "equipSlot": "weapon",
       "bonuses": [
         "傷害 +4%",
-        "命中暈眩率 +2%"
+        "暈眩機率 +2%"
       ],
       "effects": [
         {
@@ -30823,7 +30823,7 @@
       "equipSlot": "accessory",
       "bonuses": [
         "移動速度 +4%",
-        "迴避 +2%"
+        "Flee（迴避） +2%"
       ],
       "effects": [
         {
@@ -30932,7 +30932,7 @@
       "monsterId": "ghostring",
       "equipSlot": "armor",
       "bonuses": [
-        "迴避 +12%",
+        "Flee（迴避） +12%",
         "HP 回復 -0.5 HP/s"
       ],
       "effects": [
@@ -31204,7 +31204,7 @@
       "monsterId": "marina",
       "equipSlot": "weapon",
       "bonuses": [
-        "命中暈眩率 +5%",
+        "暈眩機率 +5%",
         "傷害 +2%"
       ],
       "effects": [
@@ -31314,7 +31314,7 @@
       "equipSlot": "armor",
       "bonuses": [
         "護甲 +1",
-        "減傷 +3%"
+        "傷害減免 +3%"
       ],
       "effects": [
         {
@@ -31368,7 +31368,7 @@
       "monsterId": "orc_warrior",
       "equipSlot": "shield",
       "bonuses": [
-        "減傷 +8%"
+        "傷害減免 +8%"
       ],
       "effects": [
         {
@@ -31476,8 +31476,8 @@
       "monsterId": "orc_zombie",
       "equipSlot": "garment",
       "bonuses": [
-        "減傷 +5%",
-        "迴避 +1%"
+        "傷害減免 +5%",
+        "Flee（迴避） +1%"
       ],
       "effects": [
         {
@@ -31581,7 +31581,7 @@
       "monsterId": "bigfoot",
       "equipSlot": "shield",
       "bonuses": [
-        "減傷 +5%"
+        "傷害減免 +5%"
       ],
       "effects": [
         {
@@ -31683,7 +31683,7 @@
       "monsterId": "marine_sphere",
       "equipSlot": "accessory",
       "bonuses": [
-        "攻擊範圍 +5%"
+        "範圍 +5%"
       ],
       "effects": [
         {
@@ -31733,7 +31733,7 @@
       "monsterId": "orc_skeleton",
       "equipSlot": "weapon",
       "bonuses": [
-        "Boss／不死系傷害 +12%"
+        "對頭目與不死系傷害 +12%"
       ],
       "effects": [
         {
@@ -31844,7 +31844,7 @@
       "equipSlot": "armor",
       "bonuses": [
         "護甲 +1",
-        "減傷 +3%"
+        "傷害減免 +3%"
       ],
       "effects": [
         {
@@ -32052,7 +32052,7 @@
       "monsterId": "skel_archer",
       "equipSlot": "weapon",
       "bonuses": [
-        "投射物速度 +8%",
+        "投射物飛行速度 +8%",
         "傷害 +2%"
       ],
       "effects": [
@@ -32115,7 +32115,7 @@
       "monsterId": "marse",
       "equipSlot": "garment",
       "bonuses": [
-        "迴避 +5%"
+        "Flee（迴避） +5%"
       ],
       "effects": [
         {
@@ -32222,7 +32222,7 @@
       "monsterId": "dokebi",
       "equipSlot": "armor",
       "bonuses": [
-        "迴避 +4%",
+        "Flee（迴避） +4%",
         "移動速度 +2%"
       ],
       "effects": [
@@ -32335,8 +32335,8 @@
       "monsterId": "whisper",
       "equipSlot": "garment",
       "bonuses": [
-        "迴避 +8%",
-        "減傷 -4%"
+        "Flee（迴避） +8%",
+        "傷害減免 -4%"
       ],
       "effects": [
         {
@@ -32402,7 +32402,7 @@
       "monsterId": "horong",
       "equipSlot": "accessory",
       "bonuses": [
-        "攻擊範圍 +4%"
+        "範圍 +4%"
       ],
       "effects": [
         {
@@ -32554,8 +32554,8 @@
       "monsterId": "jakk",
       "equipSlot": "garment",
       "bonuses": [
-        "減傷 +4%",
-        "迴避 +3%"
+        "傷害減免 +4%",
+        "Flee（迴避） +3%"
       ],
       "effects": [
         {
@@ -32666,7 +32666,7 @@
       "monsterId": "strouf",
       "equipSlot": "weapon",
       "bonuses": [
-        "Boss／菁英傷害 +8%"
+        "對頭目與菁英怪傷害 +8%"
       ],
       "effects": [
         {
@@ -32718,8 +32718,8 @@
       "monsterId": "marionette",
       "equipSlot": "garment",
       "bonuses": [
-        "迴避 +5%",
-        "減傷 +2%"
+        "Flee（迴避） +5%",
+        "傷害減免 +2%"
       ],
       "effects": [
         {
@@ -32774,7 +32774,7 @@
       "equipSlot": "armor",
       "bonuses": [
         "護甲 +2",
-        "減傷 +3%"
+        "傷害減免 +3%"
       ],
       "effects": [
         {
@@ -32886,8 +32886,8 @@
       "monsterId": "isis",
       "equipSlot": "garment",
       "bonuses": [
-        "減傷 +5%",
-        "迴避 +2%"
+        "傷害減免 +5%",
+        "Flee（迴避） +2%"
       ],
       "effects": [
         {
@@ -32941,7 +32941,7 @@
       "monsterId": "side_winder",
       "equipSlot": "weapon",
       "bonuses": [
-        "雙重施法率 +5%"
+        "雙倍投擲 +5%"
       ],
       "effects": [
         {
@@ -32991,8 +32991,8 @@
       "monsterId": "bathory",
       "equipSlot": "armor",
       "bonuses": [
-        "減傷 +4%",
-        "迴避 +3%"
+        "傷害減免 +4%",
+        "Flee（迴避） +3%"
       ],
       "effects": [
         {
@@ -33211,7 +33211,7 @@
       "equipSlot": "weapon",
       "bonuses": [
         "傷害 +6%",
-        "Boss／菁英傷害 +4%"
+        "對頭目與菁英怪傷害 +4%"
       ],
       "effects": [
         {
@@ -33268,7 +33268,7 @@
       "equipSlot": "headgear",
       "bonuses": [
         "護甲 +2",
-        "迴避 +3%"
+        "Flee（迴避） +3%"
       ],
       "effects": [
         {
@@ -33322,7 +33322,7 @@
       "monsterId": "golden_thief_bug",
       "equipSlot": "shield",
       "bonuses": [
-        "減傷 +15%"
+        "傷害減免 +15%"
       ],
       "effects": [
         {
@@ -33487,8 +33487,8 @@
       "monsterId": "raydric",
       "equipSlot": "garment",
       "bonuses": [
-        "減傷 +6%",
-        "迴避 +1%"
+        "傷害減免 +6%",
+        "Flee（迴避） +1%"
       ],
       "effects": [
         {
@@ -33600,7 +33600,7 @@
       "monsterId": "khalitzburg",
       "equipSlot": "shield",
       "bonuses": [
-        "減傷 +6%",
+        "傷害減免 +6%",
         "HP +10"
       ],
       "effects": [
@@ -33657,7 +33657,7 @@
       "monsterId": "drake",
       "equipSlot": "weapon",
       "bonuses": [
-        "Boss／菁英傷害 +15%",
+        "對頭目與菁英怪傷害 +15%",
         "傷害 +5%"
       ],
       "effects": [
@@ -33769,7 +33769,7 @@
       "monsterId": "abysmal_knight",
       "equipSlot": "weapon",
       "bonuses": [
-        "Boss／菁英傷害 +15%",
+        "對頭目與菁英怪傷害 +15%",
         "傷害 +5%"
       ],
       "effects": [
@@ -33826,7 +33826,7 @@
       "monsterId": "evil_druid",
       "equipSlot": "armor",
       "bonuses": [
-        "減傷 +4%",
+        "傷害減免 +4%",
         "HP 回復 +0.6 HP/s"
       ],
       "effects": [
@@ -34126,7 +34126,7 @@
       "monsterId": "baphomet",
       "equipSlot": "weapon",
       "bonuses": [
-        "攻擊範圍 +20%",
+        "範圍 +20%",
         "傷害 +10%"
       ],
       "effects": [
@@ -34184,7 +34184,7 @@
       "equipSlot": "weapon",
       "bonuses": [
         "傷害 +8%",
-        "Boss／菁英傷害 +6%"
+        "對頭目與菁英怪傷害 +6%"
       ],
       "effects": [
         {
@@ -34241,7 +34241,7 @@
       "equipSlot": "weapon",
       "bonuses": [
         "爆擊傷害 +12%",
-        "Boss／不死系傷害 +4%"
+        "對頭目與不死系傷害 +4%"
       ],
       "effects": [
         {
@@ -34299,7 +34299,7 @@
       "equipSlot": "garment",
       "bonuses": [
         "AGI +2",
-        "迴避 +5%"
+        "Flee（迴避） +5%"
       ],
       "effects": [
         {
@@ -34359,8 +34359,8 @@
       "monsterId": "dark_lord",
       "equipSlot": "shoes",
       "bonuses": [
-        "減傷 +8%",
-        "攻擊範圍 +12%"
+        "傷害減免 +8%",
+        "範圍 +12%"
       ],
       "effects": [
         {
@@ -34477,8 +34477,8 @@
       "monsterId": "dark_frame",
       "equipSlot": "armor",
       "bonuses": [
-        "命中暈眩率 +5%",
-        "減傷 +4%"
+        "暈眩機率 +5%",
+        "傷害減免 +4%"
       ],
       "effects": [
         {
@@ -34590,7 +34590,7 @@
       "monsterId": "deviling",
       "equipSlot": "garment",
       "bonuses": [
-        "減傷 +12%"
+        "傷害減免 +12%"
       ],
       "effects": [
         {
@@ -34647,7 +34647,7 @@
       "equipSlot": "weapon",
       "bonuses": [
         "爆擊傷害 +15%",
-        "Boss／菁英傷害 +15%"
+        "對頭目與菁英怪傷害 +15%"
       ],
       "effects": [
         {
@@ -34755,7 +34755,7 @@
       "equipSlot": "garment",
       "bonuses": [
         "AGI +1",
-        "迴避 +2%"
+        "Flee（迴避） +2%"
       ],
       "effects": [
         {
@@ -34809,8 +34809,8 @@
       "monsterId": "disguise",
       "equipSlot": "armor",
       "bonuses": [
-        "命中暈眩率 +5%",
-        "減傷 +5%"
+        "暈眩機率 +5%",
+        "傷害減免 +5%"
       ],
       "effects": [
         {
@@ -34979,7 +34979,7 @@
       "equipSlot": "accessory",
       "bonuses": [
         "Zeny 獲得 +10%",
-        "投射物速度 +8%"
+        "投射物飛行速度 +8%"
       ],
       "effects": [
         {
@@ -35259,7 +35259,7 @@
       "monsterId": "leaf_cat",
       "equipSlot": "headgear",
       "bonuses": [
-        "減傷 +4%",
+        "傷害減免 +4%",
         "拾取範圍 +10%"
       ],
       "effects": [
@@ -35314,7 +35314,7 @@
       "monsterId": "mastering",
       "equipSlot": "accessory",
       "bonuses": [
-        "迴避 +6%",
+        "Flee（迴避） +6%",
         "爆擊率 +3%"
       ],
       "effects": [
@@ -35533,8 +35533,8 @@
       "monsterId": "mysteltainn",
       "equipSlot": "shield",
       "bonuses": [
-        "減傷 +6%",
-        "迴避 +3%"
+        "傷害減免 +6%",
+        "Flee（迴避） +3%"
       ],
       "effects": [
         {
@@ -35588,8 +35588,8 @@
       "monsterId": "wanderer",
       "equipSlot": "garment",
       "bonuses": [
-        "迴避 +7%",
-        "命中暈眩率 +4%"
+        "Flee（迴避） +7%",
+        "暈眩機率 +4%"
       ],
       "effects": [
         {
@@ -35644,7 +35644,7 @@
       "equipSlot": "headgear",
       "bonuses": [
         "移動速度 +6%",
-        "迴避 +3%"
+        "Flee（迴避） +3%"
       ],
       "effects": [
         {
@@ -35806,7 +35806,7 @@
       "monsterId": "sasquatch",
       "equipSlot": "armor",
       "bonuses": [
-        "減傷 +6%",
+        "傷害減免 +6%",
         "HP +40"
       ],
       "effects": [
@@ -35921,7 +35921,7 @@
       "equipSlot": "shoes",
       "bonuses": [
         "移動速度 +6%",
-        "Boss／不死系傷害 +5%"
+        "對頭目與不死系傷害 +5%"
       ],
       "effects": [
         {
@@ -35983,8 +35983,8 @@
       "monsterId": "skeleton_prisoner",
       "equipSlot": "armor",
       "bonuses": [
-        "命中暈眩率 +5%",
-        "減傷 +4%"
+        "暈眩機率 +5%",
+        "傷害減免 +4%"
       ],
       "effects": [
         {
@@ -36095,7 +36095,7 @@
       "monsterId": "spring_rabbit",
       "equipSlot": "accessory",
       "bonuses": [
-        "藥水回復 +40%",
+        "肉類回復量 +40%",
         "Zeny 獲得 +8%"
       ],
       "effects": [
@@ -36208,7 +36208,7 @@
       "equipSlot": "shoes",
       "bonuses": [
         "EXP 獲得 +6%",
-        "減傷 -1%"
+        "傷害減免 -1%"
       ],
       "effects": [
         {
@@ -36263,7 +36263,7 @@
       "equipSlot": "accessory",
       "bonuses": [
         "傷害 +6%",
-        "雙重施法率 +5%"
+        "雙倍投擲 +5%"
       ],
       "effects": [
         {
@@ -36319,7 +36319,7 @@
       "monsterId": "owl_baron",
       "equipSlot": "accessory",
       "bonuses": [
-        "Boss／菁英傷害 +15%",
+        "對頭目與菁英怪傷害 +15%",
         "傷害 +8%"
       ],
       "effects": [
@@ -36431,7 +36431,7 @@
       "monsterId": "antonio",
       "equipSlot": "armor",
       "bonuses": [
-        "減傷 +8%",
+        "傷害減免 +8%",
         "移動速度 +6%",
         "Zeny 獲得 +15%"
       ],
@@ -36605,7 +36605,7 @@
       "monsterId": "executioner",
       "equipSlot": "shield",
       "bonuses": [
-        "減傷 +7%",
+        "傷害減免 +7%",
         "護甲 +1"
       ],
       "effects": [
@@ -36660,7 +36660,7 @@
       "monsterId": "ogretooth",
       "equipSlot": "shield",
       "bonuses": [
-        "減傷 +5%",
+        "傷害減免 +5%",
         "護甲 +3"
       ],
       "effects": [
@@ -36716,7 +36716,7 @@
       "equipSlot": "weapon",
       "bonuses": [
         "傷害 +4%",
-        "Boss／菁英傷害 +5%"
+        "對頭目與菁英怪傷害 +5%"
       ],
       "effects": [
         {
@@ -36991,7 +36991,7 @@
       "monsterId": "lord_of_the_dead",
       "equipSlot": "weapon",
       "bonuses": [
-        "命中暈眩率 +8%",
+        "暈眩機率 +8%",
         "傷害 +8%",
         "持續傷害 +10%"
       ],
@@ -37167,8 +37167,8 @@
       "monsterId": "kapha",
       "equipSlot": "garment",
       "bonuses": [
-        "減傷 +5%",
-        "迴避 +1%"
+        "傷害減免 +5%",
+        "Flee（迴避） +1%"
       ],
       "effects": [
         {
@@ -37396,7 +37396,7 @@
       "equipSlot": "accessory",
       "bonuses": [
         "移動速度 +5%",
-        "迴避 +4%"
+        "Flee（迴避） +4%"
       ],
       "effects": [
         {
@@ -37558,7 +37558,7 @@
       "monsterId": "clock",
       "equipSlot": "armor",
       "bonuses": [
-        "減傷 +5%",
+        "傷害減免 +5%",
         "護甲 +1"
       ],
       "effects": [
@@ -37613,8 +37613,8 @@
       "monsterId": "chimera",
       "equipSlot": "armor",
       "bonuses": [
-        "命中暈眩率 +6%",
-        "減傷 +5%"
+        "暈眩機率 +6%",
+        "傷害減免 +5%"
       ],
       "effects": [
         {
@@ -37668,8 +37668,8 @@
       "monsterId": "killer_mantis",
       "equipSlot": "armor",
       "bonuses": [
-        "命中暈眩率 +3%",
-        "減傷 +4%"
+        "暈眩機率 +3%",
+        "傷害減免 +4%"
       ],
       "effects": [
         {
@@ -37723,7 +37723,7 @@
       "monsterId": "giant_whisper",
       "equipSlot": "garment",
       "bonuses": [
-        "迴避 +6%",
+        "Flee（迴避） +6%",
         "傷害 +4%"
       ],
       "effects": [
@@ -37780,7 +37780,7 @@
       "monsterId": "toad",
       "equipSlot": "garment",
       "bonuses": [
-        "迴避 +5%"
+        "Flee（迴避） +5%"
       ],
       "effects": [
         {
@@ -37831,7 +37831,7 @@
       "equipSlot": "garment",
       "bonuses": [
         "移動速度 +4%",
-        "減傷 +3%"
+        "傷害減免 +3%"
       ],
       "effects": [
         {
@@ -37885,7 +37885,7 @@
       "monsterId": "penomena",
       "equipSlot": "shield",
       "bonuses": [
-        "減傷 +6%"
+        "傷害減免 +6%"
       ],
       "effects": [
         {
@@ -37935,9 +37935,9 @@
       "monsterId": "stormy_knight",
       "equipSlot": "weapon",
       "bonuses": [
-        "攻擊範圍 +10%",
+        "範圍 +10%",
         "傷害 +6%",
-        "命中暈眩率 +3%"
+        "暈眩機率 +3%"
       ],
       "effects": [
         {
@@ -38055,7 +38055,7 @@
       "monsterId": "bloody_knight",
       "equipSlot": "weapon",
       "bonuses": [
-        "攻擊範圍 +10%",
+        "範圍 +10%",
         "傷害 +5%"
       ],
       "effects": [
@@ -38112,7 +38112,7 @@
       "monsterId": "heirozoist",
       "equipSlot": "accessory",
       "bonuses": [
-        "命中暈眩率 +5%",
+        "暈眩機率 +5%",
         "傷害 +4%"
       ],
       "effects": [
@@ -38169,7 +38169,7 @@
       "monsterId": "high_orc",
       "equipSlot": "shield",
       "bonuses": [
-        "減傷 +6%",
+        "傷害減免 +6%",
         "護甲 +2"
       ],
       "effects": [
@@ -38224,7 +38224,7 @@
       "monsterId": "baby_hatii",
       "equipSlot": "weapon",
       "bonuses": [
-        "雙重施法率 +6%",
+        "雙倍投擲 +6%",
         "傷害 +4%"
       ],
       "effects": [
@@ -38281,8 +38281,8 @@
       "monsterId": "hatii",
       "equipSlot": "armor",
       "bonuses": [
-        "命中暈眩率 +6%",
-        "減傷 +7%"
+        "暈眩機率 +6%",
+        "傷害減免 +7%"
       ],
       "effects": [
         {
@@ -38336,8 +38336,8 @@
       "monsterId": "hyegun",
       "equipSlot": "garment",
       "bonuses": [
-        "減傷 +6%",
-        "迴避 +3%"
+        "傷害減免 +6%",
+        "Flee（迴避） +3%"
       ],
       "effects": [
         {
@@ -38392,7 +38392,7 @@
       "equipSlot": "headgear",
       "bonuses": [
         "施法急速 +12%",
-        "減傷 +8%",
+        "傷害減免 +8%",
         "INT +3"
       ],
       "effects": [
@@ -38451,7 +38451,7 @@
       "monsterId": "teddy_bear",
       "equipSlot": "shield",
       "bonuses": [
-        "減傷 +6%"
+        "傷害減免 +6%"
       ],
       "effects": [
         {
@@ -38501,7 +38501,7 @@
       "monsterId": "white_lady",
       "equipSlot": "headgear",
       "bonuses": [
-        "藥水回復 +50%",
+        "肉類回復量 +50%",
         "HP 回復 +2 HP/s",
         "最大 HP +6%"
       ],
@@ -38563,8 +38563,8 @@
       "monsterId": "orc_baby",
       "equipSlot": "garment",
       "bonuses": [
-        "迴避 +5%",
-        "減傷 +2%"
+        "Flee（迴避） +5%",
+        "傷害減免 +2%"
       ],
       "effects": [
         {
@@ -38677,7 +38677,7 @@
       "equipSlot": "headgear",
       "bonuses": [
         "急速 +5%",
-        "迴避 +2%"
+        "Flee（迴避） +2%"
       ],
       "effects": [
         {
@@ -38905,8 +38905,8 @@
       "monsterId": "novus",
       "equipSlot": "armor",
       "bonuses": [
-        "命中暈眩率 +5%",
-        "減傷 +4%"
+        "暈眩機率 +5%",
+        "傷害減免 +4%"
       ],
       "effects": [
         {
@@ -38960,7 +38960,7 @@
       "monsterId": "hydrolancer",
       "equipSlot": "accessory",
       "bonuses": [
-        "雙重施法率 +6%",
+        "雙倍投擲 +6%",
         "傷害 +5%"
       ],
       "effects": [
@@ -39067,8 +39067,8 @@
       "monsterId": "detardeurus",
       "equipSlot": "armor",
       "bonuses": [
-        "減傷 +10%",
-        "命中暈眩率 +6%"
+        "傷害減免 +10%",
+        "暈眩機率 +6%"
       ],
       "effects": [
         {
@@ -39122,7 +39122,7 @@
       "monsterId": "ancient_mimic",
       "equipSlot": "armor",
       "bonuses": [
-        "迴避 +5%",
+        "Flee（迴避） +5%",
         "AGI +2"
       ],
       "effects": [
@@ -39178,7 +39178,7 @@
       "equipSlot": "accessory",
       "bonuses": [
         "Zeny 獲得 +12%",
-        "藥水回復 +20%"
+        "肉類回復量 +20%"
       ],
       "effects": [
         {
@@ -39346,7 +39346,7 @@
       "monsterId": "gazeti",
       "equipSlot": "accessory",
       "bonuses": [
-        "雙重施法率 +6%",
+        "雙倍投擲 +6%",
         "傷害 +4%"
       ],
       "effects": [
@@ -39404,8 +39404,8 @@
       "equipSlot": "armor",
       "bonuses": [
         "傷害 +8%",
-        "減傷 +4%",
-        "命中暈眩率 +6%"
+        "傷害減免 +4%",
+        "暈眩機率 +6%"
       ],
       "effects": [
         {
@@ -39466,7 +39466,7 @@
       "equipSlot": "shoes",
       "bonuses": [
         "傷害 +11%",
-        "Boss／菁英傷害 +19%",
+        "對頭目與菁英怪傷害 +19%",
         "急速 -4%"
       ],
       "effects": [
@@ -39631,7 +39631,7 @@
       "monsterId": "kraken",
       "equipSlot": "garment",
       "bonuses": [
-        "迴避 +8%",
+        "Flee（迴避） +8%",
         "爆擊率 +3%"
       ],
       "effects": [
@@ -39739,7 +39739,7 @@
       "monsterId": "md_giant_octopus",
       "equipSlot": "shield",
       "bonuses": [
-        "減傷 +5%",
+        "傷害減免 +5%",
         "護甲 +2"
       ],
       "effects": [
@@ -39795,7 +39795,7 @@
       "monsterId": "mg_amdarais",
       "equipSlot": "headgear",
       "bonuses": [
-        "Boss／不死系傷害 +8%"
+        "對頭目與不死系傷害 +8%"
       ],
       "effects": [
         {
@@ -39848,7 +39848,7 @@
       "monsterId": "mg_corruption_root",
       "equipSlot": "shield",
       "bonuses": [
-        "減傷 +4%"
+        "傷害減免 +4%"
       ],
       "effects": [
         {
@@ -39899,7 +39899,7 @@
       "monsterId": "celine_kimi",
       "equipSlot": "weapon",
       "bonuses": [
-        "攻擊範圍 +6%"
+        "範圍 +6%"
       ],
       "effects": [
         {
@@ -40056,8 +40056,8 @@
       "monsterId": "faceworm_queen",
       "equipSlot": "garment",
       "bonuses": [
-        "迴避 +4%",
-        "減傷 +2%"
+        "Flee（迴避） +4%",
+        "傷害減免 +2%"
       ],
       "effects": [
         {
@@ -40276,7 +40276,7 @@
       "equipSlot": "shoes",
       "bonuses": [
         "移動速度 +3%",
-        "迴避 +2%"
+        "Flee（迴避） +2%"
       ],
       "effects": [
         {

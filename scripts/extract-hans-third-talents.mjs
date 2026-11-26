@@ -3,6 +3,7 @@
 import fs from 'node:fs';
 import {createHash} from 'node:crypto';
 import ts from 'typescript';
+import statLabels from '../src/data/hans-stat-labels.json' with {type:'json'};
 
 const HASH='0201182d55c963b52c029016dd74651640e02c783d487f9077a7cd92ce5bf600';
 const FILE='evidence/hans-talents-20261120/soul.js';
@@ -38,6 +39,7 @@ const STATS={
  projSpeedMult:'投射物速度',areaMult:'技能範圍',damageMult:'傷害',
  pierceChance:'穿透機率',regenStill:'靜止時恢復',armor:'防禦'
 };
+for(const id of Object.keys(STATS))if(statLabels[id])STATS[id]=statLabels[id].label;
 const ACTIONS={
  blind:'致盲效果強化',stun:'暈眩效果強化',slow:'緩速效果強化',
  bleed:'流血效果強化',crit:'爆擊效果強化',mark:'標記效果強化',

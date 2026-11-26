@@ -7,6 +7,7 @@ const crypto = require('node:crypto');
 const ts = require('typescript');
 
 const root = path.resolve(__dirname, '..');
+const statLabels = require('../src/data/hans-stat-labels.json');
 const audit = JSON.parse(fs.readFileSync(path.join(root, 'docs/HANS_SOURCE_AUDIT.json'), 'utf8'));
 const directory = path.resolve(process.argv[2] || path.join(root, audit.snapshotDirectory));
 const sha = data => crypto.createHash('sha256').update(data).digest('hex');
@@ -123,7 +124,8 @@ const display = value => Number.isInteger(value)?String(value):String(Number(val
 function actualBonuses(row){
  return row.effectCalls.flatMap(effect => {
   if(!effect || !modifiers[effect.fn] || typeof effect.value!=='number') return [];
-  const [label,unit]=modifiers[effect.fn];
+  const [fallback,unit]=modifiers[effect.fn];
+  const label=statLabels[scoringStats[effect.fn]]?.label??fallback;
   const n=unit==='%'?effect.value*100:effect.value;
   return [label+' '+(n>=0?'+':'')+display(n)+(unit==='%'?'%':unit==='hpsec'?' HP/s':'')];
  });

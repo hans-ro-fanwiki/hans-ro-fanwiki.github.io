@@ -1,0 +1,268 @@
+{
+  "doubleChance": {
+    "label": "雙倍投擲",
+    "aliases": [
+      "雙倍投擲機率",
+      "雙重施法率",
+      "雙重施法",
+      "雙重攻擊機率",
+      "double cast",
+      "double cast chance"
+    ]
+  },
+  "haste": {
+    "label": "急速",
+    "aliases": [
+      "冷卻縮減",
+      "冷卻",
+      "CD",
+      "減CD",
+      "cooldown"
+    ]
+  },
+  "castHaste": {
+    "label": "施法急速",
+    "aliases": [
+      "詠唱速度",
+      "cast haste",
+      "casting speed"
+    ]
+  },
+  "areaMult": {
+    "label": "範圍",
+    "aliases": [
+      "攻擊範圍",
+      "範圍效果",
+      "技能範圍",
+      "作用範圍",
+      "area",
+      "range"
+    ]
+  },
+  "reachMult": {
+    "label": "近戰距離",
+    "aliases": [
+      "近戰範圍",
+      "近戰物理距離",
+      "近戰範圍（近戰物理距離）",
+      "reach",
+      "melee reach"
+    ]
+  },
+  "flee": {
+    "label": "Flee（迴避）",
+    "aliases": [
+      "迴避",
+      "迴避率",
+      "閃避",
+      "閃避率",
+      "Flee"
+    ]
+  },
+  "stunChance": {
+    "label": "暈眩機率",
+    "aliases": [
+      "命中暈眩率",
+      "命中時暈眩機率",
+      "暈眩率",
+      "stun chance"
+    ]
+  },
+  "projSpeedMult": {
+    "label": "投射物飛行速度",
+    "aliases": [
+      "投射物速度",
+      "彈道速度",
+      "projectile speed"
+    ]
+  },
+  "damageReduction": {
+    "label": "傷害減免",
+    "aliases": [
+      "減傷",
+      "damage reduction"
+    ]
+  },
+  "bossUndeadMult": {
+    "label": "對頭目與不死系傷害",
+    "aliases": [
+      "Boss／不死系傷害",
+      "頭目／不死系傷害",
+      "damage to bosses and undead"
+    ]
+  },
+  "bossEliteMult": {
+    "label": "對頭目與菁英怪傷害",
+    "aliases": [
+      "Boss／菁英傷害",
+      "頭目／菁英傷害",
+      "對頭目與菁英怪的傷害",
+      "damage to bosses and elites"
+    ]
+  },
+  "potionMult": {
+    "label": "肉類回復量",
+    "aliases": [
+      "藥水回復",
+      "肉的回復量",
+      "meat healing"
+    ]
+  },
+  "pierceChance": {
+    "label": "穿透率",
+    "aliases": [
+      "穿透",
+      "穿透機率",
+      "pierce chance"
+    ]
+  },
+  "maxHpPct": {
+    "label": "最大 HP",
+    "aliases": [
+      "最大生命",
+      "最大生命值",
+      "max HP"
+    ]
+  },
+  "armor": {
+    "label": "護甲",
+    "aliases": [
+      "防禦",
+      "armor"
+    ]
+  },
+  "critChance": {
+    "label": "爆擊率",
+    "aliases": [
+      "暴擊率",
+      "critical chance",
+      "crit chance"
+    ]
+  },
+  "critMult": {
+    "label": "爆擊傷害",
+    "aliases": [
+      "暴擊傷害",
+      "critical damage",
+      "crit damage"
+    ]
+  },
+  "damageMult": {
+    "label": "傷害",
+    "aliases": [
+      "damage"
+    ]
+  },
+  "speedMult": {
+    "label": "移動速度",
+    "aliases": [
+      "移速",
+      "movement speed"
+    ]
+  },
+  "maxHp": {
+    "label": "HP",
+    "aliases": [
+      "生命值",
+      "血量"
+    ]
+  },
+  "regen": {
+    "label": "HP 回復",
+    "aliases": [
+      "生命回復",
+      "HP恢復",
+      "HP 回復量"
+    ]
+  },
+  "regenMoving": {
+    "label": "移動中 HP 回復",
+    "aliases": [
+      "移動回復"
+    ]
+  },
+  "pickupRadius": {
+    "label": "拾取範圍",
+    "aliases": [
+      "拾取距離",
+      "pickup radius"
+    ]
+  },
+  "zenyMult": {
+    "label": "Zeny 獲得",
+    "aliases": [
+      "Zeny",
+      "金幣獲得"
+    ]
+  },
+  "expMult": {
+    "label": "EXP 獲得",
+    "aliases": [
+      "EXP",
+      "經驗獲得"
+    ]
+  },
+  "revives": {
+    "label": "每局復活次數",
+    "aliases": [
+      "復活",
+      "復活次數",
+      "revive"
+    ]
+  },
+  "dotDmg": {
+    "label": "持續傷害",
+    "aliases": [
+      "DOT",
+      "damage over time"
+    ]
+  },
+  "extraProjectiles": {
+    "label": "額外投射物",
+    "aliases": [
+      "extra projectiles"
+    ]
+  },
+  "lowHpDamage": {
+    "label": "低 HP 時傷害",
+    "aliases": [
+      "低血量傷害"
+    ]
+  },
+  "str": {
+    "label": "STR",
+    "aliases": [
+      "力量"
+    ]
+  },
+  "agi": {
+    "label": "AGI",
+    "aliases": [
+      "敏捷"
+    ]
+  },
+  "vit": {
+    "label": "VIT",
+    "aliases": [
+      "體質"
+    ]
+  },
+  "int": {
+    "label": "INT",
+    "aliases": [
+      "智力"
+    ]
+  },
+  "dex": {
+    "label": "DEX",
+    "aliases": [
+      "靈巧"
+    ]
+  },
+  "luk": {
+    "label": "LUK",
+    "aliases": [
+      "幸運"
+    ]
+  }
+}

@@ -83,7 +83,7 @@ test('HANS cards link to real monster and boss drops on non-story stages',()=>{
  const stages=new Map(catalog.stages.map(stage=>[stage.id,stage]));
  const poring=catalog.cards.find(card=>card.id===4001);
  assert.equal(poring.name,'波利卡片');
- assert.deepEqual(poring.bonuses,['迴避 +3%','爆擊率 +2%']);
+ assert.deepEqual(poring.bonuses,['Flee（迴避） +3%','爆擊率 +2%']);
  assert.ok(poring.sources[0].stageRefs.some(ref=>ref.stageId==='prontera'&&!ref.boss));
  for(const card of catalog.cards){
   const [source]=card.sources;
@@ -180,7 +180,7 @@ test('audited HANS lap rules cover six laps, 41 professions, and all 188 card re
  }
  assert.equal(allIds.size,188*6);
  const poring=catalog.cards.find(c=>c.id===4001);
- assert.deepEqual(cardEffects(poring,rules,2),['迴避 +4.5%','爆擊率 +3%']);
+ assert.deepEqual(cardEffects(poring,rules,2),['Flee（迴避） +4.5%','爆擊率 +3%']);
  assert.equal(cardId(poring,rules,2),1004001);
  assert.match(cardName(poring,rules,3),/改²卡片$/);
  assert.equal(cardScore(poring,rules,1,'swordsman'),10);
