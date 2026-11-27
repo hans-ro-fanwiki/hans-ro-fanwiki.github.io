@@ -7,6 +7,7 @@ type Advancement = 'first'|'expanded'|'second'|'third';
 export type ExperienceOptions = {
   baseLevel:number;jobLevel:number;advancement:Advancement;maxLap:number;gs?:number;season:boolean;
   count:number;events:number;killsPerMinute?:number;extraSeconds:number;serverExp:number;
+  clearFraction?:number;gameSpeed?:number;baseProgress?:number;jobProgress?:number;
 };
 export const defaultExperienceOptions:ExperienceOptions = {
   baseLevel:50,jobLevel:1,advancement:'first',maxLap:1,season:true,count:1,events:1,extraSeconds:45,serverExp:1,
@@ -77,11 +78,12 @@ export function estimateExperience(stage:ExperienceStage,lap:number,options:Expe
   const jobRank=advancement==='third'?3:advancement==='second'?2:1;
   const jobMax=advancement==='expanded'?70:data.job.levels[jobRank];
   const softCap=rule.cap*jobMax/50;
-  const jobScale=stage.jobExp*data.job.scale/data.job.rankDivisor[jobRank-1];
+  const jobScale=stage.jobExp*data.job.scale/data.job.rankDivisor[jobRank-1]/Math.sqrt(Math.max(1,count));
+  const clearFraction=Math.max(0,Math.min(1,options.clearFraction??1));
   const lastBoss=stage.bosses.at(-1)!.time;
   const intervals=eventIntervals(events);
   const perSecondBudget=(killsPerMinute??Infinity)/60;
-  let base=0,job=0,baseNow=baseLevel,jobNow=Math.min(jobLevel,jobMax),baseProgress=0,jobProgress=0;
+  let base=0,job=0,baseNow=baseLevel,jobNow=Math.min(jobLevel,jobMax),baseProgress=Math.max(0,Math.min(.999999,options.baseProgress??0))*nextBase(baseLevel),jobProgress=Math.max(0,Math.min(.999999,options.jobProgress??0))*nextJob(Math.min(jobLevel,jobMax));
   let waveIndex=0,bossIndex=0,easeUntil=0,nextElite=intervals.elite,nextHorde=intervals.horde;
   let normalKills=0,eliteKills=0,hordeKills=0;
   function credit(averagedMonsters:Monster[],kills:number){
@@ -103,7 +105,9 @@ export function estimateExperience(stage:ExperienceStage,lap:number,options:Expe
     while(jobNow<jobMax&&jobProgress>=nextJob(jobNow))jobProgress-=nextJob(jobNow++);
   }
   const waves=stage.waves.map(wave=>({...wave,monsters:wave.pool.map(id=>monsters[id])}));
-  const hordeStocks=new Map<number,number>();
+  // Schedule each horde's supply once, spread over the next event interval for
+  // the coarse per-second estimate. Unkilled supply is not counted again.
+  const hordeStocks:{wave:number;remaining:number;seconds:number}[]=[];
   for(let time=0;time<lastBoss;time++){
     while(stage.bosses[bossIndex]?.time===time){
       credit([monsters[stage.bosses[bossIndex++].id]],1);
@@ -119,11 +123,10 @@ export function estimateExperience(stage:ExperienceStage,lap:number,options:Expe
       if(nextHorde>=easeUntil)hordeAdded+=Math.round(Math.min(120,36+nextHorde/8)*count);
       nextHorde+=intervals.horde;
     }
-    if(hordeAdded>0)hordeStocks.set(waveIndex,(hordeStocks.get(waveIndex)??0)+hordeAdded);
-    const releaseWindow=Math.max(1,Math.min(intervals.horde,lastBoss-time));
-    const hordeSupply=[...hordeStocks.values()].reduce((total,stock)=>total+stock/releaseWindow,0);
+    if(hordeAdded>0)hordeStocks.push({wave:waveIndex,remaining:hordeAdded,seconds:Math.max(1,Math.min(Math.ceil(intervals.horde),lastBoss-time))});
+    const hordeSupply=hordeStocks.reduce((total,stock)=>total+stock.remaining/stock.seconds,0);
     const potential=supply+hordeSupply;
-    const fraction=Math.min(1,perSecondBudget/potential);
+    const fraction=Math.min(clearFraction,perSecondBudget/potential);
     const available=supply*fraction;
     // Elites replace an eligible regular spawn, rather than spawning as an extra monster.
     let elite=0;
@@ -135,16 +138,19 @@ export function estimateExperience(stage:ExperienceStage,lap:number,options:Expe
     eliteKills+=elite;
     normalKills+=available-elite;
     credit(wave.monsters,available+4*elite);
-    for(const [index,stock] of hordeStocks){
-      const kills=stock*fraction/releaseWindow;
-      credit(waves[index].monsters,kills);
+    for(let i=hordeStocks.length-1;i>=0;i--){
+      const stock=hordeStocks[i];
+      const released=stock.remaining/stock.seconds;
+      const kills=released*fraction;
+      credit(waves[stock.wave].monsters,kills);
       hordeKills+=kills;
-      if(stock-kills<1e-6) hordeStocks.delete(index);
-      else hordeStocks.set(index,stock-kills);
+      stock.remaining-=released;
+      stock.seconds--;
+      if(stock.seconds<=0)hordeStocks.splice(i,1);
     }
   }
   for(const boss of stage.bosses.slice(bossIndex))credit([monsters[boss.id]],1);
-  const minutes=(lastBoss+data.victorySeconds+extraSeconds)/60;
+  const minutes=((lastBoss+data.victorySeconds)/(options.gameSpeed??1)+extraSeconds)/60;
   return {stage,lap,rule,minutes,base:Math.round(base),job:Math.round(job),basePerMinute:base/minutes,
     jobPerMinute:job/minutes,jobMax,baseNow,jobNow,ordinary:normalKills,elite:eliteKills,horde:hordeKills};
 }

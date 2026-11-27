@@ -6,11 +6,11 @@ const {join,resolve} = require('node:path');
 const ts = require('typescript');
 
 const root = resolve(__dirname,'..');
-const directory = resolve(process.argv[2] || join(root,'evidence/xp-20261123'));
+const directory = resolve(process.argv[2] || join(root,'evidence/hans-20261127'));
 const source = {
-  version:'0.15.0',
-  main:{file:'main-BNOcv2PN.hz0e97d415.js',sha256:'f7e972c55ec0e21cf17f31cf219a6b80b273528cea4d28cd12ed1eae04af94c2'},
-  soul:{file:'soul_linker-DllBVIRO.hz91e234cd.js',sha256:'feb5d163ff4cac20ba36c20ed7a2ec8980dae0461f1e011e17c71a054e7d9376'},
+  version:'0.16.0',
+  main:{file:'main-BNOcv2PN.hz102c6cdf.js',sha256:'62619d5f16cb0b8400d43a7efd64de32cf21240784cb3ee14372252d2910146b'},
+  soul:{file:'soul_linker-DllBVIRO.hz77006d70.js',sha256:'77d8daed777e72f0b999ff1d8e68cf5d8ccfb5915fced9280bce3e7a6f26194b'},
 };
 function readClient({file,sha256}) {
   const bytes = readFileSync(join(directory,file));
@@ -72,7 +72,7 @@ const stages = catalog.stages.filter(stage=>stage.open||stage.season).map(stage=
     assert.ok(wave.to>wave.from && wave.perSecond>0 && wave.maxAlive>0 && wave.pool.length,stage.id);
     assert.equal(wave.from,index===0?0:rule.waves[index-1].to,stage.id);
     wave.pool.forEach(useMonster);
-    return {from:wave.from,to:wave.to,rate:wave.perSecond,pool:wave.pool};
+    return {from:wave.from,to:wave.to,rate:wave.perSecond,maxAlive:wave.maxAlive,pool:wave.pool};
   });
   const bosses = rule.bosses.map(boss=>{
     assert.ok(Number.isFinite(boss.t),stage.id);

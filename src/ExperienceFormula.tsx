@@ -39,18 +39,18 @@ export function ExperienceFormula({baseLevel}:{baseLevel?:number}){
       </section>
       <section className="xp-formula-section">
         <h3>03 <span>Job 經驗</span></h3>
-        <div className="xp-equation xp-equation-main"><code>怪物原始 EXP × 關卡經驗係數 × 等級差係數 × Job 係數 × 職業階段修正 × 軟上限修正 × 菁英係數 × 全服加成</code></div>
-        <p>新制的 Job 係數為 {f(lap.jobK)}，不會隨週目升高。第一章 1–2 週目不乘此係數，採舊制等級差規則。Job 還會依轉職階段與該關卡的 Job 軟上限修正。</p>
+        <div className="xp-equation xp-equation-main"><code>怪物原始 EXP × 關卡經驗係數 × 等級差係數 × Job 係數 × 職業階段修正 × 軟上限修正 × 菁英係數 × 全服加成 ÷ √怪物數量倍率</code></div>
+        <p>新制的 Job 係數為 {f(lap.jobK)}，不會隨週目升高。第一章 1–2 週目不乘此係數，採舊制等級差規則。Job 還會依轉職階段與該關卡的 Job 軟上限修正。怪物數量 2000% 時，每隻 Job 經驗乘 1/√20（約 22.36%）；Base 不受此項扣減。</p>
       </section>
       <section className="xp-formula-section">
         <h3>04 <span>怪物、事件與每分鐘效率</span></h3>
         <div className="xp-equation"><span>普通怪物出怪量</span><code>來源波次每秒數量 × 怪物數量倍率</code></div>
         <div className="xp-equation"><span>菁英／怪物潮間隔</span><code>{spawn.eliteInterval} 秒／事件倍率、{spawn.hordeInterval} 秒／事件倍率</code></div>
         <p>菁英替代普通怪物生成，結算基礎經驗視同 5 倍。怪物潮增加出怪量；每分鐘擊殺上限會限制能算進去的擊殺數。</p>
-        <div className="xp-equation"><span>比較排名</span><code>模擬全場累計 EXP ÷（最後頭目出場秒數 + {experienceData.victorySeconds} 秒 + 額外整備秒數）× 60</code></div>
+        <div className="xp-equation"><span>比較排名</span><code>模擬全場累計 EXP ÷（(最後頭目出場秒數 + {experienceData.victorySeconds} 秒) ÷ 遊戲速度 + 現實額外耗時）× 60</code></div>
       </section>
-      <p className="xp-formula-disclaimer">試算限制：不模擬怪物堆積、移動、死亡、打王耗時變化或不同週目怪物血量對清怪速度的影響。GS 只用來過濾入場門檻，不會當作擊殺能力。相同經驗時，排行榜優先顯示較低週目；如要比較實際效率，請以遊戲結算紀錄校準。</p>
-      <a className="xp-formula-link" href="https://github.com/hans-ro-fanwiki/hans-ro-fanwiki.github.io/blob/main/docs/HANS_EXPERIENCE_20261123.md" target="_blank" rel="noopener noreferrer">查看來源、假設與實測方法</a>
+      <p className="xp-formula-disclaimer">試算限制：不模擬怪物堆積、移動、死亡、打王耗時變化或不同週目怪物血量對清怪速度的影響。GS 只用來過濾入場門檻，不會當作擊殺能力。相同經驗時，排行榜優先顯示較低週目；如要比較實際效率，請以遊戲結算紀錄校準。預設清怪率是示意假設，不是全服統計；實戰推估只沿用相同關卡與週目的樣本。</p>
+      <a className="xp-formula-link" href="https://github.com/hans-ro-fanwiki/hans-ro-fanwiki.github.io/blob/main/docs/HANS_EXPERIENCE_20261127.md" target="_blank" rel="noopener noreferrer">查看來源、假設與實測方法</a>
     </div>
   </details>;
 }

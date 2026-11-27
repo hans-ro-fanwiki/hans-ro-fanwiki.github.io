@@ -10,6 +10,18 @@
 .xp-advanced {border:1px solid var(--wiki-border,#3a5355);border-radius:.75rem;padding:.75rem .85rem}
 .xp-advanced summary {cursor:pointer;font-weight:650}
 .xp-advanced[open] summary {margin-bottom:.85rem}
+.xp-cal-actions{display:flex;gap:.5rem;flex-wrap:wrap;margin:.75rem 0}
+.xp-cal-actions button{min-height:44px}
+.xp-cal-actions button:disabled{opacity:.45;cursor:not-allowed}
+.xp-cal-results{border-top:1px solid var(--wiki-border);margin-top:.85rem;padding-top:.85rem}
+.xp-cal-results h3{font-size:1rem;margin:0 0 .5rem}
+.xp-cal-metrics{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.5rem;margin:.75rem 0}
+.xp-cal-metrics>div{min-width:0;padding:.65rem;border:1px solid var(--wiki-border);border-radius:.65rem;background:var(--wiki-raised)}
+.xp-cal-metrics small,.xp-cal-metrics strong{display:block;overflow-wrap:anywhere}
+.xp-cal-metrics small{font-size:.75rem;color:var(--wiki-muted)}
+.xp-cal-metrics strong{font-size:1rem;font-variant-numeric:tabular-nums;margin-top:.25rem}
+.xp-calibration .xp-comparison{overflow-x:auto}
+.xp-calibration .xp-comparison table{min-width:360px}
 .xp-guide ol {margin:0;padding-inline-start:1.5rem;line-height:1.65}
 .xp-guide li+li {margin-top:.65rem}
 .xp-guide li::marker {color:var(--wiki-accent,#a5eccd)}

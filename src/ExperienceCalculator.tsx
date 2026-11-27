@@ -2,6 +2,8 @@ import {useMemo,useState} from 'react';
 import {defaultExperienceOptions,estimateExperience,eventIntervals,experienceData,groupEquivalentLaps,rankExperience} from './experience';
 import type {ExperienceOptions} from './experience';
 import {ExperienceFormula} from './ExperienceFormula';
+import {ExperienceCalibration} from './ExperienceCalibration';
+import {predictedKills} from './experience-calibration';
 
 const number=new Intl.NumberFormat('zh-TW',{maximumFractionDigits:0});
 const decimal=new Intl.NumberFormat('zh-TW',{maximumFractionDigits:1});
@@ -20,9 +22,9 @@ function sliderMultiplier(value:string,max:number){
 }
 
 export function ExperienceCalculator({onClose}:{onClose:()=>void}){
-  const [level,setLevel]=useState('');
+  const [level,setLevel]=useState(String(defaultExperienceOptions.baseLevel));
   const [target,setTarget]=useState<Metric>('base');
-  const [options,setOptions]=useState(defaultExperienceOptions);
+  const [options,setOptions]=useState({...defaultExperienceOptions,clearFraction:.75,gameSpeed:1,baseProgress:0,jobProgress:0});
   const [gs,setGs]=useState('');
   const [killRate,setKillRate]=useState('');
   const [monsterPercent,setMonsterPercent]=useState('100');
@@ -62,8 +64,8 @@ export function ExperienceCalculator({onClose}:{onClose:()=>void}){
     <details className="xp-advanced xp-guide">
       <summary>使用教學</summary>
       <ol>
-        <li><strong>先選要練的經驗。</strong>輸入目前 Base Lv，並選擇已開放的最高周目。填寫 GS 可篩掉戰力門檻高於你的關卡。若在練 Job，再填職業階段和目前 Job Lv。</li>
-        <li><strong>從結算畫面估算清怪速度。</strong>打完後，到「本局」查看「怪物」和「時間」。例如 8,821 隻 ÷（14 ＋ 15 ÷ 60）分鐘 ≈ 619 隻／分。把 619 填進「進階試算」的「每分鐘擊殺上限」。這是該場的平均值，換關卡或倍率時可用相近難度的場次重新估算。</li>
+        <li><strong>先選要練的經驗。</strong>預設 Base Lv 50、怪物及事件 100%、75% 假設清怪比例；請依角色調整等級及已開放的最高周目。填寫 GS 可篩掉戰力門檻高於你的關卡。若在練 Job，再填職業階段和目前 Job Lv。</li>
+        <li><strong>有結算畫面時再做實戰校準。</strong>選擇該場關卡、週目，輸入「怪物」、Base／Job EXP 和本局時間，推估相近設定的收益。不必輸入傷害或自行換算擊殺上限。</li>
         <li><strong>比較每分鐘經驗。</strong>怪物和事件數量填遊戲裡顯示的百分比，例如 200。排行榜會合併同地圖、同收益的週目，預設先看較低週目；展開可查看其他週目。想知道計算原因，可開啟下方「計算依據與公式」。實戰請把每場結算經驗加總，再除以總耗時（含失敗場）。</li>
       </ol>
     </details>
@@ -94,20 +96,25 @@ export function ExperienceCalculator({onClose}:{onClose:()=>void}){
     <p className="xp-hint">目前每 {decimal.format(intervals.elite)} 秒可出一隻菁英，每 {decimal.format(intervals.horde)} 秒可觸發一波怪物潮。菁英結算經驗為同種普通怪的 5 倍。</p>
     <details className="xp-advanced">
       <summary>進階試算</summary>
-      <p className="xp-hint">未填每分鐘擊殺上限時，假設能清完刷出的怪；其他預設可依實戰調整。</p>
+      <p className="xp-hint">清怪比例為理論出怪的估算假設，不是玩家平均統計。快速試算預設 75%，可改成 50% 或全清比較。</p>
       <div className="xp-fields">
-        <div className="xp-field"><label>每分鐘擊殺上限<input type="number" min={1} placeholder="選填，例如 619" aria-describedby="xp-kill-help" value={killRate} onChange={event=>setKillRate(event.target.value)}/></label><small className="xp-hint" id="xp-kill-help">結算的「怪物」÷「時間（分鐘）」。僅作候選關卡共用的擊殺上限；不同週目怪物血量不同，應重新實測，不會用 GS 猜測擊殺能力。</small></div>
-        <label>每場額外耗時（秒）<input type="number" min={0} max={1800} value={options.extraSeconds} onChange={event=>update('extraSeconds',optionalNumber(event.target.value,0,1800)??0)}/></label>
+        <label>假設清怪比例<select value={options.clearFraction} onChange={event=>update('clearFraction',Number(event.target.value))}>{[.25,.5,.75,.9,1].map(v=><option key={v} value={v}>{Math.round(v*100)}%{v===1?'（理論全清）':''}</option>)}</select></label>
+        <label>遊戲速度<select value={options.gameSpeed} onChange={event=>update('gameSpeed',Number(event.target.value))}>{[1,2,4].map(v=><option key={v} value={v}>{v}×</option>)}</select></label>
+        <label>開局 Base 經驗進度（%）<input type="number" min={0} max={99.9} step={.1} value={Math.round(options.baseProgress*1000)/10} onChange={event=>update('baseProgress',(optionalNumber(event.target.value,0,99.9)??0)/100)}/></label>
+        {target==='base'&&<><label>實測職業階段<select value={options.advancement} onChange={event=>update('advancement',event.target.value as ExperienceOptions['advancement'])}><option value="first">一轉</option><option value="expanded">忍者／神槍手</option><option value="second">二轉</option><option value="third">三轉</option></select></label><label>實測開局 Job Lv<input type="number" min={1} max={jobLimit} value={model.jobLevel} onChange={event=>update('jobLevel',Math.floor(optionalNumber(event.target.value,1,jobLimit)??1))}/></label></>}
+        <label>開局 Job 經驗進度（%）<input type="number" min={0} max={99.9} step={.1} value={Math.round(options.jobProgress*1000)/10} onChange={event=>update('jobProgress',(optionalNumber(event.target.value,0,99.9)??0)/100)}/></label>
+        <div className="xp-field"><label>每分鐘擊殺上限<input type="number" min={1} placeholder="選填，例如 619" aria-describedby="xp-kill-help" value={killRate} onChange={event=>setKillRate(event.target.value)}/></label><small className="xp-hint" id="xp-kill-help">選填的理論硬上限（每遊戲分鐘）；不建議直接拿整場平均值當硬上限，實測請使用下方校準。</small></div>
+        <label>每場現實額外耗時（秒）<input type="number" min={0} max={1800} value={options.extraSeconds} onChange={event=>update('extraSeconds',optionalNumber(event.target.value,0,1800)??0)}/></label>
         <label>全服經驗倍率<select value={options.serverExp} onChange={event=>update('serverExp',Number(event.target.value))}>
           {[1,1.25,1.5,1.75,2,2.5,3,4,5].map(multiplier=><option key={multiplier} value={multiplier}>{multiplier}×</option>)}
         </select></label>
       </div>
       <label className="xp-checkbox"><input type="checkbox" checked={options.season} onChange={event=>update('season',event.target.checked)}/>納入活動關卡（依遊戲開放狀態）</label>
     </details>
-    <p className="xp-hint">目前試算：每場額外耗時 {options.extraSeconds} 秒（打王、整備與重開），全服經驗 {options.serverExp} 倍；{options.season?'包含活動關卡':'不含活動關卡'}。可在進階試算調整。</p>
+    <p className="xp-hint">目前試算：假設清怪 {Math.round(options.clearFraction*100)}%、遊戲 {options.gameSpeed}×、每場額外耗時 {options.extraSeconds} 秒、全服經驗 {options.serverExp}×；{options.season?'包含活動關卡':'不含活動關卡'}。可在進階試算調整。</p>
 
     {best?<div className="xp-results">
-      <div className="xp-results-heading"><h2>{label} 經驗／分鐘</h2><span>{model.killsPerMinute?'已輸入擊殺上限 · 仍須依難度實測':'理論試算 · 假設清完刷出的怪'}</span></div>
+      <div className="xp-results-heading"><h2>{label} 經驗／分鐘</h2><span>{model.killsPerMinute?'理論試算 · 已設定擊殺上限':'理論試算 · 假設清怪 '+Math.round(options.clearFraction*100)+'%'}</span></div>
       {!practical&&<p className="xp-hint">目前等級已滿。下列數字為試算結算經驗，升級效益為零。</p>}
       {target==='base'&&baseLevel!==undefined&&baseLevel<experienceData.lap.minLv&&<p className="xp-note"><strong>Lv {experienceData.lap.minLv} 前：</strong>第二章同地圖的週目 Base 獎勵倍率相同；高週目不會自動獲得更多擊殺經驗。升到 Lv {experienceData.lap.minLv} 後會依新等級重新計算。</p>}
       <p className="xp-hint">符合條件共 {rankings.length} 組{collapsed>0?`，已合併 ${collapsed} 組同收益週目`:''}。相同經驗優先顯示較低週目，其他週目可展開；此排序不推測各週目的清怪速度。</p>
@@ -118,7 +125,7 @@ export function ExperienceCalculator({onClose}:{onClose:()=>void}){
               <small>門檻 {number.format(row.stage.gs[row.lap-1]??0)} GS · 怪物平均 Lv {decimal.format(row.rule.averageLevel)}</small>
               {variants.length>1&&<span className="xp-equivalent">同收益週目 · 優先顯示較低難度</span>}
             </div>
-            <div className="xp-score"><strong>{number.format(row[perMinute])}<small>／分</small></strong><small>{number.format(row[target])}／場 · 約 {decimal.format(row.minutes)} 分</small></div>
+            <div className="xp-score"><strong>{number.format(row[perMinute])}<small>／分</small></strong><small>{number.format(row[target])}／場 · 約 {decimal.format(row.minutes)} 分</small><small>預估擊殺 {number.format(predictedKills(row))} 隻</small></div>
           </div>
           {variants.length>1&&<details className="xp-lap-details">
             <summary>另有 {variants.length-1} 個週目同收益 · 查看各週目門檻</summary>
@@ -140,7 +147,8 @@ export function ExperienceCalculator({onClose}:{onClose:()=>void}){
         </div>
       </details>
     </div>:<p className="xp-hint">{baseLevel===undefined?'輸入目前 Base Lv，查看可刷關卡的經驗排名。':'目前 GS 和周目設定下沒有符合的關卡。'}</p>}
+    <ExperienceCalibration options={model}/>
     <ExperienceFormula baseLevel={baseLevel}/>
-    <p className="xp-hint">HANS V{experienceData.source.version} 單刷試算。按預定出怪與首領時間估算，升級進度從 0 XP 起算。實際擊殺、死亡、清王時間與隨機亂入會影響收益。</p>
+    <p className="xp-hint">HANS V{experienceData.source.version} 單刷試算。按預定出怪與首領時間估算，預設升級進度為 0，可在進階試算調整。實際擊殺、死亡、清王時間與隨機亂入會影響收益。</p>
   </section>;
 }
