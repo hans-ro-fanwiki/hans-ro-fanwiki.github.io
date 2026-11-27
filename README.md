@@ -2,7 +2,7 @@
 
 ## 2026-11-27 尋寶率與掉落機制
 
-- 戰鬥機制加入 [尋寶率品質計算機](https://hans-ro-fanwiki.github.io/?page=combat#discovery)、裝備／卡片掉落 FAQ；詳見 [來源稽核](docs/HANS_DISCOVERY_20261127.md)。
+- 遊戲機制（原戰鬥機制）加入主導覽，手機保留底部快捷列；提供 [尋寶率品質計算機](https://hans-ro-fanwiki.github.io/?page=combat#discovery)、裝備／卡片掉落 FAQ；詳見 [來源稽核](docs/HANS_DISCOVERY_20261127.md)。
 
 ## 2026-11-27 經驗計算機
 

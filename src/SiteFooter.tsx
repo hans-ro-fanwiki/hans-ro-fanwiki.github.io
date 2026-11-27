@@ -43,7 +43,7 @@ export function SiteFooter({publicMode,feedbackHref}:{publicMode:boolean;feedbac
     </div>
    </details>
    <nav className="site-footer-links" aria-label="相關資訊">
-    <a href="?page=combat"><Shield size={15} aria-hidden="true"/>戰鬥機制</a>
+    <a href="?page=combat"><Shield size={15} aria-hidden="true"/>遊戲機制</a>
     <a href={feedbackHref} target="_blank" rel="noopener noreferrer"><MessageSquarePlus size={15} aria-hidden="true"/>問題回報／功能許願</a>
     <a href={HANS_URL} target="_blank" rel="noopener noreferrer">HANS 漢斯服 <ExternalLink size={13} aria-hidden="true"/></a>
     <a href={REPORT_URL} target="_blank" rel="noopener noreferrer">內容疑慮／下架聯絡 <ExternalLink size={13} aria-hidden="true"/></a>

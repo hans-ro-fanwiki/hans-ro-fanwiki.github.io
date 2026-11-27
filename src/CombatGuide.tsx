@@ -123,7 +123,7 @@ export function SkillCompatibility({skillId, skillName}: {skillId: string; skill
       <p className="combat-note">這招的神格和禁錮之神等全域神格用同一個欄位，換上新的會取代原本的。</p>
     </details>}
     <p className="combat-note">{onlyTiming ? '目前查到的詞條效果：冷卻。' : '詞條清單只列已查證的項目。'} · {VERSION}</p>
-    <a href={`?page=combat#${section}`}>查看戰鬥機制</a>
+    <a href={`?page=combat#${section}`}>查看遊戲機制</a>
   </section>;
 }
 
@@ -157,7 +157,7 @@ export function CombatGuide() {
   }
   return <div className="combat-guide">
     <div className="combat-tool-intro"><p className="combat-note">{VERSION} · 11/25 減傷熱修公式</p><h2>配裝與技能試算</h2><p>選擇想了解的機制，輸入目前數值試算。尋寶率、掉落、公式與例外也可直接查閱。</p></div>
-    <nav aria-label="戰鬥機制目錄" className="combat-jump combat-tool-nav">
+    <nav aria-label="遊戲機制目錄" className="combat-jump combat-tool-nav">
       {combatSections.map(([id, label]) => <button key={id} type="button" aria-pressed={active === id} aria-controls={id} onClick={() => selectSection(id)}>{label}</button>)}
     </nav>
     <section id="timing" hidden={active !== 'timing'} aria-label="急速與冷卻"><CooldownTool renderCompatibility={skill=><SkillCompatibility skillId={skill.id} skillName={skill.name}/>}/></section>

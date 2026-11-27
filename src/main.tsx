@@ -49,7 +49,7 @@ function EquipmentJobSelect({label,data,value,onChange}:{label:string;data:Catal
  </select><ChevronDown aria-hidden="true" size={16}/></label>;
 }
 const SOURCES:Record<string,string>={monsterDrop:'怪物掉落',bossDrop:'Boss 掉落',story:'劇情',event:'活動',reward:'獎勵',starter:'初始裝備',raid:'團隊遠征副本'};
-const LABELS:Record<Page,string>={items:'裝備',cards:'卡片',stages:'關卡',skills:'技能',talents:'天賦',balance:'平衡紀錄',experience:'經驗計算機',combat:'戰鬥機制'};
+const LABELS:Record<Page,string>={items:'裝備',cards:'卡片',stages:'關卡',skills:'技能',talents:'天賦',balance:'平衡紀錄',experience:'經驗計算機',combat:'遊戲機制'};
 // HANS-only. All artwork is loaded by reference from the HANS image host;
 // the public repository and Pages artifact never contain game image files.
 const PUBLIC_MODE=import.meta.env.VITE_PUBLIC_MODE==='1';
@@ -326,8 +326,8 @@ function App(){
     <span className="brand-mark" aria-hidden="true">H</span>
     <span className="brand-names"><strong>RO 倖存者｜HANS 粉絲維基</strong><small>非官方玩家製作{PUBLIC_MODE?'':' · 開發預覽'}</small></span>
     <nav className="bottom-nav" aria-label="主要分類">
-     {([['items',Shield],['cards',BookOpen],['stages',MapIcon],['skills',WandSparkles],['talents',GitBranch],['balance',History]] as const).map(([page,Icon])=>
-      <button type="button" key={page} className={state.page===page||state.page==='experience'&&page==='stages'||state.page==='combat'&&page==='skills'?'active':''} onClick={()=>{if(page!==state.page)navigate({...EMPTY,page,lap:state.lap,gsJob:state.gsJob,showUnknown:state.showUnknown},true)}} aria-current={state.page===page||state.page==='experience'&&page==='stages'||state.page==='combat'&&page==='skills'?'page':undefined}><Icon size={21}/><span>{LABELS[page]}</span></button>)}
+     {([['items',Shield],['cards',BookOpen],['stages',MapIcon],['skills',WandSparkles],['talents',GitBranch],['combat',SlidersHorizontal],['balance',History]] as const).map(([page,Icon])=>
+      <button type="button" key={page} className={state.page===page||state.page==='experience'&&page==='stages'?'active':''} onClick={()=>{if(page!==state.page)navigate({...EMPTY,page,lap:state.lap,gsJob:state.gsJob,showUnknown:state.showUnknown},true)}} aria-current={state.page===page||state.page==='experience'&&page==='stages'?'page':undefined}><Icon size={21}/><span>{LABELS[page]}</span></button>)}
     </nav>
    </div>
   </header>
@@ -335,7 +335,7 @@ function App(){
    <section className="content-section">
     <div className="section-heading"><div className="section-title"><h1>{LABELS[state.page]}</h1>{state.page!=='talents'&&state.page!=='skills'&&state.page!=='balance'&&state.page!=='experience'&&state.page!=='combat'&&!(state.page==='stages'&&state.query.trim())&&<span className="heading-count">
       {state.page==='items'?equip.length:state.page==='cards'?(state.mode==='gs'?rankedCards.length:cardList.length):showRaids?raids.length:catalog?.stages.filter(stage=>matchesStageType(stage,state.stageType)&&(state.stageChapter==='all'||String(stage.chapter)===state.stageChapter)).length||0}
-     </span>}</div><div className="section-actions">{state.page==='stages'&&<button type="button" className="search-more calculator-entry" onClick={()=>navigate({...EMPTY,page:'experience'},true)}><Calculator size={16} aria-hidden="true"/>經驗計算機</button>}{(state.page==='skills'||state.page==='items'||state.page==='cards')&&<a href={state.page==='skills'?'?page=combat':'?page=combat#defense'} className="search-more calculator-entry combat-guide-section-link"><Shield size={16} aria-hidden="true"/>戰鬥機制</a>}{state.page==='combat'&&<a href="?page=skills" className="search-more calculator-entry combat-guide-section-link">技能圖鑑</a>}{(state.page==='items'||state.page==='cards')&&<a href="?page=combat#discovery" className="search-more calculator-entry combat-guide-section-link">尋寶率與掉落</a>}<FeedbackLink href={reportHref}>回報／許願</FeedbackLink></div></div>
+     </span>}</div><div className="section-actions">{state.page==='stages'&&<button type="button" className="search-more calculator-entry" onClick={()=>navigate({...EMPTY,page:'experience'},true)}><Calculator size={16} aria-hidden="true"/>經驗計算機</button>}{(state.page==='items'||state.page==='cards')&&<a href="?page=combat#discovery" className="search-more calculator-entry combat-guide-section-link">尋寶率與掉落</a>}<FeedbackLink href={reportHref}>回報／許願</FeedbackLink></div></div>
     {state.page==='combat'?<CombatGuide/>:state.page==='experience'?<Suspense fallback={<p role="status">讀取中…</p>}><ExperienceCalculator onClose={()=>navigate({...EMPTY,page:'stages'},true)}/></Suspense>:state.page==='balance'?<BalanceHistory/>:state.page==='talents'?<TalentSimulator jobId={state.tj} token={state.tb} packed={state.t} onRoute={(tj,tb,t,replace=false)=>navigate({tj,tb,t,page:'talents'},false,replace)}/>:state.page==='skills'?<SkillsEncyclopedia jobId={state.skillJob} rank={state.skillRank} query={state.query} selectedId={state.skillId} onChange={(patch,replace=true)=>navigate(patch,false,replace)}/>:<>
     {error&&<div className="empty-state">{error}</div>}
     {!catalog&&!error&&<div className="empty-state">讀取中…</div>}

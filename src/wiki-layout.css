@@ -134,3 +134,19 @@
   .stage-view-toolbar {align-items:flex-start;flex-direction:column}
   .stage-expansion-actions {justify-content:flex-start}
 }
+
+/* Seven primary destinations: keep the mobile thumb bar, without tiny targets. */
+@media(min-width:761px) and (max-width:860px) {
+  .top-inner {display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 10px}
+  .top-inner .bottom-nav {grid-column:1/-1;margin-left:0;justify-content:space-between}
+  .top-inner .bottom-nav button {flex:1}
+}
+@media(max-width:760px) {
+  .topbar .bottom-nav {display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:0;padding-inline:5px}
+  .topbar .bottom-nav button {width:100%;min-width:0;min-height:52px;padding-inline:0}
+  .topbar .bottom-nav button span {white-space:nowrap;line-height:1.2}
+  .site-footer {padding-bottom:calc(76px + env(safe-area-inset-bottom,0px))}
+}
+@media(max-width:360px) {
+  .topbar .bottom-nav button {font-size:10px}
+}
