@@ -159,7 +159,6 @@ export function CombatGuide() {
     history.replaceState(history.state, '', '#'+section);
   }
   return <div className="combat-guide">
-    <div className="combat-tool-intro"><p className="combat-note">{VERSION} · 11/25 減傷熱修公式</p><h2>配裝與技能試算</h2><p>選擇想了解的機制，輸入目前數值試算。尋寶率、掉落、公式與例外也可直接查閱。</p></div>
     <nav aria-label="遊戲機制目錄" className="combat-jump combat-tool-nav">
       {combatSections.map(([id, label]) => <button key={id} type="button" aria-pressed={active === id} aria-controls={id} onClick={() => selectSection(id)}>{label}</button>)}
     </nav>
@@ -168,12 +167,12 @@ export function CombatGuide() {
 
     <section id="defense" hidden={active !== 'defense'} aria-labelledby="combat-defense-title">
       <h2 id="combat-defense-title">承傷與減傷</h2>
+      <p className="combat-lead">先扣護甲，再套百分比減傷，最後算 DEF。</p>
       <DefenseTool/>
-      <p className="combat-intro">一般受到攻擊時，先扣護甲，再算百分比減傷，最後算 DEF。</p>
-      <dl className="combat-defenses">{defenses.map(([name, value, description]) => <div key={name}>
+      <details className="combat-details"><summary>護甲、減傷與 DEF 的分工</summary><dl className="combat-defenses">{defenses.map(([name, value, description]) => <div key={name}>
         <dt>{name}<strong>{value}</strong></dt>
         <dd>{description}</dd>
-      </div>)}</dl>
+      </div>)}</dl></details>
       <details className="combat-details">
         <summary>承傷公式與算例</summary>
         <p>正 DEF 的減傷比例為 DEF ÷ (DEF + 80)。傷害最後四捨五入，這一步最低為 1。輸入傷害已包含攻擊者與玩法的前置修正。</p>
@@ -182,29 +181,38 @@ export function CombatGuide() {
       </details>
       <details className="combat-details">
         <summary>防禦特例與玩法差異</summary>
-        <p>特殊格擋可提高 PvE 的合計減傷上限，但 PvP／公會戰維持 70%。免疫、閃避與護盾另有規則。</p>
+        <p>特殊格擋可提高 PvE 的合計減傷上限，但 PvP／公會戰維持 70%。免疫、閃避、護盾與負重防護另有規則。</p>
         <p>團隊副本與世界王部分招式直接按最大 HP 比例扣血，適用該招式的獨立規則。</p>
       </details>
     </section>
 
     <section id="geometry" hidden={active !== 'geometry'} aria-labelledby="combat-geometry-title">
       <h2 id="combat-geometry-title">範圍與近戰距離</h2>
+      <p className="combat-lead"><strong>廣域藥水</strong>擴大技能範圍，<strong>範圍藥水</strong>增加近戰距離。</p>
       <RangeTool/>
-      <p><strong>廣域藥水</strong>加的是範圍效果，例如天羅地網打得到的區域。<strong>範圍藥水</strong>加的是近戰物理距離。兩種加成各自計算，堆得越高，同樣一次加成帶來的距離越少。</p>
-      <div className="combat-jump">
+      <details className="combat-details"><summary>範例技能</summary><div className="combat-jump">
         <a href="?page=skills&sj=sura">修羅技能</a>
         <a href="?page=skills&sk=triangle_shot">三角射擊</a>
         <a href="?page=skills&sk=rolling_cutter">迴旋斬</a>
         <a href="?page=skills&sk=storm_gust">暴風雪</a>
-      </div>
+      </div></details>
     </section>
 
     <section id="discovery" hidden={active !== 'discovery'} aria-labelledby="discovery-title"><DiscoveryGuide/></section>
     <section id="abilities" hidden={active !== 'abilities'} aria-labelledby="abilities-title">
-      <h2 id="abilities-title">王卡特殊能力</h2><p>新版王卡可依移動、命中、爆擊、受擊、閃避或 HP 門檻觸發效果。卡片詳情可比較改造等級，卡片圖鑑可依觸發條件篩選，並預覽三組封印王卡套裝。發現率和各張卡的觸發條件分開判定。</p><a href="?page=cards&attr=special">查詢有特殊能力的卡片</a>
+      <h2 id="abilities-title">王卡特殊能力</h2>
+      <ul className="combat-key-points">
+        <li><strong>33 張特殊能力卡</strong> · 可依命中、爆擊、閃避等條件篩選。</li>
+        <li><strong>3 組套裝</strong> · 同時裝上指定的兩張卡才啟動。</li>
+      </ul>
+      <div className="combat-jump">
+        <a href="?page=cards&attr=special">查特殊能力與改造效果</a>
+        <a href="?page=cards#card-sets">看王卡套裝</a>
+        <button className="search-more" type="button" onClick={()=>selectSection('discovery')}>看發現率</button>
+      </div>
     </section>
     <section id="pets" hidden={active !== 'pets'} aria-labelledby="pets-title"><PetGuide/></section>
-    <details className="combat-details" open={active !== 'discovery'}><summary>11/25 平衡更新：能力點、閃避與爆擊</summary><ul><li>單項能力分配上限 150；自行分配的 STR／INT／DEX 超過 99 的點數對 ATK／MATK 的貢獻減半，不是全部面板屬性或施法 DEX 減半。</li><li>自身閃避上限 50%，含增益後 PvE 75%、PvP／公會戰 50%。</li><li>爆擊率超過 100% 時，每超過 1 個百分點，爆擊傷害增加 5 個百分點；PvP／公會戰增加 2.5 個百分點。例如 120% 爆擊率額外增加 100% 爆擊傷害（PvP 50%）。</li></ul><p><a href="?page=skills">查看技能平衡紀錄</a></p></details>
-    <p className="combat-note">試算依已核對的 HANS 客戶端公式，不代表伺服器實測。召喚、持續傷害、追加效果及特殊玩法可能使用獨立計時。<a href="?page=skills&sk=ruwach">查看光獵的兩種計時器</a>。</p>
+    <details className="combat-details"><summary>11/25 平衡更新：能力點、閃避與爆擊</summary><ul><li>單項能力分配上限 150；自行分配的 STR／INT／DEX 超過 99 的點數對 ATK／MATK 的貢獻減半，不是全部面板屬性或施法 DEX 減半。</li><li>自身閃避上限 50%，含增益後 PvE 75%、PvP／公會戰 50%。</li><li>爆擊率超過 100% 時，每超過 1 個百分點，爆擊傷害增加 5 個百分點；PvP／公會戰增加 2.5 個百分點。例如 120% 爆擊率額外增加 100% 爆擊傷害（PvP 50%）。</li></ul><p><a href="?page=skills">查看技能平衡紀錄</a></p></details>
+    <details className="combat-details"><summary>試算來源與限制</summary><p>依已核對的 HANS 客戶端公式。召喚、持續傷害、追加效果與特殊玩法可能有獨立計時。</p><a href="?page=skills&sk=ruwach">查看光獵的兩種計時器</a></details>
   </div>;
 }

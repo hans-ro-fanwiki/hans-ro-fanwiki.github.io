@@ -11,8 +11,10 @@ export function PetGuide(){
  const mult=petMultiplier(lap,intimacy,accessory&&pet.accessory!==null);
  return <>
   <h2 id="pets-title">寵物圖鑑與改造試算</h2>
-  <p>通關結算取得更高週目的同種蛋，可提升現有寵物的改造等級。進化會繼承改造等級。改造倍率同時影響出戰效果與寵物 GS，並與親密度、飾品倍率相乘。</p>
-  <p>已有低週目寵物時，二週目以上會先以 {petData.upgradeEligibility*100}% 機率通過額外的升級蛋資格判定，再依一般蛋掉落規則抽選。每場同種蛋最多掉一次。首次裝備寵物飾品需要親密度至少 750。</p>
+  <ul className="combat-key-points">
+   <li><strong>改造</strong> · 取得更高週目的同種蛋。</li>
+   <li><strong>進化</strong> · 繼承原本的改造等級。</li>
+  </ul>
   <div className="combat-tool">
    <div className="combat-tool-controls">
     <label className="combat-field">寵物<select aria-label="寵物" value={id} onChange={event=>setId(event.target.value)}>{petData.pets.map(entry=>
@@ -30,5 +32,11 @@ export function PetGuide(){
    <p>{from?`由 ${from.name} 進化`:`蛋 ID #${pet.egg}`}{pet.accessory!==null?' · 飾品 ID #'+pet.accessory:''}</p>
    <div className="bonus-list">{pet.effects.map(effect=><span key={effect.stat}>{petEffectText(effect,mult)}</span>)}</div>
   </div>
+  <details className="combat-details"><summary>升級蛋、親密度與飾品規則</summary>
+   <ul className="combat-key-points">
+    <li>已有低週目寵物時，更高週目的同種蛋先做 {petData.upgradeEligibility*100}% 的資格判定，再按本來的掉落機率抽選。每場同種蛋最多掉一次。</li>
+    <li>改造、親密度與飾品倍率相乘，影響出戰效果與寵物 GS。首次裝備飾品需親密度 750。</li>
+   </ul>
+  </details>
  </>;
 }

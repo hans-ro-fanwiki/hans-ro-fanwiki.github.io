@@ -51,7 +51,7 @@ export function CooldownTool({renderCompatibility}:{renderCompatibility:(skill:S
  const reduction=base>0?(1-now/base)*100:0;
  const nextReduction=base>0?(1-next/base)*100:0;
  return <div className="combat-tool">
-  <div className="combat-tool-heading"><h3>急速與冷卻計算機</h3><p>輸入目前急速即可計算冷卻時間。想比較裝備、卡片、天賦或局內加成時，再填額外增加的急速。</p></div>
+  <div className="combat-tool-heading"><h2>急速與冷卻</h2><p>填目前急速，試算技能冷卻。要比較配裝，再填額外急速。</p></div>
   <div className="combat-tool-fields">
    <label className="combat-field"><span>搜尋技能（選填）</span><input type="search" placeholder="中文／英文技能名" value={query} onChange={e=>setQuery(e.target.value)}/></label>
    <label className="combat-field"><span>帶入技能</span><select value={selected} onChange={e=>{const id=e.target.value;setSelected(id);const s=skills.find(s=>s.id===id);if(s?.cooldown!=null)setBase(s.cooldown)}}><option value="">手動輸入</option>{skill&&!matches.includes(skill)&&<option value={skill.id}>{skill.name}</option>}{matches.map(s=><option key={s.id} value={s.id}>{s.name}{s.cooldown!==null?' · '+s.cooldown+' 秒':''}</option>)}</select></label>
@@ -59,7 +59,7 @@ export function CooldownTool({renderCompatibility}:{renderCompatibility:(skill:S
    <Field label="目前急速（%）" value={haste} onChange={setHaste} min={-100}/>
    <Field label="額外增加急速（%）" value={added} onChange={setAdded} min={-100}/>
   </div>
-  <p className="combat-note">基礎冷卻預設 10 秒僅為範例，可手動修改或選擇技能。額外增加急速預設 0%；例如目前 50%、額外 +25%，合計就是 75%。已有的加成不必重複填入。</p>
+  <p className="combat-note">10 秒是範例，可修改或選技能。已有的急速只填一次。</p>
   {loadFailed&&<p className="combat-note" role="status">技能資料載入失敗，仍可手動試算。</p>}
   {skill?.cooldown===null&&<p className="combat-note">這招的基礎冷卻尚未核對，請自行輸入。</p>}
   <label className="combat-slider"><span>拖曳調整目前急速 <strong>{pct(haste)}</strong></span><input type="range" min={Math.min(0,haste)} max={Math.max(300,haste)} step={1} value={haste} onChange={e=>setHaste(Number(e.target.value))}/><span className="combat-slider-ticks"><span>{Math.min(0,haste)}%</span><span>{Math.max(300,haste)}%</span></span></label>
@@ -68,7 +68,7 @@ export function CooldownTool({renderCompatibility}:{renderCompatibility:(skill:S
   <Bars values={[{label:'原始冷卻',value:base},{label:'目前急速',value:now},{label:'增加急速後',value:next}]}/>
   <HasteCurve current={haste+local+buff} next={haste+added+local+buff}/>
   <div className="combat-jump"><a href="?page=items&attr=cooldown">查詢急速裝備</a><a href="?page=cards&attr=cooldown">查詢急速卡片</a></div>
-  <details className="combat-tool-advanced"><summary>公式、限制與急速上限</summary><p className="combat-formula">實際冷卻 = 基礎冷卻 ÷ (1 + max(0, 全域急速 + 技能急速 + 目前 Buff) / 100)</p><p>急速 +100% 相當於實際冷卻縮減 50%。上面的比較不計塔倍率、特殊冷卻改寫、施法或動畫時間，也不代表實際 DPS。全域急速的合法配裝最大值尚未確認；滑桿上限只是操作範圍。</p></details>
+  <details className="combat-tool-advanced"><summary>公式、算例及限制</summary><p>目前急速 50%，再加 25 個百分點，合計 75%。</p><p className="combat-formula">實際冷卻 = 基礎冷卻 ÷ (1 + max(0, 全域急速 + 技能急速 + 目前 Buff) / 100)</p><p>急速 +100% 相當於實際冷卻縮減 50%。上面的比較不計塔倍率、特殊冷卻改寫、施法或動畫時間，也不代表實際 DPS。全域急速的合法配裝最大值尚未確認；滑桿上限只是操作範圍。</p></details>
   {skill&&<details className="combat-tool-advanced"><summary>查閱 {skill.name} 適用的詞條與神格</summary>{renderCompatibility(skill)}<a href={'?page=skills&sk='+encodeURIComponent(skill.id)}>開啟完整技能圖鑑</a></details>}
  </div>;
 }
@@ -76,20 +76,20 @@ export function DefenseTool(){
  const [input,setInput]=useState(100),[armor,setArmor]=useState(0),[reduction,setReduction]=useState(0),[buff,setBuff]=useState(0),[def,setDef]=useState(0),[pvp,setPvp]=useState(false);
  const r=normalDamage(input,armor,reduction,buff,def,pvp);
  return <div className="combat-tool">
-  <div className="combat-tool-heading"><h3>承傷試算</h3><p>輸入減傷前的傷害，以及你目前的防禦屬性，看看一次普通攻擊會扣多少血。</p></div>
+  <div className="combat-tool-heading"><h3>承傷試算</h3></div>
   <div className="combat-tool-fields"><Field label="減傷前的傷害" value={input} onChange={setInput} max={1000000000}/><Field label="目前護甲（含 Buff）" value={armor} onChange={setArmor}/><Field label="原始減傷加總（%）" value={reduction} onChange={setReduction}/><Field label="目前暫時減傷（%）" value={buff} onChange={setBuff} max={80}/><Field label="目前 DEF" value={def} onChange={setDef}/><label className="combat-field"><span>玩法</span><select value={pvp?'pvp':'pve'} onChange={e=>setPvp(e.target.value==='pvp')}><option value="pve">PvE</option><option value="pvp">PvP／公會戰</option></select></label></div>
-  <p className="combat-note">傷害預設 100 僅為範例。原始減傷請加總裝備、卡片等常駐詞條，不要輸入已經遞減的面板值。暫時減傷只填額外 Buff。</p>
+  <p className="combat-note">100 傷害是範例。原始減傷填常駐詞條合計，暫時減傷填額外 Buff。</p>
   <div className="combat-tool-results" aria-live="polite"><Result label="實際受到傷害" value={fmt(r.damage)}/><Result label="百分比減傷（不含 DEF）" value={pct(r.effectiveReduction*100)} detail={'自身 '+pct(r.ownReduction*100)+'；合計上限 '+(pvp?'70%':'85%')}/><Result label="DEF 額外減傷" value={pct(r.defReduction*100)}/></div>
-  <Bars unit="傷害" values={[{label:'原始傷害',value:input},{label:'最終承傷',value:r.damage}]}/><p className="combat-note">只計一般受傷流程；免疫、閃避、護盾、負重防護特例及百分比扣血不適用。</p>
+  <Bars unit="傷害" values={[{label:'原始傷害',value:input},{label:'最終承傷',value:r.damage}]}/><p className="combat-note">一般承傷試算。其他情況見下方的防禦特例。</p>
  </div>;
 }
 export function RangeTool(){
  const [current,setCurrent]=useState(0),[added,setAdded]=useState(0);
  const before=effectiveRange(current),after=effectiveRange(current+added);
  return <div className="combat-tool">
-  <div className="combat-tool-heading"><h3>範圍／近戰距離收益</h3><p>範圍效果與近戰距離分開計算，請選其中一項，把目前各來源的加成加總後輸入。</p></div>
+  <div className="combat-tool-heading"><h3>範圍／近戰距離收益</h3><p>先選要試算的項目，再填目前詞條加成的總和。</p></div>
   <div className="combat-tool-fields"><Field label="目前加成總和（%）" value={current} onChange={setCurrent}/><Field label="額外增加（%）" value={added} onChange={setAdded}/></div>
-  <p className="combat-note">例如裝備 +20%、卡片 +30%，目前加成填 50%，不要填已套用遞減的面板數值。額外增加預設 0%。</p>
+  <p className="combat-note">裝備 +20%、卡片 +30%，目前加成填 50%。</p>
   <div className="combat-tool-results" aria-live="polite"><Result label="目前實際倍率" value={fmt(before)+' 倍'}/><Result label="增加後的倍率" value={fmt(after)+' 倍'}/><Result label="相較目前增加" value={pct((after/before-1)*100)}/></div>
   <Bars unit="倍" values={[{label:'原始範圍',value:1},{label:'目前',value:before},{label:'新增後',value:after}]}/>
   <details className="combat-tool-advanced"><summary>遞減曲線與適用條件</summary><p className="combat-formula">x = 1 + 原始加成 / 100；x 大於 1 時，有效倍率 = 1 + (x − 1) / (1 + (x − 1) / 2)</p><p>角色全域倍率逐漸趨近 3 倍，不是硬性上限。技能自身範圍、固定距離與其他乘數另計，請查各技能適用的詞條。</p></details>
@@ -99,9 +99,9 @@ export function CastTool(){
  const [base,setBase]=useState(3),[dex,setDex]=useState(0),[haste,setHaste]=useState(0),[area,setArea]=useState(false);
  const next=castSeconds(base,dex,haste,area);
  return <div className="combat-tool">
-  <div className="combat-tool-heading"><h3>施法急速與 DEX</h3><p>讀條時間不同於技能冷卻。單體與範圍技能使用不同 DEX 係數。</p></div>
+  <div className="combat-tool-heading"><h2>施法急速與 DEX</h2><p>試算技能讀條時間。單體與範圍技能分開算。</p></div>
   <div className="combat-tool-fields"><Field label="基礎施法時間（秒）" value={base} onChange={setBase} step={0.1}/><Field label="目前 DEX" value={dex} onChange={setDex}/><Field label="目前施法急速（%）" value={haste} onChange={setHaste} min={-100}/><label className="combat-field"><span>技能類型</span><select value={area?'area':'single'} onChange={e=>setArea(e.target.value==='area')}><option value="single">單體（DEX 係數 100）</option><option value="area">範圍（DEX 係數 150）</option></select></label></div>
-  <p className="combat-note">基礎施法時間預設 3 秒僅為範例。請輸入技能的基礎施法秒數、目前 DEX，以及適用的施法急速總和（含技能及 Buff，勿重複計入）。</p>
+  <p className="combat-note">3 秒是範例。施法急速填技能與 Buff 的合計，每個來源只算一次。</p>
   <div className="combat-tool-results" aria-live="polite"><Result label="目前施法時間" value={fmt(next)+' 秒'}/><Result label="讀條縮短比例" value={pct(base>0?(1-next/base)*100:0)}/></div>
   <Bars values={[{label:'原始施法時間',value:base},{label:'套用 DEX 與施法急速',value:next}]}/>
   <details className="combat-tool-advanced"><summary>查看公式與限制</summary><p className="combat-formula">施法時間 = 基礎時間 × max(0, 1 − DEX / K) ÷ (1 + max(0, 施法急速) / 100)</p><p>K 為單體 100、範圍 150。按等級變化的基礎施法時間、技能專屬條件與特殊計時需另行核對。</p></details>

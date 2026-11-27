@@ -53,7 +53,7 @@ try{
    await press(sealed);
    await detail.waitFor();
    assert.match(await detail.innerText(),/特殊能力 · 改 5/);
-   assert.match(await detail.innerText(),/發現率 \+5%/);
+   assert.match(await detail.innerText(),/尋寶率 \+5 個百分點/);
    const cardArt=detail.locator('img').first();
    await cardArt.waitFor();
    await cardArt.scrollIntoViewIfNeeded();
@@ -72,7 +72,7 @@ try{
    assert.match(await detail.innerText(),/252 GS/);
 
    await go('?page=combat#discovery');
-   await page.getByText(/原本 20% 同時裝備一般與封印王卡會成為 25%/).waitFor();
+   await page.locator('#discovery').getByText('305%',{exact:true}).waitFor();
    await press(page.getByRole('button',{name:'寵物圖鑑',exact:true}));
    await page.getByLabel('寵物',{exact:true}).selectOption('drops');
    await page.getByLabel('蛋的週目').selectOption('6');

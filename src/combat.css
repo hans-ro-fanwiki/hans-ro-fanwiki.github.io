@@ -3,7 +3,6 @@
 .combat-guide section {scroll-margin-top:6rem;min-width:0}
 .combat-guide p,.combat-compat dd {line-height:1.6}
 .combat-guide p {margin:.5rem 0}
-.combat-intro {color:var(--wiki-muted)}
 .combat-jump {display:flex;flex-wrap:wrap;gap:.5rem 1rem}
 .combat-jump a,.combat-guide-section-link {display:inline-flex;align-items:center;min-height:2.75rem}
 .combat-guide a,.combat-compat a {color:var(--wiki-accent);text-decoration:underline;text-underline-offset:.18em}
@@ -41,8 +40,7 @@
 .combat-deity-list {margin:.3rem 0 .8rem;padding-inline-start:1.25em;line-height:1.6}
 .combat-deity-list li+li {margin-top:.25rem}
 .combat-deity-list li::marker {color:var(--wiki-accent)}
-.combat-tool-intro h2 {font-size:1.4rem}
-.combat-tool-nav {display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.5rem}
+.combat-tool-nav {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.5rem}
 .discovery-faq{display:grid;gap:0;margin:.75rem 0}
 .discovery-faq>div{display:grid;gap:.3rem;padding:.7rem 0;border-bottom:1px solid var(--wiki-border)}
 .discovery-faq dt{font-weight:700;color:var(--wiki-accent)}
@@ -57,7 +55,7 @@
 .combat-guide > section[hidden] {display:none}
 .combat-tool-nav button:focus-visible,.combat-field input:focus-visible,.combat-field select:focus-visible,.combat-slider input:focus-visible {outline:2px solid var(--wiki-accent);outline-offset:2px}
 .combat-tool {display:grid;gap:1rem;border:1px solid var(--wiki-border);border-radius:var(--wiki-radius-control);background:var(--wiki-surface);padding:1rem;min-width:0}
-.combat-tool-heading h3 {margin:0;font-size:1.15rem}
+.combat-tool-heading h2,.combat-tool-heading h3 {margin:0;font-size:1.15rem}
 .combat-tool-heading p {color:var(--wiki-muted);font-size:.9rem;margin:.35rem 0 0}
 .combat-tool-fields {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.75rem}
 .combat-field {display:grid;gap:.3rem;min-width:0;color:var(--wiki-muted);font-size:.83rem}
@@ -94,4 +92,16 @@
   .combat-tool-fields {gap:.65rem}
   .combat-tool-results {grid-template-columns:repeat(2,minmax(0,1fr))}
   .combat-tool-results .combat-tool-result:last-child:nth-child(3) {grid-column:1/-1}
+}
+
+.combat-guide .combat-lead {margin:0 0 .85rem}
+.combat-key-points {margin:.5rem 0 1rem;padding-inline-start:1.2em;line-height:1.6}
+.combat-key-points li+li {margin-top:.25rem}
+.discovery-examples {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:.4rem;margin:.85rem 0}
+.discovery-examples > div {display:grid;grid-template-rows:1fr auto;background:var(--wiki-surface);border:1px solid var(--wiki-border);border-radius:8px;padding:.55rem .6rem}
+.discovery-examples dt {color:var(--wiki-muted);font-size:.8rem;line-height:1.4}
+.discovery-examples dd {color:var(--wiki-accent);margin:.18rem 0 0;font-size:1.25rem;font-weight:700;font-variant-numeric:tabular-nums}
+#discovery .combat-tool-results {grid-template-columns:1fr}
+@media (max-width:480px) {
+ .discovery-examples > div {padding:.45rem}
 }

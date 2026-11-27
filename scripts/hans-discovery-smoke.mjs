@@ -16,18 +16,23 @@ try{
     await page.getByRole('link',{name:'尋寶率與掉落',exact:true}).click();
     const section=page.locator('#discovery');
     await section.waitFor({state:'visible'});
+    assert.match(await section.innerText(),/300%[\s\S]*303%[\s\S]*305%/);
     assert.match(await section.innerText(),/5\.01%/);
-    await section.getByLabel('額外尋寶率（%）').fill('300');
+    assert.equal(await section.locator('details[open]').count(),0);
+    await section.getByLabel('尋寶率總計（%）').fill('300');
     assert.match(await section.innerText(),/7\.48%/);
     await section.getByLabel('最低品質').selectOption('4');
     assert.match(await section.innerText(),/100\.00%/);
-    await section.getByText('王卡、一般怪卡與寵物蛋：真正的掉落率',{exact:true}).click();
+    await section.getByText('卡片與寵物蛋的掉落率',{exact:true}).click();
     assert.match(await section.innerText(),/7\.5%/);
     assert.ok(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1),'overflow '+width);
     await page.getByRole('button',{name:'急速與冷卻',exact:true}).click();
     assert.equal(await section.isVisible(),false);
     assert.equal(await page.locator('#timing').isVisible(),true);
    }
+   await page.goto(base+'?page=combat#abilities');
+   await page.getByRole('link',{name:'看王卡套裝',exact:true}).click();
+   await page.locator('#card-sets[open]').getByLabel('套裝',{exact:true}).waitFor();
    assert.deepEqual(errors,[]);
    console.log('PASS '+width+'px: both links, calculator, FAQ and existing tab');
   }finally{await ctx.close();}

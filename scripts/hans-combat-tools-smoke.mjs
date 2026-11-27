@@ -1,17 +1,18 @@
 import {createServer} from 'vite';
 import {chromium} from 'playwright-core';
 import assert from 'node:assert/strict';
-const server=await createServer({server:{host:'127.0.0.1',port:5199,strictPort:false}});
+const live=process.env.WIKI_SMOKE_URL;
+const server=live?null:await createServer({server:{host:'127.0.0.1',port:5199,strictPort:false}});
 let browser;
 try{
- await server.listen();
- const base='http://127.0.0.1:'+server.httpServer.address().port+'/';
+ await server?.listen();
+ const base=live||'http://127.0.0.1:'+server.httpServer.address().port+'/';
  browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH||'C:/Program Files/Google/Chrome/Application/chrome.exe'});
  for(const width of [320,390,430,1280]){
   const context=await browser.newContext({viewport:{width,height:844},isMobile:width<500,hasTouch:width<500,locale:'zh-TW'});
-  const page=await context.newPage();const errors=[];page.on('pageerror',e=>errors.push(e.message));
+  const page=await context.newPage();page.setDefaultTimeout(12000);const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto(base+'?page=combat',{waitUntil:'domcontentloaded'});
-  const nav=page.getByRole('navigation',{name:'戰鬥機制目錄'});
+  const nav=page.getByRole('navigation',{name:'遊戲機制目錄'});
   const sections=[['timing','急速與冷卻'],['cast','施法急速'],['geometry','範圍與距離'],['defense','承傷與減傷']];
   async function choose(id){
    const label=sections.find(([key])=>key===id)[1];
@@ -27,7 +28,7 @@ try{
   await nav.getByRole('button',{name:'急速與冷卻',exact:true}).waitFor();
   assert.equal(await nav.getByRole('button',{name:'急速與冷卻',exact:true}).getAttribute('aria-pressed'),'true');
   for(const id of ['cast','geometry','defense','timing'])await choose(id);
-  const cd=page.locator('#timing');await cd.getByRole('heading',{name:'急速與冷卻計算機'}).waitFor();
+  const cd=page.locator('#timing');await cd.getByRole('heading',{name:'急速與冷卻',exact:true}).waitFor();
   const res=cd.locator('.combat-tool-result');
   assert.equal(await cd.getByLabel('目前急速（%）').inputValue(),'0');
   assert.equal(await cd.getByLabel('額外增加急速（%）').inputValue(),'0');
@@ -59,6 +60,9 @@ try{
   await cast.getByRole('combobox').selectOption('area');assert.match(await cast.locator('.combat-tool-result').first().innerText(),/1\.6 秒/);
   await choose('defense');
   const defense=page.locator('#defense');
+  assert.equal(await defense.locator('details[open]').count(),0);
+  await defense.getByText('護甲、減傷與 DEF 的分工',{exact:true}).click();
+  assert.equal(await defense.locator('.combat-defenses').isVisible(),true);
   for(const label of ['目前護甲（含 Buff）','原始減傷加總（%）','目前暫時減傷（%）','目前 DEF'])assert.equal(await defense.getByLabel(label,{exact:true}).inputValue(),'0');
   assert.match(await defense.locator('.combat-tool-result').first().innerText(),/100/);
   await defense.getByLabel('目前護甲（含 Buff）').fill('10');
@@ -92,14 +96,14 @@ try{
   await page.goto(base+'?page=experience',{waitUntil:'domcontentloaded'});
   const xp=page.getByRole('region',{name:'經驗計算機'});
   await xp.getByLabel('目前 Base Lv').waitFor();
-  assert.equal(await xp.getByLabel('怪物數量（遊戲設定 %）').inputValue(),'100');
-  assert.equal(await xp.getByLabel('事件數量（遊戲設定 %）').inputValue(),'100');
-  assert.match(await xp.innerText(),/每場額外耗時 45 秒/);
+  assert.equal(await xp.getByLabel('怪物數量（遊戲設定 %）').inputValue(),'2000');
+  assert.equal(await xp.getByLabel('事件數量（遊戲設定 %）').inputValue(),'2000');
+  assert.match(await xp.innerText(),/單場 Base 經驗排行/);
   await xp.getByLabel('目前 Base Lv').fill('50');
   await xp.getByText(/比較怪物與事件倍率 ·/).click();
-  assert.match(await xp.innerText(),/示例 200%/);
-  assert.equal(await xp.getByLabel('怪物數量（遊戲設定 %）').inputValue(),'100');
+  assert.match(await xp.getByRole('row',{name:/目前試算設定/}).innerText(),/20×／20×/);
+  assert.equal(await xp.getByLabel('怪物數量（遊戲設定 %）').inputValue(),'2000');
   assert.deepEqual(errors,[]);
   await context.close();console.log('PASS',width,'px, navigation, neutral calculator defaults, calculation results, XP assumptions, no page errors');
  }
-}finally{await browser?.close();await server.close();}
+}finally{await browser?.close();await server?.close();}
