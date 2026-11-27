@@ -13,6 +13,9 @@
 .balance-table td{font-size:.9rem;overflow-wrap:anywhere}
 .balance-table th[scope=row] small{display:block;color:var(--wiki-muted);font-weight:400;margin-top:3px}
 .balance-modifiers+.balance-table{margin-top:12px}
+.balance-boss-job{margin:12px 0 18px}
+.balance-boss-job h3{font-size:.95rem;margin:0 0 6px;color:var(--wiki-text)}
+.balance-boss-table td:last-child{color:var(--wiki-accent);font-weight:650}
 .balance-table a,.balance-notes a{color:var(--wiki-accent)}
 .balance-job-label{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 8px}
 .balance-job-label small{color:var(--wiki-muted);font-weight:400}

@@ -1,8 +1,520 @@
 {
-  "checkedAt": "2026-11-25",
+  "checkedAt": "2026-11-27",
   "releases": [
     {
-      "version": "0.15.1",
+      "version": "0.16.0",
+      "date": "2026-11-27",
+      "title": "三轉技能首領／菁英傷害強化",
+      "notes": [
+        "13 個三轉職業共 67 招登錄專屬首領／菁英倍率；遊俠、盧恩騎士、獵靈士不變。一般怪傷害不套用此倍率。原公告漏列回響與瓦雷特之矛，已依新版客戶端補齊。",
+        "倍率只適用於相應職業及技能來源的傷害；不等於技能治療量、召喚物所有攻擊或最終 DPS。244 招技能原基礎冷卻、基礎傷害與登錄說明未變。",
+        "依官方公告，修復團隊副本王顯示 0% 卻無法結束的問題，以及 11/26 部分玩家無法進場的問題；11/27 當日副本次數重置。",
+        "改善 iPhone 加入主畫面的頂端狀態列遮擋、低特效模式與遠征計時器顯示，並改善伺服器穩定性及連線。加開帳號名額已額滿。",
+        "第二主城斐揚與第三章為預告，並非已開放；未新增掉落資料。"
+      ],
+      "snapshots": [
+        "V0.15.1",
+        "V0.16.0"
+      ],
+      "changes": [],
+      "families": [
+        {
+          "id": "swordsman",
+          "name": "劍士系",
+          "jobs": [
+            {
+              "id": "royal_guard",
+              "name": "皇家禁衛隊",
+              "rank": 3,
+              "skillIds": [],
+              "bossSkills": [
+                {
+                  "id": "cannon_spear",
+                  "name": "加農矛",
+                  "multiplier": 4.01
+                },
+                {
+                  "id": "earth_drive",
+                  "name": "大地衝擊",
+                  "multiplier": 5.17
+                },
+                {
+                  "id": "genesis_ray",
+                  "name": "創世之光",
+                  "multiplier": 5.17
+                },
+                {
+                  "id": "shield_press",
+                  "name": "盾壓",
+                  "multiplier": 2.43
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "mage",
+          "name": "魔法師系",
+          "jobs": [
+            {
+              "id": "sorcerer",
+              "name": "妖術師",
+              "rank": 3,
+              "skillIds": [],
+              "bossSkills": [
+                {
+                  "id": "diamond_dust",
+                  "name": "鑽石星塵",
+                  "multiplier": 27.45
+                },
+                {
+                  "id": "elemental_spirit",
+                  "name": "元素精靈",
+                  "multiplier": 1.72
+                },
+                {
+                  "id": "fire_walk",
+                  "name": "火焰步道",
+                  "multiplier": 27.45
+                },
+                {
+                  "id": "psychic_wave",
+                  "name": "念力波",
+                  "multiplier": 27.05
+                },
+                {
+                  "id": "vacuum_extreme",
+                  "name": "真空極限",
+                  "multiplier": 27.05
+                },
+                {
+                  "id": "varetyr_spear",
+                  "name": "瓦雷特之矛",
+                  "multiplier": 1.01
+                }
+              ]
+            },
+            {
+              "id": "warlock",
+              "name": "咒術士",
+              "rank": 3,
+              "skillIds": [],
+              "bossSkills": [
+                {
+                  "id": "comet",
+                  "name": "彗星術",
+                  "multiplier": 6.15
+                },
+                {
+                  "id": "crimson_rock",
+                  "name": "赤紅岩石",
+                  "multiplier": 6.15
+                },
+                {
+                  "id": "frost_misty",
+                  "name": "冰霜之霧",
+                  "multiplier": 24.07
+                },
+                {
+                  "id": "jack_frost",
+                  "name": "傑克冰霜",
+                  "multiplier": 24.07
+                },
+                {
+                  "id": "summon_spheres",
+                  "name": "元素法球",
+                  "multiplier": 17.44
+                },
+                {
+                  "id": "tetra_vortex",
+                  "name": "四重漩渦",
+                  "multiplier": 13.36
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "archer",
+          "name": "弓箭手系",
+          "jobs": [
+            {
+              "id": "minstrel",
+              "name": "宮廷樂師／浪姬舞者",
+              "rank": 3,
+              "skillIds": [],
+              "bossSkills": [
+                {
+                  "id": "great_echo",
+                  "name": "大回聲",
+                  "multiplier": 57.88
+                },
+                {
+                  "id": "metallic_sound",
+                  "name": "金屬之音",
+                  "multiplier": 5.34
+                },
+                {
+                  "id": "reverberation",
+                  "name": "回響",
+                  "multiplier": 1.02
+                },
+                {
+                  "id": "severe_rainstorm",
+                  "name": "嚴酷暴雨",
+                  "multiplier": 9.21
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "acolyte",
+          "name": "服事系",
+          "jobs": [
+            {
+              "id": "arch_bishop",
+              "name": "大主教",
+              "rank": 3,
+              "skillIds": [],
+              "bossSkills": [
+                {
+                  "id": "adoramus",
+                  "name": "讚頌",
+                  "multiplier": 7.43
+                },
+                {
+                  "id": "epiclesis",
+                  "name": "聖樹降臨",
+                  "multiplier": 87.64
+                },
+                {
+                  "id": "highness_heal",
+                  "name": "至高治癒",
+                  "multiplier": 87.64
+                },
+                {
+                  "id": "judex",
+                  "name": "審判之光",
+                  "multiplier": 12.09
+                },
+                {
+                  "id": "oratio",
+                  "name": "神聖祈禱",
+                  "multiplier": 12.09
+                }
+              ]
+            },
+            {
+              "id": "sura",
+              "name": "修羅",
+              "rank": 3,
+              "skillIds": [],
+              "bossSkills": [
+                {
+                  "id": "howling_of_lion",
+                  "name": "獅子吼",
+                  "multiplier": 28.34
+                },
+                {
+                  "id": "knuckle_arrow",
+                  "name": "拳之箭",
+                  "multiplier": 1.89
+                },
+                {
+                  "id": "rampage_blaster",
+                  "name": "狂暴爆破",
+                  "multiplier": 28.34
+                },
+                {
+                  "id": "skynet_blow",
+                  "name": "天羅地網",
+                  "multiplier": 8.04
+                },
+                {
+                  "id": "tiger_cannon",
+                  "name": "虎砲",
+                  "multiplier": 1.13
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "thief",
+          "name": "盜賊系",
+          "jobs": [
+            {
+              "id": "guillotine_cross",
+              "name": "十字斬首者",
+              "rank": 3,
+              "skillIds": [],
+              "bossSkills": [
+                {
+                  "id": "cross_impact",
+                  "name": "十字衝擊",
+                  "multiplier": 2.42
+                },
+                {
+                  "id": "cross_ripper_slasher",
+                  "name": "十字撕裂斬",
+                  "multiplier": 3.92
+                },
+                {
+                  "id": "dark_claw",
+                  "name": "暗黑之爪",
+                  "multiplier": 2.42
+                },
+                {
+                  "id": "poison_smoke",
+                  "name": "毒霧",
+                  "multiplier": 23.72
+                },
+                {
+                  "id": "rolling_cutter",
+                  "name": "迴旋斬",
+                  "multiplier": 3.92
+                }
+              ]
+            },
+            {
+              "id": "shadow_chaser",
+              "name": "魅影追蹤者",
+              "rank": 3,
+              "skillIds": [],
+              "bossSkills": [
+                {
+                  "id": "fatal_menace",
+                  "name": "致命威脅",
+                  "multiplier": 11.23
+                },
+                {
+                  "id": "feint_bomb",
+                  "name": "假爆彈",
+                  "multiplier": 11.23
+                },
+                {
+                  "id": "reproduce",
+                  "name": "複製",
+                  "multiplier": 8.21
+                },
+                {
+                  "id": "triangle_shot",
+                  "name": "三角射擊",
+                  "multiplier": 2.42
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "merchant",
+          "name": "商人系",
+          "jobs": [
+            {
+              "id": "genetic",
+              "name": "基因學者",
+              "rank": 3,
+              "skillIds": [],
+              "bossSkills": [
+                {
+                  "id": "acid_demonstration",
+                  "name": "強酸火煙瓶",
+                  "multiplier": 3.92
+                },
+                {
+                  "id": "cart_cannon",
+                  "name": "推車砲",
+                  "multiplier": 10.12
+                },
+                {
+                  "id": "cart_tornado",
+                  "name": "推車龍捲風",
+                  "multiplier": 10.12
+                },
+                {
+                  "id": "hells_plant",
+                  "name": "地獄之花",
+                  "multiplier": 2.75
+                },
+                {
+                  "id": "mandragora_howl",
+                  "name": "曼陀羅之嚎",
+                  "multiplier": 2.75
+                },
+                {
+                  "id": "spore_explosion",
+                  "name": "孢子爆炸",
+                  "multiplier": 1.04
+                }
+              ]
+            },
+            {
+              "id": "mechanic",
+              "name": "機械工匠",
+              "rank": 3,
+              "skillIds": [],
+              "bossSkills": [
+                {
+                  "id": "arms_cannon",
+                  "name": "臂砲",
+                  "multiplier": 18.36
+                },
+                {
+                  "id": "cold_slower",
+                  "name": "冷凍彈",
+                  "multiplier": 18.36
+                },
+                {
+                  "id": "flame_launcher",
+                  "name": "火焰噴射器",
+                  "multiplier": 10.55
+                },
+                {
+                  "id": "silver_sniper",
+                  "name": "自走砲台：銀色狙擊手",
+                  "multiplier": 1.89
+                },
+                {
+                  "id": "vulcan_arm",
+                  "name": "機關砲臂",
+                  "multiplier": 1.89
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "taekwon",
+          "name": "跆拳少年系",
+          "jobs": [
+            {
+              "id": "star_emperor",
+              "name": "星帝",
+              "rank": 3,
+              "skillIds": [],
+              "bossSkills": [
+                {
+                  "id": "flash_kick",
+                  "name": "閃光踢",
+                  "multiplier": 4.21
+                },
+                {
+                  "id": "gravity_control",
+                  "name": "重力控制",
+                  "multiplier": 53.77
+                },
+                {
+                  "id": "nova_explosion",
+                  "name": "新星爆炸",
+                  "multiplier": 1.06
+                },
+                {
+                  "id": "prominence_kick",
+                  "name": "日珥踢",
+                  "multiplier": 22.76
+                },
+                {
+                  "id": "star_emperor_advent",
+                  "name": "星帝降臨",
+                  "multiplier": 53.77
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ninja",
+          "name": "忍者系",
+          "jobs": [
+            {
+              "id": "kagerou_rank3",
+              "name": "影狼／朧（三轉）",
+              "rank": 3,
+              "skillIds": [],
+              "bossSkills": [
+                {
+                  "id": "cross_slash",
+                  "name": "十字斬",
+                  "multiplier": 2.07
+                },
+                {
+                  "id": "kunai_explosion",
+                  "name": "爆裂苦無",
+                  "multiplier": 8.43
+                },
+                {
+                  "id": "kunai_splash",
+                  "name": "八方苦無",
+                  "multiplier": 8.43
+                },
+                {
+                  "id": "shadow_warrior",
+                  "name": "影武者",
+                  "multiplier": 2.07
+                },
+                {
+                  "id": "spirit_charm",
+                  "name": "符咒・炎天",
+                  "multiplier": 3.56
+                },
+                {
+                  "id": "swirling_petal",
+                  "name": "風魔花亂",
+                  "multiplier": 3.56
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": "gunslinger",
+          "name": "神槍手系",
+          "jobs": [
+            {
+              "id": "rebellion_rank3",
+              "name": "反叛者（三轉）",
+              "rank": 3,
+              "skillIds": [],
+              "bossSkills": [
+                {
+                  "id": "crimson_marker",
+                  "name": "緋紅標記",
+                  "multiplier": 5.13
+                },
+                {
+                  "id": "dragon_tail",
+                  "name": "龍尾",
+                  "multiplier": 1.01
+                },
+                {
+                  "id": "fire_dance",
+                  "name": "烈火之舞",
+                  "multiplier": 6.71
+                },
+                {
+                  "id": "hammer_of_god",
+                  "name": "神之雷鎚",
+                  "multiplier": 3.92
+                },
+                {
+                  "id": "howling_mine",
+                  "name": "嚎叫地雷",
+                  "multiplier": 3.92
+                },
+                {
+                  "id": "round_trip",
+                  "name": "往返射擊",
+                  "multiplier": 6.71
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "version": "0.15.2",
       "date": "2026-11-25",
       "title": "能力點、減傷、閃避與爆擊熱修",
       "notes": [
@@ -10,7 +522,8 @@
         "自身減傷改為遞減：原始減傷加總 R（百分點）轉換為 85% × R ÷ (R + 40)。一般減傷增益最多 80%，再與自身減傷相乘計算剩餘傷害；合計上限 PvE 85%、PvP／公會戰 70%，特殊格擋另計。",
         "自身閃避上限 50%；含增益後 PvE 75%、PvP／公會戰 50%。",
         "爆擊率超過 100% 的部分，每多 1 個百分點增加 5 個百分點爆擊傷害，PvP／公會戰為 2.5 個百分點。",
-        "卡片說明視窗縮小。已核對新版客戶端的 244 招圖鑑技能登錄，未發現基礎冷卻、基礎傷害或登錄文字的變動。"
+        "卡片說明視窗縮小，修正遠征戰利品未入帳（已補發）及改⁵卡片誤降回原卡；特效選項、裝備分數顯示與轉生開局加成改善。",
+        "11/27 官網歷史公告將本次熱修列為 V0.15.2；11/25 保存的客戶端仍標 V0.15.1。244 招技能登錄的基礎冷卻、基礎傷害與文字無變動。"
       ],
       "snapshots": [
         "V0.14.5",

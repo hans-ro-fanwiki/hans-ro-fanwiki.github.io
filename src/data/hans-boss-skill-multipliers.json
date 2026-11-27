@@ -1,0 +1,100 @@
+{
+  "version": "0.16.0",
+  "reviewedAt": "2026-11-27",
+  "sha256": "62619d5f16cb0b8400d43a7efd64de32cf21240784cb3ee14372252d2910146b",
+  "jobs": {
+    "arch_bishop": {
+      "adoramus": 7.43,
+      "epiclesis": 87.64,
+      "highness_heal": 87.64,
+      "judex": 12.09,
+      "oratio": 12.09
+    },
+    "genetic": {
+      "acid_demonstration": 3.92,
+      "cart_cannon": 10.12,
+      "cart_tornado": 10.12,
+      "hells_plant": 2.75,
+      "mandragora_howl": 2.75,
+      "spore_explosion": 1.04
+    },
+    "guillotine_cross": {
+      "cross_impact": 2.42,
+      "cross_ripper_slasher": 3.92,
+      "dark_claw": 2.42,
+      "poison_smoke": 23.72,
+      "rolling_cutter": 3.92
+    },
+    "kagerou_rank3": {
+      "cross_slash": 2.07,
+      "kunai_explosion": 8.43,
+      "kunai_splash": 8.43,
+      "shadow_warrior": 2.07,
+      "spirit_charm": 3.56,
+      "swirling_petal": 3.56
+    },
+    "mechanic": {
+      "arms_cannon": 18.36,
+      "cold_slower": 18.36,
+      "flame_launcher": 10.55,
+      "silver_sniper": 1.89,
+      "vulcan_arm": 1.89
+    },
+    "minstrel": {
+      "great_echo": 57.88,
+      "metallic_sound": 5.34,
+      "reverberation": 1.02,
+      "severe_rainstorm": 9.21
+    },
+    "rebellion_rank3": {
+      "crimson_marker": 5.13,
+      "dragon_tail": 1.01,
+      "fire_dance": 6.71,
+      "hammer_of_god": 3.92,
+      "howling_mine": 3.92,
+      "round_trip": 6.71
+    },
+    "royal_guard": {
+      "cannon_spear": 4.01,
+      "earth_drive": 5.17,
+      "genesis_ray": 5.17,
+      "shield_press": 2.43
+    },
+    "shadow_chaser": {
+      "fatal_menace": 11.23,
+      "feint_bomb": 11.23,
+      "reproduce": 8.21,
+      "triangle_shot": 2.42
+    },
+    "sorcerer": {
+      "diamond_dust": 27.45,
+      "elemental_spirit": 1.72,
+      "fire_walk": 27.45,
+      "psychic_wave": 27.05,
+      "vacuum_extreme": 27.05,
+      "varetyr_spear": 1.01
+    },
+    "star_emperor": {
+      "flash_kick": 4.21,
+      "gravity_control": 53.77,
+      "nova_explosion": 1.06,
+      "prominence_kick": 22.76,
+      "star_emperor_advent": 53.77
+    },
+    "sura": {
+      "howling_of_lion": 28.34,
+      "knuckle_arrow": 1.89,
+      "rampage_blaster": 28.34,
+      "skynet_blow": 8.04,
+      "tiger_cannon": 1.13
+    },
+    "warlock": {
+      "comet": 6.15,
+      "crimson_rock": 6.15,
+      "frost_misty": 24.07,
+      "jack_frost": 24.07,
+      "summon_spheres": 17.44,
+      "tetra_vortex": 13.36
+    }
+  }
+}

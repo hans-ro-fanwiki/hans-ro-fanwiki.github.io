@@ -6,6 +6,9 @@ const assert = require('node:assert/strict');
 const releases = require('../docs/HANS_BALANCE_RELEASES.json');
 const audit = require('../docs/HANS_SOURCE_AUDIT.json');
 const current = require('../public/data/skills.json');
+const bossBalance = require('../src/data/hans-boss-skill-multipliers.json');
+const latestOnly = process.argv.includes('--latest-only');
+const previous = latestOnly ? require('../public/data/balance.json') : null;
 const root = path.resolve(__dirname,'..');
 const evidenceFlag = process.argv.indexOf('--evidence');
 const evidence = evidenceFlag < 0 ? path.join(root,'evidence') : process.argv[evidenceFlag+1];
@@ -48,7 +51,7 @@ function rootJob(job) {
   return job.id;
 }
 const familyJobs=new Map(roots.map(root=>[root.id,current.jobs.filter(job=>rootJob(job)===root.id)]));
-function groupByFamily(changes,jobDamage={}) {
+function groupByFamily(changes,jobDamage={},bossSkills={}) {
   const changed=new Set(changes.map(skill=>skill.id));
   for(const [id,multiplier] of Object.entries(jobDamage))
     assert.ok(jobs.has(id)&&Number.isFinite(multiplier)&&multiplier>1,'Invalid HANS job damage: '+id);
@@ -56,7 +59,8 @@ function groupByFamily(changes,jobDamage={}) {
     const jobs=familyJobs.get(root.id).flatMap(({id,name,rank,skills})=>{
       const skillIds=skills.filter(skillId=>changed.has(skillId));
       const damage=jobDamage[id];
-      return skillIds.length||damage ? [{id,name,rank,skillIds,...damage&&{damage:[1,damage]}}] : [];
+      const boss=bossSkills[id];
+      return skillIds.length||damage||boss ? [{id,name,rank,skillIds,...damage&&{damage:[1,damage]},...boss&&{bossSkills:Object.entries(boss).map(([skillId,multiplier])=>({id:skillId,name:current.skills.find(skill=>skill.id===skillId).name,multiplier}))}}] : [];
     });
     return jobs.length ? [{id:root.id,name:root.name+'系',jobs}] : [];
   });
@@ -64,12 +68,19 @@ function groupByFamily(changes,jobDamage={}) {
 assert.equal(current.source.sha256,audit.skillsSoul.sha256);
 const output = {
   checkedAt:current.reviewedAt,
-  releases:releases.map(({before,after,jobDamage,...release}) => {
+  releases:releases.map(({before,after,jobDamage,bossSkills,...release},index) => {
+    if(latestOnly&&index>0){
+      // Reuse already reviewed historical projections when old local source files are unavailable.
+      const cached=previous.releases.find(r=>r.version===release.version||(release.version==='0.15.2'&&r.version==='0.15.1'&&r.date===release.date));
+      assert.ok(cached&&cached.date===release.date,'Missing historical projection '+release.version);
+      return {...cached,...release};
+    }
+    if(bossSkills)assert.equal(release.version,bossBalance.version);
     const changes = compare({...release,before,after});
     return {
       ...release,
       ...(before && after ? {snapshots:[before,after].map(i=>versions[i-1].version ? 'V'+versions[i-1].version : versions[i-1].date)} : {}),
-      changes, families:groupByFamily(changes,jobDamage)
+      changes, families:groupByFamily(changes,jobDamage,bossSkills?bossBalance.jobs:{})
     };
   })
 };

@@ -1,11 +1,11 @@
 {
   "server": "hans",
   "schemaVersion": 1,
-  "reviewedAt": "2026-11-25",
+  "reviewedAt": "2026-11-27",
   "source": {
-    "sha256": "f5dab8dc8f4c3a207ea6cbddb7e719ecb837fb29f93d8f008cd52a172e37bcad",
-    "relativeFile": "soul_linker-DllBVIRO.hzffce8ada.js",
-    "version": "0.15.1"
+    "sha256": "77d8daed777e72f0b999ff1d8e68cf5d8ccfb5915fced9280bce3e7a6f26194b",
+    "relativeFile": "soul_linker-DllBVIRO.hz77006d70.js",
+    "version": "0.16.0"
   },
   "policy": "HANS audited skill registry and reviewed Traditional Chinese summaries. Base values exclude character and talent modifiers.",
   "jobs": [

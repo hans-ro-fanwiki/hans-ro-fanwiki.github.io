@@ -13,6 +13,7 @@ interface BalanceJob {
  rank:number;
  skillIds:string[];
  damage?:[number,number];
+ bossSkills?:{id:string;name:string;multiplier:number}[];
 }
 interface Family {
  id:string;
@@ -53,6 +54,13 @@ function FamilyChanges({family,skills}:{family:Family;skills:SkillChange[]}) {
   {!!modifiers.length&&<ul className="balance-modifiers" aria-label={family.name+"職業傷害"}>
    {modifiers.map(job=><li key={job.id}><JobLabel job={job}/></li>)}
   </ul>}
+  {family.jobs.filter(job=>job.bossSkills?.length).map(job=><section key={job.id} className="balance-boss-job">
+   <h3>{job.name} · 首領／菁英</h3>
+   <table className="balance-table balance-boss-table" aria-label={job.name+'首領及菁英倍率'}>
+    <thead><tr><th scope="col">技能</th><th scope="col">更新前</th><th scope="col">更新後</th></tr></thead>
+    <tbody>{job.bossSkills!.map(skill=><tr key={skill.id}><th scope="row"><a href={'?'+new URLSearchParams({page:'skills',sj:job.id,sk:skill.id})}>{skill.name}</a></th><td>×1</td><td>×{skill.multiplier}</td></tr>)}</tbody>
+   </table>
+  </section>)}
   {!!owners.size&&<table className="balance-table" aria-label={family.name+"技能變動"}>
    <thead><tr><th scope="col">技能</th><th scope="col">基礎冷卻</th><th scope="col">基礎傷害</th></tr></thead>
    <tbody>{skills.filter(skill=>owners.has(skill.id)).map(skill=>{
@@ -105,10 +113,11 @@ export function BalanceHistory() {
      onClick={()=>setFamilyId(entry.id)}>{entry.name}</button>)}
    </div>
    <FamilyChanges family={family} skills={release.changes}/>
+   {family.jobs.some(job=>job.bossSkills?.length)&&<p className="balance-source">此倍率只套用該職業對首領或菁英怪造成的指定技能來源傷害；一般怪不變，並非治療量或最終 DPS 倍率。</p>}
    {family.jobs.some(job=>job.skillIds.length>0)&&
     <p className="balance-source">數值為更新前 → 更新後。實戰傷害另受角色屬性、天賦與整體傷害倍率影響。</p>}
   </section>}
-  <details className="balance-notes" key={release.version} open={!family}>
+  <details className="balance-notes" key={release.version} open={!family||release.version==='0.16.0'}>
    <summary>版本公告與來源</summary>
    <ul>{release.notes.map(note=><li key={note}>{note}</li>)}</ul>
    {release.snapshots&&<p className="balance-source">客戶端快照 {release.snapshots.join(' → ')}</p>}

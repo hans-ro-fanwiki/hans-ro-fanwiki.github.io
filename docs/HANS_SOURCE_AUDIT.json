@@ -40,12 +40,26 @@
     },
     "scope": "RO_SCAP mitigation, flee, critical overflow and allocation announcement; catalog and skill compatibility retain independent baselines."
   },
+  "bossSkillBalance": {
+    "date": "2026-11-27",
+    "version": "0.16.0",
+    "directory": "hans-20261127",
+    "main": {
+      "file": "main-BNOcv2PN.hz102c6cdf.js",
+      "sha256": "62619d5f16cb0b8400d43a7efd64de32cf21240784cb3ee14372252d2910146b"
+    },
+    "manifest": {
+      "file": "manifest.json",
+      "sha256": "e3ed4e670d74a851ced88aba9fc633a62ffb1e1d479ff2dec16df33b759ca7f3"
+    },
+    "scope": "RO_JOBMULT.S target-specific multiplier; separate from the overall M table and the skill base damage."
+  },
   "skillsSoul": {
-    "file": "soul_linker-DllBVIRO.hzffce8ada.js",
-    "sha256": "f5dab8dc8f4c3a207ea6cbddb7e719ecb837fb29f93d8f008cd52a172e37bcad",
-    "date": "2026-11-25",
-    "version": "0.15.1",
-    "directory": "hans-20261125"
+    "file": "soul_linker-DllBVIRO.hz77006d70.js",
+    "sha256": "77d8daed777e72f0b999ff1d8e68cf5d8ccfb5915fced9280bce3e7a6f26194b",
+    "date": "2026-11-27",
+    "version": "0.16.0",
+    "directory": "hans-20261127"
   },
   "snapshotDirectory": "evidence/hans-20261122",
   "skillHistory": [
@@ -80,6 +94,13 @@
       "date": "2026-11-22",
       "version": "0.14.5",
       "directory": "hans-v0.14.5"
+    },
+    {
+      "file": "soul_linker-DllBVIRO.hzffce8ada.js",
+      "sha256": "f5dab8dc8f4c3a207ea6cbddb7e719ecb837fb29f93d8f008cd52a172e37bcad",
+      "date": "2026-11-25",
+      "version": "0.15.1",
+      "directory": "hans-20261125"
     }
   ]
 }

@@ -1,6 +1,6 @@
 # HANS 技能與平衡紀錄
 
-技能圖鑑使用 HANS 2026-11-25 V0.15.1 熱修客戶端。244 招技能登錄及已投影的基礎數值與 V0.14.5 相同，保留原人工中文說明。遊戲資料的 SHA-256、檔名與歷史快照列在 `HANS_SOURCE_AUDIT.json`。資料只經靜態解析，原始客戶端保存在本機證據目錄。
+技能圖鑑使用 HANS 2026-11-27 V0.16.0 客戶端。244 招技能登錄及已投影的基礎數值與 11/25 快照完全相同，保留原人工中文說明。新版首領／菁英技能倍率獨立於基礎值，見 [V0.16.0 審核](HANS_BOSS_BALANCE_20261127.md)。遊戲資料的 SHA-256、檔名與歷史快照列在 `HANS_SOURCE_AUDIT.json`。資料只經靜態解析，原始客戶端保存在本機證據目錄。
 
 ## 技能圖鑑
 
@@ -14,6 +14,6 @@
 1. 核對 HANS 原站「最新消息」及新版客戶端。將審核用版本檔放在 Git 忽略的 `evidence/<版本目錄>`，更新技能來源 SHA 和日期。保留舊快照，將需要比對的舊版加入 `skillHistory`。
 2. 檢查 `HANS_SKILL_DESCRIPTIONS.json` 的人工整理文字和數值，更新 SHA。用 `node scripts/import-hans-skills.cjs --write` 重建技能圖鑑。
 3. 在 `HANS_BALANCE_RELEASES.json` 新增原站公告摘要。能取得兩份已審核快照時，設定 `before` 和 `after`，對應 `skillHistory` 及目前技能快照（合併後從 1 起算）的位置。只取得公告的版本可省略這兩欄。
-4. 執行 `node scripts/build-hans-balance.cjs` 更新網站，再執行 TypeScript、單元測試及正式版建置檢查。既有來源監控會在 HANS 快照變動時通知人工審核。
+4. 如有首領／菁英專屬倍率，先依新 SHA 審核並執行 `node scripts/import-hans-boss-balance.cjs`。執行 `node scripts/build-hans-balance.cjs` 更新網站（舊快照缺失時可用 `--latest-only` 保留已審核歷史投影，只重算最新一版），再執行 TypeScript、單元測試及正式版建置檢查。既有來源監控會在 HANS 快照變動時通知人工審核。
 
 V0.14.3 的比較使用 11/20 至 11/21 兩份快照，V0.14.1 使用 11/19 至 11/20。早期版本使用 HANS 公告當作歷史來源。冷卻或傷害欄位的空值表示該欄沒有列出可確認的變動。

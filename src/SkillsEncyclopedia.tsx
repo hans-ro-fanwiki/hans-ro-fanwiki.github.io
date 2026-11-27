@@ -5,6 +5,7 @@ import type {CareerRoute,Skill,SkillCatalog,SkillJob} from './skills';
 import {careerRoutes,routeForJob,routeForSkill,RANK_LABELS,searchSkillName,SKILL_TAGS} from './skills';
 import './skills.css';
 import {SkillCompatibility} from './CombatGuide';
+import bossBalance from './data/hans-boss-skill-multipliers.json';
 
 type SkillChange={skillJob?:string;skillRank?:number;query?:string;skillId?:string|null};
 type Props={
@@ -65,7 +66,9 @@ function CareerPicker({jobs,route,onPick}:{jobs:SkillJob[];route:CareerRoute|nul
  </section>;
 }
 
-function SkillDetail({skill,reviewedAt}:{skill:Skill;reviewedAt:string}){
+function SkillDetail({skill,reviewedAt,jobs}:{skill:Skill;reviewedAt:string;jobs:SkillJob[]}){
+ const modifiers=bossBalance.jobs as Record<string,Record<string,number>>;
+ const bossJobs=jobs.filter(job=>modifiers[job.id]?.[skill.id]!=null);
  const labels=[...new Set(skill.tags.map(x=>SKILL_TAGS[x]).filter((x):x is string=>Boolean(x)))];
  return <div className="sk-detail">
   <div className="sk-detail-head">
@@ -80,6 +83,11 @@ function SkillDetail({skill,reviewedAt}:{skill:Skill;reviewedAt:string}){
   {skill.description?<div className="sk-description"><b>技能介紹</b><p>{skill.description}</p></div>:
    <div className="sk-description sk-limited"><b>技能介紹尚待補齊</b><p>目前審核的 HANS 資料沒有可直接核實的繁體中文效果說明；僅列出已登錄的名稱、圖示與可確認的技能資訊。</p></div>}
   {skill.upgradeDescription&&<div className="sk-description"><b>升級效果</b><p>{skill.upgradeDescription}</p></div>}
+  {!!bossJobs.length&&<div className="sk-description">
+   <b>首領／菁英傷害倍率 · V{bossBalance.version}</b>
+   {bossJobs.map(job=><p key={job.id}>{job.name}：×{modifiers[job.id][skill.id]}</p>)}
+   <p className="sk-source-note">限此職業對首領或菁英怪的指定技能來源傷害，一般怪不變；不代表治療量、所有召喚物攻擊或最終 DPS。</p>
+  </div>}
   <SkillCompatibility skillId={skill.id} skillName={skill.name}/>
   {(skill.cooldown!==null||skill.baseDamage!=null)&&<p className="sk-source-note">基礎值會受技能等級、角色屬性與天賦等效果影響。</p>}
   <p className="sk-source-note">{skill.translationState==='wiki-zh'?'依 HANS 效果整理':'HANS 遊戲資料'} · {reviewedAt}</p>
@@ -182,7 +190,7 @@ export function SkillsEncyclopedia({jobId,rank,query,selectedId,onChange}:Props)
         <span className="sk-result-copy"><strong>{skill.name}</strong><small>{skill.description||skill.originalName}{skill.cooldown!==null?' · 冷卻 '+skill.cooldown+'s':''}</small></span>
         <ChevronDown size={18} className={selectedId===skill.id?'sk-rotated':''}/>
        </button>
-       {selectedId===skill.id&&<SkillDetail skill={skill} reviewedAt={data.source.version ? data.reviewedAt+" · V"+data.source.version : data.reviewedAt}/>}
+       {selectedId===skill.id&&<SkillDetail skill={skill} jobs={data.jobs} reviewedAt={data.source.version ? data.reviewedAt+" · V"+data.source.version : data.reviewedAt}/>}
       </div>)}
      </div>
     </section>)}
