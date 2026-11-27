@@ -6,11 +6,11 @@ type Monster = {level:number;exp:number};
 type Advancement = 'first'|'expanded'|'second'|'third';
 export type ExperienceOptions = {
   baseLevel:number;jobLevel:number;advancement:Advancement;maxLap:number;gs?:number;season:boolean;
-  count:number;events:number;killsPerMinute?:number;extraSeconds:number;serverExp:number;
-  clearFraction?:number;gameSpeed?:number;baseProgress?:number;jobProgress?:number;
+  count:number;events:number;serverExp:number;
+  baseProgress?:number;jobProgress?:number;
 };
 export const defaultExperienceOptions:ExperienceOptions = {
-  baseLevel:50,jobLevel:1,advancement:'first',maxLap:1,season:true,count:1,events:1,extraSeconds:45,serverExp:1,
+  baseLevel:60,jobLevel:1,advancement:'first',maxLap:1,season:true,count:20,events:20,serverExp:1,
 };
 
 const monsters:Record<string,Monster> = data.monsters;
@@ -73,16 +73,14 @@ function nextJob(level:number){
 }
 
 export function estimateExperience(stage:ExperienceStage,lap:number,options:ExperienceOptions){
-  const {baseLevel,jobLevel,advancement,count,events,killsPerMinute,extraSeconds,serverExp}=options;
+  const {baseLevel,jobLevel,advancement,count,events,serverExp}=options;
   const rule=lapExperience(stage,lap);
   const jobRank=advancement==='third'?3:advancement==='second'?2:1;
   const jobMax=advancement==='expanded'?70:data.job.levels[jobRank];
   const softCap=rule.cap*jobMax/50;
   const jobScale=stage.jobExp*data.job.scale/data.job.rankDivisor[jobRank-1]/Math.sqrt(Math.max(1,count));
-  const clearFraction=Math.max(0,Math.min(1,options.clearFraction??1));
   const lastBoss=stage.bosses.at(-1)!.time;
   const intervals=eventIntervals(events);
-  const perSecondBudget=(killsPerMinute??Infinity)/60;
   let base=0,job=0,baseNow=baseLevel,jobNow=Math.min(jobLevel,jobMax),baseProgress=Math.max(0,Math.min(.999999,options.baseProgress??0))*nextBase(baseLevel),jobProgress=Math.max(0,Math.min(.999999,options.jobProgress??0))*nextJob(Math.min(jobLevel,jobMax));
   let waveIndex=0,bossIndex=0,easeUntil=0,nextElite=intervals.elite,nextHorde=intervals.horde;
   let normalKills=0,eliteKills=0,hordeKills=0;
@@ -124,24 +122,21 @@ export function estimateExperience(stage:ExperienceStage,lap:number,options:Expe
       nextHorde+=intervals.horde;
     }
     if(hordeAdded>0)hordeStocks.push({wave:waveIndex,remaining:hordeAdded,seconds:Math.max(1,Math.min(Math.ceil(intervals.horde),lastBoss-time))});
-    const hordeSupply=hordeStocks.reduce((total,stock)=>total+stock.remaining/stock.seconds,0);
-    const potential=supply+hordeSupply;
-    const fraction=Math.min(clearFraction,perSecondBudget/potential);
-    const available=supply*fraction;
+    const available=supply;
     // Elites replace an eligible regular spawn, rather than spawning as an extra monster.
     let elite=0;
     while(nextElite<time+1){
       elite++;
       nextElite+=intervals.elite;
     }
-    elite=Math.min(available,elite*fraction);
+    elite=Math.min(available,elite);
     eliteKills+=elite;
     normalKills+=available-elite;
     credit(wave.monsters,available+4*elite);
     for(let i=hordeStocks.length-1;i>=0;i--){
       const stock=hordeStocks[i];
       const released=stock.remaining/stock.seconds;
-      const kills=released*fraction;
+      const kills=released;
       credit(waves[stock.wave].monsters,kills);
       hordeKills+=kills;
       stock.remaining-=released;
@@ -150,16 +145,14 @@ export function estimateExperience(stage:ExperienceStage,lap:number,options:Expe
     }
   }
   for(const boss of stage.bosses.slice(bossIndex))credit([monsters[boss.id]],1);
-  const minutes=((lastBoss+data.victorySeconds)/(options.gameSpeed??1)+extraSeconds)/60;
-  return {stage,lap,rule,minutes,base:Math.round(base),job:Math.round(job),basePerMinute:base/minutes,
-    jobPerMinute:job/minutes,jobMax,baseNow,jobNow,ordinary:normalKills,elite:eliteKills,horde:hordeKills};
+  return {stage,lap,rule,base:Math.round(base),job:Math.round(job),jobMax,baseNow,jobNow,ordinary:normalKills,elite:eliteKills,horde:hordeKills};
 }
 export type ExperienceEstimate=ReturnType<typeof estimateExperience>;
 
 // Only collapse numerically identical results for the selected XP metric. Higher laps
 // remain inspectable; we never infer kill speed from GS or silently discount rewards.
 export function groupEquivalentLaps(rows:ExperienceEstimate[],target:'base'|'job'){
-  const metric=target==='base'?'basePerMinute':'jobPerMinute';
+  const metric=target;
   const groups:{preferred:ExperienceEstimate;variants:ExperienceEstimate[]}[]=[];
   for(const row of rows){
     const score=row[metric];
@@ -178,5 +171,5 @@ export function rankExperience(options:ExperienceOptions,target:'base'|'job'){
   return data.stages.filter(stage=>!stage.season||options.season).flatMap(stage=>
     stage.gs.slice(0,options.maxLap).flatMap((gs,index)=>gs===null||(options.gs!==undefined&&gs>options.gs)
       ?[]:[estimateExperience(stage,index+1,options)]))
-    .sort((a,b)=>target==='base'?b.basePerMinute-a.basePerMinute:b.jobPerMinute-a.jobPerMinute);
+    .sort((a,b)=>b[target]-a[target]);
 }

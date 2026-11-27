@@ -13,7 +13,11 @@ try{
    page.on('pageerror',e=>errors.push(e.message));
    await page.goto(base+'?page=experience',{waitUntil:'domcontentloaded'});
    await page.locator('.xp-list > li').first().waitFor();
-   assert.equal(await page.getByLabel('目前 Base Lv').inputValue(),'50');
+   assert.equal(await page.getByLabel('目前 Base Lv').inputValue(),'60');
+   assert.equal(await page.getByLabel('怪物數量（遊戲設定 %）').inputValue(),'2000');
+   assert.equal(await page.getByLabel('事件數量（遊戲設定 %）').inputValue(),'2000');
+   assert.match(await page.locator('.xp-results-heading').innerText(),/單場 Base 經驗排行/);
+   assert.doesNotMatch(await page.locator('.xp-panel').innerText(),/每小時|每分鐘|遊戲速度|假設清怪比例/);
    const panel=page.locator('.xp-calibration');
    assert.equal(await panel.getAttribute('open'),null);
    await page.getByLabel('目前 Base Lv').fill('67');

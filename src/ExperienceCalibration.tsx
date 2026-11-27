@@ -11,13 +11,10 @@ export function ExperienceCalibration({options}:{options:ExperienceOptions}){
  const [kills,setKills]=useState('');
  const [base,setBase]=useState('');
  const [job,setJob]=useState('');
- const [minutes,setMinutes]=useState('14');
- const [seconds,setSeconds]=useState('15');
- const [real,setReal]=useState('');
  const [sample,setSample]=useState<BattleSample|null>(null);
  const stage=experienceData.stages.find(s=>s.id===stageId)!;
- const draft:BattleSample={stageId,lap,options:{...options},kills:Number(kills),base:Number(base),job:job.trim()?Number(job):undefined,gameSeconds:Number(minutes)*60+Number(seconds),realSeconds:real.trim()?Number(real):undefined};
- const valid=kills.trim()!==''&&base.trim()!==''&&minutes.trim()!==''&&seconds.trim()!==''&&Number.isInteger(Number(minutes))&&Number(minutes)>=0&&Number.isInteger(Number(seconds))&&Number(seconds)>=0&&Number(seconds)<60&&validateSample(draft);
+ const draft:BattleSample={stageId,lap,options:{...options},kills:Number(kills),base:Number(base),job:job.trim()?Number(job):undefined};
+ const valid=kills.trim()!==''&&base.trim()!==''&&validateSample(draft);
  const results=useMemo(()=>{
   if(!sample)return [];
   const c=sample.options.count,e=sample.options.events;
@@ -35,22 +32,19 @@ export function ExperienceCalibration({options}:{options:ExperienceOptions}){
    <label>怪物擊殺數<input type="number" min="1" step="1" inputMode="numeric" placeholder="例如 186055" value={kills} onChange={e=>setKills(e.target.value)}/></label>
    <label>結算 Base EXP<input type="number" min="0" step="1" inputMode="numeric" placeholder="例如 4939408" value={base} onChange={e=>setBase(e.target.value)}/></label>
    <label>結算 Job EXP（選填）<input type="number" min="0" step="1" inputMode="numeric" placeholder="例如 1866" value={job} onChange={e=>setJob(e.target.value)}/></label>
-   <label>本局時間（分）<input type="number" min="0" step="1" inputMode="numeric" value={minutes} onChange={e=>setMinutes(e.target.value)}/></label>
-   <label>本局時間（秒）<input type="number" min="0" max="59" step="1" inputMode="numeric" value={seconds} onChange={e=>setSeconds(e.target.value)}/></label>
-   <label>實際一輪耗時（秒，選填）<input type="number" min="1" inputMode="numeric" placeholder="含加速、結算、重開" value={real} onChange={e=>setReal(e.target.value)}/></label>
   </div>
-  <p className="xp-hint">套用時固定：Base Lv {options.baseLevel}、Job Lv {options.jobLevel}、{({first:'一轉',second:'二轉',third:'三轉',expanded:'忍者／神槍手'})[options.advancement]}、怪物 {dec(options.count*100)}%／事件 {dec(options.events*100)}%、全服 {options.serverExp}×。實測未填現實耗時時依遊戲速度及額外耗時估算。</p>
+  <p className="xp-hint">套用時固定：Base Lv {options.baseLevel}、Job Lv {options.jobLevel}、{({first:'一轉',second:'二轉',third:'三轉',expanded:'忍者／神槍手'})[options.advancement]}、怪物 {dec(options.count*100)}%／事件 {dec(options.events*100)}%、全服 {options.serverExp}×。不必輸入時間或清怪比例。</p>
   <div className="xp-cal-actions"><button className="xp-return" type="button" disabled={!valid} onClick={()=>setSample(draft)}>套用實測數據</button>{sample&&<button className="xp-return" type="button" onClick={()=>setSample(null)}>清除校準</button>}</div>
   {first&&sample&&<div className="xp-cal-results" aria-live="polite">
    <h3>{experienceData.stages.find(s=>s.id===sample.stageId)?.name} · {sample.lap} 週目</h3>
    <p className="xp-hint">已保存本次頁面樣本：Base Lv {sample.options.baseLevel}、怪物 {dec(sample.options.count*100)}%／事件 {dec(sample.options.events*100)}%。更改上方倍率可比較新情境；更換角色、等級或流派請重新套用。</p>
    <div className="xp-cal-metrics">
-    <div><small>每分鐘擊殺（遊戲時間）</small><strong>{fmt(first.killRate)}</strong></div>
+    <div><small>單場實際擊殺</small><strong>{fmt(first.kills)}</strong></div>
     <div><small>每隻平均 Base</small><strong>{dec(first.basePerKill)}</strong></div>
-    <div><small>每小時 Base（現實時間{sample.realSeconds?'實測':'估算'}）</small><strong>{fmt(first.basePerMinute*60)}</strong></div>
-    <div><small>實測／理論擊殺數</small><strong>{dec(first.observedRatio*100)}%</strong></div>
+    <div><small>單場 Base EXP</small><strong>{fmt(first.base)}</strong></div>
+    <div><small>單場 Job EXP</small><strong>{first.job===undefined?'—':fmt(first.job)}</strong></div>
    </div>
-   <p className="xp-hint">理論出怪試算 {fmt(first.estimatedSupply)} 隻，實測 {fmt(sample.kills)} 隻。比例包含地形、怪物潮、召喚物及清怪等差異，不等於精確清怪率。</p>
+   <p className="xp-hint">理論出怪試算 {fmt(first.estimatedSupply)} 隻，實測 {fmt(sample.kills)} 隻。差異可能來自地形、怪物潮、召喚物與實際擊殺情況，不推測精確清怪率。</p>
    <div className="xp-comparison"><table><thead><tr><th>怪物／事件</th><th>擊殺／場</th><th>Base／場</th><th>Job／場</th></tr></thead><tbody>{results.map(r=><tr key={r.count+'-'+r.events}><th scope="row">{dec(r.count*100)}%／{dec(r.events*100)}% {r.same?'（實測）':'（估）'}</th><td>{fmt(r.kills)}</td><td>{fmt(r.base)}</td><td>{r.job===undefined?'—':fmt(r.job)}</td></tr>)}</tbody></table></div>
    <p className="xp-hint">比較以實測經驗乘理論情境的相對變化，假設清怪比例、存活率與其他條件相近；不是其他關卡排名，也不能保證不同難度的實際收益。建議實測後重新校準。</p>
   </div>}

@@ -5,7 +5,7 @@ import {defaultExperienceOptions,estimateExperience,eventIntervals,experienceDat
 const maze=experienceData.stages.find(stage=>stage.id==='maze');
 const nif=experienceData.stages.find(stage=>stage.id==='c2_nif');
 const gef=experienceData.stages.find(stage=>stage.id==='c2_gef');
-const level70={...defaultExperienceOptions,baseLevel:70};
+const level70={...defaultExperienceOptions,baseLevel:70,count:1,events:1};
 
 test('seasonal stages are enabled by default and can still be excluded',()=>{
   assert.equal(defaultExperienceOptions.season,true);
@@ -16,7 +16,7 @@ test('seasonal stages are enabled by default and can still be excluded',()=>{
 });
 
 test('chapter-two same XP laps collapse, while the lowest accessible lap stays visible',()=>{
-  const under70={...defaultExperienceOptions,baseLevel:65,maxLap:6,gs:9999,season:false};
+  const under70={...defaultExperienceOptions,baseLevel:65,maxLap:6,gs:9999,season:false,count:1,events:1};
   const baseRows=rankExperience(under70,'base').filter(row=>row.stage.id==='c2_gef');
   assert.equal(baseRows.length,6);
   assert.ok(baseRows.every(row=>row.rule.levelOffset===0&&row.base===baseRows[0].base));
@@ -45,27 +45,36 @@ test('HANS level gap and Base 70 threshold match both audited penalty curves',()
   assert.ok(lapExperience(maze,6).averageLevel>lapExperience(maze,3).averageLevel);
 });
 
-test('monster count scales supply, events accelerate elites and hordes, and kill rate limits XP gain',()=>{
+test('monster count scales supply and events accelerate elites and hordes',()=>{
   const baseline=estimateExperience(maze,3,level70);
   const doubleCount=estimateExperience(maze,3,{...level70,count:2});
   const doubleEvents=estimateExperience(maze,3,{...level70,events:2});
-  const capped=estimateExperience(maze,3,{...level70,killsPerMinute:180});
-  const cappedDouble=estimateExperience(maze,3,{...level70,count:2,killsPerMinute:180});
   assert.deepEqual(eventIntervals(2),{elite:22.5,horde:60});
   assert.deepEqual(eventIntervals(1.5),{elite:30,horde:80});
   assert.ok(doubleCount.ordinary>baseline.ordinary*2);
   assert.equal(doubleCount.elite,baseline.elite);
   assert.ok(doubleEvents.elite>baseline.elite && doubleEvents.horde>baseline.horde);
-  assert.ok(doubleCount.basePerMinute>baseline.basePerMinute*1.9);
-  assert.ok(cappedDouble.basePerMinute/capped.basePerMinute<1.06);
+  assert.ok(doubleCount.base>baseline.base*1.9);
 });
 
-test('recommendations filter GS and lap gates and rank by the selected per-minute metric',()=>{
+test('recommendations filter GS and lap gates and rank by the selected per-run metric',()=>{
   const options={...level70,maxLap:3,gs:1800,season:false};
   const ranked=rankExperience(options,'base');
   assert.equal(ranked[0].stage.id,'maze');
   assert.equal(ranked[0].lap,3);
   assert.ok(ranked.every(row=>!row.stage.season&&row.stage.gs[row.lap-1]<=1800&&row.lap<=3));
-  assert.ok(ranked.every((row,index)=>index===0||ranked[index-1].basePerMinute>=row.basePerMinute));
+  assert.ok(ranked.every((row,index)=>index===0||ranked[index-1].base>=row.base));
   assert.ok(rankExperience({...options,season:true},'job').some(row=>row.stage.season));
+});
+
+test('default settings and all-stage ranking use full-run XP, not elapsed time',()=>{
+ assert.equal(defaultExperienceOptions.baseLevel,60);
+ assert.equal(defaultExperienceOptions.count,20);
+ assert.equal(defaultExperienceOptions.events,20);
+ for(const target of ['base','job']){
+  const rows=rankExperience({...defaultExperienceOptions,maxLap:6},target);
+  assert.ok(rows.every((r,i)=>i===0||rows[i-1][target]>=r[target]));
+  assert.ok(new Set(rows.map(r=>r.stage.bosses.at(-1).time)).size>1);
+ }
+ assert.equal(rankExperience(defaultExperienceOptions,'base')[0].stage.id,experienceData.stages.find(s=>s.name==='元宵燈會').id);
 });
