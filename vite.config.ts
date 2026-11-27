@@ -12,6 +12,10 @@ const contentSecurityPolicy = [
 
 export default defineConfig({
   base: './',
+  define: {
+    // Freeze the release build time; never advance it on a visitor's reload.
+    'import.meta.env.VITE_WIKI_UPDATED_AT': JSON.stringify(new Date().toISOString()),
+  },
   plugins: [{
     name: 'wiki-browser-policy',
     apply: 'build',

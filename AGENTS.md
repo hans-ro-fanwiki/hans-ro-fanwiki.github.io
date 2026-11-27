@@ -9,6 +9,7 @@
 - HANS 特殊能力、冷卻、INT、爆擊等以 HANS 實際運作效果／官方資料為準，切勿照抄 manifest 上沿用傳統 RO 的圖片敘述。
 - 保留手機 Safari 優先搜尋、物品部位／職業篩選、怪物／關卡雙向反查、深色介面、可選擇顯示來源未知裝備。第二章依周目 T6～8，禁止虛構固定 T8 裝備。
 - 2026-11-20 使用者明確要求裝備、卡片與天賦頁顯示實際 HANS 圖示；前端可對經確認的官方圖片路徑直接引用 `https://ro.hans-webgametw.com/assets/` 原站圖片，必須驗證實際載入和失敗 fallback。**這是外部來源參照，並不表示取得圖片使用或再散布授權**；不得將 HANS 原始遊戲圖片／素材放進公開 Git、Pages artifact，保留著作權／非官方／下架資訊。如權利人要求停止使用，應移除圖片引用。
+- 每次玩家可見的正式更新，須同步維護 `src/data/wiki-updates.json` 的台灣日期、標題與繁中摘要；同日合併，最新在前，只記 HANS 維基公開功能、資料與修正，不列私人功能。頁尾時間由 Vite 建置自動產生，不手動填寫。
 - 開發節省 CI：一般 commit 只跑 Linux TypeScript/test/build；`dev/**` 不部署，`main` 通過 CI 後自動發布；避免重複 push/PR workflow。大型未驗證改動仍先測試，資料不確定性不得省略。
 - 常用驗證：`node scripts/import-hans-source.cjs`（僅有本機快照才能重建）、`npm test`、`npm run typecheck`、`VITE_PUBLIC_MODE=1 npm run build`、`node scripts/verify-public-dist.mjs`、`npm run check:source`。網站檢查 HTTP 503 代表上游暫不可用，不是 HANS 更新。
 

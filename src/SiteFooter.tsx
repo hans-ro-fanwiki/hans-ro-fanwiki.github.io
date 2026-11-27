@@ -1,5 +1,30 @@
 import {ChevronDown,ExternalLink,MessageSquarePlus,Shield} from 'lucide-react';
 import './site-footer.css';
+import updates from './data/wiki-updates.json';
+
+const updatedAt=import.meta.env.VITE_WIKI_UPDATED_AT as string;
+const updatedLabel=new Intl.DateTimeFormat('sv-SE',{
+ timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hourCycle:'h23',
+}).format(new Date(updatedAt)).replace(/-/g,'/');
+
+function UpdateEntries({entries}:{entries:typeof updates}){
+ return <div className="wiki-update-entries">{entries.map(entry=><article className="wiki-update-entry" key={entry.date}>
+  <time dateTime={entry.date}>{entry.date.replace(/-/g,'/')}</time>
+  <h3>{entry.title}</h3>
+  <ul>{entry.items.map(item=><li key={item}>{item}</li>)}</ul>
+ </article>)}</div>;
+}
+
+function WikiUpdates(){
+ return <details className="wiki-updates">
+  <summary><span className="wiki-updates-link">更新紀錄 <ChevronDown size={14} aria-hidden="true"/></span><span className="wiki-updates-time">最後更新：<time dateTime={updatedAt}>{updatedLabel}</time>（台灣時間）</span></summary>
+  <div className="wiki-updates-body">
+   <p className="wiki-updates-description">本站功能、資料補充與修正紀錄，非遊戲官方更新公告。</p>
+   <UpdateEntries entries={updates.slice(0,3)}/>
+   {updates.length>3&&<details className="wiki-updates-older"><summary>查看更多更新紀錄 <ChevronDown size={14} aria-hidden="true"/></summary><UpdateEntries entries={updates.slice(3)}/></details>}
+  </div>
+ </details>;
+}
 
 const REPORT_URL='https://github.com/hans-ro-fanwiki/hans-ro-fanwiki.github.io/issues/new?template=content-removal.yml';
 const HANS_URL='https://ro.hans-webgametw.com/';
@@ -24,6 +49,7 @@ export function SiteFooter({publicMode,feedbackHref}:{publicMode:boolean;feedbac
     <a href={REPORT_URL} target="_blank" rel="noopener noreferrer">內容疑慮／下架聯絡 <ExternalLink size={13} aria-hidden="true"/></a>
     <a href="https://github.com/hans-ro-fanwiki/hans-ro-fanwiki.github.io" target="_blank" rel="noopener noreferrer">資料站原始碼 <ExternalLink size={13} aria-hidden="true"/></a>
    </nav>
+   <WikiUpdates/>
    {publicMode&&<p className="site-footer-note">遊戲圖片由訪客瀏覽器直接從 HANS 原站載入；本站與 GitHub 不另行保存或發布圖片檔。素材仍屬各權利人，這不代表本站擁有圖像授權。來源圖片失效時會自動使用替代圖示。</p>}
   </div>
  </footer>;
