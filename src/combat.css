@@ -42,7 +42,16 @@
 .combat-deity-list li+li {margin-top:.25rem}
 .combat-deity-list li::marker {color:var(--wiki-accent)}
 .combat-tool-intro h2 {font-size:1.4rem}
-.combat-tool-nav {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:.5rem}
+.combat-tool-nav {display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:.5rem}
+.discovery-faq{display:grid;gap:0;margin:.75rem 0}
+.discovery-faq>div{display:grid;gap:.3rem;padding:.7rem 0;border-bottom:1px solid var(--wiki-border)}
+.discovery-faq dt{font-weight:700;color:var(--wiki-accent)}
+.discovery-faq dd{margin:0;line-height:1.65}
+.discovery-quality-list{display:grid;gap:.7rem}
+.discovery-quality-label{display:flex;justify-content:space-between;gap:.5rem;align-items:baseline;font-size:.9rem;font-variant-numeric:tabular-nums;margin-bottom:.35rem}
+.discovery-quality-label span{color:var(--wiki-muted)}
+.discovery-quality-label b{font-weight:700}
+.combat-tool-advanced summary,.combat-details summary{min-height:44px;align-content:center}
 .combat-tool-nav button {display:flex;align-items:center;justify-content:center;min-height:44px;min-width:0;text-align:center;border:1px solid var(--wiki-border);background:var(--wiki-surface);color:var(--wiki-accent);border-radius:var(--wiki-radius-control);padding:.5rem;font:inherit;font-weight:650;font-size:.87rem;cursor:pointer}
 .combat-tool-nav button[aria-pressed="true"] {background:var(--wiki-accent-soft);border-color:var(--wiki-accent);box-shadow:inset 0 0 0 1px var(--wiki-accent)}
 .combat-guide > section[hidden] {display:none}

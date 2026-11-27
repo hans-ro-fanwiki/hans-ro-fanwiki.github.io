@@ -2,6 +2,7 @@ import {useEffect, useId, useRef, useState} from 'react';
 import compatibility from './combat-compatibility.json';
 import './combat.css';
 import {CooldownTool, CastTool, RangeTool, DefenseTool} from './CombatTools';
+import {DiscoveryGuide} from './DiscoveryGuide';
 
 const VERSION = `HANS V${compatibility.version}`;
 
@@ -131,6 +132,7 @@ const combatSections = [
   ['cast', '施法急速'],
   ['geometry', '範圍與距離'],
   ['defense', '承傷與減傷'],
+  ['discovery', '尋寶率與掉落'],
 ] as const;
 type CombatSection = typeof combatSections[number][0];
 function readCombatSection(): CombatSection {
@@ -154,7 +156,7 @@ export function CombatGuide() {
     history.replaceState(history.state, '', '#'+section);
   }
   return <div className="combat-guide">
-    <div className="combat-tool-intro"><p className="combat-note">{VERSION} · 11/25 減傷熱修公式</p><h2>配裝與技能試算</h2><p>選擇想試算的項目，輸入你目前的數值。有額外加成時再比較效果，公式與例外可按需展開。</p></div>
+    <div className="combat-tool-intro"><p className="combat-note">{VERSION} · 11/25 減傷熱修公式</p><h2>配裝與技能試算</h2><p>選擇想了解的機制，輸入目前數值試算。尋寶率、掉落、公式與例外也可直接查閱。</p></div>
     <nav aria-label="戰鬥機制目錄" className="combat-jump combat-tool-nav">
       {combatSections.map(([id, label]) => <button key={id} type="button" aria-pressed={active === id} aria-controls={id} onClick={() => selectSection(id)}>{label}</button>)}
     </nav>
@@ -194,7 +196,8 @@ export function CombatGuide() {
       </div>
     </section>
 
-    <details className="combat-details" open><summary>11/25 平衡更新：能力點、閃避與爆擊</summary><ul><li>單項能力分配上限 150；自行分配的 STR／INT／DEX 超過 99 的點數對 ATK／MATK 的貢獻減半，不是全部面板屬性或施法 DEX 減半。</li><li>自身閃避上限 50%，含增益後 PvE 75%、PvP／公會戰 50%。</li><li>爆擊率超過 100% 時，每超過 1 個百分點，爆擊傷害增加 5 個百分點；PvP／公會戰增加 2.5 個百分點。例如 120% 爆擊率額外增加 100% 爆擊傷害（PvP 50%）。</li></ul><p><a href="?page=skills">查看技能平衡紀錄</a></p></details>
+    <section id="discovery" hidden={active !== 'discovery'} aria-labelledby="discovery-title"><DiscoveryGuide/></section>
+    <details className="combat-details" open={active !== 'discovery'}><summary>11/25 平衡更新：能力點、閃避與爆擊</summary><ul><li>單項能力分配上限 150；自行分配的 STR／INT／DEX 超過 99 的點數對 ATK／MATK 的貢獻減半，不是全部面板屬性或施法 DEX 減半。</li><li>自身閃避上限 50%，含增益後 PvE 75%、PvP／公會戰 50%。</li><li>爆擊率超過 100% 時，每超過 1 個百分點，爆擊傷害增加 5 個百分點；PvP／公會戰增加 2.5 個百分點。例如 120% 爆擊率額外增加 100% 爆擊傷害（PvP 50%）。</li></ul><p><a href="?page=skills">查看技能平衡紀錄</a></p></details>
     <p className="combat-note">試算依已核對的 HANS 客戶端公式，不代表伺服器實測。召喚、持續傷害、追加效果及特殊玩法可能使用獨立計時。<a href="?page=skills&sk=ruwach">查看光獵的兩種計時器</a>。</p>
   </div>;
 }

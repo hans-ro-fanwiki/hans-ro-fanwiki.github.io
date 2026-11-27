@@ -1,5 +1,9 @@
 # RO 倖存者｜HANS 粉絲維基（非官方）
 
+## 2026-11-27 尋寶率與掉落機制
+
+- 戰鬥機制加入 [尋寶率品質計算機](https://hans-ro-fanwiki.github.io/?page=combat#discovery)、裝備／卡片掉落 FAQ；詳見 [來源稽核](docs/HANS_DISCOVERY_20261127.md)。
+
 ## 2026-11-27 經驗計算機
 
 - 單場經驗排行、預設參考值、實戰結算校準、Job 怪物數量懲罰及理論擊殺數；見 [經驗校準審核](docs/HANS_EXPERIENCE_20261127.md)。
