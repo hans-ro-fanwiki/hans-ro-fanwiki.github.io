@@ -10,6 +10,7 @@ export function DiscoveryGuide(){
  return <>
   <h2 id="discovery-title">尋寶率與掉落機制</h2>
   <p><strong>尋寶率提高的是品質抽選，不是怪物掉落卡片或裝備的機率。</strong> 遊戲內也稱發現率（Discovery）。</p>
+  <p>具有特殊能力的王卡提供 +3 個百分點，三張封印王卡提供 +5 個百分點。多張只取最高，再加到角色尋寶率。原本 20% 同時裝備一般與封印王卡會成為 25%。改造等級不改變這項加成。</p>
   <dl className="discovery-faq">
    <div><dt>會提高什麼？</dt><dd>技能強化、寶箱道具及掉落裝備的高品質抽選機會。不是提高寶箱出現次數。</dd></div>
    <div><dt>不會直接提高什麼？</dt><dd>一般怪卡、MVP／迷你王卡、寵物蛋的掉落率，以及裝備的原始掉落件數。這些使用各自的掉落規則。</dd></div>

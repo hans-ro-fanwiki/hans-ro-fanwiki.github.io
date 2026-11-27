@@ -6,12 +6,9 @@ const {join,resolve} = require('node:path');
 const ts = require('typescript');
 
 const root = resolve(__dirname,'..');
-const directory = resolve(process.argv[2] || join(root,'evidence/hans-20261127'));
-const source = {
-  version:'0.16.0',
-  main:{file:'main-BNOcv2PN.hz102c6cdf.js',sha256:'62619d5f16cb0b8400d43a7efd64de32cf21240784cb3ee14372252d2910146b'},
-  soul:{file:'soul_linker-DllBVIRO.hz77006d70.js',sha256:'77d8daed777e72f0b999ff1d8e68cf5d8ccfb5915fced9280bce3e7a6f26194b'},
-};
+const directory = resolve(process.argv[2] || join(root,'evidence/hans-20261127-loot'));
+const audited = require('../docs/HANS_CHAPTER3_SOURCE.json');
+const source = {version:audited.version,main:audited.main,soul:audited.soul};
 function readClient({file,sha256}) {
   const bytes = readFileSync(join(directory,file));
   assert.equal(createHash('sha256').update(bytes).digest('hex'),sha256,file);
@@ -53,7 +50,7 @@ const main = readClient(source.main);
 const soul = readClient(source.soul);
 const catalog = JSON.parse(readFileSync(join(root,'public/data/catalog.json'),'utf8'));
 const lap = main.get('RO_LAPC');
-const secondChapter = main.get('RO_C2T');
+const laterChapter = main.get('RO_C2T');
 const definitions = main.get('xe');
 const rules = soul.get('yW');
 const allMonsters = new Map(soul.records('be').map(monster=>[monster.id,monster]));
@@ -80,17 +77,17 @@ const stages = catalog.stages.filter(stage=>stage.open||stage.season).map(stage=
     return {time:boss.t,id:boss.id};
   });
   assert.ok(Number.isFinite(rule.jobCap) && Number.isFinite(rule.jobExp) && Number.isFinite(rule.runLength),stage.id);
-  if(secondChapter[stage.id]) assert.deepEqual(secondChapter[stage.id].map(row=>row.gate),stage.lapGS,stage.id);
+  if(laterChapter[stage.id]) assert.deepEqual(laterChapter[stage.id].map(row=>row.gate),stage.lapGS,stage.id);
   else if(!stage.season) assert.equal(definition.gsMin,stage.gsMin,stage.id);
   return {id:stage.id,name:stage.name,season:stage.season,gs:stage.lapGS,waves,bosses,
     jobCap:rule.jobCap,jobExp:rule.jobExp,
     ...(rule.bossEase && {bossEase:rule.bossEase}),
-    ...(secondChapter[stage.id] && {chapterTwoBase:secondChapter[stage.id].map(row=>row.mult)})};
+    ...(laterChapter[stage.id] && {laterChapterBase:laterChapter[stage.id].map(row=>row.mult)})};
 });
-assert.equal(stages.length,16);
+assert.equal(stages.length,19);
 assert.equal(stages.filter(stage=>stage.season).length,2);
 const chapterOne = definitions.map(def=>stages.find(stage=>stage.id===def?.id))
-  .filter(stage=>stage && !stage.season && !stage.chapterTwoBase).map(stage=>stage.id);
+  .filter(stage=>stage && !stage.season && !stage.laterChapterBase).map(stage=>stage.id);
 assert.equal(chapterOne.at(-1),'maze');
 const controls = main.get('Zo');
 const data = {

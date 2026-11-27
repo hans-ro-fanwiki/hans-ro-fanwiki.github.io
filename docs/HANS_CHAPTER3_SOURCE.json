@@ -1,0 +1,24 @@
+{
+  "version": "0.16.0",
+  "date": "2026-11-27",
+  "main": {
+    "directory": "hans-20261127-loot",
+    "file": "main-BNOcv2PN.hzf3379056.js",
+    "sha256": "9c8daf3d9aa9effb3bf9b0ccc5f512e291778bccf3e87adf4829b25d026b6a3e"
+  },
+  "soul": {
+    "directory": "hans-20261127-loot",
+    "file": "soul_linker-DllBVIRO.hzfd5ebe2a.js",
+    "sha256": "e45de006f0f518664127d570393033a39ac8dfe09cfc9dc3fac32c52fd2a2cdd"
+  },
+  "manifest": {
+    "directory": "hans-20261127-loot",
+    "file": "manifest.json",
+    "sha256": "cb7c9a1af03f7d3461ae9ebb724bace6a67ff5d4c3aab1b7ff05fe018116a8b8"
+  },
+  "previousMain": {
+    "directory": "hans-20261127-loot",
+    "file": "main-BNOcv2PN.hz244acbf7.js",
+    "sha256": "6500fad380f506310cfeed7fde607c95e9a15ab427e41e306a5f8c9616c7e39a"
+  }
+}

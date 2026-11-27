@@ -1,3 +1,4 @@
+import {PetGuide} from './PetGuide';
 import {useEffect, useId, useRef, useState} from 'react';
 import compatibility from './combat-compatibility.json';
 import './combat.css';
@@ -133,6 +134,8 @@ const combatSections = [
   ['geometry', '範圍與距離'],
   ['defense', '承傷與減傷'],
   ['discovery', '尋寶率與掉落'],
+  ['abilities', '王卡特殊能力'],
+  ['pets', '寵物圖鑑'],
 ] as const;
 type CombatSection = typeof combatSections[number][0];
 function readCombatSection(): CombatSection {
@@ -197,6 +200,10 @@ export function CombatGuide() {
     </section>
 
     <section id="discovery" hidden={active !== 'discovery'} aria-labelledby="discovery-title"><DiscoveryGuide/></section>
+    <section id="abilities" hidden={active !== 'abilities'} aria-labelledby="abilities-title">
+      <h2 id="abilities-title">王卡特殊能力</h2><p>新版王卡可依移動、命中、爆擊、受擊、閃避或 HP 門檻觸發效果。卡片詳情可比較改造等級，卡片圖鑑可依觸發條件篩選，並預覽三組封印王卡套裝。發現率和各張卡的觸發條件分開判定。</p><a href="?page=cards&attr=special">查詢有特殊能力的卡片</a>
+    </section>
+    <section id="pets" hidden={active !== 'pets'} aria-labelledby="pets-title"><PetGuide/></section>
     <details className="combat-details" open={active !== 'discovery'}><summary>11/25 平衡更新：能力點、閃避與爆擊</summary><ul><li>單項能力分配上限 150；自行分配的 STR／INT／DEX 超過 99 的點數對 ATK／MATK 的貢獻減半，不是全部面板屬性或施法 DEX 減半。</li><li>自身閃避上限 50%，含增益後 PvE 75%、PvP／公會戰 50%。</li><li>爆擊率超過 100% 時，每超過 1 個百分點，爆擊傷害增加 5 個百分點；PvP／公會戰增加 2.5 個百分點。例如 120% 爆擊率額外增加 100% 爆擊傷害（PvP 50%）。</li></ul><p><a href="?page=skills">查看技能平衡紀錄</a></p></details>
     <p className="combat-note">試算依已核對的 HANS 客戶端公式，不代表伺服器實測。召喚、持續傷害、追加效果及特殊玩法可能使用獨立計時。<a href="?page=skills&sk=ruwach">查看光獵的兩種計時器</a>。</p>
   </div>;

@@ -2,7 +2,8 @@ import {experienceData} from './experience';
 
 const laps=['一','二','三','四','五','六'];
 const {lap,base,spawn}=experienceData;
-const chapterTwo=experienceData.stages.find(stage=>stage.chapterTwoBase!==undefined)!;
+const chapterTwo=experienceData.stages.find(stage=>stage.laterChapterBase!==undefined)!;
+const chapterThree=experienceData.stages.find(stage=>stage.id==='c3_amatsu')!;
 const f=(value:number)=>Number(value.toFixed(3)).toString();
 
 export function ExperienceFormula({baseLevel}:{baseLevel?:number}){
@@ -11,27 +12,27 @@ export function ExperienceFormula({baseLevel}:{baseLevel?:number}){
     <div className="xp-formula-body">
       <p className="xp-hint">依 HANS 客戶端的怪物經驗、週目設定與結算規則重建。下列倍率是逐隻怪物的計算依據，不是每場實際獲得的保證經驗。</p>
       {baseLevel!==undefined&&<p className="xp-formula-focus">你目前輸入 Base Lv {baseLevel}：{baseLevel<lap.minLv
-        ? `第二章一至六週目的 Base 週目加成相同；達到 Lv ${lap.minLv} 才開始使用對應週目倍率。`
-        : '第二章一、二、三週目 Base 週目加成逐步增加，三至六週目相同。'}若在單場中升等，計算機會從升等時起套用新等級。</p>}
+        ? `第二、三章同地圖的一至六週目 Base 加成各自相同；達到 Lv ${lap.minLv} 才開始使用對應週目倍率。`
+        : '第二章一、二、三週目 Base 週目加成逐步增加，三至六週目相同。第三章六個週目皆使用同一倍率。'}若在單場中升等，計算機會從升等時起套用新等級。</p>}
       <section className="xp-formula-section">
         <h3>01 <span>等級差懲罰</span></h3>
         <p>只有當角色等級高於怪物等級才會扣減；差距 D = max(0, 角色等級 − 怪物等級)。</p>
         <div className="xp-equation"><span>第一章 1–2 週目</span><code>max({f(base.legacyFloor)}, {f(base.legacyDecay)} ^ D)</code></div>
-        <div className="xp-equation"><span>第一章 3–6 週目、第二章全部</span><code>max({f(lap.pen.floor)}, 1 − {f(lap.pen.slope)} × D)</code></div>
+        <div className="xp-equation"><span>第一章 3–6 週目、第二、三章全部</span><code>max({f(lap.pen.floor)}, 1 − {f(lap.pen.slope)} × D)</code></div>
       </section>
       <section className="xp-formula-section">
         <h3>02 <span>Base 經驗</span></h3>
         <p>新制套用以下乘法；未滿 Lv {lap.minLv} 的週目倍率固定使用 {lap.lowMult}，達標才使用該週目倍率。</p>
         <div className="xp-equation xp-equation-main"><code>怪物原始 EXP × 關卡經驗係數 × 等級差係數 × {f(lap.baseK)} × 週目倍率 × 菁英係數 × 全服加成</code></div>
-        <p>第一章 1–2 週目改用舊制等級差係數，不乘新制的 {f(lap.baseK)} 與週目獎勵。第一章較高週目還會調整怪物等級及關卡經驗係數；第二章怪物等級不因週目提高。</p>
-        <h4>第二章 Base 週目倍率表</h4>
+        <p>第一章 1–2 週目改用舊制等級差係數，不乘新制的 {f(lap.baseK)} 與週目獎勵。第一章較高週目還會調整怪物等級及關卡經驗係數；第二、三章怪物等級不因週目提高。</p>
+        <h4>第二、三章 Base 週目倍率表</h4>
         <div className="xp-formula-table">
           <table>
-            <thead><tr><th>週目</th><th>Lv 1–69</th><th>Lv 70 以上</th></tr></thead>
-            <tbody>{chapterTwo.chapterTwoBase!.map((mult,index)=><tr key={index}>
+            <thead><tr><th>週目</th><th>Lv 1–69</th><th>第二章 Lv 70+</th><th>第三章 Lv 70+</th></tr></thead>
+            <tbody>{chapterTwo.laterChapterBase!.map((mult,index)=><tr key={index}>
               <th scope="row">{laps[index]}週目</th>
               <td>{f(lap.lowMult*lap.baseK)}×</td>
-              <td>{f(mult*lap.baseK)}×</td>
+              <td>{f(mult*lap.baseK)}×</td><td>{f((chapterThree.laterChapterBase![index])*lap.baseK)}×</td>
             </tr>)}</tbody>
           </table>
         </div>

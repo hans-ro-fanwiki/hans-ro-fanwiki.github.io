@@ -1,3 +1,4 @@
+import {abilityTags,abilityTriggers,cardAbilityDetails,cardAbilityText} from './card-abilities.ts';
 import type {Card,Equipment} from './types';
 import {equipmentSearchEffects} from './equipment-stats.ts';
 import statLabels from './data/hans-stat-labels.json' with {type:'json'};
@@ -45,7 +46,18 @@ function statLine(entry:SearchEntry,id:string):string|undefined{
  }
  return lines.find(line=>lineStat(line)===id);
 }
+function specialLines(entry:SearchEntry):string[]{
+ if('slot' in entry)return [];
+ const id=entry.id%1000000;
+ const details=cardAbilityDetails[id];
+ if(!details)return [];
+ return ['發現率（尋寶率）',abilityTriggers[details.trigger],...(details.tags||[]).map(tag=>abilityTags[tag]),cardAbilityText(id,1)||''];
+}
 function attributeLine(entry:SearchEntry,attr:string):string|undefined{
+ if(attr==='special')return specialLines(entry).at(-1);
+ if(attr.startsWith('trigger:')&&!('slot' in entry))return cardAbilityDetails[entry.id%1000000]?.trigger===attr.slice(8)?specialLines(entry).at(-1):undefined;
+ const special=specialLines(entry);
+ if(special.includes(attr))return special.at(-1);
  const key=norm(attr);
  const direct=legacyStat[key];
  if(direct)return statLine(entry,direct);
@@ -74,10 +86,10 @@ function queryEffect(entry:SearchEntry,term:string):string|undefined{
  if(id)return statLine(entry,id);
  const attr=generalAliases[term]??(generalPatterns[term]?term:undefined);
  if(attr)return attributeLine(entry,attr);
- return effectLines(entry).find(line=>norm(line).includes(term));
+ return [...effectLines(entry),...specialLines(entry)].find(line=>norm(line).includes(term));
 }
 export function queryMatches(entry:SearchEntry,query:string):boolean{
- const names=[entry.name,entry.originalName,...(entry.nameAliases||[])].join(' ');
+ const names=[entry.name,entry.originalName,'#'+entry.id,...(entry.nameAliases||[])].join(' ');
  const plain=norm(names);
  return queryTerms(query).every(term=>plain.includes(term)||queryEffect(entry,term)!==undefined);
 }

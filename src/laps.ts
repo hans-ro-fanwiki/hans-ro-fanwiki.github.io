@@ -1,3 +1,4 @@
+import {abilityGsEffects,cardCombatScore} from './card-combat-score.ts';
 import type {Card,LapRules,Stage} from './types';
 import {RAID_GS_RULES,RAID_GS_MIN_COEFFICIENT,RAID_GS_EXTRA_MULTIPLIER,CARD_PER_LAP_IDS,PER_LAP_GS_INCREMENT} from './card-gs-rules.ts';
 
@@ -68,17 +69,20 @@ export function cardScore(card:Card,rules:LapRules,lap:number,jobId:string):numb
  const perLap=!card.raidVariant&&CARD_PER_LAP_IDS.has(card.id)&&level>1;
  // The special GS path uses base raw score, not the scaled revival effect.
  const multiplier=perLap?1:cardMultiplier(card,rules,lap);
+ const baseId=card.raidVariant?card.id-rules.max*rules.cardStep:card.id;
+ const upgrade=card.raidVariant?7:level;
+ const scaled=card.effects.map(effect=>({...effect,value:appliedValue(effect.stat,effect.value,multiplier)}));
+ if(!perLap)scaled.push(...abilityGsEffects(baseId,upgrade));
  let raw=0;
- for(const effect of card.effects){
-  const value=appliedValue(effect.stat,effect.value,multiplier);
+ for(const {stat,value} of scaled){
   if(!Number.isFinite(value))return null;
-  const weight=effect.stat in rules.scoring.relative?rules.scoring.relative[effect.stat]:extra[effect.stat]??base[effect.stat]??0;
+  const weight=stat in rules.scoring.relative?rules.scoring.relative[stat]:extra[stat]??base[stat]??0;
   raw+=weight*value;
  }
- const scored=Math.max(0,Math.round(raw));
- if(perLap)return Math.round(scored*(1+PER_LAP_GS_INCREMENT*(level-1)));
+ const rawScore=Math.max(0,Math.round(raw));
+ if(perLap)return Math.round(rawScore*(1+PER_LAP_GS_INCREMENT*(level-1)));
+ const scored=cardCombatScore(baseId,card.monsterId,scaled,rawScore,job.scaling,upgrade,!!card.raidVariant);
  if(card.raidVariant){
-  const baseId=card.id-rules.max*rules.cardStep;
   const raid=RAID_GS_RULES[baseId];
   if(!raid)return null; // Unknown future raid card: require a source audit.
   const floor=rules.bossFloors[raid.rank]*Math.max(raid.coefficient,RAID_GS_MIN_COEFFICIENT)*RAID_GS_EXTRA_MULTIPLIER;
@@ -96,5 +100,5 @@ export function stageLapInfo(stage:Stage,lap:number):{tier:number;gs:number}|nul
 }
 export function stageTierLabel(stage:Stage,lap:number):string{
  const info=stageLapInfo(stage,lap);
- return info?stage.chapter===2?'二章 T'+info.tier:'T'+info.tier:'此關不適用該週目';
+ return info?stage.chapter===1?'T'+info.tier:(stage.chapter===3?'三章 T':'二章 T')+info.tier:'此關不適用該週目';
 }

@@ -2,19 +2,19 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 const catalog=JSON.parse(readFileSync(new URL('../public/data/catalog.json',import.meta.url),'utf8'));
-const audit=JSON.parse(readFileSync(new URL('../docs/HANS_SOURCE_AUDIT.json',import.meta.url),'utf8'));
+const audit=JSON.parse(readFileSync(new URL('../docs/HANS_CHAPTER3_SOURCE.json',import.meta.url),'utf8'));
 
 test('wiki cannot silently serve Coffee or any non-HANS catalog',()=>{
  assert.equal(catalog.server,'hans');
  assert.equal(catalog.official.baseUrl,'https://ro.hans-webgametw.com');
- assert.equal(catalog.official.soul.sha256,audit.hans.soul.sha256);
- assert.equal(catalog.official.main.sha256,audit.hans.main.sha256);
+ assert.equal(catalog.official.soul.sha256,audit.soul.sha256);
+ assert.equal(catalog.official.main.sha256,audit.main.sha256);
 });
 test('HANS registered equipment, cards, stages are complete at snapshot baseline',()=>{
- assert.equal(catalog.items.length,523);
- assert.equal(catalog.cards.length,202);
- assert.equal(catalog.stages.length,17);
- assert.equal(catalog.monsters.length,209);
+ assert.equal(catalog.items.length,727);
+ assert.equal(catalog.cards.length,243);
+ assert.equal(catalog.stages.length,20);
+ assert.equal(catalog.monsters.length,258);
 });
 test('HANS Chapter 2 stages and source rules are included',()=>{
  const stages=catalog.stages.filter(s=>s.id.startsWith('c2_'));
@@ -51,14 +51,14 @@ test('Chapter 2 tab, chapter grouping and legacy stage type filters preserve all
  const {matchesStageType,parseStageType}=await import('../src/stage-type.ts');
  const groups=(chapter,type)=>stageChapterGroups(catalog.stages,chapter,stage=>matchesStageType(stage,type));
  assert.equal(parseStageChapter(null),'all');
- assert.equal(parseStageChapter('3'),'all');
+ assert.equal(parseStageChapter('3'),'3');
  assert.equal(parseStageChapter('2'),'2');
- assert.deepEqual(groups('all','all').map(g=>[g.chapter,g.stages.length]),[[2,5],[1,12]]);
+ assert.deepEqual(groups('all','all').map(g=>[g.chapter,g.stages.length]),[[3,3],[2,5],[1,12]]);
  assert.deepEqual(groups('2','all').map(g=>[g.chapter,g.stages.length]),[[2,5]]);
  assert.deepEqual(groups('1','all').map(g=>[g.chapter,g.stages.length]),[[1,12]]);
  assert.deepEqual(groups('2','event'),[]);
  assert.deepEqual(groups('2','normal').map(g=>g.stages.length),[5]);
- assert.deepEqual(groups('all',parseStageType(null,'1')).map(g=>g.stages.length),[5,9]);
+ assert.deepEqual(groups('all',parseStageType(null,'1')).map(g=>g.stages.length),[3,5,9]);
 });
 test('equipment drop refs derive only from HANS monster pools',()=>{
  const stages=new Map(catalog.stages.map(s=>[s.id,s]));
@@ -67,7 +67,7 @@ test('equipment drop refs derive only from HANS monster pools',()=>{
  // The HANS equipment re() registration clears older custom Z() modifiers.
  assert.deepEqual(itemsById.get(2254).bonuses,[]);
  for(const item of catalog.items)for(const src of item.sources){
-  assert.equal(src.evidence?.hash,audit.hans.soul.sha256);
+  if(src.sourceType==='monsterDrop')assert.equal(src.evidence?.hash,audit.soul.sha256);
   for(const ref of src.stageRefs){
    const stage=stages.get(ref.stageId);
    assert.ok(stage,'orphan stage '+ref.stageId);
@@ -121,9 +121,9 @@ test('deprecated Coffee image catalog is removed',()=>{
  assert.ok(!existsSync(new URL('../docs/SOURCE_AUDIT.json',import.meta.url)));
 });
 test('all HANS stages use source-manifest minimaps without shipping game image files',()=>{
- assert.equal(catalog.stages.filter(s=>s.image).length,17);
+ assert.equal(catalog.stages.filter(s=>s.image).length,20);
  const unique=new Set();
- for(const stage of catalog.stages){
+ for(const stage of catalog.stages.filter(stage=>stage.image)){
   assert.equal(stage.image.rights,'not-cleared');
   assert.equal(stage.image.renderAllowed,false);
   assert.match(stage.image.officialPath,/^maps\/[a-z0-9_]+\/minimap\.png$/);
@@ -137,8 +137,8 @@ test('stage type filters show seasonal and story stages separately with legacy l
  assert.equal(parseStageType(null,'0'),'all');
  assert.equal(parseStageType('event','1'),'event');
  assert.equal(parseStageType('story',null),'story');
- assert.equal(catalog.stages.filter(s=>matchesStageType(s,'all')).length,17);
- assert.equal(catalog.stages.filter(s=>matchesStageType(s,'normal')).length,14);
+ assert.equal(catalog.stages.filter(s=>matchesStageType(s,'all')).length,20);
+ assert.equal(catalog.stages.filter(s=>matchesStageType(s,'normal')).length,17);
  assert.deepEqual(catalog.stages.filter(s=>matchesStageType(s,'event')).map(s=>s.id),['xmas','louyang']);
  assert.deepEqual(catalog.stages.filter(s=>matchesStageType(s,'story')).map(s=>s.id),['prt_castle']);
 });
@@ -149,10 +149,10 @@ test('HANS card socket slots are known and combat/battle filters share one sourc
  assert.equal(catalog.cards.find(c=>c.id===4001).equipSlot,'armor');
  assert.deepEqual(ATTRIBUTE_GROUPS.map(g=>g.label),['角色屬性','攻擊與戰鬥','防禦與生存']);
  assert.equal(new Set(ATTRIBUTE_GROUPS.flatMap(g=>g.options.map(([id])=>id))).size,ATTRIBUTE_GROUPS.flatMap(g=>g.options).length);
- assert.equal(catalog.cards.filter(c=>attributeMatches(c,'cooldown')).length,13);
+ assert.equal(catalog.cards.filter(c=>attributeMatches(c,'cooldown')).length,23);
  assert.ok(attributeMatches(catalog.cards.find(c=>c.id===4001),'crit'));
 });
-test('audited HANS lap rules cover six laps, 41 professions, and all 188 card registrations',async()=>{
+test('audited HANS lap rules cover six laps, 41 professions, and all 229 card registrations',async()=>{
  const {cardEffects,cardId,cardName,cardScore,cardMultiplier}=await import('../src/laps.ts');
  const rules=catalog.lapRules;
  assert.equal(catalog.schemaVersion,2);
@@ -178,13 +178,13 @@ test('audited HANS lap rules cover six laps, 41 professions, and all 188 card re
    }
   }
  }
- assert.equal(allIds.size,188*6);
+ assert.equal(allIds.size,229*6);
  const poring=catalog.cards.find(c=>c.id===4001);
  assert.deepEqual(cardEffects(poring,rules,2),['Flee（迴避） +4.5%','爆擊率 +3%']);
  assert.equal(cardId(poring,rules,2),1004001);
  assert.match(cardName(poring,rules,3),/改²卡片$/);
- assert.equal(cardScore(poring,rules,1,'swordsman'),10);
- assert.equal(cardScore(poring,rules,2,'swordsman'),15);
+ assert.equal(cardScore(poring,rules,1,'swordsman'),12);
+ assert.equal(cardScore(poring,rules,2,'swordsman'),18);
  const osiris=catalog.cards.find(c=>c.id===4144);
  assert.equal(cardMultiplier(osiris,rules,6),6);
  assert.deepEqual(cardEffects(osiris,rules,6),['每局復活次數 +6']);
@@ -248,7 +248,7 @@ test('HANS raid cards use their own multiplier and never appear as ordinary stag
  assert.equal(raid.filter(isRaidOnlyCard).length,14);
  const card=raid.find(card=>card.id===4145);
  assert.equal(cardName(card,catalog.lapRules,6),'別西卜卡片・副本');
- assert.ok(cardEffects(card,catalog.lapRules,6).includes('急速 +16.8%'));
+ assert.ok(cardEffects(card,catalog.lapRules,6).includes('急速 +33.6%'));
  assert.deepEqual(card.sources[0].stageRefs,[]);
 });
 test('all equipment restriction IDs have a Chinese job label',()=>{

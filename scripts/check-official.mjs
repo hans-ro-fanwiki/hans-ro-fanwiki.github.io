@@ -3,6 +3,7 @@
 import {readFileSync,writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 const audit=JSON.parse(readFileSync(new URL('../docs/HANS_SOURCE_AUDIT.json',import.meta.url),'utf8'));
+const latest=JSON.parse(readFileSync(new URL('../docs/HANS_CHAPTER3_SOURCE.json',import.meta.url),'utf8'));
 const base=audit.hans.baseUrl.replace(/\/$/,'')+'/';
 const reportFile=process.argv.indexOf('--report-file')>=0?process.argv[process.argv.indexOf('--report-file')+1]:null;
 const digest=body=>createHash('sha256').update(body).digest('hex');
@@ -29,9 +30,9 @@ try{
    bundles[kind]=base+'build/'+match[1];
  }
  const assets=[
-  {name:'main',url:bundles.main,expected:audit.hans.main.sha256},
-  {name:'soul',url:bundles.soul_linker,expected:audit.hans.soul.sha256},
-  {name:'manifest',url:base+audit.hans.manifest.path,expected:audit.hans.manifest.sha256}
+  {name:'main',url:bundles.main,expected:latest.main.sha256},
+  {name:'soul',url:bundles.soul_linker,expected:latest.soul.sha256},
+  {name:'manifest',url:base+audit.hans.manifest.path,expected:latest.manifest.sha256}
  ];
  const sources=[];
  for(const entry of assets){

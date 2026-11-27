@@ -9,9 +9,9 @@ const projection=JSON.parse(readFileSync(new URL('../src/data/hans-equipment-rul
 const stages=new Map(catalog.stages.map(s=>[s.id,s]));
 const item=id=>catalog.items.find(x=>x.id===id);
 const normal=tier=>({tier,raid:false});
-test('all 523 catalog gear records and 20 extra raid entries are represented',()=>{
- assert.equal(Object.keys(projection.records).length,543);
- assert.equal(Object.values(projection.records).filter(r=>r.fixed.length).length,459);
+test('all 727 catalog gear records and 20 extra raid entries are represented',()=>{
+ assert.equal(Object.keys(projection.records).length,747);
+ assert.equal(Object.values(projection.records).filter(r=>r.fixed.length).length,663);
  for(const x of catalog.items){const r=gearRecord(x);assert.equal(r.slot,x.slot);assert.ok(r.fixed.every(k=>Number.isFinite(projection.fixedValues[k])));}
 });
 test('Shadow Walk gets true DEF and its separate innate DR at T6/T7/T8',()=>{

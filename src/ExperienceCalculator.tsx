@@ -110,7 +110,7 @@ export function ExperienceCalculator({onClose}:{onClose:()=>void}){
     {best?<div className="xp-results">
       <div className="xp-results-heading"><h2>單場 {label} 經驗排行</h2><span>理論出怪試算 · 非實際保證值</span></div>
       {!practical&&<p className="xp-hint">目前等級已滿。下列數字為試算結算經驗，升級效益為零。</p>}
-      {target==='base'&&baseLevel!==undefined&&baseLevel<experienceData.lap.minLv&&<p className="xp-note"><strong>Lv {experienceData.lap.minLv} 前：</strong>第二章同地圖的週目 Base 獎勵倍率相同；高週目不會自動獲得更多擊殺經驗。升到 Lv {experienceData.lap.minLv} 後會依新等級重新計算。</p>}
+      {target==='base'&&baseLevel!==undefined&&baseLevel<experienceData.lap.minLv&&<p className="xp-note"><strong>Lv {experienceData.lap.minLv} 前：</strong>第二、三章同地圖的週目 Base 獎勵倍率相同；高週目不會自動獲得更多擊殺經驗。升到 Lv {experienceData.lap.minLv} 後會依新等級重新計算。</p>}
       <p className="xp-hint">符合條件共 {rankings.length} 組{collapsed>0?`，已合併 ${collapsed} 組同收益週目`:''}。相同經驗優先顯示較低週目，其他週目可展開；此排序不推測各週目的清怪速度。</p>
       <ol className="xp-list">
         {grouped.slice(0,all?undefined:5).map(({preferred:row,variants})=><li key={row.stage.id+'-'+row.lap}>

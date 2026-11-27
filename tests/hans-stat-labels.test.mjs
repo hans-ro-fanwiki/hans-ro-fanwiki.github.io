@@ -4,9 +4,9 @@ import {readFileSync} from 'node:fs';
 import {entryMatches,matchedEffect,attributeMatches,ATTRIBUTE_GROUPS} from '../src/search.ts';
 import labels from '../src/data/hans-stat-labels.json' with {type:'json'};
 const catalog=JSON.parse(readFileSync(new URL('../public/data/catalog.json',import.meta.url),'utf8'));
-test('official double cast label, old names and English find exactly the same five cards',()=>{
+test('official double cast label, old names and English find exactly the same nine cards',()=>{
  const expected=catalog.cards.filter(c=>c.effects.some(e=>e.stat==='doubleChance'));
- assert.equal(expected.length,5);
+ assert.equal(expected.length,9);
  for(const q of ['雙倍投擲','雙倍投擲機率','雙重施法率','雙重攻擊機率','double cast','doubleChance']){
   assert.deepEqual(catalog.cards.filter(c=>entryMatches(c,q,'all')).map(c=>c.id),expected.map(c=>c.id),q);
  }

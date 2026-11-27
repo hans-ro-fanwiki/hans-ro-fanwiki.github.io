@@ -32,11 +32,11 @@ const mazeId=data.chapterOne.at(-1)!;
 export function lapExperience(stage:ExperienceStage,lap:number){
   const average=averages.get(stage.id)!;
   const rule=data.lap;
-  const isChapterTwo=stage.chapterTwoBase!==undefined;
+  const isLaterChapter=stage.laterChapterBase!==undefined;
   let levelOffset=0;
   let monsterExp=1;
-  let baseLap=stage.chapterTwoBase?.[lap-1]??1;
-  if(lap>1&&!isChapterTwo){
+  let baseLap=stage.laterChapterBase?.[lap-1]??1;
+  if(lap>1&&!isLaterChapter){
     const reference=stage.season?average:averages.get(mazeId)!;
     const place=stage.season?data.chapterOne.length:data.chapterOne.indexOf(stage.id)+1;
     const span=data.chapterOne.length;
@@ -46,8 +46,8 @@ export function lapExperience(stage:ExperienceStage,lap:number){
     monsterExp=Math.max(1,reference.exp/Math.max(.1,average.exp));
     baseLap=rule.mult[lap-1];
   }
-  return {levelOffset,monsterExp,baseLap,averageLevel:average.level+levelOffset,newPenalty:isChapterTwo||lap>=rule.from,
-    cap:lap>1&&!isChapterTwo?Math.max(stage.jobCap,stages.get(mazeId)!.jobCap):stage.jobCap};
+  return {levelOffset,monsterExp,baseLap,averageLevel:average.level+levelOffset,newPenalty:isLaterChapter||lap>=rule.from,
+    cap:lap>1&&!isLaterChapter?Math.max(stage.jobCap,stages.get(mazeId)!.jobCap):stage.jobCap};
 }
 
 export function experienceFactors(playerLevel:number,monsterLevel:number,baseLap:number,newPenalty:boolean){
