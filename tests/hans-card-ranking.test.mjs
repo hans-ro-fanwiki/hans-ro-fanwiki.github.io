@@ -101,7 +101,7 @@ test('V0.16.0 GS across 244 display variants, six weeks and three scaling profil
  const matrix=cards.map(card=>[card.id,...jobs.flatMap(job=>[1,2,3,4,5,6].map(lap=>cardScore(card,catalog.lapRules,lap,job)))]);
  assert.equal(matrix.length,244);
  assert.ok(matrix.every(([, ...scores])=>scores.every(score=>Number.isInteger(score)&&score>=0)));
- assert.equal(createHash('sha256').update(JSON.stringify(matrix)).digest('hex'),'6170fae234bd097721ed353928422d28ba0f6e69b296416d06612e1084b0755c');
+ assert.equal(createHash('sha256').update(JSON.stringify(matrix)).digest('hex'),'f7e12bbafdd95fff19a83786e11f2d24355f414452fad54286da37639d3209fa');
 });
 
 test('reference model, special ability and raid floor can each govern the score',async()=>{
@@ -115,6 +115,9 @@ test('reference model, special ability and raid floor can each govern the score'
  // Samurai uses the raw branch plus 12 special GS. Pierce gets a higher weight for ranged.
  assert.equal(score(4263),50);
  assert.equal(score(4263,1,'archer'),73);
+ // The client takes the damage delta from a starting multiplier of 1.
+ // At lap 5 this puts the ranged raw score just below the 181.5 rounding boundary.
+ assert.deepEqual([1,2,3,4,5,6].map(lap=>score(4263,lap,'archer')),[73,104,135,167,198,230]);
  // The Hero raid uses its dedicated 30 * 7 * 1.2 floor.
  assert.equal(score(6004143),252);
  assert.equal(score(6004145,1,'mage'),187);

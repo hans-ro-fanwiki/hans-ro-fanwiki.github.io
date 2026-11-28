@@ -24,7 +24,7 @@ try{
    assert.equal(await history.locator('.wiki-update-entry').first().isVisible(),false);
    if(width<500)await summary.tap();else await summary.click();
    assert.equal(await history.locator('.wiki-update-entry:visible').count(),3);
-   assert.match(await history.locator('.wiki-update-entry').first().innerText(),/第三章遠征、王卡與寵物改造[\s\S]*全 243 張卡的 GS[\s\S]*39 種寵物/);
+   assert.match(await history.innerText(),/第三章遠征、王卡與寵物改造[\s\S]*全 243 張卡的 GS[\s\S]*39 種寵物/);
    const older=history.locator('.wiki-updates-older > summary');
    if(width<500)await older.tap();else await older.click();
    assert.ok(await history.locator('.wiki-update-entry:visible').count()>=9);

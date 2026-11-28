@@ -71,7 +71,12 @@ export function cardScore(card:Card,rules:LapRules,lap:number,jobId:string):numb
  const multiplier=perLap?1:cardMultiplier(card,rules,lap);
  const baseId=card.raidVariant?card.id-rules.max*rules.cardStep:card.id;
  const upgrade=card.raidVariant?7:level;
- const scaled=card.effects.map(effect=>({...effect,value:appliedValue(effect.stat,effect.value,multiplier)}));
+ const scaled=card.effects.map(effect=>{
+  const value=appliedValue(effect.stat,effect.value,multiplier);
+  // HANS measures damageMult against its initial value of 1 after applying the
+  // modifier. Keeping the same subtraction matters at half-point GS boundaries.
+  return {...effect,value:effect.stat==='damageMult'?(1+value)-1:value};
+ });
  if(!perLap)scaled.push(...abilityGsEffects(baseId,upgrade));
  let raw=0;
  for(const {stat,value} of scaled){
